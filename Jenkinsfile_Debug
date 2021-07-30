@@ -1,6 +1,6 @@
 pipeline {
     agent  {
-        label 'appdev-macOS-dev'
+        label 'mpoh085oembld01'
     }
     options {
         disableConcurrentBuilds()
@@ -46,51 +46,7 @@ pipeline {
                 sh "fastlane ios clearMetricsDerivedData"
             }
         }
-        stage('Notify the team') {
-            steps {
-                sh "fastlane ios notifyBuildStarted"
-            }
-        }
-        stage('Build, Tests & Metrics') {
-            steps {
-                sh "fastlane ios metrics"
-            }
-        }
-        stage('Sonarqube Scan') {
-            steps {
-                sh "fastlane ios sonarqubeDebugScan"
-                /*
-                sh "fastlane ios sonarqubeStatusCheck"
-                */
-            }
-        }
-        stage('Run Journey tests') {
-            steps {
-                sh "fastlane ios buildAndRunUserJourneyTests"
-            }
-        }
-        stage('Sonarqube code-smell check') {
-            steps {
-              sh "fastlane ios sonarqubeCodeSmellsStatusCheck"
-            }
-        }
-        stage('Build & Codesigning Debug ipa') {
-            steps {
-                sh "./unlockKeychain.sh"
-                sh "fastlane ios buildDebug"
-            }
-        }
-        stage('Upload Debug IPA to Test Flight') {
-            steps {
-                sh "fastlane ios uploadDebugToTestFlight"
-            }
-        }
-        stage('Initiate .dSYM upload') {
-            steps {
-                sh "fastlane ios store_testflight_version_and_build_number"
-                build job: 'oe-plus-ios-dsym-upload-debug', propagate: false, quietPeriod: 1800, wait: false
-            }
-        }
+        
     }
     post {
         success {
