@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Place and Upload Order</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>d20cd59e-6d69-4f1e-b2b1-0104526812b5</testCaseGuid>
+   <variable>
+      <defaultValue>'Cardinal1'</defaultValue>
+      <description></description>
+      <id>2f75796e-4758-4b3d-b0ae-1bc18fa115d8</id>
+      <masked>false</masked>
+      <name>Password</name>
+   </variable>
+   <variable>
+      <defaultValue>'11-487698'</defaultValue>
+      <description></description>
+      <id>c06d8c59-113b-4e1c-8691-571fe124ce30</id>
+      <masked>false</masked>
+      <name>Account</name>
+   </variable>
+   <variable>
+      <defaultValue>'po_name'</defaultValue>
+      <description></description>
+      <id>3c75dc44-3b46-4caa-8a96-774c4ce903f3</id>
+      <masked>false</masked>
+      <name>PO_Name</name>
+   </variable>
+   <variable>
+      <defaultValue>'po_memo'</defaultValue>
+      <description></description>
+      <id>4e7c1081-b7e6-4b0a-9686-4d1bc44b2a7a</id>
+      <masked>false</masked>
+      <name>PO_Memo</name>
+   </variable>
+   <variable>
+      <defaultValue>'tyl'</defaultValue>
+      <description></description>
+      <id>f190d27f-dd57-462e-91dd-ca64d1ca9acc</id>
+      <masked>false</masked>
+      <name>Product_Name</name>
+   </variable>
+   <variable>
+      <defaultValue>'3'</defaultValue>
+      <description></description>
+      <id>c7d5e79b-2e8f-49b4-a818-9dc31856eb99</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+</TestCaseEntity>

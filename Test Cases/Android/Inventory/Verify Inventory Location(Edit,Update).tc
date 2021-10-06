@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Verify Inventory Location(Edit,Update)</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>bd9e3e78-12d2-4d13-90c6-db4e4c88cfd8</testCaseGuid>
+   <variable>
+      <defaultValue>'Cardinal1'</defaultValue>
+      <description></description>
+      <id>ebec2b9a-fab6-4351-9335-53b4fbe2eca3</id>
+      <masked>false</masked>
+      <name>Password</name>
+   </variable>
+   <variable>
+      <defaultValue>'11-487698'</defaultValue>
+      <description></description>
+      <id>c67c3197-d4f0-4a95-ab6c-8fcede197710</id>
+      <masked>false</masked>
+      <name>Account</name>
+   </variable>
+   <variable>
+      <defaultValue>'kataloninv'</defaultValue>
+      <description></description>
+      <id>1a6f96bf-b7c7-4d6a-8ef6-b6c0b29976a6</id>
+      <masked>false</masked>
+      <name>Inventory_Name</name>
+   </variable>
+   <variable>
+      <defaultValue>'jujutsu'</defaultValue>
+      <description></description>
+      <id>df9b9b6a-818a-48c7-bed4-77959214a2dc</id>
+      <masked>false</masked>
+      <name>Location_Name</name>
+   </variable>
+   <variable>
+      <defaultValue>'Last Cost Paid'</defaultValue>
+      <description></description>
+      <id>441afb09-1301-40f1-98ff-1df1c3547219</id>
+      <masked>false</masked>
+      <name>Cost_Type</name>
+   </variable>
+   <variable>
+      <defaultValue>'tyl'</defaultValue>
+      <description></description>
+      <id>e52fdf29-be03-4ded-882b-9994e8ba01b1</id>
+      <masked>false</masked>
+      <name>Product_Name</name>
+   </variable>
+   <variable>
+      <defaultValue>'tanjirou'</defaultValue>
+      <description></description>
+      <id>948f2c9e-8ba1-4d5a-99a2-d545487c2e0c</id>
+      <masked>false</masked>
+      <name>New_Location_Name</name>
+   </variable>
+   <variable>
+      <defaultValue>'Jujustu'</defaultValue>
+      <description></description>
+      <id>802a7d45-31c6-43ca-8964-0eea65201b09</id>
+      <masked>false</masked>
+      <name>New_Inventory_Name</name>
+   </variable>
+</TestCaseEntity>

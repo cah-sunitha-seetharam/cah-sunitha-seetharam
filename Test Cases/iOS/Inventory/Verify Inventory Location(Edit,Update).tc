@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Verify Inventory Location(Edit,Update)</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>30d40363-a5f0-4cea-a7e3-2f8340d4bb46</testCaseGuid>
+   <variable>
+      <defaultValue>'Cardinal1'</defaultValue>
+      <description></description>
+      <id>e9afa028-56d1-4071-9ac2-d92082e422c5</id>
+      <masked>false</masked>
+      <name>Password</name>
+   </variable>
+   <variable>
+      <defaultValue>'KatalonInvv'</defaultValue>
+      <description></description>
+      <id>8232e0b3-cfea-4b9e-a4e5-181289aaca40</id>
+      <masked>false</masked>
+      <name>Inventory_Name</name>
+   </variable>
+   <variable>
+      <defaultValue>'jujutsuu'</defaultValue>
+      <description></description>
+      <id>b0efaa64-5dcb-4229-9e31-e047521771b8</id>
+      <masked>false</masked>
+      <name>Location_Name</name>
+   </variable>
+   <variable>
+      <defaultValue>'tyl'</defaultValue>
+      <description></description>
+      <id>3e8eb048-9ede-49c0-8853-4f826e648887</id>
+      <masked>false</masked>
+      <name>Product_Name</name>
+   </variable>
+   <variable>
+      <defaultValue>'Last Price'</defaultValue>
+      <description></description>
+      <id>3adde9a9-bb08-4ef9-a105-37f7359679dc</id>
+      <masked>false</masked>
+      <name>Cost_Type</name>
+   </variable>
+   <variable>
+      <defaultValue>'11-487698'</defaultValue>
+      <description></description>
+      <id>fd9cb911-f473-4748-8054-37b973a361cc</id>
+      <masked>false</masked>
+      <name>Account</name>
+   </variable>
+   <variable>
+      <defaultValue>'kaisen'</defaultValue>
+      <description></description>
+      <id>35bd1993-b85f-45ac-9b82-4b65398bef76</id>
+      <masked>false</masked>
+      <name>new_Location_Name</name>
+   </variable>
+</TestCaseEntity>
