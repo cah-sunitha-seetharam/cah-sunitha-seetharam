@@ -41,16 +41,16 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 class Select_An_Account {
 
-	@Keyword(keywordObject="android_account_selection_screen")
+	@Keyword
 	def Custom(String account) {
 
 		Mobile.waitForElementPresent(findTestObject('Android/Account Selection/You must select an account to continue_TextView'),
 				0)
 
-		while (Mobile.verifyElementNotVisible(findTestObject('Android/Account Selection/Account No_TextView',[('val') : account]), 2, FailureHandling.OPTIONAL)) {
+		while (Mobile.verifyElementNotVisible(findTestObject('Android/Account Selection/Account No_TextView',[('val') : GlobalVariable.Account]), 2, FailureHandling.OPTIONAL)) {
 			Mobile.swipe(600, 800, 600, 200)
 		}
-		Mobile.tap(findTestObject('Android/Account Selection/Account No_TextView',[('val') : account]), 0)
+		Mobile.tap(findTestObject('Android/Account Selection/Account No_TextView',[('val') : GlobalVariable.Account]), 0)
 
 		int w = 1
 

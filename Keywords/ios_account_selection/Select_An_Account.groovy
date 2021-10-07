@@ -41,7 +41,7 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 class Select_An_Account {
 
-	@Keyword(keywordObject="account_selection_screen")
+	@Keyword
 	def Custom(String account_No) {
 
 
@@ -53,9 +53,9 @@ class Select_An_Account {
 		}
 		Mobile.waitForElementPresent(findTestObject('iOS/Account_Selection/You must select an account to continue_Text'), 0)
 
-		Mobile.scrollToText(account_No, FailureHandling.STOP_ON_FAILURE)
+		Mobile.scrollToText(GlobalVariable.Account, FailureHandling.STOP_ON_FAILURE)
 
-		Mobile.tap(findTestObject('iOS/Account_Selection/AccountNo_Text', [('val') : account_No]), 0)
+		Mobile.tap(findTestObject('iOS/Account_Selection/AccountNo_Text', [('val') : GlobalVariable.Account]), 0)
 
 		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
 			WebUI.delay(w)

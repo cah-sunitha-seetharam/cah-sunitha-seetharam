@@ -39,12 +39,12 @@ import com.kms.katalon.core.webui.exception.WebElementNotFoundException
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 
-class Cart_Screen extends Order_details_Screen {
+class Cart_Screen  {
 
 	@Keyword
 	def click_On_Order(String Account_No) {
 
-		Mobile.tap(findTestObject('Android/Orders/Cart Page/Verifictaion Details/order_details_btn',[('Order_Name') : Account_No]),  0)
+		Mobile.tap(findTestObject('Android/Orders/Cart Page/Verifictaion Details/order_details_btn',[('Order_Name') : GlobalVariable.Account]),  0)
 	}
 
 
@@ -58,18 +58,18 @@ class Cart_Screen extends Order_details_Screen {
 			WebUI.delay(w)
 		}
 
-		int ElementTopPosition = Mobile.getElementTopPosition(findTestObject('Android/Orders/Cart Page/Verifictaion Details/order_details_btn',[('Order_Name') : Account_No]), 0)
+		int ElementTopPosition = Mobile.getElementTopPosition(findTestObject('Android/Orders/Cart Page/Verifictaion Details/order_details_btn',[('Order_Name') : GlobalVariable.Account]), 0)
 
-		int ElementHeight=Mobile.getElementHeight(findTestObject('Android/Orders/Cart Page/Verifictaion Details/order_details_btn',[('Order_Name') : Account_No]), 0)
+		int ElementHeight=Mobile.getElementHeight(findTestObject('Android/Orders/Cart Page/Verifictaion Details/order_details_btn',[('Order_Name') : GlobalVariable.Account]), 0)
 
 		int y_Coordinate_To_Swipe=(ElementHeight/2)+ElementTopPosition
-		
+
 		Mobile.swipe(500, y_Coordinate_To_Swipe, 0, y_Coordinate_To_Swipe)
-		
+
 		//Mobile.swipe(500, 1100, 0, 1100)
-		
+
 		println(y_Coordinate_To_Swipe)
-		
+
 		Mobile.tap(findTestObject('Android/Orders/Cart Page/Delete Order/YES_Button'), 0)
 
 		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
@@ -155,5 +155,11 @@ class Cart_Screen extends Order_details_Screen {
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Page/Verifictaion Details/Lines_TextView'), 0)
 
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Page/Verifictaion Details/Cart Total_TextView'), 0)
+
+		int w = 2
+
+		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
+			WebUI.delay(w)
+		}
 	}
 }

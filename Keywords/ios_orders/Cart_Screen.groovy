@@ -41,10 +41,10 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 class Cart_Screen {
 
-	@Keyword(keywordObject="orders_screen")
+	@Keyword
 	def click_On_Order(String Account_No) {
 
-		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Order Details_Text',[('TEXT'):Account_No]), 0)
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Order Details_Text',[('TEXT'):GlobalVariable.Account]), 0)
 	}
 
 
@@ -78,9 +78,9 @@ class Cart_Screen {
 			WebUI.delay(w)
 		}
 
-		int ElementTopPosition=Mobile.getElementTopPosition(findTestObject('iOS/Orders/Order Details Page/Order Details_Text',[('TEXT'):Account_No]), 0)
+		int ElementTopPosition=Mobile.getElementTopPosition(findTestObject('iOS/Orders/Order Details Page/Order Details_Text',[('TEXT'):GlobalVariable.Account]), 0)
 
-		int ElementHeight=Mobile.getElementHeight(findTestObject('iOS/Orders/Order Details Page/Order Details_Text',[('TEXT'):Account_No]), 0)
+		int ElementHeight=Mobile.getElementHeight(findTestObject('iOS/Orders/Order Details Page/Order Details_Text',[('TEXT'):GlobalVariable.Account]), 0)
 
 		int y_Coordinate_To_Swipe=(ElementHeight/2)+ElementTopPosition
 
