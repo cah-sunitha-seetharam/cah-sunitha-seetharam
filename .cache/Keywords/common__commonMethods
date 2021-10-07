@@ -1,0 +1,49 @@
+{
+  "keywordFileContentHash": "68BE467B7434B36D9AC99F08A619B2D0",
+  "keywordClasses": [
+    {
+      "name": "common.commonMethods",
+      "keywordMethods": [
+        {
+          "name": "readFileTypeJSON",
+          "parameters": [
+            {
+              "name": "fileNameValue",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": "/**\n\t * Read JSON file \n\t * @param file name, Note: data files are considered to be on Data files location on project directory  \n\t * @return the JSON file object \n\t */"
+        },
+        {
+          "name": "randomStringGenerator",
+          "parameters": [
+            {
+              "name": "length",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "int",
+                "unresolvedClassName": "int",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": true,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": "/**\n\t * random alpha numeric String Generator \n\t * @param length, required string length \n\t * @return alpha-numeric string  \n\t */"
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

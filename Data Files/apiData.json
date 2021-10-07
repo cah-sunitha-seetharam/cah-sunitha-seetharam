@@ -1,0 +1,65 @@
+{
+    "apiHost": {
+        "messageCenter": "https://x6i1yviuoc.execute-api.us-east-1.amazonaws.com",
+        "experienceReceiving": "https://gsgg099gci.execute-api.us-east-1.amazonaws.com",
+        "users": "https://dzrsa753r1.execute-api.us-east-1.amazonaws.com",
+        "serviceRequest": "https://b7prt9qjbl.execute-api.us-east-1.amazonaws.com",
+        "orders": "https://rdnyqxyq62.execute-api.us-east-1.amazonaws.com",
+        "mobileCarts": "https://19h9veiiub.execute-api.us-east-1.amazonaws.com",
+        "carts": "https://dzrsa753r1.execute-api.us-east-1.amazonaws.com",
+        "products": "https://77u8krfldi.execute-api.us-east-1.amazonaws.com",
+        "claims": "https://pdclaims-pmodstg.apps.cf.np.gc.cahcloud.net",
+        "search": "https://eihb7qwns0.execute-api.us-east-1.amazonaws.com",
+        "opportunityAnalysis": "https://mxcre7ixic.execute-api.us-east-1.amazonaws.com",
+        "alternates": "https://bo0itl6xy5.execute-api.us-east-1.amazonaws.com",
+        "cimaudits": "https://039pkt2ack.execute-api.us-east-1.amazonaws.com",
+        "tokenGenerator": "https://iri1lvu09j.execute-api.us-east-1.amazonaws.com"
+    },
+    "pmodStage": {
+        "urlHeaderInput": {
+            "target": "https://orderexpresspmodstg.cardinalhealth.com/eps/mycah?bp=yes",
+            "xApiKey": "xfsUHfuWpg4ziM7hXU1tr2SNr3Rz2vN984VOoVdO",
+            "smagentname": "mqfw03tvxPqy26CpvJlRXLvMutCBCiLDBsehyGRfHw0UTDxB7OJhfKqhTBY9nu1umX0rK79RYANFXWXZENACWPv6kX8m0p0p",
+            "SMLOCALE": "US-EN",
+            "env": "oe_pmodstg",
+            "loginHost": "https://orderexpresspmodstg.cardinalhealth.com",
+            "ltpaToken2": "",
+            "environment": "oe_pmodstg",
+            "smsession": "",
+            "Authorization": "",
+            "WCToken": "123090%2Chdzi5UEAtddT7x9pXsz2EU7ASmCXqRtVtZzcKFeAdkkp5JaOm5aoxBZvQolMOw9jpSNqFps%2FlcCYdgpEnUvzTVjx9GH1rD2MlIn7394Y9JzdM3N3Bd5kYtu6zn%2F5V1kmvVhKVUcLEPtE1STFLH0bJZz%2BihHUeBACRbDgODYtgEfJtqVVoOpfrv90n2AyK%2BSk6XFPPH%2FLWU7%2Brt9pKZB%2B%2Fw%3D%3D",
+            "UUID": "94814f3e-4926-4078-bc65-5746d73bbb54"
+        }
+    },
+    "pmodQA2": {
+        "urlHeaderInput": {
+            "target": "http://orderexpresspmodqa.cardinalhealth.com",
+            "xApiKey": "xfsUHfuWpg4ziM7hXU1tr2SNr3Rz2vN984VOoVdO",
+            "smagentname": "Mf1AUwcr4%2fgePztMUmQkgTNkLXzPYe2wraGYP6rdNl9u9CHpr3%2f5cS8sVJWPZAa4UsU2fK533RSddX1GQ8fIPgTc7buH1gN4",
+            "SMLOCALE": "US-EN",
+            "env": "oe_qa2",
+            "loginHost": "https://orderexpresspmodqa.cardinalhealth.com",
+            "ltpaToken2": "",
+            "environment": "oe_qa2",
+            "smsession": "",
+            "Authorization": "",
+            "WCToken": "3609002%2CSIqBX5M%2FMV0HKeF5kZ13n7%2FXsYOtuXJtRNp481mBCHZAsPXKyJORA6CuWP4PI9PsiGLZjj1hGxstbf36v9nd6wxBruDlKP8Y76h3BPpKkfwzWuJ2zH%2BLIwlU1%2Fp3t%2Fva4X2Oq38eIsUSr6C7h%2BuWduYuUwO%2BDUnpIN%2Fqh5kDU5c7a5DyKgX32%2BjU2rzbdfVVhbaLm4JPsXfxQa%2BaourGoA%3D%3D",
+            "UUID": "94814f3e-4926-4078-bc65-5746d73bbb54"
+        }
+    },
+    "prod": {
+        "urlHeaderInput": {
+            "target": "http://orderexpress.cardinalhealth.com?bp=yes/eps/mycah",
+            "xApiKey": "xWkltyjdrQ4vV8MJq5Jvq3G0AOnyiypzaXLGRU7H",
+            "smagentname": "mqfw03tvxPqy26CpvJlRXLvMutCBCiLDBsehyGRfHw0UTDxB7OJhfKqhTBY9nu1umX0rK79RYANFXWXZENACWPv6kX8m0p0p",
+            "SMLOCALE": "US-EN",
+            "environment": "oe_prod",
+            "loginHost": "https://orderexpress.cardinalhealth.com",
+            "ltpaToken2": "",
+            "smsession": "",
+            "Authorization": "",
+            "WCToken": "123090%2Chdzi5UEAtddT7x9pXsz2EU7ASmCXqRtVtZzcKFeAdkkp5JaOm5aoxBZvQolMOw9jpSNqFps%2FlcCYdgpEnUvzTVjx9GH1rD2MlIn7394Y9JzdM3N3Bd5kYtu6zn%2F5V1kmvVhKVUcLEPtE1STFLH0bJZz%2BihHUeBACRbDgODYtgEfJtqVVoOpfrv90n2AyK%2BSk6XFPPH%2FLWU7%2Brt9pKZB%2B%2Fw%3D%3D",
+            "UUID": "94814f3e-4926-4078-bc65-5746d73bbb54"
+        }
+    }
+}
