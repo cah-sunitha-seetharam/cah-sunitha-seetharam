@@ -1,5 +1,14 @@
 Reports
 Reports/
-
+/bin/
+.cache/
+.classpath
+.gitignore
+.project
+.settings/
+Libs
+Libs/
+*.properties
+settings/
 
 
