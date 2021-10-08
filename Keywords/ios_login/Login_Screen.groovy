@@ -61,7 +61,14 @@ class Login_Screen {
 
 			Mobile.tap(findTestObject('iOS/LogIn/Environment_Selection_Screen/Environment Selection_Text'), 0, FailureHandling.STOP_ON_FAILURE)
 
-			Mobile.tap(findTestObject('iOS/LogIn/Environment_Selection_Screen/Environment_Button',[('TEXT'):GlobalVariable.Environment]),0)
+			if(GlobalVariable.Environment=="PMODStg")
+
+				Mobile.tap(findTestObject('iOS/LogIn/Environment_Selection_Screen/Environment_Button',[('TEXT'):"PMODSTG"]),0) //HardCoding because of the difference in name PMODSTG/PMODStg in iOS and Android
+
+			else
+
+				Mobile.tap(findTestObject('iOS/LogIn/Environment_Selection_Screen/Environment_Button',[('TEXT'):GlobalVariable.Environment]),0)
+
 		}
 	}
 

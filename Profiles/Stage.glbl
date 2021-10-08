@@ -29,4 +29,9 @@
       <initValue>'/Users/sahil.vidaysingh/Downloads/Hatch 3.app'</initValue>
       <name>iOS_App_Path</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'15-728831'</initValue>
+      <name>Account</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

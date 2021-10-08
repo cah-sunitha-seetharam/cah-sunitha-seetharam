@@ -37,6 +37,11 @@ public class GlobalVariable {
     /**
      * <p></p>
      */
+    public static Object Account
+     
+    /**
+     * <p></p>
+     */
     public static Object a
      
 
@@ -51,6 +56,7 @@ public class GlobalVariable {
             Environment = selectedVariables['Environment']
             Android_App_Path = selectedVariables['Android_App_Path']
             iOS_App_Path = selectedVariables['iOS_App_Path']
+            Account = selectedVariables['Account']
             a = selectedVariables['a']
             
         } catch (Exception e) {

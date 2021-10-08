@@ -4,11 +4,9 @@ Reports/
 .cache/
 .classpath
 .gitignore
-.project
 .settings/
 Libs
 Libs/
-*.properties
 settings/
-
-
+.project
+*.properties
