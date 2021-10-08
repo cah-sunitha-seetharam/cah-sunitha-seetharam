@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MobileElementEntity>
    <description></description>
-   <name>Move_Button</name>
+   <name>move_Button</name>
    <tag></tag>
    <elementGuidId>e60e0d63-291e-40ce-bdbb-287f934fc48b</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>

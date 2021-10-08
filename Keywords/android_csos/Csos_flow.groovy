@@ -76,15 +76,15 @@ class Csos_flow {
 	@Keyword
 	def select_C2_Order_for_Adding_Product(String po_Name) {
 
-		Mobile.tap(findTestObject('Android/Orders/CSOS/C2 Order_RadioButton',[('TEXT'):po_Name]),0)
+		Mobile.tap(findTestObject('Android/Orders/CSOS/c2Order_RadioButton',[('TEXT'):po_Name]),0)
 
-		Mobile.tap(findTestObject('Android/Orders/CSOS/Add to Order_Button'), 0)
+		Mobile.tap(findTestObject('Android/Orders/CSOS/addToOrder_Button'), 0)
 
 		Mobile.verifyElementExist(findTestObject('Android/Orders/CSOS/Item added to C2 Order_TextView'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Orders/CSOS/Cart Total_TextView'), 0, FailureHandling.STOP_ON_FAILURE)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/CSOS/cartTotal_TextView'), 0, FailureHandling.STOP_ON_FAILURE)
 
-		Mobile.verifyElementExist(findTestObject('Android/Orders/CSOS/Continue Browsing_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/CSOS/continueBrowsing_Button'), 0)
 
 		Mobile.tap(findTestObject('Android/Orders/CSOS/Go to Order_TextView'), 0)
 	}
@@ -119,7 +119,7 @@ class Csos_flow {
 	@Keyword
 	def Open_C2_Orders() {
 
-		Mobile.tap(findTestObject('Android/Orders/CSOS/C2 Orders_Tab'), 0)
+		Mobile.tap(findTestObject('Android/Orders/CSOS/c2Orders_Tab'), 0)
 	}
 
 
@@ -137,7 +137,7 @@ class Csos_flow {
 	def Go_to_Order_History() {
 
 
-		Mobile.tap(findTestObject('Android/Orders/CSOS/Go to Order History_Button'), 0)
+		Mobile.tap(findTestObject('Android/Orders/CSOS/goToOrderHistory_Button'), 0)
 	}
 
 
@@ -145,7 +145,7 @@ class Csos_flow {
 	@Keyword
 	def Create_New_C2_Order(String PO_Name, String PO_Memo) {
 
-		Mobile.tap(findTestObject('Android/Orders/CSOS/Create a new order_TextView'), 0)
+		Mobile.tap(findTestObject('Android/Orders/CSOS/createANewOrder_TextView'), 0)
 
 		Mobile.setText(findTestObject('Android/Orders/New Order Page/P.O. Name (Optional)_TextField'), PO_Name, 0)
 
@@ -162,7 +162,7 @@ class Csos_flow {
 	def Check_C2_Availability() {
 
 
-		Mobile.tap(findTestObject('Android/Orders/CSOS/Check Availability_Button'), 0)
+		Mobile.tap(findTestObject('Android/Orders/CSOS/checkAvailability_Button'), 0)
 	}
 
 

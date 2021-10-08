@@ -44,9 +44,9 @@ class New_Order_Screen {
 	@Keyword
 	def change_Account(String New_Account) {
 
-		Mobile.tap(findTestObject('Android/Dashboard/Change_Account_Button'), 0)
+		Mobile.tap(findTestObject('Android/Dashboard/changeAccount_Button'), 0)
 
-		Mobile.tap(findTestObject('Android/Account Selection/Change Account_TextView'), 0)
+		Mobile.tap(findTestObject('Android/Account Selection/ChangeAccount_TextView'), 0)
 
 		Mobile.scrollToText(New_Account, FailureHandling.STOP_ON_FAILURE)
 

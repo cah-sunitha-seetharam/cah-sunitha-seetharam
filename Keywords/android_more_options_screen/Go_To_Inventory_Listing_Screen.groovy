@@ -47,7 +47,7 @@ class Go_To_Inventory_Listing_Screen {
 
 		int w = 2
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Verification Details/Open Inventory_TextView'), 0)
+		Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Verification Details/openInventory_TextView'), 0)
 
 		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
 			WebUI.delay(w)

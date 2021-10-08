@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MobileElementEntity>
    <description></description>
-   <name>Cart_Tab</name>
+   <name>cart_Tab</name>
    <tag></tag>
    <elementGuidId>df9a7ad3-e9a2-4b65-8bac-bc1851ca7114</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>

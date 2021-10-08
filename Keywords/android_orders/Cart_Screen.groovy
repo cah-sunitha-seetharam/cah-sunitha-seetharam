@@ -44,7 +44,7 @@ class Cart_Screen  {
 	@Keyword
 	def click_On_Order(String Account_No) {
 
-		Mobile.tap(findTestObject('Android/Orders/Cart Page/Verifictaion Details/order_details_btn',[('Order_Name') : GlobalVariable.Account]),  0)
+		Mobile.tap(findTestObject('Android/Orders/Cart Page/Verifictaion Details/orderDetails_button',[('Order_Name') : GlobalVariable.Account]),  0)
 	}
 
 
@@ -58,9 +58,9 @@ class Cart_Screen  {
 			WebUI.delay(w)
 		}
 
-		int ElementTopPosition = Mobile.getElementTopPosition(findTestObject('Android/Orders/Cart Page/Verifictaion Details/order_details_btn',[('Order_Name') : GlobalVariable.Account]), 0)
+		int ElementTopPosition = Mobile.getElementTopPosition(findTestObject('Android/Orders/Cart Page/Verifictaion Details/orderDetails_button',[('Order_Name') : GlobalVariable.Account]), 0)
 
-		int ElementHeight=Mobile.getElementHeight(findTestObject('Android/Orders/Cart Page/Verifictaion Details/order_details_btn',[('Order_Name') : GlobalVariable.Account]), 0)
+		int ElementHeight=Mobile.getElementHeight(findTestObject('Android/Orders/Cart Page/Verifictaion Details/orderDetails_button',[('Order_Name') : GlobalVariable.Account]), 0)
 
 		int y_Coordinate_To_Swipe=(ElementHeight/2)+ElementTopPosition
 
@@ -88,7 +88,7 @@ class Cart_Screen  {
 		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
 			WebUI.delay(w)
 		}
-		Mobile.tap(findTestObject('Android/Orders/Cart Page/Upload All_Orders/Upload All Orders_Button'), 0)
+		Mobile.tap(findTestObject('Android/Orders/Cart Page/Upload All_Orders/uploadAllOrders_Button'), 0)
 
 		Mobile.tap(findTestObject('Android/Orders/Order Details Page/Upload Order/Continue On Desktop_button'), 0)
 
@@ -108,31 +108,31 @@ class Cart_Screen  {
 		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
 			WebUI.delay(w)
 		}
-		Mobile.tap(	findTestObject('Object Repository/Android/Orders/Cart Page/Place All_Orders/Place All Orders_Button'), 0)
+		Mobile.tap(	findTestObject('Android/Orders/Cart Page/Place All_Orders/placeAllOrders_Button'), 0)
 
 		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
 			WebUI.delay(w)
 		}
 
 
-		Mobile.tap(findTestObject('Object Repository/Android/Orders/Cart Page/Place All_Orders/Place My Orders_Button'),0)
+		Mobile.tap(findTestObject('Android/Orders/Cart Page/Place All_Orders/placeMyOrders_Button'),0)
 	}
 
 
 	@Keyword
 	def verify_Cart_Screen_Details_with_Added_Product() {
 
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Page/Verifictaion Details/Cart Header_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Page/Verifictaion Details/cartHeader_TextView'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Page/Verifictaion Details/All Mobile Orders_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Page/Verifictaion Details/allMobileOrders_TextView'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Page/Verifictaion Details/Mobile Orders Count_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Page/Verifictaion Details/mobileOrdersCount_TextView'), 0)
 
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Page/Verifictaion Details/Lines_TextView'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Page/Verifictaion Details/Cart Total_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Page/Verifictaion Details/cartTotal_TextView'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Page/Verifictaion Details/Order Value_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Page/Verifictaion Details/orderValue_TextView'), 0)
 
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Page/Verification Details/Scan_Icon'),0)
 	}
@@ -146,15 +146,15 @@ class Cart_Screen  {
 
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Page/Verification Details/Scan_Icon'),0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Page/Verifictaion Details/Cart Header_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Page/Verifictaion Details/cartHeader_TextView'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Page/Verifictaion Details/All Mobile Orders_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Page/Verifictaion Details/allMobileOrders_TextView'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Page/Verifictaion Details/Mobile Orders Count_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Page/Verifictaion Details/mobileOrdersCount_TextView'), 0)
 
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Page/Verifictaion Details/Lines_TextView'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Page/Verifictaion Details/Cart Total_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Page/Verifictaion Details/cartTotal_TextView'), 0)
 
 		int w = 2
 

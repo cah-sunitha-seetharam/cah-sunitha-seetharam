@@ -44,13 +44,13 @@ class Select_An_Account {
 	@Keyword
 	def Custom(String account) {
 
-		Mobile.waitForElementPresent(findTestObject('Android/Account Selection/You must select an account to continue_TextView'),
+		Mobile.waitForElementPresent(findTestObject('Android/Account Selection/youMustSelectAnAccountToContinue_TextView'),
 				0)
 
-		while (Mobile.verifyElementNotVisible(findTestObject('Android/Account Selection/Account No_TextView',[('val') : GlobalVariable.Account]), 2, FailureHandling.OPTIONAL)) {
+		while (Mobile.verifyElementNotVisible(findTestObject('Android/Account Selection/AccountNo_TextView',[('val') : GlobalVariable.Account]), 2, FailureHandling.OPTIONAL)) {
 			Mobile.swipe(600, 800, 600, 200)
 		}
-		Mobile.tap(findTestObject('Android/Account Selection/Account No_TextView',[('val') : GlobalVariable.Account]), 0)
+		Mobile.tap(findTestObject('Android/Account Selection/AccountNo_TextView',[('val') : GlobalVariable.Account]), 0)
 
 		int w = 1
 

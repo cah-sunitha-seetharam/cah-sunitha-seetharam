@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MobileElementEntity>
    <description></description>
-   <name>popup_menu</name>
+   <name>popUp_Menu</name>
    <tag></tag>
    <elementGuidId>2ba8b3c6-ccb7-467f-9dc4-e4a9ee75b582</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>

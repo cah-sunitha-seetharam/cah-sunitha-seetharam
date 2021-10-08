@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MobileElementEntity>
    <description></description>
-   <name>Edit_TextView</name>
+   <name>edit_TextView</name>
    <tag></tag>
    <elementGuidId>8dc46f76-9209-48f1-88df-010f5bb5e91e</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>

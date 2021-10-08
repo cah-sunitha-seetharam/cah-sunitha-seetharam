@@ -45,9 +45,9 @@ class Change_Account {
 	def Custom() {
 
 
-		Mobile.tap(findTestObject('Android/Dashboard/Change_Account_Button'), 0)
+		Mobile.tap(findTestObject('Android/Dashboard/changeAccount_Button'), 0)
 
-		Mobile.tap(findTestObject('Android/Account Selection/Change Account_TextView'), 0)
+		Mobile.tap(findTestObject('Android/Account Selection/ChangeAccount_TextView'), 0)
 
 		Mobile.scrollToText(GlobalVariable.Change_Accountew_Account, FailureHandling.STOP_ON_FAILURE)
 

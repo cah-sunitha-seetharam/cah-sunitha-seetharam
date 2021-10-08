@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MobileElementEntity>
    <description></description>
-   <name>Copy_Button</name>
+   <name>copy_Button</name>
    <tag></tag>
    <elementGuidId>36b06aa0-79d5-40b0-8094-c898022f262c</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MobileElementEntity>
    <description></description>
-   <name>Gmail_Text</name>
+   <name>gmail_Text</name>
    <tag></tag>
    <elementGuidId>2de895ea-9093-4af0-8ba1-4078d8d9fd4d</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>

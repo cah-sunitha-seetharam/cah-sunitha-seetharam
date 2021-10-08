@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MobileElementEntity>
    <description></description>
-   <name>Lines_TextView</name>
+   <name>lines_TextView</name>
    <tag></tag>
    <elementGuidId>001ad7dd-8515-4acb-9e4f-ddf788488461</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>

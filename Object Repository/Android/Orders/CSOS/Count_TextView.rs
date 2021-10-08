@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MobileElementEntity>
    <description></description>
-   <name>Count_TextView</name>
+   <name>count_TextView</name>
    <tag></tag>
    <elementGuidId>dabcb164-6bfe-4aab-b485-7b23305f9303</elementGuidId>
    <selectorCollection>

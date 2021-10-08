@@ -46,21 +46,21 @@ class Location_details_Screen {
 
 		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Edit_Location/Edit_TextView'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Inventory/Location Details Screen/Edit_Location/Edit Location_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Inventory/Location Details Screen/Edit_Location/editLocation_TextView'), 0)
 
-		Mobile.clearText(findTestObject('Android/Inventory/Location Details Screen/Edit_Location/Location to be edited_TextField', [('LName') : Previous_Name]), 0)
+		Mobile.clearText(findTestObject('Android/Inventory/Location Details Screen/Edit_Location/locationToBeEdited_TextField', [('LName') : Previous_Name]), 0)
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/Location Name_TextField'), 0)
+		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/locationName_TextField'), 0)
 
-		Mobile.setText(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/Location Name_TextField'), New_Location_Name,  0)
+		Mobile.setText(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/locationName_TextField'), New_Location_Name,  0)
 
 		if (CostType == 'Last Cost Paid') {
-			Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/Last Cost Paid_RadioButton'), 0)
+			Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/lastCostPaid_RadioButton'), 0)
 		} else {
-			Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/Current Price_RadioButton'), 0)
+			Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/currentPrice_RadioButton'), 0)
 		}
 
-		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Edit_Location/Save Changes_Button'), 0)
+		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Edit_Location/saveChanges_Button'), 0)
 		int w = 1
 
 		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
@@ -87,9 +87,9 @@ class Location_details_Screen {
 			WebUI.delay(w)
 		}
 
-		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Add Product to_Location/Add Product to Location_Button', [('Location') : Location_Name]),0)
+		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Add Product to_Location/addProductToLocation_Button', [('Location') : Location_Name]),0)
 
-		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Add Product to_Location/Continue Browsing after Adding Product_Button'), 0)
+		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Add Product to_Location/continueBrowsingAfterAddingProduct_Button'), 0)
 	}
 
 
@@ -108,11 +108,11 @@ class Location_details_Screen {
 
 		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Move Product to Another Location/Move_TextView'), 0)
 
-		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Move Product to Another Location/Select location for move or copy_RadioButton'), 0)
+		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Move Product to Another Location/selectLocationForMoveOrCopy_RadioButton'), 0)
 
 		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Move Product to Another Location/Move_Button'), 0)
 
-		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Copy Product to Another Location/Go to Location after move or copy_TextView',[('TEXT') : Location_Name]), 0)
+		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Copy Product to Another Location/goToLocationAfterMoveOrCopy_TextView',[('TEXT') : Location_Name]), 0)
 	}
 
 
@@ -131,11 +131,11 @@ class Location_details_Screen {
 
 		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Copy Product to Another Location/Copy_TextView'), 0)
 
-		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Move Product to Another Location/Select location for move or copy_RadioButton'), 0)
+		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Move Product to Another Location/selectLocationForMoveOrCopy_RadioButton'), 0)
 
 		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Copy Product to Another Location/Copy_Button'), 0)
 
-		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Copy Product to Another Location/Go to Location after move or copy_TextView',[('TEXT') : Location_Name]), 0)
+		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Copy Product to Another Location/goToLocationAfterMoveOrCopy_TextView',[('TEXT') : Location_Name]), 0)
 	}
 
 
@@ -162,11 +162,11 @@ class Location_details_Screen {
 			WebUI.delay(w)
 		}
 
-		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Upload Location/Enabled_Upload_Button'), 0)
+		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Upload Location/enabledUpload_Button'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Inventory/Location Details Screen/Upload Location/Location Uploaded_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Inventory/Location Details Screen/Upload Location/locationUploaded_TextView'), 0)
 
-		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Upload Location/Got it_Button'), 0)
+		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Upload Location/gotIt_Button'), 0)
 	}
 
 
@@ -179,7 +179,7 @@ class Location_details_Screen {
 
 		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Share Location/Gmail_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Inventory/Location Details Screen/Share Location/Order Express Location File_TextField'),0)
+		Mobile.verifyElementExist(findTestObject('Android/Inventory/Location Details Screen/Share Location/orderExpressLocationFile_TextField'),0)
 
 		Mobile.verifyElementExist(findTestObject('Android/Inventory/Location Details Screen/Share Location/From_TextView'), 0)
 
@@ -191,12 +191,12 @@ class Location_details_Screen {
 	@Keyword
 	def verify_Location_details_Screen(String Location_Name) {
 
-		Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/Inventory Header_TextView'),0)
+		Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/inventoryHeader_TextView'),0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Inventory/Location Details Screen/Verification Details/Created on Date_TextView'),0)
+		Mobile.verifyElementExist(findTestObject('Android/Inventory/Location Details Screen/Verification Details/createdOnDate_TextView'),0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Inventory/Location Details Screen/Verification Details/Inventory Value_TextView'),0)
+		Mobile.verifyElementExist(findTestObject('Android/Inventory/Location Details Screen/Verification Details/inventoryValue_TextView'),0)
 
-		Mobile.verifyElementExist(	findTestObject('Android/Inventory/Location Details Screen/Verification Details/Created Location Name_TextView',[('TEXT'):Location_Name]),0)
+		Mobile.verifyElementExist(	findTestObject('Android/Inventory/Location Details Screen/Verification Details/createdLocationName_TextView',[('TEXT'):Location_Name]),0)
 	}
 }

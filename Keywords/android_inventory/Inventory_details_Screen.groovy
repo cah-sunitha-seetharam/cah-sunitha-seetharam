@@ -44,19 +44,19 @@ class Inventory_details_Screen {
 	@Keyword
 	def add_Location(String Location_Name, String CostType) {
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/Add location_TextView'), 0)
+		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/addLocation_TextView'), 0)
 
-		Mobile.setText(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/Location Name_TextField'), Location_Name,  0)
+		Mobile.setText(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/locationName_TextField'), Location_Name,  0)
 
 		if (CostType == 'Last Cost Paid') {
-			Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/Last Cost Paid_RadioButton'), 0)
+			Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/lastCostPaid_RadioButton'), 0)
 		} else {
-			Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/Current Price_RadioButton'), 0)
+			Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/currentPrice_RadioButton'), 0)
 		}
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/Create New Location_Button'), 0)
+		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/createNewLocation_Button'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/Created_location_TextView', [('TEXT') : Location_Name]),0, FailureHandling.OPTIONAL)
+		Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/createdLocation_TextView', [('TEXT') : Location_Name]),0, FailureHandling.OPTIONAL)
 	}
 
 
@@ -69,13 +69,13 @@ class Inventory_details_Screen {
 
 		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Edit_Location/Edit_TextView'), 0)
 
-		Mobile.clearText(findTestObject('Android/Inventory/Inventory Detail Screen/Edit Inventory/Inventory to be edited_TextField',[('Inv_Name') : Previous_Name]),0)
+		Mobile.clearText(findTestObject('Android/Inventory/Inventory Detail Screen/Edit Inventory/inventoryToBeEdited_TextField',[('Inv_Name') : Previous_Name]),0)
 
 		WebUI.delay(2)
 
-		Mobile.setText(findTestObject('Android/Inventory/Inventory Detail Screen/Edit Inventory/Inventory Name_TextField'), New_Inventory_Name,0)
+		Mobile.setText(findTestObject('Android/Inventory/Inventory Detail Screen/Edit Inventory/inventoryName_TextField'), New_Inventory_Name,0)
 
-		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Edit_Location/Save Changes_Button'), 0)
+		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Edit_Location/saveChanges_Button'), 0)
 		int w = 1
 
 		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
@@ -90,7 +90,7 @@ class Inventory_details_Screen {
 	@Keyword
 	def click_On_Location(String Location_Name) {
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/Open_Location_TextView',[('Location') : Location_Name]), 0)
+		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/openLocation_TextView',[('Location') : Location_Name]), 0)
 
 		int w=1
 
@@ -116,7 +116,7 @@ class Inventory_details_Screen {
 			WebUI.delay(w)
 		}
 
-		Mobile.verifyElementNotVisible(findTestObject('Android/Inventory/Location Details Screen/Edit_Location/after location edit verfication_TextView',
+		Mobile.verifyElementNotVisible(findTestObject('Android/Inventory/Location Details Screen/Edit_Location/afterLocationEditVerfication_TextView',
 				[('TEXT') : Location_Name]), 0)
 	}
 
@@ -126,8 +126,8 @@ class Inventory_details_Screen {
 
 		int w = 1
 
-		if (Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/Created_location_TextView', [('TEXT') : Location_Name]),0, FailureHandling.OPTIONAL)) {
-			Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/Created_location_TextView', [('TEXT') : Location_Name]), 0)
+		if (Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/createdLocation_TextView', [('TEXT') : Location_Name]),0, FailureHandling.OPTIONAL)) {
+			Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/createdLocation_TextView', [('TEXT') : Location_Name]), 0)
 		}
 
 		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
@@ -145,25 +145,25 @@ class Inventory_details_Screen {
 		Mobile.tap(findTestObject('Android/Product Search/Add to Inventory_Button'), 0)
 
 
-		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Move Product to Another Location/Create a new location_TextView'), 0)
+		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Move Product to Another Location/createANewLocation_TextView'), 0)
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/Location Name_TextField'), 0)
+		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/locationName_TextField'), 0)
 
-		Mobile.setText(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/Location Name_TextField'), Location_Name,  0)
+		Mobile.setText(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/locationName_TextField'), Location_Name,  0)
 
 		if (CostType == 'Last Cost Paid') {
-			Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/Last Cost Paid_RadioButton'), 0)
+			Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/lastCostPaid_RadioButton'), 0)
 		} else {
-			Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/Current Price_RadioButton'), 0)
+			Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/currentPrice_RadioButton'), 0)
 		}
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/Create New Location_Button'), 0)
+		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/createNewLocation_Button'), 0)
 
 		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Copy Product to Another Location/Select_location_RadioButton'), 0)
 
-		Mobile.tap(	findTestObject('Android/Inventory/Inventory Detail Screen/Add Product to Inventory using Search from Dashoboard/Add to Inventory_Button'), 0)
+		Mobile.tap(	findTestObject('Android/Inventory/Inventory Detail Screen/Add Product to Inventory using Search from Dashoboard/addToInventory_Button'), 0)
 
-		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Add Product to_Location/Go to location after adding product_TextView',[('Location') : Location_Name]) ,0)
+		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Add Product to_Location/goToLocationAfterAddingProduct_TextView',[('Location') : Location_Name]) ,0)
 	}
 
 
@@ -172,12 +172,12 @@ class Inventory_details_Screen {
 	@Keyword
 	def verify_Inventory_Details_Screen(String Inventory_Name) {
 
-		Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/Created on date_TextView'),0)
+		Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/createdOnDate_TextView'),0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/Inventory Header_TextView'),0)
+		Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/inventoryHeader_TextView'),0)
 
 		Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/Scan_Icon'),0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/Inventory Name_TextView',[('TEXT'):Inventory_Name]),0)
+		Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/inventoryName_TextView',[('TEXT'):Inventory_Name]),0)
 	}
 }

@@ -70,14 +70,14 @@ class Orders_Screen {
 	def change_Account(String new_Account) {
 
 
-		Mobile.tap(findTestObject('Android/Dashboard/Change_Account_Button'), 0)
+		Mobile.tap(findTestObject('Android/Dashboard/changeAccount_Button'), 0)
 
-		Mobile.tap(findTestObject('Android/Account Selection/Change Account_TextView'), 0)
+		Mobile.tap(findTestObject('Android/Account Selection/ChangeAccount_TextView'), 0)
 
-		while (Mobile.verifyElementNotVisible(findTestObject('Android/Account Selection/Account No_TextView',[('val') : new_Account]), 2, FailureHandling.OPTIONAL)) {
+		while (Mobile.verifyElementNotVisible(findTestObject('Android/Account Selection/AccountNo_TextView',[('val') : new_Account]), 2, FailureHandling.OPTIONAL)) {
 			Mobile.swipe(600, 800, 600, 200)
 		}
-		Mobile.tap(findTestObject('Android/Account Selection/Account No_TextView',[('val') : new_Account]), 0)
+		Mobile.tap(findTestObject('Android/Account Selection/AccountNo_TextView',[('val') : new_Account]), 0)
 
 		int w = 1
 

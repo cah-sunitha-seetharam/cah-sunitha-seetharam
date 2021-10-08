@@ -59,7 +59,7 @@ class Inventory_listing_Screen {
 
 
 
-		Mobile.verifyElementNotVisible(findTestObject('Android/Inventory/Inventory Detail Screen/Edit Inventory/after_edit_Inventory_verification_TextView',
+		Mobile.verifyElementNotVisible(findTestObject('Android/Inventory/Inventory Detail Screen/Edit Inventory/afterEditInventoryVerification_TextView',
 				[('TEXT') : inventory_Name]), 0)
 	}
 
@@ -75,14 +75,14 @@ class Inventory_listing_Screen {
 			WebUI.delay(w)
 		}
 		
-		Mobile.tap(findTestObject('Android/Dashboard/Change_Account_Button'), 0)
+		Mobile.tap(findTestObject('Android/Dashboard/changeAccount_Button'), 0)
 
-		Mobile.tap(findTestObject('Android/Account Selection/Change Account_TextView'), 0)
+		Mobile.tap(findTestObject('Android/Account Selection/ChangeAccount_TextView'), 0)
 
-		while (Mobile.verifyElementNotVisible(findTestObject('Android/Account Selection/Account No_TextView',[('val') : new_Account]), 2, FailureHandling.OPTIONAL)) {
+		while (Mobile.verifyElementNotVisible(findTestObject('Android/Account Selection/AccountNo_TextView',[('val') : new_Account]), 2, FailureHandling.OPTIONAL)) {
 			Mobile.swipe(600, 800, 600, 300)
 		}
-		Mobile.tap(findTestObject('Android/Account Selection/Account No_TextView',[('val') : new_Account]), 0)
+		Mobile.tap(findTestObject('Android/Account Selection/AccountNo_TextView',[('val') : new_Account]), 0)
 
 		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
 			WebUI.delay(w)
@@ -95,17 +95,17 @@ class Inventory_listing_Screen {
 	@Keyword
 	def create_Inventory(String Inventory_Name) {
 
-		if (Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Listing Screen/Verification Details/Create Inventory_TextView'), 4, FailureHandling.OPTIONAL)) {
-			Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Verification Details/Create Inventory_TextView'), 4, FailureHandling.OPTIONAL)
+		if (Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Listing Screen/Verification Details/createInventory_TextView'), 4, FailureHandling.OPTIONAL)) {
+			Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Verification Details/createInventory_TextView'), 4, FailureHandling.OPTIONAL)
 		}
 		else {
-			Mobile.tapAndHold(findTestObject('Android/Inventory/Inventory Listing Screen/Create New Inventory_Screen/Create New Inventory_Tab'),0,0)
+			Mobile.tapAndHold(findTestObject('Android/Inventory/Inventory Listing Screen/Create New Inventory_Screen/createNewInventory_Tab'),0,0)
 		}
-		Mobile.tapAndHold(findTestObject('Android/Inventory/Inventory Listing Screen/Create New Inventory_Screen/Inventory Name_TextField'), 0,0)
+		Mobile.tapAndHold(findTestObject('Android/Inventory/Inventory Listing Screen/Create New Inventory_Screen/inventoryName_TextField'), 0,0)
 
-		Mobile.setText(findTestObject('Android/Inventory/Inventory Listing Screen/Create New Inventory_Screen/Inventory Name_TextField'), Inventory_Name,0)
+		Mobile.setText(findTestObject('Android/Inventory/Inventory Listing Screen/Create New Inventory_Screen/inventoryName_TextField'), Inventory_Name,0)
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Create New Inventory_Screen/Create Inventory_Button'), 0)
+		Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Create New Inventory_Screen/createInventory_Button'), 0)
 
 		int w = 1
 
@@ -118,8 +118,8 @@ class Inventory_listing_Screen {
 	@Keyword
 	def verify_Inventory_Listing_Screen() {
 
-		Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Listing Screen/Verification Details/Lets get started with your inventory_TextView'),0)
+		Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Listing Screen/Verification Details/letsGetStartedWithYourInventory_TextView'),0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/Inventory Header_TextView'),0)
+		Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/inventoryHeader_TextView'),0)
 	}
 }

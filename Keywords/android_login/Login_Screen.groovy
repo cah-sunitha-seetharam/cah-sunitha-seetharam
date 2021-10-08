@@ -62,7 +62,7 @@ class Login_Screen {
 
 			Mobile.tap(findTestObject('Android/Login/Environment Selecttion Screen/Environment_Spinner'), 0)
 
-			Mobile.tap(findTestObject('Android/Login/Environment Selecttion Screen/Environment_Selection_TextView',[('TEXT'):GlobalVariable.Environment]),0)
+			Mobile.tap(findTestObject('Android/Login/Environment Selecttion Screen/environmentSelection_TextView',[('TEXT'):GlobalVariable.Environment]),0)
 
 			Mobile.tap(findTestObject('Android/Login/Environment Selecttion Screen/Proceed_Button'), 0)
 		}
@@ -97,7 +97,7 @@ class Login_Screen {
 
 		int w = 1
 
-		Mobile.tap(findTestObject('Android/Login/Login Details Screen/Sign In_Button'), 0)
+		Mobile.tap(findTestObject('Android/Login/Login Details Screen/signIn_Button'), 0)
 
 		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
 			WebUI.delay(w)
@@ -110,7 +110,7 @@ class Login_Screen {
 	@Keyword()
 	def click_On_Forgot_Password() {
 
-		Mobile.tap(findTestObject('Android/Login/Login Details Screen/Forgot Password_Button'), 0)
+		Mobile.tap(findTestObject('Android/Login/Login Details Screen/forgotPassword_Button'), 0)
 	}
 
 
@@ -119,11 +119,11 @@ class Login_Screen {
 	@Keyword()
 	def verify_Login_Page_Details() {
 
-		Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Forgot Password_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/forgotPassword_Button'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Cardinal Health_Logo'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/cardinalHealth_Logo'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Welcome back_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/welcomeBack_TextView'), 0)
 	}
 }
 

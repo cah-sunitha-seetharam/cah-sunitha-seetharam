@@ -45,10 +45,10 @@ class Sign_Out {
 	def Custom() {
 
 
-		Mobile.tap(findTestObject('Android/Dashboard/More_Tab'), 0)
+		Mobile.tap(findTestObject('Android/Dashboard/moreOptions_Tab'), 0)
 
-		Mobile.tap(findTestObject('Android/More Options Screen/SignOut/Sign out_TextView'), 0)
+		Mobile.tap(findTestObject('Android/More Options Screen/SignOut/signOut_TextView'), 0)
 
-		Mobile.tap(findTestObject('Android/More Options Screen/SignOut/Sign out_Button'), 0)
+		Mobile.tap(findTestObject('Android/More Options Screen/SignOut/signOut_Button'), 0)
 	}
 }

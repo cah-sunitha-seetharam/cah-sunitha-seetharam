@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MobileElementEntity>
    <description></description>
-   <name>Yes_Button</name>
+   <name>yes_Button</name>
    <tag></tag>
    <elementGuidId>afd66297-083f-4489-95de-b17533343f54</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
