@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Delete,Copy and Move Operations of product in Inventory</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>d25b57ed-b7de-4ad6-a587-0281d364b90e</testCaseGuid>
+   <variable>
+      <defaultValue>'Cardinal1'</defaultValue>
+      <description></description>
+      <id>ebec2b9a-fab6-4351-9335-53b4fbe2eca3</id>
+      <masked>false</masked>
+      <name>Password</name>
+   </variable>
+   <variable>
+      <defaultValue>'15-725252'</defaultValue>
+      <description></description>
+      <id>c67c3197-d4f0-4a95-ab6c-8fcede197710</id>
+      <masked>false</masked>
+      <name>Account</name>
+   </variable>
+   <variable>
+      <defaultValue>'REGULAR'</defaultValue>
+      <description></description>
+      <id>1a6f96bf-b7c7-4d6a-8ef6-b6c0b29976a6</id>
+      <masked>false</masked>
+      <name>Inventory_Name</name>
+   </variable>
+   <variable>
+      <defaultValue>'FORMAT'</defaultValue>
+      <description></description>
+      <id>df9b9b6a-818a-48c7-bed4-77959214a2dc</id>
+      <masked>false</masked>
+      <name>Location_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'ACTION'</defaultValue>
+      <description></description>
+      <id>948f2c9e-8ba1-4d5a-99a2-d545487c2e0c</id>
+      <masked>false</masked>
+      <name>Location_2</name>
+   </variable>
+   <variable>
+      <defaultValue>'Last Cost Paid'</defaultValue>
+      <description></description>
+      <id>441afb09-1301-40f1-98ff-1df1c3547219</id>
+      <masked>false</masked>
+      <name>Cost_Type</name>
+   </variable>
+   <variable>
+      <defaultValue>'tyl'</defaultValue>
+      <description></description>
+      <id>e52fdf29-be03-4ded-882b-9994e8ba01b1</id>
+      <masked>false</masked>
+      <name>Product_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'par'</defaultValue>
+      <description></description>
+      <id>5d425df9-2ace-48cf-aaf8-6234411e3604</id>
+      <masked>false</masked>
+      <name>Product_2</name>
+   </variable>
+</TestCaseEntity>

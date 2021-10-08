@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Upload and Share Location Details</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>f17fc726-aa1b-465d-b303-d0a3afeea8e7</testCaseGuid>
+   <variable>
+      <defaultValue>'Cardinal1'</defaultValue>
+      <description></description>
+      <id>79cb9e88-168a-416b-89d0-6c8316516b16</id>
+      <masked>false</masked>
+      <name>Password</name>
+   </variable>
+   <variable>
+      <defaultValue>'11-487698'</defaultValue>
+      <description></description>
+      <id>22eb005d-2589-417d-abed-8c8222d014c1</id>
+      <masked>false</masked>
+      <name>Account</name>
+   </variable>
+   <variable>
+      <defaultValue>'share'</defaultValue>
+      <description></description>
+      <id>2eef52b0-31ab-480d-86c4-1ff9f7080800</id>
+      <masked>false</masked>
+      <name>Inventory_Name</name>
+   </variable>
+   <variable>
+      <defaultValue>'test'</defaultValue>
+      <description></description>
+      <id>a0861fda-34b1-4bb4-83bd-612ad9f2c9b8</id>
+      <masked>false</masked>
+      <name>Location_Name</name>
+   </variable>
+   <variable>
+      <defaultValue>'Last Cost Paid'</defaultValue>
+      <description></description>
+      <id>b562150e-eda8-4f56-b797-8922b1271972</id>
+      <masked>false</masked>
+      <name>Cost_Type</name>
+   </variable>
+   <variable>
+      <defaultValue>'tyl'</defaultValue>
+      <description></description>
+      <id>afe46407-495b-4fda-85ec-c9a960cf2bb7</id>
+      <masked>false</masked>
+      <name>Product_Name</name>
+   </variable>
+</TestCaseEntity>

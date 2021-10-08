@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Verify Change Account From HomePage,Inventory,Carts)</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>b32c8ab5-7c78-4eb7-b5b7-a2d8e93b6f63</testCaseGuid>
+   <variable>
+      <defaultValue>'Cardinal1'</defaultValue>
+      <description></description>
+      <id>1ef3dae9-01db-45b1-9a12-f4589f28da13</id>
+      <masked>false</masked>
+      <name>Password</name>
+   </variable>
+   <variable>
+      <defaultValue>'11-487698'</defaultValue>
+      <description></description>
+      <id>791e0b7b-e8d8-4995-b4d1-18be19b89d14</id>
+      <masked>false</masked>
+      <name>Account1</name>
+   </variable>
+   <variable>
+      <defaultValue>'24-465093'</defaultValue>
+      <description></description>
+      <id>24d91f2e-ccea-4212-ba70-6aa116384f26</id>
+      <masked>false</masked>
+      <name>New_Account1</name>
+   </variable>
+   <variable>
+      <defaultValue>'15-725219'</defaultValue>
+      <description></description>
+      <id>42b007bd-d4c8-4bbd-9f9a-994abf7eaabe</id>
+      <masked>false</masked>
+      <name>Account</name>
+   </variable>
+   <variable>
+      <defaultValue>'15-725226'</defaultValue>
+      <description></description>
+      <id>6d880530-a3a3-416c-9ceb-145c75bf4d2b</id>
+      <masked>false</masked>
+      <name>New_Account</name>
+   </variable>
+</TestCaseEntity>

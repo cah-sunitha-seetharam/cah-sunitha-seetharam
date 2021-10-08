@@ -1,0 +1,12 @@
+Reports
+Reports/
+/bin/
+.cache/
+.classpath
+.gitignore
+.settings/
+Libs
+Libs/
+settings/
+.project
+*.properties
