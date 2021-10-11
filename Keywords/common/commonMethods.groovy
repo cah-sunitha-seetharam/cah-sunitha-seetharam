@@ -45,6 +45,19 @@ import java.io.File
 class commonMethods {
 
 	/**
+	 * random alpha numeric String Generator 
+	 * @param length, required string length 
+	 * @return alpha-numeric string  
+	 */
+	@Keyword
+	def static randomStringGenerator(int length) {
+		String alphabet = (('A'..'N') +('P'..'Z') +('a'..'k') +('m'..'z') +('2'..'9')).join()
+		def randomStringValue = new Random().with {
+			(1..length).collect { alphabet[nextInt(alphabet.length())] }.join()
+		}
+		return randomStringValue
+	}
+	/**
 	 * Read JSON file 
 	 * @param file name, Note: data files are considered to be on Data files location on project directory  
 	 * @return the JSON file object 
@@ -64,18 +77,5 @@ class commonMethods {
 		def fileReference = new File(RunConfiguration.getProjectDir() + "/Data Files/" + nameValue)
 		def jsonObject = jsonSlurper.parse(fileReference)
 		return jsonObject
-	}
-	/**
-	 * random alpha numeric String Generator 
-	 * @param length, required string length 
-	 * @return alpha-numeric string  
-	 */
-	@Keyword
-	def static randomStringGenerator(int length) {
-		String alphabet = (('A'..'N') +('P'..'Z') +('a'..'k') +('m'..'z') +('2'..'9')).join()
-		def randomStringValue = new Random().with {
-			(1..length).collect { alphabet[nextInt(alphabet.length())] }.join()
-		}
-		return randomStringValue
 	}
 }

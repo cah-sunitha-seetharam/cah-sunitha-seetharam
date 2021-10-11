@@ -5,7 +5,6 @@
 
 import java.lang.String
 
-import java.util.Map
 
 
 def static "ios_dashboard.dashboard_details.click_On_Orders"() {
@@ -720,11 +719,6 @@ def static "common.commonMethods.readFileTypeJSON"(
         	fileNameValue)
 }
 
-def static "android_common_keywords.start_application.Custom"() {
-    (new android_common_keywords.start_application()).Custom()
-}
-
-
  /**
 	 * random alpha numeric String Generator 
 	 * @param length, required string length 
@@ -736,6 +730,10 @@ def static "common.commonMethods.randomStringGenerator"(
         	length)
 }
 
+
+def static "android_common_keywords.start_application.Custom"() {
+    (new android_common_keywords.start_application()).Custom()
+}
 
 
 def static "ios_orders.Orders_Screen.click_On_NewOrder"() {
@@ -857,57 +855,26 @@ def static "android_dashboard.Dashboard_details_Screen.click_On_More_Options"() 
     (new android_dashboard.Dashboard_details_Screen()).click_On_More_Options()
 }
 
- /**
-     * Send login and token generation calls(based on environment value fetched from profile, to get authorization token
-     * @return authorizationValue fetched from token generator API 
-     */ 
-def static "api.apiCommonMethods.fetchAccessToken"() {
-    (new api.apiCommonMethods()).fetchAccessToken()
-}
 
- /**
-     * Send token generation calls to get authorization token
-     * @param environmentValue referring to test data object key e.g.pmodStage
-     * @return the access token value 
-     */ 
-def static "api.apiCommonMethods.tokenGenerator"() {
-    (new api.apiCommonMethods()).tokenGenerator()
-}
-
- /**
-     * Create an order using Carts Post method , the input is fetched from the (module) ordersDatajson file set on Data Files 
-     * @return an object with orderId and purchaseOrderNumber 
-     */ 
 def static "api.apiCommonMethods.createCartOrder"() {
     (new api.apiCommonMethods()).createCartOrder()
 }
 
- /**
-     * Create an order using Carts Post method , the input is fetched from the (module) ordersDatajson file set on Data Files
-     * @param purchaseOrderNumber
-     * @param DC number
-     * @param Customer Account Number
-     * @param product CIN
-     * @param product quantity 
-     * @return an object with orderId and purchaseOrderNumber
-     */ 
-def static "api.apiCommonMethods.createOrder"(
-        Map requestObject   
-     ,  Object object   ) {
-    (new api.apiCommonMethods()).createOrder(
-            requestObject
-         ,  object)
+
+def static "api.apiCommonMethods.fetchAccessToken"() {
+    (new api.apiCommonMethods()).fetchAccessToken()
 }
 
- /**
-     * Fetches the API test data file from project Data files path
-     * @param expectedStatusCode
-     * @return the test data JSON object
-     */ 
+
 def static "api.apiCommonMethods.readAPITestData"() {
     (new api.apiCommonMethods()).readAPITestData()
-
 }
+
+
+def static "api.apiCommonMethods.tokenGenerator"() {
+    (new api.apiCommonMethods()).tokenGenerator()
+}
+
 
 def static "ios_common_keywords.Go_Back.Custom"() {
     (new ios_common_keywords.Go_Back()).Custom()

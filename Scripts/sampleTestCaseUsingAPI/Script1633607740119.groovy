@@ -18,7 +18,7 @@ import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
 //CustomKeywords.'api.apiCommonMethods.createCartOrder'()
-String environmentValue = GlobalVariable.APIEnvironment
+String environmentValue = GlobalVariable.Environment
 
 //String authorizationValue = apiCommonMethods.fetchAccessToken()
 String authorizationValue = CustomKeywords.'api.apiCommonMethods.fetchAccessToken'()

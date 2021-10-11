@@ -15,7 +15,7 @@
         "cimaudits": "https://039pkt2ack.execute-api.us-east-1.amazonaws.com",
         "tokenGenerator": "https://iri1lvu09j.execute-api.us-east-1.amazonaws.com"
     },
-    "pmodStage": {
+    "PMODStg": {
         "urlHeaderInput": {
             "target": "https://orderexpresspmodstg.cardinalhealth.com/eps/mycah?bp=yes",
             "xApiKey": "xfsUHfuWpg4ziM7hXU1tr2SNr3Rz2vN984VOoVdO",
@@ -31,7 +31,7 @@
             "UUID": "94814f3e-4926-4078-bc65-5746d73bbb54"
         }
     },
-    "pmodQA2": {
+    "PMODQa2": {
         "urlHeaderInput": {
             "target": "http://orderexpresspmodqa.cardinalhealth.com",
             "xApiKey": "xfsUHfuWpg4ziM7hXU1tr2SNr3Rz2vN984VOoVdO",
@@ -47,7 +47,7 @@
             "UUID": "94814f3e-4926-4078-bc65-5746d73bbb54"
         }
     },
-    "prod": {
+    "Release": {
         "urlHeaderInput": {
             "target": "http://orderexpress.cardinalhealth.com?bp=yes/eps/mycah",
             "xApiKey": "xWkltyjdrQ4vV8MJq5Jvq3G0AOnyiypzaXLGRU7H",

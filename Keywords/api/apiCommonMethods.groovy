@@ -38,13 +38,24 @@ import com.kms.katalon.core.webui.exception.WebElementNotFoundException
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import groovy.json.JsonSlurper
 import common.commonMethods
-//import io.restassured.RestAssured;
-//import io.restassured.http.Method;
-//import io.restassured.response.Response;
-//import io.restassured.specification.RequestSpecification;
-
 
 class apiCommonMethods {
+	/**
+	 * Create an order using Carts Post method , the input is fetched from the (module) ordersDatajson file set on Data Files 
+	 * @return an object with orderId and purchaseOrderNumber 
+	 */
+	@Keyword
+	def createCartOrder() {
+		String environmentValue = GlobalVariable.Environment
+		String authorizationValue = this.fetchAccessToken()
+		def testDataObject = this.readAPITestData()
+		def RequestObject = commonMethods.readFileTypeJSON("ordersData.json")  // reading the module test data file
+		def String purchaseOrderNumber  = commonMethods.randomStringGenerator(10)  // creating a random string for po number
+			ResponseObject cartCreation = WS.sendRequest(findTestObject('API/Carts API - POST', [('carts-api-host') : testDataObject.apiHost.mobileCarts, ('env') : testDataObject[environmentValue].urlHeaderInput.environment, ('x-api-key') : testDataObject[environmentValue].urlHeaderInput.xApiKey, ('Authorization') : GlobalVariable.accessToken
+			, ('user') : GlobalVariable.Username, ('UUID') : testDataObject[environmentValue].urlHeaderInput.UUID, ('distributionCenter') : RequestObject[environmentValue].Carts.distributionCenter, ('customerNumber') : RequestObject[environmentValue].Carts.customerAccountNumber, ('purchaseOrderNumber') : purchaseOrderNumber
+			, ('cin1') : RequestObject[environmentValue].Carts.cin1, ('qty1') : RequestObject[environmentValue].Carts.qty1]))
+
+	}
 	/**
 	 * Send login and token generation calls(based on environment value fetched from profile, to get authorization token
 	 * @return authorizationValue fetched from token generator API 
@@ -52,7 +63,7 @@ class apiCommonMethods {
 	@Keyword
 	def fetchAccessToken() {
 		int expectedStatusCode = 200
-		String apiEnvironment = GlobalVariable.APIEnvironment
+		String apiEnvironment = GlobalVariable.Environment
 		def testDataObject = this.readAPITestData();
 		ResponseObject loginResponse = WS.sendRequest(findTestObject('API/Login Request API', [('login-api-host') : testDataObject[apiEnvironment].urlHeaderInput.loginHost, ('target') : testDataObject[apiEnvironment].urlHeaderInput.target
 			, ('password') : GlobalVariable.Password, ('smagentname') : testDataObject[apiEnvironment].urlHeaderInput.smagentname, ('user') : GlobalVariable.Username]))
@@ -66,20 +77,21 @@ class apiCommonMethods {
 		String SmSession1 = cookies[0].value
 		boolean fieldExist = false
 		GlobalVariable.SmSession =  SmSession1
-
+		// SMsession fetching isn't working as expected when running it against Prod environment, the cookies value isn't coming up .
+		// https://jira.cardinalhealth.com/browse/HAT-5803 will require the commented code block
 		//		if (loginResponse.getStatusCode() == expectedStatusCode) {
 		//			HashMap < String, String > headerProperties = loginResponse.getHeaderFields()
 		//			List < String > list = new ArrayList < String > (headerProperties.values());
 		////			list.each {  val -> println val  }
 		//			String SmSession
-		//			//			print(GlobalVariable.APIEnvironment+ "modStagepmodStage")
-		//			if(GlobalVariable.APIEnvironment == "pmodStage") {
+		//			//			print(GlobalVariable.Environment+ "modStagepmodStage")
+		//			if(GlobalVariable.Environment == "pmodStage") {
 		//				List < HttpCookie > cookies = HttpCookie.parse(list.get(9).toString()); // position of SMSESSION value on the header response
 		//				cookies.each {  val -> println val  }
 		//				SmSession = cookies[0].value
 		//			}
 		//			else {
-		//				//				print(GlobalVariable.APIEnvironment+ "modStagepmodStage")
+		//				//				print(GlobalVariable.Environment+ "modStagepmodStage")
 		//				List < HttpCookie > cookies = HttpCookie.parse(list.get(4).toString()); // position of SMSESSION value on the header response
 		//				//				print(cookies+ "cookies")
 		//				SmSession = cookies[0].value
@@ -96,13 +108,26 @@ class apiCommonMethods {
 
 	}
 	/**
+	 * Fetches the API test data file from project Data files path
+	 * @param expectedStatusCode
+	 * @return the test data JSON object
+	 */
+	@Keyword
+	def readAPITestData() {
+		def String fileName='apiData.json'
+		def testDataObject= commonMethods.readFileTypeJSON(fileName.toString())
+		return testDataObject
+		//		return CustomKeywords.'common.commonMethods.readFileTypeJSON'(fileName.toString())
+	}
+
+	/**
 	 * Send token generation calls to get authorization token
 	 * @param environmentValue referring to test data object key e.g.pmodStage
 	 * @return the access token value 
 	 */
 	@Keyword
 	def tokenGenerator() {
-		String environmentValue = GlobalVariable.APIEnvironment
+		String environmentValue = GlobalVariable.Environment
 		def testDataObject = this.readAPITestData()
 
 		ResponseObject tokenGeneratorResponse = WS.sendRequest(findTestObject('API/Token Generator API', [('token-generator-api-host') : testDataObject.apiHost.tokenGenerator, ('env') : testDataObject[environmentValue].urlHeaderInput.environment, ('user') : GlobalVariable.Username
@@ -120,70 +145,6 @@ class apiCommonMethods {
 		else {
 			KeywordUtil.markFailed(" tokenGenerator call failed with code:" + tokenGeneratorResponse.getStatusCode())
 		}
-	}
-	/**
-	 * Create an order using Carts Post method , the input is fetched from the (module) ordersDatajson file set on Data Files 
-	 * @return an object with orderId and purchaseOrderNumber 
-	 */
-	@Keyword
-	def createCartOrder() {
-		String environmentValue = GlobalVariable.APIEnvironment
-		String authorizationValue = this.fetchAccessToken()
-		def testDataObject = this.readAPITestData()
-		def RequestObject = commonMethods.readFileTypeJSON("ordersData.json")  // reading the module test data file
-		def String purchaseOrderNumber  = commonMethods.randomStringGenerator(10)  // creating a random string for po number
-		//		this.createOrder([ponumber: purchaseOrderNumber, dc: RequestObject[environmentValue].Carts.distributionCenter, accountNumber: RequestObject[environmentValue].Carts.customerAccountNumber, cin :RequestObject[environmentValue].Carts.cin1, qty: RequestObject[environmentValue].Carts.qty1)
-		ResponseObject cartCreation = WS.sendRequest(findTestObject('API/Carts API - POST', [('carts-api-host') : testDataObject.apiHost.mobileCarts, ('env') : testDataObject[environmentValue].urlHeaderInput.environment, ('x-api-key') : testDataObject[environmentValue].urlHeaderInput.xApiKey, ('Authorization') : GlobalVariable.accessToken
-			, ('user') : GlobalVariable.Username, ('UUID') : testDataObject[environmentValue].urlHeaderInput.UUID, ('distributionCenter') : RequestObject[environmentValue].Carts.distributionCenter, ('customerNumber') : RequestObject[environmentValue].Carts.customerAccountNumber, ('purchaseOrderNumber') : purchaseOrderNumber
-			, ('cin1') : RequestObject[environmentValue].Carts.cin1, ('qty1') : RequestObject[environmentValue].Carts.qty1]))
-
-	}
-	/**
-	 * Create an order using Carts Post method , the input is fetched from the (module) ordersDatajson file set on Data Files
-	 * @param purchaseOrderNumber
-	 * @param DC number
-	 * @param Customer Account Number
-	 * @param product CIN
-	 * @param product quantity 
-	 * @return an object with orderId and purchaseOrderNumber
-	 */
-	@Keyword
-	//	def static createOrder(Map apiData, String poName,String dcNumber, String customerAccountNumber, String cin, String qty) {
-	def static createOrder(Map requestObject, def object) {
-		//			println(requestObject)
-		//
-		////			println(poName)
-		////			println(dcNumber)
-		////			println(customerAccountNumber)
-		////			println(qty)
-		////			println(cin)
-		//			String environmentValue = GlobalVariable.APIEnvironment
-		//			String poNameValue = ('MobileAutomated' + poName)
-		//			def testDataObject = apiData
-		//			ResponseObject cartRequestResponse = WS.sendRequest(findTestObject('API/Carts API - POST', [('carts-api-host') : testDataObject.apiHost.mobileCarts, ('env') : testDataObject[environmentValue].urlHeaderInput.environment, ('x-api-key') : testDataObject[environmentValue].urlHeaderInput.xApiKey, ('Authorization') : GlobalVariable.accessToken
-		//				, ('user') : GlobalVariable.Username, ('UUID') : testDataObject[environmentValue].urlHeaderInput.UUID, ('distributionCenter') : dcNumber, ('customerNumber') : customerAccountNumber, ('purchaseOrderNumber') : poNameValue
-		//				, ('cin') : cin, ('quantity') : qty]))
-		//
-		//
-		//			if(cartRequestResponse.getStatusCode() == 200) {
-		//				KeywordUtil.markPassed("cartCreation API call success")
-		//				return cartRequestResponse
-		//			}
-		//			else {
-		//				KeywordUtil.markFailed(" createCartOrder API call failed with code:" + cartRequestResponse.getStatusCode())
-		//			}
-	}
-	/**
-	 * Fetches the API test data file from project Data files path
-	 * @param expectedStatusCode
-	 * @return the test data JSON object
-	 */
-	@Keyword
-	def readAPITestData() {
-		def String fileName='apiData.json'
-		def testDataObject= commonMethods.readFileTypeJSON(fileName.toString())
-		return testDataObject
-		//		return CustomKeywords.'common.commonMethods.readFileTypeJSON'(fileName.toString())
 	}
 }
 

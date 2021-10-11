@@ -1,5 +1,5 @@
 {
-    "pmodStage": {
+    "PMODStg": {
         "Carts": {
             "customerAccountNumber": "214315",
             "distributionCenter": "29",
@@ -15,7 +15,23 @@
             "sourceId": "MOBILE_APP"
         }
     },
-    "prod": {
+    "PMODQa2": {
+        "Carts": {
+            "customerAccountNumber": "104267",
+            "distributionCenter": "8",
+            "cin1": "5405444",
+            "qty1": 1,
+            "cin2": "5405444",
+            "qty2": 1,
+            "isC2Order": false,
+            "isFromSubmitOrder": false,
+            "orderId": "1633105322911",
+            "purchaseOrderMemo": "",
+            "purchaseOrderNumber": "Mobile-100121-215202",
+            "sourceId": "MOBILE_APP"
+        }
+    },
+    "Release": {
         "Carts": {
             "customerAccountNumber": "104267",
             "distributionCenter": "8",
