@@ -708,6 +708,28 @@ def static "ios_login.Login_Screen.verify_LoginPage_Details"() {
     (new ios_login.Login_Screen()).verify_LoginPage_Details()
 }
 
+ /**
+	 * Read JSON file 
+	 * @param file name, Note: data files are considered to be on Data files location on project directory  
+	 * @return the JSON file object 
+	 */ 
+def static "common.commonMethods.readFileTypeJSON"(
+    	String fileNameValue	) {
+    (new common.commonMethods()).readFileTypeJSON(
+        	fileNameValue)
+}
+
+ /**
+	 * random alpha numeric String Generator 
+	 * @param length, required string length 
+	 * @return alpha-numeric string  
+	 */ 
+def static "common.commonMethods.randomStringGenerator"(
+    	int length	) {
+    (new common.commonMethods()).randomStringGenerator(
+        	length)
+}
+
 
 def static "android_common_keywords.start_application.Custom"() {
     (new android_common_keywords.start_application()).Custom()
@@ -831,6 +853,26 @@ def static "android_dashboard.Dashboard_details_Screen.click_On_HomeTab"() {
 
 def static "android_dashboard.Dashboard_details_Screen.click_On_More_Options"() {
     (new android_dashboard.Dashboard_details_Screen()).click_On_More_Options()
+}
+
+
+def static "api.apiCommonMethods.createCartOrder"() {
+    (new api.apiCommonMethods()).createCartOrder()
+}
+
+
+def static "api.apiCommonMethods.fetchAccessToken"() {
+    (new api.apiCommonMethods()).fetchAccessToken()
+}
+
+
+def static "api.apiCommonMethods.readAPITestData"() {
+    (new api.apiCommonMethods()).readAPITestData()
+}
+
+
+def static "api.apiCommonMethods.tokenGenerator"() {
+    (new api.apiCommonMethods()).tokenGenerator()
 }
 
 

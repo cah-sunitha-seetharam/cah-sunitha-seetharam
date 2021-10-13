@@ -31,7 +31,12 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'11-487698'</initValue>
-      <name>Account</name>
+      <initValue>''</initValue>
+      <name>SmSession</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>accessToken</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

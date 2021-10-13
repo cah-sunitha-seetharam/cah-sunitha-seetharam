@@ -6,7 +6,7 @@
    <defaultProfile>false</defaultProfile>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'auto_ws_acute'</initValue>
+      <initValue>'auto_sanity_ri'</initValue>
       <name>Username</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
@@ -31,7 +31,12 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'15-728831'</initValue>
-      <name>Account</name>
+      <initValue>''</initValue>
+      <name>SmSession</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>accessToken</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>
