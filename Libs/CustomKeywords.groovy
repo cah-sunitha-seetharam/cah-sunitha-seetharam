@@ -38,20 +38,6 @@ def static "ios_dashboard.dashboard_details.Adding_Product_from_Dashboard_To_Car
 }
 
 
-def static "ios_inventory.Inventory_listing_Screen.click_On_Inventory"(
-    	String Inventory_Name	) {
-    (new ios_inventory.Inventory_listing_Screen()).click_On_Inventory(
-        	Inventory_Name)
-}
-
-
-def static "ios_inventory.Inventory_listing_Screen.delete_Inventory"(
-    	String Inventory_Name	) {
-    (new ios_inventory.Inventory_listing_Screen()).delete_Inventory(
-        	Inventory_Name)
-}
-
-
 def static "ios_inventory.Inventory_listing_Screen.change_Account"(
     	String New_Account	) {
     (new ios_inventory.Inventory_listing_Screen()).change_Account(
@@ -59,9 +45,23 @@ def static "ios_inventory.Inventory_listing_Screen.change_Account"(
 }
 
 
+def static "ios_inventory.Inventory_listing_Screen.click_On_Inventory"(
+    	String Inventory_Name	) {
+    (new ios_inventory.Inventory_listing_Screen()).click_On_Inventory(
+        	Inventory_Name)
+}
+
+
 def static "ios_inventory.Inventory_listing_Screen.create_Inventory"(
     	String Inventory_Name	) {
     (new ios_inventory.Inventory_listing_Screen()).create_Inventory(
+        	Inventory_Name)
+}
+
+
+def static "ios_inventory.Inventory_listing_Screen.delete_Inventory"(
+    	String Inventory_Name	) {
+    (new ios_inventory.Inventory_listing_Screen()).delete_Inventory(
         	Inventory_Name)
 }
 
@@ -462,6 +462,17 @@ def static "ios_inventory.Location_details_Screen.edit_Location_Name"(
 }
 
 
+def static "ios_inventory.Location_details_Screen.click_On_ScanIcon_And_Add_Product"(
+    	String productName	
+     , 	String countType	
+     , 	String quantity	) {
+    (new ios_inventory.Location_details_Screen()).click_On_ScanIcon_And_Add_Product(
+        	productName
+         , 	countType
+         , 	quantity)
+}
+
+
 def static "ios_inventory.Location_details_Screen.add_Product_to_Location"(
     	String Location_Name	
      , 	String Product_Name	) {
@@ -521,6 +532,13 @@ def static "ios_inventory.Inventory_details_Screen.click_On_Location"(
 def static "ios_inventory.Inventory_details_Screen.delete_Location"(
     	String Location_Name	) {
     (new ios_inventory.Inventory_details_Screen()).delete_Location(
+        	Location_Name)
+}
+
+
+def static "ios_inventory.Inventory_details_Screen.delete_Location_With_Cost_LocationCount_Verification"(
+    	String Location_Name	) {
+    (new ios_inventory.Inventory_details_Screen()).delete_Location_With_Cost_LocationCount_Verification(
         	Location_Name)
 }
 
@@ -682,6 +700,13 @@ def static "ios_login.Login_Screen.select_Environment"() {
 }
 
 
+def static "ios_login.Login_Screen.select_type_Of_Testing"(
+    	String testingType	) {
+    (new ios_login.Login_Screen()).select_type_Of_Testing(
+        	testingType)
+}
+
+
 def static "ios_login.Login_Screen.enter_Username"() {
     (new ios_login.Login_Screen()).enter_Username()
 }
@@ -706,6 +731,11 @@ def static "ios_login.Login_Screen.click_On_Forgot_Password"() {
 
 def static "ios_login.Login_Screen.verify_LoginPage_Details"() {
     (new ios_login.Login_Screen()).verify_LoginPage_Details()
+}
+
+
+def static "ios_login.Login_Screen.select_type_Of_Testing"() {
+    (new ios_login.Login_Screen()).select_type_Of_Testing()
 }
 
 

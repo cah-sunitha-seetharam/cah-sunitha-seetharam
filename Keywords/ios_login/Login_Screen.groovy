@@ -45,6 +45,7 @@ class Login_Screen {
 	@Keyword()
 	def login(password) {
 
+		select_type_Of_Testing()
 		select_Environment()
 		enter_Username()
 		enter_Password(password)
@@ -57,9 +58,9 @@ class Login_Screen {
 	@Keyword()
 	def select_Environment() {
 
-		if (Mobile.verifyElementExist(findTestObject('iOS/LogIn/Environment_Selection_Screen/Environment Selection_Text'),5, FailureHandling.OPTIONAL)) {
+		if (Mobile.verifyElementExist(findTestObject('iOS/LogIn/Environment_Selection_Screen/environmentList_Button'),5, FailureHandling.OPTIONAL)) {
 
-			Mobile.tap(findTestObject('iOS/LogIn/Environment_Selection_Screen/Environment Selection_Text'), 0, FailureHandling.STOP_ON_FAILURE)
+			Mobile.tap(findTestObject('iOS/LogIn/Environment_Selection_Screen/environmentList_Button'), 0, FailureHandling.STOP_ON_FAILURE)
 
 			if(GlobalVariable.Environment=="PMODStg")
 
@@ -73,11 +74,24 @@ class Login_Screen {
 	}
 
 
+	@Keyword()
+	def select_type_Of_Testing(String testingType='Automation') {
+
+		if (Mobile.verifyElementExist(findTestObject('iOS/LogIn/Testing Type/testingMode_Button'),5, FailureHandling.OPTIONAL)) {
+
+			Mobile.tap(findTestObject('iOS/LogIn/Testing Type/testingMode_Button'), 0)
+
+			Mobile.tap(findTestObject('iOS/LogIn/Testing Type/testingType_Button',[('TEXT'):testingType]), 0)
+		}
+	}
+
 
 
 
 	@Keyword()
 	def enter_Username() {
+
+		Mobile.waitForElementPresent(findTestObject('iOS/LogIn/Login_Details_Screen/Login UserName_Button'), 0)
 
 		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/Login UserName_Button'), 0)
 

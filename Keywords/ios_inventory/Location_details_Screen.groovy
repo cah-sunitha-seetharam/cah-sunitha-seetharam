@@ -68,6 +68,36 @@ class Location_details_Screen {
 	}
 
 
+	@Keyword
+	def click_On_ScanIcon_And_Add_Product(String productName, String countType, String quantity) {
+
+		int w=1
+
+		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
+			WebUI.delay(w)
+		}
+
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/scan_Icon'), 0)
+
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/scanGray_Image'), 0)
+
+		Mobile.setText(findTestObject('iOS/Orders/Order Details Page/Scan Order/enterBarcode_TextField'), productName, 0)
+
+		if(countType=="Full Count") {
+			Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/fullCount_Button'), 0)
+		}
+		else {
+			Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/partialCount_Button'), 0)
+		}
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/done_Button'), 0)
+
+		Mobile.setText(findTestObject('iOS/Orders/Order Details Page/Scan Order/quantity_TextField'), quantity, 0)
+
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/done_Button'), 0)
+	}
+
+
+
 
 	@Keyword
 	def add_Product_to_Location(String Location_Name, String Product_Name) {
@@ -172,10 +202,13 @@ class Location_details_Screen {
 	@Keyword
 	def upload_Location() {
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Upload_Order/Upload_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Upload_Order/enabledUploadLocation_Button'), 0)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Upload_Order/Got it_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details_Screen/Upload_Order/disbaledUploadLocation_Button'), 0)
 	}
+
 
 
 	@Keyword
