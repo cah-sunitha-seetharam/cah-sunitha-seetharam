@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>Verify that the user is able to Upload the Location from Location details page</name>
-   <tag></tag>
+   <name>TC_R_007_Verify that the user is able to Upload the Location from Location details page</name>
+   <tag>Inventory-Regression-Scan</tag>
    <comment></comment>
    <testCaseGuid>a36d765b-0edd-48c6-a72c-8170f26025a6</testCaseGuid>
    <variable>

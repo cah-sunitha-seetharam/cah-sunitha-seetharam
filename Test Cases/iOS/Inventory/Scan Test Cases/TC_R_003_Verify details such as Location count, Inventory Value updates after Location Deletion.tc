@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>Verify details such as Location count, Inventory Value updates after Location Deletion</name>
-   <tag></tag>
+   <name>TC_R_003_Verify details such as Location count, Inventory Value updates after Location Deletion</name>
+   <tag>Inventory-Regression-Scan</tag>
    <comment></comment>
    <testCaseGuid>bff47d1a-738e-4ab5-be5b-e8f4064a83e1</testCaseGuid>
    <variable>

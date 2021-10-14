@@ -537,9 +537,9 @@ def static "ios_inventory.Inventory_details_Screen.delete_Location"(
 
 
 def static "ios_inventory.Inventory_details_Screen.delete_Location_With_Cost_LocationCount_Verification"(
-    	String Location_Name	) {
+    	String locationName	) {
     (new ios_inventory.Inventory_details_Screen()).delete_Location_With_Cost_LocationCount_Verification(
-        	Location_Name)
+        	locationName)
 }
 
 

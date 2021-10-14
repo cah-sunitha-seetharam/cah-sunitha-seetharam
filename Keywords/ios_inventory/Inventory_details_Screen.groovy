@@ -114,7 +114,7 @@ class Inventory_details_Screen extends Inventory_listing_Screen {
 
 
 	@Keyword
-	def delete_Location_With_Cost_LocationCount_Verification(String Location_Name) {
+	def delete_Location_With_Cost_LocationCount_Verification(String locationName) {
 
 		int initialInventoryLocationCount=Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/inventoryLine_Text'), 0)
 
@@ -142,7 +142,7 @@ class Inventory_details_Screen extends Inventory_listing_Screen {
 
 		float locationValue_dollarSymbolRemoved_FloatValue=Float.parseFloat(locationValue_charactersRemoved)
 
-		(new ios_inventory.Inventory_details_Screen()).delete_Location(Location_Name)
+		(new ios_inventory.Inventory_details_Screen()).delete_Location(locationName)
 
 		Mobile.tap(findTestObject('Object Repository/iOS/Product_Search/Back_ImageView'), 0)
 
