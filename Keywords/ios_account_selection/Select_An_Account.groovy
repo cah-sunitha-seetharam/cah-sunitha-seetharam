@@ -38,27 +38,23 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.webui.exception.WebElementNotFoundException
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
-
 class Select_An_Account {
 
+	/**
+	 * selects the account from the accounts list
+	 * @param accountNo
+	 */
 	@Keyword
-	def Custom(String account_No) {
+	def Custom(String accountNo) {
 
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 
-
-		int w = 1
-
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
 		Mobile.waitForElementPresent(findTestObject('iOS/Account_Selection/You must select an account to continue_Text'), 0)
 
 		Mobile.scrollToText(GlobalVariable.Account, FailureHandling.STOP_ON_FAILURE)
 
 		Mobile.tap(findTestObject('iOS/Account_Selection/AccountNo_Text', [('val') : GlobalVariable.Account]), 0)
 
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 	}
 }

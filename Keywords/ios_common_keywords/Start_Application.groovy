@@ -21,7 +21,10 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable
 
 class  Start_Application {
-
+	
+	/**
+	 * starts the application
+	 */
 	@Keyword
 	def custom() {
 

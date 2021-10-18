@@ -41,16 +41,17 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 class Go_To_Inventory_Listing_Screen {
 
-	@Keyword(keywordObject="android_more_options_screen")
+	
+	/**
+	 * opens the inventory listing screen
+	 */
+	@Keyword()
 	def Custom() {
 
 
-		int w = 2
-
 		Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Verification Details/openInventory_TextView'), 0)
 
-		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+
 	}
 }

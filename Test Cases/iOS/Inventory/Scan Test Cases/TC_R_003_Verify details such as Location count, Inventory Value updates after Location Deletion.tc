@@ -6,57 +6,43 @@
    <comment></comment>
    <testCaseGuid>bff47d1a-738e-4ab5-be5b-e8f4064a83e1</testCaseGuid>
    <variable>
-      <defaultValue>'11-487698'</defaultValue>
-      <description></description>
-      <id>f022fbf5-e2e6-49e2-80b6-b4d5a7000e20</id>
-      <masked>false</masked>
-      <name>Account</name>
-   </variable>
-   <variable>
-      <defaultValue>'Cardinal1'</defaultValue>
-      <description></description>
-      <id>77e69ff5-544f-4ebe-9ada-f060578ad207</id>
-      <masked>false</masked>
-      <name>Password</name>
-   </variable>
-   <variable>
       <defaultValue>'KatalonInvv'</defaultValue>
-      <description></description>
+      <description>name of the inventory to be created</description>
       <id>ce83d0f6-b64d-43cc-895c-80196da8aeda</id>
       <masked>false</masked>
       <name>Inventory_Name</name>
    </variable>
    <variable>
       <defaultValue>'TANJIROU'</defaultValue>
-      <description></description>
+      <description>name of the location to be created</description>
       <id>c59ccf31-587f-41a9-9175-93cbf4fbbec2</id>
       <masked>false</masked>
       <name>Location_Name</name>
    </variable>
    <variable>
-      <defaultValue>'Last Price'</defaultValue>
-      <description></description>
+      <defaultValue>'Current Price'</defaultValue>
+      <description>cost type can be last price or current price paid</description>
       <id>84f98b23-4002-4e66-b71e-94345f408d3e</id>
       <masked>false</masked>
       <name>Cost_Type</name>
    </variable>
    <variable>
       <defaultValue>'4023347'</defaultValue>
-      <description></description>
+      <description>name of the product to be added</description>
       <id>2e611427-268d-407b-b111-7ae86edd5481</id>
       <masked>false</masked>
       <name>Product_Name</name>
    </variable>
    <variable>
       <defaultValue>'Partial Count'</defaultValue>
-      <description></description>
+      <description>count type can be partial or full count</description>
       <id>0210c2ac-bb12-441b-9aba-03a07f499035</id>
       <masked>false</masked>
       <name>Count_Type</name>
    </variable>
    <variable>
       <defaultValue>'3'</defaultValue>
-      <description></description>
+      <description>quantity required to be added</description>
       <id>8ee2221e-9395-4244-bf44-a49eadcb1b81</id>
       <masked>false</masked>
       <name>Quantity</name>

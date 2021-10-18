@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MobileElementEntity>
    <description></description>
-   <name>Environment_Button</name>
+   <name>environment_Button</name>
    <tag></tag>
    <elementGuidId>ef3b6a3f-2f35-4c42-b0e5-42ec87772d42</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>

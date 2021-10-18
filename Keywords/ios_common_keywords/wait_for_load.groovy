@@ -22,13 +22,31 @@ import internal.GlobalVariable
 
 class  wait_for_load {
 
-	@Keyword(keywordObject="common_keywords")
-	def Custom() {
+	/**
+	 * waits until the page loads
+	 */
+	@Keyword()
+	def waitForPageLoad() {
 
-		int w = 1
+		String testObject='iOS/Product_Search/Progress_Bar'
+		(new ios_common_keywords.wait_for_load()).waitTimeProgressBar(testObject,1,20)
+	}
 
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
+
+	
+	/**
+	 * waits until the progressBar is there
+	 * @param testObj,waitTime,waitLimit
+	 */
+	@Keyword()
+	def waitTimeProgressBar(testObj, int waitTime, int waitLimit) {
+
+		int counter=0
+
+		while (Mobile.verifyElementExist(findTestObject(testObj), waitTime, FailureHandling.OPTIONAL)) {
+			WebUI.delay(waitTime)
+			counter+=1
+			assert counter<waitLimit
 		}
 	}
 }

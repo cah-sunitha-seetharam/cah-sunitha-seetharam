@@ -42,19 +42,25 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 class Login_Screen {
 
 
+	/**
+	 * performs login function
+	 * @param username,password
+	 */
 	@Keyword()
-	def login(password) {
+	def login(username,password) {
 
 		select_type_Of_Testing()
 		select_Environment()
-		enter_Username()
+		enter_Username(username)
 		enter_Password(password)
 		click_On_SignIn_Button()
 	}
 
 
 
-
+	/**
+	 * selects the environment
+	 */
 	@Keyword()
 	def select_Environment() {
 
@@ -74,6 +80,11 @@ class Login_Screen {
 	}
 
 
+
+	/**
+	 * selects type of testing
+	 * @param testingType
+	 */
 	@Keyword()
 	def select_type_Of_Testing(String testingType='Automation') {
 
@@ -87,33 +98,43 @@ class Login_Screen {
 
 
 
-
+	/**
+	 * enters the username
+	 * @param username
+	 */
 	@Keyword()
-	def enter_Username() {
+	def enter_Username(String username) {
 
-		Mobile.waitForElementPresent(findTestObject('iOS/LogIn/Login_Details_Screen/Login UserName_Button'), 0)
+		Mobile.waitForElementPresent(findTestObject('iOS/LogIn/Login_Details_Screen/loginUserName_Button'), 0)
 
-		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/Login UserName_Button'), 0)
+		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/loginUserName_Button'), 0)
 
-		Mobile.setText(findTestObject('iOS/LogIn/Login_Details_Screen/UserName_Text_Field'), GlobalVariable.Username, 0)
+		Mobile.setText(findTestObject('iOS/LogIn/Login_Details_Screen/userName_TextField'), username, 0)
 
-		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/LoginBar-ButtonDown'), 0)
+		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/loginBar_buttonDown'), 0)
 	}
 
 
 
 
+	/**
+	 * enters the password
+	 * @param password
+	 */
 	@Keyword()
 	def enter_Password(String password) {
 
-		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/Password-Button'), 0)
+		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/password_Button'), 0)
 
-		Mobile.setText(findTestObject('iOS/LogIn/Login_Details_Screen/Password-Secure_Text_Field'), password, 0)
+		Mobile.setText(findTestObject('iOS/LogIn/Login_Details_Screen/passwordSecure_TextField'), password, 0)
 	}
 
 
 
-
+	/**
+	 * clicks on signIn button
+	 * @param password
+	 */
 	@Keyword()
 	def click_On_SignIn_Button() {
 
@@ -122,7 +143,9 @@ class Login_Screen {
 
 
 
-
+	/**
+	 * clicks on forget password button
+	 */
 	@Keyword()
 	def click_On_Forgot_Password() {
 
@@ -131,16 +154,18 @@ class Login_Screen {
 
 
 
-
+	/**
+	 * verifies the details of login Page
+	 */
 	@Keyword()
 	def verify_LoginPage_Details() {
 
 
-		Mobile.verifyElementExist(findTestObject('iOS/LogIn/Login_Details_Screen/Forget_Password_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/LogIn/Login_Details_Screen/forgetPassword_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/LogIn/Login_Details_Screen/Welcome_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/LogIn/Login_Details_Screen/welcome_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/LogIn/Login_Details_Screen/Order Express_Logo'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/LogIn/Login_Details_Screen/orderExpress_Logo'), 0)
 	}
 }
 

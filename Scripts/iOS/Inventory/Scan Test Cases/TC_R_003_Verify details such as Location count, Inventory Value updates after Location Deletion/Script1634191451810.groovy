@@ -19,9 +19,9 @@ import org.openqa.selenium.Keys as Keys
 
 CustomKeywords.'ios_common_keywords.Start_Application.custom'()
 
-CustomKeywords.'ios_login.Login_Screen.login'(Password)
+CustomKeywords.'ios_login.Login_Screen.login'(GlobalVariable.Username, GlobalVariable.Password)
 
-CustomKeywords.'ios_account_selection.Select_An_Account.Custom'(Account)
+CustomKeywords.'ios_account_selection.Select_An_Account.Custom'(GlobalVariable.Account)
 
 CustomKeywords.'ios_dashboard.dashboard_details.click_On_More_Options'()
 

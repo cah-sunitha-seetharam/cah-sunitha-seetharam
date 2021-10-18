@@ -6,64 +6,43 @@
    <comment></comment>
    <testCaseGuid>a36d765b-0edd-48c6-a72c-8170f26025a6</testCaseGuid>
    <variable>
-      <defaultValue>'Cardinal1'</defaultValue>
-      <description></description>
-      <id>e9afa028-56d1-4071-9ac2-d92082e422c5</id>
-      <masked>false</masked>
-      <name>Password</name>
-   </variable>
-   <variable>
       <defaultValue>'KatalonInvv'</defaultValue>
-      <description></description>
+      <description>name of the inventory to be created</description>
       <id>8232e0b3-cfea-4b9e-a4e5-181289aaca40</id>
       <masked>false</masked>
       <name>Inventory_Name</name>
    </variable>
    <variable>
       <defaultValue>'jujutsuu'</defaultValue>
-      <description></description>
+      <description>name of the location to be created</description>
       <id>b0efaa64-5dcb-4229-9e31-e047521771b8</id>
       <masked>false</masked>
       <name>Location_Name</name>
    </variable>
    <variable>
-      <defaultValue>'4023347'</defaultValue>
-      <description></description>
-      <id>3e8eb048-9ede-49c0-8853-4f826e648887</id>
-      <masked>false</masked>
-      <name>Product_Name</name>
-   </variable>
-   <variable>
       <defaultValue>'Last Price'</defaultValue>
-      <description></description>
+      <description>cost type can be last price or current price paid</description>
       <id>3adde9a9-bb08-4ef9-a105-37f7359679dc</id>
       <masked>false</masked>
       <name>Cost_Type</name>
    </variable>
    <variable>
-      <defaultValue>'11-487698'</defaultValue>
-      <description></description>
-      <id>fd9cb911-f473-4748-8054-37b973a361cc</id>
+      <defaultValue>'4023347'</defaultValue>
+      <description>name of the product to be added</description>
+      <id>3e8eb048-9ede-49c0-8853-4f826e648887</id>
       <masked>false</masked>
-      <name>Account</name>
+      <name>Product_Name</name>
    </variable>
    <variable>
-      <defaultValue>'kaisen'</defaultValue>
-      <description></description>
-      <id>35bd1993-b85f-45ac-9b82-4b65398bef76</id>
-      <masked>false</masked>
-      <name>new_Location_Name</name>
-   </variable>
-   <variable>
-      <defaultValue>'Partial Count'</defaultValue>
-      <description></description>
+      <defaultValue>'Full Count'</defaultValue>
+      <description>count type can be partial or full count</description>
       <id>5e58e617-6a8b-4547-afb5-3b5b8ac6fa60</id>
       <masked>false</masked>
       <name>Count_Type</name>
    </variable>
    <variable>
       <defaultValue>'3'</defaultValue>
-      <description></description>
+      <description>quantity required to be added</description>
       <id>c851f6ff-9a3a-41b6-8d69-6457333668cd</id>
       <masked>false</masked>
       <name>Quantity</name>

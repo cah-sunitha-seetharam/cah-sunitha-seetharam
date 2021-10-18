@@ -41,68 +41,70 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 class Inventory_listing_Screen {
 
+	/**
+	 * changes the account
+	 * @param newAccount
+	 */
 	@Keyword
-	def change_Account(String New_Account) {
+	def change_Account(String newAccount) {
 
 
 		Mobile.tap(findTestObject('iOS/Account_Selection/Change Account_Text'), 0)
 
 		Mobile.tap(findTestObject('iOS/Account_Selection/Change_Account_Navigation'), 0)
 
-		Mobile.scrollToText(New_Account, FailureHandling.STOP_ON_FAILURE)
+		Mobile.scrollToText(newAccount, FailureHandling.STOP_ON_FAILURE)
 
-		Mobile.tap(findTestObject('iOS/Account_Selection/AccountNo_Text', [('val') : New_Account]), 0)
+		Mobile.tap(findTestObject('iOS/Account_Selection/AccountNo_Text', [('val') : newAccount]), 0)
 
-		int w = 1
-
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 	}
 
 
 
-
+	/**
+	 * opens the particular inventory details
+	 * @param inventoryName
+	 */
 	@Keyword
-	def click_On_Inventory(String Inventory_Name) {
+	def click_On_Inventory(String inventoryName) {
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Open Inventory Details/Open Inventory_Text', [('Inventory') : Inventory_Name]), 0)
+		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Open Inventory Details/Open Inventory_Text', [('Inventory') : inventoryName]), 0)
 	}
 
 
 
+	/**
+	 * creates a new inventory
+	 * @param inventoryName
+	 */
 	@Keyword
-	def create_Inventory(String Inventory_Name) {
+	def create_Inventory(String inventoryName) {
 
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Verification Details/Create_InventorySectionHeader'), 0)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Verification Details/Inventory Name_Text'), 0)
 
-		Mobile.setText(findTestObject('iOS/Inventory/Inventory Listing Screen/Verification Details/InventoryName TextField'), Inventory_Name,
-				0)
+		Mobile.setText(findTestObject('iOS/Inventory/Inventory Listing Screen/Verification Details/InventoryName TextField'), inventoryName,0)
 
 		Mobile.tapAndHold(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory_Screen/Return_Keypad_Button'), 0, 0)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory_Screen/Create Inventory_Text'), 0)
 
-		int w = 1
-
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 	}
 
 
 
+	/**
+	 * deletes the inventory
+	 * @param inventoryName
+	 */
 	@Keyword
-	def delete_Inventory(String Inventory_Name) {
+	def delete_Inventory(String inventoryName) {
 
-		int w = 1
-
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Delete Inventory/Slide_PopUpButton For Inventory Deletion'),0)
 
@@ -110,18 +112,18 @@ class Inventory_listing_Screen {
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Delete Inventory/Yes for Deletion_Text'), 0)
 
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 
-		Mobile.verifyElementNotVisible(findTestObject('iOS/Inventory/Inventory Details Screen/Open Inventory Details/Open Inventory_Text', [('Inventory') : Inventory_Name]),0)
+		Mobile.verifyElementNotVisible(findTestObject('iOS/Inventory/Inventory Details Screen/Open Inventory Details/Open Inventory_Text', [('Inventory') : inventoryName]),0)
 	}
 
-	
-	
-	
 
 
+
+
+	/**
+	 * verifies details of inventory listing screen
+	 */
 	@Keyword
 	def verify_Inventory_Listing_Screen() {
 

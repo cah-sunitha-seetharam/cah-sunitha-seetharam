@@ -41,16 +41,21 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 class Location_details_Screen {
 
+
+	/**
+	 * edits the location name based on cost type of last price or current price
+	 * @param newLocationName,costType
+	 */
 	@Keyword
-	def edit_Location_Name(String New_Location_Name,String CostType) {
+	def edit_Location_Name(String newLocationName,String costType) {
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Edit_Location Name/Edit Location_Text'), 0)
 
 		Mobile.clearText(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName_TextField'), 0)
 
-		Mobile.setText(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName_TextField'), New_Location_Name, 0)
+		Mobile.setText(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName_TextField'), newLocationName, 0)
 
-		if (CostType == 'Last Price Paid') {
+		if (costType == 'Last Price Paid') {
 			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/Last Price_Button'), 0)
 		} else {
 			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/Current Price_Button'), 0)
@@ -58,24 +63,21 @@ class Location_details_Screen {
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Copy Product from Location/Save Changes_Text'), 0)
 
-		int w = 1
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
-
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName Verification_Text', [('LName') : New_Location_Name]),0)
+		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName Verification_Text', [('LName') : newLocationName]),0)
 	}
 
 
+
+	/**
+	 * taps on scan and adds product based on count type of partial or full count
+	 * @param productName,countType,quantity
+	 */
 	@Keyword
 	def click_On_ScanIcon_And_Add_Product(String productName, String countType, String quantity) {
 
-		int w=1
-
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/scan_Icon'), 0)
 
@@ -98,95 +100,89 @@ class Location_details_Screen {
 
 
 
-
+	/**
+	 * adds products to a location
+	 * @param locationName,countType,productName
+	 */
 	@Keyword
-	def add_Product_to_Location(String Location_Name, String Product_Name) {
-		int w = 1
+	def add_Product_to_Location(String locationName, String productName) {
 
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 
 		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Product SearchField'), 0, 0)
 
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
-		Mobile.setText(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Product SearchField'), Product_Name, 0)
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+
+		Mobile.setText(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Product SearchField'), productName, 0)
 
 		Mobile.tapAndHold(findTestObject('iOS/Product_Search/Search Key_Button'), 0, 0)
 
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Add Product to Location_Text', [('Location') : Location_Name]),
-		0)
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Add Product to Location_Text', [('Location') : locationName]),0)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Continue Browsing After Adding Product_Text'), 0)
 	}
 
 
 
+
+	/**
+	 * moves products to another location
+	 * @param locationName
+	 */
 	@Keyword
-	def move_Product_to_Another_Location(String Location_Name) {
+	def move_Product_to_Another_Location(String locationName) {
 
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Delete_Location/Slide_PopUp_Button for Location Deletion'), 0)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Move Product to Another Location/Move_Product_Text'), 0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Copy Product from Location/Move or Copy to Location_Text', [('Location') : Location_Name]),0)
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Copy Product from Location/Move or Copy to Location_Text', [('Location') : locationName]),0)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Move Product to Another Location/Move_Product_Text'), 0)
 
-		int w = 1
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Copy Product from Location/Go to Location after Move or Copy or Adding Product_Text', [('Location') : locationName]),0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Copy Product from Location/Go to Location after Move or Copy or Adding Product_Text', [('Location') : Location_Name]),0)
-
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 	}
 
 
 
+
+	/**
+	 * copies products to another location
+	 * @param locationName
+	 */
 	@Keyword
-	def copy_Product_to_Another_Location(String Location_Name) {
+	def copy_Product_to_Another_Location(String locationName) {
 
-		int w = 1
-
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Delete_Location/Slide_PopUp_Button for Location Deletion'), 0)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Copy Product from Location/Copy_Product_Text'), 0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Copy Product from Location/Move or Copy to Location_Text', [('Location') : Location_Name]), 0)
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Copy Product from Location/Move or Copy to Location_Text', [('Location') : locationName]), 0)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Copy Product from Location/Copy_Product_Text'), 0)
 
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Copy Product from Location/Go to Location after Move or Copy or Adding Product_Text', [('Location') : locationName]),0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Copy Product from Location/Go to Location after Move or Copy or Adding Product_Text', [('Location') : Location_Name]),0)
-
-
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 	}
 
 
 
+	/**
+	 * deletes products from a location
+	 * @param locationName
+	 */
 	@Keyword
 	def delete_Product() {
 
@@ -199,20 +195,28 @@ class Location_details_Screen {
 
 
 
+	/**
+	 * uploads location
+	 * @param locationName
+	 */
 	@Keyword
 	def upload_Location() {
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Upload_Order/enabledUploadLocation_Button'), 0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Upload_Order/Got it_Text'), 0)
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Upload_Order/gotIt_Text'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details_Screen/Upload_Order/disbaledUploadLocation_Button'), 0)
 	}
 
 
 
+	/**
+	 * verifies details of location details screen
+	 * @param locationName
+	 */
 	@Keyword
-	def verify_Location_details_Screen(String Location_Name) {
+	def verify_Location_details_Screen(String locationName) {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Verification Details/Inventory Header_Label'), 0)
 
@@ -222,6 +226,6 @@ class Location_details_Screen {
 
 		//	Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/Created on Date_Text'),0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/Location Title_Label',[('TEXT'):Location_Name]),  0)
+		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/Location Title_Label',[('TEXT'):locationName]),  0)
 	}
 }

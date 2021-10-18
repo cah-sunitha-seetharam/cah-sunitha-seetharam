@@ -41,6 +41,9 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 class dashboard_details {
 
+	/**
+	 * opens orders tab
+	 */
 	@Keyword
 	def click_On_Orders() {
 
@@ -48,7 +51,9 @@ class dashboard_details {
 	}
 
 
-
+	/**
+	 * opens home tab
+	 */
 	@Keyword
 	def click_On_HomeTab() {
 
@@ -57,7 +62,9 @@ class dashboard_details {
 	}
 
 
-
+	/**
+	 * opens moreOptions tab
+	 */
 	@Keyword
 	def click_On_More_Options() {
 
@@ -67,38 +74,39 @@ class dashboard_details {
 
 
 
-
+	/**
+	 * changes the account
+	 * @param newAccount
+	 */
 	@Keyword
-	def Change_Account(String new_Account) {
+	def Change_Account(String newAccount) {
 
 
 		Mobile.tap(findTestObject('iOS/Account_Selection/Change Account_Text'), 0)
 
 		Mobile.tap(findTestObject('iOS/Account_Selection/Change_Account_Navigation'), 0)
 
-		Mobile.scrollToText(new_Account, FailureHandling.STOP_ON_FAILURE)
+		Mobile.scrollToText(newAccount, FailureHandling.STOP_ON_FAILURE)
 
-		Mobile.tap(findTestObject('iOS/Account_Selection/AccountNo_Text', [('val') : new_Account]), 0)
+		Mobile.tap(findTestObject('iOS/Account_Selection/AccountNo_Text', [('val') : newAccount]), 0)
 	}
 
 
 
+	/**
+	 * adds the product from dashboard
+	 * @param productName,quantity
+	 */
 	@Keyword
-	def Adding_Product_from_Dashboard_To_Cart(String product_Name, String quantity) {
+	def Adding_Product_from_Dashboard_To_Cart(String productName, String quantity) {
 
-		int w = 1
-
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 
 		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Product SearchField'), 0, 0)
 
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 
-		Mobile.setText(findTestObject('iOS/Product_Search/Product SearchField'), product_Name, 0)
+		Mobile.setText(findTestObject('iOS/Product_Search/Product SearchField'), productName, 0)
 
 		Mobile.tapAndHold(findTestObject('iOS/Product_Search/Search Key_Button'), 0, 0)
 
