@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MobileElementEntity>
    <description></description>
-   <name>Yes_Text</name>
+   <name>yes_Text</name>
    <tag></tag>
    <elementGuidId>e42de49c-b090-4840-a88c-1ef5d7dd0961</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>

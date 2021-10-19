@@ -1,0 +1,21 @@
+{
+    "Release": {
+        "TC_R_003": {
+            "productSearchCin": "4023347",
+        },
+
+        "TC_R_007": {
+            "productSearchCin": "4023347",
+        }
+    },
+    
+    "PMODStg": {
+        "TC_R_003": {
+            "productSearchCin": "4023347",
+        },
+
+        "TC_R_007": {
+            "productSearchCin": "4023347",
+        }
+    }
+}

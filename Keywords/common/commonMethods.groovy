@@ -1,4 +1,4 @@
-package ios_more_options_screen
+package common
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
@@ -36,19 +36,46 @@ import com.kms.katalon.core.mobile.helper.MobileElementCommonHelper
 import com.kms.katalon.core.util.KeywordUtil
 
 import com.kms.katalon.core.webui.exception.WebElementNotFoundException
-import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
-import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+import com.kms.katalon.core.configuration.RunConfiguration
 
-class Go_To_Inventory_Listing_Screen {
+import groovy.json.JsonOutput as JsonOutput
+import groovy.json.JsonSlurper as JsonSlurper
+import java.io.File
 
-	@Keyword()
-	def Custom() {
+class commonMethods {
+
+	/**
+	 * random alpha numeric String Generator 
+	 * @param length, required string length 
+	 * @return alpha-numeric string  
+	 */
+	@Keyword
+	def static randomStringGenerator(int length) {
+		String alphabet = (('A'..'N') +('P'..'Z') +('a'..'k') +('m'..'z') +('2'..'9')).join()
+		def randomStringValue = new Random().with {
+			(1..length).collect { alphabet[nextInt(alphabet.length())] }.join()
+		}
+		return randomStringValue
+	}
+	/**
+	 * Read JSON file 
+	 * @param file name, Note: data files are considered to be on Data files location on project directory  
+	 * @return the JSON file object 
+	 */
+	@Keyword
 
 
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+	def static readFileTypeJSON(def String fileNameValue) {
+		String nameValue = fileNameValue
+		if (nameValue.size() < 1) {
+			println("Missing filename")
+			System.exit(1)
+		}
 
-		Mobile.tap(findTestObject('iOS/More Options Screen/Inventory Selection Under MoreOptions_Text'), 0)
-
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+		def jsonSlurper = new JsonSlurper()
+		println(RunConfiguration.getProjectDir())
+		def fileReference = new File(RunConfiguration.getProjectDir() + "/Data Files/" + nameValue)
+		def jsonObject = jsonSlurper.parse(fileReference)
+		return jsonObject
 	}
 }

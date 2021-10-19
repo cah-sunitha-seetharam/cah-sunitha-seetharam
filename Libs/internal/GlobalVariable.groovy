@@ -37,6 +37,16 @@ public class GlobalVariable {
     /**
      * <p></p>
      */
+    public static Object SmSession
+     
+    /**
+     * <p></p>
+     */
+    public static Object accessToken
+     
+    /**
+     * <p></p>
+     */
     public static Object Account
      
     /**
@@ -56,6 +66,8 @@ public class GlobalVariable {
             Environment = selectedVariables['Environment']
             Android_App_Path = selectedVariables['Android_App_Path']
             iOS_App_Path = selectedVariables['iOS_App_Path']
+            SmSession = selectedVariables['SmSession']
+            accessToken = selectedVariables['accessToken']
             Account = selectedVariables['Account']
             a = selectedVariables['a']
             

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MobileElementEntity>
    <description></description>
-   <name>Cancel_Text</name>
+   <name>cancel_Text</name>
    <tag></tag>
    <elementGuidId>191f6a92-62f8-4f5f-9f0f-2a32cf24a041</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>

@@ -88,6 +88,8 @@ class Login_Screen {
 	@Keyword()
 	def select_type_Of_Testing(String testingType='Automation') {
 
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+		
 		if (Mobile.verifyElementExist(findTestObject('iOS/LogIn/Testing Type/testingMode_Button'),5, FailureHandling.OPTIONAL)) {
 
 			Mobile.tap(findTestObject('iOS/LogIn/Testing Type/testingMode_Button'), 0)

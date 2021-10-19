@@ -19,6 +19,7 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 
 import internal.GlobalVariable
+import com.kms.katalon.core.util.KeywordUtil
 
 class  wait_for_load {
 
@@ -29,24 +30,27 @@ class  wait_for_load {
 	def waitForPageLoad() {
 
 		String testObject='iOS/Product_Search/Progress_Bar'
-		(new ios_common_keywords.wait_for_load()).waitTimeProgressBar(testObject,1,20)
+		(new ios_common_keywords.wait_for_load()).waitTimeForObjectToBeVisible(testObject,1,20) //waitTime of 1(s), waitLimit of 20(s)
 	}
 
 
-	
+
 	/**
-	 * waits until the progressBar is there
-	 * @param testObj,waitTime,waitLimit
+	 * waits until the object is visible on the screen
+	 * @param testObj (reference of the test Object),waitTime (time by which delay will be added in(s)),waitLimit (maximum limit of time for which delay can be added)
 	 */
 	@Keyword()
-	def waitTimeProgressBar(testObj, int waitTime, int waitLimit) {
+	def waitTimeForObjectToBeVisible(testObj, int waitTime, int waitLimit) {
 
-		int counter=0
+		int counter=0 //initial count value set to be 0
 
 		while (Mobile.verifyElementExist(findTestObject(testObj), waitTime, FailureHandling.OPTIONAL)) {
 			WebUI.delay(waitTime)
-			counter+=1
+			counter+=1 // count increases by 1 for each iteration
+			if(counter==waitLimit)
+				KeywordUtil.logInfo("waitLimt of "+ waitLimit +"(s) crossed and object is still visible") //logInfo
 			assert counter<waitLimit
 		}
+
 	}
 }

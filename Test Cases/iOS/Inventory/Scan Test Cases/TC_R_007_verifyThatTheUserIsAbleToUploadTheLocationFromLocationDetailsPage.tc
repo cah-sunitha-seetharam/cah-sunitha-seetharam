@@ -1,50 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>TC_R_007_Verify that the user is able to Upload the Location from Location details page</name>
+   <name>TC_R_007_verifyThatTheUserIsAbleToUploadTheLocationFromLocationDetailsPage</name>
    <tag>Inventory;Regression;Scan</tag>
    <comment></comment>
    <testCaseGuid>a36d765b-0edd-48c6-a72c-8170f26025a6</testCaseGuid>
    <variable>
-      <defaultValue>'KatalonInvv'</defaultValue>
-      <description>name of the inventory to be created</description>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of inventory to be created</description>
       <id>8232e0b3-cfea-4b9e-a4e5-181289aaca40</id>
       <masked>false</masked>
-      <name>Inventory_Name</name>
+      <name>inventoryNameLength</name>
    </variable>
    <variable>
-      <defaultValue>'jujutsuu'</defaultValue>
-      <description>name of the location to be created</description>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of location to be created</description>
       <id>b0efaa64-5dcb-4229-9e31-e047521771b8</id>
       <masked>false</masked>
-      <name>Location_Name</name>
+      <name>locationNameLength</name>
    </variable>
    <variable>
       <defaultValue>'Last Price'</defaultValue>
       <description>cost type can be last price or current price paid</description>
       <id>3adde9a9-bb08-4ef9-a105-37f7359679dc</id>
       <masked>false</masked>
-      <name>Cost_Type</name>
-   </variable>
-   <variable>
-      <defaultValue>'4023347'</defaultValue>
-      <description>name of the product to be added</description>
-      <id>3e8eb048-9ede-49c0-8853-4f826e648887</id>
-      <masked>false</masked>
-      <name>Product_Name</name>
+      <name>costType</name>
    </variable>
    <variable>
       <defaultValue>'Full Count'</defaultValue>
       <description>count type can be partial or full count</description>
       <id>5e58e617-6a8b-4547-afb5-3b5b8ac6fa60</id>
       <masked>false</masked>
-      <name>Count_Type</name>
+      <name>countType</name>
    </variable>
    <variable>
       <defaultValue>'3'</defaultValue>
       <description>quantity required to be added</description>
       <id>c851f6ff-9a3a-41b6-8d69-6457333668cd</id>
       <masked>false</masked>
-      <name>Quantity</name>
+      <name>quantity</name>
    </variable>
 </TestCaseEntity>

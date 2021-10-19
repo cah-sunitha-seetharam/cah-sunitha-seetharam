@@ -42,8 +42,8 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 class Inventory_listing_Screen {
 
 	/**
-	 * changes the account
-	 * @param newAccount
+	 * switches to another user account
+	 * @param newAccount (account no to which the user should switch)
 	 */
 	@Keyword
 	def change_Account(String newAccount) {
@@ -64,7 +64,7 @@ class Inventory_listing_Screen {
 
 	/**
 	 * opens the particular inventory details
-	 * @param inventoryName
+	 * @param inventoryName (name which was given to the inventory)
 	 */
 	@Keyword
 	def click_On_Inventory(String inventoryName) {
@@ -76,7 +76,7 @@ class Inventory_listing_Screen {
 
 	/**
 	 * creates a new inventory
-	 * @param inventoryName
+	 * @param inventoryName (name required for the new inventory)
 	 */
 	@Keyword
 	def create_Inventory(String inventoryName) {
@@ -99,14 +99,26 @@ class Inventory_listing_Screen {
 
 	/**
 	 * deletes the inventory
-	 * @param inventoryName
+	 * @param inventoryName (inventory name of the inventory which needs to be deleted)
 	 */
 	@Keyword
 	def delete_Inventory(String inventoryName) {
 
 		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Delete Inventory/Slide_PopUpButton For Inventory Deletion'),0)
+		int ElementTopPosition = Mobile.getElementTopPosition(findTestObject('iOS/Inventory/Inventory Details Screen/Open Inventory Details/Open Inventory_Text', [('Inventory') : inventoryName]), 0)
+
+		int ElementHeight=Mobile.getElementHeight(findTestObject('iOS/Inventory/Inventory Details Screen/Open Inventory Details/Open Inventory_Text', [('Inventory') : inventoryName]), 0)
+
+		int y_Coordinate=(ElementHeight/2)+ElementTopPosition
+
+		int ElementLeftPosition=Mobile.getElementLeftPosition(findTestObject('iOS/Inventory/Inventory Listing Screen/Delete Inventory/Slide_PopUpButton For Inventory Deletion'), 0)
+
+		int ElementWidth=Mobile.getElementWidth(findTestObject('iOS/Inventory/Inventory Listing Screen/Delete Inventory/Slide_PopUpButton For Inventory Deletion'), 0)
+
+		int x_Coordinate=(ElementWidth/2)+ElementLeftPosition
+
+		Mobile.tapAtPosition(x_Coordinate, y_Coordinate)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Delete Inventory/Delete Inventory_Text'), 0)
 

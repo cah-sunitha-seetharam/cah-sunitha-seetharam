@@ -101,7 +101,7 @@ class Order_details_Screen {
 
 		Mobile.tap(findTestObject('iOS/Orders/Cart Page/Place All Orders/Done_Keypad'), 0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Dashoboard/Add to Order_Text'), 0)
+		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Dashoboard/addToOrder_Text'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Confirmation_Text'), 0)
 

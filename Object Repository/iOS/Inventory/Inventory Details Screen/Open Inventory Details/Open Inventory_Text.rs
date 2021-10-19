@@ -3,7 +3,7 @@
    <description></description>
    <name>Open Inventory_Text</name>
    <tag></tag>
-   <elementGuidId>a9c65caa-384e-43a5-87ed-70f3a718fcba</elementGuidId>
+   <elementGuidId>5fc83aac-e1e3-4dc0-9923-b9b0c77ee7af</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -49,7 +49,7 @@
       <value>${Inventory}</value>
    </webElementProperties>
    <webElementProperties>
-      <isSelected>true</isSelected>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>name</name>
       <type>Main</type>
@@ -90,6 +90,6 @@
       <type>Main</type>
       <value>//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[2]</value>
    </webElementProperties>
-   <locator>//*[@type = 'XCUIElementTypeStaticText' and @label = '${Inventory}' and @name = 'nameLabel']</locator>
+   <locator>//*[@type = 'XCUIElementTypeStaticText' and @label = '${Inventory}']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

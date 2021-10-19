@@ -43,36 +43,34 @@ class Location_details_Screen {
 
 
 	/**
-	 * edits the location name based on cost type of last price or current price
-	 * @param newLocationName,costType
+	 * adds products to a location
+	 * @param locationName (name of the location),productName (name of the product to be added)
 	 */
 	@Keyword
-	def edit_Location_Name(String newLocationName,String costType) {
-
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Edit_Location Name/Edit Location_Text'), 0)
-
-		Mobile.clearText(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName_TextField'), 0)
-
-		Mobile.setText(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName_TextField'), newLocationName, 0)
-
-		if (costType == 'Last Price Paid') {
-			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/Last Price_Button'), 0)
-		} else {
-			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/Current Price_Button'), 0)
-		}
-
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Copy Product from Location/Save Changes_Text'), 0)
+	def add_Product_to_Location(String locationName, String productName) {
 
 		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName Verification_Text', [('LName') : newLocationName]),0)
+		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Product SearchField'), 0, 0)
+
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+
+		Mobile.setText(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Product SearchField'), productName, 0)
+
+		Mobile.tapAndHold(findTestObject('iOS/Product_Search/Search Key_Button'), 0, 0)
+
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Add Product to Location_Text', [('Location') : locationName]),0)
+
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Continue Browsing After Adding Product_Text'), 0)
 	}
 
 
 
 	/**
 	 * taps on scan and adds product based on count type of partial or full count
-	 * @param productName,countType,quantity
+	 * @param productName (name of the product to be added),countType (count type required which can be partial or full count),quantity (quantity of the product required to be added)
 	 */
 	@Keyword
 	def click_On_ScanIcon_And_Add_Product(String productName, String countType, String quantity) {
@@ -101,61 +99,8 @@ class Location_details_Screen {
 
 
 	/**
-	 * adds products to a location
-	 * @param locationName,countType,productName
-	 */
-	@Keyword
-	def add_Product_to_Location(String locationName, String productName) {
-
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
-
-		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Product SearchField'), 0, 0)
-
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
-
-		Mobile.setText(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Product SearchField'), productName, 0)
-
-		Mobile.tapAndHold(findTestObject('iOS/Product_Search/Search Key_Button'), 0, 0)
-
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
-
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Add Product to Location_Text', [('Location') : locationName]),0)
-
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Continue Browsing After Adding Product_Text'), 0)
-	}
-
-
-
-
-	/**
-	 * moves products to another location
-	 * @param locationName
-	 */
-	@Keyword
-	def move_Product_to_Another_Location(String locationName) {
-
-
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Delete_Location/Slide_PopUp_Button for Location Deletion'), 0)
-
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Move Product to Another Location/Move_Product_Text'), 0)
-
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Copy Product from Location/Move or Copy to Location_Text', [('Location') : locationName]),0)
-
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Move Product to Another Location/Move_Product_Text'), 0)
-
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
-
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Copy Product from Location/Go to Location after Move or Copy or Adding Product_Text', [('Location') : locationName]),0)
-
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
-	}
-
-
-
-
-	/**
 	 * copies products to another location
-	 * @param locationName
+	 * @param locationName (name of the location to which product will be copied)
 	 */
 	@Keyword
 	def copy_Product_to_Another_Location(String locationName) {
@@ -179,9 +124,9 @@ class Location_details_Screen {
 
 
 
+
 	/**
-	 * deletes products from a location
-	 * @param locationName
+	 * deletes a product from a location
 	 */
 	@Keyword
 	def delete_Product() {
@@ -195,9 +140,62 @@ class Location_details_Screen {
 
 
 
+
+	/**
+	 * edits the location name based on cost type of last price or current price
+	 * @param newLocationName (new name of the location),costType (cost type required which can be current or last price paid)
+	 */
+	@Keyword
+	def edit_Location_Name(String newLocationName,String costType) {
+
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Edit_Location Name/Edit Location_Text'), 0)
+
+		Mobile.clearText(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName_TextField'), 0)
+
+		Mobile.setText(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName_TextField'), newLocationName, 0)
+
+		if (costType == 'Last Price Paid') {
+			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/lastPrice_Button'), 0)
+		} else {
+			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/currentPrice_Button'), 0)
+		}
+
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Copy Product from Location/Save Changes_Text'), 0)
+
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+
+		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/locationNameVerification_Text', [('LName') : newLocationName]),0)
+	}
+
+
+
+	/**
+	 * moves products to another location
+	 * @param locationName (name of the location to which product will be moved)
+	 */
+	@Keyword
+	def move_Product_to_Another_Location(String locationName) {
+
+
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Delete_Location/Slide_PopUp_Button for Location Deletion'), 0)
+
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Move Product to Another Location/Move_Product_Text'), 0)
+
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Copy Product from Location/Move or Copy to Location_Text', [('Location') : locationName]),0)
+
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Move Product to Another Location/Move_Product_Text'), 0)
+
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Copy Product from Location/Go to Location after Move or Copy or Adding Product_Text', [('Location') : locationName]),0)
+
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+	}
+
+
+
 	/**
 	 * uploads location
-	 * @param locationName
 	 */
 	@Keyword
 	def upload_Location() {
@@ -213,7 +211,7 @@ class Location_details_Screen {
 
 	/**
 	 * verifies details of location details screen
-	 * @param locationName
+	 * @param locationName (name of the location under verification)
 	 */
 	@Keyword
 	def verify_Location_details_Screen(String locationName) {

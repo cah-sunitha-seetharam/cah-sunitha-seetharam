@@ -22,17 +22,14 @@ import internal.GlobalVariable
 
 class  Go_Back {
 
-	@Keyword(keywordObject="common_keywords")
+	@Keyword()
 	def Custom() {
 
 
-		
-		int w = 2
 
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
-		
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+
+
 		if (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Back_Text'), 4,FailureHandling.OPTIONAL)) {
 
 			Mobile.tap(findTestObject('iOS/Product_Search/Back_Text'), 4,FailureHandling.OPTIONAL)
@@ -40,9 +37,8 @@ class  Go_Back {
 		else {
 			Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Back Button_Text'), 4)
 		}
-		
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
+
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+
 	}
 }

@@ -6,29 +6,41 @@
 import java.lang.String
 
 
-
+ /**
+	 * opens orders tab
+	 */ 
 def static "ios_dashboard.dashboard_details.click_On_Orders"() {
     (new ios_dashboard.dashboard_details()).click_On_Orders()
 }
 
-
+ /**
+	 * opens home tab
+	 */ 
 def static "ios_dashboard.dashboard_details.click_On_HomeTab"() {
     (new ios_dashboard.dashboard_details()).click_On_HomeTab()
 }
 
-
+ /**
+	 * opens moreOptions tab
+	 */ 
 def static "ios_dashboard.dashboard_details.click_On_More_Options"() {
     (new ios_dashboard.dashboard_details()).click_On_More_Options()
 }
 
-
+ /**
+	 * changes the account
+	 * @param newAccount
+	 */ 
 def static "ios_dashboard.dashboard_details.Change_Account"(
     	String newAccount	) {
     (new ios_dashboard.dashboard_details()).Change_Account(
         	newAccount)
 }
 
-
+ /**
+	 * adds the product from dashboard
+	 * @param productName,quantity
+	 */ 
 def static "ios_dashboard.dashboard_details.Adding_Product_from_Dashboard_To_Cart"(
     	String productName	
      , 	String quantity	) {
@@ -38,8 +50,8 @@ def static "ios_dashboard.dashboard_details.Adding_Product_from_Dashboard_To_Car
 }
 
  /**
-	 * changes the account
-	 * @param newAccount
+	 * switches to another user account
+	 * @param newAccount (account no to which the user should switch)
 	 */ 
 def static "ios_inventory.Inventory_listing_Screen.change_Account"(
     	String newAccount	) {
@@ -49,7 +61,7 @@ def static "ios_inventory.Inventory_listing_Screen.change_Account"(
 
  /**
 	 * opens the particular inventory details
-	 * @param inventoryName
+	 * @param inventoryName (name which was given to the inventory)
 	 */ 
 def static "ios_inventory.Inventory_listing_Screen.click_On_Inventory"(
     	String inventoryName	) {
@@ -59,7 +71,7 @@ def static "ios_inventory.Inventory_listing_Screen.click_On_Inventory"(
 
  /**
 	 * creates a new inventory
-	 * @param inventoryName
+	 * @param inventoryName (name required for the new inventory)
 	 */ 
 def static "ios_inventory.Inventory_listing_Screen.create_Inventory"(
     	String inventoryName	) {
@@ -69,7 +81,7 @@ def static "ios_inventory.Inventory_listing_Screen.create_Inventory"(
 
  /**
 	 * deletes the inventory
-	 * @param inventoryName
+	 * @param inventoryName (inventory name of the inventory which needs to be deleted)
 	 */ 
 def static "ios_inventory.Inventory_listing_Screen.delete_Inventory"(
     	String inventoryName	) {
@@ -89,7 +101,9 @@ def static "ios_common_keywords.Inventory_Error.Custom"() {
     (new ios_common_keywords.Inventory_Error()).Custom()
 }
 
-
+ /**
+	 * starts the application
+	 */ 
 def static "ios_common_keywords.Start_Application.custom"() {
     (new ios_common_keywords.Start_Application()).custom()
 }
@@ -463,45 +477,20 @@ def static "ios_account_selection.Change_Account.Custom"(
         	New_Account)
 }
 
- /**
-	 * waits until the page loads
-	 */ 
+
 def static "ios_common_keywords.wait_for_load.waitForPageLoad"() {
     (new ios_common_keywords.wait_for_load()).waitForPageLoad()
 }
 
- /**
-	 * waits until the progressBar is there
-	 * @param testObj,waitTime,waitLimit
-	 */ 
-def static "ios_common_keywords.wait_for_load.waitTimeProgressBar"(
+
+def static "ios_common_keywords.wait_for_load.waitTimeForObjectToBeVisible"(
     	Object testObj	
      , 	int waitTime	
      , 	int waitLimit	) {
-    (new ios_common_keywords.wait_for_load()).waitTimeProgressBar(
+    (new ios_common_keywords.wait_for_load()).waitTimeForObjectToBeVisible(
         	testObj
          , 	waitTime
          , 	waitLimit)
-}
-
-
-def static "ios_inventory.Location_details_Screen.edit_Location_Name"(
-    	String newLocationName	
-     , 	String costType	) {
-    (new ios_inventory.Location_details_Screen()).edit_Location_Name(
-        	newLocationName
-         , 	costType)
-}
-
-
-def static "ios_inventory.Location_details_Screen.click_On_ScanIcon_And_Add_Product"(
-    	String productName	
-     , 	String countType	
-     , 	String quantity	) {
-    (new ios_inventory.Location_details_Screen()).click_On_ScanIcon_And_Add_Product(
-        	productName
-         , 	countType
-         , 	quantity)
 }
 
 
@@ -514,10 +503,14 @@ def static "ios_inventory.Location_details_Screen.add_Product_to_Location"(
 }
 
 
-def static "ios_inventory.Location_details_Screen.move_Product_to_Another_Location"(
-    	String locationName	) {
-    (new ios_inventory.Location_details_Screen()).move_Product_to_Another_Location(
-        	locationName)
+def static "ios_inventory.Location_details_Screen.click_On_ScanIcon_And_Add_Product"(
+    	String productName	
+     , 	String countType	
+     , 	String quantity	) {
+    (new ios_inventory.Location_details_Screen()).click_On_ScanIcon_And_Add_Product(
+        	productName
+         , 	countType
+         , 	quantity)
 }
 
 
@@ -533,6 +526,22 @@ def static "ios_inventory.Location_details_Screen.delete_Product"() {
 }
 
 
+def static "ios_inventory.Location_details_Screen.edit_Location_Name"(
+    	String newLocationName	
+     , 	String costType	) {
+    (new ios_inventory.Location_details_Screen()).edit_Location_Name(
+        	newLocationName
+         , 	costType)
+}
+
+
+def static "ios_inventory.Location_details_Screen.move_Product_to_Another_Location"(
+    	String locationName	) {
+    (new ios_inventory.Location_details_Screen()).move_Product_to_Another_Location(
+        	locationName)
+}
+
+
 def static "ios_inventory.Location_details_Screen.upload_Location"() {
     (new ios_inventory.Location_details_Screen()).upload_Location()
 }
@@ -545,8 +554,8 @@ def static "ios_inventory.Location_details_Screen.verify_Location_details_Screen
 }
 
  /**
-	 * adds location to an inventory based on the cost type of current or last price 
-	 * @param locationName, costType
+	 * adds location to an inventory based on the cost type of current or last price paid
+	 * @param locationName (name of the location to be added), costType (cost type required which can be current or last price paid)
 	 */ 
 def static "ios_inventory.Inventory_details_Screen.add_Location"(
     	String locationName	
@@ -558,7 +567,7 @@ def static "ios_inventory.Inventory_details_Screen.add_Location"(
 
  /**
 	 * opens the particular location details
-	 * @param locationName
+	 * @param locationName (name of the location)
 	 */ 
 def static "ios_inventory.Inventory_details_Screen.click_On_Location"(
     	String locationName	) {
@@ -568,7 +577,7 @@ def static "ios_inventory.Inventory_details_Screen.click_On_Location"(
 
  /**
 	 * deletes the location
-	 * @param locationName
+	 * @param locationName (name of the location to be deleted)
 	 */ 
 def static "ios_inventory.Inventory_details_Screen.delete_Location"(
     	String locationName	) {
@@ -577,8 +586,8 @@ def static "ios_inventory.Inventory_details_Screen.delete_Location"(
 }
 
  /**
-	 * verifies the location count, cost gets updated or not of the inventory after the location is deleted
-	 * @param locationName
+	 * verifies the location count, cost gets updated or not, of the inventory after the location is deleted
+	 * @param locationName (name of the location under verification)
 	 */ 
 def static "ios_inventory.Inventory_details_Screen.delete_Location_With_Cost_LocationCount_Verification"(
     	String locationName	) {
@@ -588,7 +597,7 @@ def static "ios_inventory.Inventory_details_Screen.delete_Location_With_Cost_Loc
 
  /**
 	 * edits the inventory name
-	 * @param newInventoryName
+	 * @param newInventoryName (new name of the inventory)
 	 */ 
 def static "ios_inventory.Inventory_details_Screen.edit_InventoryName"(
     	String newInventoryName	) {
@@ -598,7 +607,7 @@ def static "ios_inventory.Inventory_details_Screen.edit_InventoryName"(
 
  /**
 	 * searches and adds the product from the inventory details screen by creating a new location 
-	 * @param locationName,productName,costType
+	 * @param locationName (name of the location to be created),productName (name of the product to be added),costType (cost type required which can be current or last price paid)
 	 */ 
 def static "ios_inventory.Inventory_details_Screen.search_And_Add_Product_By_Creating_New_Location"(
     	String locationName	
@@ -612,7 +621,7 @@ def static "ios_inventory.Inventory_details_Screen.search_And_Add_Product_By_Cre
 
  /**
 	 * verifies various details of the inventory details screen
-	 * @param inventoryName
+	 * @param inventoryName (name of the inventory which is under verification)
 	 */ 
 def static "ios_inventory.Inventory_details_Screen.verify_Inventory_Details_Screen"(
     	String inventoryName	) {
@@ -740,10 +749,7 @@ def static "ios_common_keywords.TearDown_Delete_Inventory.Custom"(
         	Location_Name)
 }
 
- /**
-	 * performs login function
-	 * @param username,password
-	 */ 
+
 def static "ios_login.Login_Screen.login"(
     	Object username	
      , 	Object password	) {
@@ -752,61 +758,43 @@ def static "ios_login.Login_Screen.login"(
          , 	password)
 }
 
- /**
-	 * selects the environment
-	 */ 
+
 def static "ios_login.Login_Screen.select_Environment"() {
     (new ios_login.Login_Screen()).select_Environment()
 }
 
- /**
-	 * selects type of testing
-	 * @param testingType
-	 */ 
+
 def static "ios_login.Login_Screen.select_type_Of_Testing"(
     	String testingType	) {
     (new ios_login.Login_Screen()).select_type_Of_Testing(
         	testingType)
 }
 
- /**
-	 * enters the username
-	 * @param username
-	 */ 
+
 def static "ios_login.Login_Screen.enter_Username"(
     	String username	) {
     (new ios_login.Login_Screen()).enter_Username(
         	username)
 }
 
- /**
-	 * enters the password
-	 * @param password
-	 */ 
+
 def static "ios_login.Login_Screen.enter_Password"(
     	String password	) {
     (new ios_login.Login_Screen()).enter_Password(
         	password)
 }
 
- /**
-	 * clicks on signIn button
-	 * @param password
-	 */ 
+
 def static "ios_login.Login_Screen.click_On_SignIn_Button"() {
     (new ios_login.Login_Screen()).click_On_SignIn_Button()
 }
 
- /**
-	 * clicks on forget password button
-	 */ 
+
 def static "ios_login.Login_Screen.click_On_Forgot_Password"() {
     (new ios_login.Login_Screen()).click_On_Forgot_Password()
 }
 
- /**
-	 * verifies the details of login Page
-	 */ 
+
 def static "ios_login.Login_Screen.verify_LoginPage_Details"() {
     (new ios_login.Login_Screen()).verify_LoginPage_Details()
 }
@@ -814,6 +802,28 @@ def static "ios_login.Login_Screen.verify_LoginPage_Details"() {
 
 def static "ios_login.Login_Screen.select_type_Of_Testing"() {
     (new ios_login.Login_Screen()).select_type_Of_Testing()
+}
+
+ /**
+	 * random alpha numeric String Generator 
+	 * @param length, required string length 
+	 * @return alpha-numeric string  
+	 */ 
+def static "common.commonMethods.randomStringGenerator"(
+    	int length	) {
+    (new common.commonMethods()).randomStringGenerator(
+        	length)
+}
+
+ /**
+	 * Read JSON file 
+	 * @param file name, Note: data files are considered to be on Data files location on project directory  
+	 * @return the JSON file object 
+	 */ 
+def static "common.commonMethods.readFileTypeJSON"(
+    	String fileNameValue	) {
+    (new common.commonMethods()).readFileTypeJSON(
+        	fileNameValue)
 }
 
 
@@ -942,6 +952,40 @@ def static "android_dashboard.Dashboard_details_Screen.click_On_HomeTab"() {
 
 def static "android_dashboard.Dashboard_details_Screen.click_On_More_Options"() {
     (new android_dashboard.Dashboard_details_Screen()).click_On_More_Options()
+}
+
+ /**
+	 * Create an order using Carts Post method , the input is fetched from the (module) ordersDatajson file set on Data Files 
+	 * @return an object with orderId and purchaseOrderNumber 
+	 */ 
+def static "api.apiCommonMethods.createCartOrder"() {
+    (new api.apiCommonMethods()).createCartOrder()
+}
+
+ /**
+	 * Send login and token generation calls(based on environment value fetched from profile, to get authorization token
+	 * @return authorizationValue fetched from token generator API 
+	 */ 
+def static "api.apiCommonMethods.fetchAccessToken"() {
+    (new api.apiCommonMethods()).fetchAccessToken()
+}
+
+ /**
+	 * Fetches the API test data file from project Data files path
+	 * @param expectedStatusCode
+	 * @return the test data JSON object
+	 */ 
+def static "api.apiCommonMethods.readAPITestData"() {
+    (new api.apiCommonMethods()).readAPITestData()
+}
+
+ /**
+	 * Send token generation calls to get authorization token
+	 * @param environmentValue referring to test data object key e.g.pmodStage
+	 * @return the access token value 
+	 */ 
+def static "api.apiCommonMethods.tokenGenerator"() {
+    (new api.apiCommonMethods()).tokenGenerator()
 }
 
 

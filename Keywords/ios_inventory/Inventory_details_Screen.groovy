@@ -43,55 +43,55 @@ class Inventory_details_Screen extends Inventory_listing_Screen {
 
 
 	/**
-	 * adds location to an inventory based on the cost type of current or last price 
-	 * @param locationName, costType
+	 * adds location to an inventory based on the cost type of current or last price paid
+	 * @param locationName (name of the location to be added), costType (cost type required which can be current or last price paid)
 	 */
 	@Keyword
 	def add_Location(String locationName, String costType) {
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/Add location_Text'), 0)
+		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/addLocation_Text'), 0)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName_TextField'), 0)
 
 		Mobile.setText(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName_TextField'), locationName, 0)
 
 		if (costType == 'Last Price') {
-			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/Last Price_Button'), 0)
+			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/lastPrice_Button'), 0)
 		} else {
-			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/Current Price_Button'), 0)
+			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/currentPrice_Button'), 0)
 		}
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/Create New Location_Text'), 0)
+		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/createNewLocation_Text'), 0)
 
 		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName Verification_Text', [('LName') : locationName]),0)
+		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/locationNameVerification_Text', [('LName') : locationName]),0)
 	}
 
 
 
 	/**
 	 * opens the particular location details
-	 * @param locationName
+	 * @param locationName (name of the location)
 	 */
 	@Keyword
 	def click_On_Location(String locationName) {
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/Tap On Location_Text', [('Location') : locationName]), 0)
+		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/tapOnLocation_Text', [('Location') : locationName]), 0)
 	}
 
 
 
 	/**
 	 * deletes the location
-	 * @param locationName
+	 * @param locationName (name of the location to be deleted)
 	 */
 	@Keyword
 	def delete_Location(String locationName) {
 
-		int ElementTopPosition = Mobile.getElementTopPosition(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/Tap On Location_Text', [('Location') : locationName]), 0)
+		int ElementTopPosition = Mobile.getElementTopPosition(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/tapOnLocation_Text', [('Location') : locationName]), 0)
 
-		int ElementHeight=Mobile.getElementHeight(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/Tap On Location_Text', [('Location') : locationName]), 0)
+		int ElementHeight=Mobile.getElementHeight(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/tapOnLocation_Text', [('Location') : locationName]), 0)
 
 		int y_Coordinate=(ElementHeight/2)+ElementTopPosition
 
@@ -109,15 +109,15 @@ class Inventory_details_Screen extends Inventory_listing_Screen {
 
 		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 
-		Mobile.verifyElementNotVisible(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName Verification_Text', [('LName') : locationName]),0)
+		Mobile.verifyElementNotVisible(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/locationNameVerification_Text', [('LName') : locationName]),0)
 	}
 
 
 
 
 	/**
-	 * verifies the location count, cost gets updated or not of the inventory after the location is deleted
-	 * @param locationName
+	 * verifies the location count, cost gets updated or not, of the inventory after the location is deleted
+	 * @param locationName (name of the location under verification)
 	 */
 	@Keyword
 	def delete_Location_With_Cost_LocationCount_Verification(String locationName) {
@@ -176,7 +176,7 @@ class Inventory_details_Screen extends Inventory_listing_Screen {
 
 	/**
 	 * edits the inventory name
-	 * @param newInventoryName
+	 * @param newInventoryName (new name of the inventory)
 	 */
 	@Keyword
 	def edit_InventoryName(String newInventoryName) {
@@ -187,7 +187,7 @@ class Inventory_details_Screen extends Inventory_listing_Screen {
 
 		Mobile.setText(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName_TextField'), newInventoryName, 0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Edit Inventory/Save Changes_Text'), 0)
+		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Edit Inventory/saveChanges_Text'), 0)
 
 		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 	}
@@ -197,7 +197,7 @@ class Inventory_details_Screen extends Inventory_listing_Screen {
 
 	/**
 	 * searches and adds the product from the inventory details screen by creating a new location 
-	 * @param locationName,productName,costType
+	 * @param locationName (name of the location to be created),productName (name of the product to be added),costType (cost type required which can be current or last price paid)
 	 */
 	@Keyword
 	def search_And_Add_Product_By_Creating_New_Location(String locationName, String productName,String costType) {
@@ -212,7 +212,7 @@ class Inventory_details_Screen extends Inventory_listing_Screen {
 
 		Mobile.tapAndHold(findTestObject('iOS/Product_Search/Search Key_Button'), 0, 0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Dashoboard/Add Product to Inventory_Text'), 0)
+		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Dashoboard/addProductToInventory_Text'), 0)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Product_Generic_Action_Create_Location_Label'), 0)
 
@@ -221,18 +221,18 @@ class Inventory_details_Screen extends Inventory_listing_Screen {
 		Mobile.setText(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName_TextField'), locationName, 0)
 
 		if (costType == 'Last Price') {
-			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/Last Price_Button'), 0)
+			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/lastPrice_Button'), 0)
 		} else {
-			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/Current Price_Button'), 0)
+			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/currentPrice_Button'), 0)
 		}
 
 		Mobile.tapAndHold(findTestObject('iOS/Product_Search/Done Keypad_Text'), 0, 0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/Create New Location_Text'), 0)
+		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/createNewLocation_Text'), 0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/Tap On Location_Text',[('Location'):locationName]), 0)
+		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/tapOnLocation_Text',[('Location'):locationName]), 0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Dashoboard/Add Product to Inventory_Text'), 0)
+		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Dashoboard/addProductToInventory_Text'), 0)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Copy Product from Location/Go to Location after Move or Copy or Adding Product_Text',[('Location'):locationName]), 0)
 
@@ -244,7 +244,7 @@ class Inventory_details_Screen extends Inventory_listing_Screen {
 
 	/**
 	 * verifies various details of the inventory details screen
-	 * @param inventoryName
+	 * @param inventoryName (name of the inventory which is under verification)
 	 */
 	@Keyword
 	def verify_Inventory_Details_Screen(String inventoryName) {
