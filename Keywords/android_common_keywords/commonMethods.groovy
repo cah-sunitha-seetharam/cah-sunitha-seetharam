@@ -100,14 +100,17 @@ class  commonMethods {
 	@Keyword()
 	def waitTimeForObjectToBeVisible(testObj, int waitTime, int waitLimit) {
 
-		int counter=0 //initial count value set to be 0
+			try {
+			int counter=0 //initial count value set to be 0
 
-		while (Mobile.verifyElementExist(findTestObject(testObj), waitTime, FailureHandling.OPTIONAL)) {
-			WebUI.delay(waitTime)
-			counter+=1 // count increases by 1 for each iteration
-			if(counter==waitLimit)
-				KeywordUtil.logInfo("waitLimt of "+ waitLimit +"(s) crossed and object is still visible") //logInfo
-			assert counter<waitLimit
+			while (Mobile.verifyElementExist(findTestObject(testObj), waitTime, FailureHandling.OPTIONAL)) {
+				WebUI.delay(waitTime)
+				counter+=1 // count increases by 1 for each iteration
+				assert counter<waitLimit
+			}
+		}
+		catch (Exception e) {
+			KeywordUtil.markFailed("waitLimt of "+ waitLimit +"(s) crossed and object is still visible") //logInfo
 		}
 
 	}

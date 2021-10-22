@@ -77,9 +77,9 @@ class  commonMethods {
 
 		return stringWithoutCharactersFloatValue
 	}
-	
-	
-	
+
+
+
 	/**
 	 * generates the tap coordinate x for a test object by considering ElementLeftPosition and ElementWidth
 	 * @param testObj
@@ -93,12 +93,12 @@ class  commonMethods {
 		int ElementWidth=Mobile.getElementWidth(findTestObject('testObj'), 0)
 
 		int x_Coordinate=(ElementWidth/2)+ElementLeftPosition
-		
+
 		return x_Coordinate
 	}
-	
-	
-	
+
+
+
 	/**
 	 * generates the tap coordinate y for a test object by considering ElementTopPosition and ElementHeight
 	 * @param testObj
@@ -112,7 +112,7 @@ class  commonMethods {
 		int ElementHeight=Mobile.getElementHeight(findTestObject(testObj, [('TEXT') : text]), 0)
 
 		int y_Coordinate=(ElementHeight/2)+ElementTopPosition
-		
+
 		return y_Coordinate
 	}
 
@@ -174,14 +174,17 @@ class  commonMethods {
 	@Keyword()
 	def waitTimeForObjectToBeVisible(testObj, int waitTime, int waitLimit) {
 
-		int counter=0 //initial count value set to be 0
+		try {
+			int counter=0 //initial count value set to be 0
 
-		while (Mobile.verifyElementExist(findTestObject(testObj), waitTime, FailureHandling.OPTIONAL)) {
-			WebUI.delay(waitTime)
-			counter+=1 // count increases by 1 for each iteration
-			if(counter==waitLimit)
-				KeywordUtil.logInfo("waitLimt of "+ waitLimit +"(s) crossed and object is still visible") //logInfo
-			assert counter<waitLimit
+			while (Mobile.verifyElementExist(findTestObject(testObj), waitTime, FailureHandling.OPTIONAL)) {
+				WebUI.delay(waitTime)
+				counter+=1 // count increases by 1 for each iteration
+				assert counter<waitLimit
+			}
+		}
+		catch (Exception e) {
+			KeywordUtil.markFailed("waitLimt of "+ waitLimit +"(s) crossed and object is still visible") //logInfo
 		}
 
 	}

@@ -567,17 +567,12 @@ def static "ios_account_selection.Change_Account.Custom"(
         	New_Account)
 }
 
- /**
-	 * waits until the page loads
-	 */ 
+
 def static "ios_common_keywords.wait_for_load.waitForPageLoad"() {
     (new ios_common_keywords.wait_for_load()).waitForPageLoad()
 }
 
- /**
-	 * waits until the object is visible on the screen
-	 * @param testObj (reference of the test Object),waitTime (time by which delay will be added in(s)),waitLimit (maximum limit of time for which delay can be added)
-	 */ 
+
 def static "ios_common_keywords.wait_for_load.waitTimeForObjectToBeVisible"(
     	Object testObj	
      , 	int waitTime	
@@ -775,46 +770,32 @@ def static "android_inventory.Inventory_listing_Screen.verify_Inventory_Listing_
     (new android_inventory.Inventory_listing_Screen()).verify_Inventory_Listing_Screen()
 }
 
- /**
-	 * this method will take the application one screen back
-	 */ 
+
 def static "android_common_keywords.commonMethods.goOneScreenBack"() {
     (new android_common_keywords.commonMethods()).goOneScreenBack()
 }
 
- /**
-	 * installs as well as launches the application
-	 * @param Android_App_Path (Application path will be taken from the global profile and passed as a parameter to this method)
-	 */ 
+
 def static "android_common_keywords.commonMethods.installingAndlaunchingTheApplication"() {
     (new android_common_keywords.commonMethods()).installingAndlaunchingTheApplication()
 }
 
- /**
-	 * refreshes the screen by doing a vertical swipe by considering the deviceHeight and deviceWidth
-	 */ 
+
 def static "android_common_keywords.commonMethods.verticalSwipeForRefresh"() {
     (new android_common_keywords.commonMethods()).verticalSwipeForRefresh()
 }
 
- /**
-	 * refreshes the screen by doing a vertical swipe after waiting for 30(s) to check the changed order status of C2 order by considering the deviceHeight and deviceWidth
-	 */ 
+
 def static "android_common_keywords.commonMethods.verticalSwipeForRefreshingC2OrderStatus"() {
     (new android_common_keywords.commonMethods()).verticalSwipeForRefreshingC2OrderStatus()
 }
 
- /**
-	 * waits until the progressBar is visible on the screen
-	 */ 
+
 def static "android_common_keywords.commonMethods.waitForProgressBarToBeInvisible"() {
     (new android_common_keywords.commonMethods()).waitForProgressBarToBeInvisible()
 }
 
- /**
-	 * waits until the object is visible on the screen
-	 * @param testObj (reference of the test Object),waitTime (time by which delay will be added in(s)),waitLimit (maximum limit of time for which delay can be added)
-	 */ 
+
 def static "android_common_keywords.commonMethods.waitTimeForObjectToBeVisible"(
     	Object testObj	
      , 	int waitTime	
