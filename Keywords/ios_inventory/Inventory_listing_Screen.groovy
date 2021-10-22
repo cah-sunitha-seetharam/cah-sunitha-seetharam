@@ -69,13 +69,13 @@ class Inventory_listing_Screen {
 	@Keyword
 	def click_On_Inventory(String inventoryName) {
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Open Inventory Details/Open Inventory_Text', [('Inventory') : inventoryName]), 0)
+		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Open Inventory Details/Open Inventory_Text', [('TEXT') : inventoryName]), 0)
 	}
 
 
 
 	/**
-	 * creates a new inventory
+	 * creates a new inventory from inventory listing screen
 	 * @param inventoryName (name required for the new inventory)
 	 */
 	@Keyword
@@ -98,7 +98,7 @@ class Inventory_listing_Screen {
 
 
 	/**
-	 * deletes the inventory
+	 * deletes the inventory from the inventory listing screen
 	 * @param inventoryName (inventory name of the inventory which needs to be deleted)
 	 */
 	@Keyword
@@ -106,17 +106,13 @@ class Inventory_listing_Screen {
 
 		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 
-		int ElementTopPosition = Mobile.getElementTopPosition(findTestObject('iOS/Inventory/Inventory Details Screen/Open Inventory Details/Open Inventory_Text', [('Inventory') : inventoryName]), 0)
+		String testObj='iOS/Inventory/Inventory Listing Screen/Delete Inventory/Slide_PopUpButton For Inventory Deletion'
 
-		int ElementHeight=Mobile.getElementHeight(findTestObject('iOS/Inventory/Inventory Details Screen/Open Inventory Details/Open Inventory_Text', [('Inventory') : inventoryName]), 0)
+		int x_Coordinate=(new ios_common_keywords.commonMethods()).tapXCoordinateGenerator(testObj)
 
-		int y_Coordinate=(ElementHeight/2)+ElementTopPosition
+		testObj='iOS/Inventory/Inventory Details Screen/Open Inventory Details/Open Inventory_Text'
 
-		int ElementLeftPosition=Mobile.getElementLeftPosition(findTestObject('iOS/Inventory/Inventory Listing Screen/Delete Inventory/Slide_PopUpButton For Inventory Deletion'), 0)
-
-		int ElementWidth=Mobile.getElementWidth(findTestObject('iOS/Inventory/Inventory Listing Screen/Delete Inventory/Slide_PopUpButton For Inventory Deletion'), 0)
-
-		int x_Coordinate=(ElementWidth/2)+ElementLeftPosition
+		int y_Coordinate=(new ios_common_keywords.commonMethods()).tapYCoordinateGenerator(testObj,inventoryName)
 
 		Mobile.tapAtPosition(x_Coordinate, y_Coordinate)
 
@@ -126,7 +122,7 @@ class Inventory_listing_Screen {
 
 		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 
-		Mobile.verifyElementNotVisible(findTestObject('iOS/Inventory/Inventory Details Screen/Open Inventory Details/Open Inventory_Text', [('Inventory') : inventoryName]),0)
+		Mobile.verifyElementNotVisible(findTestObject('iOS/Inventory/Inventory Details Screen/Open Inventory Details/Open Inventory_Text', [('TEXT') : inventoryName]),0)
 	}
 
 

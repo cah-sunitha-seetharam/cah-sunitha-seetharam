@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
-   <description></description>
+   <description>Verify that the details of the Inventory such as Location count, Line count and it's corresponding Inventory Value are getting updated after the Inventory location is Deleted.
+Prerequisite:  1. Valid login credentials, 2. Multiple accounts available for the user.</description>
    <name>TC_R_003_verifyDetailsSuchAsLocationCountInventoryValueUpdatesAfterLocationDeletion</name>
    <tag>Inventory;Regression;Scan</tag>
    <comment></comment>

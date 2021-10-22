@@ -1,4 +1,4 @@
-package android_more_options_screen
+package ios_more_options_screen
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
@@ -37,18 +37,36 @@ import com.kms.katalon.core.util.KeywordUtil
 
 import com.kms.katalon.core.webui.exception.WebElementNotFoundException
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+
+class moreOptionsScreen {
+
+	/**
+	 * opens the inventory listing screen from moreOptions Screen
+	 */
+	@Keyword()
+	def goToInventoryListingScreen() {
 
 
-class Sign_Out {
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 
-	@Keyword(keywordObject="android_more_options_screen")
-	def Custom() {
+		Mobile.tap(findTestObject('iOS/More Options Screen/Inventory Selection Under MoreOptions_Text'), 0)
+
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+	}
 
 
-		Mobile.tap(findTestObject('Android/Dashboard/moreOptions_Tab'), 0)
 
-		Mobile.tap(findTestObject('Android/More Options Screen/SignOut/signOut_TextView'), 0)
+	/**
+	 * clicks on moreOptions tab, signsOut the user and takes user to the logInScreen
+	 */
+	@Keyword()
+	def signOut() {
 
-		Mobile.tap(findTestObject('Android/More Options Screen/SignOut/signOut_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Dashboard/More Options_Tab'), 0)
+
+		Mobile.tap(findTestObject('iOS/More Options Screen/SignOut/Sign_Out_Text'), 0)
+
+		Mobile.tap(findTestObject('iOS/More Options Screen/SignOut/Sign_Out_Button'), 0)
 	}
 }

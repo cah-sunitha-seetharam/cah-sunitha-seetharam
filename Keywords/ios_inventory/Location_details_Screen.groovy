@@ -127,9 +127,22 @@ class Location_details_Screen {
 
 	/**
 	 * deletes a product from a location
+	 * @param ndcNumber (deletes the product according to the ndcNumber)
 	 */
 	@Keyword
-	def delete_Product() {
+	def deleteProduct(String ndcNumber) {
+
+		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+
+		String testObj='Object Repository/iOS/Inventory/Location Details_Screen/Delete Product/slidePopUpDeleteProduct_Button'
+
+		int x_Coordinate=(new ios_common_keywords.commonMethods()).tapXCoordinateGenerator(testObj)
+
+		testObj='Object Repository/iOS/Inventory/Location Details_Screen/Delete Product/ndcNumber_Text'
+
+		int y_Coordinate=(new ios_common_keywords.commonMethods()).tapYCoordinateGenerator(testObj,ndcNumber)
+
+		Mobile.tapAtPosition(x_Coordinate, y_Coordinate)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Delete_Location/Slide_PopUp_Button for Location Deletion'), 0)
 
@@ -139,10 +152,10 @@ class Location_details_Screen {
 	}
 
 
-
-
+		
+	
 	/**
-	 * edits the location name based on cost type of last price or current price
+	 * edits the location name and cost type can be changed(last price or current price paid)
 	 * @param newLocationName (new name of the location),costType (cost type required which can be current or last price paid)
 	 */
 	@Keyword
@@ -195,16 +208,16 @@ class Location_details_Screen {
 
 
 	/**
-	 * uploads location
+	 * uploads location from the location details screen
 	 */
 	@Keyword
 	def upload_Location() {
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Upload_Order/enabledUploadLocation_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Upload Location/enabledUploadLocation_Button'), 0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Upload_Order/gotIt_Text'), 0)
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Upload Location/gotIt_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details_Screen/Upload_Order/disbaledUploadLocation_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details_Screen/Upload Location/disbaledUploadLocation_Button'), 0)
 	}
 
 

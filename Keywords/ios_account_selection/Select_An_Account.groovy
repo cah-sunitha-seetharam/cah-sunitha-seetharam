@@ -45,7 +45,7 @@ class Select_An_Account {
 	 * @param accountNo
 	 */
 	@Keyword
-	def Custom(String accountNo) {
+	def selectTheUserAccount(String accountNo) {
 
 		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 

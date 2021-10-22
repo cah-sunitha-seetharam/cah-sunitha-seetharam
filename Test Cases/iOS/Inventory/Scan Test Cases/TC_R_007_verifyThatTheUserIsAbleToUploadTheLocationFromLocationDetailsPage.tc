@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
-   <description></description>
+   <description>Verify that the user is able to Upload the Location from Location details page.
+Prerequisite:  1. Valid login credentials, 2. Multiple accounts available for the user.</description>
    <name>TC_R_007_verifyThatTheUserIsAbleToUploadTheLocationFromLocationDetailsPage</name>
    <tag>Inventory;Regression;Scan</tag>
    <comment></comment>

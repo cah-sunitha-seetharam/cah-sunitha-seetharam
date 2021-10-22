@@ -22,6 +22,11 @@ public class GlobalVariable {
     /**
      * <p></p>
      */
+    public static Object Account
+     
+    /**
+     * <p></p>
+     */
     public static Object Environment
      
     /**
@@ -37,21 +42,6 @@ public class GlobalVariable {
     /**
      * <p></p>
      */
-    public static Object SmSession
-     
-    /**
-     * <p></p>
-     */
-    public static Object accessToken
-     
-    /**
-     * <p></p>
-     */
-    public static Object Account
-     
-    /**
-     * <p></p>
-     */
     public static Object a
      
 
@@ -63,12 +53,10 @@ public class GlobalVariable {
     
             Username = selectedVariables['Username']
             Password = selectedVariables['Password']
+            Account = selectedVariables['Account']
             Environment = selectedVariables['Environment']
             Android_App_Path = selectedVariables['Android_App_Path']
             iOS_App_Path = selectedVariables['iOS_App_Path']
-            SmSession = selectedVariables['SmSession']
-            accessToken = selectedVariables['accessToken']
-            Account = selectedVariables['Account']
             a = selectedVariables['a']
             
         } catch (Exception e) {

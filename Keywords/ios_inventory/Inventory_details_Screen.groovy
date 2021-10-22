@@ -122,50 +122,26 @@ class Inventory_details_Screen extends Inventory_listing_Screen {
 	@Keyword
 	def delete_Location_With_Cost_LocationCount_Verification(String locationName) {
 
-		int initialInventoryLocationCount=Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/inventoryLine_Text'), 0)
+		int initialInventoryLocationCount=Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/inventoryLine_Text'), 0)// initial inventory location count
 
-		String initialInventoryTotal=Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/inventoryTotal_Text'), 0)
+		String initialInventoryTotal=Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/inventoryTotal_Text'), 0)// inventory value with location added
 
-		String locationValue=Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/locationValue_Text'), 0)
+		String locationValue=Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/locationValue_Text'), 0)//location value with added product
 
-		int counter_1=0
-
-		while(initialInventoryTotal[counter_1]!='0' && initialInventoryTotal[counter_1]!='1' && initialInventoryTotal[counter_1]!='2' && initialInventoryTotal[counter_1]!='3' && initialInventoryTotal[counter_1]!='4' && initialInventoryTotal[counter_1]!='5' && initialInventoryTotal[counter_1]!='6' && initialInventoryTotal[counter_1]!='7' && initialInventoryTotal[counter_1]!='8' && initialInventoryTotal[counter_1]!='9' ) {
-			counter_1++
-		}
-
-		int counter_2=0
-
-		while(locationValue[counter_2]!='0' && locationValue[counter_2]!='1' && locationValue[counter_2]!='2' && locationValue[counter_2]!='3' && locationValue[counter_2]!='4' && locationValue[counter_2]!='5' && locationValue[counter_2]!='6' && locationValue[counter_2]!='7' && locationValue[counter_2]!='8' && locationValue[counter_2]!='9' ) {
-			counter_2++
-		}
-
-		String inventoryTotal_dollarSymbolRemoved=initialInventoryTotal.substring(counter_1)
-
-		String locationValue_charactersRemoved=locationValue.substring(counter_2)
-
-		float inventoryTotal_dollarSymbolRemoved_FloatValue=Float.parseFloat(inventoryTotal_dollarSymbolRemoved)
-
-		float locationValue_dollarSymbolRemoved_FloatValue=Float.parseFloat(locationValue_charactersRemoved)
-
-		(new ios_inventory.Inventory_details_Screen()).delete_Location(locationName)
+		float inventoryTotal_dollarSymbolRemoved_FloatValue=(new ios_common_keywords.commonMethods()).floatValueGenerator(initialInventoryTotal)//converting initialInventoryTotal string to a float value
+		
+		float locationValue_dollarSymbolRemoved_FloatValue=(new ios_common_keywords.commonMethods()).floatValueGenerator(locationValue)//converting locationValue string to a float value
+		
+		(new ios_inventory.Inventory_details_Screen()).delete_Location(locationName)//calling delete location function
 
 		Mobile.tap(findTestObject('Object Repository/iOS/Product_Search/Back_ImageView'), 0)
 
-		int finalInventoryLocationCount=Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/noOfLocation_Text'), 0)
+		int finalInventoryLocationCount=Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/noOfLocation_Text'), 0)//final inventory location count after deleting a location
 
-		String finalInventoryTotal=Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/locationValue_Text'), 0)
+		String finalInventoryTotal=Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/locationValue_Text'), 0)//final inventory total after deleting a location
 
-		int counter_3=0
-
-		while(finalInventoryTotal[counter_3]!='0' && finalInventoryTotal[counter_3]!='1' && finalInventoryTotal[counter_3]!='2' && finalInventoryTotal[counter_3]!='3' && finalInventoryTotal[counter_3]!='4' && finalInventoryTotal[counter_3]!='5' && finalInventoryTotal[counter_3]!='6' && finalInventoryTotal[counter_3]!='7' && finalInventoryTotal[counter_3]!='8' && finalInventoryTotal[counter_3]!='9' ) {
-			counter_3++
-		}
-
-		String finalInventoryTotal_charactersRemoved=finalInventoryTotal.substring(counter_3)
-
-		float finalInventoryTotal_charactersRemoved_FloatValue=Float.parseFloat(finalInventoryTotal_charactersRemoved)
-
+		float finalInventoryTotal_charactersRemoved_FloatValue=(new ios_common_keywords.commonMethods()).floatValueGenerator(finalInventoryTotal)///converting finalInventoryTotal string to a float value
+		
 		assert inventoryTotal_dollarSymbolRemoved_FloatValue==(finalInventoryTotal_charactersRemoved_FloatValue+locationValue_dollarSymbolRemoved_FloatValue)
 
 		assert finalInventoryLocationCount==(initialInventoryLocationCount-1)

@@ -16,6 +16,11 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
+      <initValue>'11-487698'</initValue>
+      <name>Account</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
       <initValue>'Release'</initValue>
       <name>Environment</name>
    </GlobalVariableEntity>
@@ -26,12 +31,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'/Users/sahil.vidaysingh/Downloads/Hatch 3.app'</initValue>
+      <initValue>'/Users/sahil.vidaysingh/Downloads/Hatch.app'</initValue>
       <name>iOS_App_Path</name>
-   </GlobalVariableEntity>
-   <GlobalVariableEntity>
-      <description></description>
-      <initValue>'11-487698'</initValue>
-      <name>Account</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>
