@@ -81,8 +81,8 @@ class  commonMethods {
 
 
 	/**
-	 * generates the tap coordinate x for a test object by considering ElementLeftPosition and ElementWidth
-	 * @param testObj
+	 * generates the coordinate x for a test object by considering ElementLeftPosition and ElementWidth
+	 * @param testObj (reference of the testObject passed as a parameter), text(name of the element)
 	 * returns int value for the xCoordinate
 	 */
 	@Keyword
@@ -90,7 +90,7 @@ class  commonMethods {
 
 		int ElementLeftPosition=Mobile.getElementLeftPosition(findTestObject(testObj), 0)
 
-		int ElementWidth=Mobile.getElementWidth(findTestObject('testObj'), 0)
+		int ElementWidth=Mobile.getElementWidth(findTestObject(testObj), 0)
 
 		int x_Coordinate=(ElementWidth/2)+ElementLeftPosition
 
@@ -100,8 +100,8 @@ class  commonMethods {
 
 
 	/**
-	 * generates the tap coordinate y for a test object by considering ElementTopPosition and ElementHeight
-	 * @param testObj
+	 * generates the coordinate y for a test object by considering ElementTopPosition and ElementHeight
+	 * @param testObj (reference of the testObject passed as a parameter), text(name of the element)
 	 * returns int value for the yCoordinate
 	 */
 	@Keyword
