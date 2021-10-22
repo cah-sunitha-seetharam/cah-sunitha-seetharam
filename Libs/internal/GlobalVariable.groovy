@@ -10,34 +10,50 @@ import com.kms.katalon.core.main.TestCaseMain
 public class GlobalVariable {
      
     /**
-     * <p></p>
+     * <p>Profile Release : username is taken from the profiles and passed as a parameter in the logIn function
+Profile Stage : username is taken from the profiles and passed as a parameter in the logIn function</p>
      */
     public static Object Username
      
     /**
-     * <p></p>
+     * <p>Profile Release : password is taken from the profiles and passed as a parameter in the logIn function
+Profile Stage : password is taken from the profiles and passed as a parameter in the logIn function</p>
      */
     public static Object Password
      
     /**
-     * <p></p>
+     * <p>Profile Release : user account is taken from the profiles and passed as a parameter in the account selection screen
+Profile Stage : user account is taken from the profiles and passed as a parameter in the account selection screen</p>
      */
     public static Object Account
      
     /**
-     * <p></p>
+     * <p>Profile Release : environment of testing is taken from profiles and used in the environment selection screen
+Profile Stage : environment of testing is taken from profiles and used in the environment selection screen</p>
      */
     public static Object Environment
      
     /**
-     * <p></p>
+     * <p>Profile Release : android application path is taken from the profiles and used in the start application under android common methods
+Profile Stage : android application path is taken from the profiles and used in the start application under android common methods</p>
      */
     public static Object Android_App_Path
      
     /**
-     * <p></p>
+     * <p>Profile Release : iOS application path is taken from the profiles and used in the start application under android common methods
+Profile Stage : iOS application path is taken from the profiles and used in the start application under android common methods</p>
      */
     public static Object iOS_App_Path
+     
+    /**
+     * <p></p>
+     */
+    public static Object SmSession
+     
+    /**
+     * <p></p>
+     */
+    public static Object accessToken
      
     /**
      * <p></p>
@@ -57,6 +73,8 @@ public class GlobalVariable {
             Environment = selectedVariables['Environment']
             Android_App_Path = selectedVariables['Android_App_Path']
             iOS_App_Path = selectedVariables['iOS_App_Path']
+            SmSession = selectedVariables['SmSession']
+            accessToken = selectedVariables['accessToken']
             a = selectedVariables['a']
             
         } catch (Exception e) {
