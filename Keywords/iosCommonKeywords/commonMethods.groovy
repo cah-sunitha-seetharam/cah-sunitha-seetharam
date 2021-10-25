@@ -1,4 +1,4 @@
-package ios_common_keywords
+package iosCommonKeywords
 
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
@@ -29,8 +29,7 @@ class  commonMethods {
 	@Keyword()
 	def goOneScreenBack() {
 
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
-
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
 		if (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Back_Text'), 4,FailureHandling.OPTIONAL)) {
 
@@ -40,7 +39,7 @@ class  commonMethods {
 			Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Back Button_Text'), 4)
 		}
 
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 	}
 
 
@@ -149,7 +148,7 @@ class  commonMethods {
 
 		WebUI.delay(30)
 
-		(new ios_common_keywords.commonMethods()).verticalSwipeForRefresh() //waitTime of 1(s), waitLimit of 20(s)
+		(new iosCommonKeywords.commonMethods()).verticalSwipeForRefresh() //waitTime of 1(s), waitLimit of 20(s)
 
 	}
 
@@ -162,7 +161,7 @@ class  commonMethods {
 	def waitForProgressBarToBeInvisible() {
 
 		String testObject='iOS/Product_Search/Progress_Bar'
-		(new ios_common_keywords.wait_for_load()).waitTimeForObjectToBeVisible(testObject,1,20) //waitTime of 1(s), waitLimit of 20(s)
+		(new iosCommonKeywords.commonMethods()).waitTimeForObjectToBeVisible(testObject,1,20) //waitTime of 1(s), waitLimit of 20(s)
 	}
 
 

@@ -1,4 +1,4 @@
-package ios_inventory
+package iosInventory
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
@@ -39,25 +39,25 @@ import com.kms.katalon.core.webui.exception.WebElementNotFoundException
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 
-class Inventory_listing_Screen {
+class inventoryListingScreen {
 
 	/**
 	 * switches to another user account
 	 * @param newAccount (account no to which the user should switch)
 	 */
 	@Keyword
-	def change_Account(String newAccount) {
+	def changeAccount(String account) {
 
 
 		Mobile.tap(findTestObject('iOS/Account_Selection/Change Account_Text'), 0)
 
 		Mobile.tap(findTestObject('iOS/Account_Selection/Change_Account_Navigation'), 0)
 
-		Mobile.scrollToText(newAccount, FailureHandling.STOP_ON_FAILURE)
+		Mobile.scrollToText(account, FailureHandling.STOP_ON_FAILURE)
 
-		Mobile.tap(findTestObject('iOS/Account_Selection/AccountNo_Text', [('val') : newAccount]), 0)
+		Mobile.tap(findTestObject('iOS/Account_Selection/AccountNo_Text', [('val') : account]), 0)
 
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 	}
 
 
@@ -79,8 +79,7 @@ class Inventory_listing_Screen {
 	 * @param inventoryName (name required for the new inventory)
 	 */
 	@Keyword
-	def create_Inventory(String inventoryName) {
-
+	def createInventory(String inventoryName) {
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Verification Details/Create_InventorySectionHeader'), 0)
 
@@ -91,8 +90,6 @@ class Inventory_listing_Screen {
 		Mobile.tapAndHold(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory_Screen/Return_Keypad_Button'), 0, 0)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory_Screen/Create Inventory_Text'), 0)
-
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 	}
 
 
@@ -102,17 +99,15 @@ class Inventory_listing_Screen {
 	 * @param inventoryName (inventory name of the inventory which needs to be deleted)
 	 */
 	@Keyword
-	def delete_Inventory(String inventoryName) {
-
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+	def deleteInventory(String inventoryName) {
 
 		String testObj='iOS/Inventory/Inventory Listing Screen/Delete Inventory/Slide_PopUpButton For Inventory Deletion'
 
-		int x_Coordinate=(new ios_common_keywords.commonMethods()).tapXCoordinateGenerator(testObj)
+		int x_Coordinate=(new iosCommonKeywords.commonMethods()).tapXCoordinateGenerator(testObj)
 
 		testObj='iOS/Inventory/Inventory Details Screen/Open Inventory Details/Open Inventory_Text'
 
-		int y_Coordinate=(new ios_common_keywords.commonMethods()).tapYCoordinateGenerator(testObj,inventoryName)
+		int y_Coordinate=(new iosCommonKeywords.commonMethods()).tapYCoordinateGenerator(testObj,inventoryName)
 
 		Mobile.tapAtPosition(x_Coordinate, y_Coordinate)
 
@@ -120,7 +115,7 @@ class Inventory_listing_Screen {
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Delete Inventory/Yes for Deletion_Text'), 0)
 
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
 		Mobile.verifyElementNotVisible(findTestObject('iOS/Inventory/Inventory Details Screen/Open Inventory Details/Open Inventory_Text', [('TEXT') : inventoryName]),0)
 	}

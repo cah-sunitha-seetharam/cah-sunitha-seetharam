@@ -7,195 +7,200 @@ import java.lang.String
 
 
 
-def static "ios_common_keywords.verticalSwipeRefresh.Custom"() {
-    (new ios_common_keywords.verticalSwipeRefresh()).Custom()
-}
-
- /**
-	 * opens orders tab
-	 */ 
-def static "ios_dashboard.dashboard_details.click_On_Orders"() {
-    (new ios_dashboard.dashboard_details()).click_On_Orders()
-}
-
- /**
-	 * opens home tab
-	 */ 
-def static "ios_dashboard.dashboard_details.click_On_HomeTab"() {
-    (new ios_dashboard.dashboard_details()).click_On_HomeTab()
-}
-
- /**
-	 * opens moreOptions tab
-	 */ 
-def static "ios_dashboard.dashboard_details.click_On_More_Options"() {
-    (new ios_dashboard.dashboard_details()).click_On_More_Options()
-}
-
- /**
-	 * changes the account
-	 * @param newAccount
-	 */ 
-def static "ios_dashboard.dashboard_details.Change_Account"(
-    	String newAccount	) {
-    (new ios_dashboard.dashboard_details()).Change_Account(
-        	newAccount)
-}
-
- /**
-	 * adds the product from dashboard
-	 * @param productName,quantity
-	 */ 
-def static "ios_dashboard.dashboard_details.Adding_Product_from_Dashboard_To_Cart"(
-    	String productName	
-     , 	String quantity	) {
-    (new ios_dashboard.dashboard_details()).Adding_Product_from_Dashboard_To_Cart(
-        	productName
-         , 	quantity)
-}
-
- /**
-	 * switches to another user account
-	 * @param newAccount (account no to which the user should switch)
-	 */ 
-def static "ios_inventory.Inventory_listing_Screen.change_Account"(
-    	String newAccount	) {
-    (new ios_inventory.Inventory_listing_Screen()).change_Account(
-        	newAccount)
-}
-
- /**
-	 * opens the particular inventory details
-	 * @param inventoryName (name which was given to the inventory)
-	 */ 
-def static "ios_inventory.Inventory_listing_Screen.click_On_Inventory"(
-    	String inventoryName	) {
-    (new ios_inventory.Inventory_listing_Screen()).click_On_Inventory(
-        	inventoryName)
-}
-
- /**
-	 * creates a new inventory from inventory listing screen
-	 * @param inventoryName (name required for the new inventory)
-	 */ 
-def static "ios_inventory.Inventory_listing_Screen.create_Inventory"(
-    	String inventoryName	) {
-    (new ios_inventory.Inventory_listing_Screen()).create_Inventory(
-        	inventoryName)
-}
-
- /**
-	 * deletes the inventory from the inventory listing screen
-	 * @param inventoryName (inventory name of the inventory which needs to be deleted)
-	 */ 
-def static "ios_inventory.Inventory_listing_Screen.delete_Inventory"(
-    	String inventoryName	) {
-    (new ios_inventory.Inventory_listing_Screen()).delete_Inventory(
-        	inventoryName)
-}
-
- /**
-	 * verifies details of inventory listing screen
-	 */ 
-def static "ios_inventory.Inventory_listing_Screen.verify_Inventory_Listing_Screen"() {
-    (new ios_inventory.Inventory_listing_Screen()).verify_Inventory_Listing_Screen()
+def static "iosCommonKeywords.commonMethods.goOneScreenBack"() {
+    (new iosCommonKeywords.commonMethods()).goOneScreenBack()
 }
 
 
-def static "ios_common_keywords.Inventory_Error.Custom"() {
-    (new ios_common_keywords.Inventory_Error()).Custom()
+def static "iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication"() {
+    (new iosCommonKeywords.commonMethods()).installingAndlaunchingTheApplication()
 }
 
- /**
-	 * starts the application
-	 */ 
-def static "ios_common_keywords.Start_Application.custom"() {
-    (new ios_common_keywords.Start_Application()).custom()
-}
 
- /**
-	 * this method will take the application one screen back
-	 */ 
-def static "ios_common_keywords.commonMethods.goOneScreenBack"() {
-    (new ios_common_keywords.commonMethods()).goOneScreenBack()
-}
-
- /**
-	 * installs as well as launches the application
-	 * @param Android_App_Path (Application path will be taken from the global profile and passed as a parameter to this method)
-	 */ 
-def static "ios_common_keywords.commonMethods.installingAndlaunchingTheApplication"() {
-    (new ios_common_keywords.commonMethods()).installingAndlaunchingTheApplication()
-}
-
- /**
-	 * float value generator
-	 * @param stringToBeConvertedToFloatValue 
-	 * returns float value for a string by removing characters
-	 */ 
-def static "ios_common_keywords.commonMethods.floatValueGenerator"(
+def static "iosCommonKeywords.commonMethods.floatValueGenerator"(
     	String stringToBeConvertedToFloatValue	) {
-    (new ios_common_keywords.commonMethods()).floatValueGenerator(
+    (new iosCommonKeywords.commonMethods()).floatValueGenerator(
         	stringToBeConvertedToFloatValue)
 }
 
- /**
-	 * generates the tap coordinate x for a test object by considering ElementLeftPosition and ElementWidth
-	 * @param testObj
-	 * returns int value for the xCoordinate
-	 */ 
-def static "ios_common_keywords.commonMethods.tapXCoordinateGenerator"(
+
+def static "iosCommonKeywords.commonMethods.tapXCoordinateGenerator"(
     	String testObj	) {
-    (new ios_common_keywords.commonMethods()).tapXCoordinateGenerator(
+    (new iosCommonKeywords.commonMethods()).tapXCoordinateGenerator(
         	testObj)
 }
 
- /**
-	 * generates the tap coordinate y for a test object by considering ElementTopPosition and ElementHeight
-	 * @param testObj
-	 * returns int value for the yCoordinate
-	 */ 
-def static "ios_common_keywords.commonMethods.tapYCoordinateGenerator"(
+
+def static "iosCommonKeywords.commonMethods.tapYCoordinateGenerator"(
     	String testObj	
      , 	String text	) {
-    (new ios_common_keywords.commonMethods()).tapYCoordinateGenerator(
+    (new iosCommonKeywords.commonMethods()).tapYCoordinateGenerator(
         	testObj
          , 	text)
 }
 
- /**
-	 * refreshes the screen by doing a vertical swipe by considering the deviceHeight and deviceWidth
-	 */ 
-def static "ios_common_keywords.commonMethods.verticalSwipeForRefresh"() {
-    (new ios_common_keywords.commonMethods()).verticalSwipeForRefresh()
+
+def static "iosCommonKeywords.commonMethods.verticalSwipeForRefresh"() {
+    (new iosCommonKeywords.commonMethods()).verticalSwipeForRefresh()
 }
 
- /**
-	 * refreshes the screen by doing a vertical swipe after waiting for 30(s) to check the changed order status of C2 order by considering the deviceHeight and deviceWidth
-	 */ 
-def static "ios_common_keywords.commonMethods.verticalSwipeForRefreshingC2OrderStatus"() {
-    (new ios_common_keywords.commonMethods()).verticalSwipeForRefreshingC2OrderStatus()
+
+def static "iosCommonKeywords.commonMethods.verticalSwipeForRefreshingC2OrderStatus"() {
+    (new iosCommonKeywords.commonMethods()).verticalSwipeForRefreshingC2OrderStatus()
 }
 
- /**
-	 * waits until the progressBar is visible on the screen
-	 */ 
-def static "ios_common_keywords.commonMethods.waitForProgressBarToBeInvisible"() {
-    (new ios_common_keywords.commonMethods()).waitForProgressBarToBeInvisible()
+
+def static "iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible"() {
+    (new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 }
 
- /**
-	 * waits until the object is visible on the screen
-	 * @param testObj (reference of the test Object),waitTime (time by which delay will be added in(s)),waitLimit (maximum limit of time for which delay can be added)
-	 */ 
-def static "ios_common_keywords.commonMethods.waitTimeForObjectToBeVisible"(
+
+def static "iosCommonKeywords.commonMethods.waitTimeForObjectToBeVisible"(
     	Object testObj	
      , 	int waitTime	
      , 	int waitLimit	) {
-    (new ios_common_keywords.commonMethods()).waitTimeForObjectToBeVisible(
+    (new iosCommonKeywords.commonMethods()).waitTimeForObjectToBeVisible(
         	testObj
          , 	waitTime
          , 	waitLimit)
+}
+
+
+def static "iosInventory.locationDetailsScreen.add_Product_to_Location"(
+    	String locationName	
+     , 	String productName	) {
+    (new iosInventory.locationDetailsScreen()).add_Product_to_Location(
+        	locationName
+         , 	productName)
+}
+
+
+def static "iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct"(
+    	String productName	
+     , 	String countType	
+     , 	String quantity	) {
+    (new iosInventory.locationDetailsScreen()).clickOnScanIconAndAddProduct(
+        	productName
+         , 	countType
+         , 	quantity)
+}
+
+
+def static "iosInventory.locationDetailsScreen.copy_Product_to_Another_Location"(
+    	String locationName	) {
+    (new iosInventory.locationDetailsScreen()).copy_Product_to_Another_Location(
+        	locationName)
+}
+
+
+def static "iosInventory.locationDetailsScreen.deleteProduct"(
+    	String ndcNumber	) {
+    (new iosInventory.locationDetailsScreen()).deleteProduct(
+        	ndcNumber)
+}
+
+
+def static "iosInventory.locationDetailsScreen.edit_Location_Name"(
+    	String newLocationName	
+     , 	String costType	) {
+    (new iosInventory.locationDetailsScreen()).edit_Location_Name(
+        	newLocationName
+         , 	costType)
+}
+
+
+def static "iosInventory.locationDetailsScreen.move_Product_to_Another_Location"(
+    	String locationName	) {
+    (new iosInventory.locationDetailsScreen()).move_Product_to_Another_Location(
+        	locationName)
+}
+
+
+def static "iosInventory.locationDetailsScreen.uploadLocation"() {
+    (new iosInventory.locationDetailsScreen()).uploadLocation()
+}
+
+
+def static "iosInventory.locationDetailsScreen.verify_Location_details_Screen"(
+    	String locationName	) {
+    (new iosInventory.locationDetailsScreen()).verify_Location_details_Screen(
+        	locationName)
+}
+
+ /**
+	 * performs login function
+	 * @param username,password
+	 */ 
+def static "iosLogin.loginScreen.login"(
+    	Object username	
+     , 	Object password	) {
+    (new iosLogin.loginScreen()).login(
+        	username
+         , 	password)
+}
+
+ /**
+	 * selects the environment
+	 */ 
+def static "iosLogin.loginScreen.select_Environment"() {
+    (new iosLogin.loginScreen()).select_Environment()
+}
+
+ /**
+	 * selects type of testing
+	 * @param testingType
+	 */ 
+def static "iosLogin.loginScreen.select_type_Of_Testing"(
+    	String testingType	) {
+    (new iosLogin.loginScreen()).select_type_Of_Testing(
+        	testingType)
+}
+
+ /**
+	 * enters the username
+	 * @param username
+	 */ 
+def static "iosLogin.loginScreen.enter_Username"(
+    	String username	) {
+    (new iosLogin.loginScreen()).enter_Username(
+        	username)
+}
+
+ /**
+	 * enters the password
+	 * @param password
+	 */ 
+def static "iosLogin.loginScreen.enter_Password"(
+    	String password	) {
+    (new iosLogin.loginScreen()).enter_Password(
+        	password)
+}
+
+ /**
+	 * clicks on signIn button
+	 * @param password
+	 */ 
+def static "iosLogin.loginScreen.click_On_SignIn_Button"() {
+    (new iosLogin.loginScreen()).click_On_SignIn_Button()
+}
+
+ /**
+	 * clicks on forget password button
+	 */ 
+def static "iosLogin.loginScreen.click_On_Forgot_Password"() {
+    (new iosLogin.loginScreen()).click_On_Forgot_Password()
+}
+
+ /**
+	 * verifies the details of login Page
+	 */ 
+def static "iosLogin.loginScreen.verify_LoginPage_Details"() {
+    (new iosLogin.loginScreen()).verify_LoginPage_Details()
+}
+
+
+def static "iosLogin.loginScreen.select_type_Of_Testing"() {
+    (new iosLogin.loginScreen()).select_type_Of_Testing()
 }
 
 
@@ -286,13 +291,58 @@ def static "android_orders.Cart_Screen.verify_Cart_Screen_Details_without_Adding
 }
 
 
-def static "ios_more_options_screen.moreOptionsScreen.goToInventoryListingScreen"() {
-    (new ios_more_options_screen.moreOptionsScreen()).goToInventoryListingScreen()
+def static "iosInventory.inventoryDetailsScreen.addLocation"(
+    	String locationName	
+     , 	String costType	) {
+    (new iosInventory.inventoryDetailsScreen()).addLocation(
+        	locationName
+         , 	costType)
 }
 
 
-def static "ios_more_options_screen.moreOptionsScreen.signOut"() {
-    (new ios_more_options_screen.moreOptionsScreen()).signOut()
+def static "iosInventory.inventoryDetailsScreen.clickOnALocation"(
+    	String locationName	) {
+    (new iosInventory.inventoryDetailsScreen()).clickOnALocation(
+        	locationName)
+}
+
+
+def static "iosInventory.inventoryDetailsScreen.deleteLocation"(
+    	String locationName	) {
+    (new iosInventory.inventoryDetailsScreen()).deleteLocation(
+        	locationName)
+}
+
+
+def static "iosInventory.inventoryDetailsScreen.deleteLocationWithCostLocationCountVerification"(
+    	String locationName	) {
+    (new iosInventory.inventoryDetailsScreen()).deleteLocationWithCostLocationCountVerification(
+        	locationName)
+}
+
+
+def static "iosInventory.inventoryDetailsScreen.edit_InventoryName"(
+    	String newInventoryName	) {
+    (new iosInventory.inventoryDetailsScreen()).edit_InventoryName(
+        	newInventoryName)
+}
+
+
+def static "iosInventory.inventoryDetailsScreen.search_And_Add_Product_By_Creating_New_Location"(
+    	String locationName	
+     , 	String productName	
+     , 	String costType	) {
+    (new iosInventory.inventoryDetailsScreen()).search_And_Add_Product_By_Creating_New_Location(
+        	locationName
+         , 	productName
+         , 	costType)
+}
+
+
+def static "iosInventory.inventoryDetailsScreen.verify_Inventory_Details_Screen"(
+    	String inventoryName	) {
+    (new iosInventory.inventoryDetailsScreen()).verify_Inventory_Details_Screen(
+        	inventoryName)
 }
 
 
@@ -400,6 +450,16 @@ def static "android_orders.Order_details_Screen.verify_Order_Screen_Details_with
 
 def static "android_orders.History_Screen.verify_History_Screen_Details"() {
     (new android_orders.History_Screen()).verify_History_Screen_Details()
+}
+
+ /**
+	 * selects the user account from the accounts list and takes user to the dashboard screen
+	 * @param accountNo (user account number to be selected)
+	 */ 
+def static "iosAccountSelection.selectAnAccount.selectTheUserAccount"(
+    	String accountNo	) {
+    (new iosAccountSelection.selectAnAccount()).selectTheUserAccount(
+        	accountNo)
 }
 
 
@@ -560,188 +620,90 @@ def static "ios_orders.History_Screen.verify_History_Screen_Details"() {
     (new ios_orders.History_Screen()).verify_History_Screen_Details()
 }
 
-
-def static "ios_account_selection.Change_Account.Custom"(
-    	Object New_Account	) {
-    (new ios_account_selection.Change_Account()).Custom(
-        	New_Account)
-}
-
-
-def static "ios_common_keywords.wait_for_load.waitForPageLoad"() {
-    (new ios_common_keywords.wait_for_load()).waitForPageLoad()
-}
-
-
-def static "ios_common_keywords.wait_for_load.waitTimeForObjectToBeVisible"(
-    	Object testObj	
-     , 	int waitTime	
-     , 	int waitLimit	) {
-    (new ios_common_keywords.wait_for_load()).waitTimeForObjectToBeVisible(
-        	testObj
-         , 	waitTime
-         , 	waitLimit)
+ /**
+	 * opens orders tab where user can perform actions related to orders
+	 */ 
+def static "iosDashboard.dashboardDetailsScreen.clickOnOrders"() {
+    (new iosDashboard.dashboardDetailsScreen()).clickOnOrders()
 }
 
  /**
-	 * adds products to a location
-	 * @param locationName (name of the location),productName (name of the product to be added)
+	 * opens home tab
 	 */ 
-def static "ios_inventory.Location_details_Screen.add_Product_to_Location"(
-    	String locationName	
-     , 	String productName	) {
-    (new ios_inventory.Location_details_Screen()).add_Product_to_Location(
-        	locationName
-         , 	productName)
+def static "iosDashboard.dashboardDetailsScreen.click_On_HomeTab"() {
+    (new iosDashboard.dashboardDetailsScreen()).click_On_HomeTab()
 }
 
  /**
-	 * taps on scan and adds product based on count type of partial or full count
-	 * @param productName (name of the product to be added),countType (count type required which can be partial or full count),quantity (quantity of the product required to be added)
+	 * opens moreOptions tab where user can perform actions like signOut, goToInventoryListing Screen etc
 	 */ 
-def static "ios_inventory.Location_details_Screen.click_On_ScanIcon_And_Add_Product"(
+def static "iosDashboard.dashboardDetailsScreen.clickOnMoreOptionsTab"() {
+    (new iosDashboard.dashboardDetailsScreen()).clickOnMoreOptionsTab()
+}
+
+ /**
+	 * changes the account
+	 * @param newAccount
+	 */ 
+def static "iosDashboard.dashboardDetailsScreen.Change_Account"(
+    	String newAccount	) {
+    (new iosDashboard.dashboardDetailsScreen()).Change_Account(
+        	newAccount)
+}
+
+ /**
+	 * adds the product from dashboard
+	 * @param productName,quantity
+	 */ 
+def static "iosDashboard.dashboardDetailsScreen.Adding_Product_from_Dashboard_To_Cart"(
     	String productName	
-     , 	String countType	
      , 	String quantity	) {
-    (new ios_inventory.Location_details_Screen()).click_On_ScanIcon_And_Add_Product(
+    (new iosDashboard.dashboardDetailsScreen()).Adding_Product_from_Dashboard_To_Cart(
         	productName
-         , 	countType
          , 	quantity)
 }
 
- /**
-	 * copies products to another location
-	 * @param locationName (name of the location to which product will be copied)
-	 */ 
-def static "ios_inventory.Location_details_Screen.copy_Product_to_Another_Location"(
-    	String locationName	) {
-    (new ios_inventory.Location_details_Screen()).copy_Product_to_Another_Location(
-        	locationName)
+
+def static "iosInventory.inventoryListingScreen.changeAccount"(
+    	String account	) {
+    (new iosInventory.inventoryListingScreen()).changeAccount(
+        	account)
 }
 
- /**
-	 * deletes a product from a location
-	 * @param ndcNumber (deletes the product according to the ndcNumber)
-	 */ 
-def static "ios_inventory.Location_details_Screen.deleteProduct"(
-    	String ndcNumber	) {
-    (new ios_inventory.Location_details_Screen()).deleteProduct(
-        	ndcNumber)
-}
 
- /**
-	 * edits the location name and cost type can be changed(last price or current price paid)
-	 * @param newLocationName (new name of the location),costType (cost type required which can be current or last price paid)
-	 */ 
-def static "ios_inventory.Location_details_Screen.edit_Location_Name"(
-    	String newLocationName	
-     , 	String costType	) {
-    (new ios_inventory.Location_details_Screen()).edit_Location_Name(
-        	newLocationName
-         , 	costType)
-}
-
- /**
-	 * moves products to another location
-	 * @param locationName (name of the location to which product will be moved)
-	 */ 
-def static "ios_inventory.Location_details_Screen.move_Product_to_Another_Location"(
-    	String locationName	) {
-    (new ios_inventory.Location_details_Screen()).move_Product_to_Another_Location(
-        	locationName)
-}
-
- /**
-	 * uploads location from the location details screen
-	 */ 
-def static "ios_inventory.Location_details_Screen.upload_Location"() {
-    (new ios_inventory.Location_details_Screen()).upload_Location()
-}
-
- /**
-	 * verifies details of location details screen
-	 * @param locationName (name of the location under verification)
-	 */ 
-def static "ios_inventory.Location_details_Screen.verify_Location_details_Screen"(
-    	String locationName	) {
-    (new ios_inventory.Location_details_Screen()).verify_Location_details_Screen(
-        	locationName)
-}
-
- /**
-	 * adds location to an inventory based on the cost type of current or last price paid
-	 * @param locationName (name of the location to be added), costType (cost type required which can be current or last price paid)
-	 */ 
-def static "ios_inventory.Inventory_details_Screen.add_Location"(
-    	String locationName	
-     , 	String costType	) {
-    (new ios_inventory.Inventory_details_Screen()).add_Location(
-        	locationName
-         , 	costType)
-}
-
- /**
-	 * opens the particular location details
-	 * @param locationName (name of the location)
-	 */ 
-def static "ios_inventory.Inventory_details_Screen.click_On_Location"(
-    	String locationName	) {
-    (new ios_inventory.Inventory_details_Screen()).click_On_Location(
-        	locationName)
-}
-
- /**
-	 * deletes the location
-	 * @param locationName (name of the location to be deleted)
-	 */ 
-def static "ios_inventory.Inventory_details_Screen.delete_Location"(
-    	String locationName	) {
-    (new ios_inventory.Inventory_details_Screen()).delete_Location(
-        	locationName)
-}
-
- /**
-	 * verifies the location count, cost gets updated or not, of the inventory after the location is deleted
-	 * @param locationName (name of the location under verification)
-	 */ 
-def static "ios_inventory.Inventory_details_Screen.delete_Location_With_Cost_LocationCount_Verification"(
-    	String locationName	) {
-    (new ios_inventory.Inventory_details_Screen()).delete_Location_With_Cost_LocationCount_Verification(
-        	locationName)
-}
-
- /**
-	 * edits the inventory name
-	 * @param newInventoryName (new name of the inventory)
-	 */ 
-def static "ios_inventory.Inventory_details_Screen.edit_InventoryName"(
-    	String newInventoryName	) {
-    (new ios_inventory.Inventory_details_Screen()).edit_InventoryName(
-        	newInventoryName)
-}
-
- /**
-	 * searches and adds the product from the inventory details screen by creating a new location 
-	 * @param locationName (name of the location to be created),productName (name of the product to be added),costType (cost type required which can be current or last price paid)
-	 */ 
-def static "ios_inventory.Inventory_details_Screen.search_And_Add_Product_By_Creating_New_Location"(
-    	String locationName	
-     , 	String productName	
-     , 	String costType	) {
-    (new ios_inventory.Inventory_details_Screen()).search_And_Add_Product_By_Creating_New_Location(
-        	locationName
-         , 	productName
-         , 	costType)
-}
-
- /**
-	 * verifies various details of the inventory details screen
-	 * @param inventoryName (name of the inventory which is under verification)
-	 */ 
-def static "ios_inventory.Inventory_details_Screen.verify_Inventory_Details_Screen"(
+def static "iosInventory.inventoryListingScreen.click_On_Inventory"(
     	String inventoryName	) {
-    (new ios_inventory.Inventory_details_Screen()).verify_Inventory_Details_Screen(
+    (new iosInventory.inventoryListingScreen()).click_On_Inventory(
         	inventoryName)
+}
+
+
+def static "iosInventory.inventoryListingScreen.createInventory"(
+    	String inventoryName	) {
+    (new iosInventory.inventoryListingScreen()).createInventory(
+        	inventoryName)
+}
+
+
+def static "iosInventory.inventoryListingScreen.deleteInventory"(
+    	String inventoryName	) {
+    (new iosInventory.inventoryListingScreen()).deleteInventory(
+        	inventoryName)
+}
+
+
+def static "iosInventory.inventoryListingScreen.verify_Inventory_Listing_Screen"() {
+    (new iosInventory.inventoryListingScreen()).verify_Inventory_Listing_Screen()
+}
+
+
+def static "iosMoreOptions.moreOptionsScreen.goToInventoryListingScreen"() {
+    (new iosMoreOptions.moreOptionsScreen()).goToInventoryListingScreen()
+}
+
+
+def static "iosMoreOptions.moreOptionsScreen.signOut"() {
+    (new iosMoreOptions.moreOptionsScreen()).signOut()
 }
 
 
@@ -770,32 +732,46 @@ def static "android_inventory.Inventory_listing_Screen.verify_Inventory_Listing_
     (new android_inventory.Inventory_listing_Screen()).verify_Inventory_Listing_Screen()
 }
 
-
+ /**
+	 * this method will take the application one screen back
+	 */ 
 def static "android_common_keywords.commonMethods.goOneScreenBack"() {
     (new android_common_keywords.commonMethods()).goOneScreenBack()
 }
 
-
+ /**
+	 * installs as well as launches the application
+	 * @param Android_App_Path (Application path will be taken from the global profile and passed as a parameter to this method)
+	 */ 
 def static "android_common_keywords.commonMethods.installingAndlaunchingTheApplication"() {
     (new android_common_keywords.commonMethods()).installingAndlaunchingTheApplication()
 }
 
-
+ /**
+	 * refreshes the screen by doing a vertical swipe by considering the deviceHeight and deviceWidth
+	 */ 
 def static "android_common_keywords.commonMethods.verticalSwipeForRefresh"() {
     (new android_common_keywords.commonMethods()).verticalSwipeForRefresh()
 }
 
-
+ /**
+	 * refreshes the screen by doing a vertical swipe after waiting for 30(s) to check the changed order status of C2 order by considering the deviceHeight and deviceWidth
+	 */ 
 def static "android_common_keywords.commonMethods.verticalSwipeForRefreshingC2OrderStatus"() {
     (new android_common_keywords.commonMethods()).verticalSwipeForRefreshingC2OrderStatus()
 }
 
-
+ /**
+	 * waits until the progressBar is visible on the screen
+	 */ 
 def static "android_common_keywords.commonMethods.waitForProgressBarToBeInvisible"() {
     (new android_common_keywords.commonMethods()).waitForProgressBarToBeInvisible()
 }
 
-
+ /**
+	 * waits until the object is visible on the screen
+	 * @param testObj (reference of the test Object),waitTime (time by which delay will be added in(s)),waitLimit (maximum limit of time for which delay can be added)
+	 */ 
 def static "android_common_keywords.commonMethods.waitTimeForObjectToBeVisible"(
     	Object testObj	
      , 	int waitTime	
@@ -891,89 +867,6 @@ def static "android_orders.New_Order_Screen.click_On_NewOrder"() {
 
 def static "android_orders.New_Order_Screen.verify_NewOrder_Screen_Details"() {
     (new android_orders.New_Order_Screen()).verify_NewOrder_Screen_Details()
-}
-
-
-def static "ios_common_keywords.TearDown_Delete_Inventory.Custom"(
-    	String Location_Name	) {
-    (new ios_common_keywords.TearDown_Delete_Inventory()).Custom(
-        	Location_Name)
-}
-
- /**
-	 * performs login function
-	 * @param username,password
-	 */ 
-def static "ios_login.Login_Screen.login"(
-    	Object username	
-     , 	Object password	) {
-    (new ios_login.Login_Screen()).login(
-        	username
-         , 	password)
-}
-
- /**
-	 * selects the environment
-	 */ 
-def static "ios_login.Login_Screen.select_Environment"() {
-    (new ios_login.Login_Screen()).select_Environment()
-}
-
- /**
-	 * selects type of testing
-	 * @param testingType
-	 */ 
-def static "ios_login.Login_Screen.select_type_Of_Testing"(
-    	String testingType	) {
-    (new ios_login.Login_Screen()).select_type_Of_Testing(
-        	testingType)
-}
-
- /**
-	 * enters the username
-	 * @param username
-	 */ 
-def static "ios_login.Login_Screen.enter_Username"(
-    	String username	) {
-    (new ios_login.Login_Screen()).enter_Username(
-        	username)
-}
-
- /**
-	 * enters the password
-	 * @param password
-	 */ 
-def static "ios_login.Login_Screen.enter_Password"(
-    	String password	) {
-    (new ios_login.Login_Screen()).enter_Password(
-        	password)
-}
-
- /**
-	 * clicks on signIn button
-	 * @param password
-	 */ 
-def static "ios_login.Login_Screen.click_On_SignIn_Button"() {
-    (new ios_login.Login_Screen()).click_On_SignIn_Button()
-}
-
- /**
-	 * clicks on forget password button
-	 */ 
-def static "ios_login.Login_Screen.click_On_Forgot_Password"() {
-    (new ios_login.Login_Screen()).click_On_Forgot_Password()
-}
-
- /**
-	 * verifies the details of login Page
-	 */ 
-def static "ios_login.Login_Screen.verify_LoginPage_Details"() {
-    (new ios_login.Login_Screen()).verify_LoginPage_Details()
-}
-
-
-def static "ios_login.Login_Screen.select_type_Of_Testing"() {
-    (new ios_login.Login_Screen()).select_type_Of_Testing()
 }
 
  /**
@@ -1085,16 +978,6 @@ def static "android_csos.Csos_flow.CSOS_Search_Product"(
          , 	Quantity)
 }
 
- /**
-	 * selects the account from the accounts list
-	 * @param accountNo
-	 */ 
-def static "ios_account_selection.Select_An_Account.selectTheUserAccount"(
-    	String accountNo	) {
-    (new ios_account_selection.Select_An_Account()).selectTheUserAccount(
-        	accountNo)
-}
-
 
 def static "android_dashboard.Dashboard_details_Screen.change_Account"(
     	String new_Account	) {
@@ -1158,9 +1041,4 @@ def static "api.apiCommonMethods.readAPITestData"() {
 	 */ 
 def static "api.apiCommonMethods.tokenGenerator"() {
     (new api.apiCommonMethods()).tokenGenerator()
-}
-
-
-def static "ios_common_keywords.Go_Back.Custom"() {
-    (new ios_common_keywords.Go_Back()).Custom()
 }

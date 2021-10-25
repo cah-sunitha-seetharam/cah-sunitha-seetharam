@@ -1,9 +1,8 @@
-package ios_more_options_screen
+package iosAccountSelection
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
-
 import com.kms.katalon.core.annotation.Keyword
 import com.kms.katalon.core.checkpoint.Checkpoint
 import com.kms.katalon.core.checkpoint.CheckpointFactory
@@ -34,39 +33,24 @@ import com.kms.katalon.core.testobject.TestObjectProperty
 
 import com.kms.katalon.core.mobile.helper.MobileElementCommonHelper
 import com.kms.katalon.core.util.KeywordUtil
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import com.kms.katalon.core.webui.exception.WebElementNotFoundException
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
-import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
-class moreOptionsScreen {
-
-	/**
-	 * opens the inventory listing screen from moreOptions Screen
-	 */
-	@Keyword()
-	def goToInventoryListingScreen() {
-
-
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
-
-		Mobile.tap(findTestObject('iOS/More Options Screen/Inventory Selection Under MoreOptions_Text'), 0)
-
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
-	}
-
-
+class selectAnAccount {
 
 	/**
-	 * clicks on moreOptions tab, signsOut the user and takes user to the logInScreen
+	 * selects the user account from the accounts list and takes user to the dashboard screen
+	 * @param accountNo (user account number to be selected)
 	 */
-	@Keyword()
-	def signOut() {
+	@Keyword
+	def selectTheUserAccount(String accountNo) {
 
-		Mobile.tap(findTestObject('iOS/Dashboard/More Options_Tab'), 0)
+		Mobile.waitForElementPresent(findTestObject('iOS/Account_Selection/You must select an account to continue_Text'), 0)
 
-		Mobile.tap(findTestObject('iOS/More Options Screen/SignOut/Sign_Out_Text'), 0)
+		Mobile.scrollToText(accountNo, FailureHandling.STOP_ON_FAILURE)
 
-		Mobile.tap(findTestObject('iOS/More Options Screen/SignOut/Sign_Out_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Account_Selection/AccountNo_Text', [('val') : accountNo]), 0)
 	}
 }

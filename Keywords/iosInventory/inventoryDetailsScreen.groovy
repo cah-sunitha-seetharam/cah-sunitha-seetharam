@@ -1,4 +1,4 @@
-package ios_inventory
+package iosInventory
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
@@ -39,7 +39,7 @@ import com.kms.katalon.core.webui.exception.WebElementNotFoundException
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 
-class Inventory_details_Screen extends Inventory_listing_Screen {
+class inventoryDetailsScreen extends inventoryListingScreen {
 
 
 	/**
@@ -47,7 +47,7 @@ class Inventory_details_Screen extends Inventory_listing_Screen {
 	 * @param locationName (name of the location to be added), costType (cost type required which can be current or last price paid)
 	 */
 	@Keyword
-	def add_Location(String locationName, String costType) {
+	def addLocation(String locationName, String costType) {
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/addLocation_Text'), 0)
 
@@ -63,7 +63,7 @@ class Inventory_details_Screen extends Inventory_listing_Screen {
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/createNewLocation_Text'), 0)
 
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
 		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/locationNameVerification_Text', [('LName') : locationName]),0)
 	}
@@ -75,7 +75,7 @@ class Inventory_details_Screen extends Inventory_listing_Screen {
 	 * @param locationName (name of the location)
 	 */
 	@Keyword
-	def click_On_Location(String locationName) {
+	def clickOnALocation(String locationName) {
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/tapOnLocation_Text', [('Location') : locationName]), 0)
 	}
@@ -87,7 +87,9 @@ class Inventory_details_Screen extends Inventory_listing_Screen {
 	 * @param locationName (name of the location to be deleted)
 	 */
 	@Keyword
-	def delete_Location(String locationName) {
+	def deleteLocation(String locationName) {
+
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
 		int ElementTopPosition = Mobile.getElementTopPosition(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/tapOnLocation_Text', [('Location') : locationName]), 0)
 
@@ -107,7 +109,7 @@ class Inventory_details_Screen extends Inventory_listing_Screen {
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Delete_Location/Yes_Text'), 0)
 
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
 		Mobile.verifyElementNotVisible(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/locationNameVerification_Text', [('LName') : locationName]),0)
 	}
@@ -120,7 +122,7 @@ class Inventory_details_Screen extends Inventory_listing_Screen {
 	 * @param locationName (name of the location under verification)
 	 */
 	@Keyword
-	def delete_Location_With_Cost_LocationCount_Verification(String locationName) {
+	def deleteLocationWithCostLocationCountVerification(String locationName) {
 
 		int initialInventoryLocationCount=Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/inventoryLine_Text'), 0)// initial inventory location count
 
@@ -128,11 +130,11 @@ class Inventory_details_Screen extends Inventory_listing_Screen {
 
 		String locationValue=Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/locationValue_Text'), 0)//location value with added product
 
-		float inventoryTotal_dollarSymbolRemoved_FloatValue=(new ios_common_keywords.commonMethods()).floatValueGenerator(initialInventoryTotal)//converting initialInventoryTotal string to a float value
-		
-		float locationValue_dollarSymbolRemoved_FloatValue=(new ios_common_keywords.commonMethods()).floatValueGenerator(locationValue)//converting locationValue string to a float value
-		
-		(new ios_inventory.Inventory_details_Screen()).delete_Location(locationName)//calling delete location function
+		float inventoryTotal_dollarSymbolRemoved_FloatValue=(new iosCommonKeywords.commonMethods()).floatValueGenerator(initialInventoryTotal)//converting initialInventoryTotal string to a float value
+
+		float locationValue_dollarSymbolRemoved_FloatValue=(new iosCommonKeywords.commonMethods()).floatValueGenerator(locationValue)//converting locationValue string to a float value
+
+		(new iosInventory.inventoryDetailsScreen()).deleteLocation(locationName)//calling delete location function
 
 		Mobile.tap(findTestObject('Object Repository/iOS/Product_Search/Back_ImageView'), 0)
 
@@ -140,8 +142,8 @@ class Inventory_details_Screen extends Inventory_listing_Screen {
 
 		String finalInventoryTotal=Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/locationValue_Text'), 0)//final inventory total after deleting a location
 
-		float finalInventoryTotal_charactersRemoved_FloatValue=(new ios_common_keywords.commonMethods()).floatValueGenerator(finalInventoryTotal)///converting finalInventoryTotal string to a float value
-		
+		float finalInventoryTotal_charactersRemoved_FloatValue=(new iosCommonKeywords.commonMethods()).floatValueGenerator(finalInventoryTotal)///converting finalInventoryTotal string to a float value
+
 		assert inventoryTotal_dollarSymbolRemoved_FloatValue==(finalInventoryTotal_charactersRemoved_FloatValue+locationValue_dollarSymbolRemoved_FloatValue)
 
 		assert finalInventoryLocationCount==(initialInventoryLocationCount-1)
@@ -164,8 +166,6 @@ class Inventory_details_Screen extends Inventory_listing_Screen {
 		Mobile.setText(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName_TextField'), newInventoryName, 0)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Edit Inventory/saveChanges_Text'), 0)
-
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 	}
 
 
@@ -178,11 +178,9 @@ class Inventory_details_Screen extends Inventory_listing_Screen {
 	@Keyword
 	def search_And_Add_Product_By_Creating_New_Location(String locationName, String productName,String costType) {
 
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
-
 		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Product SearchField'), 0, 0)
 
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
 		Mobile.setText(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Product SearchField'), productName, 0)
 
@@ -211,8 +209,6 @@ class Inventory_details_Screen extends Inventory_listing_Screen {
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Dashoboard/addProductToInventory_Text'), 0)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Copy Product from Location/Go to Location after Move or Copy or Adding Product_Text',[('Location'):locationName]), 0)
-
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 	}
 
 

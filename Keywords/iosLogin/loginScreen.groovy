@@ -1,4 +1,4 @@
-package ios_login
+package iosLogin
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
@@ -39,7 +39,7 @@ import com.kms.katalon.core.webui.exception.WebElementNotFoundException
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 
-class Login_Screen {
+class loginScreen {
 
 
 	/**
@@ -88,8 +88,6 @@ class Login_Screen {
 	@Keyword()
 	def select_type_Of_Testing(String testingType='Automation') {
 
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
-		
 		if (Mobile.verifyElementExist(findTestObject('iOS/LogIn/Testing Type/testingMode_Button'),5, FailureHandling.OPTIONAL)) {
 
 			Mobile.tap(findTestObject('iOS/LogIn/Testing Type/testingMode_Button'), 0)

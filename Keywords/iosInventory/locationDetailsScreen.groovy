@@ -1,4 +1,4 @@
-package ios_inventory
+package iosInventory
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
@@ -39,7 +39,7 @@ import com.kms.katalon.core.webui.exception.WebElementNotFoundException
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 
-class Location_details_Screen {
+class locationDetailsScreen {
 
 
 	/**
@@ -49,17 +49,15 @@ class Location_details_Screen {
 	@Keyword
 	def add_Product_to_Location(String locationName, String productName) {
 
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
-
 		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Product SearchField'), 0, 0)
 
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
 		Mobile.setText(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Product SearchField'), productName, 0)
 
 		Mobile.tapAndHold(findTestObject('iOS/Product_Search/Search Key_Button'), 0, 0)
 
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Add Product to Location_Text', [('Location') : locationName]),0)
 
@@ -73,9 +71,7 @@ class Location_details_Screen {
 	 * @param productName (name of the product to be added),countType (count type required which can be partial or full count),quantity (quantity of the product required to be added)
 	 */
 	@Keyword
-	def click_On_ScanIcon_And_Add_Product(String productName, String countType, String quantity) {
-
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+	def clickOnScanIconAndAddProduct(String productName, String countType, String quantity) {
 
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/scan_Icon'), 0)
 
@@ -105,7 +101,7 @@ class Location_details_Screen {
 	@Keyword
 	def copy_Product_to_Another_Location(String locationName) {
 
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Delete_Location/Slide_PopUp_Button for Location Deletion'), 0)
 
@@ -115,11 +111,9 @@ class Location_details_Screen {
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Copy Product from Location/Copy_Product_Text'), 0)
 
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Copy Product from Location/Go to Location after Move or Copy or Adding Product_Text', [('Location') : locationName]),0)
-
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 	}
 
 
@@ -132,15 +126,13 @@ class Location_details_Screen {
 	@Keyword
 	def deleteProduct(String ndcNumber) {
 
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
-
 		String testObj='Object Repository/iOS/Inventory/Location Details_Screen/Delete Product/slidePopUpDeleteProduct_Button'
 
-		int x_Coordinate=(new ios_common_keywords.commonMethods()).tapXCoordinateGenerator(testObj)
+		int x_Coordinate=(new iosCommonKeywords.commonMethods()).tapXCoordinateGenerator(testObj)
 
 		testObj='Object Repository/iOS/Inventory/Location Details_Screen/Delete Product/ndcNumber_Text'
 
-		int y_Coordinate=(new ios_common_keywords.commonMethods()).tapYCoordinateGenerator(testObj,ndcNumber)
+		int y_Coordinate=(new iosCommonKeywords.commonMethods()).tapYCoordinateGenerator(testObj,ndcNumber)
 
 		Mobile.tapAtPosition(x_Coordinate, y_Coordinate)
 
@@ -152,8 +144,8 @@ class Location_details_Screen {
 	}
 
 
-		
-	
+
+
 	/**
 	 * edits the location name and cost type can be changed(last price or current price paid)
 	 * @param newLocationName (new name of the location),costType (cost type required which can be current or last price paid)
@@ -175,7 +167,7 @@ class Location_details_Screen {
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Copy Product from Location/Save Changes_Text'), 0)
 
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
 		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/locationNameVerification_Text', [('LName') : newLocationName]),0)
 	}
@@ -198,11 +190,9 @@ class Location_details_Screen {
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Move Product to Another Location/Move_Product_Text'), 0)
 
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Copy Product from Location/Go to Location after Move or Copy or Adding Product_Text', [('Location') : locationName]),0)
-
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 	}
 
 
@@ -211,7 +201,7 @@ class Location_details_Screen {
 	 * uploads location from the location details screen
 	 */
 	@Keyword
-	def upload_Location() {
+	def uploadLocation() {
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Upload Location/enabledUploadLocation_Button'), 0)
 

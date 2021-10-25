@@ -1,4 +1,4 @@
-package ios_dashboard
+package iosDashboard
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
@@ -39,13 +39,13 @@ import com.kms.katalon.core.webui.exception.WebElementNotFoundException
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 
-class dashboard_details {
+class dashboardDetailsScreen {
 
 	/**
-	 * opens orders tab
+	 * opens orders tab where user can perform actions related to orders
 	 */
 	@Keyword
-	def click_On_Orders() {
+	def clickOnOrders() {
 
 		Mobile.tap(findTestObject('iOS/Dashboard/Orders_Tab'), 0)
 	}
@@ -63,11 +63,10 @@ class dashboard_details {
 
 
 	/**
-	 * opens moreOptions tab
+	 * opens moreOptions tab where user can perform actions like signOut, goToInventoryListing Screen etc
 	 */
 	@Keyword
-	def click_On_More_Options() {
-
+	def clickOnMoreOptionsTab() {
 
 		Mobile.tap(findTestObject('iOS/Dashboard/More Options_Tab'), 0)
 	}
@@ -100,11 +99,9 @@ class dashboard_details {
 	@Keyword
 	def Adding_Product_from_Dashboard_To_Cart(String productName, String quantity) {
 
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
-
 		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Product SearchField'), 0, 0)
 
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
 		Mobile.setText(findTestObject('iOS/Product_Search/Product SearchField'), productName, 0)
 
