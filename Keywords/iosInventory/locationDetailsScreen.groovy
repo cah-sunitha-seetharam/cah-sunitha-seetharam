@@ -120,7 +120,7 @@ class locationDetailsScreen {
 
 
 	/**
-	 * deletes a product from a location
+	 * deletes a product from the added products list in a location
 	 * @param ndcNumber (deletes the product according to the ndcNumber)
 	 */
 	@Keyword
@@ -136,9 +136,7 @@ class locationDetailsScreen {
 
 		Mobile.tapAtPosition(x_Coordinate, y_Coordinate)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Delete_Location/Slide_PopUp_Button for Location Deletion'), 0)
-
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Delete_Location/Delete Location_Text'), 0)
+		Mobile.tap(findTestObject('Object Repository/iOS/Inventory/Location Details_Screen/Delete Product/deleteProduct_Text'), 0)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Delete_Location/Yes_Text'), 0)
 	}
@@ -146,7 +144,7 @@ class locationDetailsScreen {
 
 
 
-	/**
+		/**
 	 * edits the location name and cost type can be changed(last price or current price paid)
 	 * @param newLocationName (new name of the location),costType (cost type required which can be current or last price paid)
 	 */

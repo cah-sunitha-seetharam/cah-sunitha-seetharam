@@ -1,5 +1,5 @@
 package iosCommonKeywords
-
+import java.util.Stack
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
@@ -76,6 +76,33 @@ class  commonMethods {
 
 		return stringWithoutCharactersFloatValue
 	}
+
+
+
+	/**
+	 * verifies that the latest added product is at the top of the added products list, then deletes the latest added product and continues the process to verifyReverseChronologicalOrder of the added products
+	 * @param productNDC (parameter is the stack of ndcNumbers of the added products)
+	 */
+	@Keyword
+	def verifyReverseChronological(Stack productNdcStack)
+	{
+		String topProductNdc
+
+		while(!productNdcStack.isEmpty()) //loops while productNdcStack is not empty
+		{
+
+			topProductNdc=productNdcStack.pop() //pops the top ndcNumber from the productNdcStack and stores value in the topProductNdc
+
+			String ndcLabel=Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/ndc_Label'),0) //gets the ndcLabel of the top added product in the location details page
+
+			assert ndcLabel==("NDC: "+topProductNdc) // verifies topProductNdc equals the ndcLabel of the topmost product in the products list
+
+			(new iosInventory.locationDetailsScreen()).deleteProduct(topProductNdc)//calling delete product function and passing the topProductNdc
+
+		}
+
+	}
+
 
 
 
