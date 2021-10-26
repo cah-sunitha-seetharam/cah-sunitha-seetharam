@@ -78,7 +78,7 @@ CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct'
 
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
-CustomKeywords.'iosCommonKeywords.commonMethods.verifyReverseChronological'(ndcNumbersStack)
+CustomKeywords.'iosCommonKeywords.commonMethods.verifyReverseChronologicalOrder'(ndcNumbersStack)
 
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
