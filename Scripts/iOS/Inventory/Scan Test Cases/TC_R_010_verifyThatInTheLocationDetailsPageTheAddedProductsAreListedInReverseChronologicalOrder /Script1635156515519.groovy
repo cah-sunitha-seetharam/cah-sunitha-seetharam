@@ -53,7 +53,7 @@ CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'
 Stack<String> ndcNumbersStack = new Stack<String>()
 
 'reading the module test data file'
-def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('testData.json')
+def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inventoryTestData.json')
 
 'reading the Ndc of product to be added'
 String productSearch = requestObject[GlobalVariable.Environment].TC_R_010.productSearchByNDC1

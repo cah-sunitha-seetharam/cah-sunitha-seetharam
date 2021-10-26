@@ -49,7 +49,7 @@ CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnALocation'(locationNa
 
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('testData.json' // reading the module test data file  
+def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inventoryTestData.json' // reading the module test data file  
     )
 
 String productSearch = requestObject[GlobalVariable.Environment].TC_R_015.productSearchCin //reading the cin of product to be added
