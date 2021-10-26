@@ -16,7 +16,7 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
-import java.util.Stack
+import java.util.Stack as Stack
 
 CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
@@ -50,34 +50,42 @@ CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnALocation'(locationNa
 
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-Stack <String> ndcNumbersStack=new Stack<String>();
+Stack<String> ndcNumbersStack = new Stack<String>()
 
-def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('testData.json') // reading the module test data file 
+'reading the module test data file'
+def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('testData.json')
 
-String productSearch = requestObject[GlobalVariable.Environment].TC_R_010.productSearchByNDC1 //reading the cin of product to be added
+'reading the Ndc of product to be added'
+String productSearch = requestObject[GlobalVariable.Environment].TC_R_010.productSearchByNDC1
 
+'pushing the ndc of the product to be searched into the stack'
 ndcNumbersStack.push(productSearch)
 
 CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct'(productSearch, countType, quantity)
 
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
-productSearch = requestObject[GlobalVariable.Environment].TC_R_010.productSearchByNDC2 //reading the cin of product to be added
+'reading the Ndc of product to be added'
+productSearch = requestObject[GlobalVariable.Environment].TC_R_010.productSearchByNDC2
 
+'pushing the ndc of the product to be searched into the stack'
 ndcNumbersStack.push(productSearch)
 
 CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct'(productSearch, countType, quantity)
 
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
-productSearch = requestObject[GlobalVariable.Environment].TC_R_010.productSearchByNDC3 //reading the cin of product to be added
+'reading the Ndc of product to be added'
+productSearch = requestObject[GlobalVariable.Environment].TC_R_010.productSearchByNDC3
 
+'pushing the ndc of the product to be searched into the stack'
 ndcNumbersStack.push(productSearch)
 
 CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct'(productSearch, countType, quantity)
 
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
+'calling the verifyReverseChronologicalOrder function and passing the ndcNumbers stack as an argument'
 CustomKeywords.'iosCommonKeywords.commonMethods.verifyReverseChronologicalOrder'(ndcNumbersStack)
 
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
