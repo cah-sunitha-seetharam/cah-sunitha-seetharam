@@ -17,36 +17,49 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
+'starts the application'
 CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
+'login function called'
 CustomKeywords.'iosLogin.loginScreen.login'(GlobalVariable.Username, GlobalVariable.Password)
 
+'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
+'selects the user account from the accounts list'
 CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
 
+'takes user to the moreOptions screen'
 CustomKeywords.'iosDashboard.dashboardDetailsScreen.clickOnMoreOptionsTab'()
 
+'takes the user from moreOptions screen to the invemtory listing screen'
 CustomKeywords.'iosMoreOptions.moreOptionsScreen.goToInventoryListingScreen'()
 
+'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'output of random string generator is stored in inventoryName which will be passed into create_Inventory function'
 inventoryName = CustomKeywords.'common.commonMethods.randomStringGenerator'(inventoryNameLength)
 
+'creates an inventory by taking inventoryName as the argument'
 CustomKeywords.'iosInventory.inventoryListingScreen.createInventory'(inventoryName)
 
+'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'ouput of random string generator is stored in locationName which will be passed into add_Location function\n'
 locationName = CustomKeywords.'common.commonMethods.randomStringGenerator'(locationNameLength)
 
+'adds location in location details page and takes locationName as the argument'
 CustomKeywords.'iosInventory.inventoryDetailsScreen.addLocation'(locationName, costType)
 
+'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
+'opens the location details and takes the locationName as the argument'
 CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnALocation'(locationName)
 
+'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'reading the module test data file'
@@ -61,18 +74,22 @@ CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct'
 'taps on remove button which removes the already scanned product from the location too'
 CustomKeywords.'iosInventory.locationDetailsScreen.clickOnRemoveButtonToRemoveAlreadyScannedProduct'()
 
+'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
+'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
 'verifies that the removed product is not present in the products list'
 CustomKeywords.'iosInventory.locationDetailsScreen.verifyProductIsNotVisibleOnTheLocationDetailsScreen'(productSearch)
 
+'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
 'deletes the location and takes locationName as the argument'
 CustomKeywords.'iosInventory.inventoryDetailsScreen.deleteLocation'(locationName)
 
+'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
 'deletes the inventory and takes inventoryName as the argument'

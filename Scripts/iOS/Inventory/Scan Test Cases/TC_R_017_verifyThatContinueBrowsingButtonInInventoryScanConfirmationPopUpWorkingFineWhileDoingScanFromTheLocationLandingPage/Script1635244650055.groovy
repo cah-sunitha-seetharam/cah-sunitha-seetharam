@@ -17,25 +17,34 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
+'starts the application'
 CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
+'login function called'
 CustomKeywords.'iosLogin.loginScreen.login'(GlobalVariable.Username, GlobalVariable.Password)
 
+'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
+'selects the user account from the accounts list'
 CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
 
+'takes user to the moreOptions screen'
 CustomKeywords.'iosDashboard.dashboardDetailsScreen.clickOnMoreOptionsTab'()
 
+'takes the user from moreOptions screen to the invemtory listing screen'
 CustomKeywords.'iosMoreOptions.moreOptionsScreen.goToInventoryListingScreen'()
 
+'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'output of random string generator is stored in inventoryName which will be passed into create_Inventory function'
 inventoryName = CustomKeywords.'common.commonMethods.randomStringGenerator'(inventoryNameLength)
 
+'creates an inventory by taking inventoryName as the argument'
 CustomKeywords.'iosInventory.inventoryListingScreen.createInventory'(inventoryName)
 
+'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'ouput of random string generator is stored in locationName which will be passed into add_Location function\n'
@@ -50,6 +59,7 @@ String productSearch = requestObject[GlobalVariable.Environment].TC_R_017.produc
 'calling the function which adds a product by clicking on scan and takes productNdc,countType and quantity required as the arguments, then adding a location via inventory details screen which requires locationName, costType as the argument'
 CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnScanIconAndAddProductByCreatingNewLocationViaInventoryDetailsScreen'(locationName, productSearch, countType, quantity, costType)
 
+'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
 'opens the location details and takes locationName as the argument'
@@ -58,11 +68,13 @@ CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnALocation'(locationNa
 'verifies that the added product is present in the products list'
 CustomKeywords.'iosInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen'(productSearch)
 
+'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
 'deletes the inventory and takes locationName as the argument'
 CustomKeywords.'iosInventory.inventoryDetailsScreen.deleteLocation'(locationName)
 
+'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
 'deletes the inventory and takes inventoryName as the argument'
