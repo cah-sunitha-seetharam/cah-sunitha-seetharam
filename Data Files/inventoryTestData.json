@@ -38,6 +38,20 @@
             "productSearchByNDC": "42023-0107-01",
         },
         
+        
+        "TC_R_019": {
+            "productSearchByNDC1": "42023-0107-01",
+            "productSearchByNDC2": "50580-0496-60",
+            "productSearchByNDC3": "49884-0111-74",
+        },
+        
+        
+        "TC_R_020": {
+            "productSearchByNDC1": "42023-0107-01",
+            "productSearchByNDC2": "50580-0496-60",
+            "productSearchByNDC3": "49884-0111-74",
+        },
+        
     },
     
     "PMODStg": {
@@ -78,6 +92,19 @@
             "productSearchByNDC": "42023-0107-01",
         },
         
+        
+        "TC_R_019": {
+            "productSearchByNDC1": "42023-0107-01",
+            "productSearchByNDC2": "50580-0496-60",
+            "productSearchByNDC3": "49884-0111-74",
+        },
+        
+        
+        "TC_R_020": {
+            "productSearchByNDC1": "42023-0107-01",
+            "productSearchByNDC2": "50580-0496-60",
+            "productSearchByNDC3": "49884-0111-74",
+        },
         
         "TC_JT_CSOS_001": {
             "productSearchCin": "4023347",

@@ -69,7 +69,7 @@ class  commonMethods {
 
 	/**
 	 * installs as well as launches the application
-	 * @param Android_App_Path (Application path will be taken from the global profile and passed as a parameter to this method)
+	 * @param iOS_App_Path (Application path will be taken from the global profile and passed as a parameter to this method)
 	 */
 	@Keyword
 	def installingAndlaunchingTheApplication() {
@@ -167,21 +167,7 @@ class  commonMethods {
 
 
 	/**
-	 * refreshes the screen by doing a vertical swipe after waiting for 30(s) to check the changed order status of C2 order by considering the deviceHeight and deviceWidth
-	 */
-	@Keyword
-	def verticalSwipeForRefreshingC2OrderStatus() {
-
-		WebUI.delay(30)
-
-		(new iosCommonKeywords.commonMethods()).verticalSwipeForRefresh() //waitTime of 1(s), waitLimit of 20(s)
-
-	}
-
-
-
-	/**
-	 * waits until the progressBar is visible on the screen
+	 * waits until the progressBar is visible on the screen, which will have a maximum waitLimit to be visible on the screen
 	 */
 	@Keyword()
 	def waitForProgressBarToBeInvisible() {
@@ -193,7 +179,7 @@ class  commonMethods {
 
 
 	/**
-	 * waits until the object is visible on the screen
+	 * waits until the object is visible on the screen, which will have a maximum waitLimit to be visible on the screen
 	 * @param testObj (reference of the test Object),waitTime (time by which delay will be added in(s)),waitLimit (maximum limit of time for which delay can be added)
 	 */
 	@Keyword()
@@ -208,8 +194,8 @@ class  commonMethods {
 				assert counter<waitLimit
 			}
 		}
-		catch (Exception e) {
-			KeywordUtil.markFailed("waitLimt of "+ waitLimit +"(s) crossed and object is still visible") //logInfo
+		catch(AssertionError e){
+			KeywordUtil.logInfo("waitLimit of " + waitLimit + "(s) croosed and object is still visible on the screen!!!!! " +e.toString()); //logInfo if assertion fails
 		}
 
 	}

@@ -104,10 +104,12 @@ class locationDetailsScreen {
 		}
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/done_Button'), 0)
 
-		Mobile.setText(findTestObject('iOS/Orders/Order Details Page/Scan Order/quantity_TextField'), quantity, 0)
+		if(quantity!="NULL") //if quantity is passed a tag of NULL, no quantity would be entered in the quantity text-field
+			Mobile.setText(findTestObject('iOS/Orders/Order Details Page/Scan Order/quantity_TextField'), quantity, 0)
 
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/done_Button'), 0)
 	}
+
 
 
 
@@ -214,6 +216,35 @@ class locationDetailsScreen {
 
 
 	/**
+	 * this function gets the total added quantity of the product
+	 * @return quantity of the product which has been added
+	 */
+	@Keyword
+	def returnQuantityOfTheAddedProduct() {
+
+		int quantity= Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/quantityOfAddedProduct_Text'), 0)
+		
+		return quantity
+	}
+
+
+
+	/**
+	 * taps on shares location button, verifies the pop-up screen and closes the pop-up screen
+	 */
+	@Keyword
+	def shareLocationDetails() {
+
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Share Location/shareLocation_Button'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details_Screen/Share Location/sharePopUpActivity_ListView'), 0)
+
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Share Location/close_Button'), 0)
+	}
+
+
+
+	/**
 	 * uploads location from the location details screen
 	 */
 	@Keyword
@@ -224,6 +255,28 @@ class locationDetailsScreen {
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Upload Location/gotIt_Text'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details_Screen/Upload Location/disbaledUploadLocation_Button'), 0)
+	}
+
+
+
+
+
+	/**
+	 * verifies details of location details screen
+	 * @param locationName (name of the location under verification)
+	 */
+	@Keyword
+	def verifyLocationDetailsScreen(String locationName) {
+
+		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Verification Details/Inventory Header_Label'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Scan_Icon'),0)
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Inventory/Location Details_Screen/Share Location/shareLocation_Button'), 0)
+
+		//	Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/Created on Date_Text'),0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/Location Title_Label',[('TEXT'):locationName]),  0)
 	}
 
 
@@ -239,7 +292,6 @@ class locationDetailsScreen {
 
 
 
-
 	/**
 	 * this function verifies that the product is visible on the location details screen
 	 */
@@ -247,25 +299,5 @@ class locationDetailsScreen {
 	def verifyProductIsVisibleOnTheLocationDetailsScreen(ndcNumber) {
 
 		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Inventory/Location Details_Screen/Delete Product/ndcNumber_Text',[('TEXT'):ndcNumber]),0)
-	}
-
-
-
-	/**
-	 * verifies details of location details screen
-	 * @param locationName (name of the location under verification)
-	 */
-	@Keyword
-	def verify_Location_details_Screen(String locationName) {
-
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Verification Details/Inventory Header_Label'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Scan_Icon'),0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details_Screen/Share Location/Share Location_Text'), 0)
-
-		//	Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/Created on Date_Text'),0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/Location Title_Label',[('TEXT'):locationName]),  0)
 	}
 }
