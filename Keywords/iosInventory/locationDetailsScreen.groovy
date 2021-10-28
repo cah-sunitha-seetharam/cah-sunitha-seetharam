@@ -223,7 +223,7 @@ class locationDetailsScreen {
 	def returnQuantityOfTheAddedProduct() {
 
 		int quantity= Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/quantityOfAddedProduct_Text'), 0)
-		
+
 		return quantity
 	}
 
@@ -233,13 +233,18 @@ class locationDetailsScreen {
 	 * taps on shares location button, verifies the pop-up screen and closes the pop-up screen
 	 */
 	@Keyword
-	def shareLocationDetails() {
+	def verifyShareLocationPopUp() {
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Share Location/shareLocation_Button'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details_Screen/Share Location/sharePopUpActivity_ListView'), 0)
+		String verifyPopUpScreentestobj='iOS/Inventory/Location Details_Screen/Share Location/sharePopUpActivity_ListView' //reference of the popUp screen object
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Share Location/close_Button'), 0)
+		(new iosCommonKeywords.commonMethods()).verifyPopUpScreenExist(verifyPopUpScreentestobj) // verifies popUp screen present
+
+		String closePopUpScreentestobj='iOS/Inventory/Location Details_Screen/Share Location/close_Button' //reference of the close popUp screen button
+
+		(new iosCommonKeywords.commonMethods()).closePopUpScreen(closePopUpScreentestobj) // closes the popUp screen
+		
 	}
 
 
@@ -282,6 +287,7 @@ class locationDetailsScreen {
 
 	/**
 	 * this function verifies that the product is not visible on the location details screen
+	 * @param ndcNumber (ndcNumber of the product which should not be present on the screen)
 	 */
 	@Keyword
 	def verifyProductIsNotVisibleOnTheLocationDetailsScreen(ndcNumber) {
@@ -294,6 +300,7 @@ class locationDetailsScreen {
 
 	/**
 	 * this function verifies that the product is visible on the location details screen
+	 * @param ndcNumber (ndcNumber of the product which should be present on the screen)
 	 */
 	@Keyword
 	def verifyProductIsVisibleOnTheLocationDetailsScreen(ndcNumber) {

@@ -68,7 +68,7 @@ def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inve
 'reading the ndcNumber of product to be added'
 String productSearch = requestObject[GlobalVariable.Environment].TC_R_019.productSearchByNDC1
 
-'calling the function which adds a product by clicking on scan and takes productNdc,countType and quantity required as thee arguments'
+'calling the function which adds a product by clicking on scan and takes productNdc,countType and quantity required as the arguments'
 CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct'(productSearch, countType, quantity)
 
 'takes the application one screen back'

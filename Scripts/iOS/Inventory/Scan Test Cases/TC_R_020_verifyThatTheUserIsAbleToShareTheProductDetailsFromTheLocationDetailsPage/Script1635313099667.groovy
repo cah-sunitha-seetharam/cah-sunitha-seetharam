@@ -75,7 +75,7 @@ CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
 'clicks on share location button and verifies the pop-up screen and then closes the pop-up screen'
-CustomKeywords.'iosInventory.locationDetailsScreen.shareLocationDetails'()
+CustomKeywords.'iosInventory.locationDetailsScreen.verifyShareLocationPopUp'()
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()

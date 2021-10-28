@@ -23,6 +23,20 @@ import internal.GlobalVariable
 
 class  commonMethods {
 
+
+	/**
+	 * this method closes the popUp screen by tapping on close, cancel button
+	 * @param testobj (reference of the close, cancel button)
+	 */
+	@Keyword()
+	def closePopUpScreen(testobj) {
+
+		Mobile.tap(findTestObject(testobj), 0)
+	}
+
+
+
+
 	/**
 	 * float value generator
 	 * @param stringToBeConvertedToFloatValue 
@@ -115,6 +129,21 @@ class  commonMethods {
 
 		return y_Coordinate
 	}
+
+
+
+
+	/**
+	 * this method verifies the popUp screen is visible
+	 * @param testobj (reference of the popUp screen object under verification)
+	 */
+	@Keyword()
+	def verifyPopUpScreenExist(testobj) {
+
+		Mobile.verifyElementExist(findTestObject(testobj), 0)
+	}
+
+
 
 
 
