@@ -5,28 +5,33 @@
    <tag></tag>
    <defaultProfile>false</defaultProfile>
    <GlobalVariableEntity>
-      <description></description>
-      <initValue>'auto_sanity_ri'</initValue>
+      <description>username is taken from the profiles and passed as a parameter in the logIn function</description>
+      <initValue>'kavan.mobile.r'</initValue>
       <name>Username</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
-      <description></description>
-      <initValue>'Cardinal1'</initValue>
+      <description>password is taken from the profiles and passed as a parameter in the logIn function</description>
+      <initValue>'C@rdinal!'</initValue>
       <name>Password</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
-      <description></description>
+      <description>user account is taken from the profiles and passed as a parameter in the account selection screen</description>
+      <initValue>'8-106595'</initValue>
+      <name>Account</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>environment of testing is taken from profiles and used in the environment selection screen</description>
       <initValue>'PMODStg'</initValue>
       <name>Environment</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
-      <description></description>
+      <description>android application path is taken from the profiles and used in the start application under android common methods</description>
       <initValue>'/Users/sahil.vidaysingh/Downloads/OEPlusAndroid-3.5.0.20210922020418-SNAPSHOT-1150-prod-debug.apk'</initValue>
       <name>Android_App_Path</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
-      <description></description>
-      <initValue>'/Users/sahil.vidaysingh/Downloads/Hatch 3.app'</initValue>
+      <description>iOS application path is taken from the profiles and used in the start application under android common methods</description>
+      <initValue>'/Users/sahil.vidaysingh/Downloads/Hatch.app'</initValue>
       <name>iOS_App_Path</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
