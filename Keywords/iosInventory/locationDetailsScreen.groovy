@@ -227,27 +227,6 @@ class locationDetailsScreen {
 	}
 
 
-	/**
-	 * this function verifies that the product is not visible on the location details screen
-	 */
-	@Keyword
-	def verifyProductIsNotVisibleOnTheLocationDetailsScreen(ndcNumber) {
-
-		Mobile.verifyElementNotVisible(findTestObject('Object Repository/iOS/Inventory/Location Details_Screen/Delete Product/ndcNumber_Text',[('TEXT'):ndcNumber]),0)
-	}
-
-
-
-
-
-	/**
-	 * this function verifies that the product is visible on the location details screen
-	 */
-	@Keyword
-	def verifyProductIsVisibleOnTheLocationDetailsScreen(ndcNumber) {
-
-		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Inventory/Location Details_Screen/Delete Product/ndcNumber_Text',[('TEXT'):ndcNumber]),0)
-	}
 
 
 

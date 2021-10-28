@@ -8,31 +8,48 @@ import java.lang.String
 import java.util.Stack
 
 
-
+ /**
+	 * float value generator
+	 * @param stringToBeConvertedToFloatValue 
+	 * returns float value for a string by removing characters
+	 */ 
 def static "iosCommonKeywords.commonMethods.floatValueGenerator"(
     	String stringToBeConvertedToFloatValue	) {
     (new iosCommonKeywords.commonMethods()).floatValueGenerator(
         	stringToBeConvertedToFloatValue)
 }
 
-
+ /**
+	 * this method will take the application one screen back
+	 */ 
 def static "iosCommonKeywords.commonMethods.goOneScreenBack"() {
     (new iosCommonKeywords.commonMethods()).goOneScreenBack()
 }
 
-
+ /**
+	 * installs as well as launches the application
+	 * @param Android_App_Path (Application path will be taken from the global profile and passed as a parameter to this method)
+	 */ 
 def static "iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication"() {
     (new iosCommonKeywords.commonMethods()).installingAndlaunchingTheApplication()
 }
 
-
+ /**
+	 * generates the coordinate x for a test object by considering ElementLeftPosition and ElementWidth
+	 * @param testObj (reference of the testObject passed as a parameter), text(name of the element)
+	 * returns int value for the xCoordinate
+	 */ 
 def static "iosCommonKeywords.commonMethods.tapXCoordinateGenerator"(
     	String testObj	) {
     (new iosCommonKeywords.commonMethods()).tapXCoordinateGenerator(
         	testObj)
 }
 
-
+ /**
+	 * generates the coordinate y for a test object by considering ElementTopPosition and ElementHeight
+	 * @param testObj (reference of the testObject passed as a parameter), text(name of the element)
+	 * returns int value for the yCoordinate
+	 */ 
 def static "iosCommonKeywords.commonMethods.tapYCoordinateGenerator"(
     	String testObj	
      , 	String text	) {
@@ -41,29 +58,61 @@ def static "iosCommonKeywords.commonMethods.tapYCoordinateGenerator"(
          , 	text)
 }
 
+ /**
+	 * this function verifies that the product is not visible on the screen
+	 * @param ndcNumber(ndcNumber of the product to be verified)
+	 */ 
+def static "iosCommonKeywords.commonMethods.verifyProductIsNotVisibleOnTheScreen"(
+    	Object ndcNumber	) {
+    (new iosCommonKeywords.commonMethods()).verifyProductIsNotVisibleOnTheScreen(
+        	ndcNumber)
+}
 
+ /**
+	 * this function verifies that the product is visible on the screen
+	 * @param ndcNumber(ndcNumber of the product to be verified)
+	 */ 
+def static "iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScreen"(
+    	Object ndcNumber	) {
+    (new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(
+        	ndcNumber)
+}
+
+ /**
+	 * verifies that the latest added product is at the top of the added products list, then deletes the latest added product and continues the process to verifyReverseChronologicalOrder of the added products
+	 * @param productNDC (parameter is the stack of ndcNumbers of the added products)
+	 */ 
 def static "iosCommonKeywords.commonMethods.verifyReverseChronologicalOrder"(
     	Stack productNdcStack	) {
     (new iosCommonKeywords.commonMethods()).verifyReverseChronologicalOrder(
         	productNdcStack)
 }
 
-
+ /**
+	 * refreshes the screen by doing a vertical swipe by considering the deviceHeight and deviceWidth
+	 */ 
 def static "iosCommonKeywords.commonMethods.verticalSwipeForRefresh"() {
     (new iosCommonKeywords.commonMethods()).verticalSwipeForRefresh()
 }
 
-
+ /**
+	 * refreshes the screen by doing a vertical swipe after waiting for 30(s) to check the changed order status of C2 order by considering the deviceHeight and deviceWidth
+	 */ 
 def static "iosCommonKeywords.commonMethods.verticalSwipeForRefreshingC2OrderStatus"() {
     (new iosCommonKeywords.commonMethods()).verticalSwipeForRefreshingC2OrderStatus()
 }
 
-
+ /**
+	 * waits until the progressBar is visible on the screen
+	 */ 
 def static "iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible"() {
     (new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 }
 
-
+ /**
+	 * waits until the object is visible on the screen
+	 * @param testObj (reference of the test Object),waitTime (time by which delay will be added in(s)),waitLimit (maximum limit of time for which delay can be added)
+	 */ 
 def static "iosCommonKeywords.commonMethods.waitTimeForObjectToBeVisible"(
     	Object testObj	
      , 	int waitTime	
@@ -132,20 +181,6 @@ def static "iosInventory.locationDetailsScreen.move_Product_to_Another_Location"
 
 def static "iosInventory.locationDetailsScreen.uploadLocation"() {
     (new iosInventory.locationDetailsScreen()).uploadLocation()
-}
-
-
-def static "iosInventory.locationDetailsScreen.verifyProductIsNotVisibleOnTheLocationDetailsScreen"(
-    	Object ndcNumber	) {
-    (new iosInventory.locationDetailsScreen()).verifyProductIsNotVisibleOnTheLocationDetailsScreen(
-        	ndcNumber)
-}
-
-
-def static "iosInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen"(
-    	Object ndcNumber	) {
-    (new iosInventory.locationDetailsScreen()).verifyProductIsVisibleOnTheLocationDetailsScreen(
-        	ndcNumber)
 }
 
 
