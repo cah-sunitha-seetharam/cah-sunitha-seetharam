@@ -1,8 +1,9 @@
-package iosLogin
+package androidLogin
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import com.kms.katalon.core.annotation.Keyword
 import com.kms.katalon.core.checkpoint.Checkpoint
@@ -43,13 +44,12 @@ class loginScreen {
 
 
 	/**
-	 * performs login function by selecting the type of testing (automation or manual), environment of testing(taken from the global profile), entering user-name and password
+	 * performs login function by selecting environment of testing(taken from the global profile), entering user-name and password
 	 * @param username (it is taken from the global profile but passed as a parameter),password  (it is taken from the global profile but passed as a parameter)
 	 */
 	@Keyword()
 	def login(username,password) {
 
-		selectTypeOfTesting()
 		selectEnvironment()
 		enterUsername(username)
 		enterPassword(password)
@@ -61,38 +61,16 @@ class loginScreen {
 	/**
 	 * selects the environment of testing which is taken from the global profile
 	 */
-	@Keyword()
+	@Keyword
 	def selectEnvironment() {
 
-		if (Mobile.verifyElementExist(findTestObject('iOS/LogIn/Environment_Selection_Screen/environmentList_Button'),5, FailureHandling.OPTIONAL)) {
+		if (Mobile.verifyElementExist(findTestObject('Android/Login/Environment Selecttion Screen/Environment_Spinner'),5, FailureHandling.OPTIONAL)) {
 
-			Mobile.tap(findTestObject('iOS/LogIn/Environment_Selection_Screen/environmentList_Button'), 0, FailureHandling.STOP_ON_FAILURE)
+			Mobile.tap(findTestObject('Android/Login/Environment Selecttion Screen/Environment_Spinner'), 0)
 
-			if(GlobalVariable.Environment=="PMODStg")
+			Mobile.tap(findTestObject('Android/Login/Environment Selecttion Screen/environmentSelection_TextView',[('TEXT'):GlobalVariable.Environment]),0)
 
-				Mobile.tap(findTestObject('iOS/LogIn/Environment_Selection_Screen/Environment_Button',[('TEXT'):"PMODSTG"]),0) //HardCoding because of the difference in name PMODSTG/PMODStg in iOS and Android
-
-			else
-
-				Mobile.tap(findTestObject('iOS/LogIn/Environment_Selection_Screen/Environment_Button',[('TEXT'):GlobalVariable.Environment]),0)
-
-		}
-	}
-
-
-
-	/**
-	 * selects type of testing which can be manual or automation
-	 * @param testingType (directly passed as a parameter for automation)
-	 */
-	@Keyword()
-	def selectTypeOfTesting(String testingType='Automation') {
-
-		if (Mobile.verifyElementExist(findTestObject('iOS/LogIn/Testing Type/testingMode_Button'),5, FailureHandling.OPTIONAL)) {
-
-			Mobile.tap(findTestObject('iOS/LogIn/Testing Type/testingMode_Button'), 0)
-
-			Mobile.tap(findTestObject('iOS/LogIn/Testing Type/testingType_Button',[('TEXT'):testingType]), 0)
+			Mobile.tap(findTestObject('Android/Login/Environment Selecttion Screen/Proceed_Button'), 0)
 		}
 	}
 
@@ -105,15 +83,10 @@ class loginScreen {
 	@Keyword()
 	def enterUsername(String username) {
 
-		Mobile.waitForElementPresent(findTestObject('iOS/LogIn/Login_Details_Screen/loginUserName_Button'), 0)
+		Mobile.tap(findTestObject('Android/Login/Login Details Screen/Username_TextField'), 0)
 
-		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/loginUserName_Button'), 0)
-
-		Mobile.setText(findTestObject('iOS/LogIn/Login_Details_Screen/userName_TextField'), username, 0)
-
-		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/loginBar_buttonDown'), 0)
+		Mobile.setText(findTestObject('Android/Login/Login Details Screen/Username_TextField'), username, 0)
 	}
-
 
 
 
@@ -124,11 +97,10 @@ class loginScreen {
 	@Keyword()
 	def enterPassword(String password) {
 
-		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/password_Button'), 0)
+		Mobile.tap(findTestObject('Android/Login/Login Details Screen/Password_TextField'), 0)
 
-		Mobile.setText(findTestObject('iOS/LogIn/Login_Details_Screen/passwordSecure_TextField'), password, 0)
+		Mobile.setText(findTestObject('Android/Login/Login Details Screen/Password_TextField'), password, 0)
 	}
-
 
 
 	/**
@@ -137,7 +109,13 @@ class loginScreen {
 	@Keyword()
 	def clickOnSignInButton() {
 
-		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/SignIn_Button'),0)
+		int w = 1
+
+		Mobile.tap(findTestObject('Android/Login/Login Details Screen/signIn_Button'), 0)
+
+		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
+			WebUI.delay(w)
+		}
 	}
 
 
@@ -148,7 +126,7 @@ class loginScreen {
 	@Keyword()
 	def clickOnForgotPassword() {
 
-		Mobile.tap(findTestObject('Object Repository/Login/Login_Details_Screen/Forget_Password'), 0)
+		Mobile.tap(findTestObject('Android/Login/Login Details Screen/forgotPassword_Button'), 0)
 	}
 
 
@@ -159,10 +137,12 @@ class loginScreen {
 	@Keyword()
 	def verifyLoginPageDetails() {
 
-		Mobile.verifyElementExist(findTestObject('iOS/LogIn/Login_Details_Screen/forgetPassword_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/forgotPassword_Button'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/LogIn/Login_Details_Screen/welcome_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/cardinalHealth_Logo'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/LogIn/Login_Details_Screen/orderExpress_Logo'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/welcomeBack_TextView'), 0)
 	}
 }
+
+

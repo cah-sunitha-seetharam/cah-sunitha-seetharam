@@ -90,24 +90,24 @@ class locationDetailsScreen {
 	@Keyword
 	def clickOnScanIconAndAddProduct(String productName, String countType, String quantity) {
 
-		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/scan_Icon'), 0)
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Scan Order/scan_Icon'), 0)
 
-		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/scanGray_Image'), 0)
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Scan Order/scanGray_Image'), 0)
 
-		Mobile.setText(findTestObject('iOS/Orders/Order Details Page/Scan Order/enterBarcode_TextField'), productName, 0)
+		Mobile.setText(findTestObject('iOS/Orders/Order Details Screen/Scan Order/enterBarcode_TextField'), productName, 0)
 
 		if(countType=="Full Count") {
-			Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/fullCount_Button'), 0)
+			Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Scan Order/fullCount_Button'), 0)
 		}
 		else {
-			Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/partialCount_Button'), 0)
+			Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Scan Order/partialCount_Button'), 0)
 		}
-		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/done_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Scan Order/done_Button'), 0)
 
 		if(quantity!="NULL") //if quantity is passed a tag of NULL, no quantity would be entered in the quantity text-field
-			Mobile.setText(findTestObject('iOS/Orders/Order Details Page/Scan Order/quantity_TextField'), quantity, 0)
+			Mobile.setText(findTestObject('iOS/Orders/Order Details Screen/Scan Order/quantity_TextField'), quantity, 0)
 
-		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/done_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Scan Order/done_Button'), 0)
 	}
 
 
@@ -244,7 +244,7 @@ class locationDetailsScreen {
 		String closePopUpScreentestobj='iOS/Inventory/Location Details_Screen/Share Location/close_Button' //reference of the close popUp screen button
 
 		(new iosCommonKeywords.commonMethods()).closePopUpScreen(closePopUpScreentestobj) // closes the popUp screen
-		
+
 	}
 
 

@@ -109,12 +109,12 @@ class dashboardDetailsScreen {
 
 		Mobile.setText(findTestObject('iOS/Product_Search/Quantity_TextField'), quantity, 0)
 
-		Mobile.tap(findTestObject('iOS/Orders/Cart Page/Place All Orders/Done_Keypad'), 0)
+		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Place All Orders/Done_Keypad'), 0)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/addToOrder_Text'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Confirmation_Text'), 0)
 
-		Mobile.tapAndHold(findTestObject('iOS/Orders/Order Details Page/Upload Order/After Adding Product Continue_Button'), 0,0)
+		Mobile.tapAndHold(findTestObject('iOS/Orders/Order Details Screen/Upload Order/After Adding Product Continue_Button'), 0,0)
 	}
 }

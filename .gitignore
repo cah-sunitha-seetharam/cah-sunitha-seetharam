@@ -10,3 +10,4 @@ Libs/
 settings/
 .project
 *.properties
+*.meta
