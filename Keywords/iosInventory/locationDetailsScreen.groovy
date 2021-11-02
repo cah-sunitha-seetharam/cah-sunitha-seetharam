@@ -66,6 +66,23 @@ class locationDetailsScreen {
 
 
 
+
+	/**
+	 * this function taps on remove button and then product entry should get removed from the location as well as the scan result screen
+	 */
+	@Keyword
+	def clickOnRemoveButtonToRemoveAlreadyScannedProduct() {
+
+		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/thisItemHasBeenAddedToYourLocation_Text'),0)
+
+		Mobile.tap(findTestObject('iOS/Product_Search/removeItem_Button'), 0)
+
+		Mobile.tap(findTestObject('iOS/Product_Search/yes_Text'), 0)
+	}
+
+
+
+
 	/**
 	 * taps on scan and adds product based on count type of partial or full count
 	 * @param productName (name of the product to be added),countType (count type required which can be partial or full count),quantity (quantity of the product required to be added)
@@ -120,7 +137,7 @@ class locationDetailsScreen {
 
 
 	/**
-	 * deletes a product from a location
+	 * deletes a product from the added products list in a location
 	 * @param ndcNumber (deletes the product according to the ndcNumber)
 	 */
 	@Keyword
@@ -136,9 +153,7 @@ class locationDetailsScreen {
 
 		Mobile.tapAtPosition(x_Coordinate, y_Coordinate)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Delete_Location/Slide_PopUp_Button for Location Deletion'), 0)
-
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Delete_Location/Delete Location_Text'), 0)
+		Mobile.tap(findTestObject('Object Repository/iOS/Inventory/Location Details_Screen/Delete Product/deleteProduct_Text'), 0)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Delete_Location/Yes_Text'), 0)
 	}
@@ -197,6 +212,7 @@ class locationDetailsScreen {
 
 
 
+
 	/**
 	 * uploads location from the location details screen
 	 */
@@ -209,6 +225,8 @@ class locationDetailsScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details_Screen/Upload Location/disbaledUploadLocation_Button'), 0)
 	}
+
+
 
 
 

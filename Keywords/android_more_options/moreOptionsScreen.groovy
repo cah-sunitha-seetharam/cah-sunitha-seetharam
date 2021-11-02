@@ -61,15 +61,13 @@ class moreOptionsScreen {
 
 
 	/**
-	 * opens the inventory listing screen from moreOptions Screen
+	 * takes the user from the the moreOptions Screen to inventory listing screen
 	 */
 	@Keyword()
 	def goToInventoryListingScreen() {
 
-
 		Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Verification Details/openInventory_TextView'), 0)
 
-		(new ios_common_keywords.wait_for_load()).waitForPageLoad()
 	}
 
 
@@ -79,7 +77,6 @@ class moreOptionsScreen {
 	 */
 	@Keyword()
 	def signOut() {
-
 
 		Mobile.tap(findTestObject('Android/Dashboard/moreOptions_Tab'), 0)
 

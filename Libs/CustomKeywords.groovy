@@ -5,32 +5,51 @@
 
 import java.lang.String
 
+import java.util.Stack
 
 
-def static "iosCommonKeywords.commonMethods.goOneScreenBack"() {
-    (new iosCommonKeywords.commonMethods()).goOneScreenBack()
-}
-
-
-def static "iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication"() {
-    (new iosCommonKeywords.commonMethods()).installingAndlaunchingTheApplication()
-}
-
-
+ /**
+	 * float value generator
+	 * @param stringToBeConvertedToFloatValue 
+	 * returns float value for a string by removing characters
+	 */ 
 def static "iosCommonKeywords.commonMethods.floatValueGenerator"(
     	String stringToBeConvertedToFloatValue	) {
     (new iosCommonKeywords.commonMethods()).floatValueGenerator(
         	stringToBeConvertedToFloatValue)
 }
 
+ /**
+	 * this method will take the application one screen back
+	 */ 
+def static "iosCommonKeywords.commonMethods.goOneScreenBack"() {
+    (new iosCommonKeywords.commonMethods()).goOneScreenBack()
+}
 
+ /**
+	 * installs as well as launches the application
+	 * @param Android_App_Path (Application path will be taken from the global profile and passed as a parameter to this method)
+	 */ 
+def static "iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication"() {
+    (new iosCommonKeywords.commonMethods()).installingAndlaunchingTheApplication()
+}
+
+ /**
+	 * generates the coordinate x for a test object by considering ElementLeftPosition and ElementWidth
+	 * @param testObj (reference of the testObject passed as a parameter), text(name of the element)
+	 * returns int value for the xCoordinate
+	 */ 
 def static "iosCommonKeywords.commonMethods.tapXCoordinateGenerator"(
     	String testObj	) {
     (new iosCommonKeywords.commonMethods()).tapXCoordinateGenerator(
         	testObj)
 }
 
-
+ /**
+	 * generates the coordinate y for a test object by considering ElementTopPosition and ElementHeight
+	 * @param testObj (reference of the testObject passed as a parameter), text(name of the element)
+	 * returns int value for the yCoordinate
+	 */ 
 def static "iosCommonKeywords.commonMethods.tapYCoordinateGenerator"(
     	String testObj	
      , 	String text	) {
@@ -39,22 +58,61 @@ def static "iosCommonKeywords.commonMethods.tapYCoordinateGenerator"(
          , 	text)
 }
 
+ /**
+	 * this function verifies that the product is not visible on the screen
+	 * @param ndcNumber(ndcNumber of the product to be verified)
+	 */ 
+def static "iosCommonKeywords.commonMethods.verifyProductIsNotVisibleOnTheScreen"(
+    	Object ndcNumber	) {
+    (new iosCommonKeywords.commonMethods()).verifyProductIsNotVisibleOnTheScreen(
+        	ndcNumber)
+}
 
+ /**
+	 * this function verifies that the product is visible on the screen
+	 * @param ndcNumber(ndcNumber of the product to be verified)
+	 */ 
+def static "iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScreen"(
+    	Object ndcNumber	) {
+    (new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(
+        	ndcNumber)
+}
+
+ /**
+	 * verifies that the latest added product is at the top of the added products list, then deletes the latest added product and continues the process to verifyReverseChronologicalOrder of the added products
+	 * @param productNDC (parameter is the stack of ndcNumbers of the added products)
+	 */ 
+def static "iosCommonKeywords.commonMethods.verifyReverseChronologicalOrder"(
+    	Stack productNdcStack	) {
+    (new iosCommonKeywords.commonMethods()).verifyReverseChronologicalOrder(
+        	productNdcStack)
+}
+
+ /**
+	 * refreshes the screen by doing a vertical swipe by considering the deviceHeight and deviceWidth
+	 */ 
 def static "iosCommonKeywords.commonMethods.verticalSwipeForRefresh"() {
     (new iosCommonKeywords.commonMethods()).verticalSwipeForRefresh()
 }
 
-
+ /**
+	 * refreshes the screen by doing a vertical swipe after waiting for 30(s) to check the changed order status of C2 order by considering the deviceHeight and deviceWidth
+	 */ 
 def static "iosCommonKeywords.commonMethods.verticalSwipeForRefreshingC2OrderStatus"() {
     (new iosCommonKeywords.commonMethods()).verticalSwipeForRefreshingC2OrderStatus()
 }
 
-
+ /**
+	 * waits until the progressBar is visible on the screen
+	 */ 
 def static "iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible"() {
     (new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 }
 
-
+ /**
+	 * waits until the object is visible on the screen
+	 * @param testObj (reference of the test Object),waitTime (time by which delay will be added in(s)),waitLimit (maximum limit of time for which delay can be added)
+	 */ 
 def static "iosCommonKeywords.commonMethods.waitTimeForObjectToBeVisible"(
     	Object testObj	
      , 	int waitTime	
@@ -72,6 +130,11 @@ def static "iosInventory.locationDetailsScreen.add_Product_to_Location"(
     (new iosInventory.locationDetailsScreen()).add_Product_to_Location(
         	locationName
          , 	productName)
+}
+
+
+def static "iosInventory.locationDetailsScreen.clickOnRemoveButtonToRemoveAlreadyScannedProduct"() {
+    (new iosInventory.locationDetailsScreen()).clickOnRemoveButtonToRemoveAlreadyScannedProduct()
 }
 
 
@@ -290,7 +353,10 @@ def static "android_orders.Cart_Screen.verify_Cart_Screen_Details_without_Adding
     (new android_orders.Cart_Screen()).verify_Cart_Screen_Details_without_Adding_any_Product()
 }
 
-
+ /**
+	 * adds location to an inventory based on the cost type of current or last price paid
+	 * @param locationName (name of the location to be added), costType (cost type required which can be current or last price paid)
+	 */ 
 def static "iosInventory.inventoryDetailsScreen.addLocation"(
     	String locationName	
      , 	String costType	) {
@@ -299,35 +365,68 @@ def static "iosInventory.inventoryDetailsScreen.addLocation"(
          , 	costType)
 }
 
-
+ /**
+	 * opens the particular location details
+	 * @param locationName (name of the location)
+	 */ 
 def static "iosInventory.inventoryDetailsScreen.clickOnALocation"(
     	String locationName	) {
     (new iosInventory.inventoryDetailsScreen()).clickOnALocation(
         	locationName)
 }
 
+ /**
+	 * searches and adds the product from the inventory details screen by creating a new location
+	 * @param locationName (name of the location to be created),productName (name of the product to be added),countType (count type required which can be partial or full count),quantity (quantity of the product required to be added), costType(cost type required which can be current or last price paid)
+	 */ 
+def static "iosInventory.inventoryDetailsScreen.clickOnScanIconAndAddProductByCreatingNewLocationViaInventoryDetailsScreen"(
+    	String locationName	
+     , 	String productName	
+     , 	String countType	
+     , 	String quantity	
+     , 	String costType	) {
+    (new iosInventory.inventoryDetailsScreen()).clickOnScanIconAndAddProductByCreatingNewLocationViaInventoryDetailsScreen(
+        	locationName
+         , 	productName
+         , 	countType
+         , 	quantity
+         , 	costType)
+}
 
+ /**
+	 * deletes the location
+	 * @param locationName (name of the location to be deleted)
+	 */ 
 def static "iosInventory.inventoryDetailsScreen.deleteLocation"(
     	String locationName	) {
     (new iosInventory.inventoryDetailsScreen()).deleteLocation(
         	locationName)
 }
 
-
+ /**
+	 * verifies the location count, cost gets updated or not, of the inventory after the location is deleted
+	 * @param locationName (name of the location under verification)
+	 */ 
 def static "iosInventory.inventoryDetailsScreen.deleteLocationWithCostLocationCountVerification"(
     	String locationName	) {
     (new iosInventory.inventoryDetailsScreen()).deleteLocationWithCostLocationCountVerification(
         	locationName)
 }
 
-
+ /**
+	 * edits the inventory name
+	 * @param newInventoryName (new name of the inventory)
+	 */ 
 def static "iosInventory.inventoryDetailsScreen.edit_InventoryName"(
     	String newInventoryName	) {
     (new iosInventory.inventoryDetailsScreen()).edit_InventoryName(
         	newInventoryName)
 }
 
-
+ /**
+	 * searches and adds the product from the inventory details screen by creating a new location
+	 * @param locationName (name of the location to be created),productName (name of the product to be added),costType (cost type required which can be current or last price paid)
+	 */ 
 def static "iosInventory.inventoryDetailsScreen.search_And_Add_Product_By_Creating_New_Location"(
     	String locationName	
      , 	String productName	
@@ -338,7 +437,10 @@ def static "iosInventory.inventoryDetailsScreen.search_And_Add_Product_By_Creati
          , 	costType)
 }
 
-
+ /**
+	 * verifies various details of the inventory details screen
+	 * @param inventoryName (name of the inventory which is under verification)
+	 */ 
 def static "iosInventory.inventoryDetailsScreen.verify_Inventory_Details_Screen"(
     	String inventoryName	) {
     (new iosInventory.inventoryDetailsScreen()).verify_Inventory_Details_Screen(
@@ -467,19 +569,26 @@ def static "android_common_keywords.Go_Back.Custom"() {
     (new android_common_keywords.Go_Back()).Custom()
 }
 
-
+ /**
+	 * switches the account of user to another account
+	 * @param accountNo (accountNo which needs to be selected will be passed as a parameter)
+	 */ 
 def static "android_more_options.moreOptionsScreen.changeAccount"(
     	Object accountNo	) {
     (new android_more_options.moreOptionsScreen()).changeAccount(
         	accountNo)
 }
 
-
+ /**
+	 * takes the user from the the moreOptions Screen to inventory listing screen
+	 */ 
 def static "android_more_options.moreOptionsScreen.goToInventoryListingScreen"() {
     (new android_more_options.moreOptionsScreen()).goToInventoryListingScreen()
 }
 
-
+ /**
+	 * clicks on moreOptions tab, signsOut the user and takes user to the logInScreen
+	 */ 
 def static "android_more_options.moreOptionsScreen.signOut"() {
     (new android_more_options.moreOptionsScreen()).signOut()
 }
@@ -663,45 +772,63 @@ def static "iosDashboard.dashboardDetailsScreen.Adding_Product_from_Dashboard_To
          , 	quantity)
 }
 
-
+ /**
+	 * switches to another user account
+	 * @param newAccount (account no to which the user should switch)
+	 */ 
 def static "iosInventory.inventoryListingScreen.changeAccount"(
     	String account	) {
     (new iosInventory.inventoryListingScreen()).changeAccount(
         	account)
 }
 
-
+ /**
+	 * opens the particular inventory details
+	 * @param inventoryName (name which was given to the inventory)
+	 */ 
 def static "iosInventory.inventoryListingScreen.click_On_Inventory"(
     	String inventoryName	) {
     (new iosInventory.inventoryListingScreen()).click_On_Inventory(
         	inventoryName)
 }
 
-
+ /**
+	 * creates a new inventory from inventory listing screen
+	 * @param inventoryName (name required for the new inventory)
+	 */ 
 def static "iosInventory.inventoryListingScreen.createInventory"(
     	String inventoryName	) {
     (new iosInventory.inventoryListingScreen()).createInventory(
         	inventoryName)
 }
 
-
+ /**
+	 * deletes the inventory from the inventory listing screen
+	 * @param inventoryName (inventory name of the inventory which needs to be deleted)
+	 */ 
 def static "iosInventory.inventoryListingScreen.deleteInventory"(
     	String inventoryName	) {
     (new iosInventory.inventoryListingScreen()).deleteInventory(
         	inventoryName)
 }
 
-
+ /**
+	 * verifies details of inventory listing screen
+	 */ 
 def static "iosInventory.inventoryListingScreen.verify_Inventory_Listing_Screen"() {
     (new iosInventory.inventoryListingScreen()).verify_Inventory_Listing_Screen()
 }
 
-
+ /**
+	 * opens the inventory listing screen from moreOptions Screen
+	 */ 
 def static "iosMoreOptions.moreOptionsScreen.goToInventoryListingScreen"() {
     (new iosMoreOptions.moreOptionsScreen()).goToInventoryListingScreen()
 }
 
-
+ /**
+	 * clicks on moreOptions tab, signsOut the user and takes user to the logInScreen
+	 */ 
 def static "iosMoreOptions.moreOptionsScreen.signOut"() {
     (new iosMoreOptions.moreOptionsScreen()).signOut()
 }

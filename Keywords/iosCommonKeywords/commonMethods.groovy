@@ -1,5 +1,5 @@
 package iosCommonKeywords
-
+import java.util.Stack
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
@@ -24,6 +24,28 @@ import internal.GlobalVariable
 class  commonMethods {
 
 	/**
+	 * float value generator
+	 * @param stringToBeConvertedToFloatValue 
+	 * returns float value for a string by removing characters
+	 */
+	@Keyword
+	def floatValueGenerator(String stringToBeConvertedToFloatValue) {
+
+		int counter=0
+
+		while(stringToBeConvertedToFloatValue[counter]!='0' && stringToBeConvertedToFloatValue[counter]!='1' && stringToBeConvertedToFloatValue[counter]!='2' && stringToBeConvertedToFloatValue[counter]!='3' && stringToBeConvertedToFloatValue[counter]!='4' && stringToBeConvertedToFloatValue[counter]!='5' && stringToBeConvertedToFloatValue[counter]!='6' && stringToBeConvertedToFloatValue[counter]!='7' && stringToBeConvertedToFloatValue[counter]!='8' && stringToBeConvertedToFloatValue[counter]!='9' ) {
+			counter++
+		}
+
+		String stringWithoutCharacters=stringToBeConvertedToFloatValue.substring(counter)
+
+		float stringWithoutCharactersFloatValue=Float.parseFloat(stringWithoutCharacters)
+
+		return stringWithoutCharactersFloatValue
+	}
+
+
+	/**
 	 * this method will take the application one screen back
 	 */
 	@Keyword()
@@ -43,6 +65,8 @@ class  commonMethods {
 	}
 
 
+
+
 	/**
 	 * installs as well as launches the application
 	 * @param Android_App_Path (Application path will be taken from the global profile and passed as a parameter to this method)
@@ -51,30 +75,6 @@ class  commonMethods {
 	def installingAndlaunchingTheApplication() {
 
 		Mobile.startApplication(GlobalVariable.iOS_App_Path, true)
-	}
-
-
-
-
-	/**
-	 * float value generator
-	 * @param stringToBeConvertedToFloatValue 
-	 * returns float value for a string by removing characters
-	 */
-	@Keyword
-	def floatValueGenerator(String stringToBeConvertedToFloatValue) {
-
-		int counter=0
-
-		while(stringToBeConvertedToFloatValue[counter]!='0' && stringToBeConvertedToFloatValue[counter]!='1' && stringToBeConvertedToFloatValue[counter]!='2' && stringToBeConvertedToFloatValue[counter]!='3' && stringToBeConvertedToFloatValue[counter]!='4' && stringToBeConvertedToFloatValue[counter]!='5' && stringToBeConvertedToFloatValue[counter]!='6' && stringToBeConvertedToFloatValue[counter]!='7' && stringToBeConvertedToFloatValue[counter]!='8' && stringToBeConvertedToFloatValue[counter]!='9' ) {
-			counter++
-		}
-
-		String stringWithoutCharacters=stringToBeConvertedToFloatValue.substring(counter)
-
-		float stringWithoutCharactersFloatValue=Float.parseFloat(stringWithoutCharacters)
-
-		return stringWithoutCharactersFloatValue
 	}
 
 
@@ -98,6 +98,7 @@ class  commonMethods {
 
 
 
+
 	/**
 	 * generates the coordinate y for a test object by considering ElementTopPosition and ElementHeight
 	 * @param testObj (reference of the testObject passed as a parameter), text(name of the element)
@@ -113,6 +114,58 @@ class  commonMethods {
 		int y_Coordinate=(ElementHeight/2)+ElementTopPosition
 
 		return y_Coordinate
+	}
+
+	
+	
+	/**
+	 * this function verifies that the product is not visible on the screen
+	 * @param ndcNumber(ndcNumber of the product to be verified)
+	 */
+	@Keyword
+	def verifyProductIsNotVisibleOnTheScreen(ndcNumber) {
+
+		Mobile.verifyElementNotVisible(findTestObject('Object Repository/iOS/Product_Details/ndcNumber_Text',[('TEXT'):ndcNumber]),0)
+	}
+
+
+	
+	
+	
+	/**
+	 * this function verifies that the product is visible on the screen
+	 * @param ndcNumber(ndcNumber of the product to be verified)
+	 */
+	@Keyword
+	def verifyProductIsVisibleOnTheScreen(ndcNumber) {
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Product_Details/ndcNumber_Text',[('TEXT'):ndcNumber]),0)
+	}
+
+	
+
+	
+	/**
+	 * verifies that the latest added product is at the top of the added products list, then deletes the latest added product and continues the process to verifyReverseChronologicalOrder of the added products
+	 * @param productNDC (parameter is the stack of ndcNumbers of the added products)
+	 */
+	@Keyword
+	def verifyReverseChronologicalOrder(Stack productNdcStack) {
+		String topProductNdc
+
+		while(!productNdcStack.isEmpty()) //loops while productNdcStack is not empty
+		{
+
+			topProductNdc=productNdcStack.pop() //pops the top ndcNumber from the productNdcStack and stores value in the topProductNdc
+
+			String ndcLabel=Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/ndc_Label'),0) //gets the ndcLabel of the top added product in the location details page
+
+			assert ndcLabel==("NDC: "+topProductNdc) // verifies topProductNdc equals the ndcLabel of the topmost product in the products list
+
+			(new iosInventory.locationDetailsScreen()).deleteProduct(topProductNdc)//calling delete product function and passing the topProductNdc
+
+		}
+
 	}
 
 
