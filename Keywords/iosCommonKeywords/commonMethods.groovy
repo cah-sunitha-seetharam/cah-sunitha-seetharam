@@ -83,12 +83,12 @@ class  commonMethods {
 
 	/**
 	 * installs as well as launches the application
-	 * @param iOS_App_Path (Application path will be taken from the global profile and passed as a parameter to this method)
 	 */
 	@Keyword
 	def installingAndlaunchingTheApplication() {
 
-		Mobile.startApplication(GlobalVariable.iOS_App_Path, true)
+		Mobile.startApplication(GlobalVariable.iOS_App_Path, true) //iOS_App_Path (Application path will be taken from the global profile and passed as a parameter to startApplication method)
+
 	}
 
 
