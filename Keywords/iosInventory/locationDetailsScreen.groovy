@@ -85,7 +85,7 @@ class locationDetailsScreen {
 
 	/**
 	 * taps on scan and adds product based on count type of partial or full count
-	 * @param productName (name of the product to be added),countType (count type required which can be partial or full count),quantity (quantity of the product required to be added)
+	 * @param productName (name of the product to be added),countType (count type required which can be partial or full count),quantity (quantity of the product required to be added, if quantity is passed a tag of NULL, no quantity would be entered in the quantity text-field)
 	 */
 	@Keyword
 	def clickOnScanIconAndAddProduct(String productName, String countType, String quantity) {
@@ -93,7 +93,11 @@ class locationDetailsScreen {
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/scan_Icon'), 0)
 
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/scanGray_Image'), 0)
-
+		
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/Orders/Order Details Page/Scan Order/fullCount_Button'), 'value', '1', 0)
+		
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Page/Scan Order/partialCount_Button'), 0)
+		
 		Mobile.setText(findTestObject('iOS/Orders/Order Details Page/Scan Order/enterBarcode_TextField'), productName, 0)
 
 		if(countType=="Full Count") {
@@ -244,7 +248,7 @@ class locationDetailsScreen {
 		String closePopUpScreentestobj='iOS/Inventory/Location Details_Screen/Share Location/close_Button' //reference of the close popUp screen button
 
 		(new iosCommonKeywords.commonMethods()).closePopUpScreen(closePopUpScreentestobj) // closes the popUp screen
-		
+
 	}
 
 
