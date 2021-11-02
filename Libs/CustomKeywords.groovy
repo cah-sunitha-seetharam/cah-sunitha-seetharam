@@ -9,17 +9,6 @@ import java.util.Stack
 
 
  /**
-	 * float value generator
-	 * @param stringToBeConvertedToFloatValue 
-	 * returns float value for a string by removing characters
-	 */ 
-def static "iosCommonKeywords.commonMethods.floatValueGenerator"(
-    	String stringToBeConvertedToFloatValue	) {
-    (new iosCommonKeywords.commonMethods()).floatValueGenerator(
-        	stringToBeConvertedToFloatValue)
-}
-
- /**
 	 * this method will take the application one screen back
 	 */ 
 def static "iosCommonKeywords.commonMethods.goOneScreenBack"() {
@@ -103,10 +92,7 @@ def static "iosCommonKeywords.commonMethods.waitTimeForObjectToBeVisible"(
          , 	waitLimit)
 }
 
- /**
-	 * adds products to a location
-	 * @param locationName (name of the location),productName (name of the product to be added)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.add_Product_to_Location"(
     	String locationName	
      , 	String productName	) {
@@ -115,10 +101,7 @@ def static "iosInventory.locationDetailsScreen.add_Product_to_Location"(
          , 	productName)
 }
 
- /**
-	 * taps on scan and adds product based on count type of partial or full count
-	 * @param productName (name of the product to be added),countType (count type required which can be partial or full count),quantity (quantity of the product required to be added)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct"(
     	String productName	
      , 	String countType	
@@ -129,30 +112,21 @@ def static "iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct"(
          , 	quantity)
 }
 
- /**
-	 * copies products to another location
-	 * @param locationName (name of the location to which product will be copied)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.copy_Product_to_Another_Location"(
     	String locationName	) {
     (new iosInventory.locationDetailsScreen()).copy_Product_to_Another_Location(
         	locationName)
 }
 
- /**
-	 * deletes a product from the added products list in a location
-	 * @param ndcNumber (deletes the product according to the ndcNumber)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.deleteProduct"(
     	String ndcNumber	) {
     (new iosInventory.locationDetailsScreen()).deleteProduct(
         	ndcNumber)
 }
 
- /**
-	 * edits the location name and cost type can be changed(last price or current price paid)
-	 * @param newLocationName (new name of the location),costType (cost type required which can be current or last price paid)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.edit_Location_Name"(
     	String newLocationName	
      , 	String costType	) {
@@ -161,27 +135,19 @@ def static "iosInventory.locationDetailsScreen.edit_Location_Name"(
          , 	costType)
 }
 
- /**
-	 * moves products to another location
-	 * @param locationName (name of the location to which product will be moved)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.move_Product_to_Another_Location"(
     	String locationName	) {
     (new iosInventory.locationDetailsScreen()).move_Product_to_Another_Location(
         	locationName)
 }
 
- /**
-	 * uploads location from the location details screen
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.uploadLocation"() {
     (new iosInventory.locationDetailsScreen()).uploadLocation()
 }
 
- /**
-	 * verifies details of location details screen
-	 * @param locationName (name of the location under verification)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.verify_Location_details_Screen"(
     	String locationName	) {
     (new iosInventory.locationDetailsScreen()).verify_Location_details_Screen(
@@ -974,6 +940,17 @@ def static "android_orders.New_Order_Screen.click_On_NewOrder"() {
 
 def static "android_orders.New_Order_Screen.verify_NewOrder_Screen_Details"() {
     (new android_orders.New_Order_Screen()).verify_NewOrder_Screen_Details()
+}
+
+ /**
+	 * float value generator
+	 * @param stringToBeConvertedToFloatValue
+	 * returns float value for a string by removing characters
+	 */ 
+def static "common.commonMethods.floatValueGenerator"(
+    	String stringToBeConvertedToFloatValue	) {
+    (new common.commonMethods()).floatValueGenerator(
+        	stringToBeConvertedToFloatValue)
 }
 
  /**

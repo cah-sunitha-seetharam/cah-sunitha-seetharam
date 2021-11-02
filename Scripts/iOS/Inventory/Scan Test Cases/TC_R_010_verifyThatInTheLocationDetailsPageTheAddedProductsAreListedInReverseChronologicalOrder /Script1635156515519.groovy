@@ -76,7 +76,7 @@ String productSearch = requestObject[GlobalVariable.Environment].TC_R_010.produc
 ndcNumbersStack.push(productSearch)
 
 'calls the function which adds the product by clicking on the scan icon and takes productNdc, quantity, countType as the arguments'
-CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct'(productSearch, countType, quantity)
+CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct'(productSearch, countType, quantity_1)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
@@ -88,7 +88,7 @@ productSearch = requestObject[GlobalVariable.Environment].TC_R_010.productSearch
 ndcNumbersStack.push(productSearch)
 
 'calls the function which adds the product by clicking on the scan icon and takes productNdc, quantity, countType as the arguments'
-CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct'(productSearch, countType, quantity)
+CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct'(productSearch, countType, quantity_2)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
@@ -100,7 +100,7 @@ productSearch = requestObject[GlobalVariable.Environment].TC_R_010.productSearch
 ndcNumbersStack.push(productSearch)
 
 'calls the function which adds the product by clicking on the scan icon and takes productNdc, quantity, countType as the arguments'
-CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct'(productSearch, countType, quantity)
+CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct'(productSearch, countType, quantity_3)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()

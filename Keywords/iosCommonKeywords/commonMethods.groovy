@@ -24,28 +24,6 @@ import internal.GlobalVariable
 class  commonMethods {
 
 	/**
-	 * float value generator
-	 * @param stringToBeConvertedToFloatValue 
-	 * returns float value for a string by removing characters
-	 */
-	@Keyword
-	def floatValueGenerator(String stringToBeConvertedToFloatValue) {
-
-		int counter=0
-
-		while(stringToBeConvertedToFloatValue[counter]!='0' && stringToBeConvertedToFloatValue[counter]!='1' && stringToBeConvertedToFloatValue[counter]!='2' && stringToBeConvertedToFloatValue[counter]!='3' && stringToBeConvertedToFloatValue[counter]!='4' && stringToBeConvertedToFloatValue[counter]!='5' && stringToBeConvertedToFloatValue[counter]!='6' && stringToBeConvertedToFloatValue[counter]!='7' && stringToBeConvertedToFloatValue[counter]!='8' && stringToBeConvertedToFloatValue[counter]!='9' ) {
-			counter++
-		}
-
-		String stringWithoutCharacters=stringToBeConvertedToFloatValue.substring(counter)
-
-		float stringWithoutCharactersFloatValue=Float.parseFloat(stringWithoutCharacters)
-
-		return stringWithoutCharactersFloatValue
-	}
-
-
-	/**
 	 * this method will take the application one screen back
 	 */
 	@Keyword()
@@ -129,10 +107,18 @@ class  commonMethods {
 		while(!productNdcStack.isEmpty()) //loops while productNdcStack is not empty
 		{
 
+			String ndcLabel
 			topProductNdc=productNdcStack.pop() //pops the top ndcNumber from the productNdcStack and stores value in the topProductNdc
 
-			String ndcLabel=Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/ndc_Label'),0) //gets the ndcLabel of the top added product in the location details page
-
+			if(Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/ndc_Label'), 4,FailureHandling.OPTIONAL))// condition which will verify ndcLabel is of the inventory module or orders module
+			{
+			 ndcLabel=Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/ndc_Label'),0) //gets the ndcLabel of the top added product in the location details page
+			}
+			
+			else
+			{
+			 ndcLabel=Mobile.getText(findTestObject('iOS/Orders/Verification Details/ordersNdc_Label'),0) //gets the ndcLabel of the top added product in the order details page
+			}
 			assert ndcLabel==("NDC: "+topProductNdc) // verifies topProductNdc equals the ndcLabel of the topmost product in the products list
 
 			(new iosInventory.locationDetailsScreen()).deleteProduct(topProductNdc)//calling delete product function and passing the topProductNdc
