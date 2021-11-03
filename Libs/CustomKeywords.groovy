@@ -48,6 +48,26 @@ def static "iosCommonKeywords.commonMethods.tapYCoordinateGenerator"(
 }
 
  /**
+	 * this function verifies that the product is not visible on the screen
+	 * @param ndcNumber(ndcNumber of the product to be verified)
+	 */ 
+def static "iosCommonKeywords.commonMethods.verifyProductIsNotVisibleOnTheScreen"(
+    	Object ndcNumber	) {
+    (new iosCommonKeywords.commonMethods()).verifyProductIsNotVisibleOnTheScreen(
+        	ndcNumber)
+}
+
+ /**
+	 * this function verifies that the product is visible on the screen
+	 * @param ndcNumber(ndcNumber of the product to be verified)
+	 */ 
+def static "iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScreen"(
+    	Object ndcNumber	) {
+    (new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(
+        	ndcNumber)
+}
+
+ /**
 	 * verifies that the latest added product is at the top of the added products list, then deletes the latest added product and continues the process to verifyReverseChronologicalOrder of the added products
 	 * @param productNDC (parameter is the stack of ndcNumbers of the added products)
 	 */ 
@@ -99,6 +119,12 @@ def static "iosInventory.locationDetailsScreen.add_Product_to_Location"(
     (new iosInventory.locationDetailsScreen()).add_Product_to_Location(
         	locationName
          , 	productName)
+}
+
+
+
+def static "iosInventory.locationDetailsScreen.clickOnRemoveButtonToRemoveAlreadyScannedProduct"() {
+    (new iosInventory.locationDetailsScreen()).clickOnRemoveButtonToRemoveAlreadyScannedProduct()
 }
 
 
@@ -340,6 +366,24 @@ def static "iosInventory.inventoryDetailsScreen.clickOnALocation"(
 }
 
  /**
+	 * searches and adds the product from the inventory details screen by creating a new location
+	 * @param locationName (name of the location to be created),productName (name of the product to be added),countType (count type required which can be partial or full count),quantity (quantity of the product required to be added), costType(cost type required which can be current or last price paid)
+	 */ 
+def static "iosInventory.inventoryDetailsScreen.clickOnScanIconAndAddProductByCreatingNewLocationViaInventoryDetailsScreen"(
+    	String locationName	
+     , 	String productName	
+     , 	String countType	
+     , 	String quantity	
+     , 	String costType	) {
+    (new iosInventory.inventoryDetailsScreen()).clickOnScanIconAndAddProductByCreatingNewLocationViaInventoryDetailsScreen(
+        	locationName
+         , 	productName
+         , 	countType
+         , 	quantity
+         , 	costType)
+}
+
+ /**
 	 * deletes the location
 	 * @param locationName (name of the location to be deleted)
 	 */ 
@@ -370,7 +414,7 @@ def static "iosInventory.inventoryDetailsScreen.edit_InventoryName"(
 }
 
  /**
-	 * searches and adds the product from the inventory details screen by creating a new location 
+	 * searches and adds the product from the inventory details screen by creating a new location
 	 * @param locationName (name of the location to be created),productName (name of the product to be added),costType (cost type required which can be current or last price paid)
 	 */ 
 def static "iosInventory.inventoryDetailsScreen.search_And_Add_Product_By_Creating_New_Location"(

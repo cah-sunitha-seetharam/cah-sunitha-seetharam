@@ -20,7 +20,7 @@ import org.openqa.selenium.Keys as Keys
 'starts the application'
 CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
-'login function called'
+'login function called which takes user to the accounts selection screen'
 CustomKeywords.'iosLogin.loginScreen.login'(GlobalVariable.Username, GlobalVariable.Password)
 
 'waits until the progressBar is visible on the screen'
@@ -62,26 +62,32 @@ CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnALocation'(locationNa
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'reading the module test data file  '
+'reading the module test data file'
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inventoryTestData.json')
 
-'reading the cin of product to be added'
-String productSearch = requestObject[GlobalVariable.Environment].TC_R_007.productSearchCin
+'reading the Ndc of product to be added'
+String productSearch = requestObject[GlobalVariable.Environment].TC_R_018.productSearchByNDC
 
-'calls the function which adds the product by clicking on the scan icon and takes productCin, quantity, countType as the arguments'
+'calling the function which adds a product by clicking on scan and takes productNdc,countType and quantity required as thee arguments'
 CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct'(productSearch, countType, quantity)
 
-'takes the application one screen back'
-CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
-
-'uploads the location from location details screen'
-CustomKeywords.'iosInventory.locationDetailsScreen.uploadLocation'()
+'taps on remove button which removes the already scanned product from the location too'
+CustomKeywords.'iosInventory.locationDetailsScreen.clickOnRemoveButtonToRemoveAlreadyScannedProduct'()
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
+
+'verifies that the removed product is not present in the products list'
+CustomKeywords.'iosCommonKeywords.commonMethods.verifyProductIsNotVisibleOnTheScreen'(productSearch)
+
+'takes the application one screen back'
+CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
+
+'deletes the location and takes locationName as the argument'
+CustomKeywords.'iosInventory.inventoryDetailsScreen.deleteLocation'(locationName)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
