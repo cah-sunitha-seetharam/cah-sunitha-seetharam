@@ -28,7 +28,7 @@ class  commonMethods {
 	 * this method closes the popUp screen by tapping on close, cancel button
 	 * @param testobj (reference of the close, cancel button)
 	 */
-	@Keyword()
+	@Keyword
 	def closePopUpScreen(testobj) {
 
 		Mobile.tap(findTestObject(testobj), 0)
@@ -62,7 +62,7 @@ class  commonMethods {
 	/**
 	 * this method will take the application one screen back
 	 */
-	@Keyword()
+	@Keyword
 	def goOneScreenBack() {
 
 		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
@@ -129,8 +129,8 @@ class  commonMethods {
 		return y_Coordinate
 	}
 
-	
-	
+
+
 	/**
 	 * this function verifies that the product is not visible on the screen
 	 * @param ndcNumber(ndcNumber of the product to be verified)
@@ -142,9 +142,9 @@ class  commonMethods {
 	}
 
 
-	
-	
-	
+
+
+
 	/**
 	 * this function verifies that the product is visible on the screen
 	 * @param ndcNumber(ndcNumber of the product to be verified)
@@ -155,15 +155,15 @@ class  commonMethods {
 		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Product_Details/ndcNumber_Text',[('TEXT'):ndcNumber]),0)
 	}
 
-	
 
 
-	
+
+
 	/**
 	 * this method verifies the popUp screen is visible
 	 * @param testobj (reference of the popUp screen object under verification)
 	 */
-	@Keyword()
+	@Keyword
 	def verifyPopUpScreenExist(testobj) {
 
 		Mobile.verifyElementExist(findTestObject(testobj), 0)
@@ -223,7 +223,7 @@ class  commonMethods {
 	/**
 	 * waits until the progressBar is visible on the screen, which will have a maximum waitLimit to be visible on the screen
 	 */
-	@Keyword()
+	@Keyword
 	def waitForProgressBarToBeInvisible() {
 
 		String testObject='iOS/Product_Search/Progress_Bar'
@@ -236,7 +236,7 @@ class  commonMethods {
 	 * waits until the object is visible on the screen, which will have a maximum waitLimit to be visible on the screen
 	 * @param testObj (reference of the test Object),waitTime (time by which delay will be added in(s)),waitLimit (maximum limit of time for which delay can be added)
 	 */
-	@Keyword()
+	@Keyword
 	def waitTimeForObjectToBeVisible(testObj, int waitTime, int waitLimit) {
 
 		try {
