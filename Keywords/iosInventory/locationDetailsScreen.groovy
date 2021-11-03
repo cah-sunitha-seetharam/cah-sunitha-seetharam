@@ -270,7 +270,6 @@ class locationDetailsScreen {
 
 
 
-
 	/**
 	 * this function verifies that the product is not visible on the location details screen
 	 * @param ndcNumber (ndcNumber of the product which should not be present on the screen)
@@ -291,7 +290,6 @@ class locationDetailsScreen {
 
 		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Inventory/Location Details_Screen/Delete Product/ndcNumber_Text',[('TEXT'):ndcNumber]),0)
 	}
-
 
 
 

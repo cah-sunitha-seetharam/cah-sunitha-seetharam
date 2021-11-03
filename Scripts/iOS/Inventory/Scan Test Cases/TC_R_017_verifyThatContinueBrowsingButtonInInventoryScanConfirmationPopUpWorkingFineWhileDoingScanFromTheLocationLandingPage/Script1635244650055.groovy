@@ -20,7 +20,7 @@ import org.openqa.selenium.Keys as Keys
 'starts the application'
 CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
-'login function called'
+'login function called which takes user to the accounts selection screen'
 CustomKeywords.'iosLogin.loginScreen.login'(GlobalVariable.Username, GlobalVariable.Password)
 
 'waits until the progressBar is visible on the screen'
@@ -59,6 +59,9 @@ String productSearch = requestObject[GlobalVariable.Environment].TC_R_017.produc
 'calling the function which adds a product by clicking on scan and takes productNdc,countType and quantity required as the arguments, then adding a location via inventory details screen which requires locationName, costType as the argument'
 CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnScanIconAndAddProductByCreatingNewLocationViaInventoryDetailsScreen'(locationName, productSearch, countType, quantity, costType)
 
+'verifies that the added product is present in the products list'
+CustomKeywords.'iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScreen'(productSearch)
+
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
@@ -66,7 +69,7 @@ CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnALocation'(locationName)
 
 'verifies that the added product is present in the products list'
-CustomKeywords.'iosInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen'(productSearch)
+CustomKeywords.'iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScreen'(productSearch)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()

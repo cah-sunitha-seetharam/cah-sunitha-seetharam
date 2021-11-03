@@ -129,7 +129,33 @@ class  commonMethods {
 		return y_Coordinate
 	}
 
+	
+	
+	/**
+	 * this function verifies that the product is not visible on the screen
+	 * @param ndcNumber(ndcNumber of the product to be verified)
+	 */
+	@Keyword
+	def verifyProductIsNotVisibleOnTheScreen(ndcNumber) {
 
+		Mobile.verifyElementNotVisible(findTestObject('Object Repository/iOS/Product_Details/ndcNumber_Text',[('TEXT'):ndcNumber]),0)
+	}
+
+
+	
+	
+	
+	/**
+	 * this function verifies that the product is visible on the screen
+	 * @param ndcNumber(ndcNumber of the product to be verified)
+	 */
+	@Keyword
+	def verifyProductIsVisibleOnTheScreen(ndcNumber) {
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Product_Details/ndcNumber_Text',[('TEXT'):ndcNumber]),0)
+	}
+
+	
 
 
 	
@@ -144,8 +170,6 @@ class  commonMethods {
 	}
 
 
-
-	
 
 
 	/**
