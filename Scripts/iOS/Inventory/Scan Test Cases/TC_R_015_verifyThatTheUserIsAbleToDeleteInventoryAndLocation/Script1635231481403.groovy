@@ -71,6 +71,9 @@ String productSearch = requestObject[GlobalVariable.Environment].TC_R_015.produc
 'calls the function which adds the product by clicking on the scan icon and takes productCin, quantity, countType as the arguments'
 CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct'(productSearch, countType, quantity)
 
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
