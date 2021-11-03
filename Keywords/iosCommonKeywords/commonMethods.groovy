@@ -80,7 +80,6 @@ class  commonMethods {
 
 
 
-
 	/**
 	 * installs as well as launches the application
 	 */
@@ -133,6 +132,7 @@ class  commonMethods {
 
 
 
+	
 	/**
 	 * this method verifies the popUp screen is visible
 	 * @param testobj (reference of the popUp screen object under verification)
@@ -145,6 +145,7 @@ class  commonMethods {
 
 
 
+	
 
 
 	/**

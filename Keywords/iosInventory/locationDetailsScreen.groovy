@@ -93,11 +93,11 @@ class locationDetailsScreen {
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/scan_Icon'), 0)
 
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/scanGray_Image'), 0)
-		
+
 		Mobile.verifyElementAttributeValue(findTestObject('iOS/Orders/Order Details Page/Scan Order/fullCount_Button'), 'value', '1', 0)
-		
+
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Page/Scan Order/partialCount_Button'), 0)
-		
+
 		Mobile.setText(findTestObject('iOS/Orders/Order Details Page/Scan Order/enterBarcode_TextField'), productName, 0)
 
 		if(countType=="Full Count") {
@@ -231,26 +231,7 @@ class locationDetailsScreen {
 		return quantity
 	}
 
-
-
-	/**
-	 * taps on shares location button, verifies the pop-up screen and closes the pop-up screen
-	 */
-	@Keyword
-	def verifyShareLocationPopUp() {
-
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Share Location/shareLocation_Button'), 0)
-
-		String verifyPopUpScreentestobj='iOS/Inventory/Location Details_Screen/Share Location/sharePopUpActivity_ListView' //reference of the popUp screen object
-
-		(new iosCommonKeywords.commonMethods()).verifyPopUpScreenExist(verifyPopUpScreentestobj) // verifies popUp screen present
-
-		String closePopUpScreentestobj='iOS/Inventory/Location Details_Screen/Share Location/close_Button' //reference of the close popUp screen button
-
-		(new iosCommonKeywords.commonMethods()).closePopUpScreen(closePopUpScreentestobj) // closes the popUp screen
-
-	}
-
+	
 
 
 	/**
@@ -265,8 +246,6 @@ class locationDetailsScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details_Screen/Upload Location/disbaledUploadLocation_Button'), 0)
 	}
-
-
 
 
 
@@ -289,6 +268,9 @@ class locationDetailsScreen {
 	}
 
 
+
+
+
 	/**
 	 * this function verifies that the product is not visible on the location details screen
 	 * @param ndcNumber (ndcNumber of the product which should not be present on the screen)
@@ -300,8 +282,6 @@ class locationDetailsScreen {
 	}
 
 
-
-
 	/**
 	 * this function verifies that the product is visible on the location details screen
 	 * @param ndcNumber (ndcNumber of the product which should be present on the screen)
@@ -310,5 +290,26 @@ class locationDetailsScreen {
 	def verifyProductIsVisibleOnTheLocationDetailsScreen(ndcNumber) {
 
 		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Inventory/Location Details_Screen/Delete Product/ndcNumber_Text',[('TEXT'):ndcNumber]),0)
+	}
+
+
+
+
+	/**
+	 * taps on shares location button, verifies the pop-up screen and closes the pop-up screen
+	 */
+	@Keyword
+	def verifyShareLocationPopUp() {
+
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Share Location/shareLocation_Button'), 0)
+
+		String verifyPopUpScreentestobj='iOS/Inventory/Location Details_Screen/Share Location/sharePopUpActivity_ListView' //reference of the popUp screen object
+
+		(new iosCommonKeywords.commonMethods()).verifyPopUpScreenExist(verifyPopUpScreentestobj) // verifies popUp screen present
+
+		String closePopUpScreentestobj='iOS/Inventory/Location Details_Screen/Share Location/close_Button' //reference of the close popUp screen button
+
+		(new iosCommonKeywords.commonMethods()).closePopUpScreen(closePopUpScreentestobj) // closes the popUp screen
+
 	}
 }

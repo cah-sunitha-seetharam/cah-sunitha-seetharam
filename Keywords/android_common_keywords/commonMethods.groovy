@@ -34,12 +34,12 @@ class  commonMethods {
 
 	/**
 	 * installs as well as launches the application
-	 * @param Android_App_Path (Application path will be taken from the global profile and passed as a parameter to this method)
 	 */
 	@Keyword
 	def installingAndlaunchingTheApplication() {
 
-		Mobile.startApplication(GlobalVariable.Android_App_Path, true)
+		Mobile.startApplication(GlobalVariable.Android_App_Path, true) // Android_App_Path (Application path will be taken from the global profile and passed as a parameter to this method)
+
 	}
 
 
@@ -100,7 +100,7 @@ class  commonMethods {
 	@Keyword()
 	def waitTimeForObjectToBeVisible(testObj, int waitTime, int waitLimit) {
 
-			try {
+		try {
 			int counter=0 //initial count value set to be 0
 
 			while (Mobile.verifyElementExist(findTestObject(testObj), waitTime, FailureHandling.OPTIONAL)) {
