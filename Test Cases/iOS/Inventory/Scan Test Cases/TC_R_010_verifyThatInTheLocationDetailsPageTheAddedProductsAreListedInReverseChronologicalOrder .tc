@@ -38,6 +38,20 @@
       <description>quantity required to be added</description>
       <id>9cb53523-20f6-44f3-9424-5df7538ceb17</id>
       <masked>false</masked>
-      <name>quantity</name>
+      <name>quantity_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'2'</defaultValue>
+      <description></description>
+      <id>0d75ed26-1058-4f1b-821d-cddb8bb2e859</id>
+      <masked>false</masked>
+      <name>quantity_2</name>
+   </variable>
+   <variable>
+      <defaultValue>'4'</defaultValue>
+      <description></description>
+      <id>ca1bc8f7-899d-4f00-b41f-d7f74c9c8fbf</id>
+      <masked>false</masked>
+      <name>quantity_3</name>
    </variable>
 </TestCaseEntity>

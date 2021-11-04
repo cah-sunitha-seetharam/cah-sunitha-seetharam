@@ -44,6 +44,29 @@ import java.io.File
 
 class commonMethods {
 
+
+	/**
+	 * float value generator
+	 * @param stringToBeConvertedToFloatValue
+	 * returns float value for a string by removing characters
+	 */
+	@Keyword
+	def floatValueGenerator(String stringToBeConvertedToFloatValue) {
+
+		int counter=0
+
+		while(stringToBeConvertedToFloatValue[counter]!='0' && stringToBeConvertedToFloatValue[counter]!='1' && stringToBeConvertedToFloatValue[counter]!='2' && stringToBeConvertedToFloatValue[counter]!='3' && stringToBeConvertedToFloatValue[counter]!='4' && stringToBeConvertedToFloatValue[counter]!='5' && stringToBeConvertedToFloatValue[counter]!='6' && stringToBeConvertedToFloatValue[counter]!='7' && stringToBeConvertedToFloatValue[counter]!='8' && stringToBeConvertedToFloatValue[counter]!='9' ) {
+			counter++
+		}
+
+		String stringWithoutCharacters=stringToBeConvertedToFloatValue.substring(counter)
+
+		float stringWithoutCharactersFloatValue=Float.parseFloat(stringWithoutCharacters)
+
+		return stringWithoutCharactersFloatValue
+	}
+
+
 	/**
 	 * random alpha numeric String Generator 
 	 * @param length, required string length 

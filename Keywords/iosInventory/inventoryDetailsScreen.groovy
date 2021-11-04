@@ -174,9 +174,9 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 
 		String locationValue=Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/locationValue_Text'), 0)//location value with added product
 
-		float inventoryTotal_dollarSymbolRemoved_FloatValue=(new iosCommonKeywords.commonMethods()).floatValueGenerator(initialInventoryTotal)//converting initialInventoryTotal string to a float value
+		float inventoryTotal_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(initialInventoryTotal)//converting initialInventoryTotal string to a float value
 
-		float locationValue_dollarSymbolRemoved_FloatValue=(new iosCommonKeywords.commonMethods()).floatValueGenerator(locationValue)//converting locationValue string to a float value
+		float locationValue_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(locationValue)//converting locationValue string to a float value
 
 		(new iosInventory.inventoryDetailsScreen()).deleteLocation(locationName)//calling delete location function
 
@@ -186,7 +186,7 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 
 		String finalInventoryTotal=Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/locationValue_Text'), 0)//final inventory total after deleting a location
 
-		float finalInventoryTotal_charactersRemoved_FloatValue=(new iosCommonKeywords.commonMethods()).floatValueGenerator(finalInventoryTotal)///converting finalInventoryTotal string to a float value
+		float finalInventoryTotal_charactersRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(finalInventoryTotal)///converting finalInventoryTotal string to a float value
 
 		assert inventoryTotal_dollarSymbolRemoved_FloatValue==(finalInventoryTotal_charactersRemoved_FloatValue+locationValue_dollarSymbolRemoved_FloatValue)
 
