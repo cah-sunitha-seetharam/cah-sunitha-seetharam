@@ -41,20 +41,6 @@ def static "iosCommonKeywords.commonMethods.closePopUpScreen"(
 }
 
  /**
-	 * enable EO mode by long pressing the account text/icon displayed on screen and then closes the opened fly-out
-	 */ 
-def static "android_common_keywords.emergencyOrderingMode.enableEOmodeAndCloseFlyout"() {
-    (new android_common_keywords.emergencyOrderingMode()).enableEOmodeAndCloseFlyout()
-}
-
- /**
-	 * enable/disable EO mode by long pressing the account text/icon displayed on screen
-	 */ 
-def static "android_common_keywords.emergencyOrderingMode.enableOrDisableEOmode"() {
-    (new android_common_keywords.emergencyOrderingMode()).enableOrDisableEOmode()
-}
-
- /**
 	 * this method will take the application one screen back
 	 */ 
 def static "iosCommonKeywords.commonMethods.goOneScreenBack"() {
@@ -181,7 +167,7 @@ def static "iosInventory.locationDetailsScreen.clickOnRemoveButtonToRemoveAlread
 
  /**
 	 * taps on scan and adds product based on count type of partial or full count
-	 * @param productName (name of the product to be added),countType (count type required which can be partial or full count),quantity (quantity of the product required to be added)
+	 * @param productName (name of the product to be added),countType (count type required which can be partial or full count),quantity (quantity of the product required to be added, if quantity is passed a tag of NULL, no quantity would be entered in the quantity text-field)
 	 */ 
 def static "iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct"(
     	String productName	
@@ -235,12 +221,13 @@ def static "iosInventory.locationDetailsScreen.move_Product_to_Another_Location"
         	locationName)
 }
 
-
+ /**
+	 * this function gets the total added quantity of the product
+	 * @return quantity of the product which has been added
+	 */ 
 def static "iosInventory.locationDetailsScreen.returnQuantityOfTheAddedProduct"() {
     (new iosInventory.locationDetailsScreen()).returnQuantityOfTheAddedProduct()
 }
-
-
 
  /**
 	 * uploads location from the location details screen
@@ -249,7 +236,10 @@ def static "iosInventory.locationDetailsScreen.uploadLocation"() {
     (new iosInventory.locationDetailsScreen()).uploadLocation()
 }
 
-
+ /**
+	 * verifies details of location details screen
+	 * @param expectedLinesCount (lines count which is expected), countTypeStack (stack of the countTypes selected for adding each product), quantityStack (stack of the quantity added for each product), productNdcStack (stack of the ndcNumbers of added products)
+	 */ 
 def static "iosInventory.locationDetailsScreen.verifyLocationDetailsScreen"(
     	String expectedLinesCount	
      , 	Stack countTypeStack	
@@ -262,37 +252,33 @@ def static "iosInventory.locationDetailsScreen.verifyLocationDetailsScreen"(
          , 	productNdcStack)
 }
 
-
+ /**
+	 * this function verifies that the product is not visible on the location details screen
+	 * @param ndcNumber (ndcNumber of the product which should not be present on the screen)
+	 */ 
 def static "iosInventory.locationDetailsScreen.verifyProductIsNotVisibleOnTheLocationDetailsScreen"(
     	Object ndcNumber	) {
     (new iosInventory.locationDetailsScreen()).verifyProductIsNotVisibleOnTheLocationDetailsScreen(
         	ndcNumber)
 }
 
-
+ /**
+	 * this function verifies that the product is visible on the location details screen
+	 * @param ndcNumber (ndcNumber of the product which should be present on the screen)
+	 */ 
 def static "iosInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen"(
     	Object ndcNumber	) {
     (new iosInventory.locationDetailsScreen()).verifyProductIsVisibleOnTheLocationDetailsScreen(
         	ndcNumber)
 }
 
-
+ /**
+	 * taps on shares location button, verifies the pop-up screen and closes the pop-up screen
+	 */ 
 def static "iosInventory.locationDetailsScreen.verifyShareLocationPopUp"() {
     (new iosInventory.locationDetailsScreen()).verifyShareLocationPopUp()
-
-  
-  
- /**
-	 * verifies details of location details screen
-	 * @param locationName (name of the location under verification)
-	 */ 
-def static "iosInventory.locationDetailsScreen.verify_Location_details_Screen"(
-    	String locationName	) {
-    (new iosInventory.locationDetailsScreen()).verify_Location_details_Screen(
-        	locationName)
 }
 
-  
  /**
 	 * performs login function
 	 * @param username,password
@@ -1323,13 +1309,6 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	
      , 	String testName	
@@ -1338,4 +1317,11 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
 }

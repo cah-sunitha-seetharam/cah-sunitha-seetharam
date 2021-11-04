@@ -86,7 +86,7 @@ CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct'
 'pushing the countType of the product to be searched into the stack'
 countTypeStack.push(countType_1)
 
-'pushing the ndc of the product to be searched into the stack'
+'pushing the quantity of the product to be added into the stack'
 quantityStack.push(quantity)
 
 'takes the application one screen back'
@@ -104,7 +104,7 @@ CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct'
 'pushing the countType of the product to be searched into the stack'
 countTypeStack.push(countType_2)
 
-'pushing the ndc of the product to be searched into the stack'
+'pushing the quantity of the product to be added into the stack'
 quantityStack.push(quantity)
 
 'takes the application one screen back'
