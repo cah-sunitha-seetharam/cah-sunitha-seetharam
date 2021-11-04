@@ -28,17 +28,31 @@ Prerequisite: Valid login credentials with multiple accounts available for the u
       <name>costType</name>
    </variable>
    <variable>
-      <defaultValue>'Full Count'</defaultValue>
-      <description>count type can be partial or full count</description>
-      <id>8cf47ad5-31e8-49d7-b6a9-ba5c6d1095ae</id>
-      <masked>false</masked>
-      <name>countType</name>
-   </variable>
-   <variable>
-      <defaultValue>'3'</defaultValue>
+      <defaultValue>'1'</defaultValue>
       <description>quantity required to be added</description>
       <id>08b2fb12-1ffe-4caa-a740-2a2a304e5b85</id>
       <masked>false</masked>
       <name>quantity</name>
+   </variable>
+   <variable>
+      <defaultValue>'Full Count'</defaultValue>
+      <description>count type can be partial or full count</description>
+      <id>8cf47ad5-31e8-49d7-b6a9-ba5c6d1095ae</id>
+      <masked>false</masked>
+      <name>countType_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'Partial Count'</defaultValue>
+      <description></description>
+      <id>efe23545-a070-4aa4-89b0-877888da0549</id>
+      <masked>false</masked>
+      <name>countType_2</name>
+   </variable>
+   <variable>
+      <defaultValue>'2'</defaultValue>
+      <description></description>
+      <id>dc23efde-345d-4076-bc43-9771d10d1489</id>
+      <masked>false</masked>
+      <name>expectedLinesCount</name>
    </variable>
 </TestCaseEntity>

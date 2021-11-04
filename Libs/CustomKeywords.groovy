@@ -7,6 +7,28 @@ import java.lang.String
 
 import java.util.Stack
 
+import com.applitools.eyes.selenium.Eyes
+
+import org.openqa.selenium.WebElement
+
+import com.kms.katalon.core.testobject.TestObject
+
+import com.applitools.eyes.RectangleSize
+
+
+ /**
+	 * enable EO mode by long pressing the account text/icon displayed on screen and then closes the opened fly-out
+	 */ 
+def static "android_common_keywords.emergencyOrderingMode.enableEOmodeAndCloseFlyout"() {
+    (new android_common_keywords.emergencyOrderingMode()).enableEOmodeAndCloseFlyout()
+}
+
+ /**
+	 * enable/disable EO mode by long pressing the account text/icon displayed on screen
+	 */ 
+def static "android_common_keywords.emergencyOrderingMode.enableOrDisableEOmode"() {
+    (new android_common_keywords.emergencyOrderingMode()).enableOrDisableEOmode()
+}
 
  /**
 	 * this method closes the popUp screen by tapping on close, cancel button
@@ -135,10 +157,7 @@ def static "iosCommonKeywords.commonMethods.waitTimeForObjectToBeVisible"(
          , 	waitLimit)
 }
 
- /**
-	 * adds products to a location
-	 * @param locationName (name of the location),productName (name of the product to be added)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.add_Product_to_Location"(
     	String locationName	
      , 	String productName	) {
@@ -147,17 +166,12 @@ def static "iosInventory.locationDetailsScreen.add_Product_to_Location"(
          , 	productName)
 }
 
- /**
-	 * this function taps on remove button and then product entry should get removed from the location as well as the scan result screen
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.clickOnRemoveButtonToRemoveAlreadyScannedProduct"() {
     (new iosInventory.locationDetailsScreen()).clickOnRemoveButtonToRemoveAlreadyScannedProduct()
 }
 
- /**
-	 * taps on scan and adds product based on count type of partial or full count
-	 * @param productName (name of the product to be added),countType (count type required which can be partial or full count),quantity (quantity of the product required to be added, if quantity is passed a tag of NULL, no quantity would be entered in the quantity text-field)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct"(
     	String productName	
      , 	String countType	
@@ -168,30 +182,21 @@ def static "iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct"(
          , 	quantity)
 }
 
- /**
-	 * copies products to another location
-	 * @param locationName (name of the location to which product will be copied)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.copy_Product_to_Another_Location"(
     	String locationName	) {
     (new iosInventory.locationDetailsScreen()).copy_Product_to_Another_Location(
         	locationName)
 }
 
- /**
-	 * deletes a product from the added products list in a location
-	 * @param ndcNumber (deletes the product according to the ndcNumber)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.deleteProduct"(
     	String ndcNumber	) {
     (new iosInventory.locationDetailsScreen()).deleteProduct(
         	ndcNumber)
 }
 
- /**
-	 * edits the location name and cost type can be changed(last price or current price paid)
-	 * @param newLocationName (new name of the location),costType (cost type required which can be current or last price paid)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.edit_Location_Name"(
     	String newLocationName	
      , 	String costType	) {
@@ -200,64 +205,51 @@ def static "iosInventory.locationDetailsScreen.edit_Location_Name"(
          , 	costType)
 }
 
- /**
-	 * moves products to another location
-	 * @param locationName (name of the location to which product will be moved)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.move_Product_to_Another_Location"(
     	String locationName	) {
     (new iosInventory.locationDetailsScreen()).move_Product_to_Another_Location(
         	locationName)
 }
 
- /**
-	 * this function gets the total added quantity of the product
-	 * @return quantity of the product which has been added
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.returnQuantityOfTheAddedProduct"() {
     (new iosInventory.locationDetailsScreen()).returnQuantityOfTheAddedProduct()
 }
 
- /**
-	 * uploads location from the location details screen
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.uploadLocation"() {
     (new iosInventory.locationDetailsScreen()).uploadLocation()
 }
 
- /**
-	 * verifies details of location details screen
-	 * @param locationName (name of the location under verification)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.verifyLocationDetailsScreen"(
-    	String locationName	) {
+    	String expectedLinesCount	
+     , 	Stack countTypeStack	
+     , 	Stack quantityStack	
+     , 	Stack productNdcStack	) {
     (new iosInventory.locationDetailsScreen()).verifyLocationDetailsScreen(
-        	locationName)
+        	expectedLinesCount
+         , 	countTypeStack
+         , 	quantityStack
+         , 	productNdcStack)
 }
 
- /**
-	 * this function verifies that the product is not visible on the location details screen
-	 * @param ndcNumber (ndcNumber of the product which should not be present on the screen)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.verifyProductIsNotVisibleOnTheLocationDetailsScreen"(
     	Object ndcNumber	) {
     (new iosInventory.locationDetailsScreen()).verifyProductIsNotVisibleOnTheLocationDetailsScreen(
         	ndcNumber)
 }
 
- /**
-	 * this function verifies that the product is visible on the location details screen
-	 * @param ndcNumber (ndcNumber of the product which should be present on the screen)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen"(
     	Object ndcNumber	) {
     (new iosInventory.locationDetailsScreen()).verifyProductIsVisibleOnTheLocationDetailsScreen(
         	ndcNumber)
 }
 
- /**
-	 * taps on shares location button, verifies the pop-up screen and closes the pop-up screen
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.verifyShareLocationPopUp"() {
     (new iosInventory.locationDetailsScreen()).verifyShareLocationPopUp()
 }
@@ -1239,4 +1231,61 @@ def static "api.apiCommonMethods.readAPITestData"() {
 	 */ 
 def static "api.apiCommonMethods.tokenGenerator"() {
     (new api.apiCommonMethods()).tokenGenerator()
+}
+
+
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
+    	Eyes eyes	
+     , 	WebElement element	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkElement(
+        	eyes
+         , 	element)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
+    	TestObject testObject	
+     , 	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
+        	testObject
+         , 	testName)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
+    	String testName	
+     , 	RectangleSize viewportSize	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
+        	testName
+         , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
+    	String baselineName	
+     , 	String testName	
+     , 	RectangleSize viewportSize	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpenWithBaseline(
+        	baselineName
+         , 	testName
+         , 	viewportSize)
 }

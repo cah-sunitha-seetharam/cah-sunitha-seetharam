@@ -66,16 +66,56 @@ CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inventoryTestData.json')
 
 'reading the ndcNumber of product to be added'
-String productSearch = requestObject[GlobalVariable.Environment].TC_R_020.productSearchByNDC1 
+String productSearch = requestObject[GlobalVariable.Environment].TC_R_020.productSearchByNDC1
+
+'declaring stack for storing countType of the product needs to be added'
+Stack<String> countTypeStack = new Stack<String>()
+
+'declaring stack for storing quantity of the product needs to be added'
+Stack<String> quantityStack = new Stack<String>()
+
+'declaring stack for storing ndcNumbers of the product needs to be added'
+Stack<String> ndcNumbersStack = new Stack<String>()
+
+'pushing the ndc of the product to be searched into the stack'
+ndcNumbersStack.push(productSearch)
 
 'calling the function which adds a product by clicking on scan and takes productNdc,countType and quantity required as thee arguments'
-CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct'(productSearch, countType, quantity)
+CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct'(productSearch, countType_1, quantity)
+
+'pushing the countType of the product to be searched into the stack'
+countTypeStack.push(countType_1)
+
+'pushing the ndc of the product to be searched into the stack'
+quantityStack.push(quantity)
+
+'takes the application one screen back'
+CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
+
+'reading the ndcNumber of product to be added'
+productSearch = requestObject[GlobalVariable.Environment].TC_R_020.productSearchByNDC1
+
+'pushing the ndc of the product to be searched into the stack'
+ndcNumbersStack.push(productSearch)
+
+'calling the function which adds a product by clicking on scan and takes productNdc,countType and quantity required as thee arguments'
+CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct'(productSearch, countType_2, quantity)
+
+'pushing the countType of the product to be searched into the stack'
+countTypeStack.push(countType_2)
+
+'pushing the ndc of the product to be searched into the stack'
+quantityStack.push(quantity)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
 'clicks on share location button and verifies the pop-up screen and then closes the pop-up screen'
 CustomKeywords.'iosInventory.locationDetailsScreen.verifyShareLocationPopUp'()
+
+'verifies location details Screen elements like linesCount, countype of product added, quantity on location details screen'
+CustomKeywords.'iosInventory.locationDetailsScreen.verifyLocationDetailsScreen'(expectedLinesCount, countTypeStack, quantityStack, 
+    ndcNumbersStack)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
@@ -88,5 +128,4 @@ CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
 'deletes the inventory and takes inventoryName as the argument'
 CustomKeywords.'iosInventory.inventoryListingScreen.deleteInventory'(inventoryName)
-
 

@@ -231,7 +231,7 @@ class locationDetailsScreen {
 		return quantity
 	}
 
-	
+
 
 
 	/**
@@ -249,26 +249,54 @@ class locationDetailsScreen {
 
 
 
+
 	/**
 	 * verifies details of location details screen
-	 * @param locationName (name of the location under verification)
+	 * @param expectedLinesCount (lines count which is expected), countTypeStack (stack of the countTypes selected for adding each product), quantityStack (stack of the quantity added for each product), productNdcStack (stack of the ndcNumbers of added products)
 	 */
 	@Keyword
-	def verifyLocationDetailsScreen(String locationName) {
+	def verifyLocationDetailsScreen(String expectedLinesCount, Stack countTypeStack, Stack quantityStack, Stack productNdcStack) {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Verification Details/Inventory Header_Label'), 0)
+		String topProductCountType, topProductQuantity, topProductNdc
 
-		Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Scan_Icon'),0)
+		String actualLinesCount=Mobile.getText(findTestObject('Object Repository/iOS/Inventory/Location Details_Screen/Verification Details/inventoryLine_Text'),0) //gets the actualLinesCount on the location details page
+		
+		assert actualLinesCount==(expectedLinesCount) // verifies actualLinesCount equals the expectedLinesCount
+		
+		while(!countTypeStack.isEmpty() && !quantityStack.isEmpty() && !productNdcStack.isEmpty()) //loops while countType, quantity, productNdcStack is not empty
+		{
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Inventory/Location Details_Screen/Share Location/shareLocation_Button'), 0)
+			topProductCountType=countTypeStack.pop() //pops the top countType from the countTypeStack and stores value in the topProductCountType
 
-		//	Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/Created on Date_Text'),0)
+			topProductQuantity=quantityStack.pop() //pops the top quantity from the quantityStack and stores value in the topProductQuantity
 
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/Location Title_Label',[('TEXT'):locationName]),  0)
+			topProductNdc=productNdcStack.pop() //pops the top ndcNumber from the productNdcStack and stores value in the topProductNdc
+
+			String countType=Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/addedProductCountType_Text'),0) //gets the countType of the top added product in the location details page
+
+			String quantity=Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/addedProductQuanity_Text'),0) //gets the quantity of the top added product in the location details page
+			
+			if (topProductCountType=="Partial Count") //condition added because in case of partial count the quantity added won't end with a (.0) for e.g full count-(1.0), partial count (1)
+			{
+				assert quantity==(topProductQuantity) // verifies quantity equals the quantity of the topmost product in the products list
+			}
+
+			else
+
+			{
+				assert (quantity)==(topProductQuantity+".0") // verifies quantity equals the quantity of the topmost product in the products list
+			}
+			
+			assert (countType+" COUNT")==(topProductCountType.toUpperCase()) // verifies countType equals the countType of the topmost product in the products list
+			
+			(new iosInventory.locationDetailsScreen()).deleteProduct(topProductNdc)//calling delete product function and passing the topProductNdc
+
+		}
+
 	}
 
 
-
+		
 
 	/**
 	 * this function verifies that the product is not visible on the location details screen
