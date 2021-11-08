@@ -251,7 +251,7 @@ class locationDetailsScreen {
 
 
 	/**
-	 * verifies details of location details screen
+	 * verifies details of location details screen (if user wants to scan a product with same count type more than once, then in the test case, only the updated quantity along with countType and ndcNumber should be pushed into the stack)
 	 * @param expectedLinesCount (lines count which is expected), countTypeStack (stack of the countTypes selected for adding each product), quantityStack (stack of the quantity added for each product), productNdcStack (stack of the ndcNumbers of added products)
 	 */
 	@Keyword
