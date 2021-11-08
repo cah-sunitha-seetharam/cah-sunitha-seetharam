@@ -94,7 +94,7 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 		(new iosInventory.locationDetailsScreen()).clickOnScanIconAndAddProduct(productName,countType,quantity)
 
 		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
-		
+
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/addItemFromAlternate_Button'), 0)
 
 		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
@@ -118,7 +118,7 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/addToInventory_Button'), 0)
 
 		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
-		
+
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/continue_Button'), 0)
 	}
 

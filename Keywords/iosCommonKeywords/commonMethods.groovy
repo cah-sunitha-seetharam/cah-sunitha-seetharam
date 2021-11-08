@@ -23,10 +23,24 @@ import internal.GlobalVariable
 
 class  commonMethods {
 
+
+	/**
+	 * this method closes the popUp screen by tapping on close, cancel button
+	 * @param testobj (reference of the close, cancel button)
+	 */
+	@Keyword
+	def closePopUpScreen(testobj) {
+
+		Mobile.tap(findTestObject(testobj), 0)
+	}
+
+
+
+
 	/**
 	 * this method will take the application one screen back
 	 */
-	@Keyword()
+	@Keyword
 	def goOneScreenBack() {
 
 		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
@@ -44,15 +58,14 @@ class  commonMethods {
 
 
 
-
 	/**
 	 * installs as well as launches the application
-	 * @param Android_App_Path (Application path will be taken from the global profile and passed as a parameter to this method)
 	 */
 	@Keyword
 	def installingAndlaunchingTheApplication() {
 
-		Mobile.startApplication(GlobalVariable.iOS_App_Path, true)
+		Mobile.startApplication(GlobalVariable.iOS_App_Path, true) //iOS_App_Path (Application path will be taken from the global profile and passed as a parameter to startApplication method)
+
 	}
 
 
@@ -94,8 +107,8 @@ class  commonMethods {
 		return y_Coordinate
 	}
 
-	
-	
+
+
 	/**
 	 * this function verifies that the product is not visible on the screen
 	 * @param ndcNumber(ndcNumber of the product to be verified)
@@ -107,9 +120,9 @@ class  commonMethods {
 	}
 
 
-	
-	
-	
+
+
+
 	/**
 	 * this function verifies that the product is visible on the screen
 	 * @param ndcNumber(ndcNumber of the product to be verified)
@@ -120,9 +133,23 @@ class  commonMethods {
 		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Product_Details/ndcNumber_Text',[('TEXT'):ndcNumber]),0)
 	}
 
-	
 
-	
+
+
+
+	/**
+	 * this method verifies the popUp screen is visible
+	 * @param testobj (reference of the popUp screen object under verification)
+	 */
+	@Keyword
+	def verifyPopUpScreenExist(testobj) {
+
+		Mobile.verifyElementExist(findTestObject(testobj), 0)
+	}
+
+
+
+
 	/**
 	 * verifies that the latest added product is at the top of the added products list, then deletes the latest added product and continues the process to verifyReverseChronologicalOrder of the added products
 	 * @param productNDC (parameter is the stack of ndcNumbers of the added products)
@@ -180,23 +207,9 @@ class  commonMethods {
 
 
 	/**
-	 * refreshes the screen by doing a vertical swipe after waiting for 30(s) to check the changed order status of C2 order by considering the deviceHeight and deviceWidth
+	 * waits until the progressBar is visible on the screen, which will have a maximum waitLimit to be visible on the screen
 	 */
 	@Keyword
-	def verticalSwipeForRefreshingC2OrderStatus() {
-
-		WebUI.delay(30)
-
-		(new iosCommonKeywords.commonMethods()).verticalSwipeForRefresh() //waitTime of 1(s), waitLimit of 20(s)
-
-	}
-
-
-
-	/**
-	 * waits until the progressBar is visible on the screen
-	 */
-	@Keyword()
 	def waitForProgressBarToBeInvisible() {
 
 		String testObject='iOS/Product_Search/Progress_Bar'
@@ -206,10 +219,10 @@ class  commonMethods {
 
 
 	/**
-	 * waits until the object is visible on the screen
+	 * waits until the object is visible on the screen, which will have a maximum waitLimit to be visible on the screen
 	 * @param testObj (reference of the test Object),waitTime (time by which delay will be added in(s)),waitLimit (maximum limit of time for which delay can be added)
 	 */
-	@Keyword()
+	@Keyword
 	def waitTimeForObjectToBeVisible(testObj, int waitTime, int waitLimit) {
 
 		try {
@@ -221,8 +234,8 @@ class  commonMethods {
 				assert counter<waitLimit
 			}
 		}
-		catch (Exception e) {
-			KeywordUtil.markFailed("waitLimt of "+ waitLimit +"(s) crossed and object is still visible") //logInfo
+		catch(AssertionError e){
+			KeywordUtil.logInfo("waitLimit of " + waitLimit + "(s) croosed and object is still visible on the screen!!!!! " +e.toString()); //logInfo if assertion fails
 		}
 
 	}
