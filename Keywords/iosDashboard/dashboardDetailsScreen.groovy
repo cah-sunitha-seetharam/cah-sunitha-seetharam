@@ -72,7 +72,28 @@ class dashboardDetailsScreen {
 	}
 
 
+	/**
+	 * clicks on product search field 
+	 */
+	@Keyword
+	def clickOnProductSearchTextField() {
 
+		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), 0, 0)
+
+	}
+
+	
+	
+	/**
+	 * clicks on search field and inputs the product which can be name/Cin/ orders tab where user can perform actions related to orders
+	 */
+	@Keyword
+	def enterProductInSearchField(productSearch) {
+
+		Mobile.setText(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), productSearch, 0)
+	}
+
+	
 	/**
 	 * changes the account
 	 * @param newAccount
@@ -99,7 +120,7 @@ class dashboardDetailsScreen {
 	@Keyword
 	def Adding_Product_from_Dashboard_To_Cart(String productName, String quantity) {
 
-		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/Product SearchField'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), 0, 0)
 
 		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 

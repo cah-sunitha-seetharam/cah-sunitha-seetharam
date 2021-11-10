@@ -7,14 +7,6 @@ import java.lang.String
 
 import java.util.Stack
 
-import com.applitools.eyes.selenium.Eyes
-
-import org.openqa.selenium.WebElement
-
-import com.kms.katalon.core.testobject.TestObject
-
-import com.applitools.eyes.RectangleSize
-
 
  /**
 	 * enable EO mode by long pressing the account text/icon displayed on screen and then closes the opened fly-out
@@ -41,6 +33,13 @@ def static "iosCommonKeywords.commonMethods.closePopUpScreen"(
 }
 
  /**
+	 * clicks on Search Key of the keypad
+	 */ 
+def static "iosCommonKeywords.commonMethods.clickOnSearchKey"() {
+    (new iosCommonKeywords.commonMethods()).clickOnSearchKey()
+}
+
+ /**
 	 * this method will take the application one screen back
 	 */ 
 def static "iosCommonKeywords.commonMethods.goOneScreenBack"() {
@@ -52,6 +51,16 @@ def static "iosCommonKeywords.commonMethods.goOneScreenBack"() {
 	 */ 
 def static "iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication"() {
     (new iosCommonKeywords.commonMethods()).installingAndlaunchingTheApplication()
+}
+
+ /**
+	 * performs basic text management operations
+	 * @param operationToBePerformed (in operationToBePerformed argument all alphabets should be lower-case except the first one for e.g Copy, Cut)
+	 */ 
+def static "iosCommonKeywords.commonMethods.performBasicTextManagementOperation"(
+    	String operationToBePerformed	) {
+    (new iosCommonKeywords.commonMethods()).performBasicTextManagementOperation(
+        	operationToBePerformed)
 }
 
  /**
@@ -177,10 +186,12 @@ def static "iosInventory.locationDetailsScreen.selectCountTypeForTheProductToBeA
 }
 
 
-def static "iosInventory.locationDetailsScreen.copy_Product_to_Another_Location"(
-    	String locationName	) {
-    (new iosInventory.locationDetailsScreen()).copy_Product_to_Another_Location(
-        	locationName)
+def static "iosInventory.locationDetailsScreen.copyProductToAnotherLocation"(
+    	String locationName	
+     , 	String productIdentificationNumber	) {
+    (new iosInventory.locationDetailsScreen()).copyProductToAnotherLocation(
+        	locationName
+         , 	productIdentificationNumber)
 }
 
 
@@ -200,10 +211,12 @@ def static "iosInventory.locationDetailsScreen.edit_Location_Name"(
 }
 
 
-def static "iosInventory.locationDetailsScreen.move_Product_to_Another_Location"(
-    	String locationName	) {
-    (new iosInventory.locationDetailsScreen()).move_Product_to_Another_Location(
-        	locationName)
+def static "iosInventory.locationDetailsScreen.moveProductToAnotherLocation"(
+    	String locationName	
+     , 	String productIdentificationNumber	) {
+    (new iosInventory.locationDetailsScreen()).moveProductToAnotherLocation(
+        	locationName
+         , 	productIdentificationNumber)
 }
 
 
@@ -821,6 +834,22 @@ def static "iosDashboard.dashboardDetailsScreen.clickOnMoreOptionsTab"() {
 }
 
  /**
+	 * clicks on product search field 
+	 */ 
+def static "iosDashboard.dashboardDetailsScreen.clickOnProductSearchTextField"() {
+    (new iosDashboard.dashboardDetailsScreen()).clickOnProductSearchTextField()
+}
+
+ /**
+	 * clicks on search field and inputs the product which can be name/Cin/ orders tab where user can perform actions related to orders
+	 */ 
+def static "iosDashboard.dashboardDetailsScreen.enterProductInSearchField"(
+    	Object productSearch	) {
+    (new iosDashboard.dashboardDetailsScreen()).enterProductInSearchField(
+        	productSearch)
+}
+
+ /**
 	 * changes the account
 	 * @param newAccount
 	 */ 
@@ -1066,6 +1095,22 @@ def static "android_orders.New_Order_Screen.verify_NewOrder_Screen_Details"() {
 }
 
  /**
+	 * performs basic text management operations
+	 * @param operationToBePerformed (in operationToBePerformed argument all alphabets should be lower-case except the first one for e.g Copy, Cut)
+	 */ 
+def static "common.commonMethods.performBasicTextManagementOperation"(
+    	Object operationToBePerformed	
+     , 	Object textFieldTestObj	
+     , 	Object selectTextTestObj	
+     , 	Object operationToBePerformedTestObject	) {
+    (new common.commonMethods()).performBasicTextManagementOperation(
+        	operationToBePerformed
+         , 	textFieldTestObj
+         , 	selectTextTestObj
+         , 	operationToBePerformedTestObject)
+}
+
+ /**
 	 * float value generator
 	 * @param stringToBeConvertedToFloatValue
 	 * returns float value for a string by removing characters
@@ -1248,61 +1293,4 @@ def static "api.apiCommonMethods.readAPITestData"() {
 	 */ 
 def static "api.apiCommonMethods.tokenGenerator"() {
     (new api.apiCommonMethods()).tokenGenerator()
-}
-
-
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
-    	Eyes eyes	
-     , 	WebElement element	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkElement(
-        	eyes
-         , 	element)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
-    	TestObject testObject	
-     , 	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
-        	testObject
-         , 	testName)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
-    	String testName	
-     , 	RectangleSize viewportSize	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
-        	testName
-         , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
-    	String baselineName	
-     , 	String testName	
-     , 	RectangleSize viewportSize	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpenWithBaseline(
-        	baselineName
-         , 	testName
-         , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
 }

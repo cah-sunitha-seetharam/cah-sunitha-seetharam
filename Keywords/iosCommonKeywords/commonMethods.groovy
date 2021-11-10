@@ -36,6 +36,15 @@ class  commonMethods {
 
 
 
+	/**
+	 * clicks on Search Key of the keypad
+	 */
+	@Keyword
+	def clickOnSearchKey() {
+
+		Mobile.tapAndHold(findTestObject('iOS/Product_Search/Search Key_Button'), 0, 0)
+	}
+
 
 	/**
 	 * this method will take the application one screen back
@@ -66,6 +75,25 @@ class  commonMethods {
 
 		Mobile.startApplication(GlobalVariable.iOS_App_Path, true) //iOS_App_Path (Application path will be taken from the global profile and passed as a parameter to startApplication method)
 
+	}
+
+
+
+
+	/**
+	 * performs basic text management operations
+	 * @param operationToBePerformed (in operationToBePerformed argument all alphabets should be lower-case except the first one for e.g Copy, Cut)
+	 */
+	@Keyword
+	def performBasicTextManagementOperation(String operationToBePerformed) {
+
+		String textFieldTestObj='Object Repository/iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'
+
+		String selectTextTestObj='Object Repository/iOS/Verification/selectAll_MenuItem'
+
+		String operationToBePerformedTestObject='Object Repository/iOS/Verification/textOperation_MenuItem'
+
+		(new common.commonMethods()).performBasicTextManagementOperation(operationToBePerformed,textFieldTestObj,selectTextTestObj,operationToBePerformedTestObject)
 	}
 
 

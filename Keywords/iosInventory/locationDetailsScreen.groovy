@@ -49,11 +49,11 @@ class locationDetailsScreen {
 	@Keyword
 	def add_Product_to_Location(String locationName, String productName) {
 
-		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/Product SearchField'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), 0, 0)
 
 		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
-		Mobile.setText(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/Product SearchField'), productName, 0)
+		Mobile.setText(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), productName, 0)
 
 		Mobile.tapAndHold(findTestObject('iOS/Product_Search/Search Key_Button'), 0, 0)
 
@@ -149,21 +149,27 @@ class locationDetailsScreen {
 	 * @param locationName (name of the location to which product will be copied)
 	 */
 	@Keyword
-	def copy_Product_to_Another_Location(String locationName) {
+	def copyProductToAnotherLocation(String locationName, String productIdentificationNumber) {
+
+		String testObj='Object Repository/iOS/Inventory/Location Details Screen/Delete Product/slidePopUpDeleteProduct_Button'
+
+		int x_Coordinate=(new iosCommonKeywords.commonMethods()).tapXCoordinateGenerator(testObj)
+
+		testObj='Object Repository/iOS/Inventory/Location Details Screen/Delete Product/ndcNumber_Text'
+
+		int y_Coordinate=(new iosCommonKeywords.commonMethods()).tapYCoordinateGenerator(testObj,productIdentificationNumber)
+
+		Mobile.tapAtPosition(x_Coordinate, y_Coordinate)
+
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Copy Product from Location/copyProduct_Text'), 0)
+
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Copy Product from Location/copyToLocation_Text', [('Location') : locationName]), 0)
+
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Copy Product from Location/copyProduct_Text'), 0)
 
 		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Delete Location/slidePopUpForLocationDeletion_Button'), 0)
-
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Copy Product from Location/Copy_Product_Text'), 0)
-
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Copy Product from Location/Move or Copy to Location_Text', [('Location') : locationName]), 0)
-
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Copy Product from Location/Copy_Product_Text'), 0)
-
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
-
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Copy Product from Location/Go to Location after Move or Copy or Adding Product_Text', [('Location') : locationName]),0)
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Copy Product from Location/goToLocationAfterCopyingProduct_Text', [('Location') : locationName]),0)
 	}
 
 
@@ -176,11 +182,11 @@ class locationDetailsScreen {
 	@Keyword
 	def deleteProduct(String productIdentificationNumber) {
 
-		String testObj='Object Repository/iOS/Inventory/Location Details_Screen/Delete Product/slidePopUpDeleteProduct_Button'
+		String testObj='Object Repository/iOS/Inventory/Location Details Screen/Delete Product/slidePopUpDeleteProduct_Button'
 
 		int x_Coordinate=(new iosCommonKeywords.commonMethods()).tapXCoordinateGenerator(testObj)
 
-		testObj='Object Repository/iOS/Inventory/Location Details_Screen/Delete Product/ndcNumber_Text'
+		testObj='Object Repository/iOS/Inventory/Location Details Screen/Delete Product/ndcNumber_Text'
 
 		int y_Coordinate=(new iosCommonKeywords.commonMethods()).tapYCoordinateGenerator(testObj,productIdentificationNumber)
 
@@ -213,7 +219,7 @@ class locationDetailsScreen {
 			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/currentPrice_Button'), 0)
 		}
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Copy Product from Location/Save Changes_Text'), 0)
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Edit_Location Name/Save Changes_Text (1)'), 0)
 
 		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
@@ -227,24 +233,32 @@ class locationDetailsScreen {
 	 * @param locationName (name of the location to which product will be moved)
 	 */
 	@Keyword
-	def move_Product_to_Another_Location(String locationName) {
+	def moveProductToAnotherLocation(String locationName, String productIdentificationNumber) {
 
+		String testObj='Object Repository/iOS/Inventory/Location Details Screen/Delete Product/slidePopUpDeleteProduct_Button'
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Delete Location/slidePopUpForLocationDeletion_Button'), 0)
+		int x_Coordinate=(new iosCommonKeywords.commonMethods()).tapXCoordinateGenerator(testObj)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Move Product to Another Location/Move_Product_Text'), 0)
+		testObj='Object Repository/iOS/Inventory/Location Details Screen/Delete Product/ndcNumber_Text'
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Copy Product from Location/Move or Copy to Location_Text', [('Location') : locationName]),0)
+		int y_Coordinate=(new iosCommonKeywords.commonMethods()).tapYCoordinateGenerator(testObj,productIdentificationNumber)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Move Product to Another Location/Move_Product_Text'), 0)
+		Mobile.tapAtPosition(x_Coordinate, y_Coordinate)
+
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Move Product to Another Location/moveProduct_Text'), 0)
+
+		Mobile.tap(findTestObject('Object Repository/iOS/Inventory/Location Details Screen/Move Product to Another Location/moveToLocation_Text', [('Location') : locationName]),0)
+
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Move Product to Another Location/moveProduct_Text'), 0)
 
 		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Copy Product from Location/Go to Location after Move or Copy or Adding Product_Text', [('Location') : locationName]),0)
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Move Product To Another Location/goToLocationAfterMovingProduct_Text', [('Location') : locationName]),0)
+
 	}
 
 
-
+	
 
 	/**
 	 * this function gets the total added quantity of the product
@@ -332,7 +346,7 @@ class locationDetailsScreen {
 	@Keyword
 	def verifyProductIsNotVisibleOnTheLocationDetailsScreen(productIdentificationNumber) {
 
-		String testObj='Object Repository/iOS/Inventory/Location Details_Screen/Delete Product/ndcNumber_Text'
+		String testObj='Object Repository/iOS/Inventory/Location Details Screen/Delete Product/ndcNumber_Text'
 
 		Mobile.verifyElementNotVisible(findTestObject(testObj,[('TEXT'):productIdentificationNumber]),0)
 	}
@@ -346,7 +360,7 @@ class locationDetailsScreen {
 	@Keyword
 	def verifyProductIsVisibleOnTheLocationDetailsScreen(productIdentificationNumber) {
 
-		String testObj='Object Repository/iOS/Inventory/Location Details_Screen/Delete Product/ndcNumber_Text'
+		String testObj='Object Repository/iOS/Inventory/Location Details Screen/Delete Product/ndcNumber_Text'
 
 		Mobile.verifyElementExist(findTestObject(testObj,[('TEXT'):productIdentificationNumber]),0)
 	}
@@ -407,7 +421,7 @@ class locationDetailsScreen {
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Share Location/shareLocation_Button'), 0)
 
-		String verifyPopUpScreentestobj='iOS/Inventory/Location Details_Screen/Share Location/sharePopUpActivity_ListView' //reference of the popUp screen object
+		String verifyPopUpScreentestobj='iOS/Inventory/Location Details Screen/Share Location/sharePopUpActivity_ListView' //reference of the popUp screen object
 
 		(new iosCommonKeywords.commonMethods()).verifyPopUpScreenExist(verifyPopUpScreentestobj) // verifies popUp screen present
 

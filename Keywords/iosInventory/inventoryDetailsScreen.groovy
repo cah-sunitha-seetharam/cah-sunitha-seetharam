@@ -148,11 +148,11 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 		int x_Coordinate=(ElementWidth/2)+ElementLeftPosition
 
 		Mobile.tapAtPosition(x_Coordinate, y_Coordinate)
-		
+
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Delete Location/deleteLocation_Text'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details Screen/Delete Location/selectingYesWillAlsoDeleteThisLocationsInventoryOnTheWebsiteAndCannotBeUndone_Text'),0)
-		
+
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Delete Location/yes_Text'), 0)
 
 		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
@@ -161,7 +161,7 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 	}
 
 
-	
+
 	/**
 	 * verifies the location count, cost gets updated or not, of the inventory after the location is deleted
 	 * @param locationName (name of the location under verification)
@@ -222,11 +222,11 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 	@Keyword
 	def search_And_Add_Product_By_Creating_New_Location(String locationName, String productName,String costType) {
 
-		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/Product SearchField'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), 0, 0)
 
 		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
-		Mobile.setText(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/Product SearchField'), productName, 0)
+		Mobile.setText(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), productName, 0)
 
 		Mobile.tapAndHold(findTestObject('iOS/Product_Search/Search Key_Button'), 0, 0)
 
@@ -252,7 +252,7 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/addProductToInventory_Text'), 0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Copy Product from Location/Go to Location after Move or Copy or Adding Product_Text',[('Location'):locationName]), 0)
+		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Copy Product from Location/goToLocationAfterCopyingProduct_Text',[('Location'):locationName]), 0)
 	}
 
 
