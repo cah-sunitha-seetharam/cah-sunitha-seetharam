@@ -253,7 +253,7 @@ class locationDetailsScreen {
 	@Keyword
 	def returnQuantityOfTheAddedProduct() {
 
-		int quantity= Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/quantityOfAddedProduct_Text'), 0)
+		int quantity= Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/quantityAdded_Text'), 0)
 
 		return quantity
 	}
@@ -411,7 +411,7 @@ class locationDetailsScreen {
 
 		(new iosCommonKeywords.commonMethods()).verifyPopUpScreenExist(verifyPopUpScreentestobj) // verifies popUp screen present
 
-		String closePopUpScreentestobj='iOS/Inventory/Location Details_Screen/Share Location/close_Button' //reference of the close popUp screen button
+		String closePopUpScreentestobj='iOS/Inventory/Location Details Screen/Share Location/close_Button' //reference of the close popUp screen button
 
 		(new iosCommonKeywords.commonMethods()).closePopUpScreen(closePopUpScreentestobj) // closes the popUp screen
 

@@ -30,31 +30,46 @@ def static "android_common_keywords.emergencyOrderingMode.enableOrDisableEOmode"
     (new android_common_keywords.emergencyOrderingMode()).enableOrDisableEOmode()
 }
 
-
+ /**
+	 * this method closes the popUp screen by tapping on close, cancel button
+	 * @param testobj (reference of the close, cancel button)
+	 */ 
 def static "iosCommonKeywords.commonMethods.closePopUpScreen"(
     	Object testobj	) {
     (new iosCommonKeywords.commonMethods()).closePopUpScreen(
         	testobj)
 }
 
-
+ /**
+	 * this method will take the application one screen back
+	 */ 
 def static "iosCommonKeywords.commonMethods.goOneScreenBack"() {
     (new iosCommonKeywords.commonMethods()).goOneScreenBack()
 }
 
-
+ /**
+	 * installs as well as launches the application
+	 */ 
 def static "iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication"() {
     (new iosCommonKeywords.commonMethods()).installingAndlaunchingTheApplication()
 }
 
-
+ /**
+	 * generates the coordinate x for a test object by considering ElementLeftPosition and ElementWidth
+	 * @param testObj (reference of the testObject passed as a parameter), text(name of the element)
+	 * returns int value for the xCoordinate
+	 */ 
 def static "iosCommonKeywords.commonMethods.tapXCoordinateGenerator"(
     	String testObj	) {
     (new iosCommonKeywords.commonMethods()).tapXCoordinateGenerator(
         	testObj)
 }
 
-
+ /**
+	 * generates the coordinate y for a test object by considering ElementTopPosition and ElementHeight
+	 * @param testObj (reference of the testObject passed as a parameter), text(name of the element)
+	 * returns int value for the yCoordinate
+	 */ 
 def static "iosCommonKeywords.commonMethods.tapYCoordinateGenerator"(
     	String testObj	
      , 	String text	) {
@@ -63,38 +78,54 @@ def static "iosCommonKeywords.commonMethods.tapYCoordinateGenerator"(
          , 	text)
 }
 
-
+ /**
+	 * this function verifies that the product is not visible on the screen
+	 * @param ndcNumber(ndcNumber of the product to be verified)
+	 */ 
 def static "iosCommonKeywords.commonMethods.verifyProductIsNotVisibleOnTheScreen"(
     	Object ndcNumber	) {
     (new iosCommonKeywords.commonMethods()).verifyProductIsNotVisibleOnTheScreen(
         	ndcNumber)
 }
 
-
+ /**
+	 * this function verifies that the product is visible on the screen
+	 * @param ndcNumber(ndcNumber of the product to be verified)
+	 */ 
 def static "iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScreen"(
     	Object ndcNumber	) {
     (new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(
         	ndcNumber)
 }
 
-
+ /**
+	 * this method verifies the popUp screen is visible
+	 * @param testobj (reference of the popUp screen object under verification)
+	 */ 
 def static "iosCommonKeywords.commonMethods.verifyPopUpScreenExist"(
     	Object testobj	) {
     (new iosCommonKeywords.commonMethods()).verifyPopUpScreenExist(
         	testobj)
 }
 
-
+ /**
+	 * refreshes the screen by doing a vertical swipe by considering the deviceHeight and deviceWidth
+	 */ 
 def static "iosCommonKeywords.commonMethods.verticalSwipeForRefresh"() {
     (new iosCommonKeywords.commonMethods()).verticalSwipeForRefresh()
 }
 
-
+ /**
+	 * waits until the progressBar is visible on the screen, which will have a maximum waitLimit to be visible on the screen
+	 */ 
 def static "iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible"() {
     (new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 }
 
-
+ /**
+	 * waits until the object is visible on the screen, which will have a maximum waitLimit to be visible on the screen
+	 * @param testObj (reference of the test Object),waitTime (time by which delay will be added in(s)),waitLimit (maximum limit of time for which delay can be added)
+	 */ 
 def static "iosCommonKeywords.commonMethods.waitTimeForObjectToBeVisible"(
     	Object testObj	
      , 	int waitTime	
