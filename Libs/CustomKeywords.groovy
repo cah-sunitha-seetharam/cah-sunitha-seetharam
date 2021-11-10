@@ -30,46 +30,31 @@ def static "android_common_keywords.emergencyOrderingMode.enableOrDisableEOmode"
     (new android_common_keywords.emergencyOrderingMode()).enableOrDisableEOmode()
 }
 
- /**
-	 * this method closes the popUp screen by tapping on close, cancel button
-	 * @param testobj (reference of the close, cancel button)
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.closePopUpScreen"(
     	Object testobj	) {
     (new iosCommonKeywords.commonMethods()).closePopUpScreen(
         	testobj)
 }
 
- /**
-	 * this method will take the application one screen back
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.goOneScreenBack"() {
     (new iosCommonKeywords.commonMethods()).goOneScreenBack()
 }
 
- /**
-	 * installs as well as launches the application
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication"() {
     (new iosCommonKeywords.commonMethods()).installingAndlaunchingTheApplication()
 }
 
- /**
-	 * generates the coordinate x for a test object by considering ElementLeftPosition and ElementWidth
-	 * @param testObj (reference of the testObject passed as a parameter), text(name of the element)
-	 * returns int value for the xCoordinate
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.tapXCoordinateGenerator"(
     	String testObj	) {
     (new iosCommonKeywords.commonMethods()).tapXCoordinateGenerator(
         	testObj)
 }
 
- /**
-	 * generates the coordinate y for a test object by considering ElementTopPosition and ElementHeight
-	 * @param testObj (reference of the testObject passed as a parameter), text(name of the element)
-	 * returns int value for the yCoordinate
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.tapYCoordinateGenerator"(
     	String testObj	
      , 	String text	) {
@@ -78,64 +63,38 @@ def static "iosCommonKeywords.commonMethods.tapYCoordinateGenerator"(
          , 	text)
 }
 
- /**
-	 * this function verifies that the product is not visible on the screen
-	 * @param ndcNumber(ndcNumber of the product to be verified)
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.verifyProductIsNotVisibleOnTheScreen"(
     	Object ndcNumber	) {
     (new iosCommonKeywords.commonMethods()).verifyProductIsNotVisibleOnTheScreen(
         	ndcNumber)
 }
 
- /**
-	 * this function verifies that the product is visible on the screen
-	 * @param ndcNumber(ndcNumber of the product to be verified)
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScreen"(
     	Object ndcNumber	) {
     (new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(
         	ndcNumber)
 }
 
- /**
-	 * this method verifies the popUp screen is visible
-	 * @param testobj (reference of the popUp screen object under verification)
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.verifyPopUpScreenExist"(
     	Object testobj	) {
     (new iosCommonKeywords.commonMethods()).verifyPopUpScreenExist(
         	testobj)
 }
 
- /**
-	 * verifies that the latest added product is at the top of the added products list, then deletes the latest added product and continues the process to verifyReverseChronologicalOrder of the added products
-	 * @param productNDC (parameter is the stack of ndcNumbers of the added products)
-	 */ 
-def static "iosCommonKeywords.commonMethods.verifyReverseChronologicalOrder"(
-    	Stack productNdcStack	) {
-    (new iosCommonKeywords.commonMethods()).verifyReverseChronologicalOrder(
-        	productNdcStack)
-}
 
- /**
-	 * refreshes the screen by doing a vertical swipe by considering the deviceHeight and deviceWidth
-	 */ 
 def static "iosCommonKeywords.commonMethods.verticalSwipeForRefresh"() {
     (new iosCommonKeywords.commonMethods()).verticalSwipeForRefresh()
 }
 
- /**
-	 * waits until the progressBar is visible on the screen, which will have a maximum waitLimit to be visible on the screen
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible"() {
     (new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 }
 
- /**
-	 * waits until the object is visible on the screen, which will have a maximum waitLimit to be visible on the screen
-	 * @param testObj (reference of the test Object),waitTime (time by which delay will be added in(s)),waitLimit (maximum limit of time for which delay can be added)
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.waitTimeForObjectToBeVisible"(
     	Object testObj	
      , 	int waitTime	
@@ -156,19 +115,34 @@ def static "iosInventory.locationDetailsScreen.add_Product_to_Location"(
 }
 
 
+def static "iosInventory.locationDetailsScreen.addQuantityforTheSearchedProduct"(
+    	String quantity	) {
+    (new iosInventory.locationDetailsScreen()).addQuantityforTheSearchedProduct(
+        	quantity)
+}
+
+
 def static "iosInventory.locationDetailsScreen.clickOnRemoveButtonToRemoveAlreadyScannedProduct"() {
     (new iosInventory.locationDetailsScreen()).clickOnRemoveButtonToRemoveAlreadyScannedProduct()
 }
 
 
-def static "iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct"(
-    	String productName	
-     , 	String countType	
-     , 	String quantity	) {
-    (new iosInventory.locationDetailsScreen()).clickOnScanIconAndAddProduct(
-        	productName
-         , 	countType
-         , 	quantity)
+def static "iosInventory.locationDetailsScreen.startScanningProduct"(
+    	String productToBeSearched	) {
+    (new iosInventory.locationDetailsScreen()).startScanningProduct(
+        	productToBeSearched)
+}
+
+
+def static "iosInventory.locationDetailsScreen.clickOnScanIcon"() {
+    (new iosInventory.locationDetailsScreen()).clickOnScanIcon()
+}
+
+
+def static "iosInventory.locationDetailsScreen.selectCountTypeForTheProductToBeAdded"(
+    	String countType	) {
+    (new iosInventory.locationDetailsScreen()).selectCountTypeForTheProductToBeAdded(
+        	countType)
 }
 
 
@@ -180,9 +154,9 @@ def static "iosInventory.locationDetailsScreen.copy_Product_to_Another_Location"
 
 
 def static "iosInventory.locationDetailsScreen.deleteProduct"(
-    	String ndcNumber	) {
+    	String productIdentificationNumber	) {
     (new iosInventory.locationDetailsScreen()).deleteProduct(
-        	ndcNumber)
+        	productIdentificationNumber)
 }
 
 
@@ -226,16 +200,28 @@ def static "iosInventory.locationDetailsScreen.verifyLocationDetailsScreen"(
 
 
 def static "iosInventory.locationDetailsScreen.verifyProductIsNotVisibleOnTheLocationDetailsScreen"(
-    	Object ndcNumber	) {
+    	Object productIdentificationNumber	) {
     (new iosInventory.locationDetailsScreen()).verifyProductIsNotVisibleOnTheLocationDetailsScreen(
-        	ndcNumber)
+        	productIdentificationNumber)
 }
 
 
 def static "iosInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen"(
-    	Object ndcNumber	) {
+    	Object productIdentificationNumber	) {
     (new iosInventory.locationDetailsScreen()).verifyProductIsVisibleOnTheLocationDetailsScreen(
-        	ndcNumber)
+        	productIdentificationNumber)
+}
+
+
+def static "iosInventory.locationDetailsScreen.verifyLocationDetailsScreenWithoutAddedProduct"() {
+    (new iosInventory.locationDetailsScreen()).verifyLocationDetailsScreenWithoutAddedProduct()
+}
+
+
+def static "iosInventory.locationDetailsScreen.verifyReverseChronologicalOrder"(
+    	Stack productIdentificationNumbersStack	) {
+    (new iosInventory.locationDetailsScreen()).verifyReverseChronologicalOrder(
+        	productIdentificationNumbersStack)
 }
 
 
@@ -1243,19 +1229,19 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
+}
+
+
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
     	TestObject testObject	
      , 	String testName	) {
     (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
         	testObject
          , 	testName)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
 }
 
 

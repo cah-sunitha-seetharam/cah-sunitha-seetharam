@@ -99,7 +99,7 @@ class dashboardDetailsScreen {
 	@Keyword
 	def Adding_Product_from_Dashboard_To_Cart(String productName, String quantity) {
 
-		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Product SearchField'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/Product SearchField'), 0, 0)
 
 		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
