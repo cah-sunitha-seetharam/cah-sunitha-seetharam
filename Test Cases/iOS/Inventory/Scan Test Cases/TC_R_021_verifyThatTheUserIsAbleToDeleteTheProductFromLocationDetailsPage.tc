@@ -37,7 +37,7 @@ Prerequisite:
       <name>quantity</name>
    </variable>
    <variable>
-      <defaultValue>'Full Count'</defaultValue>
+      <defaultValue>'Partial Count'</defaultValue>
       <description>count type can be partial or full count</description>
       <id>8007995b-d754-4ab1-a965-83eb21ece9a8</id>
       <masked>false</masked>

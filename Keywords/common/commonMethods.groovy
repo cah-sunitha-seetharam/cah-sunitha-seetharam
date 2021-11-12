@@ -51,7 +51,7 @@ class commonMethods {
 
 	/**
 	 * performs basic text management operations
-	 * @param operationToBePerformed (in operationToBePerformed argument all alphabets should be lower-case except the first one for e.g Copy, Cut)
+	 * @param operationToBePerformed (in operationToBePerformed argument all alphabets should be lower-case except the first one for e.g Copy, Cut), textFieldTestObj (object for field of input text), selectTextTestObj (object for selecting the text), operationToBePerformedTestObject(object handling the basic text operations)
 	 */
 	@Keyword
 	def performBasicTextManagementOperation(operationToBePerformed,textFieldTestObj,selectTextTestObj,operationToBePerformedTestObject) {
