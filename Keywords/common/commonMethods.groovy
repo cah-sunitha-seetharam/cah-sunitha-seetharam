@@ -101,4 +101,14 @@ class commonMethods {
 		def jsonObject = jsonSlurper.parse(fileReference)
 		return jsonObject
 	}
+
+	/**
+	 * Get mobile driver for current session
+	 * @return mobile driver for current session
+	 */
+	@Keyword
+
+	def static WebDriver getCurrentSessionMobileDriver() {
+		return MobileDriverFactory.getDriver();
+	}
 }
