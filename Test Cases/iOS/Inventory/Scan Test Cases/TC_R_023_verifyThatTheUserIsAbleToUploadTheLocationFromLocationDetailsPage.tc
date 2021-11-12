@@ -29,17 +29,17 @@
       <name>costType</name>
    </variable>
    <variable>
-      <defaultValue>'2'</defaultValue>
-      <description>quantity required to be added</description>
-      <id>07c86293-e5bb-412d-abc1-a8483927e70e</id>
-      <masked>false</masked>
-      <name>quantity</name>
-   </variable>
-   <variable>
       <defaultValue>'Full Count'</defaultValue>
       <description>count type can be partial or full count</description>
       <id>e2ce5182-c72c-4e2f-9576-7060108c6233</id>
       <masked>false</masked>
-      <name>countType</name>
+      <name>countType_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'Partial Count'</defaultValue>
+      <description></description>
+      <id>769553a0-9e20-41e9-a715-d5f5dcbb609f</id>
+      <masked>false</masked>
+      <name>countType_2</name>
    </variable>
 </TestCaseEntity>

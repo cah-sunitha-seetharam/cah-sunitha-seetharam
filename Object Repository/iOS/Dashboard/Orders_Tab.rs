@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MobileElementEntity>
    <description></description>
-   <name>Orders_Tab</name>
+   <name>orders_Tab</name>
    <tag></tag>
    <elementGuidId>214b8a4c-7954-4aea-9d28-95852dc83ed0</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>

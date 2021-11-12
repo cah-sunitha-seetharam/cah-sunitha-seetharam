@@ -68,7 +68,7 @@ class dashboardDetailsScreen {
 	@Keyword
 	def clickOnMoreOptionsTab() {
 
-		Mobile.tap(findTestObject('iOS/Dashboard/More Options_Tab'), 0)
+		Mobile.tap(findTestObject('iOS/Dashboard/moreOptions_Tab'), 0)
 	}
 
 
@@ -120,10 +120,24 @@ class dashboardDetailsScreen {
 	@Keyword
 	def verifyProductIsVisibleOnTheDashboardDetailsScreen(productIdentificationNumber) {
 
-		String testObj='Object Repository/iOS/Dashboard/ndc_Label'
+		String testObj='Object Repository/iOS/Dashboard/Verification/ndc_Label'
 
 		(new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(testObj,productIdentificationNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
 	}
+
+
+
+	/**
+	 * this function verifies the dash-board details Screen
+	 */
+	@Keyword
+	def verifyDashboardDetailsScreen() {
+
+		Mobile.verifyElementExist(findTestObject('iOS/Dashboard/Verification/homeHeader_Label'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Dashboard/Verification/homeBottomNavigationTab_Bar'), 0)
+	}
+
 
 
 

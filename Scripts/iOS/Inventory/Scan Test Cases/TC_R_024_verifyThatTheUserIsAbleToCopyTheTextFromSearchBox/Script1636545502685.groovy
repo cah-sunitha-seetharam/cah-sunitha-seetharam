@@ -30,7 +30,7 @@ CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'
 'reading the module test data file'
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inventoryTestData.json')
 
-'reading the ndcNumber of product to be added'
+'reading the Cin of product to be added'
 String productSearch = requestObject[GlobalVariable.Environment].TC_R_024.productSearchByNDC1
 
 'clicks on search text field'
@@ -44,6 +44,9 @@ CustomKeywords.'iosCommonKeywords.commonMethods.performBasicTextManagementOperat
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
+
+'takes the application one screen back'
+CustomKeywords.'iosDashboard.dashboardDetailsScreen.verifyDashboardDetailsScreen'()
 
 'clicks on search text field'
 CustomKeywords.'iosDashboard.dashboardDetailsScreen.clickOnProductSearchTextField'()

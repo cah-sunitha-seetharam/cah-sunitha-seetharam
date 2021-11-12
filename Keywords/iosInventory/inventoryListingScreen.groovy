@@ -81,15 +81,21 @@ class inventoryListingScreen {
 	@Keyword
 	def createInventory(String inventoryName) {
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Verification Details/Create_InventorySectionHeader'), 0)
+		if(Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Listing Screen/Verification Details/createInventorySection_Header'),0, FailureHandling.OPTIONAL)){
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Verification Details/Inventory Name_Text'), 0)
+			Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Verification Details/createInventorySection_Header'), 0)
+		}
 
-		Mobile.setText(findTestObject('iOS/Inventory/Inventory Listing Screen/Verification Details/InventoryName TextField'), inventoryName,0)
+		else {
+			Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory Screen/createNewInventory_Text'), 0)
+		}
+		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory Screen/inventoryName_Text'), 0)
 
-		Mobile.tapAndHold(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory_Screen/Return_Keypad_Button'), 0, 0)
+		Mobile.setText(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory Screen/inventoryName_TextField'), inventoryName,0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory_Screen/Create Inventory_Text'), 0)
+		Mobile.tapAndHold(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory Screen/returnKeypad_Button'), 0, 0)
+
+		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory Screen/createInventory_Text'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Open Inventory Details/Open Inventory_Text', [('TEXT') : inventoryName]),0)
 	}
@@ -132,7 +138,7 @@ class inventoryListingScreen {
 	@Keyword
 	def verify_Inventory_Listing_Screen() {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Listing Screen/Verification Details/Lets get started with your inventory_Text'),0)
+		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Listing Screen/Verification Details/letsGetStartedWithYourInventory_Text'),0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Verification Details/Inventory Header_Label'),0)
 	}

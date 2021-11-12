@@ -434,13 +434,13 @@
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>07c86293-e5bb-412d-abc1-a8483927e70e</variableId>
+         <variableId>e2ce5182-c72c-4e2f-9576-7060108c6233</variableId>
       </variableLink>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>e2ce5182-c72c-4e2f-9576-7060108c6233</variableId>
+         <variableId>769553a0-9e20-41e9-a715-d5f5dcbb609f</variableId>
       </variableLink>
    </testCaseLink>
    <testCaseLink>
@@ -495,6 +495,42 @@
          <type>DEFAULT</type>
          <value></value>
          <variableId>19c9714a-d396-41c1-81c2-a3dd9be9d065</variableId>
+      </variableLink>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>8270d1a6-5528-4150-96a4-bcde46a078b4</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/iOS/Inventory/Scan Test Cases/TC_R_017_verifyThatContinueBrowsingButtonInInventoryScanConfirmationPopUpWorkingFineWhileDoingScanFromTheLocationLandingPage</testCaseId>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>31e502c9-17b9-4d5f-ba9a-1fdaf1484688</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>945e2480-1246-44fd-b51b-b63ccdb76c84</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>2c59de9d-92a3-4d79-8a1b-f846bcf5bc33</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>8ec202d2-9b8a-4460-a135-eed21dfd395f</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>4991f361-b03a-4ce6-a57a-455809a32b89</variableId>
       </variableLink>
    </testCaseLink>
 </TestSuiteEntity>
