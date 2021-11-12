@@ -16,24 +16,20 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
+import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
 
 'starts the application'
 CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
-'login function called which takes user to the accounts selection screen'
-CustomKeywords.'iosLogin.loginScreen.login'(GlobalVariable.Username, GlobalVariable.Password)
+'takes user from login to home screen and takes username, password, account no as the arguments'
+CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen'(GlobalVariable.Username, GlobalVariable.Password, 
+    GlobalVariable.Account)
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'selects the user account from the accounts list'
-CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
-
-'takes user to the moreOptions screen'
-CustomKeywords.'iosDashboard.dashboardDetailsScreen.clickOnMoreOptionsTab'()
-
-'takes the user from moreOptions screen to the inventory listing screen'
-CustomKeywords.'iosMoreOptions.moreOptionsScreen.goToInventoryListingScreen'()
+'takes user from home screen to inventory listing screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromHomeToInventoryListingScreen'()
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
@@ -77,11 +73,32 @@ Stack<String> quantityStack = new Stack<String>()
 'declaring stack for storing ndcNumbers of the product needs to be added'
 Stack<String> ndcNumbersStack = new Stack<String>()
 
+'declaring stack for storing ndcNumbers of the product needs to be added'
+Stack<String> unitOfIssueCostStack = new Stack<String>()
+
 'pushing the ndc of the product to be searched into the stack'
 ndcNumbersStack.push(productSearch)
 
-'calling the function which adds a product by clicking on scan and takes productNdc,countType and quantity required as thee arguments'
-CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct'(productSearch, countType_1, quantity)
+'taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at full count'
+CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIcon'()
+
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
+'calling the function which scans the product and adds it to the location, it takes productName/UPC/Cin/Ndc as the argument'
+CustomKeywords.'iosInventory.locationDetailsScreen.startScanningProduct'(productSearch)
+
+'calling the function which selects the countType required for a product which is searched and takes countType as the argument'
+CustomKeywords.'iosInventory.locationDetailsScreen.selectCountTypeForTheProductToBeAdded'(countType_1)
+
+'calling the function which adds quantity required for a product to be added and takes quantity required as the argument'
+CustomKeywords.'iosInventory.locationDetailsScreen.addQuantityforTheSearchedProduct'(quantity)
+
+'calling the function which adds quantity required for a product to be added and takes quantity required as the argument'
+float uoiCost = CustomKeywords.'iosInventory.locationDetailsScreen.returnUOIOfTheAddedProduct'()
+
+'pushing the uoiCost of the product to be searched into the stack'
+unitOfIssueCostStack.push(uoiCost)
 
 'pushing the countType of the product to be searched into the stack'
 countTypeStack.push(countType_1)
@@ -93,13 +110,31 @@ quantityStack.push(quantity)
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
 'reading the ndcNumber of product to be added'
-productSearch = requestObject[GlobalVariable.Environment].TC_R_020.productSearchByNDC1
+productSearch = requestObject[GlobalVariable.Environment].TC_R_020.productSearchByNDC2
 
 'pushing the ndc of the product to be searched into the stack'
 ndcNumbersStack.push(productSearch)
 
-'calling the function which adds a product by clicking on scan and takes productNdc,countType and quantity required as thee arguments'
-CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct'(productSearch, countType_2, quantity)
+'taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at full count'
+CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIcon'()
+
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
+'calling the function which scans the product and adds it to the location, it takes productName/UPC/Cin/Ndc as the argument'
+CustomKeywords.'iosInventory.locationDetailsScreen.startScanningProduct'(productSearch)
+
+'calling the function which selects the countType required for a product which is searched and takes countType as the argument'
+CustomKeywords.'iosInventory.locationDetailsScreen.selectCountTypeForTheProductToBeAdded'(countType_2)
+
+'calling the function which adds quantity required for a product to be added and takes quantity required as the argument'
+CustomKeywords.'iosInventory.locationDetailsScreen.addQuantityforTheSearchedProduct'(quantity)
+
+'calling the function which adds quantity required for a product to be added and takes quantity required as the argument'
+uoiCost = CustomKeywords.'iosInventory.locationDetailsScreen.returnUOIOfTheAddedProduct'()
+
+'pushing the uoiCost of the product to be searched into the stack'
+unitOfIssueCostStack.push(uoiCost)
 
 'pushing the countType of the product to be searched into the stack'
 countTypeStack.push(countType_2)
@@ -115,7 +150,7 @@ CustomKeywords.'iosInventory.locationDetailsScreen.verifyShareLocationPopUp'()
 
 'verifies location details Screen elements like linesCount, countype of product added, quantity on location details screen'
 CustomKeywords.'iosInventory.locationDetailsScreen.verifyLocationDetailsScreen'(expectedLinesCount, countTypeStack, quantityStack, 
-    ndcNumbersStack)
+    ndcNumbersStack, unitOfIssueCostStack)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()

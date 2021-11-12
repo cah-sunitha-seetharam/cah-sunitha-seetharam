@@ -57,4 +57,11 @@ Prerequisites:
       <masked>false</masked>
       <name>quantity</name>
    </variable>
+   <variable>
+      <defaultValue>4</defaultValue>
+      <description></description>
+      <id>53ed444f-c3e8-44a5-83b1-72dae0f8e219</id>
+      <masked>false</masked>
+      <name>expectedProductQuanity</name>
+   </variable>
 </TestCaseEntity>

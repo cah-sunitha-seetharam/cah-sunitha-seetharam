@@ -20,20 +20,15 @@ import org.openqa.selenium.Keys as Keys
 'starts the application'
 CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
-'login function called which takes user to the accounts selection screen'
-CustomKeywords.'iosLogin.loginScreen.login'(GlobalVariable.Username, GlobalVariable.Password)
+'takes user from login to home screen and takes username, password, account no as the arguments'
+CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen'(GlobalVariable.Username, GlobalVariable.Password, 
+    GlobalVariable.Account)
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'selects the user account from the accounts list'
-CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
-
-'takes user to the moreOptions screen'
-CustomKeywords.'iosDashboard.dashboardDetailsScreen.clickOnMoreOptionsTab'()
-
-'takes the user from moreOptions screen to the invemtory listing screen'
-CustomKeywords.'iosMoreOptions.moreOptionsScreen.goToInventoryListingScreen'()
+'takes user from home screen to inventory listing screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromHomeToInventoryListingScreen'()
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
@@ -50,17 +45,28 @@ CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'
 'ouput of random string generator is stored in locationName which will be passed into add_Location function\n'
 locationName = CustomKeywords.'common.commonMethods.randomStringGenerator'(locationNameLength)
 
+'adds location in location details page and takes locationName as the argument'
+CustomKeywords.'iosInventory.inventoryDetailsScreen.addLocation'(locationName, costType)
+
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
+'ouput of random string generator is stored in locationName which will be passed into add_Location function\n'
+locationName = CustomKeywords.'common.commonMethods.randomStringGenerator'(locationNameLength)
+
 'reading the module test data file'
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inventoryTestData.json')
 
 'reading the Ndc of product to be added'
 String productSearch = requestObject[GlobalVariable.Environment].TC_R_017.productSearchByNDC
 
-'calling the function which adds a product by clicking on scan and takes productNdc,countType and quantity required as the arguments, then adding a location via inventory details screen which requires locationName, costType as the argument'
-CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnScanIconAndAddProductByCreatingNewLocationViaInventoryDetailsScreen'(locationName, productSearch, countType, quantity, costType)
+'searches and adds the product from the inventory details screen by creating a new location'
+CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnScanIconAndAddProductByCreatingNewLocationViaInventoryDetailsScreen'(
+    locationName, productSearch, countType, quantity, costType)
 
 'verifies that the added product is present in the products list'
-CustomKeywords.'iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScreen'(productSearch)
+CustomKeywords.'iosInventory.inventoryDetailsScreen.verifyProductIsVisibleOnScreenWhenSearchedFromInventoryDetailsScreen'(
+    productSearch)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
@@ -69,7 +75,7 @@ CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnALocation'(locationName)
 
 'verifies that the added product is present in the products list'
-CustomKeywords.'iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScreen'(productSearch)
+CustomKeywords.'iosInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen'(productSearch)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()

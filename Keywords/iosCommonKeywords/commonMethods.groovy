@@ -25,6 +25,43 @@ class  commonMethods {
 
 
 	/**
+	 * takes user from home screen to inventory listing screen
+	 */
+	@Keyword
+	def takeUserFromHomeToInventoryListingScreen() {
+
+		'takes user from dashboard to the moreOptions screen'
+		(new iosDashboard.dashboardDetailsScreen()).clickOnMoreOptionsTab()
+
+		'waits until the progressBar is visible on the screen'
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+
+		'takes the user from moreOptions screen to the inventory listing screen'
+		(new iosMoreOptions.moreOptionsScreen()).goToInventoryListingScreen()
+	}
+
+
+
+	/**
+	 * takes user from login to home screen
+	 * @param username, password, accountNo
+	 */
+	@Keyword
+	def takeUserFromloginToHomeScreen(username,password,accountNo) {
+
+		'login function called'
+		(new iosLogin.loginScreen()).login(username, password)
+
+		'waits until the progressBar is visible on the screen'
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+
+		'selects the user account from the accounts list'
+		(new iosAccountSelection.selectAnAccount()).selectTheUserAccount(accountNo)
+	}
+
+
+
+	/**
 	 * this method closes the popUp screen by tapping on close, cancel button
 	 * @param testobj (reference of the close, cancel button)
 	 */
@@ -142,9 +179,9 @@ class  commonMethods {
 	 * @param ndcNumber(ndcNumber of the product to be verified)
 	 */
 	@Keyword
-	def verifyProductIsNotVisibleOnTheScreen(ndcNumber) {
+	def verifyProductIsNotVisibleOnTheScreen(testObj,productIdentificationNumber) {
 
-		Mobile.verifyElementNotVisible(findTestObject('Object Repository/iOS/Product_Details/ndcNumber_Text',[('TEXT'):ndcNumber]),0)
+		Mobile.verifyElementNotVisible(findTestObject(testObj,[('TEXT'):productIdentificationNumber]),0)
 	}
 
 
@@ -156,9 +193,9 @@ class  commonMethods {
 	 * @param ndcNumber(ndcNumber of the product to be verified)
 	 */
 	@Keyword
-	def verifyProductIsVisibleOnTheScreen(ndcNumber) {
+	def verifyProductIsVisibleOnTheScreen(testObj,productIdentificationNumber) {
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Product_Details/ndcNumber_Text',[('TEXT'):ndcNumber]),0)
+		Mobile.verifyElementExist(findTestObject(testObj,[('TEXT'):productIdentificationNumber]),0)
 	}
 
 

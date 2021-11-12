@@ -37,6 +37,8 @@ import com.kms.katalon.core.util.KeywordUtil
 
 import com.kms.katalon.core.webui.exception.WebElementNotFoundException
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
+import java.math.RoundingMode
+import java.text.DecimalFormat
 
 
 class locationDetailsScreen {
@@ -112,7 +114,6 @@ class locationDetailsScreen {
 
 	/**
 	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at full count
-	 * @param productName (name which can be a productName/Cin/NDC of the product to be added)
 	 */
 	@Keyword
 	def clickOnScanIcon() {
@@ -146,7 +147,7 @@ class locationDetailsScreen {
 
 	/**
 	 * copies products to another location
-	 * @param locationName (name of the location to which product will be copied)
+	 * @param locationName (name of the location to which product will be copied), productIdentificationNumber (which can be a productName/Cin/NDC of the product)
 	 */
 	@Keyword
 	def copyProductToAnotherLocation(String locationName, String productIdentificationNumber) {
@@ -230,7 +231,7 @@ class locationDetailsScreen {
 
 	/**
 	 * moves products to another location
-	 * @param locationName (name of the location to which product will be moved)
+	 * @param locationName (name of the location to which product will be moved), productIdentificationNumber (which can be a productName/Cin/NDC of the product)
 	 */
 	@Keyword
 	def moveProductToAnotherLocation(String locationName, String productIdentificationNumber) {
@@ -254,25 +255,41 @@ class locationDetailsScreen {
 		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Move Product To Another Location/goToLocationAfterMovingProduct_Text', [('Location') : locationName]),0)
-
 	}
 
 
-	
+
 
 	/**
 	 * this function gets the total added quantity of the product
-	 * @return quantity of the product which has been added
+	 * @return quantityNumericalValue of the product which has been added
 	 */
 	@Keyword
 	def returnQuantityOfTheAddedProduct() {
 
-		int quantity= Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/quantityAdded_Text'), 0)
+		String quantity= Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/quantityAdded_Text'), 0)
 
-		return quantity
+		float quantityNumericalValue=Float.valueOf(quantity);
+
+		return quantityNumericalValue
 	}
 
 
+
+
+	/**
+	 * this function gets the unit of issue cost(UOI) of the added product
+	 * @return uoiCost_dollarSymbolRemoved_FloatValue of the product which has been added
+	 */
+	@Keyword
+	def returnUOIOfTheAddedProduct() {
+
+		String uoiCost=Mobile.getText(findTestObject('iOS/Verification/unitOfIssueCost_Text'), 0)
+
+		float uoiCost_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(uoiCost)//converting uoiCost string to a float value
+
+		return uoiCost_dollarSymbolRemoved_FloatValue
+	}
 
 
 	/**
@@ -293,19 +310,27 @@ class locationDetailsScreen {
 
 	/**
 	 * verifies details of location details screen (if user wants to scan a product with same count type more than once, then in the test case, only the updated quantity along with countType and ndcNumber should be pushed into the stack)
-	 * @param expectedLinesCount (lines count which is expected), countTypeStack (stack of the countTypes selected for adding each product), quantityStack (stack of the quantity added for each product), productNdcStack (stack of the ndcNumbers of added products)
+	 * @param expectedLinesCount (lines count which is expected), countTypeStack (stack of the countTypes selected for adding each product), quantityStack (stack of the quantity added for each product), productNdcStack (stack of the ndcNumbers of added products), unitOfIssueCostStack(stack of UOI costs of the added products)
 	 */
 	@Keyword
-	def verifyLocationDetailsScreen(String expectedLinesCount, Stack countTypeStack, Stack quantityStack, Stack productNdcStack) {
+	def verifyLocationDetailsScreen(String expectedLinesCount, Stack countTypeStack, Stack quantityStack, Stack productNdcStack, Stack unitOfIssueCostStack) {
 
-		String topProductCountType, topProductQuantity, topProductNdc
+		String topProductCountType,topProductNdc,topProductQuantity,countType,quantity,costOfOneFullCountProduct
+
+		float totalCostOfAddedProduct=0.00, costOfOneFullCountProduct_dollarSymbolRemoved_FloatValue, topProductUnitOfIssueCost_FloatValue, topProductQuantity_FloatValue
+
+		String inventoryTotal=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/inventoryTotal_Text'), 0)// inventory value with location added
+
+		float inventoryTotal_charactersRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(inventoryTotal)///converting finalInventoryTotal string to a float value
 
 		String actualLinesCount=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/inventoryLine_Text'),0) //gets the actualLinesCount on the location details page
 
 		assert actualLinesCount==(expectedLinesCount) // verifies actualLinesCount equals the expectedLinesCount
 
-		while(!countTypeStack.isEmpty() && !quantityStack.isEmpty() && !productNdcStack.isEmpty()) //loops while countType, quantity, productNdcStack is not empty
+		while(!countTypeStack.isEmpty() && !quantityStack.isEmpty() && !productNdcStack.isEmpty() && !unitOfIssueCostStack.isEmpty()) //loops while countType, quantity, productNdcStack is not empty
 		{
+
+			String topProductUnitOfIssueCost=unitOfIssueCostStack.pop() //pops the top unitOfIssueCostStack from the unitOfIssueCostStack and stores value in the topProductUnitOfIssueCost
 
 			topProductCountType=countTypeStack.pop() //pops the top countType from the countTypeStack and stores value in the topProductCountType
 
@@ -313,18 +338,31 @@ class locationDetailsScreen {
 
 			topProductNdc=productNdcStack.pop() //pops the top ndcNumber from the productNdcStack and stores value in the topProductNdc
 
-			String countType=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/addedProductCountType_Text'),0) //gets the countType of the top added product in the location details page
+			countType=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/addedProductCountType_Text'),0) //gets the countType of the top added product in the location details page
 
-			String quantity=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/addedProductQuanity_Text'),0) //gets the quantity of the top added product in the location details page
+			quantity=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/addedProductQuanity_Text'),0) //gets the quantity of the top added product in the location details page
+
+			costOfOneFullCountProduct=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/locationDetailsPrice_Label'),  0)
+
+			topProductUnitOfIssueCost_FloatValue=(new common.commonMethods()).floatValueGenerator(topProductUnitOfIssueCost)///converting topProductUnitOfIssueCost string to a float value
+
+			topProductQuantity_FloatValue=(new common.commonMethods()).floatValueGenerator(topProductQuantity)///converting topProductQuantity string to a float value
+
+			costOfOneFullCountProduct_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(costOfOneFullCountProduct)///converting costOfOneFullCountProduct string to a float value
 
 			if (topProductCountType=="Partial Count") //condition added because in case of partial count the quantity added won't end with a (.0) for e.g full count-(1.0), partial count (1)
 			{
 				assert quantity==(topProductQuantity) // verifies quantity equals the quantity of the topmost product in the products list
+
+				totalCostOfAddedProduct=totalCostOfAddedProduct+(topProductQuantity_FloatValue*topProductUnitOfIssueCost_FloatValue) //adding the cost of the product
+
 			}
 
 			else
 
 			{
+				totalCostOfAddedProduct=(totalCostOfAddedProduct+topProductQuantity_FloatValue*costOfOneFullCountProduct_dollarSymbolRemoved_FloatValue) // //adding the cost of the product
+
 				assert (quantity)==(topProductQuantity+".0") // verifies quantity equals the quantity of the topmost product in the products list
 			}
 
@@ -333,6 +371,12 @@ class locationDetailsScreen {
 			(new iosInventory.locationDetailsScreen()).deleteProduct(topProductNdc)//calling delete product function and passing the topProductNdc
 
 		}
+
+		String formattedTotalCostOfAddedProduct=(new common.commonMethods()).formatDecimalData(totalCostOfAddedProduct,"0.00") //formatting the data to be rounded off to upper level and to two decimal places
+
+		float formattedTotalCostOfAddedProduct_FloatValue=(new common.commonMethods()).floatValueGenerator(formattedTotalCostOfAddedProduct)///converting formattedTotalCostOfAddedProduct string to a float value
+
+		assert inventoryTotal_charactersRemoved_FloatValue==(formattedTotalCostOfAddedProduct_FloatValue)
 
 	}
 
@@ -348,7 +392,9 @@ class locationDetailsScreen {
 
 		String testObj='Object Repository/iOS/Inventory/Location Details Screen/Delete Product/ndcNumber_Text'
 
-		Mobile.verifyElementNotVisible(findTestObject(testObj,[('TEXT'):productIdentificationNumber]),0)
+		(new iosCommonKeywords.commonMethods()).verifyProductIsNotVisibleOnTheScreen(testObj,productIdentificationNumber)//calling verifyProductIsNotVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
+
+		//Mobile.verifyElementNotVisible(findTestObject(testObj,[('TEXT'):productIdentificationNumber]),0)
 	}
 
 
@@ -362,27 +408,28 @@ class locationDetailsScreen {
 
 		String testObj='Object Repository/iOS/Inventory/Location Details Screen/Delete Product/ndcNumber_Text'
 
-		Mobile.verifyElementExist(findTestObject(testObj,[('TEXT'):productIdentificationNumber]),0)
+		(new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(testObj,productIdentificationNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
+
+		//Mobile.verifyElementExist(findTestObject(testObj,[('TEXT'):productIdentificationNumber]),0)
 	}
+
 
 
 	/**
-	 * this function verifies the location details screen without any added product
+	 * this function verifies the lines count
+	 * @param expectedLinesCount (expected lines Count)
 	 */
 	@Keyword
-	def verifyLocationDetailsScreenWithoutAddedProduct() {
+	def verifyLinesCount(String expectedLinesCount) {
 
 		String actualLinesCount=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/inventoryLine_Text'),0) //gets the actualLinesCount on the location details page
 
-		assert actualLinesCount=='0' //line count has to be 0 without any added product in the location
-
-		String inventoryTotal=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/inventoryTotal_Text'), 0)// inventory value with location added
-
-		float inventoryTotal_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(inventoryTotal)//converting initialInventoryTotal string to a float value
-
-		assert inventoryTotal_dollarSymbolRemoved_FloatValue==(0.00) //without added product, inventoryTotalValue has to be 0.00
+		assert actualLinesCount==expectedLinesCount //actual lines count has to be equal to expected lines count
 
 	}
+
+
+
 
 
 	/**

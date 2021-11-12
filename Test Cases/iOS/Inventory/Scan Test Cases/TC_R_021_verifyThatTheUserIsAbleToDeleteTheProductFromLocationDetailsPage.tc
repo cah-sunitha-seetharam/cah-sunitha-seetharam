@@ -43,4 +43,11 @@ Prerequisite:
       <masked>false</masked>
       <name>countType</name>
    </variable>
+   <variable>
+      <defaultValue>'0'</defaultValue>
+      <description>lines count which is expected</description>
+      <id>ee05636e-eef7-448d-a800-510bbb666fc0</id>
+      <masked>false</masked>
+      <name>expectedLinesCount</name>
+   </variable>
 </TestCaseEntity>

@@ -79,13 +79,13 @@ class dashboardDetailsScreen {
 	def clickOnProductSearchTextField() {
 
 		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), 0, 0)
-
 	}
 
-	
-	
+
+
 	/**
-	 * clicks on search field and inputs the product which can be name/Cin/ orders tab where user can perform actions related to orders
+	 * inputs the product which can be name/Cin/UPC in the product search-field
+	 * @param productSearch (which can be name/Cin/UPC in the product search-field)
 	 */
 	@Keyword
 	def enterProductInSearchField(productSearch) {
@@ -93,7 +93,7 @@ class dashboardDetailsScreen {
 		Mobile.setText(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), productSearch, 0)
 	}
 
-	
+
 	/**
 	 * changes the account
 	 * @param newAccount
@@ -109,6 +109,20 @@ class dashboardDetailsScreen {
 		Mobile.scrollToText(newAccount, FailureHandling.STOP_ON_FAILURE)
 
 		Mobile.tap(findTestObject('iOS/Account_Selection/AccountNo_Text', [('val') : newAccount]), 0)
+	}
+
+
+
+	/**
+	 * this function verifies that the product is visible on the dash-board details screen
+	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
+	 */
+	@Keyword
+	def verifyProductIsVisibleOnTheDashboardDetailsScreen(productIdentificationNumber) {
+
+		String testObj='Object Repository/iOS/Dashboard/ndc_Label'
+
+		(new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(testObj,productIdentificationNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
 	}
 
 

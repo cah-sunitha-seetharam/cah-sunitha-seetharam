@@ -57,4 +57,18 @@ Prerequisites:
       <masked>false</masked>
       <name>quantity</name>
    </variable>
+   <variable>
+      <defaultValue>'2'</defaultValue>
+      <description></description>
+      <id>e17d21c0-f7e5-4c1e-83b7-a9b3205b9213</id>
+      <masked>false</masked>
+      <name>expectedLocationCount</name>
+   </variable>
+   <variable>
+      <defaultValue>2</defaultValue>
+      <description></description>
+      <id>038b8211-2365-49a7-b682-c846dfc22f4a</id>
+      <masked>false</masked>
+      <name>expectedQuantityAdded</name>
+   </variable>
 </TestCaseEntity>

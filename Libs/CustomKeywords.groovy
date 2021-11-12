@@ -7,6 +7,14 @@ import java.lang.String
 
 import java.util.Stack
 
+import com.applitools.eyes.selenium.Eyes
+
+import org.openqa.selenium.WebElement
+
+import com.kms.katalon.core.testobject.TestObject
+
+import com.applitools.eyes.RectangleSize
+
 
  /**
 	 * enable EO mode by long pressing the account text/icon displayed on screen and then closes the opened fly-out
@@ -22,63 +30,59 @@ def static "android_common_keywords.emergencyOrderingMode.enableOrDisableEOmode"
     (new android_common_keywords.emergencyOrderingMode()).enableOrDisableEOmode()
 }
 
- /**
-	 * this method closes the popUp screen by tapping on close, cancel button
-	 * @param testobj (reference of the close, cancel button)
-	 */ 
+
+def static "iosCommonKeywords.commonMethods.takeUserFromHomeToInventoryListingScreen"() {
+    (new iosCommonKeywords.commonMethods()).takeUserFromHomeToInventoryListingScreen()
+}
+
+
+def static "iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen"(
+    	Object username	
+     , 	Object password	
+     , 	Object accountNo	) {
+    (new iosCommonKeywords.commonMethods()).takeUserFromloginToHomeScreen(
+        	username
+         , 	password
+         , 	accountNo)
+}
+
+
 def static "iosCommonKeywords.commonMethods.closePopUpScreen"(
     	Object testobj	) {
     (new iosCommonKeywords.commonMethods()).closePopUpScreen(
         	testobj)
 }
 
- /**
-	 * clicks on Search Key of the keypad
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.clickOnSearchKey"() {
     (new iosCommonKeywords.commonMethods()).clickOnSearchKey()
 }
 
- /**
-	 * this method will take the application one screen back
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.goOneScreenBack"() {
     (new iosCommonKeywords.commonMethods()).goOneScreenBack()
 }
 
- /**
-	 * installs as well as launches the application
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication"() {
     (new iosCommonKeywords.commonMethods()).installingAndlaunchingTheApplication()
 }
 
- /**
-	 * performs basic text management operations
-	 * @param operationToBePerformed (in operationToBePerformed argument all alphabets should be lower-case except the first one for e.g Copy, Cut)
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.performBasicTextManagementOperation"(
     	String operationToBePerformed	) {
     (new iosCommonKeywords.commonMethods()).performBasicTextManagementOperation(
         	operationToBePerformed)
 }
 
- /**
-	 * generates the coordinate x for a test object by considering ElementLeftPosition and ElementWidth
-	 * @param testObj (reference of the testObject passed as a parameter), text(name of the element)
-	 * returns int value for the xCoordinate
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.tapXCoordinateGenerator"(
     	String testObj	) {
     (new iosCommonKeywords.commonMethods()).tapXCoordinateGenerator(
         	testObj)
 }
 
- /**
-	 * generates the coordinate y for a test object by considering ElementTopPosition and ElementHeight
-	 * @param testObj (reference of the testObject passed as a parameter), text(name of the element)
-	 * returns int value for the yCoordinate
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.tapYCoordinateGenerator"(
     	String testObj	
      , 	String text	) {
@@ -87,54 +91,42 @@ def static "iosCommonKeywords.commonMethods.tapYCoordinateGenerator"(
          , 	text)
 }
 
- /**
-	 * this function verifies that the product is not visible on the screen
-	 * @param ndcNumber(ndcNumber of the product to be verified)
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.verifyProductIsNotVisibleOnTheScreen"(
-    	Object ndcNumber	) {
+    	Object testObj	
+     , 	Object productIdentificationNumber	) {
     (new iosCommonKeywords.commonMethods()).verifyProductIsNotVisibleOnTheScreen(
-        	ndcNumber)
+        	testObj
+         , 	productIdentificationNumber)
 }
 
- /**
-	 * this function verifies that the product is visible on the screen
-	 * @param ndcNumber(ndcNumber of the product to be verified)
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScreen"(
-    	Object ndcNumber	) {
+    	Object testObj	
+     , 	Object productIdentificationNumber	) {
     (new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(
-        	ndcNumber)
+        	testObj
+         , 	productIdentificationNumber)
 }
 
- /**
-	 * this method verifies the popUp screen is visible
-	 * @param testobj (reference of the popUp screen object under verification)
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.verifyPopUpScreenExist"(
     	Object testobj	) {
     (new iosCommonKeywords.commonMethods()).verifyPopUpScreenExist(
         	testobj)
 }
 
- /**
-	 * refreshes the screen by doing a vertical swipe by considering the deviceHeight and deviceWidth
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.verticalSwipeForRefresh"() {
     (new iosCommonKeywords.commonMethods()).verticalSwipeForRefresh()
 }
 
- /**
-	 * waits until the progressBar is visible on the screen, which will have a maximum waitLimit to be visible on the screen
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible"() {
     (new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 }
 
- /**
-	 * waits until the object is visible on the screen, which will have a maximum waitLimit to be visible on the screen
-	 * @param testObj (reference of the test Object),waitTime (time by which delay will be added in(s)),waitLimit (maximum limit of time for which delay can be added)
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.waitTimeForObjectToBeVisible"(
     	Object testObj	
      , 	int waitTime	
@@ -225,6 +217,11 @@ def static "iosInventory.locationDetailsScreen.returnQuantityOfTheAddedProduct"(
 }
 
 
+def static "iosInventory.locationDetailsScreen.returnUOIOfTheAddedProduct"() {
+    (new iosInventory.locationDetailsScreen()).returnUOIOfTheAddedProduct()
+}
+
+
 def static "iosInventory.locationDetailsScreen.uploadLocation"() {
     (new iosInventory.locationDetailsScreen()).uploadLocation()
 }
@@ -234,12 +231,14 @@ def static "iosInventory.locationDetailsScreen.verifyLocationDetailsScreen"(
     	String expectedLinesCount	
      , 	Stack countTypeStack	
      , 	Stack quantityStack	
-     , 	Stack productNdcStack	) {
+     , 	Stack productNdcStack	
+     , 	Stack unitOfIssueCostStack	) {
     (new iosInventory.locationDetailsScreen()).verifyLocationDetailsScreen(
         	expectedLinesCount
          , 	countTypeStack
          , 	quantityStack
-         , 	productNdcStack)
+         , 	productNdcStack
+         , 	unitOfIssueCostStack)
 }
 
 
@@ -257,8 +256,10 @@ def static "iosInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocati
 }
 
 
-def static "iosInventory.locationDetailsScreen.verifyLocationDetailsScreenWithoutAddedProduct"() {
-    (new iosInventory.locationDetailsScreen()).verifyLocationDetailsScreenWithoutAddedProduct()
+def static "iosInventory.locationDetailsScreen.verifyLinesCount"(
+    	String expectedLinesCount	) {
+    (new iosInventory.locationDetailsScreen()).verifyLinesCount(
+        	expectedLinesCount)
 }
 
 
@@ -436,10 +437,7 @@ def static "android_orders.Cart_Screen.verify_Cart_Screen_Details_without_Adding
     (new android_orders.Cart_Screen()).verify_Cart_Screen_Details_without_Adding_any_Product()
 }
 
- /**
-	 * adds location to an inventory based on the cost type of current or last price paid
-	 * @param locationName (name of the location to be added), costType (cost type required which can be current or last price paid)
-	 */ 
+
 def static "iosInventory.inventoryDetailsScreen.addLocation"(
     	String locationName	
      , 	String costType	) {
@@ -448,20 +446,21 @@ def static "iosInventory.inventoryDetailsScreen.addLocation"(
          , 	costType)
 }
 
- /**
-	 * opens the particular location details
-	 * @param locationName (name of the location)
-	 */ 
+
+def static "iosInventory.inventoryDetailsScreen.addCostType"(
+    	String costType	) {
+    (new iosInventory.inventoryDetailsScreen()).addCostType(
+        	costType)
+}
+
+
 def static "iosInventory.inventoryDetailsScreen.clickOnALocation"(
     	String locationName	) {
     (new iosInventory.inventoryDetailsScreen()).clickOnALocation(
         	locationName)
 }
 
- /**
-	 * searches and adds the product from the inventory details screen by creating a new location
-	 * @param locationName (name of the location to be created),productName (name of the product to be added),countType (count type required which can be partial or full count),quantity (quantity of the product required to be added), costType(cost type required which can be current or last price paid)
-	 */ 
+
 def static "iosInventory.inventoryDetailsScreen.clickOnScanIconAndAddProductByCreatingNewLocationViaInventoryDetailsScreen"(
     	String locationName	
      , 	String productName	
@@ -476,40 +475,35 @@ def static "iosInventory.inventoryDetailsScreen.clickOnScanIconAndAddProductByCr
          , 	costType)
 }
 
- /**
-	 * deletes the location
-	 * @param locationName (name of the location to be deleted)
-	 */ 
+
 def static "iosInventory.inventoryDetailsScreen.deleteLocation"(
     	String locationName	) {
     (new iosInventory.inventoryDetailsScreen()).deleteLocation(
         	locationName)
 }
 
- /**
-	 * verifies the location count, cost gets updated or not, of the inventory after the location is deleted
-	 * @param locationName (name of the location under verification)
-	 */ 
+
 def static "iosInventory.inventoryDetailsScreen.deleteLocationWithCostLocationCountVerification"(
     	String locationName	) {
     (new iosInventory.inventoryDetailsScreen()).deleteLocationWithCostLocationCountVerification(
         	locationName)
 }
 
- /**
-	 * edits the inventory name
-	 * @param newInventoryName (new name of the inventory)
-	 */ 
+
+def static "iosInventory.inventoryDetailsScreen.verifyLocationCount"(
+    	String expectedLocationCount	) {
+    (new iosInventory.inventoryDetailsScreen()).verifyLocationCount(
+        	expectedLocationCount)
+}
+
+
 def static "iosInventory.inventoryDetailsScreen.edit_InventoryName"(
     	String newInventoryName	) {
     (new iosInventory.inventoryDetailsScreen()).edit_InventoryName(
         	newInventoryName)
 }
 
- /**
-	 * searches and adds the product from the inventory details screen by creating a new location
-	 * @param locationName (name of the location to be created),productName (name of the product to be added),costType (cost type required which can be current or last price paid)
-	 */ 
+
 def static "iosInventory.inventoryDetailsScreen.search_And_Add_Product_By_Creating_New_Location"(
     	String locationName	
      , 	String productName	
@@ -520,10 +514,14 @@ def static "iosInventory.inventoryDetailsScreen.search_And_Add_Product_By_Creati
          , 	costType)
 }
 
- /**
-	 * verifies various details of the inventory details screen
-	 * @param inventoryName (name of the inventory which is under verification)
-	 */ 
+
+def static "iosInventory.inventoryDetailsScreen.verifyProductIsVisibleOnScreenWhenSearchedFromInventoryDetailsScreen"(
+    	Object productIdentificationNumber	) {
+    (new iosInventory.inventoryDetailsScreen()).verifyProductIsVisibleOnScreenWhenSearchedFromInventoryDetailsScreen(
+        	productIdentificationNumber)
+}
+
+
 def static "iosInventory.inventoryDetailsScreen.verify_Inventory_Details_Screen"(
     	String inventoryName	) {
     (new iosInventory.inventoryDetailsScreen()).verify_Inventory_Details_Screen(
@@ -841,7 +839,8 @@ def static "iosDashboard.dashboardDetailsScreen.clickOnProductSearchTextField"()
 }
 
  /**
-	 * clicks on search field and inputs the product which can be name/Cin/ orders tab where user can perform actions related to orders
+	 * inputs the product which can be name/Cin/UPC in the product search-field
+	 * @param productSearch (which can be name/Cin/UPC in the product search-field)
 	 */ 
 def static "iosDashboard.dashboardDetailsScreen.enterProductInSearchField"(
     	Object productSearch	) {
@@ -857,6 +856,16 @@ def static "iosDashboard.dashboardDetailsScreen.Change_Account"(
     	String newAccount	) {
     (new iosDashboard.dashboardDetailsScreen()).Change_Account(
         	newAccount)
+}
+
+ /**
+	 * this function verifies that the product is visible on the dash-board details screen
+	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
+	 */ 
+def static "iosDashboard.dashboardDetailsScreen.verifyProductIsVisibleOnTheDashboardDetailsScreen"(
+    	Object productIdentificationNumber	) {
+    (new iosDashboard.dashboardDetailsScreen()).verifyProductIsVisibleOnTheDashboardDetailsScreen(
+        	productIdentificationNumber)
 }
 
  /**
@@ -1122,6 +1131,18 @@ def static "common.commonMethods.floatValueGenerator"(
 }
 
  /**
+	 * this function formats the decimal data
+	 * @param decimalDataToBeFormatted (decimal data To be formatted), decimalFormatRequired(decimal format required for e.g 0.00 for rounding to 2 decimal places)
+	 */ 
+def static "common.commonMethods.formatDecimalData"(
+    	Object decimalDataToBeFormatted	
+     , 	String decimalFormatRequired	) {
+    (new common.commonMethods()).formatDecimalData(
+        	decimalDataToBeFormatted
+         , 	decimalFormatRequired)
+}
+
+ /**
 	 * random alpha numeric String Generator 
 	 * @param length, required string length 
 	 * @return alpha-numeric string  
@@ -1293,4 +1314,61 @@ def static "api.apiCommonMethods.readAPITestData"() {
 	 */ 
 def static "api.apiCommonMethods.tokenGenerator"() {
     (new api.apiCommonMethods()).tokenGenerator()
+}
+
+
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
+    	Eyes eyes	
+     , 	WebElement element	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkElement(
+        	eyes
+         , 	element)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
+    	TestObject testObject	
+     , 	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
+        	testObject
+         , 	testName)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
+    	String testName	
+     , 	RectangleSize viewportSize	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
+        	testName
+         , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
+    	String baselineName	
+     , 	String testName	
+     , 	RectangleSize viewportSize	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpenWithBaseline(
+        	baselineName
+         , 	testName
+         , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
 }

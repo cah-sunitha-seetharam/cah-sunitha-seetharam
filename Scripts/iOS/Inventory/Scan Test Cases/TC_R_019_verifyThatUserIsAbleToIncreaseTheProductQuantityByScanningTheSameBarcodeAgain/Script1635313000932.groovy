@@ -20,20 +20,15 @@ import org.openqa.selenium.Keys as Keys
 'starts the application'
 CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
-'login function called which takes user to the accounts selection screen'
-CustomKeywords.'iosLogin.loginScreen.login'(GlobalVariable.Username, GlobalVariable.Password)
+'takes user from login to home screen and takes username, password, account no as the arguments'
+CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen'(GlobalVariable.Username, GlobalVariable.Password, 
+    GlobalVariable.Account)
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'selects the user account from the accounts list'
-CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
-
-'takes user to the moreOptions screen'
-CustomKeywords.'iosDashboard.dashboardDetailsScreen.clickOnMoreOptionsTab'()
-
-'takes the user from moreOptions screen to the inventory listing screen'
-CustomKeywords.'iosMoreOptions.moreOptionsScreen.goToInventoryListingScreen'()
+'takes user from home screen to inventory listing screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromHomeToInventoryListingScreen'()
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
@@ -68,8 +63,17 @@ def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inve
 'reading the ndcNumber of product to be added'
 String productSearch = requestObject[GlobalVariable.Environment].TC_R_019.productSearchByNDC1
 
-'calling the function which adds a product by clicking on scan and takes productNdc,countType and quantity required as the arguments'
-CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct'(productSearch, countType, quantity)
+'taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at full count'
+CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIcon'()
+
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
+'calling the function which scans the product and adds it to the location, it takes productName/UPC/Cin/Ndc as the argument'
+CustomKeywords.'iosInventory.locationDetailsScreen.startScanningProduct'(productSearch)
+
+'calling the function which selects the countType required for a product which is searched and takes countType as the argument'
+CustomKeywords.'iosInventory.locationDetailsScreen.selectCountTypeForTheProductToBeAdded'(countType)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
@@ -77,8 +81,14 @@ CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 'stores the initial quantity of product added into the variable initialProductCount'
 int initialProductQuantity = CustomKeywords.'iosInventory.locationDetailsScreen.returnQuantityOfTheAddedProduct'()
 
-'calling the function which adds a product by clicking on scan and takes productNdc,countType'
-CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct'(productSearch, countType, 'NULL')
+'taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at full count'
+CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIcon'()
+
+'calling the function which scans the product and adds it to the location, it takes productName/UPC/Cin/Ndc as the argument'
+CustomKeywords.'iosInventory.locationDetailsScreen.startScanningProduct'(productSearch)
+
+'calling the function which selects the countType required for a product which is searched and takes countType as the argument'
+CustomKeywords.'iosInventory.locationDetailsScreen.selectCountTypeForTheProductToBeAdded'(countType)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()

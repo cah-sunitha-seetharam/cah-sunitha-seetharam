@@ -42,6 +42,9 @@ import com.kms.katalon.core.configuration.RunConfiguration
 import groovy.json.JsonOutput as JsonOutput
 import groovy.json.JsonSlurper as JsonSlurper
 import java.io.File
+import java.math.RoundingMode
+import java.text.DecimalFormat
+
 
 class commonMethods {
 
@@ -81,6 +84,23 @@ class commonMethods {
 		float stringWithoutCharactersFloatValue=Float.parseFloat(stringWithoutCharacters)
 
 		return stringWithoutCharactersFloatValue
+	}
+
+
+	/**
+	 * this function formats the decimal data
+	 * @param decimalDataToBeFormatted (decimal data To be formatted), decimalFormatRequired(decimal format required for e.g 0.00 for rounding to 2 decimal places)
+	 */
+	@Keyword
+	def formatDecimalData(decimalDataToBeFormatted, String decimalFormatRequired) {
+
+		DecimalFormat decimalFormat=new DecimalFormat (decimalFormatRequired);
+
+		decimalFormat.setRoundingMode(RoundingMode.UP)
+
+		String formattedDecimalData=decimalFormat.format(decimalDataToBeFormatted)
+
+		return formattedDecimalData
 	}
 
 
