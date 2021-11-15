@@ -60,6 +60,6 @@ CustomKeywords.'iosCommonKeywords.commonMethods.clickOnSearchKey'()
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'this function verifies that the product is visible on the location details screen'
+'this function verifies that the product is visible on the dashboard'
 CustomKeywords.'iosDashboard.dashboardDetailsScreen.verifyProductIsVisibleOnTheDashboardDetailsScreen'(productSearch)
 

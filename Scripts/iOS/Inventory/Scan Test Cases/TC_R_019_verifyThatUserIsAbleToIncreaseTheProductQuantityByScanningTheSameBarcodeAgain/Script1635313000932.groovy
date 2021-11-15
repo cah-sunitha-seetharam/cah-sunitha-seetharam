@@ -78,9 +78,6 @@ CustomKeywords.'iosInventory.locationDetailsScreen.selectCountTypeForTheProductT
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
-'stores the initial quantity of product added into the variable initialProductCount'
-int initialProductQuantity = CustomKeywords.'iosInventory.locationDetailsScreen.returnQuantityOfTheAddedProduct'()
-
 'taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at full count'
 CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIcon'()
 
@@ -97,7 +94,7 @@ CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 int finalProductQuantity = CustomKeywords.'iosInventory.locationDetailsScreen.returnQuantityOfTheAddedProduct'()
 
 'verifies whether the quantity added is according to the flow expected'
-assert finalProductQuantity == (initialProductQuantity + 1)
+assert finalProductQuantity == (expectedProductQuantity)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
