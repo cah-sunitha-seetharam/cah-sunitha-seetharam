@@ -56,6 +56,18 @@ Profile Stage : iOS application path is taken from the profiles and used in the 
     public static Object accessToken
      
     /**
+     * <p>Profile Release : Android activity that we want to wait for while opening the app
+Profile Stage : Android activity that we want to wait for while opening the app</p>
+     */
+    public static Object appWaitActivity
+     
+    /**
+     * <p>Profile Release : Package value of the Android app that we need to run
+Profile Stage : Package value of the Android app that we need to run</p>
+     */
+    public static Object appPackage
+     
+    /**
      * <p></p>
      */
     public static Object a
@@ -75,6 +87,8 @@ Profile Stage : iOS application path is taken from the profiles and used in the 
             iOS_App_Path = selectedVariables['iOS_App_Path']
             SmSession = selectedVariables['SmSession']
             accessToken = selectedVariables['accessToken']
+            appWaitActivity = selectedVariables['appWaitActivity']
+            appPackage = selectedVariables['appPackage']
             a = selectedVariables['a']
             
         } catch (Exception e) {
