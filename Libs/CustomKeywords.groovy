@@ -230,10 +230,10 @@ def static "iosOrders.orderDetailsScreen.clickOnScanIcon"() {
 }
 
 
-def static "iosOrders.orderDetailsScreen.selectCountTypeForTheProductToBeAdded"(
-    	String countType	) {
-    (new iosOrders.orderDetailsScreen()).selectCountTypeForTheProductToBeAdded(
-        	countType)
+def static "iosOrders.orderDetailsScreen.selectToggleValueForTheProductToBeSearched"(
+    	String toggleValue	) {
+    (new iosOrders.orderDetailsScreen()).selectToggleValueForTheProductToBeSearched(
+        	toggleValue)
 }
 
 
@@ -377,10 +377,7 @@ def static "androidLogin.loginScreen.verifyLoginPageDetails"() {
     (new androidLogin.loginScreen()).verifyLoginPageDetails()
 }
 
- /**
-	 * opens the order details page
-	 * @param accountNo (accountNo used to create the order)
-	 */ 
+
 def static "iosOrders.cartScreen.openAnOrderDetails"(
     	String accountNo	) {
     (new iosOrders.cartScreen()).openAnOrderDetails(
@@ -388,27 +385,53 @@ def static "iosOrders.cartScreen.openAnOrderDetails"(
 }
 
 
-def static "iosOrders.cartScreen.upload_All_Orders"() {
-    (new iosOrders.cartScreen()).upload_All_Orders()
+def static "iosOrders.cartScreen.uploadAllOrders"() {
+    (new iosOrders.cartScreen()).uploadAllOrders()
 }
 
- /**
-	 * opens the c2 orders tab
-	 */ 
+
+def static "iosOrders.cartScreen.clickOnBackToCart"() {
+    (new iosOrders.cartScreen()).clickOnBackToCart()
+}
+
+
+def static "iosOrders.cartScreen.cancelAndKeepOrdersOnTheApp"() {
+    (new iosOrders.cartScreen()).cancelAndKeepOrdersOnTheApp()
+}
+
+
+def static "iosOrders.cartScreen.continueOrdersOnTheDesktop"() {
+    (new iosOrders.cartScreen()).continueOrdersOnTheDesktop()
+}
+
+
+def static "iosOrders.cartScreen.goToDashboard"() {
+    (new iosOrders.cartScreen()).goToDashboard()
+}
+
+
 def static "iosOrders.cartScreen.clickOnC2Orders"() {
     (new iosOrders.cartScreen()).clickOnC2Orders()
 }
 
- /**
-	 * opens the c2 order details
-	 */ 
+
 def static "iosOrders.cartScreen.openC2OrderDetails"() {
     (new iosOrders.cartScreen()).openC2OrderDetails()
 }
 
 
-def static "iosOrders.cartScreen.place_All_Orders"() {
-    (new iosOrders.cartScreen()).place_All_Orders()
+def static "iosOrders.cartScreen.placeAllOrders"() {
+    (new iosOrders.cartScreen()).placeAllOrders()
+}
+
+
+def static "iosOrders.cartScreen.verifyPlaceAllOrdersPopUp"() {
+    (new iosOrders.cartScreen()).verifyPlaceAllOrdersPopUp()
+}
+
+
+def static "iosOrders.cartScreen.verifyUploadAllOrdersPopUp"() {
+    (new iosOrders.cartScreen()).verifyUploadAllOrdersPopUp()
 }
 
 

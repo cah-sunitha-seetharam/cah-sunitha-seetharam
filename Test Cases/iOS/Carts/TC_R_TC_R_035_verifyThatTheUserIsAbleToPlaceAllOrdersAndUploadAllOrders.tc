@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
-   <description>Verify that the user is able to Place All Orders and Upload All Orders.
+   <description>Verify that the user is able to Upload the Order.
 Prerequisite: 
 1. Valid login credentials
 2. Multiple accounts available for the user.  </description>
-   <name>TC_R_005_verifyThatTheUserIsAbleToUploadTheOrder</name>
+   <name>TC_R_TC_R_035_verifyThatTheUserIsAbleToPlaceAllOrdersAndUploadAllOrders</name>
    <tag>Order;Regression;Scan</tag>
    <comment></comment>
-   <testCaseGuid>641294a3-19f8-44f2-bc6a-68728704a018</testCaseGuid>
+   <testCaseGuid>2107ce3c-85f2-42fb-8c7b-ad4a7ae55a20</testCaseGuid>
    <variable>
       <defaultValue>'csos'</defaultValue>
       <description></description>
-      <id>1ae9312f-cd57-492a-af48-aa12bebfa416</id>
+      <id>843eab94-8a0a-4149-ab3c-9f3c4938a325</id>
       <masked>false</masked>
       <name>signingPassword</name>
    </variable>
    <variable>
       <defaultValue>'po_name'</defaultValue>
       <description></description>
-      <id>372d663b-2cec-497c-8d17-f7f5ce7995b8</id>
+      <id>3fc65052-9cf5-4b34-88a8-01829cee670f</id>
       <masked>false</masked>
       <name>poName</name>
    </variable>
    <variable>
       <defaultValue>'po_memo'</defaultValue>
       <description></description>
-      <id>8c0ee7f4-f5a4-4494-a22a-22ca1cda6715</id>
+      <id>16413340-3c9a-44fb-857f-1b4c3ca941a4</id>
       <masked>false</masked>
       <name>poMemo</name>
    </variable>
    <variable>
       <defaultValue>'2'</defaultValue>
       <description></description>
-      <id>6953835a-0574-4616-92a4-59fd371ab224</id>
+      <id>7236eb6b-66ea-4630-8556-2ae321ec5a2a</id>
       <masked>false</masked>
       <name>quantity</name>
    </variable>

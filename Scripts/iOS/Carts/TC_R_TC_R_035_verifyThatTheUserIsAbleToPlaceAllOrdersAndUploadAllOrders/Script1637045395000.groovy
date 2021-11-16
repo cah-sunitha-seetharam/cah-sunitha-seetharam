@@ -49,16 +49,19 @@ def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inve
 String productSearch = requestObject[GlobalVariable.Environment].TC_JT_CSOS_001.productSearchByName
 
 'adds product to the order by taking product and quanity as the argument'
-CustomKeywords.'iosOrders.orderDetailsScreen.clickOnScanIcon'()
+CustomKeywords.'iosOrders.orderDetailsScreen.addProductToOrder'(productSearch, Quantity)
 
 'clicks on continue ordering to take user back to the search results to keep browsing'
-CustomKeywords.'iosOrders.orderDetailsScreen.startScanningProduct'(productSearch)
+CustomKeywords.'iosOrders.orderDetailsScreen.clickOnContinuOrdering'()
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
+
+'opens order details by taking argument as the account number which was used to create the order'
+CustomKeywords.'iosOrders.cartScreen.openAnOrderDetails'(GlobalVariable.Account)
 
 'uploads the order by clicking on upload order button'
 CustomKeywords.'iosOrders.orderDetailsScreen.uploadOrder'()

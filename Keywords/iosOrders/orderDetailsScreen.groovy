@@ -41,7 +41,7 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 class orderDetailsScreen {
 
-	
+
 	/**
 	 * this function adds the quantity for the product to be searched
 	 * @param quantity (quantity required to be added for the product to be searched)
@@ -95,9 +95,9 @@ class orderDetailsScreen {
 
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/scan_Icon'), 0)
 
-		Mobile.verifyElementAttributeValue(findTestObject('iOS/Orders/Order Details Page/Scan Order/fullCount_Button'), 'value', '1', 0)
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/Orders/Order Details Screen/Scan Order/ordering_Button'), 'value', '1', 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Page/Scan Order/partialCount_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Scan Order/priceCheck_Button'), 0)
 	}
 
 
@@ -107,19 +107,19 @@ class orderDetailsScreen {
 	 * @param countType (countType required to be selected for the product to be added)
 	 */
 	@Keyword
-	def selectCountTypeForTheProductToBeAdded(String countType) {
+	def selectToggleValueForTheProductToBeSearched(String toggleValue) {
 
-		if(countType=="Full Count") {
-			Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/fullCount_Button'), 0)
+		if(toggleValue=="Ordering") {
+			Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Scan Order/ordering_Button'), 0)
 		}
 		else {
-			Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/partialCount_Button'), 0)
+			Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Scan Order/priceCheck_Button'), 0)
 		}
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/done_Button'), 0)
 	}
-	
-	
 
+
+	
 	/**
 	 * creates a new C2 order 
 	 * @param poName (poName of the order), poMemo (poMemo of the order)
@@ -168,8 +168,8 @@ class orderDetailsScreen {
 	}
 
 
-	
-		/**
+
+	/**
 	 * clicks on c2 order availability and waits for the response while verifying the availability details for the c2 product
 	 */
 	@Keyword
