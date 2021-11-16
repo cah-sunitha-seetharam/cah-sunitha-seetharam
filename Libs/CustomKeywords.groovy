@@ -7,6 +7,14 @@ import java.lang.String
 
 import java.util.Stack
 
+import com.applitools.eyes.selenium.Eyes
+
+import org.openqa.selenium.WebElement
+
+import com.kms.katalon.core.testobject.TestObject
+
+import com.applitools.eyes.RectangleSize
+
 
 
 def static "androidDashboard.dashboardDetailsScreen.change_Account"(
@@ -197,10 +205,38 @@ def static "iosOrders.ordersCommonScreen.clickOnCartTab"() {
     (new iosOrders.ordersCommonScreen()).clickOnCartTab()
 }
 
- /**
-	 * creates a new C2 order 
-	 * @param poName (poName of the order), poMemo (poMemo of the order)
-	 */ 
+
+def static "iosOrders.orderDetailsScreen.addQuantityforTheSearchedProduct"(
+    	String quantity	) {
+    (new iosOrders.orderDetailsScreen()).addQuantityforTheSearchedProduct(
+        	quantity)
+}
+
+
+def static "iosOrders.orderDetailsScreen.clickOnRemoveButtonToRemoveAlreadyScannedProduct"() {
+    (new iosOrders.orderDetailsScreen()).clickOnRemoveButtonToRemoveAlreadyScannedProduct()
+}
+
+
+def static "iosOrders.orderDetailsScreen.startScanningProduct"(
+    	String productToBeSearched	) {
+    (new iosOrders.orderDetailsScreen()).startScanningProduct(
+        	productToBeSearched)
+}
+
+
+def static "iosOrders.orderDetailsScreen.clickOnScanIcon"() {
+    (new iosOrders.orderDetailsScreen()).clickOnScanIcon()
+}
+
+
+def static "iosOrders.orderDetailsScreen.selectCountTypeForTheProductToBeAdded"(
+    	String countType	) {
+    (new iosOrders.orderDetailsScreen()).selectCountTypeForTheProductToBeAdded(
+        	countType)
+}
+
+
 def static "iosOrders.orderDetailsScreen.createNewC2Order"(
     	String poName	
      , 	String poMemo	) {
@@ -209,45 +245,32 @@ def static "iosOrders.orderDetailsScreen.createNewC2Order"(
          , 	poMemo)
 }
 
- /**
-	 * clicks on upload order button
-	 */ 
+
 def static "iosOrders.orderDetailsScreen.uploadOrder"() {
     (new iosOrders.orderDetailsScreen()).uploadOrder()
 }
 
- /**
-	 * clicks on c2 order availability and waits for the response while verifying the availability details for the c2 product
-	 */ 
+
 def static "iosOrders.orderDetailsScreen.checkC2OrderAvailability"() {
     (new iosOrders.orderDetailsScreen()).checkC2OrderAvailability()
 }
 
- /**
-	 * clicks on place order button
-	 */ 
+
 def static "iosOrders.orderDetailsScreen.placeOrder"() {
     (new iosOrders.orderDetailsScreen()).placeOrder()
 }
 
- /**
-	 * takes user back to cart 
-	 */ 
+
 def static "iosOrders.orderDetailsScreen.clickOnBackToCart"() {
     (new iosOrders.orderDetailsScreen()).clickOnBackToCart()
 }
 
- /**
-	 * takes user back to the search product results to continue browsing
-	 */ 
+
 def static "iosOrders.orderDetailsScreen.clickOnContinuOrdering"() {
     (new iosOrders.orderDetailsScreen()).clickOnContinuOrdering()
 }
 
- /**
-	 * searches for a product by setting product name and quantity as the input
-	 * @param productName (product to be added), quantity (total quantity required to be added)
-	 */ 
+
 def static "iosOrders.orderDetailsScreen.addProductToOrder"(
     	String productName	
      , 	String quantity	) {
@@ -1290,4 +1313,61 @@ def static "api.apiCommonMethods.readAPITestData"() {
 	 */ 
 def static "api.apiCommonMethods.tokenGenerator"() {
     (new api.apiCommonMethods()).tokenGenerator()
+}
+
+
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
+    	Eyes eyes	
+     , 	WebElement element	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkElement(
+        	eyes
+         , 	element)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
+    	TestObject testObject	
+     , 	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
+        	testObject
+         , 	testName)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
+    	String testName	
+     , 	RectangleSize viewportSize	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
+        	testName
+         , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
+    	String baselineName	
+     , 	String testName	
+     , 	RectangleSize viewportSize	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpenWithBaseline(
+        	baselineName
+         , 	testName
+         , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
 }

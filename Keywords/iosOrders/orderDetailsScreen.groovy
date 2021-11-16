@@ -41,6 +41,84 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 class orderDetailsScreen {
 
+	
+	/**
+	 * this function adds the quantity for the product to be searched
+	 * @param quantity (quantity required to be added for the product to be searched)
+	 */
+	@Keyword
+	def addQuantityforTheSearchedProduct(String quantity) {
+
+		Mobile.setText(findTestObject('iOS/Orders/Order Details Page/Scan Order/quantity_TextField'), quantity, 0)
+
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/done_Button'), 0)
+	}
+
+
+
+
+	/**
+	 * this function taps on remove button and then product entry should get removed from the location as well as the scan result screen
+	 */
+	@Keyword
+	def clickOnRemoveButtonToRemoveAlreadyScannedProduct() {
+
+		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/thisItemHasBeenAddedToYourLocation_Text'),0)
+
+		Mobile.tap(findTestObject('iOS/Product_Search/removeItem_Button'), 0)
+
+		Mobile.tap(findTestObject('iOS/Product_Search/yes_Text'), 0)
+	}
+
+
+
+
+	/**
+	 * scans the product and adds it to the location
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */
+	@Keyword
+	def startScanningProduct(String productToBeSearched) {
+
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/scanGray_Image'), 0)
+
+		Mobile.setText(findTestObject('iOS/Orders/Order Details Page/Scan Order/enterBarcode_TextField'), productToBeSearched, 0)
+	}
+
+
+
+	/**
+	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at full count
+	 */
+	@Keyword
+	def clickOnScanIcon() {
+
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/scan_Icon'), 0)
+
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/Orders/Order Details Page/Scan Order/fullCount_Button'), 'value', '1', 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Page/Scan Order/partialCount_Button'), 0)
+	}
+
+
+
+	/**
+	 * this function select CountType for the product to be added
+	 * @param countType (countType required to be selected for the product to be added)
+	 */
+	@Keyword
+	def selectCountTypeForTheProductToBeAdded(String countType) {
+
+		if(countType=="Full Count") {
+			Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/fullCount_Button'), 0)
+		}
+		else {
+			Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/partialCount_Button'), 0)
+		}
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/done_Button'), 0)
+	}
+	
+	
 
 	/**
 	 * creates a new C2 order 
@@ -79,18 +157,19 @@ class orderDetailsScreen {
 
 
 	/**
-	 * clicks on upload order button
+	 * uploads the order by clicking on upload order button
 	 */
 	@Keyword
 	def uploadOrder() {
 
-		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Upload Order/Upload Order_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Upload Order/uploadOrder_Button'), 0)
 
-		Mobile.tap(findTestObject('Homepage After LogIn/Carts_Screen/Continue on Desktop'), 0)
+		Mobile.tap(findTestObject('Object Repository/iOS/Orders/Order Details Screen/Upload Order/continueOrderOnTheDesktop_Text'), 0)
 	}
 
 
-	/**
+	
+		/**
 	 * clicks on c2 order availability and waits for the response while verifying the availability details for the c2 product
 	 */
 	@Keyword
@@ -138,7 +217,7 @@ class orderDetailsScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Confirmation_Text'), 0)
 
-		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Upload Order/Continue Ordering_Text'), 0)
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Upload Order/continueOrdering_Text'), 0)
 	}
 
 
