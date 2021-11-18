@@ -31,7 +31,6 @@ class  commonMethods {
 	def moreOptionsScreenObject=new moreOptionsScreen();
 	def loginScreenObject=new loginScreen();
 	def selectAnAccountObject=new selectAnAccount();
-	//def commonMethodsObject=new common.commonMethods();
 
 
 	/**
@@ -45,54 +44,12 @@ class  commonMethods {
 
 
 	/**
-	 * inputs the product search which can be name/Cin/UPC/NDC in the product search-field
-	 * @param productSearch (which can be name/Cin/UPC/NDC in the product search-field)
+	 * clicks on Search Key of the keypad
 	 */
 	@Keyword
-	def enterProductInSearchField(productSearch) {
+	def clickOnSearchKey() {
 
-		Mobile.setText(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), productSearch, 0)
-	}
-
-
-
-	/**
-	 * opens the inventory listing screen by firstly clicking on more options from dash-board 
-	 * and then clicks on inventory under more options screen which takes user to inventory listing screen
-	 */
-	@Keyword
-	def takeUserFromHomeToInventoryListingScreen() {
-
-		'takes user from dashboard to the moreOptions screen'
-		dashboardObject.clickOnMoreOptionsTab()
-
-		'waits until the progressBar is visible on the screen'
-		//	commonMethodsObject.waitForProgressBarToBeInvisible()
-
-		'takes the user from moreOptions screen to the inventory listing screen'
-		moreOptionsScreenObject.goToInventoryListingScreen()
-	}
-
-
-
-	/**
-	 * performs login function by selecting the type of testing (automation or manual), environment of testing(taken from the global profile), entering user-name and password
-	 * and then selects the user account from the accounts list and takes user to the dash-board screen
-	 * @param username
-	 * @param password
-	 * @param accountNo
-	 */
-	@Keyword
-	def takeUserFromloginToHomeScreen(username,password,accountNo) {
-
-		'login function called'
-		loginScreenObject.login(username, password)
-
-		'waits until the progressBar is visible on the screen'
-		//commonMethodsObject.waitForProgressBarToBeInvisible()
-
-		'selects the user account from the accounts list'
-		selectAnAccountObject.selectTheUserAccount(accountNo)
+		Mobile.tapAndHold(findTestObject('iOS/Product Search/search_Keypad'), 0, 0)
 	}
 
 
@@ -110,13 +67,15 @@ class  commonMethods {
 
 
 	/**
-	 * clicks on Search Key of the keypad
+	 * inputs the product search which can be name/Cin/UPC/NDC in the product search-field
+	 * @param productSearch (which can be name/Cin/UPC/NDC in the product search-field)
 	 */
 	@Keyword
-	def clickOnSearchKey() {
+	def enterProductInSearchField(productSearch) {
 
-		Mobile.tapAndHold(findTestObject('iOS/Product Search/search_Keypad'), 0, 0)
+		Mobile.setText(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), productSearch, 0)
 	}
+
 
 
 	/**
@@ -125,7 +84,7 @@ class  commonMethods {
 	@Keyword
 	def goOneScreenBack() {
 
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+		waitForProgressBarToBeInvisible()
 
 		if (Mobile.verifyElementExist(findTestObject('iOS/Product Search/Back_Text'), 4,FailureHandling.OPTIONAL)) {
 
@@ -134,7 +93,7 @@ class  commonMethods {
 		else {
 			Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/backButton_Text'), 4)
 		}
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+		waitForProgressBarToBeInvisible()
 	}
 
 
@@ -147,8 +106,6 @@ class  commonMethods {
 
 		Mobile.startApplication(GlobalVariable.iOS_App_Path, true) //iOS_App_Path (Application path will be taken from the global profile and passed as a parameter to startApplication method)
 	}
-
-
 
 
 	/**
@@ -164,8 +121,49 @@ class  commonMethods {
 
 		Mobile.tap(findTestObject('Object Repository/iOS/Verification/textOperation_MenuItem',[('TEXT'):operationToBePerformed]), 0)
 
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+		waitForProgressBarToBeInvisible()
+	}
 
+
+
+	/**
+	 * opens the inventory listing screen by firstly clicking on more options from dash-board 
+	 * and then clicks on inventory under more options screen which takes user to inventory listing screen
+	 */
+	@Keyword
+	def takeUserFromHomeToInventoryListingScreen() {
+
+		'takes user from dashboard to the moreOptions screen'
+		dashboardObject.clickOnMoreOptionsTab()
+
+		'waits until the progressBar is visible on the screen'
+		waitForProgressBarToBeInvisible()
+
+		'takes the user from moreOptions screen to the inventory listing screen'
+		moreOptionsScreenObject.goToInventoryListingScreen()
+	}
+
+
+
+
+	/**
+	 * performs login function by selecting the type of testing (automation or manual), environment of testing(taken from the global profile), entering user-name and password
+	 * and then selects the user account from the accounts list and takes user to the dash-board screen
+	 * @param username
+	 * @param password
+	 * @param accountNo
+	 */
+	@Keyword
+	def takeUserFromloginToHomeScreen(username,password,accountNo) {
+
+		'login function called'
+		loginScreenObject.login(username, password)
+
+		'waits until the progressBar is visible on the screen'
+		waitForProgressBarToBeInvisible()
+
+		'selects the user account from the accounts list'
+		selectAnAccountObject.selectTheUserAccount(accountNo)
 	}
 
 
@@ -214,6 +212,20 @@ class  commonMethods {
 
 
 	/**
+	 * this method verifies the popUp screen is visible
+	 * @param testobj (reference of the popUp screen object under verification)
+	 */
+	@Keyword
+	def verifyPopUpScreenExist(testobj) {
+
+		Mobile.verifyElementExist(findTestObject(testobj), 0)
+	}
+
+
+
+
+
+	/**
 	 * this function verifies that the product is not visible on the screen
 	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
 	 * @param testObj (test object of the element under verification)
@@ -222,7 +234,6 @@ class  commonMethods {
 	def verifyProductIsNotVisibleOnTheScreen(testObj,productIdentificationNumber) {
 
 		Mobile.verifyElementNotVisible(findTestObject(testObj,[('TEXT'):productIdentificationNumber]),0)
-
 	}
 
 
@@ -238,21 +249,6 @@ class  commonMethods {
 	def verifyProductIsVisibleOnTheScreen(testObj,productIdentificationNumber) {
 
 		Mobile.verifyElementExist(findTestObject(testObj,[('TEXT'):productIdentificationNumber]),0)
-
-	}
-
-
-
-
-
-	/**
-	 * this method verifies the popUp screen is visible
-	 * @param testobj (reference of the popUp screen object under verification)
-	 */
-	@Keyword
-	def verifyPopUpScreenExist(testobj) {
-
-		Mobile.verifyElementExist(findTestObject(testobj), 0)
 	}
 
 
@@ -287,7 +283,7 @@ class  commonMethods {
 
 		String testObject='iOS/Product Search/Progress_Bar'
 
-		(new iosCommonKeywords.commonMethods()).waitTimeForObjectToBeVisible(testObject,1,20) //waitTime of 1(s), waitLimit of 20(s)
+		waitTimeForObjectToBeVisible(testObject,1,20) //waitTime of 1(s), waitLimit of 20(s)
 	}
 
 

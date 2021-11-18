@@ -18,7 +18,7 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords
 
 import internal.GlobalVariable
-
+import iosCommonKeywords.commonMethods
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.By
@@ -43,6 +43,9 @@ import java.text.DecimalFormat
 
 class locationDetailsScreen {
 
+	def commonMethodsObject=new commonMethods();
+
+
 	/**
 	 * adds products to a location
 	 * @param locationName (name of the location)
@@ -53,13 +56,13 @@ class locationDetailsScreen {
 
 		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), 0, 0)
 
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.setText(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), productName, 0)
 
 		Mobile.tapAndHold(findTestObject('iOS/Product Search/search_Keypad'), 0, 0)
 
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/addProductToLocation_Text', [('Location') : locationName]),0)
 
@@ -99,22 +102,6 @@ class locationDetailsScreen {
 
 
 	/**
-	 * scans the product and adds it to the location 
-	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
-	 */
-	@Keyword
-	def scanInputEvent(String productToBeSearched) {
-
-		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/scanGray_Image'), 0)
-
-		Mobile.setText(findTestObject('iOS/Orders/Order Details Page/Scan Order/enterBarcode_TextField'), productToBeSearched, 0)
-
-		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/done_Button'), 0)
-	}
-
-
-
-	/**
 	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at full count
 	 */
 	@Keyword
@@ -122,25 +109,11 @@ class locationDetailsScreen {
 
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/scan_Icon'), 0)
 
+		commonMethodsObject.waitForProgressBarToBeInvisible()
+
 		Mobile.verifyElementAttributeValue(findTestObject('iOS/Orders/Order Details Page/Scan Order/fullCount_Button'), 'value', '1', 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Page/Scan Order/partialCount_Button'), 0)
-	}
-
-
-
-	/**
-	 * this function selects the toggle value of countType for the product to be added 
-	 * @param countType (countType required to be selected for the product to be added which can be full or partial count)
-	 */
-	@Keyword
-	def selectCountTypeForTheProductToBeAdded(String countType) {
-		if(countType=="Full Count") {
-			Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/fullCount_Button'), 0)
-		}
-		else {
-			Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/partialCount_Button'), 0)
-		}
 	}
 
 
@@ -172,7 +145,7 @@ class locationDetailsScreen {
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Copy Product from Location/copyProduct_Text'), 0)
 
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Copy Product from Location/goToLocationAfterCopyingProduct_Text', [('Location') : locationName]),0)
 	}
@@ -205,6 +178,7 @@ class locationDetailsScreen {
 	}
 
 
+
 	/**
 	 * edits the location name and cost type can be changed(last price or current price paid)
 	 * @param newLocationName (new name of the location)
@@ -226,7 +200,7 @@ class locationDetailsScreen {
 		}
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Edit Location Name/saveChanges_Text'), 0)
 
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/locationNameVerification_Text', [('LName') : newLocationName]),0)
 	}
@@ -257,11 +231,10 @@ class locationDetailsScreen {
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Move Product to Another Location/moveProduct_Text'), 0)
 
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Move Product To Another Location/goToLocationAfterMovingProduct_Text', [('Location') : locationName]),0)
 	}
-
 
 
 	/**
@@ -299,15 +272,33 @@ class locationDetailsScreen {
 
 
 	/**
-	 * this function gets the count type of the added product and verifies whether that is equal to the expected count type
+	 * scans the product and adds it to the location 
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
 	 */
 	@Keyword
-	def verifyCountTypeOfProduct(String expectedCountType) {
+	def scanInputEvent(String productToBeSearched) {
 
-		String countType=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/addedProductCountType_Text'),0) //gets the countType of the added product in the location details page
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/scanGray_Image'), 0)
 
-		assert (countType+" COUNT")==(expectedCountType.toUpperCase()) // verifies countType equals the countType of the product in the products list
+		Mobile.setText(findTestObject('iOS/Orders/Order Details Page/Scan Order/enterBarcode_TextField'), productToBeSearched, 0)
 
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/done_Button'), 0)
+	}
+
+
+
+	/**
+	 * this function selects the toggle value of countType for the product to be added 
+	 * @param countType (countType required to be selected for the product to be added which can be full or partial count)
+	 */
+	@Keyword
+	def selectCountTypeForTheProductToBeAdded(String countType) {
+		if(countType=="Full Count") {
+			Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/fullCount_Button'), 0)
+		}
+		else {
+			Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/partialCount_Button'), 0)
+		}
 	}
 
 
@@ -324,6 +315,35 @@ class locationDetailsScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details Screen/Upload Location/disbaledUploadLocation_Button'), 0)
 	}
+
+
+
+	/**
+	 * this function gets the count type of the added product and verifies whether that is equal to the expected count type
+	 */
+	@Keyword
+	def verifyCountTypeOfProduct(String expectedCountType) {
+
+		String countType=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/addedProductCountType_Text'),0) //gets the countType of the added product in the location details page
+
+		assert (countType+" COUNT")==(expectedCountType.toUpperCase()) // verifies countType equals the countType of the product in the products list
+
+	}
+
+
+
+	/**
+	 * this function verifies the lines count
+	 * @param expectedLinesCount (expected lines Count)
+	 */
+	@Keyword
+	def verifyLinesCount(String expectedLinesCount) {
+
+		String actualLinesCount=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/inventoryLine_Text'),0) //gets the actualLinesCount on the location details page
+
+		assert actualLinesCount==expectedLinesCount //actual lines count has to be equal to expected lines count
+	}
+
 
 
 
@@ -375,7 +395,6 @@ class locationDetailsScreen {
 
 
 
-
 	/**
 	 * this function verifies that the product is visible on the location details screen
 	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
@@ -402,20 +421,6 @@ class locationDetailsScreen {
 		String testObj='Object Repository/iOS/Inventory/Location Details Screen/Delete Product/ndcNumber_Text'
 
 		(new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
-	}
-
-
-
-	/**
-	 * this function verifies the lines count
-	 * @param expectedLinesCount (expected lines Count)
-	 */
-	@Keyword
-	def verifyLinesCount(String expectedLinesCount) {
-
-		String actualLinesCount=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/inventoryLine_Text'),0) //gets the actualLinesCount on the location details page
-
-		assert actualLinesCount==expectedLinesCount //actual lines count has to be equal to expected lines count
 	}
 
 

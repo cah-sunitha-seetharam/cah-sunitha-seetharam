@@ -18,7 +18,7 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords
 
 import internal.GlobalVariable
-
+import iosCommonKeywords.commonMethods
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.By
@@ -41,22 +41,25 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 class inventoryListingScreen {
 
+	def commonMethodsObject=new commonMethods();
+
+
 	/**
 	 * switches to another user account
 	 * @param newAccount (account no to which the user should switch)
 	 */
 	@Keyword
 	def changeAccount(String account) {
-		
+
 		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Text'), 0)
-		
+
 		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Navigation'), 0)
-		
+
 		Mobile.scrollToText(account, FailureHandling.STOP_ON_FAILURE)
-		
+
 		Mobile.tap(findTestObject('iOS/Account Selection/AccountNo_Text', [('val') : account]), 0)
-		
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 	}
 
 
@@ -78,9 +81,9 @@ class inventoryListingScreen {
 	 */
 	@Keyword
 	def createInventory(String inventoryName) {
-		
+
 		if(Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Listing Screen/Verification Details/createInventorySection_Header'),0, FailureHandling.OPTIONAL)){
-			
+
 			Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Verification Details/createInventorySection_Header'), 0)
 		}
 
@@ -88,13 +91,13 @@ class inventoryListingScreen {
 			Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory Screen/createNewInventory_Text'), 0)
 		}
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory Screen/inventoryName_Text'), 0)
-		
+
 		Mobile.setText(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory Screen/inventoryName_TextField'), inventoryName,0)
-		
+
 		Mobile.tapAndHold(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory Screen/returnKeypad_Button'), 0, 0)
-		
+
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory Screen/createInventory_Text'), 0)
-		
+
 		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Open Inventory Details/openInventory_Text', [('TEXT') : inventoryName]),0)
 	}
 
@@ -106,23 +109,23 @@ class inventoryListingScreen {
 	 */
 	@Keyword
 	def deleteInventory(String inventoryName) {
-		
+
 		String testObj='Object Repository/iOS/Inventory/Inventory Listing Screen/Delete Inventory/slidePopUpForInventoryDeletion_Button'
-		
+
 		int x_Coordinate=(new iosCommonKeywords.commonMethods()).tapXCoordinateGenerator(testObj)
-		
+
 		testObj='iOS/Inventory/Inventory Details Screen/Open Inventory Details/openInventory_Text'
-		
+
 		int y_Coordinate=(new iosCommonKeywords.commonMethods()).tapYCoordinateGenerator(testObj,inventoryName)
-		
+
 		Mobile.tapAtPosition(x_Coordinate, y_Coordinate)
-		
+
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Delete Inventory/delete_Button'), 0)
-		
+
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory Screen/yes_Button'), 0)
-		
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
-		
+
+		commonMethodsObject.waitForProgressBarToBeInvisible()
+
 		Mobile.verifyElementNotVisible(findTestObject('iOS/Inventory/Inventory Details Screen/Open Inventory Details/openInventory_Text', [('TEXT') : inventoryName]),0)
 	}
 
@@ -133,9 +136,9 @@ class inventoryListingScreen {
 	 */
 	@Keyword
 	def verifyInventoryListingScreen() {
-		
+
 		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Listing Screen/Verification Details/letsGetStartedWithYourInventory_Text'),0)
-		
+
 		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Verification Details/inventoryHeader_Label'),0)
 	}
 }

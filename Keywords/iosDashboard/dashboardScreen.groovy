@@ -18,7 +18,7 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords
 
 import internal.GlobalVariable
-
+import iosCommonKeywords.commonMethods
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.By
@@ -41,34 +41,32 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 class dashboardScreen {
 
-	/**
-	 * opens orders tab where user can perform actions related to orders
-	 */
-	@Keyword
-	def clickOnOrders() {
-		
-		Mobile.tap(findTestObject('iOS/Dashboard/Orders_Tab'), 0)
-	}
-
-
 
 	/**
-	 * opens home tab
+	 * adds the product from dash-board to inventory
+	 * @param productName
+	 * @param quantity
 	 */
 	@Keyword
-	def clickOnHomeTab() {
-		
-		Mobile.tap(findTestObject('iOS/Dashboard/Home_Tab'), 0)
-	}
+	def addingProductFromDashboardToCart(String productName, String quantity) {
 
+		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), 0, 0)
 
-	/**
-	 * opens moreOptions tab where user can perform actions like signOut, goToInventoryListing Screen etc
-	 */
-	@Keyword
-	def clickOnMoreOptionsTab() {
-		
-		Mobile.tap(findTestObject('iOS/Dashboard/moreOptions_Tab'), 0)
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+
+		Mobile.setText(findTestObject('iOS/Product Search/Product SearchField'), productName, 0)
+
+		Mobile.tapAndHold(findTestObject('iOS/Product Search/search_Keypad'), 0, 0)
+
+		Mobile.setText(findTestObject('iOS/Product Search/Quantity_TextField'), quantity, 0)
+
+		Mobile.tap(findTestObject('iOS/Orders/Cart Page/Place All Orders/Done_Keypad'), 0)
+
+		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/addToOrder_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Product Search/Confirmation_Text'), 0)
+
+		Mobile.tapAndHold(findTestObject('iOS/Orders/Order Details Page/Upload Order/After Adding Product Continue_Button'), 0,0)
 	}
 
 
@@ -79,15 +77,61 @@ class dashboardScreen {
 	 */
 	@Keyword
 	def changeAccount(String newAccount) {
-		
+
 		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Text'), 0)
-		
+
 		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Navigation'), 0)
-		
+
 		Mobile.scrollToText(newAccount, FailureHandling.STOP_ON_FAILURE)
-		
+
 		Mobile.tap(findTestObject('iOS/Account Selection/AccountNo_Text', [('val') : newAccount]), 0)
 	}
+
+
+	/**
+	 * opens home tab
+	 */
+	@Keyword
+	def clickOnHomeTab() {
+
+		Mobile.tap(findTestObject('iOS/Dashboard/Home_Tab'), 0)
+	}
+
+
+
+	/**
+	 * opens moreOptions tab where user can perform actions like signOut, goToInventoryListing Screen etc
+	 */
+	@Keyword
+	def clickOnMoreOptionsTab() {
+
+		Mobile.tap(findTestObject('iOS/Dashboard/moreOptions_Tab'), 0)
+	}
+
+
+
+	/**
+	 * opens orders tab where user can perform actions related to orders
+	 */
+	@Keyword
+	def clickOnOrders() {
+
+		Mobile.tap(findTestObject('iOS/Dashboard/Orders_Tab'), 0)
+	}
+
+
+
+	/**
+	 * this function verifies the dash-board details Screen
+	 */
+	@Keyword
+	def verifyDashboardScreen() {
+
+		Mobile.verifyElementExist(findTestObject('iOS/Dashboard/Verification/homeHeader_Label'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Dashboard/Verification/homeBottomNavigationTab_Bar'), 0)
+	}
+
 
 
 
@@ -98,52 +142,9 @@ class dashboardScreen {
 	 */
 	@Keyword
 	def verifyProductIsVisibleOnTheDashboardScreen(productNdcNumber) {
-		
+
 		String testObj='Object Repository/iOS/Dashboard/Verification/ndc_Label'
-		
+
 		(new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
-	}
-
-
-
-	/**
-	 * this function verifies the dash-board details Screen
-	 */
-	@Keyword
-	def verifyDashboardScreen() {
-		
-		Mobile.verifyElementExist(findTestObject('iOS/Dashboard/Verification/homeHeader_Label'), 0)
-		
-		Mobile.verifyElementExist(findTestObject('iOS/Dashboard/Verification/homeBottomNavigationTab_Bar'), 0)
-	}
-
-
-
-
-	/**
-	 * adds the product from dash-board to inventory
-	 * @param productName
-	 * @param quantity
-	 */
-	@Keyword
-	def addingProductFromDashboardToCart(String productName, String quantity) {
-		
-		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), 0, 0)
-		
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
-		
-		Mobile.setText(findTestObject('iOS/Product Search/Product SearchField'), productName, 0)
-		
-		Mobile.tapAndHold(findTestObject('iOS/Product Search/search_Keypad'), 0, 0)
-		
-		Mobile.setText(findTestObject('iOS/Product Search/Quantity_TextField'), quantity, 0)
-		
-		Mobile.tap(findTestObject('iOS/Orders/Cart Page/Place All Orders/Done_Keypad'), 0)
-		
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/addToOrder_Text'), 0)
-		
-		Mobile.verifyElementExist(findTestObject('iOS/Product Search/Confirmation_Text'), 0)
-		
-		Mobile.tapAndHold(findTestObject('iOS/Orders/Order Details Page/Upload Order/After Adding Product Continue_Button'), 0,0)
 	}
 }

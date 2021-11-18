@@ -18,7 +18,7 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords
 
 import internal.GlobalVariable
-
+import iosCommonKeywords.commonMethods
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.By
@@ -40,6 +40,23 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 class inventoryDetailsScreen extends inventoryListingScreen {
 
+	def commonMethodsObject=new commonMethods();
+
+
+	/**
+	 * adds costType based on the argument which can be current or last price paid
+	 * @param costType (can be current or last price paid)
+	 */
+	@Keyword
+	def addCostType(String costType) {
+
+		if (costType == 'Last Price') {
+			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/lastPrice_Button'), 0)
+		} else {
+			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/currentPrice_Button'), 0)
+		}
+	}
+
 
 	/**
 	 * adds location to an inventory based on the cost type of current or last price paid
@@ -59,24 +76,9 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory Screen/createNewLocation_Button'), 0)
 
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/locationNameVerification_Text', [('LName') : locationName]),0)
-	}
-
-
-	/**
-	 * adds costType based on the argument which can be current or last price paid
-	 * @param costType (can be current or last price paid)
-	 */
-	@Keyword
-	def addCostType(String costType) {
-
-		if (costType == 'Last Price') {
-			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/lastPrice_Button'), 0)
-		} else {
-			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/currentPrice_Button'), 0)
-		}
 	}
 
 
@@ -90,9 +92,8 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 	def clickOnALocation(String locationName) {
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/tapOnLocation_Text', [('Location') : locationName]), 0)
-		
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
-		
+
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 	}
 
 
@@ -112,7 +113,7 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/scan_Icon'), 0)
 
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 
 		'calling the function which selects the countType required for a product which is searched and takes countType as the argument'
 		(new iosInventory.locationDetailsScreen()).selectCountTypeForTheProductToBeAdded(countType)
@@ -124,10 +125,11 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 		(new iosInventory.locationDetailsScreen()).addQuantityforTheSearchedProduct(quantity)
 
 		'waits until the progressBar is visible on the screen'
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/addItemFromAlternate_Button'), 0)
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/createLocation_Label'), 0)
 
@@ -145,7 +147,7 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/addToInventory_Button'), 0)
 
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/continue_Button'), 0)
 	}
@@ -161,7 +163,7 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 	@Keyword
 	def deleteLocation(String locationName) {
 
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 
 		int ElementTopPosition = Mobile.getElementTopPosition(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/tapOnLocation_Text', [('Location') : locationName]), 0)
 
@@ -186,7 +188,7 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 		//Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Delete Location/yes_Text'), 0)
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory Screen/yes_Button'), 0)
 
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.verifyElementNotVisible(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/locationNameVerification_Text', [('LName') : locationName]),0)
 	}
@@ -227,20 +229,6 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 
 
 	/**
-	 * this function verifies the location count
-	 * @param expectedLocationCount (expected location Count)
-	 */
-	@Keyword
-	def verifyLocationCount(String expectedLocationCount) {
-
-		String actualLocationCount=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/inventoryLine_Text'),0) //gets the actual Location Count on the inventory details page
-
-		assert actualLocationCount==expectedLocationCount //actual location count has to be equal to expected lines count
-
-	}
-
-
-	/**
 	 * edits the inventory name
 	 * @param newInventoryName (new name of the inventory)
 	 */
@@ -257,7 +245,6 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 	}
 
 
-
 	/**
 	 * searches and adds the product from the inventory details screen by creating a new location
 	 * @param locationName (name of the location to be created) 
@@ -269,7 +256,7 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 
 		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), 0, 0)
 
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.setText(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), productName, 0)
 
@@ -300,21 +287,6 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 	}
 
 
-	/**
-	 * this function verifies that the product is visible on the screen after it is searched from inventory details screen
-	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
-	 */
-	@Keyword
-	def verifyProductIsVisibleOnScreenWhenSearchedFromInventoryDetailsScreen(productIdentificationNumber) {
-
-		String testObj='Object Repository/iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/alternateNDC_Text'
-
-		(new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(testObj,productIdentificationNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
-
-	}
-
-
-
 
 	/**
 	 * verifies various details of the inventory details screen
@@ -334,5 +306,35 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Verification Details/Location_Text'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Verification Details/inventoryTitle_Label',[('TEXT'):inventoryName]),0)
+	}
+
+
+	/**
+	 * this function verifies the location count
+	 * @param expectedLocationCount (expected location Count)
+	 */
+	@Keyword
+	def verifyLocationCount(String expectedLocationCount) {
+
+		String actualLocationCount=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/inventoryLine_Text'),0) //gets the actual Location Count on the inventory details page
+
+		assert actualLocationCount==expectedLocationCount //actual location count has to be equal to expected lines count
+
+	}
+
+
+
+
+	/**
+	 * this function verifies that the product is visible on the screen after it is searched from inventory details screen
+	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
+	 */
+	@Keyword
+	def verifyProductIsVisibleOnScreenWhenSearchedFromInventoryDetailsScreen(productIdentificationNumber) {
+
+		String testObj='Object Repository/iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/alternateNDC_Text'
+
+		(new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(testObj,productIdentificationNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
+
 	}
 }
