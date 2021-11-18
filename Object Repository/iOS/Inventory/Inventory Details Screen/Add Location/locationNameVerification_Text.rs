@@ -3,11 +3,11 @@
    <description></description>
    <name>locationNameVerification_Text</name>
    <tag></tag>
-   <elementGuidId>639bbbe3-4b03-4904-a250-a1770364c3f3</elementGuidId>
+   <elementGuidId>297d1688-0316-4085-8603-b382a9259bfe</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
-      <isSelected>true</isSelected>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>type</name>
       <type>Main</type>
@@ -35,7 +35,7 @@
       <value>1</value>
    </webElementProperties>
    <webElementProperties>
-      <isSelected>true</isSelected>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>label</name>
       <type>Main</type>
@@ -49,11 +49,11 @@
       <value>nameLabel</value>
    </webElementProperties>
    <webElementProperties>
-      <isSelected>false</isSelected>
+      <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>value</name>
       <type>Main</type>
-      <value>Jujutsu</value>
+      <value>${LName}</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -83,6 +83,6 @@
       <type>Main</type>
       <value>//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[2]</value>
    </webElementProperties>
-   <locator>//*[@type = 'XCUIElementTypeStaticText' and @label = '${LName}']</locator>
+   <locator>//*[@value = '${LName}']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

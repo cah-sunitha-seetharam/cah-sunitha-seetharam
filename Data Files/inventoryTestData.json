@@ -53,32 +53,30 @@
         },
         
         "TC_R_021": {
-            "productSearchByNDC1": "42023-0107-01",
-            "productSearchByNDC2": "50580-0496-60",
-            "productSearchByNDC3": "49884-0111-74",
+            "productSearchByUPC": "306032-215215",
+            "productSearchByNDC": "00603-2215-21",
+            
         },
         
         "TC_R_023": {
-            "productSearchByNDC1": "42023-0107-01",
-            "productSearchByNDC2": "50580-0496-60",
-            "productSearchByNDC3": "49884-0111-74",
+            "productSearchCin": "4023347",
         },
         
         "TC_R_024": {
-            "productSearchByNDC1": "00406-8003-24",
+            "productSearchByName": "tyl",
+            "productSearchByNDC": "50580-0496-60",
+
 
         },
         
         "TC_R_034": {
-            "productSearchByNDC1": "42023-0107-01",
-            "productSearchByNDC2": "50580-0496-60",
-            "productSearchByNDC3": "49884-0111-74",
+            "productSearchByNDC1": "00574-7116-12",
+            "productSearchByNDC2": "49884-0111-74",
         },
         
         "TC_R_046": {
-            "productSearchByNDC1": "42023-0107-01",
-            "productSearchByNDC2": "50580-0496-60",
-            "productSearchByNDC3": "49884-0111-74",
+            "productSearchByUPC": "305747-116121",
+            "productSearchByNDC": "00574-7116-12",
         },
         
     },
@@ -137,32 +135,30 @@
         },
         
         "TC_R_021": {
-            "productSearchByNDC1": "42023-0107-01",
-            "productSearchByNDC2": "50580-0496-60",
-            "productSearchByNDC3": "49884-0111-74",
+            "productSearchByUPC": "306032-215215",
+            "productSearchByNDC": "00603-2215-21",
+            
         },
         
         "TC_R_023": {
-            "productSearchByNDC1": "42023-0107-01",
-            "productSearchByNDC2": "50580-0496-60",
-            "productSearchByNDC3": "49884-0111-74",
+            "productSearchCin": "4023347",
         },
         
         "TC_R_024": {
-            "productSearchByNDC1": "00406-8003-24",
+            "productSearchByName": "tyl",
+            "productSearchByNDC": "50580-0496-60",
+
 
         },
         
         "TC_R_034": {
-            "productSearchByNDC1": "42023-0107-01",
-            "productSearchByNDC2": "50580-0496-60",
-            "productSearchByNDC3": "49884-0111-74",
+            "productSearchByNDC1": "00574-7116-12",
+            "productSearchByNDC2": "49884-0111-74",
         },
         
         "TC_R_046": {
-            "productSearchByNDC1": "42023-0107-01",
-            "productSearchByNDC2": "50580-0496-60",
-            "productSearchByNDC3": "49884-0111-74",
+            "productSearchByUPC": "306032-215215",
+            "productSearchByNDC": "00603-2215-21",
         },
         
         "TC_JT_CSOS_001": {

@@ -60,8 +60,8 @@ CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'
 'reading the module test data file'
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inventoryTestData.json')
 
-'reading the ndcNumber of product to be added'
-String productSearch = requestObject[GlobalVariable.Environment].TC_R_021.productSearchByNDC1
+'reading the upc of product to be added'
+String productSearch = requestObject[GlobalVariable.Environment].TC_R_021.productSearchByUPC
 
 'taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at full count'
 CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIcon'()
@@ -69,17 +69,17 @@ CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIcon'()
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'calling the function which scans the product and adds it to the location, it takes productName/UPC/Cin/Ndc as the argument'
-CustomKeywords.'iosInventory.locationDetailsScreen.startScanningProduct'(productSearch)
-
 'calling the function which selects the countType required for a product which is searched and takes countType as the argument'
 CustomKeywords.'iosInventory.locationDetailsScreen.selectCountTypeForTheProductToBeAdded'(countType)
 
-'calling the function which adds quantity required for a product to be added and takes quantity required as the argument'
-CustomKeywords.'iosInventory.locationDetailsScreen.addQuantityforTheSearchedProduct'(quantity)
+'calling the function which scans the product and adds it to the location, it takes productName/UPC/Cin/Ndc as the argument'
+CustomKeywords.'iosInventory.locationDetailsScreen.scanInputEvent'(productSearch)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
+
+'reading the ndc of product to be added'
+productSearch = requestObject[GlobalVariable.Environment].TC_R_021.productSearchByNDC
 
 'this function verifies that the product is visible on the location details screen and takes productName/UPC/Cin/Ndc as the argument'
 CustomKeywords.'iosInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen'(productSearch)

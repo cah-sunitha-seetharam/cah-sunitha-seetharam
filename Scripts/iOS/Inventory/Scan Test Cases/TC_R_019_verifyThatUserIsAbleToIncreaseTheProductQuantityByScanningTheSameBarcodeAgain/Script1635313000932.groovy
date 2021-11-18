@@ -69,11 +69,11 @@ CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIcon'()
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'calling the function which scans the product and adds it to the location, it takes productName/UPC/Cin/Ndc as the argument'
-CustomKeywords.'iosInventory.locationDetailsScreen.startScanningProduct'(productSearch)
-
 'calling the function which selects the countType required for a product which is searched and takes countType as the argument'
 CustomKeywords.'iosInventory.locationDetailsScreen.selectCountTypeForTheProductToBeAdded'(countType)
+
+'calling the function which scans the product and adds it to the location, it takes productName/UPC/Cin/Ndc as the argument'
+CustomKeywords.'iosInventory.locationDetailsScreen.scanInputEvent'(productSearch)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
@@ -81,11 +81,14 @@ CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 'taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at full count'
 CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIcon'()
 
-'calling the function which scans the product and adds it to the location, it takes productName/UPC/Cin/Ndc as the argument'
-CustomKeywords.'iosInventory.locationDetailsScreen.startScanningProduct'(productSearch)
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'calling the function which selects the countType required for a product which is searched and takes countType as the argument'
 CustomKeywords.'iosInventory.locationDetailsScreen.selectCountTypeForTheProductToBeAdded'(countType)
+
+'calling the function which scans the product and adds it to the location, it takes productName/UPC/Cin/Ndc as the argument'
+CustomKeywords.'iosInventory.locationDetailsScreen.scanInputEvent'(productSearch)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
@@ -94,7 +97,7 @@ CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 int finalProductQuantity = CustomKeywords.'iosInventory.locationDetailsScreen.returnQuantityOfTheAddedProduct'()
 
 'verifies whether the quantity added is according to the flow expected'
-assert finalProductQuantity == (expectedProductQuantity)
+assert finalProductQuantity == expectedProductQuantity
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()

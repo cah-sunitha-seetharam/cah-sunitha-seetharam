@@ -43,16 +43,9 @@ Prerequisite: Valid login credentials with multiple accounts available for the u
    </variable>
    <variable>
       <defaultValue>'Partial Count'</defaultValue>
-      <description></description>
+      <description>count type can be partial or full count</description>
       <id>efe23545-a070-4aa4-89b0-877888da0549</id>
       <masked>false</masked>
       <name>countType_2</name>
-   </variable>
-   <variable>
-      <defaultValue>'2'</defaultValue>
-      <description></description>
-      <id>dc23efde-345d-4076-bc43-9771d10d1489</id>
-      <masked>false</masked>
-      <name>expectedLinesCount</name>
    </variable>
 </TestCaseEntity>

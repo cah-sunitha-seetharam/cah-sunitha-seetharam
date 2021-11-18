@@ -69,11 +69,11 @@ CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIcon'()
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'calling the function which scans the product and adds it to the location, it takes productName/UPC/Cin/Ndc as the argument'
-CustomKeywords.'iosInventory.locationDetailsScreen.startScanningProduct'(productSearch)
-
 'calling the function which selects the countType required for a product which is searched and takes countType as the argument'
 CustomKeywords.'iosInventory.locationDetailsScreen.selectCountTypeForTheProductToBeAdded'(countType)
+
+'calling the function which scans the product and adds it to the location, it takes productName/UPC/Cin/Ndc as the argument'
+CustomKeywords.'iosInventory.locationDetailsScreen.scanInputEvent'(productSearch)
 
 'calling the function which adds quantity required for a product to be added and takes quantity required as the argument'
 CustomKeywords.'iosInventory.locationDetailsScreen.addQuantityforTheSearchedProduct'(quantity)

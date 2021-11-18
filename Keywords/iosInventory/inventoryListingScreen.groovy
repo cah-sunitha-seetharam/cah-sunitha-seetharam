@@ -47,16 +47,15 @@ class inventoryListingScreen {
 	 */
 	@Keyword
 	def changeAccount(String account) {
-
-
-		Mobile.tap(findTestObject('iOS/Account_Selection/Change Account_Text'), 0)
-
-		Mobile.tap(findTestObject('iOS/Account_Selection/Change_Account_Navigation'), 0)
-
+		
+		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Text'), 0)
+		
+		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Navigation'), 0)
+		
 		Mobile.scrollToText(account, FailureHandling.STOP_ON_FAILURE)
-
-		Mobile.tap(findTestObject('iOS/Account_Selection/AccountNo_Text', [('val') : account]), 0)
-
+		
+		Mobile.tap(findTestObject('iOS/Account Selection/AccountNo_Text', [('val') : account]), 0)
+		
 		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 	}
 
@@ -67,9 +66,8 @@ class inventoryListingScreen {
 	 * @param inventoryName (name which was given to the inventory)
 	 */
 	@Keyword
-	def click_On_Inventory(String inventoryName) {
-
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Open Inventory Details/Open Inventory_Text', [('TEXT') : inventoryName]), 0)
+	def clickOnInventory(String inventoryName) {
+		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Open Inventory Details/openInventory_Text', [('TEXT') : inventoryName]), 0)
 	}
 
 
@@ -80,9 +78,9 @@ class inventoryListingScreen {
 	 */
 	@Keyword
 	def createInventory(String inventoryName) {
-
+		
 		if(Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Listing Screen/Verification Details/createInventorySection_Header'),0, FailureHandling.OPTIONAL)){
-
+			
 			Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Verification Details/createInventorySection_Header'), 0)
 		}
 
@@ -90,14 +88,14 @@ class inventoryListingScreen {
 			Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory Screen/createNewInventory_Text'), 0)
 		}
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory Screen/inventoryName_Text'), 0)
-
+		
 		Mobile.setText(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory Screen/inventoryName_TextField'), inventoryName,0)
-
+		
 		Mobile.tapAndHold(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory Screen/returnKeypad_Button'), 0, 0)
-
+		
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory Screen/createInventory_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Open Inventory Details/Open Inventory_Text', [('TEXT') : inventoryName]),0)
+		
+		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Open Inventory Details/openInventory_Text', [('TEXT') : inventoryName]),0)
 	}
 
 
@@ -108,27 +106,25 @@ class inventoryListingScreen {
 	 */
 	@Keyword
 	def deleteInventory(String inventoryName) {
-
-		String testObj='iOS/Inventory/Inventory Listing Screen/Delete Inventory/Slide_PopUpButton For Inventory Deletion'
-
+		
+		String testObj='Object Repository/iOS/Inventory/Inventory Listing Screen/Delete Inventory/slidePopUpForInventoryDeletion_Button'
+		
 		int x_Coordinate=(new iosCommonKeywords.commonMethods()).tapXCoordinateGenerator(testObj)
-
-		testObj='iOS/Inventory/Inventory Details Screen/Open Inventory Details/Open Inventory_Text'
-
+		
+		testObj='iOS/Inventory/Inventory Details Screen/Open Inventory Details/openInventory_Text'
+		
 		int y_Coordinate=(new iosCommonKeywords.commonMethods()).tapYCoordinateGenerator(testObj,inventoryName)
-
+		
 		Mobile.tapAtPosition(x_Coordinate, y_Coordinate)
-
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Delete Inventory/Delete Inventory_Text'), 0)
-
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Delete Inventory/Yes for Deletion_Text'), 0)
-
+		
+		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Delete Inventory/delete_Button'), 0)
+		
+		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory Screen/yes_Button'), 0)
+		
 		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
-
-		Mobile.verifyElementNotVisible(findTestObject('iOS/Inventory/Inventory Details Screen/Open Inventory Details/Open Inventory_Text', [('TEXT') : inventoryName]),0)
+		
+		Mobile.verifyElementNotVisible(findTestObject('iOS/Inventory/Inventory Details Screen/Open Inventory Details/openInventory_Text', [('TEXT') : inventoryName]),0)
 	}
-
-
 
 
 
@@ -136,10 +132,10 @@ class inventoryListingScreen {
 	 * verifies details of inventory listing screen
 	 */
 	@Keyword
-	def verify_Inventory_Listing_Screen() {
-
+	def verifyInventoryListingScreen() {
+		
 		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Listing Screen/Verification Details/letsGetStartedWithYourInventory_Text'),0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Verification Details/Inventory Header_Label'),0)
+		
+		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Verification Details/inventoryHeader_Label'),0)
 	}
 }

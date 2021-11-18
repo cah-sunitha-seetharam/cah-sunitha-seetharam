@@ -30,13 +30,6 @@ Prerequisite:
       <name>costType</name>
    </variable>
    <variable>
-      <defaultValue>'1'</defaultValue>
-      <description>quantity required to be added</description>
-      <id>21f809b4-0e9d-4cab-97f7-8af69e5c4400</id>
-      <masked>false</masked>
-      <name>quantity</name>
-   </variable>
-   <variable>
       <defaultValue>'Partial Count'</defaultValue>
       <description>count type can be partial or full count</description>
       <id>8007995b-d754-4ab1-a965-83eb21ece9a8</id>

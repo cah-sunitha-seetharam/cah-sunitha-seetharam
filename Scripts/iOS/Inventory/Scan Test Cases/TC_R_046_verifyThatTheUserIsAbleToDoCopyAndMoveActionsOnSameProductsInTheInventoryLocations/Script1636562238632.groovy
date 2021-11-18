@@ -60,8 +60,26 @@ CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'
 'reading the module test data file'
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inventoryTestData.json')
 
-'reading the ndcNumber of product to be added'
-String productSearch = requestObject[GlobalVariable.Environment].TC_R_046.productSearchByNDC1
+'declaring stack for storing countType of the product needs to be added'
+Stack<String> countTypeStack = new Stack<String>()
+
+'declaring stack for storing quantity of the product needs to be added'
+Stack<String> quantityStack = new Stack<String>()
+
+'declaring stack for storing ndcNumbers of the product needs to be added'
+Stack<String> ndcNumbersStack = new Stack<String>()
+
+'declaring stack for storing unit of issue costs of the product needs to be added'
+Stack<String> unitOfIssueCostStack = new Stack<String>()
+
+'reading the upc of product to be added'
+String productSearch = requestObject[GlobalVariable.Environment].TC_R_046.productSearchByUPC
+
+'reading the ndc of product to be added'
+productSearch = requestObject[GlobalVariable.Environment].TC_R_046.productSearchByNDC
+
+'pushing the ndc of the product to be searched into the stack'
+ndcNumbersStack.push(productSearch)
 
 'taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at full count'
 CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIcon'()
@@ -69,14 +87,26 @@ CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIcon'()
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'calling the function which scans the product and adds it to the location, it takes productName/UPC/Cin/Ndc as the argument'
-CustomKeywords.'iosInventory.locationDetailsScreen.startScanningProduct'(productSearch)
-
 'calling the function which selects the countType required for a product which is searched and takes countType as the argument'
 CustomKeywords.'iosInventory.locationDetailsScreen.selectCountTypeForTheProductToBeAdded'(countType_1)
 
+'calling the function which scans the product and adds it to the location, it takes productName/UPC/Cin/Ndc as the argument'
+CustomKeywords.'iosInventory.locationDetailsScreen.scanInputEvent'(productSearch)
+
 'calling the function which adds quantity required for a product to be added and takes quantity required as the argument'
-CustomKeywords.'iosInventory.locationDetailsScreen.addQuantityforTheSearchedProduct'(quantity)
+float uoiCost = CustomKeywords.'iosInventory.locationDetailsScreen.returnUOIOfTheAddedProduct'()
+
+'pushing the uoiCost of the product to be searched into the stack'
+unitOfIssueCostStack.push(uoiCost)
+
+'pushing the countType of the product to be searched into the stack'
+countTypeStack.push(countType_1)
+
+'pushing the quantity of the product to be added into the stack'
+quantityStack.push(quantity)
+
+'pushing the ndc of the product to be searched into the stack'
+ndcNumbersStack.push(productSearch)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
@@ -94,6 +124,42 @@ CustomKeywords.'iosInventory.inventoryDetailsScreen.addLocation'(locationName_2,
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'opens the location details and takes the locationName as the argument'
+CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnALocation'(locationName_2)
+
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
+'taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at full count'
+CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIcon'()
+
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
+'calling the function which selects the countType required for a product which is searched and takes countType as the argument'
+CustomKeywords.'iosInventory.locationDetailsScreen.selectCountTypeForTheProductToBeAdded'(countType_2)
+
+'calling the function which scans the product and adds it to the location, it takes productName/UPC/Cin/Ndc as the argument'
+CustomKeywords.'iosInventory.locationDetailsScreen.scanInputEvent'(productSearch)
+
+'calling the function which adds quantity required for a product to be added and takes quantity required as the argument'
+uoiCost = CustomKeywords.'iosInventory.locationDetailsScreen.returnUOIOfTheAddedProduct'()
+
+'pushing the uoiCost of the product to be searched into the stack'
+unitOfIssueCostStack.push(uoiCost)
+
+'pushing the countType of the product to be searched into the stack'
+countTypeStack.push(countType_2)
+
+'pushing the quantity of the product to be added into the stack'
+quantityStack.push(quantity)
+
+'takes the application one screen back'
+CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
+
+'takes the application one screen back'
+CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
+
+'opens the location details and takes the locationName as the argument'
 CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnALocation'(locationName_1)
 
 'waits until the progressBar is visible on the screen'
@@ -105,8 +171,17 @@ CustomKeywords.'iosInventory.locationDetailsScreen.copyProductToAnotherLocation'
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
+'calling the function which copies a product to another location, it takes location and productName/UPC/Cin/Ndc as the argument'
+CustomKeywords.'iosInventory.locationDetailsScreen.verifyCountTypeOfProduct'(countType_1)
+
 'this function verifies that the product is visible on the location details screen'
 CustomKeywords.'iosInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen'(productSearch)
+
+'calling the function which copies a product to another location, it takes location and productName/UPC/Cin/Ndc as the argument'
+CustomKeywords.'iosInventory.locationDetailsScreen.deleteProduct'(productSearch)
+
+'calling the function which copies a product to another location, it takes location and productName/UPC/Cin/Ndc as the argument'
+CustomKeywords.'iosInventory.locationDetailsScreen.verifyCountTypeOfProduct'(countType_2)
 
 'calling the function which moves a product to another location, it takes location and productName/UPC/Cin/Ndc as the argument'
 CustomKeywords.'iosInventory.locationDetailsScreen.moveProductToAnotherLocation'(locationName_1, productSearch)
@@ -114,26 +189,24 @@ CustomKeywords.'iosInventory.locationDetailsScreen.moveProductToAnotherLocation'
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'calling the function which moves a product to another location, it takes location and productName/UPC/Cin/Ndc as the argument'
-int quantityAdded = CustomKeywords.'iosInventory.locationDetailsScreen.returnQuantityOfTheAddedProduct'()
-
-'verifying quantity added equals the expected quantity'
-assert quantityAdded == expectedProductQuanity
+'calling the function which copies a product to another location, it takes location and productName/UPC/Cin/Ndc as the argument'
+CustomKeywords.'iosInventory.locationDetailsScreen.verifyCountTypeOfProduct'(countType_2)
 
 'this function verifies that the product is visible on the location details screen'
 CustomKeywords.'iosInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen'(productSearch)
+
+'verifies location details Screen elements like linesCount, countype of product added, quantity on location details screen'
+CustomKeywords.'iosInventory.locationDetailsScreen.verifyLocationDetailsScreen'(countTypeStack, quantityStack, ndcNumbersStack, 
+    unitOfIssueCostStack)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
 'deletes the location and takes locationName as the argument'
-CustomKeywords.'iosInventory.inventoryDetailsScreen.deleteLocation'(locationName_1)
-
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+CustomKeywords.'iosInventory.inventoryDetailsScreen.deleteLocation'(locationName_2)
 
 'deletes the location and takes locationName as the argument'
-CustomKeywords.'iosInventory.inventoryDetailsScreen.deleteLocation'(locationName_2)
+CustomKeywords.'iosInventory.inventoryDetailsScreen.deleteLocation'(locationName_1)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()

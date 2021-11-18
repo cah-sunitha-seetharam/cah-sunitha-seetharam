@@ -50,58 +50,36 @@ class commonMethods {
 
 
 	/**
-	 * performs basic text management operations
-	 * @param operationToBePerformed (in operationToBePerformed argument all alphabets should be lower-case except the first one for e.g Copy, Cut), textFieldTestObj (object for field of input text), selectTextTestObj (object for selecting the text), operationToBePerformedTestObject(object handling the basic text operations)
-	 */
-	@Keyword
-	def performBasicTextManagementOperation(operationToBePerformed,textFieldTestObj,selectTextTestObj,operationToBePerformedTestObject) {
-
-		Mobile.tapAndHold(findTestObject(textFieldTestObj), 0, 0)
-
-		Mobile.tap(findTestObject(selectTextTestObj), 5,FailureHandling.OPTIONAL)
-
-		Mobile.tap(findTestObject(operationToBePerformedTestObject,[('TEXT'):operationToBePerformed]), 0) //operationToBePerformed argument all alphabets should be lower-case except the first one for e.g Copy, Cut
-	}
-
-
-
-	/**
 	 * float value generator
 	 * @param stringToBeConvertedToFloatValue
-	 * returns float value for a string by removing characters
+	 * @return float value for a string by removing characters
 	 */
 	@Keyword
 	def floatValueGenerator(String stringToBeConvertedToFloatValue) {
-
 		int counter=0
-
 		while(stringToBeConvertedToFloatValue[counter]!='0' && stringToBeConvertedToFloatValue[counter]!='1' && stringToBeConvertedToFloatValue[counter]!='2' && stringToBeConvertedToFloatValue[counter]!='3' && stringToBeConvertedToFloatValue[counter]!='4' && stringToBeConvertedToFloatValue[counter]!='5' && stringToBeConvertedToFloatValue[counter]!='6' && stringToBeConvertedToFloatValue[counter]!='7' && stringToBeConvertedToFloatValue[counter]!='8' && stringToBeConvertedToFloatValue[counter]!='9' ) {
 			counter++
 		}
-
 		String stringWithoutCharacters=stringToBeConvertedToFloatValue.substring(counter)
-
 		float stringWithoutCharactersFloatValue=Float.parseFloat(stringWithoutCharacters)
-
 		return stringWithoutCharactersFloatValue
 	}
 
 
 	/**
-	 * this function formats the decimal data
-	 * @param decimalDataToBeFormatted (decimal data To be formatted), decimalFormatRequired(decimal format required for e.g 0.00 for rounding to 2 decimal places)
+	 * this function formats the decimal data for e.g 20.546 would be converted to 20.55 if decimalFormatRequired is 0.00
+	 * @param decimalDataToBeFormatted (decimal data required to be formatted), 
+	 * @param decimalFormatRequired (decimal format required for e.g 0.00 for rounding to 2 decimal places)
+	 * @return formattedDecimalData (formatted decimal data)
 	 */
 	@Keyword
 	def formatDecimalData(decimalDataToBeFormatted, String decimalFormatRequired) {
-
 		DecimalFormat decimalFormat=new DecimalFormat (decimalFormatRequired);
-
-		decimalFormat.setRoundingMode(RoundingMode.UP)
-
-		String formattedDecimalData=decimalFormat.format(decimalDataToBeFormatted)
-
-		return formattedDecimalData
-	}
+		decimalFormat.setRoundingMode(RoundingMode.UP) //rounding mode set to UP
+		String formattedDecimalData=decimalFormat.format(decimalDataToBeFormatted) //storing formatted value in the variable formattedDecimalData
+		KeywordUtil.logInfo(formattedDecimalData)
+		return formattedDecimalData // returns formattedDecimalData
+		}
 
 
 	/**

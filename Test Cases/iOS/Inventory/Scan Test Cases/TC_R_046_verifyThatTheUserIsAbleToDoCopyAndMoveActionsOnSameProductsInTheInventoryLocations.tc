@@ -23,18 +23,25 @@ Prerequisites:
       <name>locationNameLength</name>
    </variable>
    <variable>
-      <defaultValue>'Last Price'</defaultValue>
-      <description>cost type can be last price or current price paid</description>
-      <id>fcd39d5e-8323-448a-9830-ec615544bbcd</id>
-      <masked>false</masked>
-      <name>costType_1</name>
-   </variable>
-   <variable>
       <defaultValue>'Partial Count'</defaultValue>
       <description>count type can be partial or full count</description>
       <id>7e1c2d3b-14d1-4118-8353-6af6fe0d5f71</id>
       <masked>false</masked>
       <name>countType_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'Full Count'</defaultValue>
+      <description>count type can be partial or full count</description>
+      <id>85b6ba4a-49b1-43ff-ad88-99aca58f4f89</id>
+      <masked>false</masked>
+      <name>countType_2</name>
+   </variable>
+   <variable>
+      <defaultValue>'Last Price'</defaultValue>
+      <description>cost type can be last price or current price paid</description>
+      <id>fcd39d5e-8323-448a-9830-ec615544bbcd</id>
+      <masked>false</masked>
+      <name>costType_1</name>
    </variable>
    <variable>
       <defaultValue>'Current Price'</defaultValue>
@@ -44,24 +51,24 @@ Prerequisites:
       <name>costType_2</name>
    </variable>
    <variable>
-      <defaultValue>'Full Count'</defaultValue>
-      <description>count type can be partial or full count</description>
-      <id>c88f0a1b-6190-4969-a6ee-6fb9a13ae9bb</id>
+      <defaultValue>2</defaultValue>
+      <description>expected product quantity which should have been added</description>
+      <id>53ed444f-c3e8-44a5-83b1-72dae0f8e219</id>
       <masked>false</masked>
-      <name>countType_2</name>
+      <name>expectedProductQuanity</name>
    </variable>
    <variable>
-      <defaultValue>'2'</defaultValue>
-      <description>quantity required to be added</description>
-      <id>bfca21d6-1a22-4af2-b312-6bbc26d84192</id>
+      <defaultValue>'1'</defaultValue>
+      <description>default quantity value used for calculation of cost and not passed as a parameter for adding quantity of product</description>
+      <id>574701a1-2ba8-4be8-acbc-edcec06f1043</id>
       <masked>false</masked>
       <name>quantity</name>
    </variable>
    <variable>
-      <defaultValue>4</defaultValue>
-      <description></description>
-      <id>53ed444f-c3e8-44a5-83b1-72dae0f8e219</id>
+      <defaultValue>'2'</defaultValue>
+      <description>expected lines count which should have been added</description>
+      <id>82f036cd-beb9-4317-91e2-005beced9fc8</id>
       <masked>false</masked>
-      <name>expectedProductQuanity</name>
+      <name>expectedLinesCount</name>
    </variable>
 </TestCaseEntity>

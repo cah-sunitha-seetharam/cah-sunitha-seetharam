@@ -30,14 +30,14 @@ CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'
 'reading the module test data file'
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inventoryTestData.json')
 
-'reading the Cin of product to be added'
-String productSearch = requestObject[GlobalVariable.Environment].TC_R_024.productSearchByNDC1
+'reading the productName(first three alphabets) of product to be added'
+String productSearch = requestObject[GlobalVariable.Environment].TC_R_024.productSearchByName
 
 'clicks on search text field'
-CustomKeywords.'iosDashboard.dashboardDetailsScreen.clickOnProductSearchTextField'()
+CustomKeywords.'iosCommonKeywords.commonMethods.clickOnProductSearchTextField'()
 
-'sets text in the search field, takes productName/UPC/Cin/Ndc as the argument'
-CustomKeywords.'iosDashboard.dashboardDetailsScreen.enterProductInSearchField'(productSearch)
+'clicks on search text field'
+CustomKeywords.'iosCommonKeywords.commonMethods.enterProductInSearchField'(productSearch)
 
 'performs basic text opertions like copy, cut, paste and takes textOperation as the argument'
 CustomKeywords.'iosCommonKeywords.commonMethods.performBasicTextManagementOperation'(textOperation_1)
@@ -46,10 +46,10 @@ CustomKeywords.'iosCommonKeywords.commonMethods.performBasicTextManagementOperat
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
 'takes the application one screen back'
-CustomKeywords.'iosDashboard.dashboardDetailsScreen.verifyDashboardDetailsScreen'()
+CustomKeywords.'iosDashboard.dashboardScreen.verifyDashboardScreen'()
 
 'clicks on search text field'
-CustomKeywords.'iosDashboard.dashboardDetailsScreen.clickOnProductSearchTextField'()
+CustomKeywords.'iosCommonKeywords.commonMethods.clickOnProductSearchTextField'()
 
 'performs basic text opertions like copy, cut, paste and takes textOperation as the argument'
 CustomKeywords.'iosCommonKeywords.commonMethods.performBasicTextManagementOperation'(textOperation_2)
@@ -60,6 +60,10 @@ CustomKeywords.'iosCommonKeywords.commonMethods.clickOnSearchKey'()
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
+'reading the ndc of product to be added'
+ productSearch = requestObject[GlobalVariable.Environment].TC_R_024.productSearchByNDC
+
 'this function verifies that the product is visible on the dashboard'
-CustomKeywords.'iosDashboard.dashboardDetailsScreen.verifyProductIsVisibleOnTheDashboardDetailsScreen'(productSearch)
+CustomKeywords.'iosDashboard.dashboardScreen.verifyProductIsVisibleOnTheDashboardScreen'(productSearch)
+
 

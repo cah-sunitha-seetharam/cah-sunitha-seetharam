@@ -20,43 +20,79 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import com.kms.katalon.core.util.KeywordUtil
 
 import internal.GlobalVariable
+import iosAccountSelection.selectAnAccount
+import iosDashboard.dashboardScreen
+import iosLogin.loginScreen
+import iosMoreOptions.moreOptionsScreen
 
 class  commonMethods {
 
+	def dashboardObject=new dashboardScreen();
+	def moreOptionsScreenObject=new moreOptionsScreen();
+	def loginScreenObject=new loginScreen();
+	def selectAnAccountObject=new selectAnAccount();
+	//def commonMethodsObject=new common.commonMethods();
+
 
 	/**
-	 * takes user from home screen to inventory listing screen
+	 * clicks on product search field
 	 */
 	@Keyword
-	def takeUserFromHomeToInventoryListingScreen() {
+	def clickOnProductSearchTextField() {
 
-		'takes user from dashboard to the moreOptions screen'
-		(new iosDashboard.dashboardDetailsScreen()).clickOnMoreOptionsTab()
+		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), 0, 0)
+	}
 
-		'waits until the progressBar is visible on the screen'
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
-		'takes the user from moreOptions screen to the inventory listing screen'
-		(new iosMoreOptions.moreOptionsScreen()).goToInventoryListingScreen()
+	/**
+	 * inputs the product search which can be name/Cin/UPC/NDC in the product search-field
+	 * @param productSearch (which can be name/Cin/UPC/NDC in the product search-field)
+	 */
+	@Keyword
+	def enterProductInSearchField(productSearch) {
+
+		Mobile.setText(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), productSearch, 0)
 	}
 
 
 
 	/**
-	 * takes user from login to home screen
-	 * @param username, password, accountNo
+	 * opens the inventory listing screen by firstly clicking on more options from dash-board 
+	 * and then clicks on inventory under more options screen which takes user to inventory listing screen
+	 */
+	@Keyword
+	def takeUserFromHomeToInventoryListingScreen() {
+
+		'takes user from dashboard to the moreOptions screen'
+		dashboardObject.clickOnMoreOptionsTab()
+
+		'waits until the progressBar is visible on the screen'
+		//	commonMethodsObject.waitForProgressBarToBeInvisible()
+
+		'takes the user from moreOptions screen to the inventory listing screen'
+		moreOptionsScreenObject.goToInventoryListingScreen()
+	}
+
+
+
+	/**
+	 * performs login function by selecting the type of testing (automation or manual), environment of testing(taken from the global profile), entering user-name and password
+	 * and then selects the user account from the accounts list and takes user to the dash-board screen
+	 * @param username
+	 * @param password
+	 * @param accountNo
 	 */
 	@Keyword
 	def takeUserFromloginToHomeScreen(username,password,accountNo) {
 
 		'login function called'
-		(new iosLogin.loginScreen()).login(username, password)
+		loginScreenObject.login(username, password)
 
 		'waits until the progressBar is visible on the screen'
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+		//commonMethodsObject.waitForProgressBarToBeInvisible()
 
 		'selects the user account from the accounts list'
-		(new iosAccountSelection.selectAnAccount()).selectTheUserAccount(accountNo)
+		selectAnAccountObject.selectTheUserAccount(accountNo)
 	}
 
 
@@ -79,7 +115,7 @@ class  commonMethods {
 	@Keyword
 	def clickOnSearchKey() {
 
-		Mobile.tapAndHold(findTestObject('iOS/Product_Search/Search Key_Button'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/Product Search/search_Keypad'), 0, 0)
 	}
 
 
@@ -91,14 +127,13 @@ class  commonMethods {
 
 		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
-		if (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Back_Text'), 4,FailureHandling.OPTIONAL)) {
+		if (Mobile.verifyElementExist(findTestObject('iOS/Product Search/Back_Text'), 4,FailureHandling.OPTIONAL)) {
 
-			Mobile.tap(findTestObject('iOS/Product_Search/Back_Text'), 4,FailureHandling.OPTIONAL)
+			Mobile.tap(findTestObject('iOS/Product Search/Back_Text'), 4,FailureHandling.OPTIONAL)
 		}
 		else {
-			Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/Back Button_Text'), 4)
+			Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/backButton_Text'), 4)
 		}
-
 		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 	}
 
@@ -111,7 +146,6 @@ class  commonMethods {
 	def installingAndlaunchingTheApplication() {
 
 		Mobile.startApplication(GlobalVariable.iOS_App_Path, true) //iOS_App_Path (Application path will be taken from the global profile and passed as a parameter to startApplication method)
-
 	}
 
 
@@ -124,21 +158,25 @@ class  commonMethods {
 	@Keyword
 	def performBasicTextManagementOperation(String operationToBePerformed) {
 
-		String textFieldTestObj='Object Repository/iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'
+		Mobile.tapAndHold(findTestObject('Object Repository/iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), 0, 0)
 
-		String selectTextTestObj='Object Repository/iOS/Verification/selectAll_MenuItem'
+		Mobile.tap(findTestObject('Object Repository/iOS/Verification/selectAll_MenuItem'), 5,FailureHandling.OPTIONAL)
 
-		String operationToBePerformedTestObject='Object Repository/iOS/Verification/textOperation_MenuItem'
+		Mobile.tap(findTestObject('Object Repository/iOS/Verification/textOperation_MenuItem',[('TEXT'):operationToBePerformed]), 0)
 
-		(new common.commonMethods()).performBasicTextManagementOperation(operationToBePerformed,textFieldTestObj,selectTextTestObj,operationToBePerformedTestObject)
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+
 	}
+
+
 
 
 
 	/**
 	 * generates the coordinate x for a test object by considering ElementLeftPosition and ElementWidth
-	 * @param testObj (reference of the testObject passed as a parameter), text(name of the element)
-	 * returns int value for the xCoordinate
+	 * @param testObj (reference of the testObject passed as a parameter)
+	 * @param text (name of the element)
+	 * @return int value for the xCoordinate
 	 */
 	@Keyword
 	def tapXCoordinateGenerator(String testObj) {
@@ -157,8 +195,9 @@ class  commonMethods {
 
 	/**
 	 * generates the coordinate y for a test object by considering ElementTopPosition and ElementHeight
-	 * @param testObj (reference of the testObject passed as a parameter), text(name of the element)
-	 * returns int value for the yCoordinate
+	 * @param testObj (reference of the testObject passed as a parameter)
+	 * @param text (name of the element)
+	 * @return int value for the yCoordinate
 	 */
 	@Keyword
 	def tapYCoordinateGenerator(String testObj, String text) {
@@ -176,12 +215,14 @@ class  commonMethods {
 
 	/**
 	 * this function verifies that the product is not visible on the screen
-	 * @param ndcNumber(ndcNumber of the product to be verified)
+	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
+	 * @param testObj (test object of the element under verification)
 	 */
 	@Keyword
 	def verifyProductIsNotVisibleOnTheScreen(testObj,productIdentificationNumber) {
 
 		Mobile.verifyElementNotVisible(findTestObject(testObj,[('TEXT'):productIdentificationNumber]),0)
+
 	}
 
 
@@ -190,12 +231,14 @@ class  commonMethods {
 
 	/**
 	 * this function verifies that the product is visible on the screen
-	 * @param ndcNumber(ndcNumber of the product to be verified)
+	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
+	 * @param testObj (test object of the element under verification)
 	 */
 	@Keyword
 	def verifyProductIsVisibleOnTheScreen(testObj,productIdentificationNumber) {
 
 		Mobile.verifyElementExist(findTestObject(testObj,[('TEXT'):productIdentificationNumber]),0)
+
 	}
 
 
@@ -242,7 +285,8 @@ class  commonMethods {
 	@Keyword
 	def waitForProgressBarToBeInvisible() {
 
-		String testObject='iOS/Product_Search/Progress_Bar'
+		String testObject='iOS/Product Search/Progress_Bar'
+
 		(new iosCommonKeywords.commonMethods()).waitTimeForObjectToBeVisible(testObject,1,20) //waitTime of 1(s), waitLimit of 20(s)
 	}
 
@@ -250,14 +294,14 @@ class  commonMethods {
 
 	/**
 	 * waits until the object is visible on the screen, which will have a maximum waitLimit to be visible on the screen
-	 * @param testObj (reference of the test Object),waitTime (time by which delay will be added in(s)),waitLimit (maximum limit of time for which delay can be added)
+	 * @param testObj (reference of the test Object)
+	 * @param waitTime (time by which delay will be added in(s))
+	 * @param waitLimit (maximum limit of time for which delay can be added)
 	 */
 	@Keyword
 	def waitTimeForObjectToBeVisible(testObj, int waitTime, int waitLimit) {
-
 		try {
 			int counter=0 //initial count value set to be 0
-
 			while (Mobile.verifyElementExist(findTestObject(testObj), waitTime, FailureHandling.OPTIONAL)) {
 				WebUI.delay(waitTime)
 				counter+=1 // count increases by 1 for each iteration
