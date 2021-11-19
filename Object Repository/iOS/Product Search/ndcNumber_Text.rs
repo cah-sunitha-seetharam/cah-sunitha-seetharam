@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MobileElementEntity>
    <description></description>
-   <name>ndc_Label</name>
+   <name>ndcNumber_Text</name>
    <tag></tag>
-   <elementGuidId>c8c0608d-e92e-4e8a-af13-ccc8f5d79816</elementGuidId>
+   <elementGuidId>9cf11b64-8d5d-4759-aab0-3928abd40ed5</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
