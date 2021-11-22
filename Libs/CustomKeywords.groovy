@@ -190,7 +190,9 @@ def static "androidOrders.newOrderScreen.verify_NewOrder_Screen_Details"() {
     (new androidOrders.newOrderScreen()).verify_NewOrder_Screen_Details()
 }
 
-
+ /**
+	 * takes user to new order screen where user can input purchase order details and can create an order
+	 */ 
 def static "iosOrders.ordersCommonScreen.clickOnNewOrder"() {
     (new iosOrders.ordersCommonScreen()).clickOnNewOrder()
 }
@@ -206,86 +208,8 @@ def static "iosOrders.ordersCommonScreen.clickOnCartTab"() {
 }
 
 
-def static "iosOrders.orderDetailsScreen.addQuantityforTheSearchedProduct"(
-    	String quantity	) {
-    (new iosOrders.orderDetailsScreen()).addQuantityforTheSearchedProduct(
-        	quantity)
-}
-
-
-def static "iosOrders.orderDetailsScreen.clickOnRemoveButtonToRemoveAlreadyScannedProduct"() {
-    (new iosOrders.orderDetailsScreen()).clickOnRemoveButtonToRemoveAlreadyScannedProduct()
-}
-
-
-def static "iosOrders.orderDetailsScreen.startScanningProduct"(
-    	String productToBeSearched	) {
-    (new iosOrders.orderDetailsScreen()).startScanningProduct(
-        	productToBeSearched)
-}
-
-
-def static "iosOrders.orderDetailsScreen.clickOnScanIcon"() {
-    (new iosOrders.orderDetailsScreen()).clickOnScanIcon()
-}
-
-
-def static "iosOrders.orderDetailsScreen.selectToggleValueForTheProductToBeSearched"(
-    	String toggleValue	) {
-    (new iosOrders.orderDetailsScreen()).selectToggleValueForTheProductToBeSearched(
-        	toggleValue)
-}
-
-
-def static "iosOrders.orderDetailsScreen.createNewC2Order"(
-    	String poName	
-     , 	String poMemo	) {
-    (new iosOrders.orderDetailsScreen()).createNewC2Order(
-        	poName
-         , 	poMemo)
-}
-
-
-def static "iosOrders.orderDetailsScreen.uploadOrder"() {
-    (new iosOrders.orderDetailsScreen()).uploadOrder()
-}
-
-
-def static "iosOrders.orderDetailsScreen.checkC2OrderAvailability"() {
-    (new iosOrders.orderDetailsScreen()).checkC2OrderAvailability()
-}
-
-
-def static "iosOrders.orderDetailsScreen.placeOrder"() {
-    (new iosOrders.orderDetailsScreen()).placeOrder()
-}
-
-
-def static "iosOrders.orderDetailsScreen.clickOnBackToCart"() {
-    (new iosOrders.orderDetailsScreen()).clickOnBackToCart()
-}
-
-
-def static "iosOrders.orderDetailsScreen.clickOnContinuOrdering"() {
-    (new iosOrders.orderDetailsScreen()).clickOnContinuOrdering()
-}
-
-
-def static "iosOrders.orderDetailsScreen.addProductToOrder"(
-    	String productName	
-     , 	String quantity	) {
-    (new iosOrders.orderDetailsScreen()).addProductToOrder(
-        	productName
-         , 	quantity)
-}
-
-
-def static "iosOrders.orderDetailsScreen.edit_PO_Name_and_Memo"(
-    	String po_Name	
-     , 	String po_Memo	) {
-    (new iosOrders.orderDetailsScreen()).edit_PO_Name_and_Memo(
-        	po_Name
-         , 	po_Memo)
+def static "iosOrders.orderDetailsScreen.returnQuantityOfTheAddedProduct"() {
+    (new iosOrders.orderDetailsScreen()).returnQuantityOfTheAddedProduct()
 }
 
 
@@ -298,13 +222,93 @@ def static "iosOrders.orderDetailsScreen.add_Alternate_Product"(
 }
 
 
-def static "iosOrders.orderDetailsScreen.verify_Order_Details_Screen_without_any_added_product"() {
-    (new iosOrders.orderDetailsScreen()).verify_Order_Details_Screen_without_any_added_product()
+def static "iosOrders.orderDetailsScreen.addProductToOrder"(
+    	String productName	
+     , 	String quantity	) {
+    (new iosOrders.orderDetailsScreen()).addProductToOrder(
+        	productName
+         , 	quantity)
+}
+
+
+def static "iosOrders.orderDetailsScreen.addQuantityforTheSearchedProduct"(
+    	String quantity	) {
+    (new iosOrders.orderDetailsScreen()).addQuantityforTheSearchedProduct(
+        	quantity)
+}
+
+
+def static "iosOrders.orderDetailsScreen.checkC2OrderAvailability"() {
+    (new iosOrders.orderDetailsScreen()).checkC2OrderAvailability()
+}
+
+
+def static "iosOrders.orderDetailsScreen.clickOnBackToCart"() {
+    (new iosOrders.orderDetailsScreen()).clickOnBackToCart()
+}
+
+
+def static "iosOrders.orderDetailsScreen.clickOnContinueOrderingOnDesktop"() {
+    (new iosOrders.orderDetailsScreen()).clickOnContinueOrderingOnDesktop()
+}
+
+
+def static "iosOrders.orderDetailsScreen.clickOnScanIcon"() {
+    (new iosOrders.orderDetailsScreen()).clickOnScanIcon()
+}
+
+
+def static "iosOrders.orderDetailsScreen.createNewC2Order"(
+    	String poName	
+     , 	String poMemo	) {
+    (new iosOrders.orderDetailsScreen()).createNewC2Order(
+        	poName
+         , 	poMemo)
+}
+
+
+def static "iosOrders.orderDetailsScreen.edit_PO_Name_and_Memo"(
+    	String po_Name	
+     , 	String po_Memo	) {
+    (new iosOrders.orderDetailsScreen()).edit_PO_Name_and_Memo(
+        	po_Name
+         , 	po_Memo)
+}
+
+
+def static "iosOrders.orderDetailsScreen.placeOrder"() {
+    (new iosOrders.orderDetailsScreen()).placeOrder()
+}
+
+
+def static "iosOrders.orderDetailsScreen.scanInputEvent"(
+    	String productToBeSearched	) {
+    (new iosOrders.orderDetailsScreen()).scanInputEvent(
+        	productToBeSearched)
+}
+
+
+def static "iosOrders.orderDetailsScreen.selectToggleValueForTheProductToBeSearched"(
+    	String toggleValue	) {
+    (new iosOrders.orderDetailsScreen()).selectToggleValueForTheProductToBeSearched(
+        	toggleValue)
+}
+
+
+def static "iosOrders.orderDetailsScreen.uploadOrder"() {
+    (new iosOrders.orderDetailsScreen()).uploadOrder()
 }
 
 
 def static "iosOrders.orderDetailsScreen.verify_Order_Details_Screen_Details_with_added_product"() {
     (new iosOrders.orderDetailsScreen()).verify_Order_Details_Screen_Details_with_added_product()
+}
+
+
+def static "iosOrders.orderDetailsScreen.verifyOrderDetailsScreenWithoutAnyAddedProduct"(
+    	Object poName	) {
+    (new iosOrders.orderDetailsScreen()).verifyOrderDetailsScreenWithoutAnyAddedProduct(
+        	poName)
 }
 
  /**
@@ -377,61 +381,46 @@ def static "androidLogin.loginScreen.verifyLoginPageDetails"() {
     (new androidLogin.loginScreen()).verifyLoginPageDetails()
 }
 
-
-def static "iosOrders.cartScreen.openAnOrderDetails"(
-    	String accountNo	) {
-    (new iosOrders.cartScreen()).openAnOrderDetails(
-        	accountNo)
+ /**
+	 * cancels uploading of orders and keeps orders on the application
+	 */ 
+def static "iosOrders.cartScreen.cancelUploadAndKeepOrdersOnTheApp"() {
+    (new iosOrders.cartScreen()).cancelUploadAndKeepOrdersOnTheApp()
 }
 
-
-def static "iosOrders.cartScreen.uploadAllOrders"() {
-    (new iosOrders.cartScreen()).uploadAllOrders()
-}
-
-
+ /**
+	 * takes user back to cart
+	 */ 
 def static "iosOrders.cartScreen.clickOnBackToCart"() {
     (new iosOrders.cartScreen()).clickOnBackToCart()
 }
 
-
-def static "iosOrders.cartScreen.cancelAndKeepOrdersOnTheApp"() {
-    (new iosOrders.cartScreen()).cancelAndKeepOrdersOnTheApp()
-}
-
-
-def static "iosOrders.cartScreen.continueOrdersOnTheDesktop"() {
-    (new iosOrders.cartScreen()).continueOrdersOnTheDesktop()
-}
-
-
-def static "iosOrders.cartScreen.goToDashboard"() {
-    (new iosOrders.cartScreen()).goToDashboard()
-}
-
-
+ /**
+	 * opens the c2 orders tab
+	 */ 
 def static "iosOrders.cartScreen.clickOnC2Orders"() {
     (new iosOrders.cartScreen()).clickOnC2Orders()
 }
 
-
-def static "iosOrders.cartScreen.openC2OrderDetails"() {
-    (new iosOrders.cartScreen()).openC2OrderDetails()
+ /**
+	 * clicks on all place all orders button on cart screen
+	 */ 
+def static "iosOrders.cartScreen.clickOnPlaceAllOrders"() {
+    (new iosOrders.cartScreen()).clickOnPlaceAllOrders()
 }
 
-
-def static "iosOrders.cartScreen.placeAllOrders"() {
-    (new iosOrders.cartScreen()).placeAllOrders()
+ /**
+	 * confirms placing all order by clicking on place all orders confirmation button and verifies details related to placed order
+	 */ 
+def static "iosOrders.cartScreen.confirmPlacingAllOrders"() {
+    (new iosOrders.cartScreen()).confirmPlacingAllOrders()
 }
 
-
-def static "iosOrders.cartScreen.verifyPlaceAllOrdersPopUp"() {
-    (new iosOrders.cartScreen()).verifyPlaceAllOrdersPopUp()
-}
-
-
-def static "iosOrders.cartScreen.verifyUploadAllOrdersPopUp"() {
-    (new iosOrders.cartScreen()).verifyUploadAllOrdersPopUp()
+ /**
+	 * clicks on continue orders on the desktop and verifies popUp which appears after tapping on continue on desktop
+	 */ 
+def static "iosOrders.cartScreen.continueOrdersOnTheDesktop"() {
+    (new iosOrders.cartScreen()).continueOrdersOnTheDesktop()
 }
 
 
@@ -441,14 +430,76 @@ def static "iosOrders.cartScreen.delete_Order"(
         	Account_No)
 }
 
+ /**
+	 * takes user back to cart to review all orders
+	 */ 
+def static "iosOrders.cartScreen.goBackToReviewAllOrders"() {
+    (new iosOrders.cartScreen()).goBackToReviewAllOrders()
+}
 
-def static "iosOrders.cartScreen.verify_Cart_Screen_Details_without_Adding_any_Product"() {
-    (new iosOrders.cartScreen()).verify_Cart_Screen_Details_without_Adding_any_Product()
+ /**
+	 * takes user to dash-board
+	 */ 
+def static "iosOrders.cartScreen.goToDashboard"() {
+    (new iosOrders.cartScreen()).goToDashboard()
+}
+
+ /**
+	 * opens the order details page
+	 * @param accountNo (accountNo used to create the order)
+	 */ 
+def static "iosOrders.cartScreen.openAnOrderDetails"(
+    	String accountNo	) {
+    (new iosOrders.cartScreen()).openAnOrderDetails(
+        	accountNo)
+}
+
+ /**
+	 * opens the c2 order details
+	 */ 
+def static "iosOrders.cartScreen.openC2OrderDetails"() {
+    (new iosOrders.cartScreen()).openC2OrderDetails()
+}
+
+ /**
+	 * uploads all order by clicking on upload all orders button on cart screen
+	 */ 
+def static "iosOrders.cartScreen.uploadAllOrders"() {
+    (new iosOrders.cartScreen()).uploadAllOrders()
 }
 
 
 def static "iosOrders.cartScreen.verify_Cart_Screen_Details_with_Added_Product"() {
     (new iosOrders.cartScreen()).verify_Cart_Screen_Details_with_Added_Product()
+}
+
+
+def static "iosOrders.cartScreen.verify_Cart_Screen_Details_without_Adding_any_Product"() {
+    (new iosOrders.cartScreen()).verify_Cart_Screen_Details_without_Adding_any_Product()
+}
+
+ /**
+	 * verifies that the order should not be visible on the cart screen
+	 * @param poName (purchase order name used to create the order)
+	 */ 
+def static "iosOrders.cartScreen.verifyOrderNotVisibleOnTheCartScreen"(
+    	String poName	) {
+    (new iosOrders.cartScreen()).verifyOrderNotVisibleOnTheCartScreen(
+        	poName)
+}
+
+ /**
+	 * verifies pop up screen which comes after clicking on place all orders button on cart screen
+	 */ 
+def static "iosOrders.cartScreen.verifyPlaceAllOrdersPopUp"() {
+    (new iosOrders.cartScreen()).verifyPlaceAllOrdersPopUp()
+}
+
+ /**
+	 * verifies pop up screen which comes after clicking on upload all orders button on cart screen
+	 */ 
+def static "iosOrders.cartScreen.verifyUploadAllOrdersPopUp"() {
+    (new iosOrders.cartScreen()).verifyUploadAllOrdersPopUp()
 }
 
  /**
@@ -940,17 +991,21 @@ def static "iosOrders.newOrderScreen.change_Account"(
         	new_Account)
 }
 
-
-def static "iosOrders.newOrderScreen.enter_Purchase_Order_Details"(
-    	String po_Name	
-     , 	String po_Memo	) {
-    (new iosOrders.newOrderScreen()).enter_Purchase_Order_Details(
-        	po_Name
-         , 	po_Memo)
+ /**
+	 * enters purchase order details 
+	 * @param poName (purchase order name for the order created)
+	 * @param poMemo (purchase order memo for the order created)
+	 */ 
+def static "iosOrders.newOrderScreen.enterPurchaseOrderDetails"(
+    	String poName	
+     , 	String poMemo	) {
+    (new iosOrders.newOrderScreen()).enterPurchaseOrderDetails(
+        	poName
+         , 	poMemo)
 }
 
  /**
-	 * taps on create order button to create an order
+	 * taps on create order button to create an order and takes user to the order details screen
 	 */ 
 def static "iosOrders.newOrderScreen.createOrder"() {
     (new iosOrders.newOrderScreen()).createOrder()

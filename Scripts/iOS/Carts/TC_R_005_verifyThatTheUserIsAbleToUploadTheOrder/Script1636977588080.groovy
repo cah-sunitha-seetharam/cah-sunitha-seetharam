@@ -30,14 +30,26 @@ CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'
 'selects the user account from the accounts list'
 CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
 
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
 'takes user to the orders tab'
 CustomKeywords.'iosDashboard.dashboardDetailsScreen.clickOnOrders'()
+
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'take user to new order screen to enter order details'
 CustomKeywords.'iosOrders.ordersCommonScreen.clickOnNewOrder'()
 
+'take user to new order screen to enter order details'
+CustomKeywords.'iosOrders.newOrderScreen.enterPurchaseOrderDetails'(poName, poMemo)
+
 'clicks on create order to create an order'
 CustomKeywords.'iosOrders.newOrderScreen.createOrder'()
+
+'clicks on create order to create an order'
+CustomKeywords.'iosOrders.orderDetailsScreen.verifyOrderDetailsScreenWithoutAnyAddedProduct'(poName)
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
@@ -48,18 +60,33 @@ def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inve
 'reading the product name of product to be added (nonC2 product)'
 String productSearch = requestObject[GlobalVariable.Environment].TC_JT_CSOS_001.productSearchByName
 
-'adds product to the order by taking product and quanity as the argument'
+'clicks on scan icon and also verifies that the default scan toggle value is at ordering'
 CustomKeywords.'iosOrders.orderDetailsScreen.clickOnScanIcon'()
 
-'clicks on continue ordering to take user back to the search results to keep browsing'
-CustomKeywords.'iosOrders.orderDetailsScreen.startScanningProduct'(productSearch)
+'takes productSearch which can be productName/Cin/UPC/NDC as the input and adds it to the order by scanning the product'
+CustomKeywords.'iosOrders.orderDetailsScreen.scanInputEvent'(productSearch)
+
+'adds the quantity required to be added for the scanned product'
+CustomKeywords.'iosOrders.orderDetailsScreen.addQuantityforTheSearchedProduct'(quantity)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
-'takes the application one screen back'
-CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
+'returns the quantity which has been added for the product searched'
+actualQuantityAdded = CustomKeywords.'iosOrders.orderDetailsScreen.returnQuantityOfTheAddedProduct'()
+
+'verifies whether actual quantity added equals the expected quantity'
+assert actualQuantityAdded == expectedQuantity
 
 'uploads the order by clicking on upload order button'
 CustomKeywords.'iosOrders.orderDetailsScreen.uploadOrder'()
+
+'clicks on continue ordering to take user back to the search results to keep browsing'
+CustomKeywords.'iosOrders.orderDetailsScreen.clickOnContinueOrderingOnDesktop'()
+
+'takes user back to cart screen'
+CustomKeywords.'iosOrders.orderDetailsScreen.clickOnBackToCart'()
+
+'verifies that the order should not be visible on the screen and takes purchase order name as the argument'
+CustomKeywords.'iosOrders.cartScreen.verifyOrderNotVisibleOnTheCartScreen'(poName)
 

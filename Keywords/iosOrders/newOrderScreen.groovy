@@ -62,33 +62,34 @@ class newOrderScreen {
 
 
 
-
+	/**
+	 * enters purchase order details 
+	 * @param poName (purchase order name for the order created)
+	 * @param poMemo (purchase order memo for the order created)
+	 */
 	@Keyword
-	def enter_Purchase_Order_Details(String po_Name,String po_Memo) {
+	def enterPurchaseOrderDetails(String poName,String poMemo) {
 
+		Mobile.tap(findTestObject('iOS/Orders/New Order Screen/editPOName_Button'), 0)
 
-		Mobile.tapAndHold(findTestObject('iOS/Orders/Order Details Screen/Edit PO Name and Memo/PO Name_TextField'), 0, 0)
+		Mobile.setText(findTestObject('iOS/Orders/New Order Screen/poName_TextField'), poName, 0)
 
-		Mobile.setText(findTestObject('iOS/Orders/Order Details Screen/Edit PO Name and Memo/PO Name_TextField'), po_Name, 0)
+		Mobile.tap(findTestObject('iOS/Product_Search/returnKeypad_Button'),0)
 
-		Mobile.tap(findTestObject('iOS/Product_Search/Return Keypad_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Orders/New Order Screen/editPOMemo_Button'), 0)
 
-		Mobile.tapAndHold(findTestObject('iOS/Orders/Order Details Screen/Edit PO Name and Memo/poMemo Field_Button'), 0, 0)
-
-		Mobile.setText(	findTestObject('iOS/Orders/Order Details Screen/Edit PO Name and Memo/poMemoField_TextField'),po_Memo, 0)
-
-		Mobile.tap(findTestObject('iOS/Product_Search/Return Keypad_Button'), 0)
+		Mobile.setText(findTestObject('iOS/Orders/New Order Screen/poMemo_TextField'), poMemo,0)
 	}
 
 
 
 	/**
-	 * taps on create order button to create an order
+	 * taps on create order button to create an order and takes user to the order details screen
 	 */
 	@Keyword
 	def createOrder() {
 
-		Mobile.tap(	findTestObject('iOS/Orders/New Order Screen/Create Order_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Orders/New Order Screen/Create Order_Button'), 0)
 	}
 
 

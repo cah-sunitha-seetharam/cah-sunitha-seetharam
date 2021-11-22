@@ -42,26 +42,16 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 class cartScreen {
 
 
-	/**
-	 * opens the order details page
-	 * @param accountNo (accountNo used to create the order)
-	 */
-	@Keyword
-	def openAnOrderDetails(String accountNo) {
-
-		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Order Details_Text',[('TEXT'):accountNo]), 0)
-	}
-
-
 
 	/**
-	 * uploads all order by clicking on upload all orders button on cart screen
+	 * cancels uploading of orders and keeps orders on the application
 	 */
 	@Keyword
-	def uploadAllOrders() {
+	def cancelUploadAndKeepOrdersOnTheApp() {
 
-		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/uploadAllOrders_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/cancelAndKeepOrdersOnTheApp_Button'), 0)
 	}
+
 
 
 	/**
@@ -70,46 +60,11 @@ class cartScreen {
 	@Keyword
 	def clickOnBackToCart() {
 
-		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/backToCart_Button'), 0)
-	}
+		Mobile.tap(findTestObject('iOS/Product_Search/backToCart_Text'), 0)
 
+		Mobile.verifyElementAttributeValue(findTestObject('Object Repository/iOS/Dashboard/Orders_Tab'), 'value', '1',0)
 
-
-	/**
-	 * cancels and keep orders on the application
-	 */
-	@Keyword
-	def cancelAndKeepOrdersOnTheApp() {
-
-		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/cancelAndKeepOrdersOnTheApp_Button'), 0)
-	}
-
-
-
-	/**
-	 * clicks on continue orders on the desktop
-	 */
-	@Keyword
-	def continueOrdersOnTheDesktop() {
-
-		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/continueOnDesktop_Button'), 0)
-		
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/yourOrder(s)HasBeenSentToDesktop_Text'), 0)
-		
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/backToCart_Button'), 0)
-		
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/goToDashboard_Button'), 0)
-		
-	}
-
-
-		/**
-	 * takes user to dash-board
-	 */
-	@Keyword
-	def goToDashboard() {
-
-		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/goToDashboard_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Verification Details/cartHeader_Label'),0)
 	}
 
 
@@ -124,60 +79,52 @@ class cartScreen {
 	}
 
 
-
-
 	/**
-	 * opens the c2 order details
+	 * clicks on all place all orders button on cart screen
 	 */
 	@Keyword
-	def openC2OrderDetails() {
-
-		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/c2Order_View'), 0)
-	}
-
-
-
-	/**
-	 * places all order by clicking on place all orders button on cart screen
-	 */
-	@Keyword
-	def placeAllOrders() {
+	def clickOnPlaceAllOrders() {
 
 		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Place All Orders/placeAllOrders_Button'), 0)
-		
-		Mobile.tap(findTestObject('Object Repository/iOS/Orders/Cart Screen/Place All Orders/confirmPlaceOrder_Button'), 0)
-		
 	}
 
-	
-	
+
 	/**
-	 * verifies pop up screen which comes after clicking on place all orders button on cart screen
+	 * confirms placing all order by clicking on place all orders confirmation button and verifies details related to placed order
 	 */
 	@Keyword
-	def verifyPlaceAllOrdersPopUp() {
+	def confirmPlacingAllOrders() {
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Orders/Cart Screen/Place All Orders/goBackAndReviewOrders_Button'), 0)
-		
-		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Orders/Cart Screen/Place All Orders/yourOrder(s)WillBePlaced_Text'), 0)
-		
+		Mobile.tap(findTestObject('Object Repository/iOS/Orders/Cart Screen/Place All Orders/confirmPlaceOrder_Button'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Place All Orders/allOrdersInThisAccountSubmitted_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Place All Orders/allNonC2OrdersHaveBeenSubmitted_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Place All Orders/c2OrdersWereSentToDesktop_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Place All Orders/checkTheDesktopForOrderConfirmation_Text'), 0)
 	}
 
-			
-		/**
-	 * verifies pop up screen which comes after clicking on upload all orders button on cart screen
+
+
+	/**
+	 * clicks on continue orders on the desktop and verifies popUp which appears after tapping on continue on desktop
 	 */
 	@Keyword
-	def verifyUploadAllOrdersPopUp() {
+	def continueOrdersOnTheDesktop() {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/continueOnDesktop_Button'), 0)
-		
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/cancelAndKeepOrdersOnTheApp_Button'), 0)
-		
+		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/continueOnDesktop_Button'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/yourOrder(s)HasBeenSentToDesktop_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/backToCart_Button'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/goToDashboard_Button'), 0)
 	}
-	
-	
-	
+
+
+
 	@Keyword
 	def delete_Order(String Account_No) {
 
@@ -205,20 +152,60 @@ class cartScreen {
 	}
 
 
-
+	/**
+	 * takes user back to cart to review all orders
+	 */
 	@Keyword
-	def verify_Cart_Screen_Details_without_Adding_any_Product() {
+	def goBackToReviewAllOrders() {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Verification Details/Lines_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Place All Orders/Disabled_Place All Orders_Button'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/Disabled_Upload All Orders_Button'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Orders Common Screen/Cart Page_Tab'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Verification Details/Cart Header_Label'), 0)
+		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Place All Orders/goBackAndReviewMyOrder(s)_Button'), 0)
 	}
+
+
+
+	/**
+	 * takes user to dash-board
+	 */
+	@Keyword
+	def goToDashboard() {
+
+		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/goToDashboard_Button'), 0)
+	}
+
+
+
+
+	/**
+	 * opens the order details page
+	 * @param accountNo (accountNo used to create the order)
+	 */
+	@Keyword
+	def openAnOrderDetails(String accountNo) {
+
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Order Details_Text',[('TEXT'):accountNo]), 0)
+	}
+
+
+
+	/**
+	 * opens the c2 order details
+	 */
+	@Keyword
+	def openC2OrderDetails() {
+
+		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/c2Order_View'), 0)
+	}
+
+
+	/**
+	 * uploads all order by clicking on upload all orders button on cart screen
+	 */
+	@Keyword
+	def uploadAllOrders() {
+
+		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/uploadAllOrders_Button'), 0)
+	}
+
 
 	@Keyword
 	def verify_Cart_Screen_Details_with_Added_Product() {
@@ -227,7 +214,7 @@ class cartScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/Enabled_Upload All Orders_Button'),0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Verification Details/Cart Header_Label'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Verification Details/cartHeader_Label'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Verification Details/All Mobile Orders_Text'), 0)
 
@@ -236,5 +223,55 @@ class cartScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Verification Details/Cart Total_Text'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Verification Details/OrderList_Amount_Text'), 0)
+	}
+
+
+	@Keyword
+	def verify_Cart_Screen_Details_without_Adding_any_Product() {
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Verification Details/Lines_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/Disabled_Upload All Orders_Button'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Orders Common Screen/Cart Page_Tab'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Verification Details/cartHeader_Label'), 0)
+	}
+
+
+
+	/**
+	 * verifies that the order should not be visible on the cart screen
+	 * @param poName (purchase order name used to create the order)
+	 */
+	@Keyword
+	def verifyOrderNotVisibleOnTheCartScreen(String poName) {
+
+		Mobile.verifyElementNotVisible(findTestObject('iOS/Orders/Cart Screen/orderName_Label',[('TEXT'):poName]),0)
+	}
+
+
+
+	/**
+	 * verifies pop up screen which comes after clicking on place all orders button on cart screen
+	 */
+	@Keyword
+	def verifyPlaceAllOrdersPopUp() {
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Orders/Cart Screen/Place All Orders/goBackAndReviewMyOrder(s)_Button'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Orders/Cart Screen/Place All Orders/yourOrder(s)WillBePlaced_Text'), 0)
+	}
+
+
+	/**
+	 * verifies pop up screen which comes after clicking on upload all orders button on cart screen
+	 */
+	@Keyword
+	def verifyUploadAllOrdersPopUp() {
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/continueOnDesktop_Button'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/cancelAndKeepOrdersOnTheApp_Button'), 0)
 	}
 }

@@ -72,7 +72,7 @@ class historyScreen {
 
 		Mobile.setText(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/signInC2_TextField'), signingPassword, 0)
 
-		Mobile.tap(findTestObject('Object Repository/iOS/Product_Search/Return Keypad_Button'),0)
+		Mobile.tap(findTestObject('iOS/Product_Search/returnKeypad_Button'),0)
 
 		Mobile.tap(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/placeOrder_Text'),0)
 

@@ -41,11 +41,14 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 class ordersCommonScreen {
 
-
+	/**
+	 * takes user to new order screen where user can input purchase order details and can create an order
+	 */
 	@Keyword
 	def clickOnNewOrder() {
 
-		Mobile.tap(findTestObject('iOS/Orders/Orders Common Screen/New Order_Tab'), 0)
+		Mobile.tap(findTestObject('iOS/Orders/Orders Common Screen/newOrder_Tab'), 0)
+		
 	}
 
 

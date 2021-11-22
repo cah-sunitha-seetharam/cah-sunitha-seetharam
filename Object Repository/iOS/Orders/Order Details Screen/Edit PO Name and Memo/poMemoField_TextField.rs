@@ -3,7 +3,7 @@
    <description></description>
    <name>poMemoField_TextField</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>ced4114f-6828-4cad-98de-4529829608ad</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -83,6 +83,6 @@
       <type>Main</type>
       <value>//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther[4]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeTextField[1]</value>
    </webElementProperties>
-   <locator>//*[@type = 'XCUIElementTypeTextField' and @name = 'poMemoField_TextField']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>poMemoField_TextField</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>
