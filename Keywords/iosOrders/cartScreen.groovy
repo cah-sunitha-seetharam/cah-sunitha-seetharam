@@ -55,7 +55,7 @@ class cartScreen {
 
 
 	/**
-	 * takes user back to cart
+	 * takes user back to cart screen and verifies user is on the cart screen
 	 */
 	@Keyword
 	def clickOnBackToCart() {
@@ -241,7 +241,7 @@ class cartScreen {
 
 
 	/**
-	 * verifies that the order should not be visible on the cart screen
+	 * verifies that the created order should not be visible on the cart screen
 	 * @param poName (purchase order name used to create the order)
 	 */
 	@Keyword

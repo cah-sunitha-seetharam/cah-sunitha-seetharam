@@ -63,7 +63,7 @@ class newOrderScreen {
 
 
 	/**
-	 * enters purchase order details 
+	 * enters purchase order details for the order to be created
 	 * @param poName (purchase order name for the order created)
 	 * @param poMemo (purchase order memo for the order created)
 	 */

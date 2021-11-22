@@ -58,7 +58,7 @@ CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inventoryTestData.json')
 
 'reading the product name of product to be added (nonC2 product)'
-String productSearch = requestObject[GlobalVariable.Environment].TC_JT_CSOS_001.productSearchByName
+String productSearch = requestObject[GlobalVariable.Environment].TC_R_005.productSearchByName
 
 'clicks on scan icon and also verifies that the default scan toggle value is at ordering'
 CustomKeywords.'iosOrders.orderDetailsScreen.clickOnScanIcon'()
@@ -80,6 +80,9 @@ assert actualQuantityAdded == expectedQuantity
 
 'uploads the order by clicking on upload order button'
 CustomKeywords.'iosOrders.orderDetailsScreen.uploadOrder'()
+
+'verifies the pop up screen which appears after user clicks on upload order'
+CustomKeywords.'iosOrders.orderDetailsScreen.verifyUploadOrderPopUp'()
 
 'clicks on continue ordering to take user back to the search results to keep browsing'
 CustomKeywords.'iosOrders.orderDetailsScreen.clickOnContinueOrderingOnDesktop'()

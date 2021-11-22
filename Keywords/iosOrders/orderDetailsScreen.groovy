@@ -157,12 +157,16 @@ class orderDetailsScreen {
 
 
 	/**
-	 * takes user back to cart screen
+	 * takes user back to cart screen and verifies user is on the cart screen
 	 */
 	@Keyword
 	def clickOnBackToCart() {
 
 		Mobile.tap(findTestObject('iOS/Product_Search/backToCart_Text'), 0)
+
+		Mobile.verifyElementAttributeValue(findTestObject('Object Repository/iOS/Dashboard/Orders_Tab'), 'value', '1',0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Verification Details/cartHeader_Label'),0)
 	}
 
 
@@ -313,11 +317,20 @@ class orderDetailsScreen {
 	def uploadOrder() {
 
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Upload Order/uploadOrder_Button'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Verification Details/continueOrderOnTheDesktop_Text'), 0)
 	}
 
 
+	/**
+	 * verifies the pop up which appears after user clicks on upload order
+	 */
+	@Keyword
+	def verifyUploadOrderPopUp() {
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Verification Details/continueOrderOnTheDesktop_Text'), 0)
+				
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/cancelAndKeepOrdersOnTheApp_Button'), 0)
+		
+	}
 
 
 	@Keyword
@@ -341,7 +354,7 @@ class orderDetailsScreen {
 	}
 
 
-	
+
 	/**
 	 * verifies order details screen when user creates an order
 	 */
