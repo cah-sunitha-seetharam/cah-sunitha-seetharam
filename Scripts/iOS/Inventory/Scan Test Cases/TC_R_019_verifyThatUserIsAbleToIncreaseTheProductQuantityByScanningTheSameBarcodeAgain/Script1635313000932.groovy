@@ -83,17 +83,11 @@ CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct'
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
-'calling the function which adds a product by clicking on scan and takes productNdc,countType'
-CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct'(productSearch, countType, 'NULL')
-
-'takes the application one screen back'
-CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
-
 'stores the initial quantity of product added into the variable initialProductCount'
 int finalProductQuantity = CustomKeywords.'iosInventory.locationDetailsScreen.returnQuantityOfTheAddedProduct'()
 
 'verifies whether the quantity added is according to the flow expected'
-assert finalProductQuantity == (initialProductQuantity + 2)
+assert finalProductQuantity == (initialProductQuantity + 1)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()

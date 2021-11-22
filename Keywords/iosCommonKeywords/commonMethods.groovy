@@ -28,7 +28,7 @@ class  commonMethods {
 	 * this method closes the popUp screen by tapping on close, cancel button
 	 * @param testobj (reference of the close, cancel button)
 	 */
-	@Keyword()
+	@Keyword
 	def closePopUpScreen(testobj) {
 
 		Mobile.tap(findTestObject(testobj), 0)
@@ -38,31 +38,9 @@ class  commonMethods {
 
 
 	/**
-	 * float value generator
-	 * @param stringToBeConvertedToFloatValue 
-	 * returns float value for a string by removing characters
-	 */
-	@Keyword
-	def floatValueGenerator(String stringToBeConvertedToFloatValue) {
-
-		int counter=0
-
-		while(stringToBeConvertedToFloatValue[counter]!='0' && stringToBeConvertedToFloatValue[counter]!='1' && stringToBeConvertedToFloatValue[counter]!='2' && stringToBeConvertedToFloatValue[counter]!='3' && stringToBeConvertedToFloatValue[counter]!='4' && stringToBeConvertedToFloatValue[counter]!='5' && stringToBeConvertedToFloatValue[counter]!='6' && stringToBeConvertedToFloatValue[counter]!='7' && stringToBeConvertedToFloatValue[counter]!='8' && stringToBeConvertedToFloatValue[counter]!='9' ) {
-			counter++
-		}
-
-		String stringWithoutCharacters=stringToBeConvertedToFloatValue.substring(counter)
-
-		float stringWithoutCharactersFloatValue=Float.parseFloat(stringWithoutCharacters)
-
-		return stringWithoutCharactersFloatValue
-	}
-
-
-	/**
 	 * this method will take the application one screen back
 	 */
-	@Keyword()
+	@Keyword
 	def goOneScreenBack() {
 
 		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
@@ -80,15 +58,14 @@ class  commonMethods {
 
 
 
-
 	/**
 	 * installs as well as launches the application
-	 * @param iOS_App_Path (Application path will be taken from the global profile and passed as a parameter to this method)
 	 */
 	@Keyword
 	def installingAndlaunchingTheApplication() {
 
-		Mobile.startApplication(GlobalVariable.iOS_App_Path, true)
+		Mobile.startApplication(GlobalVariable.iOS_App_Path, true) //iOS_App_Path (Application path will be taken from the global profile and passed as a parameter to startApplication method)
+
 	}
 
 
@@ -132,17 +109,43 @@ class  commonMethods {
 
 
 
+	/**
+	 * this function verifies that the product is not visible on the screen
+	 * @param ndcNumber(ndcNumber of the product to be verified)
+	 */
+	@Keyword
+	def verifyProductIsNotVisibleOnTheScreen(ndcNumber) {
+
+		Mobile.verifyElementNotVisible(findTestObject('Object Repository/iOS/Product_Details/ndcNumber_Text',[('TEXT'):ndcNumber]),0)
+	}
+
+
+
+
+
+	/**
+	 * this function verifies that the product is visible on the screen
+	 * @param ndcNumber(ndcNumber of the product to be verified)
+	 */
+	@Keyword
+	def verifyProductIsVisibleOnTheScreen(ndcNumber) {
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Product_Details/ndcNumber_Text',[('TEXT'):ndcNumber]),0)
+	}
+
+
+
+
 
 	/**
 	 * this method verifies the popUp screen is visible
 	 * @param testobj (reference of the popUp screen object under verification)
 	 */
-	@Keyword()
+	@Keyword
 	def verifyPopUpScreenExist(testobj) {
 
 		Mobile.verifyElementExist(findTestObject(testobj), 0)
 	}
-
 
 
 
@@ -158,10 +161,18 @@ class  commonMethods {
 		while(!productNdcStack.isEmpty()) //loops while productNdcStack is not empty
 		{
 
+			String ndcLabel
 			topProductNdc=productNdcStack.pop() //pops the top ndcNumber from the productNdcStack and stores value in the topProductNdc
 
-			String ndcLabel=Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/ndc_Label'),0) //gets the ndcLabel of the top added product in the location details page
+			if(Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/ndc_Label'), 4,FailureHandling.OPTIONAL))// condition which will verify ndcLabel is of the inventory module or orders module
+			{
+				ndcLabel=Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/ndc_Label'),0) //gets the ndcLabel of the top added product in the location details page
+			}
 
+			else
+			{
+				ndcLabel=Mobile.getText(findTestObject('iOS/Orders/Verification Details/ordersNdc_Label'),0) //gets the ndcLabel of the top added product in the order details page
+			}
 			assert ndcLabel==("NDC: "+topProductNdc) // verifies topProductNdc equals the ndcLabel of the topmost product in the products list
 
 			(new iosInventory.locationDetailsScreen()).deleteProduct(topProductNdc)//calling delete product function and passing the topProductNdc
@@ -198,7 +209,7 @@ class  commonMethods {
 	/**
 	 * waits until the progressBar is visible on the screen, which will have a maximum waitLimit to be visible on the screen
 	 */
-	@Keyword()
+	@Keyword
 	def waitForProgressBarToBeInvisible() {
 
 		String testObject='iOS/Product_Search/Progress_Bar'
@@ -211,7 +222,7 @@ class  commonMethods {
 	 * waits until the object is visible on the screen, which will have a maximum waitLimit to be visible on the screen
 	 * @param testObj (reference of the test Object),waitTime (time by which delay will be added in(s)),waitLimit (maximum limit of time for which delay can be added)
 	 */
-	@Keyword()
+	@Keyword
 	def waitTimeForObjectToBeVisible(testObj, int waitTime, int waitLimit) {
 
 		try {

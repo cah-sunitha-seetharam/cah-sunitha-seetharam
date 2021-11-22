@@ -20,7 +20,7 @@ import org.openqa.selenium.Keys as Keys
 'starts the application'
 CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
-'login function called'
+'login function called which takes user to the accounts selection screen'
 CustomKeywords.'iosLogin.loginScreen.login'(GlobalVariable.Username, GlobalVariable.Password)
 
 'waits until the progressBar is visible on the screen'
@@ -81,7 +81,7 @@ CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
 'verifies that the removed product is not present in the products list'
-CustomKeywords.'iosInventory.locationDetailsScreen.verifyProductIsNotVisibleOnTheLocationDetailsScreen'(productSearch)
+CustomKeywords.'iosCommonKeywords.commonMethods.verifyProductIsNotVisibleOnTheScreen'(productSearch)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()

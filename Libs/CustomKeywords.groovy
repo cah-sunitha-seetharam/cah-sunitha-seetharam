@@ -60,17 +60,6 @@ def static "iosCommonKeywords.commonMethods.closePopUpScreen"(
 }
 
  /**
-	 * float value generator
-	 * @param stringToBeConvertedToFloatValue 
-	 * returns float value for a string by removing characters
-	 */ 
-def static "iosCommonKeywords.commonMethods.floatValueGenerator"(
-    	String stringToBeConvertedToFloatValue	) {
-    (new iosCommonKeywords.commonMethods()).floatValueGenerator(
-        	stringToBeConvertedToFloatValue)
-}
-
- /**
 	 * this method will take the application one screen back
 	 */ 
 def static "iosCommonKeywords.commonMethods.goOneScreenBack"() {
@@ -79,7 +68,6 @@ def static "iosCommonKeywords.commonMethods.goOneScreenBack"() {
 
  /**
 	 * installs as well as launches the application
-	 * @param iOS_App_Path (Application path will be taken from the global profile and passed as a parameter to this method)
 	 */ 
 def static "iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication"() {
     (new iosCommonKeywords.commonMethods()).installingAndlaunchingTheApplication()
@@ -107,6 +95,26 @@ def static "iosCommonKeywords.commonMethods.tapYCoordinateGenerator"(
     (new iosCommonKeywords.commonMethods()).tapYCoordinateGenerator(
         	testObj
          , 	text)
+}
+
+ /**
+	 * this function verifies that the product is not visible on the screen
+	 * @param ndcNumber(ndcNumber of the product to be verified)
+	 */ 
+def static "iosCommonKeywords.commonMethods.verifyProductIsNotVisibleOnTheScreen"(
+    	Object ndcNumber	) {
+    (new iosCommonKeywords.commonMethods()).verifyProductIsNotVisibleOnTheScreen(
+        	ndcNumber)
+}
+
+ /**
+	 * this function verifies that the product is visible on the screen
+	 * @param ndcNumber(ndcNumber of the product to be verified)
+	 */ 
+def static "iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScreen"(
+    	Object ndcNumber	) {
+    (new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(
+        	ndcNumber)
 }
 
  /**
@@ -350,6 +358,16 @@ def static "iosOrders.orderDetailsScreen.verifyOrderDetailsScreenWithoutAnyAdded
         	poName)
 }
 
+
+def static "android_common_keywords.emergencyOrderingMode.enableEOmodeAndCloseFlyout"() {
+    (new android_common_keywords.emergencyOrderingMode()).enableEOmodeAndCloseFlyout()
+}
+
+
+def static "android_common_keywords.emergencyOrderingMode.enableOrDisableEOmode"() {
+    (new android_common_keywords.emergencyOrderingMode()).enableOrDisableEOmode()
+}
+
  /**
 	 * selects the user account from the accounts list and takes user to the dashboard screen
 	 * @param accountNo (user account number to be selected)
@@ -420,32 +438,44 @@ def static "androidLogin.loginScreen.verifyLoginPageDetails"() {
     (new androidLogin.loginScreen()).verifyLoginPageDetails()
 }
 
-
+ /**
+	 * cancels uploading of orders and keeps orders on the application
+	 */ 
 def static "iosOrders.cartScreen.cancelUploadAndKeepOrdersOnTheApp"() {
     (new iosOrders.cartScreen()).cancelUploadAndKeepOrdersOnTheApp()
 }
 
-
+ /**
+	 * takes user back to cart screen and verifies user is on the cart screen
+	 */ 
 def static "iosOrders.cartScreen.clickOnBackToCart"() {
     (new iosOrders.cartScreen()).clickOnBackToCart()
 }
 
-
+ /**
+	 * opens the c2 orders tab
+	 */ 
 def static "iosOrders.cartScreen.clickOnC2Orders"() {
     (new iosOrders.cartScreen()).clickOnC2Orders()
 }
 
-
+ /**
+	 * clicks on all place all orders button on cart screen
+	 */ 
 def static "iosOrders.cartScreen.clickOnPlaceAllOrders"() {
     (new iosOrders.cartScreen()).clickOnPlaceAllOrders()
 }
 
-
+ /**
+	 * confirms placing all order by clicking on place all orders confirmation button and verifies details related to placed order
+	 */ 
 def static "iosOrders.cartScreen.confirmPlacingAllOrders"() {
     (new iosOrders.cartScreen()).confirmPlacingAllOrders()
 }
 
-
+ /**
+	 * clicks on continue orders on the desktop and verifies popUp which appears after tapping on continue on desktop
+	 */ 
 def static "iosOrders.cartScreen.continueOrdersOnTheDesktop"() {
     (new iosOrders.cartScreen()).continueOrdersOnTheDesktop()
 }
@@ -457,29 +487,40 @@ def static "iosOrders.cartScreen.delete_Order"(
         	Account_No)
 }
 
-
+ /**
+	 * takes user back to cart to review all orders
+	 */ 
 def static "iosOrders.cartScreen.goBackToReviewAllOrders"() {
     (new iosOrders.cartScreen()).goBackToReviewAllOrders()
 }
 
-
+ /**
+	 * takes user to dash-board
+	 */ 
 def static "iosOrders.cartScreen.goToDashboard"() {
     (new iosOrders.cartScreen()).goToDashboard()
 }
 
-
+ /**
+	 * opens the order details page
+	 * @param accountNo (accountNo used to create the order)
+	 */ 
 def static "iosOrders.cartScreen.openAnOrderDetails"(
     	String accountNo	) {
     (new iosOrders.cartScreen()).openAnOrderDetails(
         	accountNo)
 }
 
-
+ /**
+	 * opens the c2 order details
+	 */ 
 def static "iosOrders.cartScreen.openC2OrderDetails"() {
     (new iosOrders.cartScreen()).openC2OrderDetails()
 }
 
-
+ /**
+	 * uploads all order by clicking on upload all orders button on cart screen
+	 */ 
 def static "iosOrders.cartScreen.uploadAllOrders"() {
     (new iosOrders.cartScreen()).uploadAllOrders()
 }
@@ -494,27 +535,31 @@ def static "iosOrders.cartScreen.verify_Cart_Screen_Details_without_Adding_any_P
     (new iosOrders.cartScreen()).verify_Cart_Screen_Details_without_Adding_any_Product()
 }
 
-
+ /**
+	 * verifies that the created order should not be visible on the cart screen
+	 * @param poName (purchase order name used to create the order)
+	 */ 
 def static "iosOrders.cartScreen.verifyOrderNotVisibleOnTheCartScreen"(
     	String poName	) {
     (new iosOrders.cartScreen()).verifyOrderNotVisibleOnTheCartScreen(
         	poName)
 }
 
-
+ /**
+	 * verifies pop up screen which comes after clicking on place all orders button on cart screen
+	 */ 
 def static "iosOrders.cartScreen.verifyPlaceAllOrdersPopUp"() {
     (new iosOrders.cartScreen()).verifyPlaceAllOrdersPopUp()
 }
 
-
+ /**
+	 * verifies pop up screen which comes after clicking on upload all orders button on cart screen
+	 */ 
 def static "iosOrders.cartScreen.verifyUploadAllOrdersPopUp"() {
     (new iosOrders.cartScreen()).verifyUploadAllOrdersPopUp()
 }
 
- /**
-	 * adds products to a location
-	 * @param locationName (name of the location),productName (name of the product to be added)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.add_Product_to_Location"(
     	String locationName	
      , 	String productName	) {
@@ -523,17 +568,12 @@ def static "iosInventory.locationDetailsScreen.add_Product_to_Location"(
          , 	productName)
 }
 
- /**
-	 * this function taps on remove button and then product entry should get removed from the location as well as the scan result screen
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.clickOnRemoveButtonToRemoveAlreadyScannedProduct"() {
     (new iosInventory.locationDetailsScreen()).clickOnRemoveButtonToRemoveAlreadyScannedProduct()
 }
 
- /**
-	 * taps on scan and adds product based on count type of partial or full count
-	 * @param productName (name of the product to be added),countType (count type required which can be partial or full count),quantity (quantity of the product required to be added)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct"(
     	String productName	
      , 	String countType	
@@ -544,30 +584,21 @@ def static "iosInventory.locationDetailsScreen.clickOnScanIconAndAddProduct"(
          , 	quantity)
 }
 
- /**
-	 * copies products to another location
-	 * @param locationName (name of the location to which product will be copied)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.copy_Product_to_Another_Location"(
     	String locationName	) {
     (new iosInventory.locationDetailsScreen()).copy_Product_to_Another_Location(
         	locationName)
 }
 
- /**
-	 * deletes a product from the added products list in a location
-	 * @param ndcNumber (deletes the product according to the ndcNumber)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.deleteProduct"(
     	String ndcNumber	) {
     (new iosInventory.locationDetailsScreen()).deleteProduct(
         	ndcNumber)
 }
 
- /**
-	 * edits the location name and cost type can be changed(last price or current price paid)
-	 * @param newLocationName (new name of the location),costType (cost type required which can be current or last price paid)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.edit_Location_Name"(
     	String newLocationName	
      , 	String costType	) {
@@ -576,62 +607,49 @@ def static "iosInventory.locationDetailsScreen.edit_Location_Name"(
          , 	costType)
 }
 
- /**
-	 * moves products to another location
-	 * @param locationName (name of the location to which product will be moved)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.move_Product_to_Another_Location"(
     	String locationName	) {
     (new iosInventory.locationDetailsScreen()).move_Product_to_Another_Location(
         	locationName)
 }
 
- /**
-	 * this function gets the total added quantity of the product
-	 * @return quantity of the product which has been added
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.returnQuantityOfTheAddedProduct"() {
     (new iosInventory.locationDetailsScreen()).returnQuantityOfTheAddedProduct()
 }
 
- /**
-	 * taps on shares location button, verifies the pop-up screen and closes the pop-up screen
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.verifyShareLocationPopUp"() {
     (new iosInventory.locationDetailsScreen()).verifyShareLocationPopUp()
 }
 
- /**
-	 * uploads location from the location details screen
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.uploadLocation"() {
     (new iosInventory.locationDetailsScreen()).uploadLocation()
 }
 
- /**
-	 * verifies details of location details screen
-	 * @param locationName (name of the location under verification)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.verifyLocationDetailsScreen"(
-    	String locationName	) {
+    	String expectedLinesCount	
+     , 	Stack countTypeStack	
+     , 	Stack quantityStack	
+     , 	Stack productNdcStack	) {
     (new iosInventory.locationDetailsScreen()).verifyLocationDetailsScreen(
-        	locationName)
+        	expectedLinesCount
+         , 	countTypeStack
+         , 	quantityStack
+         , 	productNdcStack)
 }
 
- /**
-	 * this function verifies that the product is not visible on the location details screen
-	 * @param ndcNumber (ndcNumber of the product which should not be present on the screen)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.verifyProductIsNotVisibleOnTheLocationDetailsScreen"(
     	Object ndcNumber	) {
     (new iosInventory.locationDetailsScreen()).verifyProductIsNotVisibleOnTheLocationDetailsScreen(
         	ndcNumber)
 }
 
- /**
-	 * this function verifies that the product is visible on the location details screen
-	 * @param ndcNumber (ndcNumber of the product which should be present on the screen)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen"(
     	Object ndcNumber	) {
     (new iosInventory.locationDetailsScreen()).verifyProductIsVisibleOnTheLocationDetailsScreen(
@@ -1000,7 +1018,11 @@ def static "iosOrders.newOrderScreen.change_Account"(
         	new_Account)
 }
 
-
+ /**
+	 * enters purchase order details for the order to be created
+	 * @param poName (purchase order name for the order created)
+	 * @param poMemo (purchase order memo for the order created)
+	 */ 
 def static "iosOrders.newOrderScreen.enterPurchaseOrderDetails"(
     	String poName	
      , 	String poMemo	) {
@@ -1009,7 +1031,9 @@ def static "iosOrders.newOrderScreen.enterPurchaseOrderDetails"(
          , 	poMemo)
 }
 
-
+ /**
+	 * taps on create order button to create an order and takes user to the order details screen
+	 */ 
 def static "iosOrders.newOrderScreen.createOrder"() {
     (new iosOrders.newOrderScreen()).createOrder()
 }
@@ -1245,6 +1269,17 @@ def static "android_inventory.Location_details_Screen.verify_Location_details_Sc
 }
 
  /**
+	 * float value generator
+	 * @param stringToBeConvertedToFloatValue
+	 * returns float value for a string by removing characters
+	 */ 
+def static "common.commonMethods.floatValueGenerator"(
+    	String stringToBeConvertedToFloatValue	) {
+    (new common.commonMethods()).floatValueGenerator(
+        	stringToBeConvertedToFloatValue)
+}
+
+ /**
 	 * random alpha numeric String Generator 
 	 * @param length, required string length 
 	 * @return alpha-numeric string  
@@ -1320,38 +1355,27 @@ def static "androidOrders.cartScreen.verify_Cart_Screen_Details_without_Adding_a
     (new androidOrders.cartScreen()).verify_Cart_Screen_Details_without_Adding_any_Product()
 }
 
- /**
-	 * this method will take the application one screen back
-	 */ 
+
 def static "androidCommonKeywords.commonMethods.goOneScreenBack"() {
     (new androidCommonKeywords.commonMethods()).goOneScreenBack()
 }
 
- /**
-	 * installs as well as launches the application
-	 */ 
+
 def static "androidCommonKeywords.commonMethods.installingAndlaunchingTheApplication"() {
     (new androidCommonKeywords.commonMethods()).installingAndlaunchingTheApplication()
 }
 
- /**
-	 * refreshes the screen by doing a vertical swipe by considering the deviceHeight and deviceWidth
-	 */ 
+
 def static "androidCommonKeywords.commonMethods.verticalSwipeForRefresh"() {
     (new androidCommonKeywords.commonMethods()).verticalSwipeForRefresh()
 }
 
- /**
-	 * waits until the progressBar is visible on the screen, which will have a maximum waitLimit to be visible on the screen
-	 */ 
+
 def static "androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible"() {
     (new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 }
 
- /**
-	 * waits until the object is visible on the screen, which will have a maximum waitLimit to be visible on the screen
-	 * @param testObj (reference of the test Object),waitTime (time by which delay will be added in(s)),waitLimit (maximum limit of time for which delay can be added)
-	 */ 
+
 def static "androidCommonKeywords.commonMethods.waitTimeForObjectToBeVisible"(
     	Object testObj	
      , 	int waitTime	

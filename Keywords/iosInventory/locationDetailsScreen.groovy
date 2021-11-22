@@ -85,7 +85,7 @@ class locationDetailsScreen {
 
 	/**
 	 * taps on scan and adds product based on count type of partial or full count
-	 * @param productName (name of the product to be added),countType (count type required which can be partial or full count),quantity (quantity of the product required to be added)
+	 * @param productName (name of the product to be added),countType (count type required which can be partial or full count),quantity (quantity of the product required to be added, if quantity is passed a tag of NULL, no quantity would be entered in the quantity text-field)
 	 */
 	@Keyword
 	def clickOnScanIconAndAddProduct(String productName, String countType, String quantity) {
@@ -95,6 +95,14 @@ class locationDetailsScreen {
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Scan Order/scanGray_Image'), 0)
 
 		Mobile.setText(findTestObject('iOS/Orders/Order Details Screen/Scan Order/enterBarcode_TextField'), productName, 0)
+
+		Mobile.setText(findTestObject('iOS/Orders/Order Details Page/Scan Order/enterBarcode_TextField'), productName, 0)
+
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/Orders/Order Details Page/Scan Order/fullCount_Button'), 'value', '1', 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Page/Scan Order/partialCount_Button'), 0)
+
+		Mobile.setText(findTestObject('iOS/Orders/Order Details Page/Scan Order/enterBarcode_TextField'), productName, 0)
 
 		if(countType=="Full Count") {
 			Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Scan Order/fullCount_Button'), 0)
@@ -248,7 +256,6 @@ class locationDetailsScreen {
 	}
 
 
-
 	/**
 	 * uploads location from the location details screen
 	 */
@@ -265,24 +272,52 @@ class locationDetailsScreen {
 
 
 
-
 	/**
-	 * verifies details of location details screen
-	 * @param locationName (name of the location under verification)
+	 * verifies details of location details screen (if user wants to scan a product with same count type more than once, then in the test case, only the updated quantity along with countType and ndcNumber should be pushed into the stack)
+	 * @param expectedLinesCount (lines count which is expected), countTypeStack (stack of the countTypes selected for adding each product), quantityStack (stack of the quantity added for each product), productNdcStack (stack of the ndcNumbers of added products)
 	 */
 	@Keyword
-	def verifyLocationDetailsScreen(String locationName) {
+	def verifyLocationDetailsScreen(String expectedLinesCount, Stack countTypeStack, Stack quantityStack, Stack productNdcStack) {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Verification Details/Inventory Header_Label'), 0)
+		String topProductCountType, topProductQuantity, topProductNdc
 
-		Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Scan_Icon'),0)
+		String actualLinesCount=Mobile.getText(findTestObject('Object Repository/iOS/Inventory/Location Details_Screen/Verification Details/inventoryLine_Text'),0) //gets the actualLinesCount on the location details page
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Inventory/Location Details_Screen/Share Location/shareLocation_Button'), 0)
+		assert actualLinesCount==(expectedLinesCount) // verifies actualLinesCount equals the expectedLinesCount
 
-		//	Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/Created on Date_Text'),0)
+		while(!countTypeStack.isEmpty() && !quantityStack.isEmpty() && !productNdcStack.isEmpty()) //loops while countType, quantity, productNdcStack is not empty
+		{
 
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/Location Title_Label',[('TEXT'):locationName]),  0)
+			topProductCountType=countTypeStack.pop() //pops the top countType from the countTypeStack and stores value in the topProductCountType
+
+			topProductQuantity=quantityStack.pop() //pops the top quantity from the quantityStack and stores value in the topProductQuantity
+
+			topProductNdc=productNdcStack.pop() //pops the top ndcNumber from the productNdcStack and stores value in the topProductNdc
+
+			String countType=Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/addedProductCountType_Text'),0) //gets the countType of the top added product in the location details page
+
+			String quantity=Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/addedProductQuanity_Text'),0) //gets the quantity of the top added product in the location details page
+
+			if (topProductCountType=="Partial Count") //condition added because in case of partial count the quantity added won't end with a (.0) for e.g full count-(1.0), partial count (1)
+			{
+				assert quantity==(topProductQuantity) // verifies quantity equals the quantity of the topmost product in the products list
+			}
+
+			else
+
+			{
+				assert (quantity)==(topProductQuantity+".0") // verifies quantity equals the quantity of the topmost product in the products list
+			}
+
+			assert (countType+" COUNT")==(topProductCountType.toUpperCase()) // verifies countType equals the countType of the topmost product in the products list
+
+			(new iosInventory.locationDetailsScreen()).deleteProduct(topProductNdc)//calling delete product function and passing the topProductNdc
+
+		}
+
 	}
+
+
 
 
 	/**
@@ -296,8 +331,6 @@ class locationDetailsScreen {
 	}
 
 
-
-
 	/**
 	 * this function verifies that the product is visible on the location details screen
 	 * @param ndcNumber (ndcNumber of the product which should be present on the screen)
@@ -307,4 +340,7 @@ class locationDetailsScreen {
 
 		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Inventory/Location Details_Screen/Delete Product/ndcNumber_Text',[('TEXT'):ndcNumber]),0)
 	}
+
+
+
 }
