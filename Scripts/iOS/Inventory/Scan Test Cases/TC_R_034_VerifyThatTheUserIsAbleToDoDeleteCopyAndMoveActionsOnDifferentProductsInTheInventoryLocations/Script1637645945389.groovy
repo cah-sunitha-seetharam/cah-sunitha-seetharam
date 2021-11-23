@@ -57,7 +57,7 @@ Stack<String> quantityStack = new Stack<String>()
 'declaring stack for storing ndcNumbers of the product needs to be added'
 Stack<String> ndcNumbersStack = new Stack<String>()
 
-'declaring stack for storing ndcNumbers of the product needs to be added'
+'declaring stack for storing unitOfIssue costs of the product needs to be added'
 Stack<String> unitOfIssueCostStack = new Stack<String>()
 
 'pushing the ndc of the product to be searched into the stack'
@@ -75,7 +75,7 @@ countTypeStack.push(countType_1)
 'pushing the quantity of the product to be added into the stack'
 quantityStack.push(quantity)
 
-'calling the function which adds quantity required for a product to be added and takes quantity required as the argument'
+'calling the function which gets the unit of issue cost(UOI) of the added product'
 float uoiCost = CustomKeywords.'iosInventory.locationDetailsScreen.returnUOIOfTheAddedProduct'()
 
 'pushing the uoiCost of the product to be searched into the stack'
@@ -102,10 +102,7 @@ CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'
 'opens the location details and takes the locationName as the argument'
 CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnALocation'(locationName_2)
 
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
-'reading the UPC of product to be added'
+'reading the ndc of product to be added'
 String productSearch_2 = requestObject[GlobalVariable.Environment].TC_R_034.productSearchByNDC2
 
 'pushing the ndc of the product to be searched into the stack'
@@ -129,7 +126,7 @@ countTypeStack.push(countType_2)
 'pushing the quantity of the product to be added into the stack'
 quantityStack.push(quantity)
 
-'calling the function which adds quantity required for a product to be added and takes quantity required as the argument'
+'calling the function which gets the unit of issue cost(UOI) of the added product'
 uoiCost = CustomKeywords.'iosInventory.locationDetailsScreen.returnUOIOfTheAddedProduct'()
 
 'pushing the uoiCost of the product to be searched into the stack'
@@ -144,22 +141,19 @@ CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 'opens the location details and takes the locationName as the argument'
 CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnALocation'(locationName_1)
 
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
 'calling the function which copies a product to another location, it takes productName/UPC/Cin/Ndc as the argument'
 CustomKeywords.'iosInventory.locationDetailsScreen.copyProductToAnotherLocation'(locationName_2, productSearch_1)
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'calling the function which moves a product to another location, it takes location and productName/UPC/Cin/Ndc as the argument'
+'this function gets the total added quantity of the product that is visible on the screen'
 int quantityAdded = CustomKeywords.'iosInventory.locationDetailsScreen.returnQuantityOfTheAddedProduct'()
 
 'verifying quantity added equals the expected quantity'
 assert quantityAdded == expectedQuantityAdded_2
 
-'calling the function which copies a product to another location, it takes location and productName/UPC/Cin/Ndc as the argument'
+'calling the function which gets the count type of the added product and verifies whether that is equal to the expected count type which will be passed as an argument'
 CustomKeywords.'iosInventory.locationDetailsScreen.verifyCountTypeOfProduct'(countType_1)
 
 'this function verifies that the product is visible on the location details screen'
@@ -177,13 +171,13 @@ CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'
 'verifying quantity added equals the expected quantity'
 assert quantityAdded == expectedQuantityAdded_1
 
-'calling the function which copies a product to another location, it takes location and productName/UPC/Cin/Ndc as the argument'
+'calling the function which gets the count type of the added product and verifies whether that is equal to the expected count type which will be passed as an argument'
 CustomKeywords.'iosInventory.locationDetailsScreen.verifyCountTypeOfProduct'(countType_2)
 
 'this function verifies that the product is visible on the location details screen'
 CustomKeywords.'iosInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen'(productSearch_2)
 
-'verifies location details Screen elements like linesCount, countype of product added, quantity on location details screen'
+'verifies location details Screen elements like countype of product added, quantity, invenntory cost on location details screen'
 CustomKeywords.'iosInventory.locationDetailsScreen.verifyLocationDetailsScreen'(countTypeStack, quantityStack, ndcNumbersStack, 
     unitOfIssueCostStack)
 

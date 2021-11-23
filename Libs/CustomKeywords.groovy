@@ -999,35 +999,49 @@ def static "ios_orders.History_Screen.verify_History_Screen_Details"() {
     (new ios_orders.History_Screen()).verify_History_Screen_Details()
 }
 
-
+ /**
+	 * switches to another user account
+	 * @param newAccount (account no to which the user should switch)
+	 */ 
 def static "iosInventory.inventoryListingScreen.changeAccount"(
     	String account	) {
     (new iosInventory.inventoryListingScreen()).changeAccount(
         	account)
 }
 
-
+ /**
+	 * opens the particular inventory details
+	 * @param inventoryName (name which was given to the inventory)
+	 */ 
 def static "iosInventory.inventoryListingScreen.clickOnInventory"(
     	String inventoryName	) {
     (new iosInventory.inventoryListingScreen()).clickOnInventory(
         	inventoryName)
 }
 
-
+ /**
+	 * creates a new inventory from inventory listing screen
+	 * @param inventoryName (name required for the new inventory)
+	 */ 
 def static "iosInventory.inventoryListingScreen.createInventory"(
     	String inventoryName	) {
     (new iosInventory.inventoryListingScreen()).createInventory(
         	inventoryName)
 }
 
-
+ /**
+	 * deletes the inventory from the inventory listing screen
+	 * @param inventoryName (inventory name of the inventory which needs to be deleted)
+	 */ 
 def static "iosInventory.inventoryListingScreen.deleteInventory"(
     	String inventoryName	) {
     (new iosInventory.inventoryListingScreen()).deleteInventory(
         	inventoryName)
 }
 
-
+ /**
+	 * verifies details of inventory listing screen
+	 */ 
 def static "iosInventory.inventoryListingScreen.verifyInventoryListingScreen"() {
     (new iosInventory.inventoryListingScreen()).verifyInventoryListingScreen()
 }
@@ -1255,7 +1269,11 @@ def static "common.commonMethods.readFileTypeJSON"(
         	fileNameValue)
 }
 
-
+ /**
+	 * adds the product from dash-board to inventory
+	 * @param productName
+	 * @param quantity
+	 */ 
 def static "iosDashboard.dashboardScreen.addingProductFromDashboardToCart"(
     	String productName	
      , 	String quantity	) {
@@ -1264,29 +1282,40 @@ def static "iosDashboard.dashboardScreen.addingProductFromDashboardToCart"(
          , 	quantity)
 }
 
-
+ /**
+	 * changes the user account
+	 * @param newAccount
+	 */ 
 def static "iosDashboard.dashboardScreen.changeAccount"(
     	String newAccount	) {
     (new iosDashboard.dashboardScreen()).changeAccount(
         	newAccount)
 }
 
-
+ /**
+	 * opens home tab
+	 */ 
 def static "iosDashboard.dashboardScreen.clickOnHomeTab"() {
     (new iosDashboard.dashboardScreen()).clickOnHomeTab()
 }
 
-
+ /**
+	 * opens moreOptions tab where user can perform actions like signOut, goToInventoryListing Screen etc
+	 */ 
 def static "iosDashboard.dashboardScreen.clickOnMoreOptionsTab"() {
     (new iosDashboard.dashboardScreen()).clickOnMoreOptionsTab()
 }
 
-
+ /**
+	 * opens orders tab where user can perform actions related to orders
+	 */ 
 def static "iosDashboard.dashboardScreen.clickOnOrders"() {
     (new iosDashboard.dashboardScreen()).clickOnOrders()
 }
 
-
+ /**
+	 * this function verifies the dash-board details Screen
+	 */ 
 def static "iosDashboard.dashboardScreen.verifyDashboardScreen"() {
     (new iosDashboard.dashboardScreen()).verifyDashboardScreen()
 }
@@ -1483,6 +1512,13 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
 }
 
 
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
+}
+
+
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	
      , 	String testName	
@@ -1491,11 +1527,4 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
 }
