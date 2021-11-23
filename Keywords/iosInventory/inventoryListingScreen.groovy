@@ -98,6 +98,8 @@ class inventoryListingScreen {
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory Screen/createInventory_Text'), 0)
 
+		commonMethodsObject.waitForProgressBarToBeInvisible()
+
 		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Open Inventory Details/openInventory_Text', [('TEXT') : inventoryName]),0)
 	}
 

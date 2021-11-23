@@ -24,14 +24,8 @@ CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplica
 CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen'(GlobalVariable.Username, GlobalVariable.Password, 
     GlobalVariable.Account)
 
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
 'takes user from home screen to inventory listing screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromHomeToInventoryListingScreen'()
-
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'output of random string generator is stored in inventoryName which will be passed into create_Inventory function'
 inventoryName = CustomKeywords.'common.commonMethods.randomStringGenerator'(inventoryNameLength)
@@ -39,23 +33,14 @@ inventoryName = CustomKeywords.'common.commonMethods.randomStringGenerator'(inve
 'creates an inventory by taking inventoryName as the argument'
 CustomKeywords.'iosInventory.inventoryListingScreen.createInventory'(inventoryName)
 
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
 'ouput of random string generator is stored in locationName which will be passed into add_Location function'
 locationName_1 = CustomKeywords.'common.commonMethods.randomStringGenerator'(locationNameLength)
 
 'adds location in location details page and takes locationName as the argument'
 CustomKeywords.'iosInventory.inventoryDetailsScreen.addLocation'(locationName_1, costType)
 
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
 'opens the location details and takes the locationName as the argument'
 CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnALocation'(locationName_1)
-
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'reading the module test data file'
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inventoryTestData.json')

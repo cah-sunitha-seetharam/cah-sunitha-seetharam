@@ -999,49 +999,35 @@ def static "ios_orders.History_Screen.verify_History_Screen_Details"() {
     (new ios_orders.History_Screen()).verify_History_Screen_Details()
 }
 
- /**
-	 * switches to another user account
-	 * @param newAccount (account no to which the user should switch)
-	 */ 
+
 def static "iosInventory.inventoryListingScreen.changeAccount"(
     	String account	) {
     (new iosInventory.inventoryListingScreen()).changeAccount(
         	account)
 }
 
- /**
-	 * opens the particular inventory details
-	 * @param inventoryName (name which was given to the inventory)
-	 */ 
+
 def static "iosInventory.inventoryListingScreen.clickOnInventory"(
     	String inventoryName	) {
     (new iosInventory.inventoryListingScreen()).clickOnInventory(
         	inventoryName)
 }
 
- /**
-	 * creates a new inventory from inventory listing screen
-	 * @param inventoryName (name required for the new inventory)
-	 */ 
+
 def static "iosInventory.inventoryListingScreen.createInventory"(
     	String inventoryName	) {
     (new iosInventory.inventoryListingScreen()).createInventory(
         	inventoryName)
 }
 
- /**
-	 * deletes the inventory from the inventory listing screen
-	 * @param inventoryName (inventory name of the inventory which needs to be deleted)
-	 */ 
+
 def static "iosInventory.inventoryListingScreen.deleteInventory"(
     	String inventoryName	) {
     (new iosInventory.inventoryListingScreen()).deleteInventory(
         	inventoryName)
 }
 
- /**
-	 * verifies details of inventory listing screen
-	 */ 
+
 def static "iosInventory.inventoryListingScreen.verifyInventoryListingScreen"() {
     (new iosInventory.inventoryListingScreen()).verifyInventoryListingScreen()
 }

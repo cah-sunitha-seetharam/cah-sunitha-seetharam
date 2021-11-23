@@ -24,9 +24,6 @@ CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplica
 CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen'(GlobalVariable.Username, GlobalVariable.Password, 
     GlobalVariable.Account)
 
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
 'reading the module test data file'
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inventoryTestData.json')
 
