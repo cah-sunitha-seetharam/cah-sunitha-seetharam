@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the user is able to do Delete, Copy and Move Actions on different Products in the Inventory locations.
+Prerequisites:
+ 1. Valid login credentials with multiple accounts available for the user
+ 2. Valid Barcode.</description>
+   <name>TC_R_034_VerifyThatTheUserIsAbleToDoDeleteCopyAndMoveActionsOnDifferentProductsInTheInventoryLocations</name>
+   <tag>Inventory;Regression;Scan</tag>
+   <comment></comment>
+   <testCaseGuid>402393ac-39f8-43f7-88ff-38430f99eff3</testCaseGuid>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of inventory to be created</description>
+      <id>6273bd0f-b06f-4147-9338-9162c8eebd14</id>
+      <masked>false</masked>
+      <name>inventoryNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of location to be created</description>
+      <id>1e059c2a-0798-464d-b2fb-ad3f0358a43e</id>
+      <masked>false</masked>
+      <name>locationNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>'Last Price'</defaultValue>
+      <description>cost type can be last price or current price paid</description>
+      <id>05493609-51ec-498d-bcc5-a3806bd25cdb</id>
+      <masked>false</masked>
+      <name>costType_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'Partial Count'</defaultValue>
+      <description>count type can be partial or full count</description>
+      <id>c177d248-46a9-4803-bc6d-faf3f0af219e</id>
+      <masked>false</masked>
+      <name>countType_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'Current Price'</defaultValue>
+      <description></description>
+      <id>2ddd4b1c-a6ec-4df5-b307-4f546326f4b8</id>
+      <masked>false</masked>
+      <name>costType_2</name>
+   </variable>
+   <variable>
+      <defaultValue>'Full Count'</defaultValue>
+      <description></description>
+      <id>d4049340-0431-4a16-85bc-38113f795dc3</id>
+      <masked>false</masked>
+      <name>countType_2</name>
+   </variable>
+   <variable>
+      <defaultValue>'2'</defaultValue>
+      <description>quantity required to be added</description>
+      <id>e96b020c-248b-4b82-84ed-500f2796d703</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+</TestCaseEntity>

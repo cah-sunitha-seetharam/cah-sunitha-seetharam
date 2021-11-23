@@ -34,6 +34,7 @@ import com.kms.katalon.core.testobject.TestObjectProperty
 
 import com.kms.katalon.core.mobile.helper.MobileElementCommonHelper
 import com.kms.katalon.core.util.KeywordUtil
+import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 import com.kms.katalon.core.webui.exception.WebElementNotFoundException
 import com.kms.katalon.core.configuration.RunConfiguration
@@ -43,6 +44,22 @@ import groovy.json.JsonSlurper as JsonSlurper
 import java.io.File
 
 class commonMethods {
+
+
+	/**
+	 * performs basic text management operations
+	 * @param operationToBePerformed (in operationToBePerformed argument all alphabets should be lower-case except the first one for e.g Copy, Cut)
+	 */
+	@Keyword
+	def performBasicTextManagementOperation(operationToBePerformed,textFieldTestObj,selectTextTestObj,operationToBePerformedTestObject) {
+
+		Mobile.tapAndHold(findTestObject(textFieldTestObj), 0, 0)
+
+		Mobile.tap(findTestObject(selectTextTestObj), 5,FailureHandling.OPTIONAL)
+
+		Mobile.tap(findTestObject(operationToBePerformedTestObject,[('TEXT'):operationToBePerformed]), 0) //operationToBePerformed argument all alphabets should be lower-case except the first one for e.g Copy, Cut
+	}
+
 
 
 	/**

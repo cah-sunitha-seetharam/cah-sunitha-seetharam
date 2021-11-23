@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MobileElementEntity>
    <description></description>
-   <name>Location_Deletion Selecting Yes will also delete this locations inventory on the website and cannot be undone_Text</name>
+   <name>selectingYesWillAlsoDeleteThisLocationsInventoryOnTheWebsiteAndCannotBeUndone_Text</name>
    <tag></tag>
-   <elementGuidId>34f154f7-d704-493b-885a-a7e9c7cea93f</elementGuidId>
+   <elementGuidId>0689f51d-4d44-4b29-88db-3f8ced7e7785</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -42,14 +42,14 @@
       <value>1</value>
    </webElementProperties>
    <webElementProperties>
-      <isSelected>false</isSelected>
+      <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>label</name>
       <type>Main</type>
-      <value>Selecting Yes will also delete this products inventory on the website and cannot be undone.</value>
+      <value>Selecting Yes will also delete this location’s inventory on the website and cannot be undone.</value>
    </webElementProperties>
    <webElementProperties>
-      <isSelected>true</isSelected>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>name</name>
       <type>Main</type>
@@ -90,6 +90,6 @@
       <type>Main</type>
       <value>//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeStaticText[2]</value>
    </webElementProperties>
-   <locator>//*[@type = 'XCUIElementTypeStaticText' and @name = 'Selecting Yes will also delete this product’s inventory on the website and cannot be undone.']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>Selecting Yes will also delete this location’s inventory on the website and cannot be undone.</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

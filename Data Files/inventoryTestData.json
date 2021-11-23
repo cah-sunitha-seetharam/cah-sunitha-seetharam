@@ -52,6 +52,24 @@
             "productSearchByNDC3": "49884-0111-74",
         },
         
+        "TC_R_021": {
+            "productSearchByNDC1": "42023-0107-01",
+            "productSearchByNDC2": "50580-0496-60",
+            "productSearchByNDC3": "49884-0111-74",
+        },
+        
+        "TC_R_024": {
+            "productSearchByNDC1": "42023-0107-01",
+            "productSearchByNDC2": "50580-0496-60",
+            "productSearchByNDC3": "49884-0111-74",
+        },
+        
+        "TC_R_034": {
+            "productSearchByNDC1": "42023-0107-01",
+            "productSearchByNDC2": "50580-0496-60",
+            "productSearchByNDC3": "49884-0111-74",
+        },
+        
     },
     
     "PMODStg": {
