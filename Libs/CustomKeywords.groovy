@@ -79,7 +79,7 @@ def static "iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication
 }
 
  /**
-	 * performs basic text management operations
+	 * performs basic text management operations:Copy,Cut,Paste,Share
 	 * @param operationToBePerformed (in operationToBePerformed argument all alphabets should be lower-case except the first one for e.g Copy, Cut)
 	 */ 
 def static "iosCommonKeywords.commonMethods.performBasicTextManagementOperation"(
@@ -180,6 +180,17 @@ def static "iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScreen"(
 	 */ 
 def static "iosCommonKeywords.commonMethods.verticalSwipeForRefresh"() {
     (new iosCommonKeywords.commonMethods()).verticalSwipeForRefresh()
+}
+
+ /**
+	 * this function verifies that the product is visible on the product search screen after search
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */ 
+def static "iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheProductSearchScreen"(
+    	Object productNdcNumber	) {
+    (new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheProductSearchScreen(
+        	productNdcNumber)
 }
 
  /**
@@ -1295,13 +1306,6 @@ def static "iosDashboard.dashboardScreen.verifyDashboardScreen"() {
 }
 
 
-def static "iosDashboard.dashboardScreen.verifyProductIsVisibleOnTheDashboardScreen"(
-    	Object productNdcNumber	) {
-    (new iosDashboard.dashboardScreen()).verifyProductIsVisibleOnTheDashboardScreen(
-        	productNdcNumber)
-}
-
-
 def static "android_common_keywords.start_application.Custom"() {
     (new android_common_keywords.start_application()).Custom()
 }
@@ -1493,13 +1497,6 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	
      , 	String testName	
@@ -1508,4 +1505,11 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
 }

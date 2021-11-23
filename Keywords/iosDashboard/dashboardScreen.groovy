@@ -133,18 +133,4 @@ class dashboardScreen {
 	}
 
 
-	
-	
-	/**
-	 * this function verifies that the product is visible on the dash-board after search
-	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
-	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
-	 */
-	@Keyword
-	def verifyProductIsVisibleOnTheDashboardScreen(productNdcNumber) {
-
-		String testObj='Object Repository/iOS/Product Search/ndcNumber_Text'
-
-		(new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
-	}
 }

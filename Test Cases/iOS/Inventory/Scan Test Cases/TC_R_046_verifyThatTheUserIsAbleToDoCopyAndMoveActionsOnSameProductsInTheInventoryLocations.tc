@@ -51,13 +51,6 @@ Prerequisites:
       <name>costType_2</name>
    </variable>
    <variable>
-      <defaultValue>2</defaultValue>
-      <description>expected product quantity which should have been added</description>
-      <id>53ed444f-c3e8-44a5-83b1-72dae0f8e219</id>
-      <masked>false</masked>
-      <name>expectedProductQuanity</name>
-   </variable>
-   <variable>
       <defaultValue>'1'</defaultValue>
       <description>default quantity value used for calculation of cost and not passed as a parameter for adding quantity of product</description>
       <id>574701a1-2ba8-4be8-acbc-edcec06f1043</id>
@@ -70,5 +63,19 @@ Prerequisites:
       <id>82f036cd-beb9-4317-91e2-005beced9fc8</id>
       <masked>false</masked>
       <name>expectedLinesCount</name>
+   </variable>
+   <variable>
+      <defaultValue>2</defaultValue>
+      <description>expected product quantity which should have been added</description>
+      <id>53ed444f-c3e8-44a5-83b1-72dae0f8e219</id>
+      <masked>false</masked>
+      <name>expectedProductQuantity_1</name>
+   </variable>
+   <variable>
+      <defaultValue>2.0</defaultValue>
+      <description></description>
+      <id>db58be5a-09c1-4409-8d72-0441ae832555</id>
+      <masked>false</masked>
+      <name>expectedProductQuantity_2</name>
    </variable>
 </TestCaseEntity>

@@ -147,11 +147,17 @@ class locationDetailsScreen {
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
+		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details Screen/Copy Product from Location/copyingProductConfirmation_Text',[('TEXT'):locationName]),0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/backToLocation_Button'),0)
+		
+		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/productInfo_Text'),0)
+		
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Copy Product from Location/goToLocationAfterCopyingProduct_Text', [('Location') : locationName]),0)
 	}
 
-
-
+	
+	
 	/**
 	 * deletes a product from the added products list in a location
 	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
@@ -233,6 +239,12 @@ class locationDetailsScreen {
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
+		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details Screen/Move Product to Another Location/movingProductConfirmation_Text',[('TEXT'):locationName]),0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/backToLocation_Button'),0)
+		
+		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/productInfo_Text'),0)
+		
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Move Product To Another Location/goToLocationAfterMovingProduct_Text', [('Location') : locationName]),0)
 	}
 

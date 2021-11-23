@@ -30,13 +30,6 @@ Prerequisites:
       <name>costType</name>
    </variable>
    <variable>
-      <defaultValue>'Full Count'</defaultValue>
-      <description>count type can be partial or full count</description>
-      <id>c177d248-46a9-4803-bc6d-faf3f0af219e</id>
-      <masked>false</masked>
-      <name>countType</name>
-   </variable>
-   <variable>
       <defaultValue>'2'</defaultValue>
       <description>expected locationCount quantity which should have been added</description>
       <id>e17d21c0-f7e5-4c1e-83b7-a9b3205b9213</id>
@@ -44,11 +37,11 @@ Prerequisites:
       <name>expectedLocationCount</name>
    </variable>
    <variable>
-      <defaultValue>1</defaultValue>
-      <description>expected product quantity which should have been added</description>
-      <id>038b8211-2365-49a7-b682-c846dfc22f4a</id>
+      <defaultValue>'Full Count'</defaultValue>
+      <description></description>
+      <id>12229713-a368-4623-a9e4-97434c05d8df</id>
       <masked>false</masked>
-      <name>expectedQuantityAdded</name>
+      <name>expectedCountType</name>
    </variable>
    <variable>
       <defaultValue>'2'</defaultValue>
@@ -63,5 +56,33 @@ Prerequisites:
       <id>9da93892-bde7-44b2-ba97-ef96d5c6f071</id>
       <masked>false</masked>
       <name>quantity</name>
+   </variable>
+   <variable>
+      <defaultValue>'Full Count'</defaultValue>
+      <description>count type can be partial or full count</description>
+      <id>c177d248-46a9-4803-bc6d-faf3f0af219e</id>
+      <masked>false</masked>
+      <name>countType_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'Partial Count'</defaultValue>
+      <description></description>
+      <id>8c581869-a16a-4abe-8f36-dd8cb96bc98f</id>
+      <masked>false</masked>
+      <name>countType_2</name>
+   </variable>
+   <variable>
+      <defaultValue>1</defaultValue>
+      <description>expected product quantity which should have been added</description>
+      <id>038b8211-2365-49a7-b682-c846dfc22f4a</id>
+      <masked>false</masked>
+      <name>expectedQuantityAdded_1</name>
+   </variable>
+   <variable>
+      <defaultValue>1.0</defaultValue>
+      <description></description>
+      <id>a52d3e1a-d34e-445c-813f-c7876493a397</id>
+      <masked>false</masked>
+      <name>expectedQuantityAdded_2</name>
    </variable>
 </TestCaseEntity>

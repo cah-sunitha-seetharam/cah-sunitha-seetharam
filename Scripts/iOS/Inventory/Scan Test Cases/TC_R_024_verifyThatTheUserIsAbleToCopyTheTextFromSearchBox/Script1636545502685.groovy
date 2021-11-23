@@ -61,9 +61,8 @@ CustomKeywords.'iosCommonKeywords.commonMethods.clickOnSearchKey'()
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'reading the ndc of product to be added'
- productSearch = requestObject[GlobalVariable.Environment].TC_R_024.productSearchByNDC
+productSearch = requestObject[GlobalVariable.Environment].TC_R_024.productSearchByNDC
 
-'this function verifies that the product is visible on the dashboard'
-CustomKeywords.'iosDashboard.dashboardScreen.verifyProductIsVisibleOnTheDashboardScreen'(productSearch)
-
+'this function verifies that the product is visible on the product search screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheProductSearchScreen'(productSearch)
 

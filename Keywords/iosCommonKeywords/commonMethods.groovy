@@ -109,7 +109,7 @@ class  commonMethods {
 
 
 	/**
-	 * performs basic text management operations
+	 * performs basic text management operations:Copy,Cut,Paste,Share
 	 * @param operationToBePerformed (in operationToBePerformed argument all alphabets should be lower-case except the first one for e.g Copy, Cut)
 	 */
 	@Keyword
@@ -141,6 +141,9 @@ class  commonMethods {
 
 		'takes the user from moreOptions screen to the inventory listing screen'
 		moreOptionsScreenObject.goToInventoryListingScreen()
+
+		'waits until the progressBar is visible on the screen'
+		waitForProgressBarToBeInvisible()
 	}
 
 
@@ -164,6 +167,9 @@ class  commonMethods {
 
 		'selects the user account from the accounts list'
 		selectAnAccountObject.selectTheUserAccount(accountNo)
+
+		'waits until the progressBar is visible on the screen'
+		waitForProgressBarToBeInvisible()
 	}
 
 
@@ -271,6 +277,21 @@ class  commonMethods {
 		int endY = device_Height * 0.80
 
 		Mobile.swipe(startX, endY, endX, startY)
+	}
+
+
+
+	/**
+	 * this function verifies that the product is visible on the product search screen after search
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */
+	@Keyword
+	def verifyProductIsVisibleOnTheProductSearchScreen(productNdcNumber) {
+
+		String testObj='Object Repository/iOS/Product Search/ndcNumber_Text'
+
+		(new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, productNdcNumber as the arguments
 	}
 
 
