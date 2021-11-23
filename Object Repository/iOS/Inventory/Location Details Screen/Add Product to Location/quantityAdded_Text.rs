@@ -3,7 +3,7 @@
    <description></description>
    <name>quantityAdded_Text</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>16996bbc-b0e2-4d2f-b38d-cb45906dbe44</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>

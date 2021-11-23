@@ -59,7 +59,7 @@ class moreOptionsScreen {
 	@Keyword()
 	def signOut() {
 
-		Mobile.tap(findTestObject('iOS/Dashboard/More Options_Tab'), 0)
+		Mobile.tap(findTestObject('iOS/Dashboard/moreOptions_Tab'), 0)
 
 		Mobile.tap(findTestObject('iOS/More Options Screen/SignOut/Sign_Out_Text'), 0)
 

@@ -20,29 +20,21 @@ import org.openqa.selenium.Keys as Keys
 'starts the application'
 CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
-'login function called which takes user to the accounts selection screen'
-CustomKeywords.'iosLogin.loginScreen.login'(GlobalVariable.Username, GlobalVariable.Password)
-
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
-'selects the user account from the accounts list'
-CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
-
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+'takes user from login to home screen and takes username, password, account no as the arguments'
+CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen'(GlobalVariable.Username, GlobalVariable.Password, 
+    GlobalVariable.Account)
 
 'reading the module test data file'
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inventoryTestData.json')
 
-'reading the ndcNumber of product to be added'
-String productSearch = requestObject[GlobalVariable.Environment].TC_R_024.productSearchByNDC1
+'reading the productName(first three alphabets) of product to be added'
+String productSearch = requestObject[GlobalVariable.Environment].TC_R_024.productSearchByName
 
 'clicks on search text field'
-CustomKeywords.'iosDashboard.dashboardDetailsScreen.clickOnProductSearchTextField'()
+CustomKeywords.'iosCommonKeywords.commonMethods.clickOnProductSearchTextField'()
 
-'sets text in the search field, takes productName/UPC/Cin/Ndc as the argument'
-CustomKeywords.'iosDashboard.dashboardDetailsScreen.enterProductInSearchField'(productSearch)
+'clicks on search text field'
+CustomKeywords.'iosCommonKeywords.commonMethods.enterProductInSearchField'(productSearch)
 
 'performs basic text opertions like copy, cut, paste and takes textOperation as the argument'
 CustomKeywords.'iosCommonKeywords.commonMethods.performBasicTextManagementOperation'(textOperation_1)
@@ -50,8 +42,11 @@ CustomKeywords.'iosCommonKeywords.commonMethods.performBasicTextManagementOperat
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
+'takes the application one screen back'
+CustomKeywords.'iosDashboard.dashboardScreen.verifyDashboardScreen'()
+
 'clicks on search text field'
-CustomKeywords.'iosDashboard.dashboardDetailsScreen.clickOnProductSearchTextField'()
+CustomKeywords.'iosCommonKeywords.commonMethods.clickOnProductSearchTextField'()
 
 'performs basic text opertions like copy, cut, paste and takes textOperation as the argument'
 CustomKeywords.'iosCommonKeywords.commonMethods.performBasicTextManagementOperation'(textOperation_2)
@@ -62,6 +57,9 @@ CustomKeywords.'iosCommonKeywords.commonMethods.clickOnSearchKey'()
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'this function verifies that the product is visible on the location details screen'
-CustomKeywords.'iosInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen'(productSearch)
+'reading the ndc of product to be added'
+productSearch = requestObject[GlobalVariable.Environment].TC_R_024.productSearchByNDC
+
+'this function verifies that the product is visible on the product search screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheProductSearchScreen'(productSearch)
 

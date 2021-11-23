@@ -3,7 +3,7 @@
    <description></description>
    <name>slidePopUpDeleteProduct_Button</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>e676f795-ea69-4bc1-bab4-12ec9308edfa</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -83,6 +83,6 @@
       <type>Main</type>
       <value>//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[1]/XCUIElementTypeButton[1]</value>
    </webElementProperties>
-   <locator>//*[@type = 'XCUIElementTypeButton' and @label = 'Dots' and @name = 'slidePopUpButton1']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>slidePopUpButton1</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

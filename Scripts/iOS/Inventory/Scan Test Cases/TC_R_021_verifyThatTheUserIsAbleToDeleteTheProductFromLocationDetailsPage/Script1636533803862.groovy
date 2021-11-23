@@ -20,23 +20,12 @@ import org.openqa.selenium.Keys as Keys
 'starts the application'
 CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
-'login function called which takes user to the accounts selection screen'
-CustomKeywords.'iosLogin.loginScreen.login'(GlobalVariable.Username, GlobalVariable.Password)
+'takes user from login to home screen and takes username, password, account no as the arguments'
+CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen'(GlobalVariable.Username, GlobalVariable.Password, 
+    GlobalVariable.Account)
 
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
-'selects the user account from the accounts list'
-CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
-
-'takes user to the moreOptions screen'
-CustomKeywords.'iosDashboard.dashboardDetailsScreen.clickOnMoreOptionsTab'()
-
-'takes the user from moreOptions screen to the inventory listing screen'
-CustomKeywords.'iosMoreOptions.moreOptionsScreen.goToInventoryListingScreen'()
-
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+'takes user from home screen to inventory listing screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromHomeToInventoryListingScreen'()
 
 'output of random string generator is stored in inventoryName which will be passed into create_Inventory function'
 inventoryName = CustomKeywords.'common.commonMethods.randomStringGenerator'(inventoryNameLength)
@@ -44,17 +33,11 @@ inventoryName = CustomKeywords.'common.commonMethods.randomStringGenerator'(inve
 'creates an inventory by taking inventoryName as the argument'
 CustomKeywords.'iosInventory.inventoryListingScreen.createInventory'(inventoryName)
 
-'adds location in location details page and takes locationName as the argument'
-CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
 'ouput of random string generator is stored in locationName which will be passed into add_Location function'
 locationName = CustomKeywords.'common.commonMethods.randomStringGenerator'(locationNameLength)
 
 'adds location in location details page and takes locationName as the argument'
 CustomKeywords.'iosInventory.inventoryDetailsScreen.addLocation'(locationName, costType)
-
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'opens the location details and takes the locationName as the argument'
 CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnALocation'(locationName)
@@ -65,32 +48,35 @@ CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'
 'reading the module test data file'
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inventoryTestData.json')
 
-'reading the ndcNumber of product to be added'
-String productSearch = requestObject[GlobalVariable.Environment].TC_R_021.productSearchByNDC1
+'reading the upc of product to be added'
+String productSearch = requestObject[GlobalVariable.Environment].TC_R_021.productSearchByUPC
 
 'taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at full count'
 CustomKeywords.'iosInventory.locationDetailsScreen.clickOnScanIcon'()
 
-'calling the function which scans the product and adds it to the location, it takes productName/UPC/Cin/Ndc as the argument'
-CustomKeywords.'iosInventory.locationDetailsScreen.startScanningProduct'(productSearch)
-
 'calling the function which selects the countType required for a product which is searched and takes countType as the argument'
 CustomKeywords.'iosInventory.locationDetailsScreen.selectCountTypeForTheProductToBeAdded'(countType)
 
-'calling the function which adds quantity required for a product to be added and takes quantity required as the argument'
-CustomKeywords.'iosInventory.locationDetailsScreen.addQuantityforTheSearchedProduct'(quantity)
+'calling the function which scans the product and adds it to the location, it takes productName/UPC/Cin/Ndc as the argument'
+CustomKeywords.'iosInventory.locationDetailsScreen.scanInputEvent'(productSearch)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
+'reading the ndc of product to be added'
+productSearch = requestObject[GlobalVariable.Environment].TC_R_021.productSearchByNDC
+
 'this function verifies that the product is visible on the location details screen and takes productName/UPC/Cin/Ndc as the argument'
-CustomKeywords.'iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScreen'(productSearch)
+CustomKeywords.'iosInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen'(productSearch)
 
 'deletes the product and takes productName/Cin/Ndc/UPC as the argument'
 CustomKeywords.'iosInventory.locationDetailsScreen.deleteProduct'(productSearch)
 
-'this function verifies that the product is visible on the location details screen'
-CustomKeywords.'iosInventory.locationDetailsScreen.verifyLocationDetailsScreenWithoutAddedProduct'()
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
+'verifies expected lines count equals actual lines count'
+CustomKeywords.'iosInventory.locationDetailsScreen.verifyLinesCount'(expectedLinesCount)
 
 'this function verifies that the product is not visible on the location details screen and takes productName/UPC/Cin/Ndc as the argument'
 CustomKeywords.'iosInventory.locationDetailsScreen.verifyProductIsNotVisibleOnTheLocationDetailsScreen'(productSearch)
