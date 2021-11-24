@@ -44,4 +44,14 @@
       <initValue>''</initValue>
       <name>accessToken</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Android activity that we want to wait for while opening the app</description>
+      <initValue>'com.cardinalhealth.*'</initValue>
+      <name>appWaitActivity</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Package value of the Android app that we need to run</description>
+      <initValue>'com.cardinalhealth.orderexpress.two.debug'</initValue>
+      <name>appPackage</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

@@ -20,8 +20,37 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import com.kms.katalon.core.util.KeywordUtil
 
 import internal.GlobalVariable
+import iosAccountSelection.selectAnAccount
+import iosDashboard.dashboardScreen
+import iosLogin.loginScreen
+import iosMoreOptions.moreOptionsScreen
 
 class  commonMethods {
+
+	def dashboardObject=new dashboardScreen();
+	def moreOptionsScreenObject=new moreOptionsScreen();
+	def loginScreenObject=new loginScreen();
+	def selectAnAccountObject=new selectAnAccount();
+
+	/**
+	 * clicks on product search field
+	 */
+	@Keyword
+	def clickOnProductSearchTextField() {
+
+		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), 0, 0)
+	}
+
+
+	/**
+	 * clicks on Search Key of the keypad
+	 */
+	@Keyword
+	def clickOnSearchKey() {
+
+		Mobile.tapAndHold(findTestObject('iOS/Product Search/search_Keypad'), 0, 0)
+	}
+
 
 
 	/**
@@ -36,6 +65,17 @@ class  commonMethods {
 
 
 
+	/**
+	 * inputs the product search which can be name/Cin/UPC/NDC in the product search-field
+	 * @param productSearch (which can be name/Cin/UPC/NDC in the product search-field)
+	 */
+	@Keyword
+	def enterProductInSearchField(productSearch) {
+
+		Mobile.setText(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), productSearch, 0)
+	}
+
+
 
 	/**
 	 * this method will take the application one screen back
@@ -43,17 +83,16 @@ class  commonMethods {
 	@Keyword
 	def goOneScreenBack() {
 
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+		waitForProgressBarToBeInvisible()
 
-		if (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Back_Text'), 4,FailureHandling.OPTIONAL)) {
+		if (Mobile.verifyElementExist(findTestObject('iOS/Product Search/Back_Text'), 4,FailureHandling.OPTIONAL)) {
 
-			Mobile.tap(findTestObject('iOS/Product_Search/Back_Text'), 4,FailureHandling.OPTIONAL)
+			Mobile.tap(findTestObject('iOS/Product Search/Back_Text'), 4,FailureHandling.OPTIONAL)
 		}
 		else {
-			Mobile.tap(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Back Button_Text'), 4)
+			Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/backButton_Text'), 4)
 		}
-
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+		waitForProgressBarToBeInvisible()
 	}
 
 
@@ -65,15 +104,82 @@ class  commonMethods {
 	def installingAndlaunchingTheApplication() {
 
 		Mobile.startApplication(GlobalVariable.iOS_App_Path, true) //iOS_App_Path (Application path will be taken from the global profile and passed as a parameter to startApplication method)
+	}
 
+
+	/**
+	 * performs basic text management operations:Copy,Cut,Paste,Share
+	 * @param operationToBePerformed (in operationToBePerformed argument all alphabets should be lower-case except the first one for e.g Copy, Cut)
+	 */
+	@Keyword
+	def performBasicTextManagementOperation(String operationToBePerformed) {
+
+		Mobile.tapAndHold(findTestObject('Object Repository/iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), 0, 0)
+
+		Mobile.tap(findTestObject('Object Repository/iOS/Verification/selectAll_MenuItem'), 5,FailureHandling.OPTIONAL)
+
+		Mobile.tap(findTestObject('Object Repository/iOS/Verification/textOperation_MenuItem',[('TEXT'):operationToBePerformed]), 0)
+
+		waitForProgressBarToBeInvisible()
 	}
 
 
 
 	/**
+	 * opens the inventory listing screen by firstly clicking on more options from dash-board 
+	 * and then clicks on inventory under more options screen which takes user to inventory listing screen
+	 */
+	@Keyword
+	def takeUserFromHomeToInventoryListingScreen() {
+
+		'takes user from dashboard to the moreOptions screen'
+		dashboardObject.clickOnMoreOptionsTab()
+
+		'waits until the progressBar is visible on the screen'
+		waitForProgressBarToBeInvisible()
+
+		'takes the user from moreOptions screen to the inventory listing screen'
+		moreOptionsScreenObject.goToInventoryListingScreen()
+
+		'waits until the progressBar is visible on the screen'
+		waitForProgressBarToBeInvisible()
+	}
+
+
+
+
+	/**
+	 * performs login function by selecting the type of testing (automation or manual), environment of testing(taken from the global profile), entering user-name and password
+	 * and then selects the user account from the accounts list and takes user to the dash-board screen
+	 * @param username
+	 * @param password
+	 * @param accountNo
+	 */
+	@Keyword
+	def takeUserFromloginToHomeScreen(username,password,accountNo) {
+
+		'login function called'
+		loginScreenObject.login(username, password)
+
+		'waits until the progressBar is visible on the screen'
+		waitForProgressBarToBeInvisible()
+
+		'selects the user account from the accounts list'
+		selectAnAccountObject.selectTheUserAccount(accountNo)
+
+		'waits until the progressBar is visible on the screen'
+		waitForProgressBarToBeInvisible()
+	}
+
+
+
+
+
+	/**
 	 * generates the coordinate x for a test object by considering ElementLeftPosition and ElementWidth
-	 * @param testObj (reference of the testObject passed as a parameter), text(name of the element)
-	 * returns int value for the xCoordinate
+	 * @param testObj (reference of the testObject passed as a parameter)
+	 * @param text (name of the element)
+	 * @return int value for the xCoordinate
 	 */
 	@Keyword
 	def tapXCoordinateGenerator(String testObj) {
@@ -92,8 +198,9 @@ class  commonMethods {
 
 	/**
 	 * generates the coordinate y for a test object by considering ElementTopPosition and ElementHeight
-	 * @param testObj (reference of the testObject passed as a parameter), text(name of the element)
-	 * returns int value for the yCoordinate
+	 * @param testObj (reference of the testObject passed as a parameter)
+	 * @param text (name of the element)
+	 * @return int value for the yCoordinate
 	 */
 	@Keyword
 	def tapYCoordinateGenerator(String testObj, String text) {
@@ -110,34 +217,6 @@ class  commonMethods {
 
 
 	/**
-	 * this function verifies that the product is not visible on the screen
-	 * @param ndcNumber(ndcNumber of the product to be verified)
-	 */
-	@Keyword
-	def verifyProductIsNotVisibleOnTheScreen(ndcNumber) {
-
-		Mobile.verifyElementNotVisible(findTestObject('Object Repository/iOS/Product_Details/ndcNumber_Text',[('TEXT'):ndcNumber]),0)
-	}
-
-
-
-
-
-	/**
-	 * this function verifies that the product is visible on the screen
-	 * @param ndcNumber(ndcNumber of the product to be verified)
-	 */
-	@Keyword
-	def verifyProductIsVisibleOnTheScreen(ndcNumber) {
-
-		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Product_Details/ndcNumber_Text',[('TEXT'):ndcNumber]),0)
-	}
-
-
-
-
-
-	/**
 	 * this method verifies the popUp screen is visible
 	 * @param testobj (reference of the popUp screen object under verification)
 	 */
@@ -150,37 +229,29 @@ class  commonMethods {
 
 
 
+
 	/**
-	 * verifies that the latest added product is at the top of the added products list, then deletes the latest added product and continues the process to verifyReverseChronologicalOrder of the added products
-	 * @param productNDC (parameter is the stack of ndcNumbers of the added products)
+	 * this function verifies that the product is not visible on the screen
+	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
+	 * @param testObj (test object of the element under verification)
 	 */
 	@Keyword
-	def verifyReverseChronologicalOrder(Stack productNdcStack) {
-		String topProductNdc
+	def verifyProductIsNotVisibleOnTheScreen(testObj,productIdentificationNumber) {
 
-		while(!productNdcStack.isEmpty()) //loops while productNdcStack is not empty
-		{
-
-			String ndcLabel
-			topProductNdc=productNdcStack.pop() //pops the top ndcNumber from the productNdcStack and stores value in the topProductNdc
-
-			if(Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/ndc_Label'), 4,FailureHandling.OPTIONAL))// condition which will verify ndcLabel is of the inventory module or orders module
-			{
-				ndcLabel=Mobile.getText(findTestObject('iOS/Inventory/Location Details_Screen/Verification Details/ndc_Label'),0) //gets the ndcLabel of the top added product in the location details page
-			}
-
-			else
-			{
-				ndcLabel=Mobile.getText(findTestObject('iOS/Orders/Verification Details/ordersNdc_Label'),0) //gets the ndcLabel of the top added product in the order details page
-			}
-			assert ndcLabel==("NDC: "+topProductNdc) // verifies topProductNdc equals the ndcLabel of the topmost product in the products list
-
-			(new iosInventory.locationDetailsScreen()).deleteProduct(topProductNdc)//calling delete product function and passing the topProductNdc
-
-		}
-
+		Mobile.verifyElementNotVisible(findTestObject(testObj,[('TEXT'):productIdentificationNumber]),0)
 	}
 
+
+	/**
+	 * this function verifies that the product is visible on the screen
+	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
+	 * @param testObj (test object of the element under verification)
+	 */
+	@Keyword
+	def verifyProductIsVisibleOnTheScreen(testObj,productIdentificationNumber) {
+
+		Mobile.verifyElementExist(findTestObject(testObj,[('TEXT'):productIdentificationNumber]),0)
+	}
 
 
 	/**
@@ -207,27 +278,43 @@ class  commonMethods {
 
 
 	/**
+	 * this function verifies that the product is visible on the product search screen after search
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */
+	@Keyword
+	def verifyProductIsVisibleOnTheProductSearchScreen(productNdcNumber) {
+
+		String testObj='Object Repository/iOS/Product Search/ndcNumber_Text'
+
+		(new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, productNdcNumber as the arguments
+	}
+
+
+
+	/**
 	 * waits until the progressBar is visible on the screen, which will have a maximum waitLimit to be visible on the screen
 	 */
 	@Keyword
 	def waitForProgressBarToBeInvisible() {
 
-		String testObject='iOS/Product_Search/Progress_Bar'
-		(new iosCommonKeywords.commonMethods()).waitTimeForObjectToBeVisible(testObject,1,20) //waitTime of 1(s), waitLimit of 20(s)
+		String testObject='iOS/Product Search/Progress_Bar'
+
+		waitTimeForObjectToBeVisible(testObject,1,20) //waitTime of 1(s), waitLimit of 20(s)
 	}
 
 
 
 	/**
 	 * waits until the object is visible on the screen, which will have a maximum waitLimit to be visible on the screen
-	 * @param testObj (reference of the test Object),waitTime (time by which delay will be added in(s)),waitLimit (maximum limit of time for which delay can be added)
+	 * @param testObj (reference of the test Object)
+	 * @param waitTime (time by which delay will be added in(s))
+	 * @param waitLimit (maximum limit of time for which delay can be added)
 	 */
 	@Keyword
 	def waitTimeForObjectToBeVisible(testObj, int waitTime, int waitLimit) {
-
 		try {
 			int counter=0 //initial count value set to be 0
-
 			while (Mobile.verifyElementExist(findTestObject(testObj), waitTime, FailureHandling.OPTIONAL)) {
 				WebUI.delay(waitTime)
 				counter+=1 // count increases by 1 for each iteration

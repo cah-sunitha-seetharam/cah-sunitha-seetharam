@@ -35,10 +35,10 @@ Prerequisite: Valid login credentials with multiple accounts available for the u
       <name>countType</name>
    </variable>
    <variable>
-      <defaultValue>'1'</defaultValue>
+      <defaultValue>2</defaultValue>
       <description>quantity required to be added</description>
       <id>b6ef6693-cb94-4342-ae1e-fd7949c59556</id>
       <masked>false</masked>
-      <name>quantity</name>
+      <name>expectedProductQuantity</name>
    </variable>
 </TestCaseEntity>

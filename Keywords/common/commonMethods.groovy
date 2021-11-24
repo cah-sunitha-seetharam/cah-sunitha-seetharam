@@ -34,6 +34,7 @@ import com.kms.katalon.core.testobject.TestObjectProperty
 
 import com.kms.katalon.core.mobile.helper.MobileElementCommonHelper
 import com.kms.katalon.core.util.KeywordUtil
+import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 import com.kms.katalon.core.webui.exception.WebElementNotFoundException
 import com.kms.katalon.core.configuration.RunConfiguration
@@ -41,6 +42,9 @@ import com.kms.katalon.core.configuration.RunConfiguration
 import groovy.json.JsonOutput as JsonOutput
 import groovy.json.JsonSlurper as JsonSlurper
 import java.io.File
+import java.math.RoundingMode
+import java.text.DecimalFormat
+
 
 class commonMethods {
 
@@ -48,23 +52,34 @@ class commonMethods {
 	/**
 	 * float value generator
 	 * @param stringToBeConvertedToFloatValue
-	 * returns float value for a string by removing characters
+	 * @return float value for a string by removing characters
 	 */
 	@Keyword
 	def floatValueGenerator(String stringToBeConvertedToFloatValue) {
-
 		int counter=0
-
 		while(stringToBeConvertedToFloatValue[counter]!='0' && stringToBeConvertedToFloatValue[counter]!='1' && stringToBeConvertedToFloatValue[counter]!='2' && stringToBeConvertedToFloatValue[counter]!='3' && stringToBeConvertedToFloatValue[counter]!='4' && stringToBeConvertedToFloatValue[counter]!='5' && stringToBeConvertedToFloatValue[counter]!='6' && stringToBeConvertedToFloatValue[counter]!='7' && stringToBeConvertedToFloatValue[counter]!='8' && stringToBeConvertedToFloatValue[counter]!='9' ) {
 			counter++
 		}
-
 		String stringWithoutCharacters=stringToBeConvertedToFloatValue.substring(counter)
-
 		float stringWithoutCharactersFloatValue=Float.parseFloat(stringWithoutCharacters)
-
 		return stringWithoutCharactersFloatValue
 	}
+
+
+	/**
+	 * this function formats the decimal data for e.g 20.546 would be converted to 20.55 if decimalFormatRequired is 0.00
+	 * @param decimalDataToBeFormatted (decimal data required to be formatted), 
+	 * @param decimalFormatRequired (decimal format required for e.g 0.00 for rounding to 2 decimal places)
+	 * @return formattedDecimalData (formatted decimal data)
+	 */
+	@Keyword
+	def formatDecimalData(decimalDataToBeFormatted, String decimalFormatRequired) {
+		DecimalFormat decimalFormat=new DecimalFormat (decimalFormatRequired);
+		decimalFormat.setRoundingMode(RoundingMode.UP) //rounding mode set to UP
+		String formattedDecimalData=decimalFormat.format(decimalDataToBeFormatted) //storing formatted value in the variable formattedDecimalData
+		KeywordUtil.logInfo(formattedDecimalData)
+		return formattedDecimalData // returns formattedDecimalData
+		}
 
 
 	/**
@@ -100,5 +115,15 @@ class commonMethods {
 		def fileReference = new File(RunConfiguration.getProjectDir() + "/Data Files/" + nameValue)
 		def jsonObject = jsonSlurper.parse(fileReference)
 		return jsonObject
+	}
+
+	/**
+	 * Get mobile driver for current session
+	 * @return mobile driver for current session
+	 */
+	@Keyword
+
+	def static WebDriver getCurrentSessionMobileDriver() {
+		return MobileDriverFactory.getDriver();
 	}
 }
