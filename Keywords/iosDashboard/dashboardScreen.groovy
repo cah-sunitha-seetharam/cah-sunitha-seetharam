@@ -121,7 +121,7 @@ class dashboardScreen {
 
 
 
-	/**
+/**
 	 * this function verifies the dash-board details Screen
 	 */
 	@Keyword
@@ -131,6 +131,4 @@ class dashboardScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Dashboard/Verification/homeBottomNavigationTab_Bar'), 0)
 	}
-
-
 }

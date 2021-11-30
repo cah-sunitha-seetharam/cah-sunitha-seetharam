@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that user is able to submit the C2 Order successfully.
+Prerequisite:
+1. Valid Login Credentials.
+2. Order API should be success. 
+3. Order Status API should be success in 30 seconds.
+4. User should have the valid DEA license.
+5. User should be in Cart Page.
+6. Already created Non C2 Order should be available.
+7. Order status should be changed from Held to Allocated post successful signature with in 30 seconds</description>
+   <name>TC_JT_CSOS_001_verifyThatUserIsAbleToSubmitTheC2OrderSuccessfully</name>
+   <tag>Order;Regression;CSOS</tag>
+   <comment></comment>
+   <testCaseGuid>61300f79-6a36-49eb-b3f5-513b8d1318a9</testCaseGuid>
+   <variable>
+      <defaultValue>'csos'</defaultValue>
+      <description></description>
+      <id>1498e5b4-611c-48ee-80d5-625a83829e16</id>
+      <masked>false</masked>
+      <name>signingPassword</name>
+   </variable>
+   <variable>
+      <defaultValue>'po_name'</defaultValue>
+      <description></description>
+      <id>4e26cecb-89a7-4af6-86ae-d64cba33c4c0</id>
+      <masked>false</masked>
+      <name>poName</name>
+   </variable>
+   <variable>
+      <defaultValue>'po_memo'</defaultValue>
+      <description></description>
+      <id>f0ae155f-7fed-49ee-9908-9a967e9ede88</id>
+      <masked>false</masked>
+      <name>poMemo</name>
+   </variable>
+   <variable>
+      <defaultValue>'2'</defaultValue>
+      <description></description>
+      <id>330ad1ec-82c6-48fd-97d0-2168d67c6701</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+</TestCaseEntity>

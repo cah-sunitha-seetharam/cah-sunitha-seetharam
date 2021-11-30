@@ -16,93 +16,86 @@ import com.kms.katalon.core.testobject.TestObject
 import com.applitools.eyes.RectangleSize
 
 
- /**
-	 * enable EO mode by long pressing the account text/icon displayed on screen and then closes the opened fly-out
-	 */ 
-def static "android_common_keywords.emergencyOrderingMode.enableEOmodeAndCloseFlyout"() {
-    (new android_common_keywords.emergencyOrderingMode()).enableEOmodeAndCloseFlyout()
+
+def static "androidDashboard.dashboardDetailsScreen.change_Account"(
+    	String new_Account	) {
+    (new androidDashboard.dashboardDetailsScreen()).change_Account(
+        	new_Account)
+}
+
+
+def static "androidDashboard.dashboardDetailsScreen.Adding_Product_from_Dashboard_To_Cart"(
+    	String Product_Name	
+     , 	String Quantity	) {
+    (new androidDashboard.dashboardDetailsScreen()).Adding_Product_from_Dashboard_To_Cart(
+        	Product_Name
+         , 	Quantity)
 }
 
  /**
-	 * enable/disable EO mode by long pressing the account text/icon displayed on screen
+	 * opens orders tab where user can perform actions related to orders
 	 */ 
-def static "android_common_keywords.emergencyOrderingMode.enableOrDisableEOmode"() {
-    (new android_common_keywords.emergencyOrderingMode()).enableOrDisableEOmode()
+def static "androidDashboard.dashboardDetailsScreen.clickOnOrders"() {
+    (new androidDashboard.dashboardDetailsScreen()).clickOnOrders()
 }
 
- /**
-	 * clicks on product search field
-	 */ 
+
+def static "androidDashboard.dashboardDetailsScreen.click_On_HomeTab"() {
+    (new androidDashboard.dashboardDetailsScreen()).click_On_HomeTab()
+}
+
+
+def static "androidDashboard.dashboardDetailsScreen.click_On_More_Options"() {
+    (new androidDashboard.dashboardDetailsScreen()).click_On_More_Options()
+}
+
+
 def static "iosCommonKeywords.commonMethods.clickOnProductSearchTextField"() {
     (new iosCommonKeywords.commonMethods()).clickOnProductSearchTextField()
 }
 
- /**
-	 * clicks on Search Key of the keypad
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.clickOnSearchKey"() {
     (new iosCommonKeywords.commonMethods()).clickOnSearchKey()
 }
 
- /**
-	 * this method closes the popUp screen by tapping on close, cancel button
-	 * @param testobj (reference of the close, cancel button)
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.closePopUpScreen"(
     	Object testobj	) {
     (new iosCommonKeywords.commonMethods()).closePopUpScreen(
         	testobj)
 }
 
- /**
-	 * inputs the product search which can be name/Cin/UPC/NDC in the product search-field
-	 * @param productSearch (which can be name/Cin/UPC/NDC in the product search-field)
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.enterProductInSearchField"(
     	Object productSearch	) {
     (new iosCommonKeywords.commonMethods()).enterProductInSearchField(
         	productSearch)
 }
 
- /**
-	 * this method will take the application one screen back
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.goOneScreenBack"() {
     (new iosCommonKeywords.commonMethods()).goOneScreenBack()
 }
 
- /**
-	 * installs as well as launches the application
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication"() {
     (new iosCommonKeywords.commonMethods()).installingAndlaunchingTheApplication()
 }
 
- /**
-	 * performs basic text management operations:Copy,Cut,Paste,Share
-	 * @param operationToBePerformed (in operationToBePerformed argument all alphabets should be lower-case except the first one for e.g Copy, Cut)
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.performBasicTextManagementOperation"(
     	String operationToBePerformed	) {
     (new iosCommonKeywords.commonMethods()).performBasicTextManagementOperation(
         	operationToBePerformed)
 }
 
- /**
-	 * opens the inventory listing screen by firstly clicking on more options from dash-board 
-	 * and then clicks on inventory under more options screen which takes user to inventory listing screen
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.takeUserFromHomeToInventoryListingScreen"() {
     (new iosCommonKeywords.commonMethods()).takeUserFromHomeToInventoryListingScreen()
 }
 
- /**
-	 * performs login function by selecting the type of testing (automation or manual), environment of testing(taken from the global profile), entering user-name and password
-	 * and then selects the user account from the accounts list and takes user to the dash-board screen
-	 * @param username
-	 * @param password
-	 * @param accountNo
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen"(
     	Object username	
      , 	Object password	
@@ -113,24 +106,14 @@ def static "iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen"(
          , 	accountNo)
 }
 
- /**
-	 * generates the coordinate x for a test object by considering ElementLeftPosition and ElementWidth
-	 * @param testObj (reference of the testObject passed as a parameter)
-	 * @param text (name of the element)
-	 * @return int value for the xCoordinate
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.tapXCoordinateGenerator"(
     	String testObj	) {
     (new iosCommonKeywords.commonMethods()).tapXCoordinateGenerator(
         	testObj)
 }
 
- /**
-	 * generates the coordinate y for a test object by considering ElementTopPosition and ElementHeight
-	 * @param testObj (reference of the testObject passed as a parameter)
-	 * @param text (name of the element)
-	 * @return int value for the yCoordinate
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.tapYCoordinateGenerator"(
     	String testObj	
      , 	String text	) {
@@ -139,21 +122,14 @@ def static "iosCommonKeywords.commonMethods.tapYCoordinateGenerator"(
          , 	text)
 }
 
- /**
-	 * this method verifies the popUp screen is visible
-	 * @param testobj (reference of the popUp screen object under verification)
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.verifyPopUpScreenExist"(
     	Object testobj	) {
     (new iosCommonKeywords.commonMethods()).verifyPopUpScreenExist(
         	testobj)
 }
 
- /**
-	 * this function verifies that the product is not visible on the screen
-	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
-	 * @param testObj (test object of the element under verification)
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.verifyProductIsNotVisibleOnTheScreen"(
     	Object testObj	
      , 	Object productIdentificationNumber	) {
@@ -162,11 +138,7 @@ def static "iosCommonKeywords.commonMethods.verifyProductIsNotVisibleOnTheScreen
          , 	productIdentificationNumber)
 }
 
- /**
-	 * this function verifies that the product is visible on the screen
-	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
-	 * @param testObj (test object of the element under verification)
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScreen"(
     	Object testObj	
      , 	Object productIdentificationNumber	) {
@@ -175,37 +147,24 @@ def static "iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScreen"(
          , 	productIdentificationNumber)
 }
 
- /**
-	 * refreshes the screen by doing a vertical swipe by considering the deviceHeight and deviceWidth
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.verticalSwipeForRefresh"() {
     (new iosCommonKeywords.commonMethods()).verticalSwipeForRefresh()
 }
 
- /**
-	 * this function verifies that the product is visible on the product search screen after search
-	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
-	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheProductSearchScreen"(
     	Object productNdcNumber	) {
     (new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheProductSearchScreen(
         	productNdcNumber)
 }
 
- /**
-	 * waits until the progressBar is visible on the screen, which will have a maximum waitLimit to be visible on the screen
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible"() {
     (new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 }
 
- /**
-	 * waits until the object is visible on the screen, which will have a maximum waitLimit to be visible on the screen
-	 * @param testObj (reference of the test Object)
-	 * @param waitTime (time by which delay will be added in(s))
-	 * @param waitLimit (maximum limit of time for which delay can be added)
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.waitTimeForObjectToBeVisible"(
     	Object testObj	
      , 	int waitTime	
@@ -216,11 +175,401 @@ def static "iosCommonKeywords.commonMethods.waitTimeForObjectToBeVisible"(
          , 	waitLimit)
 }
 
+
+def static "androidOrders.newOrderScreen.change_Account"(
+    	String New_Account	) {
+    (new androidOrders.newOrderScreen()).change_Account(
+        	New_Account)
+}
+
+
+def static "androidOrders.newOrderScreen.enter_Purchase_Order_Details"(
+    	String PO_Name	
+     , 	String PO_Memo	) {
+    (new androidOrders.newOrderScreen()).enter_Purchase_Order_Details(
+        	PO_Name
+         , 	PO_Memo)
+}
+
  /**
-	 * adds products to a location
-	 * @param locationName (name of the location)
-	 * @param productName (name of the product to be added)
+	 * taps on create order button to create an order
 	 */ 
+def static "androidOrders.newOrderScreen.createOrder"() {
+    (new androidOrders.newOrderScreen()).createOrder()
+}
+
+
+def static "androidOrders.newOrderScreen.click_On_NewOrder"() {
+    (new androidOrders.newOrderScreen()).click_On_NewOrder()
+}
+
+
+def static "androidOrders.newOrderScreen.verify_NewOrder_Screen_Details"() {
+    (new androidOrders.newOrderScreen()).verify_NewOrder_Screen_Details()
+}
+
+ /**
+	 * takes user to new order screen where user can input purchase order details and can create an order
+	 */ 
+def static "iosOrders.ordersCommonScreen.clickOnNewOrder"() {
+    (new iosOrders.ordersCommonScreen()).clickOnNewOrder()
+}
+
+
+def static "iosOrders.ordersCommonScreen.clickOnHistoryTab"() {
+    (new iosOrders.ordersCommonScreen()).clickOnHistoryTab()
+}
+
+
+def static "iosOrders.ordersCommonScreen.clickOnCartTab"() {
+    (new iosOrders.ordersCommonScreen()).clickOnCartTab()
+}
+
+ /**
+	 * this function gets the total added quantity of the product
+	 * @return quantityNumericalValue (of the product which has been added)
+	 */ 
+def static "iosOrders.orderDetailsScreen.returnQuantityOfTheAddedProduct"() {
+    (new iosOrders.orderDetailsScreen()).returnQuantityOfTheAddedProduct()
+}
+
+
+def static "iosOrders.orderDetailsScreen.add_Alternate_Product"(
+    	String product_Name	
+     , 	String quantity	) {
+    (new iosOrders.orderDetailsScreen()).add_Alternate_Product(
+        	product_Name
+         , 	quantity)
+}
+
+ /**
+	 * searches for a product by setting product name and quantity as the input
+	 * @param productName (product to be added), quantity (total quantity required to be added)
+	 */ 
+def static "iosOrders.orderDetailsScreen.addProductToOrder"(
+    	String productName	
+     , 	String quantity	) {
+    (new iosOrders.orderDetailsScreen()).addProductToOrder(
+        	productName
+         , 	quantity)
+}
+
+ /**
+	 * this function adds the quantity for the product to be searched
+	 * @param quantity (quantity required to be added for the product to be searched)
+	 */ 
+def static "iosOrders.orderDetailsScreen.addQuantityforTheSearchedProduct"(
+    	String quantity	) {
+    (new iosOrders.orderDetailsScreen()).addQuantityforTheSearchedProduct(
+        	quantity)
+}
+
+ /**
+	 * clicks on c2 order availability and waits for the response while verifying the availability details for the c2 product
+	 */ 
+def static "iosOrders.orderDetailsScreen.checkC2OrderAvailability"() {
+    (new iosOrders.orderDetailsScreen()).checkC2OrderAvailability()
+}
+
+ /**
+	 * takes user back to cart screen and verifies user is on the cart screen
+	 */ 
+def static "iosOrders.orderDetailsScreen.clickOnBackToCart"() {
+    (new iosOrders.orderDetailsScreen()).clickOnBackToCart()
+}
+
+ /**
+	 * takes user back to the search product results to continue browsing
+	 */ 
+def static "iosOrders.orderDetailsScreen.clickOnContinueOrderingOnDesktop"() {
+    (new iosOrders.orderDetailsScreen()).clickOnContinueOrderingOnDesktop()
+}
+
+ /**
+	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at ordering
+	 */ 
+def static "iosOrders.orderDetailsScreen.clickOnScanIcon"() {
+    (new iosOrders.orderDetailsScreen()).clickOnScanIcon()
+}
+
+ /**
+	 * creates a new C2 order 
+	 * @param poName (poName of the order), poMemo (poMemo of the order)
+	 */ 
+def static "iosOrders.orderDetailsScreen.createNewC2Order"(
+    	String poName	
+     , 	String poMemo	) {
+    (new iosOrders.orderDetailsScreen()).createNewC2Order(
+        	poName
+         , 	poMemo)
+}
+
+
+def static "iosOrders.orderDetailsScreen.edit_PO_Name_and_Memo"(
+    	String po_Name	
+     , 	String po_Memo	) {
+    (new iosOrders.orderDetailsScreen()).edit_PO_Name_and_Memo(
+        	po_Name
+         , 	po_Memo)
+}
+
+ /**
+	 * clicks on place order button
+	 */ 
+def static "iosOrders.orderDetailsScreen.placeOrder"() {
+    (new iosOrders.orderDetailsScreen()).placeOrder()
+}
+
+ /**
+	 * scans the product and adds it to the location
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */ 
+def static "iosOrders.orderDetailsScreen.scanInputEvent"(
+    	String productToBeSearched	) {
+    (new iosOrders.orderDetailsScreen()).scanInputEvent(
+        	productToBeSearched)
+}
+
+ /**
+	 * this function selects toggle value for the product to be added which can be ordering or price check)
+	 * @param toggleValue (toggleValue required to be selected for the product to be added which can be ordering or price check)
+	 */ 
+def static "iosOrders.orderDetailsScreen.selectToggleValueForTheProductToBeSearched"(
+    	String toggleValue	) {
+    (new iosOrders.orderDetailsScreen()).selectToggleValueForTheProductToBeSearched(
+        	toggleValue)
+}
+
+ /**
+	 * uploads the order by clicking on upload order button
+	 */ 
+def static "iosOrders.orderDetailsScreen.uploadOrder"() {
+    (new iosOrders.orderDetailsScreen()).uploadOrder()
+}
+
+ /**
+	 * verifies the pop up which appears after user clicks on upload order
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyUploadOrderPopUp"() {
+    (new iosOrders.orderDetailsScreen()).verifyUploadOrderPopUp()
+}
+
+
+def static "iosOrders.orderDetailsScreen.verify_Order_Details_Screen_Details_with_added_product"() {
+    (new iosOrders.orderDetailsScreen()).verify_Order_Details_Screen_Details_with_added_product()
+}
+
+ /**
+	 * verifies order details screen when user creates an order
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyOrderDetailsScreenWithoutAnyAddedProduct"(
+    	Object poName	) {
+    (new iosOrders.orderDetailsScreen()).verifyOrderDetailsScreenWithoutAnyAddedProduct(
+        	poName)
+}
+
+
+def static "androidCommonKeywords.emergencyOrderingMode.enableEOmodeAndCloseFlyout"() {
+    (new androidCommonKeywords.emergencyOrderingMode()).enableEOmodeAndCloseFlyout()
+}
+
+
+def static "androidCommonKeywords.emergencyOrderingMode.enableOrDisableEOmode"() {
+    (new androidCommonKeywords.emergencyOrderingMode()).enableOrDisableEOmode()
+}
+
+ /**
+	 * selects the user account from the accounts list and takes user to the dashboard screen
+	 * @param accountNo (user account number to be selected)
+	 */ 
+def static "androidAccountSelection.selectAnAccount.selectTheUserAccount"(
+    	String accountNo	) {
+    (new androidAccountSelection.selectAnAccount()).selectTheUserAccount(
+        	accountNo)
+}
+
+ /**
+	 * performs login function by selecting environment of testing(taken from the global profile), entering user-name and password
+	 * @param username (it is taken from the global profile but passed as a parameter),password  (it is taken from the global profile but passed as a parameter)
+	 */ 
+def static "androidLogin.loginScreen.login"(
+    	Object username	
+     , 	Object password	) {
+    (new androidLogin.loginScreen()).login(
+        	username
+         , 	password)
+}
+
+ /**
+	 * selects the environment of testing which is taken from the global profile
+	 */ 
+def static "androidLogin.loginScreen.selectEnvironment"() {
+    (new androidLogin.loginScreen()).selectEnvironment()
+}
+
+ /**
+	 * enters the user-name
+	 * @param username (it is taken from the global profile but passed as a parameter)
+	 */ 
+def static "androidLogin.loginScreen.enterUsername"(
+    	String username	) {
+    (new androidLogin.loginScreen()).enterUsername(
+        	username)
+}
+
+ /**
+	 * enters the password
+	 * @param password (it is taken from the global profile but passed as a parameter)
+	 */ 
+def static "androidLogin.loginScreen.enterPassword"(
+    	String password	) {
+    (new androidLogin.loginScreen()).enterPassword(
+        	password)
+}
+
+ /**
+	 * clicks on signIn button and takes to the dash-board of the application
+	 */ 
+def static "androidLogin.loginScreen.clickOnSignInButton"() {
+    (new androidLogin.loginScreen()).clickOnSignInButton()
+}
+
+ /**
+	 * clicks on forget password button
+	 */ 
+def static "androidLogin.loginScreen.clickOnForgotPassword"() {
+    (new androidLogin.loginScreen()).clickOnForgotPassword()
+}
+
+ /**
+	 * verifies the details of login Page
+	 */ 
+def static "androidLogin.loginScreen.verifyLoginPageDetails"() {
+    (new androidLogin.loginScreen()).verifyLoginPageDetails()
+}
+
+ /**
+	 * cancels uploading of orders and keeps orders on the application
+	 */ 
+def static "iosOrders.cartScreen.cancelUploadAndKeepOrdersOnTheApp"() {
+    (new iosOrders.cartScreen()).cancelUploadAndKeepOrdersOnTheApp()
+}
+
+ /**
+	 * takes user back to cart screen and verifies user is on the cart screen
+	 */ 
+def static "iosOrders.cartScreen.clickOnBackToCart"() {
+    (new iosOrders.cartScreen()).clickOnBackToCart()
+}
+
+ /**
+	 * opens the c2 orders tab
+	 */ 
+def static "iosOrders.cartScreen.clickOnC2Orders"() {
+    (new iosOrders.cartScreen()).clickOnC2Orders()
+}
+
+ /**
+	 * clicks on all place all orders button on cart screen
+	 */ 
+def static "iosOrders.cartScreen.clickOnPlaceAllOrders"() {
+    (new iosOrders.cartScreen()).clickOnPlaceAllOrders()
+}
+
+ /**
+	 * confirms placing all order by clicking on place all orders confirmation button and verifies details related to placed order
+	 */ 
+def static "iosOrders.cartScreen.confirmPlacingAllOrders"() {
+    (new iosOrders.cartScreen()).confirmPlacingAllOrders()
+}
+
+ /**
+	 * clicks on continue orders on the desktop and verifies popUp which appears after tapping on continue on desktop
+	 */ 
+def static "iosOrders.cartScreen.continueOrdersOnTheDesktop"() {
+    (new iosOrders.cartScreen()).continueOrdersOnTheDesktop()
+}
+
+
+def static "iosOrders.cartScreen.delete_Order"(
+    	String Account_No	) {
+    (new iosOrders.cartScreen()).delete_Order(
+        	Account_No)
+}
+
+ /**
+	 * takes user back to cart to review all orders
+	 */ 
+def static "iosOrders.cartScreen.goBackToReviewAllOrders"() {
+    (new iosOrders.cartScreen()).goBackToReviewAllOrders()
+}
+
+ /**
+	 * takes user to dash-board
+	 */ 
+def static "iosOrders.cartScreen.goToDashboard"() {
+    (new iosOrders.cartScreen()).goToDashboard()
+}
+
+ /**
+	 * opens the order details page
+	 * @param accountNo (accountNo used to create the order)
+	 */ 
+def static "iosOrders.cartScreen.openAnOrderDetails"(
+    	String accountNo	) {
+    (new iosOrders.cartScreen()).openAnOrderDetails(
+        	accountNo)
+}
+
+ /**
+	 * opens the c2 order details
+	 */ 
+def static "iosOrders.cartScreen.openC2OrderDetails"() {
+    (new iosOrders.cartScreen()).openC2OrderDetails()
+}
+
+ /**
+	 * uploads all order by clicking on upload all orders button on cart screen
+	 */ 
+def static "iosOrders.cartScreen.uploadAllOrders"() {
+    (new iosOrders.cartScreen()).uploadAllOrders()
+}
+
+
+def static "iosOrders.cartScreen.verify_Cart_Screen_Details_with_Added_Product"() {
+    (new iosOrders.cartScreen()).verify_Cart_Screen_Details_with_Added_Product()
+}
+
+
+def static "iosOrders.cartScreen.verify_Cart_Screen_Details_without_Adding_any_Product"() {
+    (new iosOrders.cartScreen()).verify_Cart_Screen_Details_without_Adding_any_Product()
+}
+
+ /**
+	 * verifies that the created order should not be visible on the cart screen
+	 * @param poName (purchase order name used to create the order)
+	 */ 
+def static "iosOrders.cartScreen.verifyOrderNotVisibleOnTheCartScreen"(
+    	String poName	) {
+    (new iosOrders.cartScreen()).verifyOrderNotVisibleOnTheCartScreen(
+        	poName)
+}
+
+ /**
+	 * verifies pop up screen which comes after clicking on place all orders button on cart screen
+	 */ 
+def static "iosOrders.cartScreen.verifyPlaceAllOrdersPopUp"() {
+    (new iosOrders.cartScreen()).verifyPlaceAllOrdersPopUp()
+}
+
+ /**
+	 * verifies pop up screen which comes after clicking on upload all orders button on cart screen
+	 */ 
+def static "iosOrders.cartScreen.verifyUploadAllOrdersPopUp"() {
+    (new iosOrders.cartScreen()).verifyUploadAllOrdersPopUp()
+}
+
+
 def static "iosInventory.locationDetailsScreen.addProducttoLocation"(
     	String locationName	
      , 	String productName	) {
@@ -229,35 +578,24 @@ def static "iosInventory.locationDetailsScreen.addProducttoLocation"(
          , 	productName)
 }
 
- /**
-	 * this function inputs the quantity value for the product to be searched
-	 * @param quantity (quantity required to be added for the product to be searched)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.addQuantityforTheSearchedProduct"(
     	String quantity	) {
     (new iosInventory.locationDetailsScreen()).addQuantityforTheSearchedProduct(
         	quantity)
 }
 
- /**
-	 * this function taps on remove button and then product entry should get removed from the location as well as the scan result screen
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.clickOnRemoveButtonToRemoveAlreadyScannedProduct"() {
     (new iosInventory.locationDetailsScreen()).clickOnRemoveButtonToRemoveAlreadyScannedProduct()
 }
 
- /**
-	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at full count
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.clickOnScanIcon"() {
     (new iosInventory.locationDetailsScreen()).clickOnScanIcon()
 }
 
- /**
-	 * copies products from a location to another location
-	 * @param locationName (name of the location to which product will be copied)
-	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
-	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object	 */ 
+
 def static "iosInventory.locationDetailsScreen.copyProductToAnotherLocation"(
     	String locationName	
      , 	String productNdcNumber	) {
@@ -266,21 +604,14 @@ def static "iosInventory.locationDetailsScreen.copyProductToAnotherLocation"(
          , 	productNdcNumber)
 }
 
- /**
-	 * deletes a product from the added products list in a location
-	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
-	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object	 */ 
+
 def static "iosInventory.locationDetailsScreen.deleteProduct"(
     	String productNdcNumber	) {
     (new iosInventory.locationDetailsScreen()).deleteProduct(
         	productNdcNumber)
 }
 
- /**
-	 * edits the location name and cost type can be changed(last price or current price paid)
-	 * @param newLocationName (new name of the location)
-	 * @param costType (cost type required which can be current or last price paid)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.editLocationName"(
     	String newLocationName	
      , 	String costType	) {
@@ -289,11 +620,7 @@ def static "iosInventory.locationDetailsScreen.editLocationName"(
          , 	costType)
 }
 
- /**
-	 * moves products from a location to another location
-	 * @param locationName (name of the location to which product will be moved)
-	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
-	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object	 */ 
+
 def static "iosInventory.locationDetailsScreen.moveProductToAnotherLocation"(
     	String locationName	
      , 	String productNdcNumber	) {
@@ -302,75 +629,50 @@ def static "iosInventory.locationDetailsScreen.moveProductToAnotherLocation"(
          , 	productNdcNumber)
 }
 
- /**
-	 * this function gets the total added quantity of the product
-	 * @return quantityNumericalValue (of the product which has been added)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.returnQuantityOfTheAddedProduct"() {
     (new iosInventory.locationDetailsScreen()).returnQuantityOfTheAddedProduct()
 }
 
- /**
-	 * this function gets the unit of issue cost(UOI) of the added product
-	 * @return uoiCost_dollarSymbolRemoved_FloatValue (of the product which has been added)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.returnUOIOfTheAddedProduct"() {
     (new iosInventory.locationDetailsScreen()).returnUOIOfTheAddedProduct()
 }
 
- /**
-	 * scans the product and adds it to the location 
-	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.scanInputEvent"(
     	String productToBeSearched	) {
     (new iosInventory.locationDetailsScreen()).scanInputEvent(
         	productToBeSearched)
 }
 
- /**
-	 * this function selects the toggle value of countType for the product to be added 
-	 * @param countType (countType required to be selected for the product to be added which can be full or partial count)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.selectCountTypeForTheProductToBeAdded"(
     	String countType	) {
     (new iosInventory.locationDetailsScreen()).selectCountTypeForTheProductToBeAdded(
         	countType)
 }
 
- /**
-	 * uploads location from the location details screen
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.uploadLocation"() {
     (new iosInventory.locationDetailsScreen()).uploadLocation()
 }
 
- /**
-	 * this function gets the count type of the added product and verifies whether that is equal to the expected count type
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.verifyCountTypeOfProduct"(
     	String expectedCountType	) {
     (new iosInventory.locationDetailsScreen()).verifyCountTypeOfProduct(
         	expectedCountType)
 }
 
- /**
-	 * this function verifies the lines count
-	 * @param expectedLinesCount (expected lines Count)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.verifyLinesCount"(
     	String expectedLinesCount	) {
     (new iosInventory.locationDetailsScreen()).verifyLinesCount(
         	expectedLinesCount)
 }
 
- /**
-	 * verifies details of location details screen (if user wants to scan a product with same count type more than once, then in the test case, only the updated quantity along with countType and ndcNumber should be pushed into the stack)
-	 * @param countTypeStack (stack of the countTypes selected for adding each product)
-	 * @param quantityStack (stack of the quantity added for each product) 
-	 * @param productNdcStack (stack of the ndcNumbers of added products)
-	 * @param unitOfIssueCostStack (stack of UOI costs of the added products)
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.verifyLocationDetailsScreen"(
     	Stack countTypeStack	
      , 	Stack quantityStack	
@@ -383,49 +685,35 @@ def static "iosInventory.locationDetailsScreen.verifyLocationDetailsScreen"(
          , 	unitOfIssueCostStack)
 }
 
- /**
-	 * this function verifies that the product is visible on the location details screen
-	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
-	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.verifyProductIsNotVisibleOnTheLocationDetailsScreen"(
     	Object productNdcNumber	) {
     (new iosInventory.locationDetailsScreen()).verifyProductIsNotVisibleOnTheLocationDetailsScreen(
         	productNdcNumber)
 }
 
- /**
-	 * this function verifies that the product is not visible on the location details screen
-	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
-	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen"(
     	Object productNdcNumber	) {
     (new iosInventory.locationDetailsScreen()).verifyProductIsVisibleOnTheLocationDetailsScreen(
         	productNdcNumber)
 }
 
- /**
-	 * verifies that the latest added product is at the top of the added products list, then deletes the latest added product and continues the process to verifyReverseChronologicalOrder of the added products
-	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
-	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.verifyReverseChronologicalOrder"(
     	Stack productNdcNumber	) {
     (new iosInventory.locationDetailsScreen()).verifyReverseChronologicalOrder(
         	productNdcNumber)
 }
 
- /**
-	 * taps on shares location button, verifies the pop-up screen and closes the pop-up screen
-	 */ 
+
 def static "iosInventory.locationDetailsScreen.verifyShareLocationPopUp"() {
     (new iosInventory.locationDetailsScreen()).verifyShareLocationPopUp()
 }
 
  /**
-	 * performs login function
-	 * @param username,password
+	 * performs login function by selecting the type of testing (automation or manual), environment of testing(taken from the global profile), entering user-name and password
+	 * @param username (it is taken from the global profile but passed as a parameter),password  (it is taken from the global profile but passed as a parameter)
 	 */ 
 def static "iosLogin.loginScreen.login"(
     	Object username	
@@ -436,154 +724,153 @@ def static "iosLogin.loginScreen.login"(
 }
 
  /**
-	 * selects the environment
+	 * selects the environment of testing which is taken from the global profile
 	 */ 
-def static "iosLogin.loginScreen.select_Environment"() {
-    (new iosLogin.loginScreen()).select_Environment()
+def static "iosLogin.loginScreen.selectEnvironment"() {
+    (new iosLogin.loginScreen()).selectEnvironment()
 }
 
  /**
-	 * selects type of testing
-	 * @param testingType
+	 * selects type of testing which can be manual or automation
+	 * @param testingType (directly passed as a parameter for automation)
 	 */ 
-def static "iosLogin.loginScreen.select_type_Of_Testing"(
+def static "iosLogin.loginScreen.selectTypeOfTesting"(
     	String testingType	) {
-    (new iosLogin.loginScreen()).select_type_Of_Testing(
+    (new iosLogin.loginScreen()).selectTypeOfTesting(
         	testingType)
 }
 
  /**
-	 * enters the username
-	 * @param username
+	 * enters the user-name
+	 * @param username (it is taken from the global profile but passed as a parameter)
 	 */ 
-def static "iosLogin.loginScreen.enter_Username"(
+def static "iosLogin.loginScreen.enterUsername"(
     	String username	) {
-    (new iosLogin.loginScreen()).enter_Username(
+    (new iosLogin.loginScreen()).enterUsername(
         	username)
 }
 
  /**
 	 * enters the password
-	 * @param password
+	 * @param password (it is taken from the global profile but passed as a parameter)
 	 */ 
-def static "iosLogin.loginScreen.enter_Password"(
+def static "iosLogin.loginScreen.enterPassword"(
     	String password	) {
-    (new iosLogin.loginScreen()).enter_Password(
+    (new iosLogin.loginScreen()).enterPassword(
         	password)
 }
 
  /**
-	 * clicks on signIn button
-	 * @param password
+	 * clicks on signIn button and takes to the dash-board of the application
 	 */ 
-def static "iosLogin.loginScreen.click_On_SignIn_Button"() {
-    (new iosLogin.loginScreen()).click_On_SignIn_Button()
+def static "iosLogin.loginScreen.clickOnSignInButton"() {
+    (new iosLogin.loginScreen()).clickOnSignInButton()
 }
 
  /**
 	 * clicks on forget password button
 	 */ 
-def static "iosLogin.loginScreen.click_On_Forgot_Password"() {
-    (new iosLogin.loginScreen()).click_On_Forgot_Password()
+def static "iosLogin.loginScreen.clickOnForgotPassword"() {
+    (new iosLogin.loginScreen()).clickOnForgotPassword()
 }
 
  /**
 	 * verifies the details of login Page
 	 */ 
-def static "iosLogin.loginScreen.verify_LoginPage_Details"() {
-    (new iosLogin.loginScreen()).verify_LoginPage_Details()
+def static "iosLogin.loginScreen.verifyLoginPageDetails"() {
+    (new iosLogin.loginScreen()).verifyLoginPageDetails()
 }
 
 
-def static "iosLogin.loginScreen.select_type_Of_Testing"() {
-    (new iosLogin.loginScreen()).select_type_Of_Testing()
+def static "iosLogin.loginScreen.selectTypeOfTesting"() {
+    (new iosLogin.loginScreen()).selectTypeOfTesting()
 }
 
 
-def static "ios_orders.New_Order_Screen.change_Account"(
-    	String new_Account	) {
-    (new ios_orders.New_Order_Screen()).change_Account(
-        	new_Account)
+def static "androidOrders.orderDetailsScreen.upload_Order"() {
+    (new androidOrders.orderDetailsScreen()).upload_Order()
 }
 
 
-def static "ios_orders.New_Order_Screen.enter_Purchase_Order_Details"(
-    	String po_Name	
-     , 	String po_Memo	) {
-    (new ios_orders.New_Order_Screen()).enter_Purchase_Order_Details(
-        	po_Name
-         , 	po_Memo)
+def static "androidOrders.orderDetailsScreen.placeOrder"() {
+    (new androidOrders.orderDetailsScreen()).placeOrder()
+}
+
+ /**
+	 * takes user back to cart
+	 */ 
+def static "androidOrders.orderDetailsScreen.clickOnBackToCart"() {
+    (new androidOrders.orderDetailsScreen()).clickOnBackToCart()
+}
+
+ /**
+	 * creates a new C2 order
+	 * @param poName (poName of the order), poMemo (poMemo of the order)
+	 */ 
+def static "androidOrders.orderDetailsScreen.createNewC2Order"(
+    	String poName	
+     , 	String poMemo	) {
+    (new androidOrders.orderDetailsScreen()).createNewC2Order(
+        	poName
+         , 	poMemo)
+}
+
+ /**
+	 * clicks on c2 order availability and waits for the response while verifying the availability details for the c2 product
+	 */ 
+def static "androidOrders.orderDetailsScreen.checkC2ProductAvailability"() {
+    (new androidOrders.orderDetailsScreen()).checkC2ProductAvailability()
+}
+
+ /**
+	 * searches for a product by setting product name and quantity as the input
+	 * @param productName (product to be added), quantity (total quantity required to be added)
+	 */ 
+def static "androidOrders.orderDetailsScreen.addProductToOrder"(
+    	String productName	
+     , 	String quantity	) {
+    (new androidOrders.orderDetailsScreen()).addProductToOrder(
+        	productName
+         , 	quantity)
+}
+
+ /**
+	 * takes user back to the search product results to continue browsing
+	 */ 
+def static "androidOrders.orderDetailsScreen.clickOnContinueOrdering"() {
+    (new androidOrders.orderDetailsScreen()).clickOnContinueOrdering()
 }
 
 
-def static "ios_orders.New_Order_Screen.create_Order"() {
-    (new ios_orders.New_Order_Screen()).create_Order()
+def static "androidOrders.orderDetailsScreen.edit_PO_Name_and_Memo"(
+    	String PO_Name	
+     , 	String PO_Memo	
+     , 	String New_po_Name	
+     , 	String New_po_Memo	) {
+    (new androidOrders.orderDetailsScreen()).edit_PO_Name_and_Memo(
+        	PO_Name
+         , 	PO_Memo
+         , 	New_po_Name
+         , 	New_po_Memo)
 }
 
 
-def static "ios_orders.New_Order_Screen.click_On_NewOrder"() {
-    (new ios_orders.New_Order_Screen()).click_On_NewOrder()
+def static "androidOrders.orderDetailsScreen.add_ALternate_Product"(
+    	String Product_Name	
+     , 	String Quantity	) {
+    (new androidOrders.orderDetailsScreen()).add_ALternate_Product(
+        	Product_Name
+         , 	Quantity)
 }
 
 
-def static "ios_orders.New_Order_Screen.verify_NewOrder_Screen_Details"() {
-    (new ios_orders.New_Order_Screen()).verify_NewOrder_Screen_Details()
+def static "androidOrders.orderDetailsScreen.verify_Order_Screen_Details_without_any_added_product"() {
+    (new androidOrders.orderDetailsScreen()).verify_Order_Screen_Details_without_any_added_product()
 }
 
 
-def static "android_orders.Orders_Screen.click_On_NewOrder"() {
-    (new android_orders.Orders_Screen()).click_On_NewOrder()
-}
-
-
-def static "android_orders.Orders_Screen.click_On_History_Tab"() {
-    (new android_orders.Orders_Screen()).click_On_History_Tab()
-}
-
-
-def static "android_orders.Orders_Screen.click_On_Cart_Tab"() {
-    (new android_orders.Orders_Screen()).click_On_Cart_Tab()
-}
-
-
-def static "android_orders.Orders_Screen.change_Account"(
-    	String new_Account	) {
-    (new android_orders.Orders_Screen()).change_Account(
-        	new_Account)
-}
-
-
-def static "android_orders.Cart_Screen.click_On_Order"(
-    	String Account_No	) {
-    (new android_orders.Cart_Screen()).click_On_Order(
-        	Account_No)
-}
-
-
-def static "android_orders.Cart_Screen.delete_Order"(
-    	Object Account_No	) {
-    (new android_orders.Cart_Screen()).delete_Order(
-        	Account_No)
-}
-
-
-def static "android_orders.Cart_Screen.upload_All_Orders"() {
-    (new android_orders.Cart_Screen()).upload_All_Orders()
-}
-
-
-def static "android_orders.Cart_Screen.place_All_Orders"() {
-    (new android_orders.Cart_Screen()).place_All_Orders()
-}
-
-
-def static "android_orders.Cart_Screen.verify_Cart_Screen_Details_with_Added_Product"() {
-    (new android_orders.Cart_Screen()).verify_Cart_Screen_Details_with_Added_Product()
-}
-
-
-def static "android_orders.Cart_Screen.verify_Cart_Screen_Details_without_Adding_any_Product"() {
-    (new android_orders.Cart_Screen()).verify_Cart_Screen_Details_without_Adding_any_Product()
+def static "androidOrders.orderDetailsScreen.verify_Order_Screen_Details_with_added_product"() {
+    (new androidOrders.orderDetailsScreen()).verify_Order_Screen_Details_with_added_product()
 }
 
  /**
@@ -717,113 +1004,6 @@ def static "iosInventory.inventoryDetailsScreen.verifyProductIsVisibleOnScreenWh
         	productIdentificationNumber)
 }
 
-
-def static "android_account_selection_screen.Select_An_Account.Custom"(
-    	String account	) {
-    (new android_account_selection_screen.Select_An_Account()).Custom(
-        	account)
-}
-
-
-def static "android_login.Login_Screen.login"(
-    	Object password	) {
-    (new android_login.Login_Screen()).login(
-        	password)
-}
-
-
-def static "android_login.Login_Screen.select_Environment"() {
-    (new android_login.Login_Screen()).select_Environment()
-}
-
-
-def static "android_login.Login_Screen.enter_Username"() {
-    (new android_login.Login_Screen()).enter_Username()
-}
-
-
-def static "android_login.Login_Screen.enter_Password"(
-    	String password	) {
-    (new android_login.Login_Screen()).enter_Password(
-        	password)
-}
-
-
-def static "android_login.Login_Screen.click_On_SignIn_Button"() {
-    (new android_login.Login_Screen()).click_On_SignIn_Button()
-}
-
-
-def static "android_login.Login_Screen.click_On_Forgot_Password"() {
-    (new android_login.Login_Screen()).click_On_Forgot_Password()
-}
-
-
-def static "android_login.Login_Screen.verify_Login_Page_Details"() {
-    (new android_login.Login_Screen()).verify_Login_Page_Details()
-}
-
-
-def static "android_common_keywords.wait_for_load.Custom"() {
-    (new android_common_keywords.wait_for_load()).Custom()
-}
-
-
-def static "android_orders.Order_details_Screen.upload_Order"() {
-    (new android_orders.Order_details_Screen()).upload_Order()
-}
-
-
-def static "android_orders.Order_details_Screen.place_Order"() {
-    (new android_orders.Order_details_Screen()).place_Order()
-}
-
-
-def static "android_orders.Order_details_Screen.add_Product_to_Order"(
-    	String Product_Name	
-     , 	String Quantity	) {
-    (new android_orders.Order_details_Screen()).add_Product_to_Order(
-        	Product_Name
-         , 	Quantity)
-}
-
-
-def static "android_orders.Order_details_Screen.edit_PO_Name_and_Memo"(
-    	String PO_Name	
-     , 	String PO_Memo	
-     , 	String New_po_Name	
-     , 	String New_po_Memo	) {
-    (new android_orders.Order_details_Screen()).edit_PO_Name_and_Memo(
-        	PO_Name
-         , 	PO_Memo
-         , 	New_po_Name
-         , 	New_po_Memo)
-}
-
-
-def static "android_orders.Order_details_Screen.add_ALternate_Product"(
-    	String Product_Name	
-     , 	String Quantity	) {
-    (new android_orders.Order_details_Screen()).add_ALternate_Product(
-        	Product_Name
-         , 	Quantity)
-}
-
-
-def static "android_orders.Order_details_Screen.verify_Order_Screen_Details_without_any_added_product"() {
-    (new android_orders.Order_details_Screen()).verify_Order_Screen_Details_without_any_added_product()
-}
-
-
-def static "android_orders.Order_details_Screen.verify_Order_Screen_Details_with_added_product"() {
-    (new android_orders.Order_details_Screen()).verify_Order_Screen_Details_with_added_product()
-}
-
-
-def static "android_orders.History_Screen.verify_History_Screen_Details"() {
-    (new android_orders.History_Screen()).verify_History_Screen_Details()
-}
-
  /**
 	 * selects the user account from the accounts list and takes user to the dashboard screen
 	 * @param accountNo (user account number to be selected)
@@ -834,9 +1014,19 @@ def static "iosAccountSelection.selectAnAccount.selectTheUserAccount"(
         	accountNo)
 }
 
+ /**
+	 * opens the c2 order details, verifies the order status labels and signIns the password required for placing c2 order
+	 * @param password (password-which is required for placing the c2 order)
+	 */ 
+def static "androidOrders.historyScreen.clickOnC2OrderForReviewAndSign"(
+    	String signingPassword	) {
+    (new androidOrders.historyScreen()).clickOnC2OrderForReviewAndSign(
+        	signingPassword)
+}
 
-def static "android_common_keywords.Go_Back.Custom"() {
-    (new android_common_keywords.Go_Back()).Custom()
+
+def static "androidOrders.historyScreen.verify_History_Screen_Details"() {
+    (new androidOrders.historyScreen()).verify_History_Screen_Details()
 }
 
  /**
@@ -914,89 +1104,35 @@ def static "android_inventory.Inventory_details_Screen.verify_Inventory_Details_
 }
 
 
-def static "ios_orders.Cart_Screen.click_On_Order"(
-    	String Account_No	) {
-    (new ios_orders.Cart_Screen()).click_On_Order(
-        	Account_No)
+def static "iosOrders.newOrderScreen.change_Account"(
+    	String new_Account	) {
+    (new iosOrders.newOrderScreen()).change_Account(
+        	new_Account)
+}
+
+ /**
+	 * enters purchase order details for the order to be created
+	 * @param poName (purchase order name for the order created)
+	 * @param poMemo (purchase order memo for the order created)
+	 */ 
+def static "iosOrders.newOrderScreen.enterPurchaseOrderDetails"(
+    	String poName	
+     , 	String poMemo	) {
+    (new iosOrders.newOrderScreen()).enterPurchaseOrderDetails(
+        	poName
+         , 	poMemo)
+}
+
+ /**
+	 * taps on create order button to create an order and takes user to the order details screen
+	 */ 
+def static "iosOrders.newOrderScreen.createOrder"() {
+    (new iosOrders.newOrderScreen()).createOrder()
 }
 
 
-def static "ios_orders.Cart_Screen.upload_All_Orders"() {
-    (new ios_orders.Cart_Screen()).upload_All_Orders()
-}
-
-
-def static "ios_orders.Cart_Screen.place_All_Orders"() {
-    (new ios_orders.Cart_Screen()).place_All_Orders()
-}
-
-
-def static "ios_orders.Cart_Screen.delete_Order"(
-    	String Account_No	) {
-    (new ios_orders.Cart_Screen()).delete_Order(
-        	Account_No)
-}
-
-
-def static "ios_orders.Cart_Screen.verify_Cart_Screen_Details_without_Adding_any_Product"() {
-    (new ios_orders.Cart_Screen()).verify_Cart_Screen_Details_without_Adding_any_Product()
-}
-
-
-def static "ios_orders.Cart_Screen.verify_Cart_Screen_Details_with_Added_Product"() {
-    (new ios_orders.Cart_Screen()).verify_Cart_Screen_Details_with_Added_Product()
-}
-
-
-def static "ios_orders.Order_details_Screen.upload_Order"() {
-    (new ios_orders.Order_details_Screen()).upload_Order()
-}
-
-
-def static "ios_orders.Order_details_Screen.place_Order"() {
-    (new ios_orders.Order_details_Screen()).place_Order()
-}
-
-
-def static "ios_orders.Order_details_Screen.add_Product_to_Order"(
-    	String product_Name	
-     , 	String quantity	) {
-    (new ios_orders.Order_details_Screen()).add_Product_to_Order(
-        	product_Name
-         , 	quantity)
-}
-
-
-def static "ios_orders.Order_details_Screen.edit_PO_Name_and_Memo"(
-    	String po_Name	
-     , 	String po_Memo	) {
-    (new ios_orders.Order_details_Screen()).edit_PO_Name_and_Memo(
-        	po_Name
-         , 	po_Memo)
-}
-
-
-def static "ios_orders.Order_details_Screen.add_Alternate_Product"(
-    	String product_Name	
-     , 	String quantity	) {
-    (new ios_orders.Order_details_Screen()).add_Alternate_Product(
-        	product_Name
-         , 	quantity)
-}
-
-
-def static "ios_orders.Order_details_Screen.verify_Order_Details_Screen_without_any_added_product"() {
-    (new ios_orders.Order_details_Screen()).verify_Order_Details_Screen_without_any_added_product()
-}
-
-
-def static "ios_orders.Order_details_Screen.verify_Order_Details_Screen_Details_with_added_product"() {
-    (new ios_orders.Order_details_Screen()).verify_Order_Details_Screen_Details_with_added_product()
-}
-
-
-def static "ios_orders.History_Screen.verify_History_Screen_Details"() {
-    (new ios_orders.History_Screen()).verify_History_Screen_Details()
+def static "iosOrders.newOrderScreen.verify_NewOrder_Screen_Details"() {
+    (new iosOrders.newOrderScreen()).verify_NewOrder_Screen_Details()
 }
 
  /**
@@ -1061,6 +1197,21 @@ def static "iosMoreOptions.moreOptionsScreen.signOut"() {
 }
 
 
+def static "iosOrders.historyScreen.verify_History_Screen_Details"() {
+    (new iosOrders.historyScreen()).verify_History_Screen_Details()
+}
+
+ /**
+	 * opens the c2 order details, verifies the order status labels and signIns the password required for placing c2 order
+	 * @param password (password-which is required for placing the c2 order)
+	 */ 
+def static "iosOrders.historyScreen.clickOnC2OrderForReviewAndSign"(
+    	String signingPassword	) {
+    (new iosOrders.historyScreen()).clickOnC2OrderForReviewAndSign(
+        	signingPassword)
+}
+
+
 def static "android_inventory.Inventory_listing_Screen.delete_Inventory"(
     	String inventory_Name	) {
     (new android_inventory.Inventory_listing_Screen()).delete_Inventory(
@@ -1087,52 +1238,27 @@ def static "android_inventory.Inventory_listing_Screen.verify_Inventory_Listing_
 }
 
  /**
-	 * this method will take the application one screen back
+	 * takes user to the new order screen
 	 */ 
-def static "android_common_keywords.commonMethods.goOneScreenBack"() {
-    (new android_common_keywords.commonMethods()).goOneScreenBack()
+def static "androidOrders.ordersCommonScreen.clickOnNewOrder"() {
+    (new androidOrders.ordersCommonScreen()).clickOnNewOrder()
 }
 
- /**
-	 * installs as well as launches the application
-	 */ 
-def static "android_common_keywords.commonMethods.installingAndlaunchingTheApplication"() {
-    (new android_common_keywords.commonMethods()).installingAndlaunchingTheApplication()
+
+def static "androidOrders.ordersCommonScreen.clickOnHistoryTab"() {
+    (new androidOrders.ordersCommonScreen()).clickOnHistoryTab()
 }
 
- /**
-	 * refreshes the screen by doing a vertical swipe by considering the deviceHeight and deviceWidth
-	 */ 
-def static "android_common_keywords.commonMethods.verticalSwipeForRefresh"() {
-    (new android_common_keywords.commonMethods()).verticalSwipeForRefresh()
+
+def static "androidOrders.ordersCommonScreen.click_On_Cart_Tab"() {
+    (new androidOrders.ordersCommonScreen()).click_On_Cart_Tab()
 }
 
- /**
-	 * refreshes the screen by doing a vertical swipe after waiting for 30(s) to check the changed order status of C2 order by considering the deviceHeight and deviceWidth
-	 */ 
-def static "android_common_keywords.commonMethods.verticalSwipeForRefreshingC2OrderStatus"() {
-    (new android_common_keywords.commonMethods()).verticalSwipeForRefreshingC2OrderStatus()
-}
 
- /**
-	 * waits until the progressBar is visible on the screen
-	 */ 
-def static "android_common_keywords.commonMethods.waitForProgressBarToBeInvisible"() {
-    (new android_common_keywords.commonMethods()).waitForProgressBarToBeInvisible()
-}
-
- /**
-	 * waits until the object is visible on the screen
-	 * @param testObj (reference of the test Object),waitTime (time by which delay will be added in(s)),waitLimit (maximum limit of time for which delay can be added)
-	 */ 
-def static "android_common_keywords.commonMethods.waitTimeForObjectToBeVisible"(
-    	Object testObj	
-     , 	int waitTime	
-     , 	int waitLimit	) {
-    (new android_common_keywords.commonMethods()).waitTimeForObjectToBeVisible(
-        	testObj
-         , 	waitTime
-         , 	waitLimit)
+def static "androidOrders.ordersCommonScreen.change_Account"(
+    	String new_Account	) {
+    (new androidOrders.ordersCommonScreen()).change_Account(
+        	new_Account)
 }
 
 
@@ -1191,37 +1317,6 @@ def static "android_inventory.Location_details_Screen.verify_Location_details_Sc
         	Location_Name)
 }
 
-
-def static "android_orders.New_Order_Screen.change_Account"(
-    	String New_Account	) {
-    (new android_orders.New_Order_Screen()).change_Account(
-        	New_Account)
-}
-
-
-def static "android_orders.New_Order_Screen.enter_Purchase_Order_Details"(
-    	String PO_Name	
-     , 	String PO_Memo	) {
-    (new android_orders.New_Order_Screen()).enter_Purchase_Order_Details(
-        	PO_Name
-         , 	PO_Memo)
-}
-
-
-def static "android_orders.New_Order_Screen.create_Order"() {
-    (new android_orders.New_Order_Screen()).create_Order()
-}
-
-
-def static "android_orders.New_Order_Screen.click_On_NewOrder"() {
-    (new android_orders.New_Order_Screen()).click_On_NewOrder()
-}
-
-
-def static "android_orders.New_Order_Screen.verify_NewOrder_Screen_Details"() {
-    (new android_orders.New_Order_Screen()).verify_NewOrder_Screen_Details()
-}
-
  /**
 	 * float value generator
 	 * @param stringToBeConvertedToFloatValue
@@ -1270,10 +1365,14 @@ def static "common.commonMethods.readFileTypeJSON"(
 }
 
  /**
-	 * adds the product from dash-board to inventory
-	 * @param productName
-	 * @param quantity
+	 * Get mobile driver for current session
+	 * @return mobile driver for current session
 	 */ 
+def static "common.commonMethods.getCurrentSessionMobileDriver"() {
+    (new common.commonMethods()).getCurrentSessionMobileDriver()
+}
+
+
 def static "iosDashboard.dashboardScreen.addingProductFromDashboardToCart"(
     	String productName	
      , 	String quantity	) {
@@ -1282,160 +1381,127 @@ def static "iosDashboard.dashboardScreen.addingProductFromDashboardToCart"(
          , 	quantity)
 }
 
- /**
-	 * changes the user account
-	 * @param newAccount
-	 */ 
+
 def static "iosDashboard.dashboardScreen.changeAccount"(
     	String newAccount	) {
     (new iosDashboard.dashboardScreen()).changeAccount(
         	newAccount)
 }
 
- /**
-	 * opens home tab
-	 */ 
+
 def static "iosDashboard.dashboardScreen.clickOnHomeTab"() {
     (new iosDashboard.dashboardScreen()).clickOnHomeTab()
 }
 
- /**
-	 * opens moreOptions tab where user can perform actions like signOut, goToInventoryListing Screen etc
-	 */ 
+
 def static "iosDashboard.dashboardScreen.clickOnMoreOptionsTab"() {
     (new iosDashboard.dashboardScreen()).clickOnMoreOptionsTab()
 }
 
- /**
-	 * opens orders tab where user can perform actions related to orders
-	 */ 
+
 def static "iosDashboard.dashboardScreen.clickOnOrders"() {
     (new iosDashboard.dashboardScreen()).clickOnOrders()
 }
 
- /**
-	 * this function verifies the dash-board details Screen
-	 */ 
+
 def static "iosDashboard.dashboardScreen.verifyDashboardScreen"() {
     (new iosDashboard.dashboardScreen()).verifyDashboardScreen()
 }
 
+ /**
+	 * opens the order details page
+	 * @param accountNo (accountNo used to create the order)
+	 */ 
+def static "androidOrders.cartScreen.openAnOrderDetails"(
+    	String accountNo	) {
+    (new androidOrders.cartScreen()).openAnOrderDetails(
+        	accountNo)
+}
 
-def static "android_common_keywords.start_application.Custom"() {
-    (new android_common_keywords.start_application()).Custom()
+ /**
+	 * opens the c2 orders tab
+	 */ 
+def static "androidOrders.cartScreen.clickOnC2OrdersTab"() {
+    (new androidOrders.cartScreen()).clickOnC2OrdersTab()
+}
+
+ /**
+	 * opens the c2 order details
+	 * @param accountNo (account no which was used to create the order)
+	 */ 
+def static "androidOrders.cartScreen.openC2OrderDetailScreen"(
+    	String accountNo	) {
+    (new androidOrders.cartScreen()).openC2OrderDetailScreen(
+        	accountNo)
 }
 
 
-def static "ios_orders.Orders_Screen.click_On_NewOrder"() {
-    (new ios_orders.Orders_Screen()).click_On_NewOrder()
+def static "androidOrders.cartScreen.delete_Order"(
+    	Object Account_No	) {
+    (new androidOrders.cartScreen()).delete_Order(
+        	Account_No)
 }
 
 
-def static "ios_orders.Orders_Screen.click_On_History_Tab"() {
-    (new ios_orders.Orders_Screen()).click_On_History_Tab()
+def static "androidOrders.cartScreen.upload_All_Orders"() {
+    (new androidOrders.cartScreen()).upload_All_Orders()
 }
 
 
-def static "ios_orders.Orders_Screen.click_On_Cart_Tab"() {
-    (new ios_orders.Orders_Screen()).click_On_Cart_Tab()
+def static "androidOrders.cartScreen.place_All_Orders"() {
+    (new androidOrders.cartScreen()).place_All_Orders()
 }
 
 
-def static "android_csos.Csos_flow.Place_C2_Order"() {
-    (new android_csos.Csos_flow()).Place_C2_Order()
+def static "androidOrders.cartScreen.verify_Cart_Screen_Details_with_Added_Product"() {
+    (new androidOrders.cartScreen()).verify_Cart_Screen_Details_with_Added_Product()
 }
 
 
-def static "android_csos.Csos_flow.vertical_swipe_refresh"() {
-    (new android_csos.Csos_flow()).vertical_swipe_refresh()
+def static "androidOrders.cartScreen.verify_Cart_Screen_Details_without_Adding_any_Product"() {
+    (new androidOrders.cartScreen()).verify_Cart_Screen_Details_without_Adding_any_Product()
 }
 
-
-def static "android_csos.Csos_flow.select_C2_Order_for_Adding_Product"(
-    	String po_Name	) {
-    (new android_csos.Csos_flow()).select_C2_Order_for_Adding_Product(
-        	po_Name)
+ /**
+	 * this method will take the application one screen back
+	 */ 
+def static "androidCommonKeywords.commonMethods.goOneScreenBack"() {
+    (new androidCommonKeywords.commonMethods()).goOneScreenBack()
 }
 
-
-def static "android_csos.Csos_flow.Review_and_Sign_C2_Order"() {
-    (new android_csos.Csos_flow()).Review_and_Sign_C2_Order()
+ /**
+	 * installs as well as launches the application
+	 */ 
+def static "androidCommonKeywords.commonMethods.installingAndlaunchingTheApplication"() {
+    (new androidCommonKeywords.commonMethods()).installingAndlaunchingTheApplication()
 }
 
-
-def static "android_csos.Csos_flow.Perform_Signature_and_Confirm_Order"(
-    	String Signing_Password	) {
-    (new android_csos.Csos_flow()).Perform_Signature_and_Confirm_Order(
-        	Signing_Password)
+ /**
+	 * refreshes the screen by doing a vertical swipe by considering the deviceHeight and deviceWidth
+	 */ 
+def static "androidCommonKeywords.commonMethods.verticalSwipeForRefresh"() {
+    (new androidCommonKeywords.commonMethods()).verticalSwipeForRefresh()
 }
 
-
-def static "android_csos.Csos_flow.Open_C2_Orders"() {
-    (new android_csos.Csos_flow()).Open_C2_Orders()
+ /**
+	 * waits until the progressBar is visible on the screen, which will have a maximum waitLimit to be visible on the screen
+	 */ 
+def static "androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible"() {
+    (new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 }
 
-
-def static "android_csos.Csos_flow.Open_C2_Order_details_before_Signature"() {
-    (new android_csos.Csos_flow()).Open_C2_Order_details_before_Signature()
-}
-
-
-def static "android_csos.Csos_flow.Go_to_Order_History"() {
-    (new android_csos.Csos_flow()).Go_to_Order_History()
-}
-
-
-def static "android_csos.Csos_flow.Create_New_C2_Order"(
-    	String PO_Name	
-     , 	String PO_Memo	) {
-    (new android_csos.Csos_flow()).Create_New_C2_Order(
-        	PO_Name
-         , 	PO_Memo)
-}
-
-
-def static "android_csos.Csos_flow.Check_C2_Availability"() {
-    (new android_csos.Csos_flow()).Check_C2_Availability()
-}
-
-
-def static "android_csos.Csos_flow.CSOS_Search_Product"(
-    	String Product_Name	
-     , 	String Quantity	) {
-    (new android_csos.Csos_flow()).CSOS_Search_Product(
-        	Product_Name
-         , 	Quantity)
-}
-
-
-def static "android_dashboard.Dashboard_details_Screen.change_Account"(
-    	String new_Account	) {
-    (new android_dashboard.Dashboard_details_Screen()).change_Account(
-        	new_Account)
-}
-
-
-def static "android_dashboard.Dashboard_details_Screen.Adding_Product_from_Dashboard_To_Cart"(
-    	String Product_Name	
-     , 	String Quantity	) {
-    (new android_dashboard.Dashboard_details_Screen()).Adding_Product_from_Dashboard_To_Cart(
-        	Product_Name
-         , 	Quantity)
-}
-
-
-def static "android_dashboard.Dashboard_details_Screen.click_On_Orders"() {
-    (new android_dashboard.Dashboard_details_Screen()).click_On_Orders()
-}
-
-
-def static "android_dashboard.Dashboard_details_Screen.click_On_HomeTab"() {
-    (new android_dashboard.Dashboard_details_Screen()).click_On_HomeTab()
-}
-
-
-def static "android_dashboard.Dashboard_details_Screen.click_On_More_Options"() {
-    (new android_dashboard.Dashboard_details_Screen()).click_On_More_Options()
+ /**
+	 * waits until the object is visible on the screen, which will have a maximum waitLimit to be visible on the screen
+	 * @param testObj (reference of the test Object),waitTime (time by which delay will be added in(s)),waitLimit (maximum limit of time for which delay can be added)
+	 */ 
+def static "androidCommonKeywords.commonMethods.waitTimeForObjectToBeVisible"(
+    	Object testObj	
+     , 	int waitTime	
+     , 	int waitLimit	) {
+    (new androidCommonKeywords.commonMethods()).waitTimeForObjectToBeVisible(
+        	testObj
+         , 	waitTime
+         , 	waitLimit)
 }
 
  /**
@@ -1498,24 +1564,17 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+}
+
+
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
     	String testName	
      , 	RectangleSize viewportSize	) {
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
         	testName
          , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
 }
 
 
@@ -1527,4 +1586,11 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
 }

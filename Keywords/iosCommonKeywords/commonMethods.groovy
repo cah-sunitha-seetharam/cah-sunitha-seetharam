@@ -32,7 +32,6 @@ class  commonMethods {
 	def loginScreenObject=new loginScreen();
 	def selectAnAccountObject=new selectAnAccount();
 
-
 	/**
 	 * clicks on product search field
 	 */
@@ -241,9 +240,6 @@ class  commonMethods {
 
 		Mobile.verifyElementNotVisible(findTestObject(testObj,[('TEXT'):productIdentificationNumber]),0)
 	}
-
-
-
 
 
 	/**

@@ -43,26 +43,26 @@ class loginScreen {
 
 
 	/**
-	 * performs login function
-	 * @param username,password
+	 * performs login function by selecting the type of testing (automation or manual), environment of testing(taken from the global profile), entering user-name and password
+	 * @param username (it is taken from the global profile but passed as a parameter),password  (it is taken from the global profile but passed as a parameter)
 	 */
 	@Keyword()
 	def login(username,password) {
 
-		select_type_Of_Testing()
-		select_Environment()
-		enter_Username(username)
-		enter_Password(password)
-		click_On_SignIn_Button()
+		selectTypeOfTesting()
+		selectEnvironment()
+		enterUsername(username)
+		enterPassword(password)
+		clickOnSignInButton()
 	}
 
 
 
 	/**
-	 * selects the environment
+	 * selects the environment of testing which is taken from the global profile
 	 */
 	@Keyword()
-	def select_Environment() {
+	def selectEnvironment() {
 
 		if (Mobile.verifyElementExist(findTestObject('iOS/LogIn/Environment_Selection_Screen/environmentList_Button'),5, FailureHandling.OPTIONAL)) {
 
@@ -82,11 +82,11 @@ class loginScreen {
 
 
 	/**
-	 * selects type of testing
-	 * @param testingType
+	 * selects type of testing which can be manual or automation
+	 * @param testingType (directly passed as a parameter for automation)
 	 */
 	@Keyword()
-	def select_type_Of_Testing(String testingType='Automation') {
+	def selectTypeOfTesting(String testingType='Automation') {
 
 		if (Mobile.verifyElementExist(findTestObject('iOS/LogIn/Testing Type/testingMode_Button'),5, FailureHandling.OPTIONAL)) {
 
@@ -99,11 +99,11 @@ class loginScreen {
 
 
 	/**
-	 * enters the username
-	 * @param username
+	 * enters the user-name
+	 * @param username (it is taken from the global profile but passed as a parameter)
 	 */
 	@Keyword()
-	def enter_Username(String username) {
+	def enterUsername(String username) {
 
 		Mobile.waitForElementPresent(findTestObject('iOS/LogIn/Login_Details_Screen/loginUserName_Button'), 0)
 
@@ -111,7 +111,7 @@ class loginScreen {
 
 		Mobile.setText(findTestObject('iOS/LogIn/Login_Details_Screen/userName_TextField'), username, 0)
 
-		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/loginBar_buttonDown'), 0)
+		//Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/loginBar_buttonDown'), 0)
 	}
 
 
@@ -119,10 +119,10 @@ class loginScreen {
 
 	/**
 	 * enters the password
-	 * @param password
+	 * @param password (it is taken from the global profile but passed as a parameter)
 	 */
 	@Keyword()
-	def enter_Password(String password) {
+	def enterPassword(String password) {
 
 		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/password_Button'), 0)
 
@@ -132,11 +132,10 @@ class loginScreen {
 
 
 	/**
-	 * clicks on signIn button
-	 * @param password
+	 * clicks on signIn button and takes to the dash-board of the application
 	 */
 	@Keyword()
-	def click_On_SignIn_Button() {
+	def clickOnSignInButton() {
 
 		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/SignIn_Button'),0)
 	}
@@ -147,7 +146,7 @@ class loginScreen {
 	 * clicks on forget password button
 	 */
 	@Keyword()
-	def click_On_Forgot_Password() {
+	def clickOnForgotPassword() {
 
 		Mobile.tap(findTestObject('Object Repository/Login/Login_Details_Screen/Forget_Password'), 0)
 	}
@@ -158,8 +157,7 @@ class loginScreen {
 	 * verifies the details of login Page
 	 */
 	@Keyword()
-	def verify_LoginPage_Details() {
-
+	def verifyLoginPageDetails() {
 
 		Mobile.verifyElementExist(findTestObject('iOS/LogIn/Login_Details_Screen/forgetPassword_Text'), 0)
 
@@ -168,5 +166,3 @@ class loginScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/LogIn/Login_Details_Screen/orderExpress_Logo'), 0)
 	}
 }
-
-
