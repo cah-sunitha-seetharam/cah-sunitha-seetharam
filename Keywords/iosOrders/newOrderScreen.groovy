@@ -55,7 +55,7 @@ class newOrderScreen {
 
 		int w = 1
 
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
+		while (Mobile.verifyElementExist(findTestObject('iOS/Product Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
 			WebUI.delay(w)
 		}
 	}
@@ -74,7 +74,7 @@ class newOrderScreen {
 
 		Mobile.setText(findTestObject('iOS/Orders/New Order Screen/poName_TextField'), poName, 0)
 
-		Mobile.tap(findTestObject('iOS/Product_Search/returnKeypad_Button'),0)
+		Mobile.tap(findTestObject('iOS/Product Search/returnKeypad_Button'),0)
 
 		Mobile.tap(findTestObject('iOS/Orders/New Order Screen/editPOMemo_Button'), 0)
 

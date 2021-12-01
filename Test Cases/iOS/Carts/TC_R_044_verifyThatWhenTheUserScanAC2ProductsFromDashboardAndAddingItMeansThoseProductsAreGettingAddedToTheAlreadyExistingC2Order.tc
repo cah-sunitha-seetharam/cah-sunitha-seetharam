@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that While User scan a C2 Product from dashboard and adding it the for first time, New Order order is getting created and user is able to upload the Order.
+Prerequisite: 
+1. Valid login credentials
+2. Multiple accounts available for the user.   </description>
+   <name>TC_R_044_verifyThatWhenTheUserScanAC2ProductsFromDashboardAndAddingItMeansThoseProductsAreGettingAddedToTheAlreadyExistingC2Order</name>
+   <tag>Order;Regression;Scan</tag>
+   <comment></comment>
+   <testCaseGuid>cc9f148d-c3c5-4c3c-98c6-128c2d32fa0b</testCaseGuid>
+   <variable>
+      <defaultValue>'3'</defaultValue>
+      <description>quantity added for the product searched</description>
+      <id>9c3f082c-3b61-4282-a800-e3f9a38b6c38</id>
+      <masked>false</masked>
+      <name>quantity_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description>quantity added for the product searched</description>
+      <id>093cf72c-f5ee-4495-8f05-790b42767cf9</id>
+      <masked>false</masked>
+      <name>quantity_2</name>
+   </variable>
+   <variable>
+      <defaultValue>3</defaultValue>
+      <description>expected quantity added for the product searched</description>
+      <id>1169aee0-4f50-483c-b9d4-250bdd80b8e3</id>
+      <masked>false</masked>
+      <name>expectedQuantity</name>
+   </variable>
+   <variable>
+      <defaultValue>'poName'</defaultValue>
+      <description>purchase order name for the order created</description>
+      <id>d9405a11-43f0-4c92-8c30-c2d52250f30b</id>
+      <masked>false</masked>
+      <name>poName</name>
+   </variable>
+   <variable>
+      <defaultValue>'poMemo'</defaultValue>
+      <description>purchase order memo for the order created</description>
+      <id>50c406d3-af6f-4292-a9c3-9b1f1e594d24</id>
+      <masked>false</masked>
+      <name>poMemo</name>
+   </variable>
+   <variable>
+      <defaultValue>'Ordering'</defaultValue>
+      <description>toggle value which can be ordering or price check</description>
+      <id>3f631e62-dec0-4f39-9a1e-918dbfb866fa</id>
+      <masked>false</masked>
+      <name>toggleValue</name>
+   </variable>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description>expected lines count which should be visible</description>
+      <id>c8ea854b-8c32-460c-b401-b93c3ccb47d5</id>
+      <masked>false</masked>
+      <name>expectedLinesCount_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'2'</defaultValue>
+      <description>expected lines count which should be visible</description>
+      <id>fc9670b4-ec2f-4fd1-bd2d-080f8e481ca9</id>
+      <masked>false</masked>
+      <name>expectedLinesCount_2</name>
+   </variable>
+   <variable>
+      <defaultValue>1</defaultValue>
+      <description>expected c2 orders annotation count which should be visible</description>
+      <id>28abbb6c-646a-4467-9504-5dd20fbc1415</id>
+      <masked>false</masked>
+      <name>expectedAnnotationCount</name>
+   </variable>
+</TestCaseEntity>

@@ -65,6 +65,39 @@ class  commonMethods {
 
 
 
+		/**
+	 * this function returns the cost of added product
+	 * @return productCost_dollarSymbolRemoved_FloatValue (of the product which has been added)
+	 */
+	@Keyword
+	def returnCostOfTheAddedProduct(String testObj) {
+
+		String productCost= Mobile.getText(findTestObject(testObj), 0)
+
+		KeywordUtil.logInfo(productCost)
+
+		float productCost_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(productCost)//converting productCost string to a float value
+
+		return productCost_dollarSymbolRemoved_FloatValue
+	}
+
+
+
+	/**
+	 * this function returns the total expected value of the added product
+	 * @return productCost_dollarSymbolRemoved_FloatValue (of the product which has been added)
+	 */
+	@Keyword
+	def returnExpectedTotalValueForAddedProduct(quantity,costOfProduct) {
+
+		int quantityIntegralValue=Integer.parseInt(quantity)
+
+		float costOfAddedProduct=quantityIntegralValue*costOfProduct
+
+		return (costOfAddedProduct)
+	}
+
+
 	/**
 	 * inputs the product search which can be name/Cin/UPC/NDC in the product search-field
 	 * @param productSearch (which can be name/Cin/UPC/NDC in the product search-field)

@@ -3,7 +3,7 @@
    <description></description>
    <name>returnKeypad_Button</name>
    <tag></tag>
-   <elementGuidId>dc99a043-5da0-45ef-bace-053601ae20ad</elementGuidId>
+   <elementGuidId>7944ef9d-46a8-44b2-bf4f-58d3f13f2937</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -83,6 +83,6 @@
       <type>Main</type>
       <value>//XCUIElementTypeApplication/XCUIElementTypeWindow[3]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeKeyboard[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeButton[3]</value>
    </webElementProperties>
-   <locator>//*[@type = 'XCUIElementTypeButton' and @label = 'return' and @name = 'Return']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>Return</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

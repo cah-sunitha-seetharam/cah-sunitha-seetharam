@@ -60,9 +60,9 @@ class cartScreen {
 	@Keyword
 	def clickOnBackToCart() {
 
-		Mobile.tap(findTestObject('iOS/Product_Search/backToCart_Text'), 0)
+		Mobile.tap(findTestObject('iOS/Product Search/backToCart_Text'), 0)
 
-		Mobile.verifyElementAttributeValue(findTestObject('Object Repository/iOS/Dashboard/Orders_Tab'), 'value', '1',0)
+		Mobile.verifyElementAttributeValue(findTestObject('Object Repository/iOS/Dashboard/orders_Tab'), 'value', '1',0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Verification Details/cartHeader_Label'),0)
 	}
@@ -130,7 +130,7 @@ class cartScreen {
 
 		int w = 6
 
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
+		while (Mobile.verifyElementExist(findTestObject('iOS/Product Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
 			WebUI.delay(w)
 		}
 
@@ -194,7 +194,14 @@ class cartScreen {
 	def openC2OrderDetails() {
 
 		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/c2Order_View'), 0)
+
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+		
+		Mobile.verifyElementAttributeValue(findTestObject('Object Repository/iOS/Orders/Cart Screen/uploadC2Order_Button'), 'enabled', 'true', 0)
+
+		Mobile.verifyElementAttributeValue(findTestObject('Object Repository/iOS/Orders/C2 Order Details Screen/Place C2 Order/placeC2Order_Button'), 'enabled', 'true', 0)
 	}
+
 
 
 	/**
@@ -207,8 +214,11 @@ class cartScreen {
 	}
 
 
+
 	@Keyword
-	def verify_Cart_Screen_Details_with_Added_Product() {
+	def verifyCartScreenWithAddedProduct() {
+
+		Mobile.verifyElementAttributeValue(findTestObject('Object Repository/iOS/Dashboard/orders_Tab'), 'value', '1',0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Orders Common Screen/Cart Page_Tab'), 0)
 
@@ -227,13 +237,11 @@ class cartScreen {
 
 
 	@Keyword
-	def verify_Cart_Screen_Details_without_Adding_any_Product() {
+	def verifyCartScreenWithoutAnyOrderPresent() {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Verification Details/Lines_Text'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/Disabled_Upload All Orders_Button'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Orders Common Screen/Cart Page_Tab'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Verification Details/cartHeader_Label'), 0)
 	}
@@ -252,6 +260,51 @@ class cartScreen {
 
 
 
+	/**
+	 * takes expected lines count as the argument and verifies the same
+	 * @param expectedLinesCount (expected lines count after adding products to the cart)
+	 */
+	@Keyword
+	def verifyLinesCount(String expectedLinesCount) {
+
+		String actualLinesCount=Mobile.getText(findTestObject('iOS/Orders/Cart Screen/Verification/linesCount_Text'), 0)
+
+		assert actualLinesCount==expectedLinesCount
+	}
+
+
+	
+	/**
+	 * verifies the cart value after adding products
+	 * @param expectedCartValue (expected cart value which should be equal to actual cart total)
+	 */
+	@Keyword
+	def verifyCartValue(float expectedCartValue) {
+
+		String actualCartTotal=Mobile.getText(findTestObject('iOS/Orders/Verification Details/cartValue_Text'), 0)
+
+		float actualCartTotal_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(actualCartTotal)//converting uoiCost string to a float value
+
+		KeywordUtil.logInfo(actualCartTotal)
+
+		assert expectedCartValue==actualCartTotal_dollarSymbolRemoved_FloatValue
+	}
+
+
+	
+	/**
+	 * verifies c2 orders annotation count
+	 * @param expectedCount (expected annotation count)
+	 */
+	@Keyword
+	def verifyC2OrdersTabAnnotationCount(int expectedAnnotationCount) {
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/c2OrdersAnnotationCount_Text',[('TEXT'):expectedAnnotationCount]), 0)
+	}
+	
+	
+	
+	
 	/**
 	 * verifies pop up screen which comes after clicking on place all orders button on cart screen
 	 */
