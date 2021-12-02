@@ -3,7 +3,7 @@
    <description></description>
    <name>OrderList_Text</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>31cefb1a-6170-4654-af4e-1dba7b532add</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
@@ -96,6 +96,6 @@
       <type>Main</type>
       <value>//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[4]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeStaticText[3]</value>
    </webElementProperties>
-   <locator>//*[@type = 'XCUIElementTypeStaticText' and @label = 'Mobile Order' and @name = 'OrderList_MiniDashboard_Orderabel']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>OrderList_MiniDashboard_Orderabel</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

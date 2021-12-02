@@ -45,6 +45,18 @@
             "purchaseOrderMemo": "",
             "purchaseOrderNumber": "Mobile-100121-215202",
             "sourceId": "MOBILE_APP"
-        }
+        },
+        
+        
+        "TC_R_043": {
+            "productSearchByNDC1": "00574-7116-12",
+            "productSearchByNDC2": "49884-0111-74",
+        },
+        
+        
+        "TC_R_044": {
+            "productSearchByNDC1": "00527-1971-74",
+            "productSearchByNDC2": "00574-7116-12",
+        },
     }
 }

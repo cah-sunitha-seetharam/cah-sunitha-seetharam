@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that when the user scan a C2 Products from dashboard and adding it means, those Products are getting added to the Already existing C2 Order.
+Prerequisite:
+1.Valid login credentials with multiple accounts available for the user.</description>
+   <name>TC_R_043_verifyThatWhileUserScanAC2ProductFromDashboardAndAddingItTheForFirstTimeNewOrderIsGettingCreatedAndUserIsAbleToUploadTheOrder</name>
+   <tag>Order;Regression;Scan</tag>
+   <comment></comment>
+   <testCaseGuid>56da840d-f63b-4954-bdb6-77f4e627dcfe</testCaseGuid>
+   <variable>
+      <defaultValue>'3'</defaultValue>
+      <description>quantity added for the product searched</description>
+      <id>9c3f082c-3b61-4282-a800-e3f9a38b6c38</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+   <variable>
+      <defaultValue>3</defaultValue>
+      <description>expected quantity added for the product searched</description>
+      <id>1169aee0-4f50-483c-b9d4-250bdd80b8e3</id>
+      <masked>false</masked>
+      <name>expectedQuantity</name>
+   </variable>
+   <variable>
+      <defaultValue>'poName'</defaultValue>
+      <description>purchase order name for the order created</description>
+      <id>d9405a11-43f0-4c92-8c30-c2d52250f30b</id>
+      <masked>false</masked>
+      <name>poName</name>
+   </variable>
+   <variable>
+      <defaultValue>'poMemo'</defaultValue>
+      <description>purchase order memo for the order created</description>
+      <id>50c406d3-af6f-4292-a9c3-9b1f1e594d24</id>
+      <masked>false</masked>
+      <name>poMemo</name>
+   </variable>
+   <variable>
+      <defaultValue>'Ordering'</defaultValue>
+      <description>toogle value can be ordering or price check</description>
+      <id>3f631e62-dec0-4f39-9a1e-918dbfb866fa</id>
+      <masked>false</masked>
+      <name>toggleValue</name>
+   </variable>
+</TestCaseEntity>

@@ -42,58 +42,39 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 class orderDetailsScreen {
 
 
-	/**
-	 * this function gets the total added quantity of the product
-	 * @return quantityNumericalValue (of the product which has been added)
-	 */
-	@Keyword
-	def returnQuantityOfTheAddedProduct() {
-
-		String quantity= Mobile.getText(findTestObject('iOS/Orders/Order Details Screen/Verification Details/quantity_TextField'), 0)
-
-		KeywordUtil.logInfo(quantity)
-
-		float quantityNumericalValue=Float.valueOf(quantity)
-
-		return quantityNumericalValue
-	}
-
-
-
 	@Keyword
 	def add_Alternate_Product(String product_Name, String quantity) {
 
 		int w = 1
 
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
+		while (Mobile.verifyElementExist(findTestObject('iOS/Product Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
 			WebUI.delay(w)
 		}
 
 		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Product SearchField'), 0, 0)
 
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
+		while (Mobile.verifyElementExist(findTestObject('iOS/Product Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
 			WebUI.delay(w)
 		}
 
-		Mobile.setText(findTestObject('iOS/Product_Search/Product SearchField'), product_Name, 0)
+		Mobile.setText(findTestObject('iOS/Product Search/Product SearchField'), product_Name, 0)
 
-		Mobile.tapAndHold(findTestObject('iOS/Product_Search/Search Key_Button'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/Product Search/Search Key_Button'), 0, 0)
 
-		Mobile.tap(findTestObject('iOS/Product_Search/Alternate Products_Text'), 0)
+		Mobile.tap(findTestObject('iOS/Product Search/Alternate Products_Text'), 0)
 
-		Mobile.setText(findTestObject('iOS/Product_Search/Quantity_TextField'), quantity, 0)
+		Mobile.setText(findTestObject('iOS/Product Search/Quantity_TextField'), quantity, 0)
 
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product_Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
+		while (Mobile.verifyElementExist(findTestObject('iOS/Product Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
 			WebUI.delay(w)
 		}
 
 		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Place All Orders/Done_Keypad'), 0)
 
-		Mobile.tap(findTestObject('iOS/Product_Search/Add Alternate To Order_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Product Search/Add Alternate To Order_Button'), 0)
 
-		Mobile.tap(findTestObject('iOS/Product_Search/Continue_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Product Search/Continue_Button'), 0)
 	}
-
 
 
 
@@ -108,11 +89,11 @@ class orderDetailsScreen {
 
 		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
-		Mobile.setText(findTestObject('iOS/Product_Search/Product SearchField'), productName, 0)
+		Mobile.setText(findTestObject('iOS/Product Search/Product SearchField'), productName, 0)
 
-		Mobile.tapAndHold(findTestObject('iOS/Product_Search/Search Key_Button'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/Product Search/Search Key_Button'), 0, 0)
 
-		Mobile.setText(findTestObject('iOS/Product_Search/Quantity_TextField'), quantity, 0)
+		Mobile.setText(findTestObject('iOS/Product Search/Quantity_TextField'), quantity, 0)
 
 		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
@@ -138,6 +119,7 @@ class orderDetailsScreen {
 
 
 
+
 	/**
 	 * clicks on c2 order availability and waits for the response while verifying the availability details for the c2 product
 	 */
@@ -156,19 +138,19 @@ class orderDetailsScreen {
 	}
 
 
+
 	/**
-	 * takes user back to cart screen and verifies user is on the cart screen
+	 * takes user back to cart screen and verifies user is on the cart screen or not
 	 */
 	@Keyword
 	def clickOnBackToCart() {
 
-		Mobile.tap(findTestObject('iOS/Product_Search/backToCart_Text'), 0)
+		Mobile.tap(findTestObject('iOS/Product Search/backToCart_Text'), 0)
 
-		Mobile.verifyElementAttributeValue(findTestObject('Object Repository/iOS/Dashboard/Orders_Tab'), 'value', '1',0)
+		Mobile.verifyElementAttributeValue(findTestObject('Object Repository/iOS/Dashboard/orders_Tab'), 'value', '1',0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Verification Details/cartHeader_Label'),0)
 	}
-
 
 
 	/**
@@ -180,6 +162,10 @@ class orderDetailsScreen {
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Upload Order/continueOnDesktop_Button'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Verification Details/yourOrder(s)HasBeenSentToDesktop_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Product Search/backToCart_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/goToDashboard_Button'), 0)
 	}
 
 
@@ -198,6 +184,7 @@ class orderDetailsScreen {
 	}
 
 
+
 	/**
 	 * creates a new C2 order 
 	 * @param poName (poName of the order), poMemo (poMemo of the order)
@@ -213,25 +200,24 @@ class orderDetailsScreen {
 
 		Mobile.setText(findTestObject('iOS/Orders/Order Details Screen/Create C2 Order/setText_TextField'), poName, 0)
 
-		Mobile.tap(findTestObject('iOS/Product_Search/returnKeypad_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Product Search/returnKeypad_Button'), 0)
 
 		Mobile.tapAndHold(findTestObject('iOS/Orders/Order Details Screen/Create C2 Order/poMemo_TextField'), 0, 0)
 
 		Mobile.setText(findTestObject('iOS/Orders/Order Details Screen/Create C2 Order/setText_TextField'),poMemo, 0)
 
-		Mobile.tap(findTestObject('iOS/Product_Search/returnKeypad_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Product Search/returnKeypad_Button'), 0)
 
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Create C2 Order/createOrder_Button'), 0)
 
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Create C2 Order/c2order_radioButton'), 0)
 
-		Mobile.tap(findTestObject('iOS/Product_Search/addToOrder_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Product Search/addToOrder_Button'), 0)
 
 		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Create C2 Order/continueBrowsing_Button'), 0)
 	}
-
 
 
 	@Keyword
@@ -248,7 +234,7 @@ class orderDetailsScreen {
 
 		Mobile.setText(findTestObject('iOS/Orders/Order Details Screen/Edit PO Name and Memo/poMemoField_TextField'), po_Name, 0)
 
-		Mobile.tapAndHold(findTestObject('iOS/Product_Search/returnKeypad_Button'), 0,0)
+		Mobile.tapAndHold(findTestObject('iOS/Product Search/returnKeypad_Button'), 0,0)
 
 		Mobile.tapAndHold(findTestObject('iOS/Orders/Order Details Screen/Edit PO Name and Memo/EditPOButton'), 0, 0)
 
@@ -258,6 +244,8 @@ class orderDetailsScreen {
 
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Edit PO Name and Memo/Update Order_Button'), 0)
 	}
+
+
 
 	/**
 	 * clicks on place order button
@@ -271,8 +259,43 @@ class orderDetailsScreen {
 	}
 
 
+
+
 	/**
-	 * scans the product and adds it to the location
+	 * this function returns the order value
+	 * @return orderTotal_dollarSymbolRemoved_FloatValue (order total value)
+	 */
+	@Keyword
+	def returnOrderValue() {
+
+		String orderTotal=Mobile.getText(findTestObject('iOS/Orders/Verification Details/orderTotal_Text'), 0)
+
+		float orderTotal_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(orderTotal)//converting uoiCost string to a float value
+
+		return orderTotal_dollarSymbolRemoved_FloatValue
+	}
+
+
+	/**
+	 * this function gets the total added quantity of the product
+	 * @return quantityNumericalValue (of the product which has been added)
+	 */
+	@Keyword
+	def returnQuantityOfTheAddedProduct() {
+
+		String quantity= Mobile.getText(findTestObject('iOS/Orders/Order Details Screen/Verification Details/quantity_TextField'), 0)
+
+		KeywordUtil.logInfo(quantity)
+
+		float quantityNumericalValue=Float.valueOf(quantity)
+
+		return quantityNumericalValue
+	}
+
+
+
+	/**
+	 * scans the product, adds it to the order and also verifies some scan input details
 	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
 	 */
 	@Keyword
@@ -291,6 +314,7 @@ class orderDetailsScreen {
 
 
 
+
 	/**
 	 * this function selects toggle value for the product to be added which can be ordering or price check)
 	 * @param toggleValue (toggleValue required to be selected for the product to be added which can be ordering or price check)
@@ -304,20 +328,148 @@ class orderDetailsScreen {
 		else {
 			Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Scan Order/priceCheck_Button'), 0)
 		}
-		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Scan Order/done_Button'), 0)
 	}
 
 
 
+	/**
+	 * uploads the c2 order by clicking on upload order button
+	 */
+	@Keyword
+	def uploadC2Order() {
+
+		Mobile.tap(findTestObject('Object Repository/iOS/Orders/Cart Screen/uploadC2Order_Button'), 0)
+	}
+
 
 	/**
-	 * uploads the order by clicking on upload order button
+	 * uploads the order by clicking on upload order button and verifies upload order button gets disabled after uploading
 	 */
 	@Keyword
 	def uploadOrder() {
 
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Upload Order/uploadOrder_Button'), 0)
+
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/Orders/Order Details Screen/Upload Order/uploadOrder_Button'), 'enabled', 'false', 0)
 	}
+
+
+	/**
+	 * verifies c2 label is visible or not
+	 */
+	@Keyword
+	def verifyC2Label() {
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Verification Details/controlledItem_Text'), 0)
+	}
+
+
+	/**
+	 * takes productSearch and expected lines count as the arguments and verifies the same
+	 * @param expectedLinesCount (expected lines count after adding product to an order)
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object	 */
+	@Keyword
+	def verifyOrderDetailsScreenAfterAddingAProduct(String productNdcNumber, String expectedLinesCount) {
+
+		(new iosOrders.orderDetailsScreen()).verifyProductIsVisibleOnTheOrderDetailsScreen(productNdcNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Verification Details/orderDetailHeader_Text'), 0)
+
+		String linesCount=Mobile.getText(findTestObject('iOS/Orders/Order Details Screen/Verification Details/lines_Text'), 0)
+
+		assert linesCount==expectedLinesCount
+	}
+
+
+	/**
+	 * takes user to dash-board
+	 */
+	@Keyword
+	def goToDashboard() {
+
+		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/goToDashboard_Button'), 0)
+	}
+
+	
+	
+	
+	/**
+	 * this function returns the cost of added product
+	 * @return productCost (of the product which has been added)
+	 */
+	@Keyword
+	def returnCostOfTheAddedProduct() {
+
+		String testObj='Object Repository/iOS/Orders/Verification Details/productCost_Text'
+		
+		float productCost=(new iosCommonKeywords.commonMethods()).returnCostOfTheAddedProduct(testObj)//calling common method to get product cost
+		
+    	return productCost
+	}
+	
+
+
+	/**
+	 * verifies order details screen when user creates an order
+	 * @param poName (purchase order name)
+	 */
+	@Keyword
+	def verifyOrderDetailsScreenWithoutAnyAddedProduct(poName) {
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Verification Details/orderDetailHeader_Label',[('TEXT'):poName]),0)
+
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/Orders/Order Details Screen/Upload Order/uploadOrder_Button'), 'enabled', 'false', 0)
+
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/Orders/Order Details Screen/Place Order/placeOrder_Button'), 'enabled', 'false', 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Verification Details/product_SearchField'), 0, FailureHandling.STOP_ON_FAILURE)
+	}
+
+
+
+	/**
+	 * verifies the order value after adding a product
+	 * @param quantity (quantity which was added)
+	 */
+	@Keyword
+	def verifyOrderValue(quantity) {
+
+		int quantityIntegralValue=Integer.parseInt(quantity)
+
+		String productCost=Mobile.getText(findTestObject('iOS/Orders/Verification Details/productCost_Text'), 0)
+
+		float productCost_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(productCost)//converting uoiCost string to a float value
+
+		float expectedOrderTotal=quantityIntegralValue*productCost_dollarSymbolRemoved_FloatValue
+
+		KeywordUtil.logInfo(productCost)
+
+		String actualOrderTotal=Mobile.getText(findTestObject('iOS/Orders/Verification Details/orderTotal_Text'), 0)
+
+		float actualOrderTotal_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(actualOrderTotal)//converting uoiCost string to a float value
+
+		KeywordUtil.logInfo(actualOrderTotal)
+
+		assert expectedOrderTotal==actualOrderTotal_dollarSymbolRemoved_FloatValue
+	}
+
+
+
+	/**
+	 * this function verifies that the product is visible on the order details screen
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */
+	@Keyword
+	def verifyProductIsVisibleOnTheOrderDetailsScreen(productNdcNumber) {
+
+		String testObj='Object Repository/iOS/Orders/Verification Details/ordersNdc_Label'
+
+		(new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
+	}
+
+
 
 
 	/**
@@ -327,46 +479,7 @@ class orderDetailsScreen {
 	def verifyUploadOrderPopUp() {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Verification Details/continueOrderOnTheDesktop_Text'), 0)
-				
+
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/cancelAndKeepOrdersOnTheApp_Button'), 0)
-		
-	}
-
-
-	@Keyword
-	def verify_Order_Details_Screen_Details_with_added_product() {
-
-
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Verification Details/Order Total_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Verification Details/Product Cost_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Verification Details/Remove Item_Button'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Product_Details/UOI_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Product_Details/AMU_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Product_Details/NDCLabel_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Product_Details/ManufacturerName_Text'),  0)
-	}
-
-
-
-	/**
-	 * verifies order details screen when user creates an order
-	 */
-	@Keyword
-	def verifyOrderDetailsScreenWithoutAnyAddedProduct(poName) {
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Verification Details/orderDetailHeader_Label',[('TEXT'):poName]),0)
-
-		Mobile.verifyElementAttributeValue(	findTestObject('iOS/Orders/Order Details Screen/Upload Order/uploadOrder_Button'), 'enabled', 'false', 0)
-
-		Mobile.verifyElementAttributeValue(findTestObject('iOS/Orders/Order Details Screen/Place Order/placeOrder_Button'), 'enabled', 'false', 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Verification Details/product_SearchField'), 0, FailureHandling.STOP_ON_FAILURE)
 	}
 }

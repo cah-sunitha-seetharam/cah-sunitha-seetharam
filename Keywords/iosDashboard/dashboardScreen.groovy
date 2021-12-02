@@ -94,7 +94,7 @@ class dashboardScreen {
 	@Keyword
 	def clickOnHomeTab() {
 
-		Mobile.tap(findTestObject('iOS/Dashboard/Home_Tab'), 0)
+		Mobile.tap(findTestObject('iOS/Dashboard/home_Tab'), 0)
 	}
 
 
@@ -116,12 +116,25 @@ class dashboardScreen {
 	@Keyword
 	def clickOnOrders() {
 
-		Mobile.tap(findTestObject('iOS/Dashboard/Orders_Tab'), 0)
+		Mobile.tap(findTestObject('iOS/Dashboard/orders_Tab'), 0)
 	}
 
 
+	/**
+	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at ordering
+	 */
+	@Keyword
+	def clickOnScanIcon() {
 
-/**
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Scan Order/scan_Icon'), 0)
+
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/Orders/Order Details Screen/Scan Order/priceCheck_Button'), 'value', '1', 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Scan Order/ordering_Button'), 0)
+	}
+
+
+	/**
 	 * this function verifies the dash-board details Screen
 	 */
 	@Keyword
