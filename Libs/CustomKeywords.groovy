@@ -643,11 +643,14 @@ def static "iosOrders.cartScreen.continueOrdersOnTheDesktop"() {
     (new iosOrders.cartScreen()).continueOrdersOnTheDesktop()
 }
 
-
-def static "iosOrders.cartScreen.delete_Order"(
-    	String Account_No	) {
-    (new iosOrders.cartScreen()).delete_Order(
-        	Account_No)
+ /**
+	 * delete's the order from the cart screen based on the purchase order name
+	 * @param poName (purchase order name of the order)
+	 */ 
+def static "iosOrders.cartScreen.deleteOrder"(
+    	String poName	) {
+    (new iosOrders.cartScreen()).deleteOrder(
+        	poName)
 }
 
  /**
@@ -666,12 +669,20 @@ def static "iosOrders.cartScreen.goToDashboard"() {
 
  /**
 	 * opens the order details page
-	 * @param accountNo (accountNo used to create the order)
+	 * @param poName (purchase order name used to create the order)
 	 */ 
-def static "iosOrders.cartScreen.openAnOrderDetails"(
-    	String accountNo	) {
-    (new iosOrders.cartScreen()).openAnOrderDetails(
-        	accountNo)
+def static "iosOrders.cartScreen.openAnOrderDetail"(
+    	String poName	) {
+    (new iosOrders.cartScreen()).openAnOrderDetail(
+        	poName)
+}
+
+ /**
+	 * this function returns the order name of the order which is at the top of the order list
+	 * return orderName (returns topmost order name)
+	 */ 
+def static "iosOrders.cartScreen.returnTopMostOrderName"() {
+    (new iosOrders.cartScreen()).returnTopMostOrderName()
 }
 
  /**
@@ -1358,7 +1369,11 @@ def static "iosOrders.newOrderScreen.change_Account"(
         	new_Account)
 }
 
-
+ /**
+	 * enters purchase order details for the order to be created
+	 * @param poName (purchase order name for the order created)
+	 * @param poMemo (purchase order memo for the order created)
+	 */ 
 def static "iosOrders.newOrderScreen.enterPurchaseOrderDetails"(
     	String poName	
      , 	String poMemo	) {
@@ -1830,17 +1845,17 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+}
+
+
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
     	String testName	
      , 	RectangleSize viewportSize	) {
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
         	testName
          , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
 
 

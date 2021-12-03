@@ -13,7 +13,39 @@
             "purchaseOrderMemo": "",
             "purchaseOrderNumber": "Mobile-100121-215202",
             "sourceId": "MOBILE_APP"
-        }
+        },
+        
+        "TC_R_005": {
+            "productSearchCin": "4023347",
+            "productSearchByName": "tyl",
+
+        },
+        
+        
+        "TC_OE_011": {
+            "productSearchByUPC": "306032-215215",
+            "productSearchByNDC": "00603-2215-21",
+        },
+        
+        
+        
+        "TC_R_035": {
+            "productSearchCin": "4023347",
+            "productSearchByName": "tyl",
+
+        },
+        
+        
+        "TC_R_043": {
+            "productSearchByNDC1": "00574-7116-12",
+            "productSearchByNDC2": "49884-0111-74",
+        },
+        
+        
+        "TC_R_044": {
+            "productSearchByNDC1": "00527-1971-74",
+            "productSearchByNDC2": "00574-7116-12",
+        },
     },
     "PMODQa2": {
         "Carts": {
@@ -48,6 +80,29 @@
         },
         
         
+        
+        
+        "TC_R_005": {
+            "productSearchCin": "4023347",
+            "productSearchByName": "tyl",
+
+        },
+        
+        
+        "TC_OE_011": {
+            "productSearchByUPC": "306032-215215",
+            "productSearchByNDC": "00603-2215-21",
+        },
+        
+        
+        
+        "TC_R_035": {
+            "productSearchCin": "4023347",
+            "productSearchByName": "tyl",
+
+        },
+        
+        
         "TC_R_043": {
             "productSearchByNDC1": "00574-7116-12",
             "productSearchByNDC2": "49884-0111-74",
@@ -58,5 +113,6 @@
             "productSearchByNDC1": "00527-1971-74",
             "productSearchByNDC2": "00574-7116-12",
         },
+        
     }
 }

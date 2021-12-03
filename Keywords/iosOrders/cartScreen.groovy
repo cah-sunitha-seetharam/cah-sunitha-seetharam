@@ -1,3 +1,4 @@
+
 package iosOrders
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
@@ -18,7 +19,7 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords
 
 import internal.GlobalVariable
-
+import iosCommonKeywords.commonMethods
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.By
@@ -41,6 +42,7 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 class cartScreen {
 
+	def commonMethodsObject=new commonMethods();
 
 
 	/**
@@ -124,25 +126,20 @@ class cartScreen {
 	}
 
 
-
+	/**
+	 * delete's the order from the cart screen based on the purchase order name
+	 * @param poName (purchase order name of the order)
+	 */
 	@Keyword
-	def delete_Order(String Account_No) {
+	def deleteOrder(String poName) {
 
-		int w = 6
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
+		String testObj='Object Repository/iOS/Orders/Orders Common Screen/orderListOrderName_Label'
 
-		int ElementTopPosition=Mobile.getElementTopPosition(findTestObject('iOS/Orders/Order Details Screen/Order Details_Text',[('TEXT'):GlobalVariable.Account]), 0)
+		int yCoordinateToSwipe=commonMethodsObject.tapYCoordinateGenerator(testObj,poName)
 
-		int ElementHeight=Mobile.getElementHeight(findTestObject('iOS/Orders/Order Details Screen/Order Details_Text',[('TEXT'):GlobalVariable.Account]), 0)
-
-		int y_Coordinate_To_Swipe=(ElementHeight/2)+ElementTopPosition
-
-		Mobile.swipe(1300, y_Coordinate_To_Swipe, 0, y_Coordinate_To_Swipe)
-
-		//	Mobile.swipe(1300, 430, 0, 430)
+		Mobile.swipe(1300, yCoordinateToSwipe, 0, yCoordinateToSwipe)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Delete_Order/Success_Text'), 0)
 
@@ -150,6 +147,7 @@ class cartScreen {
 
 		Mobile.tapAndHold(findTestObject('iOS/Orders/Cart Screen/Delete_Order/OK_Button'), 0, 0)
 	}
+
 
 
 	/**
@@ -177,13 +175,28 @@ class cartScreen {
 
 	/**
 	 * opens the order details page
-	 * @param accountNo (accountNo used to create the order)
+	 * @param poName (purchase order name used to create the order)
 	 */
 	@Keyword
-	def openAnOrderDetails(String accountNo) {
+	def openAnOrderDetail(String poName) {
 
-		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Order Details_Text',[('TEXT'):accountNo]), 0)
+		Mobile.tap(findTestObject('Object Repository/iOS/Orders/Orders Common Screen/orderListOrderName_Label',[('TEXT'):poName]), 0)
 	}
+
+
+
+	/**
+	 * this function returns the order name of the order which is at the top of the order list
+	 * return orderName (returns topmost order name)
+	 */
+	@Keyword
+	def returnTopMostOrderName() {
+
+		String orderName=Mobile.getText(findTestObject('Object Repository/iOS/Orders/Cart Screen/orderListOrderName_Label'), 0)
+
+		return orderName
+	}
+
 
 
 
@@ -196,7 +209,7 @@ class cartScreen {
 		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/c2Order_View'), 0)
 
 		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
-		
+
 		Mobile.verifyElementAttributeValue(findTestObject('Object Repository/iOS/Orders/Cart Screen/uploadC2Order_Button'), 'enabled', 'true', 0)
 
 		Mobile.verifyElementAttributeValue(findTestObject('Object Repository/iOS/Orders/C2 Order Details Screen/Place C2 Order/placeC2Order_Button'), 'enabled', 'true', 0)
@@ -273,7 +286,7 @@ class cartScreen {
 	}
 
 
-	
+
 	/**
 	 * verifies the cart value after adding products
 	 * @param expectedCartValue (expected cart value which should be equal to actual cart total)
@@ -283,7 +296,7 @@ class cartScreen {
 
 		String actualCartTotal=Mobile.getText(findTestObject('iOS/Orders/Verification Details/cartValue_Text'), 0)
 
-		float actualCartTotal_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(actualCartTotal)//converting uoiCost string to a float value
+		float actualCartTotal_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(actualCartTotal)//converting actualCartTotal string to a float value
 
 		KeywordUtil.logInfo(actualCartTotal)
 
@@ -291,7 +304,7 @@ class cartScreen {
 	}
 
 
-	
+
 	/**
 	 * verifies c2 orders annotation count
 	 * @param expectedCount (expected annotation count)
@@ -301,10 +314,10 @@ class cartScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/c2OrdersAnnotationCount_Text',[('TEXT'):expectedAnnotationCount]), 0)
 	}
-	
-	
-	
-	
+
+
+
+
 	/**
 	 * verifies pop up screen which comes after clicking on place all orders button on cart screen
 	 */
