@@ -35,7 +35,7 @@ import com.kms.katalon.core.testobject.TestObjectProperty
 import com.kms.katalon.core.mobile.helper.MobileElementCommonHelper
 import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-
+import java.util.regex.*
 import com.kms.katalon.core.webui.exception.WebElementNotFoundException
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
@@ -199,6 +199,21 @@ class cartScreen {
 
 
 
+	/**
+	 * this function verifies the pattern required for the order which was created without giving any purchase order name
+	 */
+	@Keyword
+	def verifyOrderNamePattern(final String orderName) {
+
+		final String regex = "(Mobile)(-)([0-9]{6})(-)([0-9]{6})"
+
+		Mobile.verifyMatch(orderName, regex, true)
+
+		KeywordUtil.logInfo("pattern matches"); //logInfo
+	}
+
+
+
 
 	/**
 	 * opens the c2 order details
@@ -262,15 +277,26 @@ class cartScreen {
 
 
 	/**
+	 * verifies that the created order should be visible on the cart screen
+	 * @param poName (purchase order name used to create the order)
+	 */
+	@Keyword
+	def verifyOrderIsVisibleOnTheCartScreen(String poName) {
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/orderName_Label',[('TEXT'):poName]),0)
+	}
+
+
+	/**
 	 * verifies that the created order should not be visible on the cart screen
 	 * @param poName (purchase order name used to create the order)
 	 */
+
 	@Keyword
 	def verifyOrderNotVisibleOnTheCartScreen(String poName) {
 
 		Mobile.verifyElementNotVisible(findTestObject('iOS/Orders/Cart Screen/orderName_Label',[('TEXT'):poName]),0)
 	}
-
 
 
 	/**
@@ -316,6 +342,59 @@ class cartScreen {
 	}
 
 
+	
+	/**
+	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at ordering
+	 */
+	@Keyword
+	def clickOnScanIcon() {
+
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Scan Order/scan_Icon'), 0)
+
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/Orders/Order Details Screen/Scan Order/ordering_Button'), 'value', '1', 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Scan Order/priceCheck_Button'), 0)
+	}
+	
+	
+	
+	/**
+	 * scans the product, adds it to the order and also verifies some scan input details
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */
+	@Keyword
+	def scanInputEvent(String productToBeSearched) {
+
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Scan Order/scanGray_Image'), 0)
+
+		Mobile.setText(findTestObject('iOS/Orders/Order Details Screen/Scan Order/enterBarcode_TextField'), productToBeSearched, 0)
+
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Scan Order/done_Button'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Verification Details/thisItemHaBeenAddedToYourOrder_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Verification Details/alternates_Text'), 0)
+	}
+
+
+
+
+	/**
+	 * this function selects toggle value for the product to be added which can be ordering or price check)
+	 * @param toggleValue (toggleValue required to be selected for the product to be added which can be ordering or price check)
+	 */
+	@Keyword
+	def selectToggleValueForTheProductToBeSearched(String toggleValue) {
+
+		if(toggleValue=="Ordering") {
+			Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Scan Order/ordering_Button'), 0)
+		}
+		else {
+			Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Scan Order/priceCheck_Button'), 0)
+		}
+	}
+	
+	
 
 
 	/**
