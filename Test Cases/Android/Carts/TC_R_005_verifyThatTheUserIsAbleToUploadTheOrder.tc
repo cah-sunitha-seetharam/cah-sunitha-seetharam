@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the user is able to Upload the Order.                                              Prerequisite:  1.Valid login credentials, 2. Multiple accounts available for the user.</description>
+   <name>TC_R_005_verifyThatTheUserIsAbleToUploadTheOrder</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>5571215d-23eb-4959-924f-b726e810a584</testCaseGuid>
+   <variable>
+      <defaultValue>'kavan.mobile.r'</defaultValue>
+      <description></description>
+      <id>85618a16-de5a-4b7b-86a6-e99770b18bc7</id>
+      <masked>false</masked>
+      <name>username</name>
+   </variable>
+   <variable>
+      <defaultValue>'C@rdinal!'</defaultValue>
+      <description></description>
+      <id>329aad07-8f48-4894-a4ce-1611b3fa5a53</id>
+      <masked>false</masked>
+      <name>password</name>
+   </variable>
+</TestCaseEntity>
