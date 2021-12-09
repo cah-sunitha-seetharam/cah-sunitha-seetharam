@@ -48,6 +48,20 @@ class BeforeAfterListeners {
 			}
 		}
 
+
+
+		else  //  platform is Android
+		{
+			AppiumDriver<?> driver =  commonMethods.getCurrentSessionMobileDriver() // mobile driver value of the current session
+			try {
+				driver.terminateApp(GlobalVariable.bundleID) // Terminate the application(if it is running).
+			}
+			catch (Exception exceptionError) {
+				driver.closeApp()  // Close the open app
+				driver.terminateApp(GlobalVariable.bundleID)  // Terminate the application(if it is running).
+			}
+		}
+
 	}
 	@AfterTestSuite
 	def AfterTestSuite(TestSuiteContext testSuiteContext) {
@@ -60,6 +74,13 @@ class BeforeAfterListeners {
 		{
 			AppiumDriver<?> driver =  commonMethods.getCurrentSessionMobileDriver()
 			driver.activateApp(GlobalVariable.appPackage)  //Activates the application if it installed, but not running or if it is running in the background.
+		}
+
+
+		else
+		{
+			AppiumDriver<?> driver =  commonMethods.getCurrentSessionMobileDriver()
+			driver.activateApp(GlobalVariable.bundleID)  //Activates the application if it installed, but not running or if it is running in the background.
 		}
 	}
 	/**
@@ -75,7 +96,7 @@ class BeforeAfterListeners {
 			RunConfiguration.setMobileDriverPreferencesProperty("appPackage", GlobalVariable.appPackage) // this value will get from profile
 			Mobile.startApplication(GlobalVariable.Android_App_Path, true)  // Install the build file (Application)
 			AppiumDriver<?> driver =  commonMethods.getCurrentSessionMobileDriver()
-			CustomKeywords.'android_login.Login_Screen.login'()  // Invoking the Environment selection and login method
+			CustomKeywords.'android_login.Login_Screen.login'(GlobalVariable.Password)  // Invoking the Environment selection and login method
 
 			try {
 				driver.terminateApp(GlobalVariable.appPackage) // Terminate the application(if it is running).
@@ -85,5 +106,30 @@ class BeforeAfterListeners {
 				driver.terminateApp(GlobalVariable.appPackage)  // Terminate the application(if it is running).
 			}
 
-		}}
+		}
+
+		else
+
+		{
+			Mobile.startApplication(GlobalVariable.iOSAppPath, true)  // Install the build file (Application)
+			AppiumDriver<?> driver =  commonMethods.getCurrentSessionMobileDriver()
+			(new iosCommonKeywords.commonMethods()).takeUserFromloginToHomeScreen(GlobalVariable.Username, GlobalVariable.Password,GlobalVariable.Account)
+
+			try {
+				driver.terminateApp(GlobalVariable.bundleID) // Terminate the application(if it is running).
+			}
+			catch (Exception exceptionError) {
+				driver.closeApp()  // Close the open app
+				driver.terminateApp(GlobalVariable.bundleID)  // Terminate the application(if it is running).
+			}
+
+		}
+	}
+
 }
+
+
+
+
+
+

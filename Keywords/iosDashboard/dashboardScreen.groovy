@@ -66,7 +66,7 @@ class dashboardScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Product Search/Confirmation_Text'), 0)
 
-		Mobile.tapAndHold(findTestObject('iOS/Orders/Order Details Page/Upload Order/After Adding Product Continue_Button'), 0,0)
+		Mobile.tapAndHold(findTestObject('iOS/Orders/Order Details Screen/Upload Order/After Adding Product Continue_Button'), 0,0)
 	}
 
 
@@ -126,11 +126,11 @@ class dashboardScreen {
 	@Keyword
 	def clickOnScanIcon() {
 
-		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Scan Order/scan_Icon'), 0)
+		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/scan_Icon'), 0)
 
-		Mobile.verifyElementAttributeValue(findTestObject('iOS/Orders/Order Details Screen/Scan Order/priceCheck_Button'), 'value', '1', 0)
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/Product Search/Scan Flow/priceCheck_Button'), 'value', '1', 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Scan Order/ordering_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Product Search/Scan Flow/ordering_Button'), 0)
 	}
 
 

@@ -601,78 +601,109 @@ def static "androidLogin.loginScreen.verifyLoginPageDetails"() {
     (new androidLogin.loginScreen()).verifyLoginPageDetails()
 }
 
-
+ /**
+	 * cancels uploading of orders and keeps orders on the application
+	 */ 
 def static "iosOrders.cartScreen.cancelUploadAndKeepOrdersOnTheApp"() {
     (new iosOrders.cartScreen()).cancelUploadAndKeepOrdersOnTheApp()
 }
 
-
+ /**
+	 * takes user back to cart screen and verifies user is on the cart screen
+	 */ 
 def static "iosOrders.cartScreen.clickOnBackToCart"() {
     (new iosOrders.cartScreen()).clickOnBackToCart()
 }
 
-
+ /**
+	 * opens the c2 orders tab
+	 */ 
 def static "iosOrders.cartScreen.clickOnC2Orders"() {
     (new iosOrders.cartScreen()).clickOnC2Orders()
 }
 
-
+ /**
+	 * clicks on all place all orders button on cart screen
+	 */ 
 def static "iosOrders.cartScreen.clickOnPlaceAllOrders"() {
     (new iosOrders.cartScreen()).clickOnPlaceAllOrders()
 }
 
-
+ /**
+	 * confirms placing all order by clicking on place all orders confirmation button and verifies details related to placed order
+	 */ 
 def static "iosOrders.cartScreen.confirmPlacingAllOrders"() {
     (new iosOrders.cartScreen()).confirmPlacingAllOrders()
 }
 
-
+ /**
+	 * clicks on continue orders on the desktop and verifies popUp which appears after tapping on continue on desktop
+	 */ 
 def static "iosOrders.cartScreen.continueOrdersOnTheDesktop"() {
     (new iosOrders.cartScreen()).continueOrdersOnTheDesktop()
 }
 
-
+ /**
+	 * delete's the order from the cart screen based on the purchase order name
+	 * @param poName (purchase order name of the order)
+	 */ 
 def static "iosOrders.cartScreen.deleteOrder"(
     	String poName	) {
     (new iosOrders.cartScreen()).deleteOrder(
         	poName)
 }
 
-
+ /**
+	 * takes user back to cart to review all orders
+	 */ 
 def static "iosOrders.cartScreen.goBackToReviewAllOrders"() {
     (new iosOrders.cartScreen()).goBackToReviewAllOrders()
 }
 
-
+ /**
+	 * takes user to dash-board
+	 */ 
 def static "iosOrders.cartScreen.goToDashboard"() {
     (new iosOrders.cartScreen()).goToDashboard()
 }
 
-
+ /**
+	 * opens the order details page
+	 * @param poName (purchase order name used to create the order)
+	 */ 
 def static "iosOrders.cartScreen.openAnOrderDetail"(
     	String poName	) {
     (new iosOrders.cartScreen()).openAnOrderDetail(
         	poName)
 }
 
-
+ /**
+	 * this function returns the order name of the order which is at the top of the order list
+	 * return orderName (returns topmost order name)
+	 */ 
 def static "iosOrders.cartScreen.returnTopMostOrderName"() {
     (new iosOrders.cartScreen()).returnTopMostOrderName()
 }
 
-
+ /**
+	 * this function verifies the pattern required for the order which was created without giving any purchase order name
+	 */ 
 def static "iosOrders.cartScreen.verifyOrderNamePattern"(
     	String orderName	) {
     (new iosOrders.cartScreen()).verifyOrderNamePattern(
         	orderName)
 }
 
-
+ /**
+	 * opens the c2 order details
+	 */ 
 def static "iosOrders.cartScreen.openC2OrderDetails"() {
     (new iosOrders.cartScreen()).openC2OrderDetails()
 }
 
-
+ /**
+	 * uploads all order by clicking on upload all orders button on cart screen
+	 */ 
 def static "iosOrders.cartScreen.uploadAllOrders"() {
     (new iosOrders.cartScreen()).uploadAllOrders()
 }
@@ -687,66 +718,93 @@ def static "iosOrders.cartScreen.verifyCartScreenWithoutAnyOrderPresent"() {
     (new iosOrders.cartScreen()).verifyCartScreenWithoutAnyOrderPresent()
 }
 
-
+ /**
+	 * verifies that the created order should be visible on the cart screen
+	 * @param poName (purchase order name used to create the order)
+	 */ 
 def static "iosOrders.cartScreen.verifyOrderIsVisibleOnTheCartScreen"(
     	String poName	) {
     (new iosOrders.cartScreen()).verifyOrderIsVisibleOnTheCartScreen(
         	poName)
 }
 
-
+ /**
+	 * verifies that the created order should not be visible on the cart screen
+	 * @param poName (purchase order name used to create the order)
+	 */ 
 def static "iosOrders.cartScreen.verifyOrderNotVisibleOnTheCartScreen"(
     	String poName	) {
     (new iosOrders.cartScreen()).verifyOrderNotVisibleOnTheCartScreen(
         	poName)
 }
 
-
+ /**
+	 * takes expected lines count as the argument and verifies the same
+	 * @param expectedLinesCount (expected lines count after adding products to the cart)
+	 */ 
 def static "iosOrders.cartScreen.verifyLinesCount"(
     	String expectedLinesCount	) {
     (new iosOrders.cartScreen()).verifyLinesCount(
         	expectedLinesCount)
 }
 
-
+ /**
+	 * verifies the cart value after adding products
+	 * @param expectedCartValue (expected cart value which should be equal to actual cart total)
+	 */ 
 def static "iosOrders.cartScreen.verifyCartValue"(
     	float expectedCartValue	) {
     (new iosOrders.cartScreen()).verifyCartValue(
         	expectedCartValue)
 }
 
-
+ /**
+	 * verifies c2 orders annotation count
+	 * @param expectedCount (expected annotation count)
+	 */ 
 def static "iosOrders.cartScreen.verifyC2OrdersTabAnnotationCount"(
     	int expectedAnnotationCount	) {
     (new iosOrders.cartScreen()).verifyC2OrdersTabAnnotationCount(
         	expectedAnnotationCount)
 }
 
-
+ /**
+	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at ordering
+	 */ 
 def static "iosOrders.cartScreen.clickOnScanIcon"() {
     (new iosOrders.cartScreen()).clickOnScanIcon()
 }
 
-
+ /**
+	 * scans the product, adds it to the order and also verifies some scan input details
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */ 
 def static "iosOrders.cartScreen.scanInputEvent"(
     	String productToBeSearched	) {
     (new iosOrders.cartScreen()).scanInputEvent(
         	productToBeSearched)
 }
 
-
+ /**
+	 * this function selects toggle value for the product to be added which can be ordering or price check)
+	 * @param toggleValue (toggleValue required to be selected for the product to be added which can be ordering or price check)
+	 */ 
 def static "iosOrders.cartScreen.selectToggleValueForTheProductToBeSearched"(
     	String toggleValue	) {
     (new iosOrders.cartScreen()).selectToggleValueForTheProductToBeSearched(
         	toggleValue)
 }
 
-
+ /**
+	 * verifies pop up screen which comes after clicking on place all orders button on cart screen
+	 */ 
 def static "iosOrders.cartScreen.verifyPlaceAllOrdersPopUp"() {
     (new iosOrders.cartScreen()).verifyPlaceAllOrdersPopUp()
 }
 
-
+ /**
+	 * verifies pop up screen which comes after clicking on upload all orders button on cart screen
+	 */ 
 def static "iosOrders.cartScreen.verifyUploadAllOrdersPopUp"() {
     (new iosOrders.cartScreen()).verifyUploadAllOrdersPopUp()
 }
@@ -1847,6 +1905,13 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
 }
 
 
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
+}
+
+
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	
      , 	String testName	
@@ -1855,11 +1920,4 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
 }
