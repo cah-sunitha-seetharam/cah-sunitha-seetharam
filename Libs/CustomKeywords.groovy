@@ -49,44 +49,36 @@ def static "androidDashboard.dashboardDetailsScreen.click_On_More_Options"() {
     (new androidDashboard.dashboardDetailsScreen()).click_On_More_Options()
 }
 
- /**
-	 * clicks on product search field
-	 */ 
+
+def static "iosCommonKeywords.commonMethods.enableBetaFeature"() {
+    (new iosCommonKeywords.commonMethods()).enableBetaFeature()
+}
+
+
 def static "iosCommonKeywords.commonMethods.clickOnProductSearchTextField"() {
     (new iosCommonKeywords.commonMethods()).clickOnProductSearchTextField()
 }
 
- /**
-	 * clicks on Search Key of the keypad
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.clickOnSearchKey"() {
     (new iosCommonKeywords.commonMethods()).clickOnSearchKey()
 }
 
- /**
-	 * this method closes the popUp screen by tapping on close, cancel button
-	 * @param testobj (reference of the close, cancel button)
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.closePopUpScreen"(
     	Object testobj	) {
     (new iosCommonKeywords.commonMethods()).closePopUpScreen(
         	testobj)
 }
 
- /**
-	 * this function returns the cost of added product
-	 * @return productCost_dollarSymbolRemoved_FloatValue (of the product which has been added)
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.returnCostOfTheAddedProduct"(
     	String testObj	) {
     (new iosCommonKeywords.commonMethods()).returnCostOfTheAddedProduct(
         	testObj)
 }
 
- /**
-	 * this function returns the total expected value of the added product
-	 * @return productCost_dollarSymbolRemoved_FloatValue (of the product which has been added)
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.returnExpectedTotalValueForAddedProduct"(
     	Object quantity	
      , 	Object costOfProduct	) {
@@ -95,55 +87,36 @@ def static "iosCommonKeywords.commonMethods.returnExpectedTotalValueForAddedProd
          , 	costOfProduct)
 }
 
- /**
-	 * inputs the product search which can be name/Cin/UPC/NDC in the product search-field
-	 * @param productSearch (which can be name/Cin/UPC/NDC in the product search-field)
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.enterProductInSearchField"(
     	Object productSearch	) {
     (new iosCommonKeywords.commonMethods()).enterProductInSearchField(
         	productSearch)
 }
 
- /**
-	 * this method will take the application one screen back
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.goOneScreenBack"() {
     (new iosCommonKeywords.commonMethods()).goOneScreenBack()
 }
 
- /**
-	 * installs as well as launches the application
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication"() {
     (new iosCommonKeywords.commonMethods()).installingAndlaunchingTheApplication()
 }
 
- /**
-	 * performs basic text management operations:Copy,Cut,Paste,Share
-	 * @param operationToBePerformed (in operationToBePerformed argument all alphabets should be lower-case except the first one for e.g Copy, Cut)
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.performBasicTextManagementOperation"(
     	String operationToBePerformed	) {
     (new iosCommonKeywords.commonMethods()).performBasicTextManagementOperation(
         	operationToBePerformed)
 }
 
- /**
-	 * opens the inventory listing screen by firstly clicking on more options from dash-board 
-	 * and then clicks on inventory under more options screen which takes user to inventory listing screen
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.takeUserFromHomeToInventoryListingScreen"() {
     (new iosCommonKeywords.commonMethods()).takeUserFromHomeToInventoryListingScreen()
 }
 
- /**
-	 * performs login function by selecting the type of testing (automation or manual), environment of testing(taken from the global profile), entering user-name and password
-	 * and then selects the user account from the accounts list and takes user to the dash-board screen
-	 * @param username
-	 * @param password
-	 * @param accountNo
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen"(
     	Object username	
      , 	Object password	
@@ -154,24 +127,14 @@ def static "iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen"(
          , 	accountNo)
 }
 
- /**
-	 * generates the coordinate x for a test object by considering ElementLeftPosition and ElementWidth
-	 * @param testObj (reference of the testObject passed as a parameter)
-	 * @param text (name of the element)
-	 * @return int value for the xCoordinate
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.tapXCoordinateGenerator"(
     	String testObj	) {
     (new iosCommonKeywords.commonMethods()).tapXCoordinateGenerator(
         	testObj)
 }
 
- /**
-	 * generates the coordinate y for a test object by considering ElementTopPosition and ElementHeight
-	 * @param testObj (reference of the testObject passed as a parameter)
-	 * @param text (name of the element)
-	 * @return int value for the yCoordinate
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.tapYCoordinateGenerator"(
     	String testObj	
      , 	String text	) {
@@ -180,21 +143,14 @@ def static "iosCommonKeywords.commonMethods.tapYCoordinateGenerator"(
          , 	text)
 }
 
- /**
-	 * this method verifies the popUp screen is visible
-	 * @param testobj (reference of the popUp screen object under verification)
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.verifyPopUpScreenExist"(
     	Object testobj	) {
     (new iosCommonKeywords.commonMethods()).verifyPopUpScreenExist(
         	testobj)
 }
 
- /**
-	 * this function verifies that the product is not visible on the screen
-	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
-	 * @param testObj (test object of the element under verification)
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.verifyProductIsNotVisibleOnTheScreen"(
     	Object testObj	
      , 	Object productIdentificationNumber	) {
@@ -203,11 +159,7 @@ def static "iosCommonKeywords.commonMethods.verifyProductIsNotVisibleOnTheScreen
          , 	productIdentificationNumber)
 }
 
- /**
-	 * this function verifies that the product is visible on the screen
-	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
-	 * @param testObj (test object of the element under verification)
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScreen"(
     	Object testObj	
      , 	Object productIdentificationNumber	) {
@@ -216,37 +168,24 @@ def static "iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScreen"(
          , 	productIdentificationNumber)
 }
 
- /**
-	 * refreshes the screen by doing a vertical swipe by considering the deviceHeight and deviceWidth
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.verticalSwipeForRefresh"() {
     (new iosCommonKeywords.commonMethods()).verticalSwipeForRefresh()
 }
 
- /**
-	 * this function verifies that the product is visible on the product search screen after search
-	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
-	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheProductSearchScreen"(
     	Object productNdcNumber	) {
     (new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheProductSearchScreen(
         	productNdcNumber)
 }
 
- /**
-	 * waits until the progressBar is visible on the screen, which will have a maximum waitLimit to be visible on the screen
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible"() {
     (new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 }
 
- /**
-	 * waits until the object is visible on the screen, which will have a maximum waitLimit to be visible on the screen
-	 * @param testObj (reference of the test Object)
-	 * @param waitTime (time by which delay will be added in(s))
-	 * @param waitLimit (maximum limit of time for which delay can be added)
-	 */ 
+
 def static "iosCommonKeywords.commonMethods.waitTimeForObjectToBeVisible"(
     	Object testObj	
      , 	int waitTime	
@@ -316,10 +255,7 @@ def static "iosOrders.orderDetailsScreen.add_Alternate_Product"(
          , 	quantity)
 }
 
- /**
-	 * searches for a product by setting product name and quantity as the input
-	 * @param productName (product to be added), quantity (total quantity required to be added)
-	 */ 
+
 def static "iosOrders.orderDetailsScreen.addProductToOrder"(
     	String productName	
      , 	String quantity	) {
@@ -328,48 +264,34 @@ def static "iosOrders.orderDetailsScreen.addProductToOrder"(
          , 	quantity)
 }
 
- /**
-	 * this function adds the quantity for the product to be searched
-	 * @param quantity (quantity required to be added for the product to be searched)
-	 */ 
+
 def static "iosOrders.orderDetailsScreen.addQuantityforTheSearchedProduct"(
     	String quantity	) {
     (new iosOrders.orderDetailsScreen()).addQuantityforTheSearchedProduct(
         	quantity)
 }
 
- /**
-	 * clicks on c2 order availability and waits for the response while verifying the availability details for the c2 product
-	 */ 
+
 def static "iosOrders.orderDetailsScreen.checkC2OrderAvailability"() {
     (new iosOrders.orderDetailsScreen()).checkC2OrderAvailability()
 }
 
- /**
-	 * takes user back to cart screen and verifies user is on the cart screen or not
-	 */ 
+
 def static "iosOrders.orderDetailsScreen.clickOnBackToCart"() {
     (new iosOrders.orderDetailsScreen()).clickOnBackToCart()
 }
 
- /**
-	 * takes user back to the search product results to continue browsing
-	 */ 
+
 def static "iosOrders.orderDetailsScreen.clickOnContinueOrderingOnDesktop"() {
     (new iosOrders.orderDetailsScreen()).clickOnContinueOrderingOnDesktop()
 }
 
- /**
-	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at ordering
-	 */ 
+
 def static "iosOrders.orderDetailsScreen.clickOnScanIcon"() {
     (new iosOrders.orderDetailsScreen()).clickOnScanIcon()
 }
 
- /**
-	 * creates a new C2 order 
-	 * @param poName (poName of the order), poMemo (poMemo of the order)
-	 */ 
+
 def static "iosOrders.orderDetailsScreen.createNewC2Order"(
     	String poName	
      , 	String poMemo	) {
@@ -387,75 +309,51 @@ def static "iosOrders.orderDetailsScreen.edit_PO_Name_and_Memo"(
          , 	po_Memo)
 }
 
- /**
-	 * clicks on place order button
-	 */ 
+
 def static "iosOrders.orderDetailsScreen.placeOrder"() {
     (new iosOrders.orderDetailsScreen()).placeOrder()
 }
 
- /**
-	 * this function returns the order value
-	 * @return orderTotal_dollarSymbolRemoved_FloatValue (order total value)
-	 */ 
+
 def static "iosOrders.orderDetailsScreen.returnOrderValue"() {
     (new iosOrders.orderDetailsScreen()).returnOrderValue()
 }
 
- /**
-	 * this function gets the total added quantity of the product
-	 * @return quantityNumericalValue (of the product which has been added)
-	 */ 
+
 def static "iosOrders.orderDetailsScreen.returnQuantityOfTheAddedProduct"() {
     (new iosOrders.orderDetailsScreen()).returnQuantityOfTheAddedProduct()
 }
 
- /**
-	 * scans the product, adds it to the order and also verifies some scan input details
-	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
-	 */ 
+
 def static "iosOrders.orderDetailsScreen.scanInputEvent"(
     	String productToBeSearched	) {
     (new iosOrders.orderDetailsScreen()).scanInputEvent(
         	productToBeSearched)
 }
 
- /**
-	 * this function selects toggle value for the product to be added which can be ordering or price check)
-	 * @param toggleValue (toggleValue required to be selected for the product to be added which can be ordering or price check)
-	 */ 
+
 def static "iosOrders.orderDetailsScreen.selectToggleValueForTheProductToBeSearched"(
     	String toggleValue	) {
     (new iosOrders.orderDetailsScreen()).selectToggleValueForTheProductToBeSearched(
         	toggleValue)
 }
 
- /**
-	 * uploads the c2 order by clicking on upload order button
-	 */ 
+
 def static "iosOrders.orderDetailsScreen.uploadC2Order"() {
     (new iosOrders.orderDetailsScreen()).uploadC2Order()
 }
 
- /**
-	 * uploads the order by clicking on upload order button and verifies upload order button gets disabled after uploading
-	 */ 
+
 def static "iosOrders.orderDetailsScreen.uploadOrder"() {
     (new iosOrders.orderDetailsScreen()).uploadOrder()
 }
 
- /**
-	 * verifies c2 label is visible or not
-	 */ 
+
 def static "iosOrders.orderDetailsScreen.verifyC2Label"() {
     (new iosOrders.orderDetailsScreen()).verifyC2Label()
 }
 
- /**
-	 * takes productSearch and expected lines count as the arguments and verifies the same
-	 * @param expectedLinesCount (expected lines count after adding product to an order)
-	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
-	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object	 */ 
+
 def static "iosOrders.orderDetailsScreen.verifyOrderDetailsScreenAfterAddingAProduct"(
     	String productNdcNumber	
      , 	String expectedLinesCount	) {
@@ -464,55 +362,38 @@ def static "iosOrders.orderDetailsScreen.verifyOrderDetailsScreenAfterAddingAPro
          , 	expectedLinesCount)
 }
 
- /**
-	 * takes user to dash-board
-	 */ 
+
 def static "iosOrders.orderDetailsScreen.goToDashboard"() {
     (new iosOrders.orderDetailsScreen()).goToDashboard()
 }
 
- /**
-	 * this function returns the cost of added product
-	 * @return productCost (of the product which has been added)
-	 */ 
+
 def static "iosOrders.orderDetailsScreen.returnCostOfTheAddedProduct"() {
     (new iosOrders.orderDetailsScreen()).returnCostOfTheAddedProduct()
 }
 
- /**
-	 * verifies order details screen when user creates an order
-	 * @param poName (purchase order name)
-	 */ 
+
 def static "iosOrders.orderDetailsScreen.verifyOrderDetailsScreenWithoutAnyAddedProduct"(
     	Object poName	) {
     (new iosOrders.orderDetailsScreen()).verifyOrderDetailsScreenWithoutAnyAddedProduct(
         	poName)
 }
 
- /**
-	 * verifies the order value after adding a product
-	 * @param quantity (quantity which was added)
-	 */ 
+
 def static "iosOrders.orderDetailsScreen.verifyOrderValue"(
     	Object quantity	) {
     (new iosOrders.orderDetailsScreen()).verifyOrderValue(
         	quantity)
 }
 
- /**
-	 * this function verifies that the product is visible on the order details screen
-	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
-	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
-	 */ 
+
 def static "iosOrders.orderDetailsScreen.verifyProductIsVisibleOnTheOrderDetailsScreen"(
     	Object productNdcNumber	) {
     (new iosOrders.orderDetailsScreen()).verifyProductIsVisibleOnTheOrderDetailsScreen(
         	productNdcNumber)
 }
 
- /**
-	 * verifies the pop up which appears after user clicks on upload order
-	 */ 
+
 def static "iosOrders.orderDetailsScreen.verifyUploadOrderPopUp"() {
     (new iosOrders.orderDetailsScreen()).verifyUploadOrderPopUp()
 }
@@ -1875,19 +1756,19 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
     	TestObject testObject	
      , 	String testName	) {
     (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
         	testObject
          , 	testName)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
 }
 
 
@@ -1905,13 +1786,6 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	
      , 	String testName	
@@ -1920,4 +1794,11 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
 }
