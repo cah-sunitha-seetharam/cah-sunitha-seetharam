@@ -69,6 +69,84 @@ class orderDetailsScreen {
 
 		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Upload Order/Back to Cart_button'), 0)
 	}
+	
+	
+	/**
+	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at ordering
+	 */
+	@Keyword
+	def clickOnScanIcon() {
+
+		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_Icon'), 0)
+
+		Mobile.verifyElementAttributeValue(findTestObject('Android/Orders/Order Details Screen/Scan Order/ordering_Text'), 'text', 'Ordering', 0)
+
+		Mobile.verifyElementAttributeValue(findTestObject('Android/Orders/Order Details Screen/Scan Order/priceCheck_Text'), 'text', 'Price Check', 0)
+	}
+	
+	/**
+	 * scans the product, adds it to the order and also verifies some scan input details
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */
+	@Keyword
+	def scanInputEvent(String productToBeSearched) {
+
+		Mobile.setText(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_EditText'), productToBeSearched, 0)
+		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Scan Order/thisItemHasBeenAddedToYourOrder_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Scan Order/remove_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Scan Order/alternates_Text'), 0)
+	}
+	
+	/**
+	 * this function adds the quantity for the product to be searched
+	 * @param quantity (quantity required to be added for the product to be searched)
+	 */
+	
+	@Keyword
+	def addQuantityforTheSearchedProduct(String quantity) {
+
+//		Mobile.setText(findTestObject('Android/Orders/Order Details Screen/Scan Order/quantityTextField_EditText'), quantity, 0)
+		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/moreOperator.ImageView'), 0)
+
+	}
+	
+	/**
+	 * this function gets the total added quantity of the product
+	 * @return quantityNumericalValue (of the product which has been added)
+	 */
+	
+	@Keyword
+	def returnQuantityOfTheAddedProduct() {
+
+		String quantity= Mobile.getText(findTestObject('Android/Orders/Order Details Screen/Scan Order/quantityTextField_EditText'), 0)
+
+		KeywordUtil.logInfo(quantity)
+
+		float quantityNumericalValue=Float.valueOf(quantity)
+
+		return quantityNumericalValue
+	}
+	
+	/**
+	 * uploads the order by clicking on upload order button and verifies upload order button gets disabled after uploading
+	 */
+	@Keyword
+	def uploadOrder() {
+
+		Mobile.tapAndHold(findTestObject('Android/Orders/Order Details Screen/Scan Order/android.widget.Button - Upload Order'), 0, 0)
+
+	}
+	
+	
+	/**
+	 * takes user back to the search product results to continue browsing
+	 */
+	@Keyword
+	def clickOnContinueOrderingOnDesktop() {
+
+		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/android.widget.Button - Continue On Desktop'), 0)
+	}
 
 
 	/**

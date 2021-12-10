@@ -31,7 +31,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description>iOS application path is taken from the profiles and used in the start application under android common methods</description>
-      <initValue>'/Users/sahil.vidaysingh/Downloads/Hatch.app'</initValue>
+      <initValue>'/Users/shruthi/Downloads/Hatch 2.app'</initValue>
       <name>iOS_App_Path</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
