@@ -16,7 +16,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description>user account is taken from the profiles and passed as a parameter in the account selection screen</description>
-      <initValue>'8-106595'</initValue>
+      <initValue>'24-2150224901'</initValue>
       <name>Account</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>

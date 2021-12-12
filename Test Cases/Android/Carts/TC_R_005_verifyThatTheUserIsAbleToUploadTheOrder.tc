@@ -6,36 +6,15 @@
    <comment></comment>
    <testCaseGuid>5571215d-23eb-4959-924f-b726e810a584</testCaseGuid>
    <variable>
-      <defaultValue>'kavan.mobile.r'</defaultValue>
-      <description></description>
-      <id>85618a16-de5a-4b7b-86a6-e99770b18bc7</id>
-      <masked>false</masked>
-      <name>username</name>
-   </variable>
-   <variable>
-      <defaultValue>'C@rdinal!'</defaultValue>
-      <description></description>
-      <id>329aad07-8f48-4894-a4ce-1611b3fa5a53</id>
-      <masked>false</masked>
-      <name>password</name>
-   </variable>
-   <variable>
-      <defaultValue>'24-2150224900'</defaultValue>
-      <description></description>
-      <id>5e642a92-8e4a-41a2-8d43-fe809d3a3876</id>
-      <masked>false</masked>
-      <name>accountNo</name>
-   </variable>
-   <variable>
       <defaultValue>'poName'</defaultValue>
-      <description></description>
+      <description>purchase order name for the order created</description>
       <id>6d98657c-cee3-4d4c-9dd8-37983cdce84c</id>
       <masked>false</masked>
       <name>poName</name>
    </variable>
    <variable>
       <defaultValue>'poMemo'</defaultValue>
-      <description></description>
+      <description>purchase order memo for the order created</description>
       <id>96001e33-53cb-4d94-a911-fe72c255304a</id>
       <masked>false</masked>
       <name>poMemo</name>
@@ -49,14 +28,14 @@
    </variable>
    <variable>
       <defaultValue>'2'</defaultValue>
-      <description></description>
+      <description>quantity added for the product searched</description>
       <id>bab36757-295b-4bfa-bacf-92431e605e3b</id>
       <masked>false</masked>
       <name>quantity</name>
    </variable>
    <variable>
       <defaultValue>2</defaultValue>
-      <description></description>
+      <description>expected quantity added for the product searched</description>
       <id>2d41c980-3510-4b93-904d-753c5c577cdb</id>
       <masked>false</masked>
       <name>expectedQuantity</name>
