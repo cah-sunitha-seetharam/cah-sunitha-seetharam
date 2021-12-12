@@ -86,7 +86,6 @@ class newOrderScreen {
 	def createOrder() {
 
 		Mobile.tap(findTestObject('Android/Orders/New Order Screen/Create Order_button'), 0)
-
 	}
 
 
@@ -98,6 +97,17 @@ class newOrderScreen {
 	}
 
 
+	/**
+	 * verifies new order screen
+	 */
+	@Keyword
+	def verifyNewOrderScreenAccount() {
+		String actualAccountNumber = Mobile.getText(findTestObject('Android/Orders/New Order Screen/accountID_Textview'), 0)
+		assert actualAccountNumber == GlobalVariable.Account
+		Mobile.verifyElementExist(findTestObject('Android/Orders/New Order Screen/P.O. Name (Optional)_TextField'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/New Order Screen/P.O. Memo (Optional)_TextField'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/New Order Screen/Change Account_TextView'), 0)
+	}
 
 	@Keyword
 	def verify_NewOrder_Screen_Details() {
