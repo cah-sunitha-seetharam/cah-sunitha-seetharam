@@ -20,21 +20,14 @@
       <name>poMemo</name>
    </variable>
    <variable>
-      <defaultValue>'4023347'</defaultValue>
-      <description></description>
-      <id>9dc23a79-8837-4b9f-8536-9b058324eba5</id>
-      <masked>false</masked>
-      <name>productToBeSearched</name>
-   </variable>
-   <variable>
-      <defaultValue>'2'</defaultValue>
+      <defaultValue>2</defaultValue>
       <description>quantity added for the product searched</description>
       <id>bab36757-295b-4bfa-bacf-92431e605e3b</id>
       <masked>false</masked>
       <name>quantity</name>
    </variable>
    <variable>
-      <defaultValue>2</defaultValue>
+      <defaultValue>3</defaultValue>
       <description>expected quantity added for the product searched</description>
       <id>2d41c980-3510-4b93-904d-753c5c577cdb</id>
       <masked>false</masked>

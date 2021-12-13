@@ -53,8 +53,14 @@ CustomKeywords.'androidOrders.orderDetailsScreen.verify_Order_Screen_Details_wit
 'clicks on scan icon and also verifies that the default scan toggle value is at ordering'
 CustomKeywords.'androidOrders.orderDetailsScreen.clickOnScanIcon'()
 
+'reading the module test data file'
+def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inventoryTestData.json')
+
+'reading the product name of product to be added (nonC2 product)'
+String productSearch = requestObject[GlobalVariable.Environment].TC_R_005.productSearchByNDC
+
 'takes productSearch which can be productName/Cin/UPC/NDC as the input and adds it to the order by scanning the product'
-CustomKeywords.'androidOrders.orderDetailsScreen.scanInputEvent'(productToBeSearched)
+CustomKeywords.'androidOrders.orderDetailsScreen.scanInputEvent'(productSearch)
 
 'adds quantity of the product'
 CustomKeywords.'androidOrders.orderDetailsScreen.addQuantityforTheSearchedProduct'(quantity)
@@ -68,20 +74,20 @@ CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
 'returns the quantity which has been added for the product searched'
 actualQuantityAdded = CustomKeywords.'androidOrders.orderDetailsScreen.returnQuantityOfTheAddedProduct'()
 
-'verifies whether actual quantity added equals the expected quantity'
+'verifies wheather actual quantity added equals the expected quantity'
 assert actualQuantityAdded == expectedQuantity
 
 'uploads the order by clicking on upload order button'
 CustomKeywords.'androidOrders.orderDetailsScreen.uploadOrder'()
 
 'waits until the progressBar is visible on the screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'verifies the pop up screen which appears after user clicks on upload order'
 CustomKeywords.'androidOrders.orderDetailsScreen.verifyUploadOrderPopUp'()
 
-'clicks on continue ordering to take user back to the search results to keep browsing'
-CustomKeywords.'androidOrders.orderDetailsScreen.clickOnContinueOrderingOnDesktop'()
+'opens order has been sent to desktop popup'
+CustomKeywords.'androidOrders.cartScreen.clickOnContinueOnDesktop'()
 
 'verifies order has been sent to desktop popup'
 CustomKeywords.'androidOrders.orderDetailsScreen.verifyOrderHasbeensentToDesktopPopUp'()

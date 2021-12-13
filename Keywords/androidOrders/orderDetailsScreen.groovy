@@ -104,11 +104,12 @@ class orderDetailsScreen {
 	 */
 
 	@Keyword
-	def addQuantityforTheSearchedProduct(String quantity) {
+	def addQuantityforTheSearchedProduct(int quantity) {
 
-		//		Mobile.setText(findTestObject('Android/Orders/Order Details Screen/Scan Order/quantityTextField_EditText'), quantity, 0)
-		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/moreOperator.ImageView'), 0)
-
+		int i
+			for (i=1; i<= quantity; i++) {
+			Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/moreOperator_ImageView'),  0)
+		}
 	}
 
 	/**
@@ -134,7 +135,7 @@ class orderDetailsScreen {
 	@Keyword
 	def uploadOrder() {
 
-		Mobile.tapAndHold(findTestObject('Android/Orders/Order Details Screen/Scan Order/android.widget.Button - Upload Order'), 0, 0)
+		Mobile.tapAndHold(findTestObject('Android/Orders/Order Details Screen/Upload Order/Upload Order_Button'), 0, 0)
 	}
 
 
@@ -144,7 +145,7 @@ class orderDetailsScreen {
 	@Keyword
 	def clickOnContinueOrderingOnDesktop() {
 
-		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/android.widget.Button - Continue On Desktop'), 0)
+		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Upload Order/Continue order on the desktop_TextView'), 0)
 	}
 
 	/**
@@ -287,7 +288,9 @@ class orderDetailsScreen {
 	}
 
 
-
+	/**
+	 * verifies order screen details without any added product
+	 */
 	@Keyword
 	def verify_Order_Screen_Details_without_any_added_product() {
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Verification Details/Nothing to see here_TextView'), 0)

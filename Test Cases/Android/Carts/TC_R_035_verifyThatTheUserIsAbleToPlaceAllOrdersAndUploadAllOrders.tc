@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the user is able to Place All Orders and Upload All Orders.
+Prerequisite: 
+1. Valid login credentials
+2. Multiple accounts available for the user.</description>
+   <name>TC_R_035_verifyThatTheUserIsAbleToPlaceAllOrdersAndUploadAllOrders</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>469105d6-d780-42d1-8a49-a0416d65e4d9</testCaseGuid>
+   <variable>
+      <defaultValue>'poName1'</defaultValue>
+      <description>purchase order name for the order created</description>
+      <id>16a887bd-6553-4d8f-87aa-27cb3624116c</id>
+      <masked>false</masked>
+      <name>poName1</name>
+   </variable>
+   <variable>
+      <defaultValue>'poMemo1'</defaultValue>
+      <description>purchase order memo for the order created</description>
+      <id>14164266-a9e0-42d8-b10c-1cf8ae85dd19</id>
+      <masked>false</masked>
+      <name>poMemo1</name>
+   </variable>
+   <variable>
+      <defaultValue>2</defaultValue>
+      <description>quantity of the product</description>
+      <id>c2d6fd18-28ac-4187-8014-2f6c8e8e6503</id>
+      <masked>false</masked>
+      <name>quantity1</name>
+   </variable>
+   <variable>
+      <defaultValue>3</defaultValue>
+      <description>expected quantity of the product</description>
+      <id>51d709d9-219e-4d47-9d73-65770123b7cd</id>
+      <masked>false</masked>
+      <name>expectedQuantity1</name>
+   </variable>
+   <variable>
+      <defaultValue>'poName2'</defaultValue>
+      <description>purchase order name for the order created</description>
+      <id>17926b3f-81fc-4a52-b6c9-9035c6cba613</id>
+      <masked>false</masked>
+      <name>poName2</name>
+   </variable>
+   <variable>
+      <defaultValue>'poMemo2'</defaultValue>
+      <description>purchase order memo for the order created</description>
+      <id>bbda58a2-27ab-4dd3-a612-9c675327dde0</id>
+      <masked>false</masked>
+      <name>poMemo2</name>
+   </variable>
+   <variable>
+      <defaultValue>3</defaultValue>
+      <description>quantity of the product</description>
+      <id>1a081cd4-afbd-49e7-98e2-7e4bf8baa986</id>
+      <masked>false</masked>
+      <name>quantity2</name>
+   </variable>
+   <variable>
+      <defaultValue>4</defaultValue>
+      <description>expected quantity of the product</description>
+      <id>92279605-d17f-458f-8e8d-402fa3f01411</id>
+      <masked>false</masked>
+      <name>expectedQuantity2</name>
+   </variable>
+</TestCaseEntity>

@@ -59,7 +59,11 @@ class newOrderScreen {
 		}
 	}
 
-
+	/**
+	 * adds poname pomemo to textfield
+	 * @param PO_Name (purchase order name for the order created)
+	 * @param PO_Memo (purchase order Memo for the order created)
+	 */
 
 	@Keyword
 	def enter_Purchase_Order_Details(String PO_Name,String PO_Memo) {
