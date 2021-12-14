@@ -65,7 +65,7 @@ class  commonMethods {
 
 
 
-		/**
+	/**
 	 * this function returns the cost of added product
 	 * @return productCost_dollarSymbolRemoved_FloatValue (of the product which has been added)
 	 */

@@ -66,8 +66,7 @@ class newOrderScreen {
 	 */
 
 	@Keyword
-	def enter_Purchase_Order_Details(String PO_Name,String PO_Memo) {
-
+	def enterPurchaseOrderDetails(String PO_Name,String PO_Memo) {
 
 		Mobile.tap(findTestObject('Android/Orders/New Order Screen/P.O. Name (Optional)_TextField'), 0)
 
@@ -113,8 +112,11 @@ class newOrderScreen {
 		Mobile.verifyElementExist(findTestObject('Android/Orders/New Order Screen/Change Account_TextView'), 0)
 	}
 
+	/**
+	 * verifies new order screen
+	 */
 	@Keyword
-	def verify_NewOrder_Screen_Details() {
+	def verifyNewOrderScreenDetails() {
 
 		Mobile.verifyElementExist(findTestObject('Android/Orders/New Order Screen/Cart Header_TextView'), 0)
 

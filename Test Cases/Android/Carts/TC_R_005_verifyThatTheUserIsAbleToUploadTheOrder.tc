@@ -2,7 +2,7 @@
 <TestCaseEntity>
    <description>Verify that the user is able to Upload the Order.                                              Prerequisite:  1.Valid login credentials, 2. Multiple accounts available for the user.</description>
    <name>TC_R_005_verifyThatTheUserIsAbleToUploadTheOrder</name>
-   <tag></tag>
+   <tag>Order;Regression;Scan</tag>
    <comment></comment>
    <testCaseGuid>5571215d-23eb-4959-924f-b726e810a584</testCaseGuid>
    <variable>

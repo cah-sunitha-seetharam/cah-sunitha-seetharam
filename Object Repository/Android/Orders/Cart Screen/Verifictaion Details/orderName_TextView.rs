@@ -3,7 +3,7 @@
    <description></description>
    <name>orderName_TextView</name>
    <tag></tag>
-   <elementGuidId>61e0a030-01c7-4a8d-a269-b5b1db07f3a9</elementGuidId>
+   <elementGuidId>c6f4c95b-785c-49f7-888d-0b1ad371e6f0</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -21,11 +21,11 @@
       <value>0</value>
    </webElementProperties>
    <webElementProperties>
-      <isSelected>false</isSelected>
+      <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Mobile-092821-171605</value>
+      <value>${TEXT}</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.viewpager.widget.ViewPager[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/poNameTextView']</locator>
+   <locator>//*[@class = 'android.widget.TextView' and (@text = '${TEXT}' or . = '${TEXT}') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/poNameTextView']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

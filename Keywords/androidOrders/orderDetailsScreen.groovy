@@ -292,7 +292,7 @@ class orderDetailsScreen {
 	 * verifies order screen details without any added product
 	 */
 	@Keyword
-	def verify_Order_Screen_Details_without_any_added_product() {
+	def verifyOrderScreenDetailsWithoutAnyAddedProduct() {
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Verification Details/Nothing to see here_TextView'), 0)
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Verification Details/Search products and add them to this order_TextView'),  0)
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Verification Details/0 lines in this order_TextView'),  0)
@@ -302,9 +302,11 @@ class orderDetailsScreen {
 		Mobile.verifyElementAttributeValue(findTestObject('Android/Orders/Order Details Screen/Place Order/Place Order_Button'), 'enabled', 'false', 0)
 	}
 
-
+	/**
+	 * verifies order screen details with added product
+	 */
 	@Keyword
-	def verify_Order_Screen_Details_with_added_product() {
+	def verifyOrderScreenDetailsWithAddedProduct() {
 
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/Lines_TextView'), 0)
 

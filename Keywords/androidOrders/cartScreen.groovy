@@ -104,32 +104,30 @@ class cartScreen  {
 	}
 
 
+//	@Keyword
+//	def upload_All_Orders() {
+//
+//		int w = 1
+//
+//		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
+//			WebUI.delay(w)
+//		}
+//		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Upload All_Orders/uploadAllOrders_Button'), 0)
+//
+//		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Upload Order/Continue On Desktop_button'), 0)
+//
+//		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
+//			WebUI.delay(w)
+//		}
+//	}
 
-
-	@Keyword
-	def upload_All_Orders() {
-
-		int w = 1
-
-		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
-		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Upload All_Orders/uploadAllOrders_Button'), 0)
-
-		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Upload Order/Continue On Desktop_button'), 0)
-
-		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
-	}
-	
 	/**
 	 * clicks on upload all orders button on cart screen
 	 */
 	@Keyword
 	def clickOnUploadAllOrders() {
 
-			Mobile.tap(findTestObject('Android/Orders/Cart Screen/Upload All_Orders/uploadAllOrders_Button'), 0)
+		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Upload All_Orders/uploadAllOrders_Button'), 0)
 	}
 
 	/**
@@ -142,33 +140,33 @@ class cartScreen  {
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Screen/Upload All_Orders/continueOnDesktop_Button'), 0)
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Screen/Upload All_Orders/cancelAndKeepOrdersOnTheApp_Button'), 0)
 	}
-	
+
 	/**
 	 * clicks on continue on desktop button on cart screen
 	 */
 	@Keyword
 	def clickOnContinueOnDesktop() {
 
-			Mobile.tap(findTestObject('Android/Orders/Cart Screen/Upload All_Orders/continueOnDesktop_Button'), 0)
+		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Upload All_Orders/continueOnDesktop_Button'), 0)
 	}
 
-	@Keyword
-	def place_All_Orders() {
-
-		int w = 1
-
-		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
-		Mobile.tap(	findTestObject('Android/Orders/Cart Screen/Place All_Orders/placeAllOrders_Button'), 0)
-
-		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
-
-
-		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Place All_Orders/placeMyOrders_Button'),0)
-	}
+	//	@Keyword
+	//	def place_All_Orders() {
+	//
+	//		int w = 1
+	//
+	//		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
+	//			WebUI.delay(w)
+	//		}
+	//		Mobile.tap(	findTestObject('Android/Orders/Cart Screen/Place All_Orders/placeAllOrders_Button'), 0)
+	//
+	//		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
+	//			WebUI.delay(w)
+	//		}
+	//
+	//
+	//		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Place All_Orders/placeMyOrders_Button'),0)
+	//	}
 
 	/**
 	 * clicks on place all orders button on cart screen
@@ -178,8 +176,8 @@ class cartScreen  {
 
 		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Place All_Orders/placeAllOrders_Button'), 0)
 	}
-	
-	
+
+
 	/**
 	 * verifies pop up screen which comes after clicking on place all orders button on cart screen
 	 */
@@ -190,18 +188,21 @@ class cartScreen  {
 
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Screen/Place All_Orders/yourOrdersWillBePlaced_TextView'), 0)
 	}
-	
+
 	/**
-	 * clicks on all place all orders button on cart screen
+	 * clicks on place my orders button on cart screen
 	 */
 	@Keyword
-	def clickOnPlaceMyOrders() {
+	def confirmPlacingAllOrders() {
 
 		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Place All_Orders/placeMyOrders_Button'),0)
 	}
 
+	/**
+	 * verifies cart screen with added product
+	 */
 	@Keyword
-	def verify_Cart_Screen_Details_with_Added_Product() {
+	def verifyCartScreenDetailsWithAddedProduct() {
 
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/cartHeader_TextView'), 0)
 
@@ -234,7 +235,7 @@ class cartScreen  {
 	 */
 
 	@Keyword
-	def verify_Cart_Screen_Details_without_Adding_any_Product() {
+	def verifyCartScreenDetailsWithOutAddingAnyProduct() {
 
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Verification Details/Scan_Icon'),0)
 
@@ -248,10 +249,5 @@ class cartScreen  {
 
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/cartTotal_TextView'), 0)
 
-		int w = 2
-
-		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
 	}
 }

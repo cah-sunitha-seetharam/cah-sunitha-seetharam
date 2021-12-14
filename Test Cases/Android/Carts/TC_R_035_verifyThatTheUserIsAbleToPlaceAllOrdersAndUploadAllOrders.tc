@@ -5,7 +5,7 @@ Prerequisite:
 1. Valid login credentials
 2. Multiple accounts available for the user.</description>
    <name>TC_R_035_verifyThatTheUserIsAbleToPlaceAllOrdersAndUploadAllOrders</name>
-   <tag></tag>
+   <tag>Order;Regression;Scan</tag>
    <comment></comment>
    <testCaseGuid>469105d6-d780-42d1-8a49-a0416d65e4d9</testCaseGuid>
    <variable>

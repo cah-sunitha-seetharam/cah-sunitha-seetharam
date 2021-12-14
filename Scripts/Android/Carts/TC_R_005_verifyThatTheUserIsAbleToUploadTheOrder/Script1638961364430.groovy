@@ -20,11 +20,11 @@ import org.openqa.selenium.Keys as Keys
 'starts the application'
 CustomKeywords.'androidCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
-'selects environment'
-CustomKeywords.'androidLogin.loginScreen.selectEnvironment'()
-
 'logins with username password and then opens account selection page'
 CustomKeywords.'androidLogin.loginScreen.login'(GlobalVariable.Username, GlobalVariable.Password)
+
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'after login, verifies page caption and selects account'
 CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
@@ -33,7 +33,7 @@ CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(Gl
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnOrders'()
 
 'verifies cart page without any added product'
-CustomKeywords.'androidOrders.cartScreen.verify_Cart_Screen_Details_without_Adding_any_Product'()
+CustomKeywords.'androidOrders.cartScreen.verifyCartScreenDetailsWithOutAddingAnyProduct'()
 
 'takes user to the new order screen'
 CustomKeywords.'androidOrders.ordersCommonScreen.clickOnNewOrder'()
@@ -42,13 +42,13 @@ CustomKeywords.'androidOrders.ordersCommonScreen.clickOnNewOrder'()
 CustomKeywords.'androidOrders.newOrderScreen.verifyNewOrderScreenAccount'()
 
 'take user to new order screen to enter order details'
-CustomKeywords.'androidOrders.newOrderScreen.enter_Purchase_Order_Details'(poName, poMemo)
+CustomKeywords.'androidOrders.newOrderScreen.enterPurchaseOrderDetails'(poName, poMemo)
 
 'clicks on create order to create an order'
 CustomKeywords.'androidOrders.newOrderScreen.createOrder'()
 
 'verifies order details screen without any added product'
-CustomKeywords.'androidOrders.orderDetailsScreen.verify_Order_Screen_Details_without_any_added_product'()
+CustomKeywords.'androidOrders.orderDetailsScreen.verifyOrderScreenDetailsWithoutAnyAddedProduct'()
 
 'clicks on scan icon and also verifies that the default scan toggle value is at ordering'
 CustomKeywords.'androidOrders.orderDetailsScreen.clickOnScanIcon'()
