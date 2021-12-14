@@ -626,6 +626,13 @@ def static "iosOrders.cartScreen.clickOnC2Orders"() {
 }
 
  /**
+	 * opens the non c2 orders tab
+	 */ 
+def static "iosOrders.cartScreen.clickOnNonC2Orders"() {
+    (new iosOrders.cartScreen()).clickOnNonC2Orders()
+}
+
+ /**
 	 * clicks on all place all orders button on cart screen
 	 */ 
 def static "iosOrders.cartScreen.clickOnPlaceAllOrders"() {
@@ -646,11 +653,22 @@ def static "iosOrders.cartScreen.continueOrdersOnTheDesktop"() {
     (new iosOrders.cartScreen()).continueOrdersOnTheDesktop()
 }
 
+ /**
+	 * delete's the order from the cart screen based on the purchase order name
+	 * @param poName (purchase order name of the order)
+	 */ 
+def static "iosOrders.cartScreen.deleteOrder"(
+    	String poName	) {
+    (new iosOrders.cartScreen()).deleteOrder(
+        	poName)
+}
 
-def static "iosOrders.cartScreen.delete_Order"(
-    	String Account_No	) {
-    (new iosOrders.cartScreen()).delete_Order(
-        	Account_No)
+ /**
+	 * delete's the C2 order from the cart screen based on the purchase order name
+	 * seperate delete method for c2 as locators for c2 order tile not available...when done remove this method
+	 */ 
+def static "iosOrders.cartScreen.deleteC2Order"() {
+    (new iosOrders.cartScreen()).deleteC2Order()
 }
 
  /**
@@ -669,12 +687,30 @@ def static "iosOrders.cartScreen.goToDashboard"() {
 
  /**
 	 * opens the order details page
-	 * @param accountNo (accountNo used to create the order)
+	 * @param poName (purchase order name used to create the order)
 	 */ 
-def static "iosOrders.cartScreen.openAnOrderDetails"(
-    	String accountNo	) {
-    (new iosOrders.cartScreen()).openAnOrderDetails(
-        	accountNo)
+def static "iosOrders.cartScreen.openAnOrderDetail"(
+    	String poName	) {
+    (new iosOrders.cartScreen()).openAnOrderDetail(
+        	poName)
+}
+
+ /**
+	 * this function returns the order name of the order which is at the top of the order list
+	 * return orderName (returns topmost order name)
+	 */ 
+def static "iosOrders.cartScreen.returnTopMostOrderName"() {
+    (new iosOrders.cartScreen()).returnTopMostOrderName()
+}
+
+ /**
+	 * this function verifies the pattern required for the order which was created without giving any purchase order name
+	 * @param orderName (order name which is under verification)
+	 */ 
+def static "iosOrders.cartScreen.verifyOrderNamePattern"(
+    	String orderName	) {
+    (new iosOrders.cartScreen()).verifyOrderNamePattern(
+        	orderName)
 }
 
  /**
@@ -699,6 +735,16 @@ def static "iosOrders.cartScreen.verifyCartScreenWithAddedProduct"() {
 
 def static "iosOrders.cartScreen.verifyCartScreenWithoutAnyOrderPresent"() {
     (new iosOrders.cartScreen()).verifyCartScreenWithoutAnyOrderPresent()
+}
+
+ /**
+	 * verifies that the created order should be visible on the cart screen
+	 * @param poName (purchase order name used to create the order)
+	 */ 
+def static "iosOrders.cartScreen.verifyOrderIsVisibleOnTheCartScreen"(
+    	String poName	) {
+    (new iosOrders.cartScreen()).verifyOrderIsVisibleOnTheCartScreen(
+        	poName)
 }
 
  /**
@@ -739,6 +785,33 @@ def static "iosOrders.cartScreen.verifyC2OrdersTabAnnotationCount"(
     	int expectedAnnotationCount	) {
     (new iosOrders.cartScreen()).verifyC2OrdersTabAnnotationCount(
         	expectedAnnotationCount)
+}
+
+ /**
+	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at ordering
+	 */ 
+def static "iosOrders.cartScreen.clickOnScanIcon"() {
+    (new iosOrders.cartScreen()).clickOnScanIcon()
+}
+
+ /**
+	 * scans the product, adds it to the order and also verifies some scan input details
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */ 
+def static "iosOrders.cartScreen.scanInputEvent"(
+    	String productToBeSearched	) {
+    (new iosOrders.cartScreen()).scanInputEvent(
+        	productToBeSearched)
+}
+
+ /**
+	 * this function selects toggle value for the product to be added which can be ordering or price check)
+	 * @param toggleValue (toggleValue required to be selected for the product to be added which can be ordering or price check)
+	 */ 
+def static "iosOrders.cartScreen.selectToggleValueForTheProductToBeSearched"(
+    	String toggleValue	) {
+    (new iosOrders.cartScreen()).selectToggleValueForTheProductToBeSearched(
+        	toggleValue)
 }
 
  /**
@@ -1970,6 +2043,11 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
          , 	viewportSize)
 }
 
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
+}
 
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
     	Eyes eyes	) {
