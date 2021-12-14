@@ -33,6 +33,8 @@ CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(Global
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
+Mobile.delay(15, FailureHandling.STOP_ON_FAILURE)
+
 'takes user to the orders tab'
 CustomKeywords.'iosDashboard.dashboardScreen.clickOnOrders'()
 
@@ -58,7 +60,7 @@ CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('ordersData.json')
 
 'reading the product name of product to be added (nonC2 product)'
-String productSearch = requestObject[GlobalVariable.Environment].TC_R_043.productSearchByNDC1
+String productSearch = requestObject[GlobalVariable.Environment].TC_R_045.productSearchByNDC1
 
 'clicks on scan icon and also verifies that the default scan toggle value is at ordering'
 CustomKeywords.'iosOrders.orderDetailsScreen.clickOnScanIcon'()
@@ -88,7 +90,7 @@ CustomKeywords.'iosDashboard.dashboardScreen.clickOnHomeTab'()
 CustomKeywords.'iosDashboard.dashboardScreen.verifyDashboardScreen'()
 
 'reading the product name of product to be added (nonC2 product)'
-productSearch = requestObject[GlobalVariable.Environment].TC_R_043.productSearchByNDC2
+productSearch = requestObject[GlobalVariable.Environment].TC_R_045.productSearchByNDC2
 
 'clicks on scan icon and also verifies that the default scan toggle value is at price check'
 CustomKeywords.'iosDashboard.dashboardScreen.clickOnScanIcon'()
@@ -105,15 +107,27 @@ CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 'takes user to the orders tab'
 CustomKeywords.'iosDashboard.dashboardScreen.clickOnOrders'()
 
-'opens the c2 order tab'
-CustomKeywords.'iosOrders.cartScreen.clickOnC2Orders'()
+'this function returns the order name of the order which is at the top of the order list'
+String orderName = CustomKeywords.'iosOrders.cartScreen.returnTopMostOrderName'()
+
+'this function verifies the pattern required for the order which was created without giving any purchase order name'
+CustomKeywords.'iosOrders.cartScreen.verifyOrderNamePattern'(orderName)
+
+'opens order details and takes order name as the argument'
+CustomKeywords.'iosOrders.cartScreen.openAnOrderDetail'(orderName)
 
 'uploads the order by clicking on upload order button'
-CustomKeywords.'iosOrders.orderDetailsScreen.uploadC2Order'()
+CustomKeywords.'iosOrders.orderDetailsScreen.uploadOrder'()
 
 'taps on continue ordering on desktop after uploading order'
 CustomKeywords.'iosOrders.orderDetailsScreen.clickOnContinueOrderingOnDesktop'()
 
 'takes user back to cart screen'
 CustomKeywords.'iosOrders.orderDetailsScreen.clickOnBackToCart'()
+
+'opens the c2 order tab'
+CustomKeywords.'iosOrders.cartScreen.clickOnC2Orders'()
+
+'verifies the c2 orders tab annotation count and takes expected annotation count as the argument'
+CustomKeywords.'iosOrders.cartScreen.verifyC2OrdersTabAnnotationCount'(expectedAnnotationCount)
 

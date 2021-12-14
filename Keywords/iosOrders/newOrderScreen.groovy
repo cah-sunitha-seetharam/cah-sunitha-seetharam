@@ -74,7 +74,7 @@ class newOrderScreen {
 
 		Mobile.setText(findTestObject('iOS/Orders/New Order Screen/poName_TextField'), poName, 0)
 
-		Mobile.tap(findTestObject('iOS/Product Search/returnKeypad_Button'),0)
+		Mobile.tapAndHold(findTestObject('iOS/Product Search/returnKeypad_Button'),0,0)
 
 		Mobile.tap(findTestObject('iOS/Orders/New Order Screen/editPOMemo_Button'), 0)
 

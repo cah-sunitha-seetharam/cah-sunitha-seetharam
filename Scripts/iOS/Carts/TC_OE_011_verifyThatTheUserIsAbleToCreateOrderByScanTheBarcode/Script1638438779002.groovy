@@ -48,7 +48,7 @@ CustomKeywords.'iosOrders.newOrderScreen.enterPurchaseOrderDetails'(poName, poMe
 'clicks on create order to create an order'
 CustomKeywords.'iosOrders.newOrderScreen.createOrder'()
 
-'verifies details of order details screen without any added product'
+'clicks on create order to create an order'
 CustomKeywords.'iosOrders.orderDetailsScreen.verifyOrderDetailsScreenWithoutAnyAddedProduct'(poName)
 
 'waits until the progressBar is visible on the screen'
@@ -57,8 +57,8 @@ CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'
 'reading the module test data file'
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('ordersData.json')
 
-'reading the product name of product to be added (nonC2 product)'
-String productSearch = requestObject[GlobalVariable.Environment].TC_R_043.productSearchByNDC1
+'reading the UPC of product to be added (nonC2 product)'
+String productSearch = requestObject[GlobalVariable.Environment].TC_OE_011.productSearchByUPC
 
 'clicks on scan icon and also verifies that the default scan toggle value is at ordering'
 CustomKeywords.'iosOrders.orderDetailsScreen.clickOnScanIcon'()
@@ -66,8 +66,11 @@ CustomKeywords.'iosOrders.orderDetailsScreen.clickOnScanIcon'()
 'takes productSearch which can be productName/Cin/UPC/NDC as the input and adds it to the order by scanning the product'
 CustomKeywords.'iosOrders.orderDetailsScreen.scanInputEvent'(productSearch)
 
+'reading the NDC of product to be added (nonC2 product)'
+productSearch = requestObject[GlobalVariable.Environment].TC_OE_011.productSearchByNDC
+
 'adds the quantity required to be added for the scanned product'
-CustomKeywords.'iosOrders.orderDetailsScreen.addQuantityforTheSearchedProduct'(quantity)
+CustomKeywords.'iosOrders.orderDetailsScreen.addQuantityforTheSearchedProduct'(quantity_1)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
@@ -76,21 +79,24 @@ CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 actualQuantityAdded = CustomKeywords.'iosOrders.orderDetailsScreen.returnQuantityOfTheAddedProduct'()
 
 'verifies whether actual quantity added equals the expected quantity'
-assert actualQuantityAdded == expectedQuantity
+assert actualQuantityAdded == expectedQuantity_1
+
+'takes productSearch and expected lines count as the arguments and verifies the same'
+CustomKeywords.'iosOrders.orderDetailsScreen.verifyOrderDetailsScreenAfterAddingAProduct'(productSearch, expectedLinesCount)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
+'deletes the order and takes purchase order name as the argument'
+CustomKeywords.'iosOrders.cartScreen.deleteOrder'(poName)
+
+'verifies that the order should not be visible on the screen and takes purchase order name as the argument'
+CustomKeywords.'iosOrders.cartScreen.verifyOrderNotVisibleOnTheCartScreen'(poName)
+
 'takes user to the dashboard screen'
 CustomKeywords.'iosDashboard.dashboardScreen.clickOnHomeTab'()
 
-'verifies user is at the dashboard screen'
-CustomKeywords.'iosDashboard.dashboardScreen.verifyDashboardScreen'()
-
-'reading the product name of product to be added (nonC2 product)'
-productSearch = requestObject[GlobalVariable.Environment].TC_R_043.productSearchByNDC2
-
-'clicks on scan icon and also verifies that the default scan toggle value is at price check'
+'clicks on scan icon and takes user to scanning screen'
 CustomKeywords.'iosDashboard.dashboardScreen.clickOnScanIcon'()
 
 'selects toggle value which can be ordering or price check'
@@ -99,21 +105,40 @@ CustomKeywords.'iosOrders.orderDetailsScreen.selectToggleValueForTheProductToBeS
 'takes productSearch which can be productName/Cin/UPC/NDC as the input and adds it to the order by scanning the product'
 CustomKeywords.'iosOrders.orderDetailsScreen.scanInputEvent'(productSearch)
 
+'adds the quantity required to be added for the scanned product'
+CustomKeywords.'iosOrders.orderDetailsScreen.addQuantityforTheSearchedProduct'(quantity_2)
+
+'returns product cost of the added product which would be stored in a variable'
+float productCost = CustomKeywords.'iosOrders.orderDetailsScreen.returnCostOfTheAddedProduct'()
+
+'this function returns the total expected value of a product which would be added to the carts value and takes quantity and product cost as the arguments'
+float totalProductCost = CustomKeywords.'iosCommonKeywords.commonMethods.returnExpectedTotalValueForAddedProduct'(quantity_2, 
+    productCost)
+
+'calculating expected cart value'
+float expectedValue = totalProductCost
+
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
 'takes user to the orders tab'
 CustomKeywords.'iosDashboard.dashboardScreen.clickOnOrders'()
 
-'opens the c2 order tab'
-CustomKeywords.'iosOrders.cartScreen.clickOnC2Orders'()
+'this function verifies the cart value and takes expected cart value as an argument'
+CustomKeywords.'iosOrders.cartScreen.verifyCartValue'(expectedValue)
 
-'uploads the order by clicking on upload order button'
-CustomKeywords.'iosOrders.orderDetailsScreen.uploadC2Order'()
+'this function returns the order name of the order which is at the top of the order list'
+String orderName = CustomKeywords.'iosOrders.cartScreen.returnTopMostOrderName'()
 
-'taps on continue ordering on desktop after uploading order'
-CustomKeywords.'iosOrders.orderDetailsScreen.clickOnContinueOrderingOnDesktop'()
+'opens order details and takes order name as the argument'
+CustomKeywords.'iosOrders.cartScreen.openAnOrderDetail'(orderName)
 
-'takes user back to cart screen'
-CustomKeywords.'iosOrders.orderDetailsScreen.clickOnBackToCart'()
+'returns the quantity which has been added for the product searched'
+actualQuantityAdded = CustomKeywords.'iosOrders.orderDetailsScreen.returnQuantityOfTheAddedProduct'()
+
+'verifies whether actual quantity added equals the expected quantity'
+assert actualQuantityAdded == expectedQuantity_2
+
+'takes productSearch and expected lines count as the arguments and verifies the same'
+CustomKeywords.'iosOrders.orderDetailsScreen.verifyOrderDetailsScreenAfterAddingAProduct'(productSearch, expectedLinesCount)
 

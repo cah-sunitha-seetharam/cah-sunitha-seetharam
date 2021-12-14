@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MobileElementEntity>
    <description></description>
-   <name>Confirmation_Text</name>
+   <name>confirmation_Text</name>
    <tag></tag>
    <elementGuidId>01cfbcb3-d14b-4f15-8849-9345c7acf24e</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
