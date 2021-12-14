@@ -118,4 +118,14 @@ class dashboardDetailsScreen {
 		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Android/Dashboard/moreOptions_Tab'), 10)
 		element.click()
 	}
+
+	/**
+	 * opens moreOptions tab where user can perform actions like signOut, goToInventoryListing Screen etc
+	 */
+	@Keyword
+	def clickOnMoreOptionsTab() {
+
+		Mobile.tap(findTestObject('Android/Dashboard/moreOptions_Tab'), 0)
+	}
+
 }

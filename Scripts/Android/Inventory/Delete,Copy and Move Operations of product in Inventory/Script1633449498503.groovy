@@ -37,9 +37,9 @@ CustomKeywords.'android_inventory.Inventory_details_Screen.add_Location'(Locatio
 
 CustomKeywords.'android_inventory.Inventory_details_Screen.click_On_Location'(Location_1)
 
-CustomKeywords.'android_inventory.Location_details_Screen.verify_Location_details_Screen'(Location_1)
+CustomKeywords.'android_inventory.locationDetailsScreen.verify_Location_details_Screen'(Location_1)
 
-CustomKeywords.'android_inventory.Location_details_Screen.add_Product_To_Location'(Location_1, Product_1)
+CustomKeywords.'android_inventory.locationDetailsScreen.add_Product_To_Location'(Location_1, Product_1)
 
 Mobile.pressBack()
 
@@ -49,25 +49,25 @@ CustomKeywords.'android_inventory.Inventory_details_Screen.add_Location'(Locatio
 
 CustomKeywords.'android_inventory.Inventory_details_Screen.click_On_Location'(Location_2)
 
-CustomKeywords.'android_inventory.Location_details_Screen.verify_Location_details_Screen'(Location_2)
+CustomKeywords.'android_inventory.locationDetailsScreen.verify_Location_details_Screen'(Location_2)
 
-CustomKeywords.'android_inventory.Location_details_Screen.add_Product_To_Location'(Location_2, Product_2)
-
-Mobile.pressBack()
+CustomKeywords.'android_inventory.locationDetailsScreen.add_Product_To_Location'(Location_2, Product_2)
 
 Mobile.pressBack()
-
-CustomKeywords.'android_inventory.Inventory_details_Screen.click_On_Location'(Location_1)
-
-CustomKeywords.'android_inventory.Location_details_Screen.copy_Product_To_Another_Location'(Location_2)
-
-CustomKeywords.'android_inventory.Location_details_Screen.move_Product_To_Another_Location'(Location_1)
 
 Mobile.pressBack()
 
 CustomKeywords.'android_inventory.Inventory_details_Screen.click_On_Location'(Location_1)
 
-CustomKeywords.'android_inventory.Location_details_Screen.delete_Product'()
+CustomKeywords.'android_inventory.locationDetailsScreen.copy_Product_To_Another_Location'(Location_2)
+
+CustomKeywords.'android_inventory.locationDetailsScreen.move_Product_To_Another_Location'(Location_1)
+
+Mobile.pressBack()
+
+CustomKeywords.'android_inventory.Inventory_details_Screen.click_On_Location'(Location_1)
+
+CustomKeywords.'android_inventory.locationDetailsScreen.delete_Product'()
 
 Mobile.pressBack()
 

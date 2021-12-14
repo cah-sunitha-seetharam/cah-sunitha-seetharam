@@ -50,6 +50,13 @@ def static "androidDashboard.dashboardDetailsScreen.click_On_More_Options"() {
 }
 
  /**
+	 * opens moreOptions tab where user can perform actions like signOut, goToInventoryListing Screen etc
+	 */ 
+def static "androidDashboard.dashboardDetailsScreen.clickOnMoreOptionsTab"() {
+    (new androidDashboard.dashboardDetailsScreen()).clickOnMoreOptionsTab()
+}
+
+ /**
 	 * clicks on product search field
 	 */ 
 def static "iosCommonKeywords.commonMethods.clickOnProductSearchTextField"() {
@@ -1358,7 +1365,11 @@ def static "iosOrders.newOrderScreen.change_Account"(
         	new_Account)
 }
 
-
+ /**
+	 * enters purchase order details for the order to be created
+	 * @param poName (purchase order name for the order created)
+	 * @param poMemo (purchase order memo for the order created)
+	 */ 
 def static "iosOrders.newOrderScreen.enterPurchaseOrderDetails"(
     	String poName	
      , 	String poMemo	) {
@@ -1377,6 +1388,148 @@ def static "iosOrders.newOrderScreen.createOrder"() {
 
 def static "iosOrders.newOrderScreen.verify_NewOrder_Screen_Details"() {
     (new iosOrders.newOrderScreen()).verify_NewOrder_Screen_Details()
+}
+
+
+def static "android_inventory.locationDetailsScreen.edit_LocationName"(
+    	String New_Location_Name	
+     , 	String CostType	
+     , 	String Previous_Name	) {
+    (new android_inventory.locationDetailsScreen()).edit_LocationName(
+        	New_Location_Name
+         , 	CostType
+         , 	Previous_Name)
+}
+
+
+def static "android_inventory.locationDetailsScreen.add_Product_To_Location"(
+    	String Location_Name	
+     , 	String Product_Name	) {
+    (new android_inventory.locationDetailsScreen()).add_Product_To_Location(
+        	Location_Name
+         , 	Product_Name)
+}
+
+
+def static "android_inventory.locationDetailsScreen.move_Product_To_Another_Location"(
+    	String Location_Name	) {
+    (new android_inventory.locationDetailsScreen()).move_Product_To_Another_Location(
+        	Location_Name)
+}
+
+
+def static "android_inventory.locationDetailsScreen.copy_Product_To_Another_Location"(
+    	String Location_Name	) {
+    (new android_inventory.locationDetailsScreen()).copy_Product_To_Another_Location(
+        	Location_Name)
+}
+
+
+def static "android_inventory.locationDetailsScreen.delete_Product"() {
+    (new android_inventory.locationDetailsScreen()).delete_Product()
+}
+
+
+def static "android_inventory.locationDetailsScreen.upload_Location"() {
+    (new android_inventory.locationDetailsScreen()).upload_Location()
+}
+
+
+def static "android_inventory.locationDetailsScreen.share_Location"() {
+    (new android_inventory.locationDetailsScreen()).share_Location()
+}
+
+
+def static "android_inventory.locationDetailsScreen.verify_Location_details_Screen"(
+    	String Location_Name	) {
+    (new android_inventory.locationDetailsScreen()).verify_Location_details_Screen(
+        	Location_Name)
+}
+
+ /**
+	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at full count
+	 */ 
+def static "android_inventory.locationDetailsScreen.clickOnScanIcon"() {
+    (new android_inventory.locationDetailsScreen()).clickOnScanIcon()
+}
+
+ /**
+	 * this function selects the toggle value of countType for the product to be added
+	 * @param countType (countType required to be selected for the product to be added which can be full or partial count)
+	 */ 
+def static "android_inventory.locationDetailsScreen.selectCountTypeForTheProductToBeAdded"(
+    	String countType	) {
+    (new android_inventory.locationDetailsScreen()).selectCountTypeForTheProductToBeAdded(
+        	countType)
+}
+
+ /**
+	 * scans the product and adds it to the location
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */ 
+def static "android_inventory.locationDetailsScreen.scanInputEvent"(
+    	String productToBeSearched	) {
+    (new android_inventory.locationDetailsScreen()).scanInputEvent(
+        	productToBeSearched)
+}
+
+ /**
+	 * this function gets the total added quantity of the product
+	 * @return quantityNumericalValue (of the product which has been added)
+	 */ 
+def static "android_inventory.locationDetailsScreen.returnQuantityOfTheAddedProduct"() {
+    (new android_inventory.locationDetailsScreen()).returnQuantityOfTheAddedProduct()
+}
+
+ /**
+	 * this function inputs the quantity value for the product to be searched
+	 * @param quantity (quantity required to be added for the product to be searched)
+	 */ 
+def static "android_inventory.locationDetailsScreen.addQuantityforTheSearchedProduct"(
+    	String quantity	) {
+    (new android_inventory.locationDetailsScreen()).addQuantityforTheSearchedProduct(
+        	quantity)
+}
+
+ /**
+	 * this function gets the unit of issue cost(UOI) of the added product
+	 * @return uoiCost_dollarSymbolRemoved_FloatValue (of the product which has been added)
+	 */ 
+def static "android_inventory.locationDetailsScreen.returnUOIOfTheAddedProduct"() {
+    (new android_inventory.locationDetailsScreen()).returnUOIOfTheAddedProduct()
+}
+
+ /**
+	 * this function will tap on share button and verify the Gmail option
+	 */ 
+def static "android_inventory.locationDetailsScreen.verifyGmailOnShareLocation"() {
+    (new android_inventory.locationDetailsScreen()).verifyGmailOnShareLocation()
+}
+
+ /**
+	 * verifies details of location details screen (if user wants to scan a product with same count type more than once, then in the test case, only the updated quantity along with countType and ndcNumber should be pushed into the stack)
+	 * @param countTypeStack (stack of the countTypes selected for adding each product)
+	 * @param quantityStack (stack of the quantity added for each product)
+	 * @param productNdcStack (stack of the ndcNumbers of added products)
+	 * @param unitOfIssueCostStack (stack of UOI costs of the added products)
+	 */ 
+def static "android_inventory.locationDetailsScreen.verifyLocationDetailsScreen"(
+    	Stack countTypeStack	
+     , 	Stack quantityStack	
+     , 	Stack productNdcStack	
+     , 	Stack unitOfIssueCostStack	) {
+    (new android_inventory.locationDetailsScreen()).verifyLocationDetailsScreen(
+        	countTypeStack
+         , 	quantityStack
+         , 	productNdcStack
+         , 	unitOfIssueCostStack)
+}
+
+
+def static "android_inventory.locationDetailsScreen.deleteProduct"(
+    	String productNdcNumber	) {
+    (new android_inventory.locationDetailsScreen()).deleteProduct(
+        	productNdcNumber)
 }
 
  /**
@@ -1503,62 +1656,6 @@ def static "androidOrders.ordersCommonScreen.change_Account"(
     	String new_Account	) {
     (new androidOrders.ordersCommonScreen()).change_Account(
         	new_Account)
-}
-
-
-def static "android_inventory.Location_details_Screen.edit_LocationName"(
-    	String New_Location_Name	
-     , 	String CostType	
-     , 	String Previous_Name	) {
-    (new android_inventory.Location_details_Screen()).edit_LocationName(
-        	New_Location_Name
-         , 	CostType
-         , 	Previous_Name)
-}
-
-
-def static "android_inventory.Location_details_Screen.add_Product_To_Location"(
-    	String Location_Name	
-     , 	String Product_Name	) {
-    (new android_inventory.Location_details_Screen()).add_Product_To_Location(
-        	Location_Name
-         , 	Product_Name)
-}
-
-
-def static "android_inventory.Location_details_Screen.move_Product_To_Another_Location"(
-    	String Location_Name	) {
-    (new android_inventory.Location_details_Screen()).move_Product_To_Another_Location(
-        	Location_Name)
-}
-
-
-def static "android_inventory.Location_details_Screen.copy_Product_To_Another_Location"(
-    	String Location_Name	) {
-    (new android_inventory.Location_details_Screen()).copy_Product_To_Another_Location(
-        	Location_Name)
-}
-
-
-def static "android_inventory.Location_details_Screen.delete_Product"() {
-    (new android_inventory.Location_details_Screen()).delete_Product()
-}
-
-
-def static "android_inventory.Location_details_Screen.upload_Location"() {
-    (new android_inventory.Location_details_Screen()).upload_Location()
-}
-
-
-def static "android_inventory.Location_details_Screen.share_Location"() {
-    (new android_inventory.Location_details_Screen()).share_Location()
-}
-
-
-def static "android_inventory.Location_details_Screen.verify_Location_details_Screen"(
-    	String Location_Name	) {
-    (new android_inventory.Location_details_Screen()).verify_Location_details_Screen(
-        	Location_Name)
 }
 
  /**
@@ -1771,6 +1868,48 @@ def static "androidCommonKeywords.commonMethods.waitTimeForObjectToBeVisible"(
 }
 
  /**
+	 * opens the inventory listing screen by firstly clicking on more options from dash-board
+	 * and then clicks on inventory under more options screen which takes user to inventory listing screen
+	 */ 
+def static "androidCommonKeywords.commonMethods.takeUserFromHomeToInventoryListingScreen"() {
+    (new androidCommonKeywords.commonMethods()).takeUserFromHomeToInventoryListingScreen()
+}
+
+ /**
+	 * navigate to previous screen
+	 * use this method whenever the back button is not available
+	 */ 
+def static "androidCommonKeywords.commonMethods.pressBacknav"() {
+    (new androidCommonKeywords.commonMethods()).pressBacknav()
+}
+
+ /**
+	 * generates the coordinate x for a test object by considering ElementLeftPosition and ElementWidth
+	 * @param testObj (reference of the testObject passed as a parameter)
+	 * @param text (name of the element)
+	 * @return int value for the xCoordinate
+	 */ 
+def static "androidCommonKeywords.commonMethods.tapXCoordinateGenerator"(
+    	String testObj	) {
+    (new androidCommonKeywords.commonMethods()).tapXCoordinateGenerator(
+        	testObj)
+}
+
+ /**
+	 * generates the coordinate y for a test object by considering ElementTopPosition and ElementHeight
+	 * @param testObj (reference of the testObject passed as a parameter)
+	 * @param text (name of the element)
+	 * @return int value for the yCoordinate
+	 */ 
+def static "androidCommonKeywords.commonMethods.tapYCoordinateGenerator"(
+    	String testObj	
+     , 	String text	) {
+    (new androidCommonKeywords.commonMethods()).tapYCoordinateGenerator(
+        	testObj
+         , 	text)
+}
+
+ /**
 	 * Create an order using Carts Post method , the input is fetched from the (module) ordersDatajson file set on Data Files 
 	 * @return an object with orderId and purchaseOrderNumber 
 	 */ 
@@ -1830,17 +1969,10 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
-    	String testName	
-     , 	RectangleSize viewportSize	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
-        	testName
-         , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
 }
 
 
@@ -1855,8 +1987,15 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
+    	String testName	
+     , 	RectangleSize viewportSize	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
+        	testName
+         , 	viewportSize)
 }

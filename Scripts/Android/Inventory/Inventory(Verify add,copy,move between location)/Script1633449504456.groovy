@@ -33,7 +33,7 @@ CustomKeywords.'android_inventory.Inventory_details_Screen.add_Location'(Locatio
 
 CustomKeywords.'android_inventory.Inventory_details_Screen.click_On_Location'(Location_1)
 
-CustomKeywords.'android_inventory.Location_details_Screen.add_Product_To_Location'(Location_1, Product_1)
+CustomKeywords.'android_inventory.locationDetailsScreen.add_Product_To_Location'(Location_1, Product_1)
 
 Mobile.pressBack()
 
@@ -43,7 +43,7 @@ CustomKeywords.'android_inventory.Inventory_details_Screen.add_Location'(Locatio
 
 CustomKeywords.'android_inventory.Inventory_details_Screen.click_On_Location'(Location_2)
 
-CustomKeywords.'android_inventory.Location_details_Screen.add_Product_To_Location'(Location_2, Product_2)
+CustomKeywords.'android_inventory.locationDetailsScreen.add_Product_To_Location'(Location_2, Product_2)
 
 Mobile.pressBack()
 
@@ -51,31 +51,31 @@ Mobile.pressBack()
 
 CustomKeywords.'android_inventory.Inventory_details_Screen.click_On_Location'(Location_1)
 
-CustomKeywords.'android_inventory.Location_details_Screen.upload_Location'()
+CustomKeywords.'android_inventory.locationDetailsScreen.upload_Location'()
 
-CustomKeywords.'android_inventory.Location_details_Screen.copy_Product_To_Another_Location'(Location_2)
+CustomKeywords.'android_inventory.locationDetailsScreen.copy_Product_To_Another_Location'(Location_2)
 
 Mobile.pressBack()
 
 CustomKeywords.'android_inventory.Inventory_details_Screen.click_On_Location'(Location_1)
 
-CustomKeywords.'android_inventory.Location_details_Screen.move_Product_To_Another_Location'(Location_2)
+CustomKeywords.'android_inventory.locationDetailsScreen.move_Product_To_Another_Location'(Location_2)
 
 Mobile.pressBack()
 
 CustomKeywords.'android_inventory.Inventory_details_Screen.click_On_Location'(Location_2)
 
-CustomKeywords.'android_inventory.Location_details_Screen.add_Product_To_Location'(Location_2, Product_3)
+CustomKeywords.'android_inventory.locationDetailsScreen.add_Product_To_Location'(Location_2, Product_3)
 
 Mobile.pressBack()
 
-CustomKeywords.'android_inventory.Location_details_Screen.upload_Location'()
+CustomKeywords.'android_inventory.locationDetailsScreen.upload_Location'()
 
 Mobile.pressBack()
 
 CustomKeywords.'android_inventory.Inventory_details_Screen.click_On_Location'(Location_1)
 
-CustomKeywords.'android_inventory.Location_details_Screen.add_Product_To_Location'(Location_1, Product_4)
+CustomKeywords.'android_inventory.locationDetailsScreen.add_Product_To_Location'(Location_1, Product_4)
 
 Mobile.pressBack()
 
@@ -83,7 +83,7 @@ Mobile.pressBack()
 
 CustomKeywords.'android_inventory.Inventory_details_Screen.click_On_Location'(Location_2)
 
-CustomKeywords.'android_inventory.Location_details_Screen.move_Product_To_Another_Location'(Location_1)
+CustomKeywords.'android_inventory.locationDetailsScreen.move_Product_To_Another_Location'(Location_1)
 
 Mobile.pressBack()
 

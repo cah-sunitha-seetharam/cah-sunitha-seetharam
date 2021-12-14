@@ -33,11 +33,11 @@ CustomKeywords.'android_inventory.Inventory_details_Screen.add_Location'(Locatio
 
 CustomKeywords.'android_inventory.Inventory_details_Screen.click_On_Location'(Location_Name)
 
-CustomKeywords.'android_inventory.Location_details_Screen.add_Product_To_Location'(Location_Name, Product_Name)
+CustomKeywords.'android_inventory.locationDetailsScreen.add_Product_To_Location'(Location_Name, Product_Name)
 
 Mobile.pressBack()
 
-CustomKeywords.'android_inventory.Location_details_Screen.edit_LocationName'(New_Location_Name, Product_Name, Location_Name)
+CustomKeywords.'android_inventory.locationDetailsScreen.edit_LocationName'(New_Location_Name, Product_Name, Location_Name)
 
 Mobile.pressBack()
 
