@@ -48,7 +48,6 @@ class ordersCommonScreen {
 	def clickOnNewOrder() {
 
 		Mobile.tap(findTestObject('iOS/Orders/Orders Common Screen/newOrder_Tab'), 0)
-		
 	}
 
 

@@ -183,6 +183,18 @@ class cartScreen {
 		Mobile.tap(findTestObject('Object Repository/iOS/Orders/Orders Common Screen/orderListOrderName_Label',[('TEXT'):poName]), 0)
 	}
 
+	/**
+	 * opens the order details page
+	 * @param orderName (purchase order name created after order added)
+	 */
+	@Keyword
+	def openAnOrderDetailWithOrderName(String orderName) {
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Orders/Cart Screen/orderListOrderName_Label',[('TEXT'):orderName]), 0)
+
+		Mobile.tap(findTestObject('Object Repository/iOS/Orders/Cart Screen/orderListOrderName_Label',[('TEXT'):orderName]), 0)
+	}
+
 
 
 	/**
@@ -197,6 +209,17 @@ class cartScreen {
 		return orderName
 	}
 
+	/**
+	 * this function returns the order name of the order/ title of the screen when user is on order details screen
+	 * return orderName (returns order name/ title of order details screen)
+	 */
+	@Keyword
+	def returnOrderNameOrderDetailScreen() {
+
+		String orderName=Mobile.getText(findTestObject('iOS/Orders/Verification Details/orderDetailHeader_Label'), 0)
+
+		return orderName
+	}
 
 
 	/**
@@ -342,7 +365,7 @@ class cartScreen {
 	}
 
 
-	
+
 	/**
 	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at ordering
 	 */
@@ -353,11 +376,11 @@ class cartScreen {
 
 		Mobile.verifyElementAttributeValue(findTestObject('iOS/Orders/Order Details Screen/Scan Order/ordering_Button'), 'value', '1', 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Scan Order/priceCheck_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Scan Order/priceCheck_Button_Name'), 0)
 	}
-	
-	
-	
+
+
+
 	/**
 	 * scans the product, adds it to the order and also verifies some scan input details
 	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
@@ -390,11 +413,11 @@ class cartScreen {
 			Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Scan Order/ordering_Button'), 0)
 		}
 		else {
-			Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Scan Order/priceCheck_Button'), 0)
+			Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Scan Order/priceCheck_Button_Name'), 0)
 		}
 	}
-	
-	
+
+
 
 
 	/**

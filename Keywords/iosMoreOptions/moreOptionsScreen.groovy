@@ -48,7 +48,6 @@ class moreOptionsScreen {
 	def goToInventoryListingScreen() {
 
 		Mobile.tap(findTestObject('iOS/More Options Screen/Inventory Selection Under MoreOptions_Text'), 0)
-
 	}
 
 
