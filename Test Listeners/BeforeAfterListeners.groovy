@@ -2,8 +2,12 @@ import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+import com.kms.katalon.core.util.KeywordUtil
 
 import java.sql.Driver
+
+import javax.swing.text.html.HTML.Tag
+
 import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
 import com.kms.katalon.core.model.FailureHandling as FailureHandling
 import com.kms.katalon.core.testcase.TestCase as TestCase
@@ -50,8 +54,13 @@ class BeforeAfterListeners {
 
 
 
-		else  //  platform is Android
+		else  //  platform is iOS
 		{
+
+			if(testCaseContext.getTestCaseStatus()=='FAILED' && GlobalVariable.testSuiteModule=="order")//if test case failed and is from orders module
+			{
+				(new iosOrders.ordersCommonScreen()).clearAllOrders()
+			}
 			AppiumDriver<?> driver =  commonMethods.getCurrentSessionMobileDriver() // mobile driver value of the current session
 			try {
 				driver.terminateApp(GlobalVariable.bundleID) // Terminate the application(if it is running).
@@ -60,6 +69,7 @@ class BeforeAfterListeners {
 				driver.closeApp()  // Close the open app
 				driver.terminateApp(GlobalVariable.bundleID)  // Terminate the application(if it is running).
 			}
+
 		}
 
 	}
@@ -114,6 +124,7 @@ class BeforeAfterListeners {
 			Mobile.startApplication(GlobalVariable.iOSAppPath, true)  // Install the build file (Application)
 			AppiumDriver<?> driver =  commonMethods.getCurrentSessionMobileDriver()
 			(new iosCommonKeywords.commonMethods()).takeUserFromloginToHomeScreen(GlobalVariable.Username, GlobalVariable.Password,GlobalVariable.Account)
+			//(new iosCommonKeywords.commonMethods()).enableBetaFeatures()
 
 			try {
 				driver.terminateApp(GlobalVariable.bundleID) // Terminate the application(if it is running).

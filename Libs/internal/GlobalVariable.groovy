@@ -74,6 +74,11 @@ Profile Stage : bundle id for iOS application</p>
     public static Object bundleID
      
     /**
+     * <p>Profile Release : change this to order (strictly follow the name), if test suite under execution is of orders module </p>
+     */
+    public static Object testSuiteModule
+     
+    /**
      * <p></p>
      */
     public static Object a
@@ -96,6 +101,7 @@ Profile Stage : bundle id for iOS application</p>
             appWaitActivity = selectedVariables['appWaitActivity']
             appPackage = selectedVariables['appPackage']
             bundleID = selectedVariables['bundleID']
+            testSuiteModule = selectedVariables['testSuiteModule']
             a = selectedVariables['a']
             
         } catch (Exception e) {
