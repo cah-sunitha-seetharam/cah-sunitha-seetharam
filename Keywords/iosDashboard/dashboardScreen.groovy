@@ -54,22 +54,22 @@ class dashboardScreen {
 
 		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
-		Mobile.setText(findTestObject('iOS/Product Search/Product SearchField'), productName, 0)
+		Mobile.setText(findTestObject('iOS/Product Search/productSearch_TextField'), productName, 0)
 
 		Mobile.tapAndHold(findTestObject('iOS/Product Search/search_Keypad'), 0, 0)
 
-		Mobile.setText(findTestObject('iOS/Product Search/Quantity_TextField'), quantity, 0)
+		Mobile.setText(findTestObject('iOS/Product Search/quantity_TextField'), quantity, 0)
 
-		Mobile.tap(findTestObject('iOS/Orders/Cart Page/Place All Orders/Done_Keypad'), 0)
+		Mobile.tapAndHold(findTestObject('iOS/Product Search/doneKeypad_Button'), 0, 0)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/addToOrder_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Product Search/Confirmation_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Product Search/confirmation_Text'), 0)
 
-		Mobile.tapAndHold(findTestObject('iOS/Orders/Order Details Screen/Upload Order/After Adding Product Continue_Button'), 0,0)
+		Mobile.tapAndHold(	findTestObject('Object Repository/iOS/Product Search/afterAddingProductContinue_Button'), 0,0)
 	}
 
-
+	
 
 	/**
 	 * changes the user account

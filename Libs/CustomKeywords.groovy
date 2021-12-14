@@ -623,6 +623,13 @@ def static "iosOrders.cartScreen.clickOnC2Orders"() {
 }
 
  /**
+	 * opens the non c2 orders tab
+	 */ 
+def static "iosOrders.cartScreen.clickOnNonC2Orders"() {
+    (new iosOrders.cartScreen()).clickOnNonC2Orders()
+}
+
+ /**
 	 * clicks on all place all orders button on cart screen
 	 */ 
 def static "iosOrders.cartScreen.clickOnPlaceAllOrders"() {
@@ -651,6 +658,14 @@ def static "iosOrders.cartScreen.deleteOrder"(
     	String poName	) {
     (new iosOrders.cartScreen()).deleteOrder(
         	poName)
+}
+
+ /**
+	 * delete's the C2 order from the cart screen based on the purchase order name
+	 * seperate delete method for c2 as locators for c2 order tile not available...when done remove this method
+	 */ 
+def static "iosOrders.cartScreen.deleteC2Order"() {
+    (new iosOrders.cartScreen()).deleteC2Order()
 }
 
  /**
@@ -687,6 +702,7 @@ def static "iosOrders.cartScreen.returnTopMostOrderName"() {
 
  /**
 	 * this function verifies the pattern required for the order which was created without giving any purchase order name
+	 * @param orderName (order name which is under verification)
 	 */ 
 def static "iosOrders.cartScreen.verifyOrderNamePattern"(
     	String orderName	) {
@@ -1891,17 +1907,17 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+}
+
+
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
     	String testName	
      , 	RectangleSize viewportSize	) {
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
         	testName
          , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
 
 
