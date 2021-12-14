@@ -65,7 +65,7 @@ class  commonMethods {
 
 
 
-		/**
+	/**
 	 * this function returns the cost of added product
 	 * @return productCost_dollarSymbolRemoved_FloatValue (of the product which has been added)
 	 */
@@ -136,7 +136,7 @@ class  commonMethods {
 	@Keyword
 	def installingAndlaunchingTheApplication() {
 
-		Mobile.startApplication(GlobalVariable.iOS_App_Path, true) //iOS_App_Path (Application path will be taken from the global profile and passed as a parameter to startApplication method)
+		Mobile.startApplication(GlobalVariable.iOSAppPath, true) //iOS_App_Path (Application path will be taken from the global profile and passed as a parameter to startApplication method)
 	}
 
 

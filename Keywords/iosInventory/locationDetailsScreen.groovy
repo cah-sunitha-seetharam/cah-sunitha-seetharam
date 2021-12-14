@@ -77,9 +77,9 @@ class locationDetailsScreen {
 	@Keyword
 	def addQuantityforTheSearchedProduct(String quantity) {
 
-		Mobile.setText(findTestObject('iOS/Orders/Order Details Page/Scan Order/quantity_TextField'), quantity, 0)
+		Mobile.setText(findTestObject('iOS/Product Search/Scan Flow/quantity_TextField'), quantity, 0)
 
-		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/done_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/done_Button'), 0)
 	}
 
 
@@ -107,13 +107,13 @@ class locationDetailsScreen {
 	@Keyword
 	def clickOnScanIcon() {
 
-		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/scan_Icon'), 0)
+		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/scan_Icon'), 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.verifyElementAttributeValue(findTestObject('iOS/Orders/Order Details Page/Scan Order/fullCount_Button'), 'value', '1', 0)
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/Product Search/Scan Flow/fullCount_Button'), 'value', '1', 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Page/Scan Order/partialCount_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Product Search/Scan Flow/partialCount_Button'), 0)
 	}
 
 
@@ -290,11 +290,11 @@ class locationDetailsScreen {
 	@Keyword
 	def scanInputEvent(String productToBeSearched) {
 
-		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/scanGray_Image'), 0)
+		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/scanGray_Image'), 0)
 
-		Mobile.setText(findTestObject('iOS/Orders/Order Details Page/Scan Order/enterBarcode_TextField'), productToBeSearched, 0)
+		Mobile.setText(findTestObject('iOS/Product Search/Scan Flow/enterBarcode_TextField'), productToBeSearched, 0)
 
-		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/done_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/done_Button'), 0)
 	}
 
 
@@ -306,10 +306,10 @@ class locationDetailsScreen {
 	@Keyword
 	def selectCountTypeForTheProductToBeAdded(String countType) {
 		if(countType=="Full Count") {
-			Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/fullCount_Button'), 0)
+			Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/fullCount_Button'), 0)
 		}
 		else {
-			Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/partialCount_Button'), 0)
+			Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/partialCount_Button'), 0)
 		}
 	}
 
