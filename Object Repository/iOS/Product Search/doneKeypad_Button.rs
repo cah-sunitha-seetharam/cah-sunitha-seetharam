@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MobileElementEntity>
    <description></description>
-   <name>Done Keypad_Text</name>
+   <name>doneKeypad_Button</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>e0098014-4037-41db-b8a9-2fa4a5e433b8</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
@@ -89,6 +89,6 @@
       <type>Main</type>
       <value>//XCUIElementTypeApplication/XCUIElementTypeWindow[3]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeKeyboard[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeButton[4]</value>
    </webElementProperties>
-   <locator>//*[@type = 'XCUIElementTypeButton' and @label = 'done' and @name = 'Done']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>Done</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>
