@@ -24,6 +24,7 @@ import iosAccountSelection.selectAnAccount
 import iosDashboard.dashboardScreen
 import iosLogin.loginScreen
 import iosMoreOptions.moreOptionsScreen
+import iosOrders.cartScreen
 
 class  commonMethods {
 
@@ -31,6 +32,27 @@ class  commonMethods {
 	def moreOptionsScreenObject=new moreOptionsScreen();
 	def loginScreenObject=new loginScreen();
 	def selectAnAccountObject=new selectAnAccount();
+
+
+	/**
+	 * clicks on more options, takes to beat features and enables it
+	 */
+	@Keyword
+	def enableBetaFeatures() {
+
+		dashboardObject.clickOnMoreOptionsTab() //takes user from dash-board to the moreOptions screen'
+
+		Mobile.tap(findTestObject('iOS/More Options Screen/betaFeatures_Tab'), 0)
+
+		Mobile.tap(findTestObject('iOS/More Options Screen/betaFeatureSwitch_Button'), 0)
+
+		Mobile.tap(findTestObject('iOS/More Options Screen/termsAgreeCheckBox_Button'), 0)
+
+		Mobile.tap(findTestObject('iOS/More Options Screen/disclaimerConfirm_Button'), 0)
+		
+		waitForProgressBarToBeInvisible()
+	}
+
 
 	/**
 	 * clicks on product search field
@@ -136,7 +158,7 @@ class  commonMethods {
 	@Keyword
 	def installingAndlaunchingTheApplication() {
 
-		Mobile.startApplication(GlobalVariable.iOS_App_Path, true) //iOS_App_Path (Application path will be taken from the global profile and passed as a parameter to startApplication method)
+		Mobile.startApplication(GlobalVariable.iOSAppPath, true) //iOS_App_Path (Application path will be taken from the global profile and passed as a parameter to startApplication method)
 	}
 
 

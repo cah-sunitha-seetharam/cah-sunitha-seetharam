@@ -111,7 +111,7 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 	@Keyword
 	def clickOnScanIconAndAddProductByCreatingNewLocationViaInventoryDetailsScreen(String locationName, String productName,String countType, String quantity, String costType) {
 
-		Mobile.tap(findTestObject('iOS/Orders/Order Details Page/Scan Order/scan_Icon'), 0)
+		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/scan_Icon'), 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
@@ -275,7 +275,7 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 		} else {
 			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/currentPrice_Button'), 0)
 		}
-		Mobile.tapAndHold(findTestObject('iOS/Product Search/Done Keypad_Text'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/Product Search/doneKeypad_Button'), 0, 0)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/createNewLocation_Text'), 0)
 
@@ -301,7 +301,7 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Verification Details/inventoryValue_Text'),0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Product Search/Scan_Icon'),0)
+		Mobile.verifyElementExist(findTestObject('iOS/Product Search/Scan Flow/scan_Icon'),0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Verification Details/Location_Text'), 0)
 

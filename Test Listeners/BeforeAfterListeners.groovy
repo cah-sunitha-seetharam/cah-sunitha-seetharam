@@ -2,8 +2,12 @@ import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+import com.kms.katalon.core.util.KeywordUtil
 
 import java.sql.Driver
+
+import javax.swing.text.html.HTML.Tag
+
 import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
 import com.kms.katalon.core.model.FailureHandling as FailureHandling
 import com.kms.katalon.core.testcase.TestCase as TestCase
@@ -48,6 +52,26 @@ class BeforeAfterListeners {
 			}
 		}
 
+
+
+		else  //  platform is iOS
+		{
+
+			if(testCaseContext.getTestCaseStatus()=='FAILED' && GlobalVariable.testSuiteModule=="order")//if test case failed and is from orders module
+			{
+				(new iosOrders.ordersCommonScreen()).clearAllOrders()
+			}
+			AppiumDriver<?> driver =  commonMethods.getCurrentSessionMobileDriver() // mobile driver value of the current session
+			try {
+				driver.terminateApp(GlobalVariable.bundleID) // Terminate the application(if it is running).
+			}
+			catch (Exception exceptionError) {
+				driver.closeApp()  // Close the open app
+				driver.terminateApp(GlobalVariable.bundleID)  // Terminate the application(if it is running).
+			}
+
+		}
+
 	}
 	@AfterTestSuite
 	def AfterTestSuite(TestSuiteContext testSuiteContext) {
@@ -60,6 +84,13 @@ class BeforeAfterListeners {
 		{
 			AppiumDriver<?> driver =  commonMethods.getCurrentSessionMobileDriver()
 			driver.activateApp(GlobalVariable.appPackage)  //Activates the application if it installed, but not running or if it is running in the background.
+		}
+
+
+		else
+		{
+			AppiumDriver<?> driver =  commonMethods.getCurrentSessionMobileDriver()
+			driver.activateApp(GlobalVariable.bundleID)  //Activates the application if it installed, but not running or if it is running in the background.
 		}
 	}
 	/**
@@ -75,7 +106,7 @@ class BeforeAfterListeners {
 			RunConfiguration.setMobileDriverPreferencesProperty("appPackage", GlobalVariable.appPackage) // this value will get from profile
 			Mobile.startApplication(GlobalVariable.Android_App_Path, true)  // Install the build file (Application)
 			AppiumDriver<?> driver =  commonMethods.getCurrentSessionMobileDriver()
-			CustomKeywords.'android_login.Login_Screen.login'()  // Invoking the Environment selection and login method
+			CustomKeywords.'android_login.Login_Screen.login'(GlobalVariable.Password)  // Invoking the Environment selection and login method
 
 			try {
 				driver.terminateApp(GlobalVariable.appPackage) // Terminate the application(if it is running).
@@ -85,5 +116,31 @@ class BeforeAfterListeners {
 				driver.terminateApp(GlobalVariable.appPackage)  // Terminate the application(if it is running).
 			}
 
-		}}
+		}
+
+		else
+
+		{
+			Mobile.startApplication(GlobalVariable.iOSAppPath, true)  // Install the build file (Application)
+			AppiumDriver<?> driver =  commonMethods.getCurrentSessionMobileDriver()
+			(new iosCommonKeywords.commonMethods()).takeUserFromloginToHomeScreen(GlobalVariable.Username, GlobalVariable.Password,GlobalVariable.Account)
+			//(new iosCommonKeywords.commonMethods()).enableBetaFeatures()
+
+			try {
+				driver.terminateApp(GlobalVariable.bundleID) // Terminate the application(if it is running).
+			}
+			catch (Exception exceptionError) {
+				driver.closeApp()  // Close the open app
+				driver.terminateApp(GlobalVariable.bundleID)  // Terminate the application(if it is running).
+			}
+
+		}
+	}
+
 }
+
+
+
+
+
+

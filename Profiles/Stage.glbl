@@ -32,7 +32,7 @@
    <GlobalVariableEntity>
       <description>iOS application path is taken from the profiles and used in the start application under android common methods</description>
       <initValue>'/Users/sahil.vidaysingh/Downloads/Hatch.app'</initValue>
-      <name>iOS_App_Path</name>
+      <name>iOSAppPath</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
@@ -53,5 +53,10 @@
       <description>Package value of the Android app that we need to run</description>
       <initValue>'com.cardinalhealth.orderexpress.two.debug'</initValue>
       <name>appPackage</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>bundle id for iOS application</description>
+      <initValue>'com.cardinalhealth.orderexpress.two'</initValue>
+      <name>bundleID</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

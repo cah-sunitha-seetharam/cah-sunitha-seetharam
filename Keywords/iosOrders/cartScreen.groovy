@@ -81,6 +81,18 @@ class cartScreen {
 	}
 
 
+
+	/**
+	 * opens the non c2 orders tab
+	 */
+	@Keyword
+	def clickOnNonC2Orders() {
+
+		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/nonc2Orders_Tab'), 0)
+	}
+
+
+
 	/**
 	 * clicks on all place all orders button on cart screen
 	 */
@@ -141,11 +153,39 @@ class cartScreen {
 
 		Mobile.swipe(1300, yCoordinateToSwipe, 0, yCoordinateToSwipe)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Delete_Order/Success_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Delete Order/success_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Delete_Order/Order(s) deleted successfully_Text'),0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Delete Order/orderDeletedSuccessfully_Text'),0)
 
-		Mobile.tapAndHold(findTestObject('iOS/Orders/Cart Screen/Delete_Order/OK_Button'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/Orders/Cart Screen/Delete Order/ok_Button'), 0, 0)
+	}
+
+
+
+	/**
+	 * delete's the C2 order from the cart screen based on the purchase order name
+	 * seperate delete method for c2 as locators for c2 order tile not available...when done remove this method
+	 */
+	@Keyword
+	def deleteC2Order() {
+
+		commonMethodsObject.waitForProgressBarToBeInvisible()
+
+		String testObj='iOS/Orders/Cart Screen/c2Order_View'
+
+		int elementHeight=Mobile.getElementHeight(findTestObject(testObj), 2)
+
+		int elementTopPosition = Mobile.getElementTopPosition(findTestObject(testObj), 0)
+
+		int yCoordinateToSwipe=(elementHeight/2)+elementTopPosition
+
+		Mobile.swipe(1300, yCoordinateToSwipe, 0, yCoordinateToSwipe)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Delete Order/success_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Delete Order/orderDeletedSuccessfully_Text'),0)
+
+		Mobile.tapAndHold(findTestObject('iOS/Orders/Cart Screen/Delete Order/ok_Button'), 0, 0)
 	}
 
 
@@ -183,18 +223,6 @@ class cartScreen {
 		Mobile.tap(findTestObject('Object Repository/iOS/Orders/Orders Common Screen/orderListOrderName_Label',[('TEXT'):poName]), 0)
 	}
 
-	/**
-	 * opens the order details page
-	 * @param orderName (purchase order name created after order added)
-	 */
-	@Keyword
-	def openAnOrderDetailWithOrderName(String orderName) {
-
-		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Orders/Cart Screen/orderListOrderName_Label',[('TEXT'):orderName]), 0)
-
-		Mobile.tap(findTestObject('Object Repository/iOS/Orders/Cart Screen/orderListOrderName_Label',[('TEXT'):orderName]), 0)
-	}
-
 
 
 	/**
@@ -209,21 +237,11 @@ class cartScreen {
 		return orderName
 	}
 
-	/**
-	 * this function returns the order name of the order/ title of the screen when user is on order details screen
-	 * return orderName (returns order name/ title of order details screen)
-	 */
-	@Keyword
-	def returnOrderNameOrderDetailScreen() {
-
-		String orderName=Mobile.getText(findTestObject('iOS/Orders/Verification Details/orderDetailHeader_Label'), 0)
-
-		return orderName
-	}
 
 
 	/**
 	 * this function verifies the pattern required for the order which was created without giving any purchase order name
+	 * @param orderName (order name which is under verification)
 	 */
 	@Keyword
 	def verifyOrderNamePattern(final String orderName) {
@@ -232,7 +250,7 @@ class cartScreen {
 
 		Mobile.verifyMatch(orderName, regex, true)
 
-		KeywordUtil.logInfo("pattern matches"); //logInfo
+		KeywordUtil.logInfo("pattern matches"); //logInfo if pattern matches
 	}
 
 
@@ -271,7 +289,7 @@ class cartScreen {
 
 		Mobile.verifyElementAttributeValue(findTestObject('Object Repository/iOS/Dashboard/orders_Tab'), 'value', '1',0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Orders Common Screen/Cart Page_Tab'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Orders Common Screen/cartScreen_Tab'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/Enabled_Upload All Orders_Button'),0)
 
@@ -372,11 +390,11 @@ class cartScreen {
 	@Keyword
 	def clickOnScanIcon() {
 
-		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Scan Order/scan_Icon'), 0)
+		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/scan_Icon'), 0)
 
-		Mobile.verifyElementAttributeValue(findTestObject('iOS/Orders/Order Details Screen/Scan Order/ordering_Button'), 'value', '1', 0)
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/Product Search/Scan Flow/ordering_Button'), 'value', '1', 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Scan Order/priceCheck_Button_Name'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Product Search/Scan Flow/priceCheck_Button'), 0)
 	}
 
 
@@ -388,11 +406,11 @@ class cartScreen {
 	@Keyword
 	def scanInputEvent(String productToBeSearched) {
 
-		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Scan Order/scanGray_Image'), 0)
+		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/scanGray_Image'), 0)
 
-		Mobile.setText(findTestObject('iOS/Orders/Order Details Screen/Scan Order/enterBarcode_TextField'), productToBeSearched, 0)
+		Mobile.setText(findTestObject('iOS/Product Search/Scan Flow/enterBarcode_TextField'), productToBeSearched, 0)
 
-		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Scan Order/done_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/done_Button'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Verification Details/thisItemHaBeenAddedToYourOrder_Text'), 0)
 
@@ -410,10 +428,10 @@ class cartScreen {
 	def selectToggleValueForTheProductToBeSearched(String toggleValue) {
 
 		if(toggleValue=="Ordering") {
-			Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Scan Order/ordering_Button'), 0)
+			Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/ordering_Button'), 0)
 		}
 		else {
-			Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Scan Order/priceCheck_Button_Name'), 0)
+			Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/priceCheck_Button'), 0)
 		}
 	}
 
