@@ -3,7 +3,7 @@
    <description></description>
    <name>afterAddingProductContinue_Button</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>039bd6e9-b9b7-4094-8815-2eefac1864c6</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -83,6 +83,6 @@
       <type>Main</type>
       <value>//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther[4]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[3]/XCUIElementTypeButton[1]</value>
    </webElementProperties>
-   <locator>//*[@type = 'XCUIElementTypeButton' and @label = 'Continue Browsing' and @name = 'ContinueButton']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>ContinueButton</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>
