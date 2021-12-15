@@ -275,7 +275,7 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 		} else {
 			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/currentPrice_Button'), 0)
 		}
-		Mobile.tapAndHold(findTestObject('iOS/Product Search/Done Keypad_Text'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/Product Search/doneKeypad_Button'), 0, 0)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/createNewLocation_Text'), 0)
 

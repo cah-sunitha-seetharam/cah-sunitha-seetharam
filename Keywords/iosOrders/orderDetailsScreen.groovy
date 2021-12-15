@@ -57,7 +57,7 @@ class orderDetailsScreen {
 			WebUI.delay(w)
 		}
 
-		Mobile.setText(findTestObject('iOS/Product Search/Product SearchField'), product_Name, 0)
+		Mobile.setText(findTestObject('iOS/Product Search/productSearch_TextField'), product_Name, 0)
 
 		Mobile.tapAndHold(findTestObject('iOS/Product Search/Search Key_Button'), 0, 0)
 
@@ -89,7 +89,7 @@ class orderDetailsScreen {
 
 		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
-		Mobile.setText(findTestObject('iOS/Product Search/Product SearchField'), productName, 0)
+		Mobile.setText(findTestObject('iOS/Product Search/productSearch_TextField'), productName, 0)
 
 		Mobile.tapAndHold(findTestObject('iOS/Product Search/Search Key_Button'), 0, 0)
 
