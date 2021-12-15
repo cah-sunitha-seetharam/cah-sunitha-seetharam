@@ -264,7 +264,11 @@ def static "androidOrders.newOrderScreen.change_Account"(
         	New_Account)
 }
 
-
+ /**
+	 * adds poname pomemo to textfield
+	 * @param PO_Name (purchase order name for the order created)
+	 * @param PO_Memo (purchase order Memo for the order created)
+	 */ 
 def static "androidOrders.newOrderScreen.enterPurchaseOrderDetails"(
     	String PO_Name	
      , 	String PO_Memo	) {
@@ -273,7 +277,9 @@ def static "androidOrders.newOrderScreen.enterPurchaseOrderDetails"(
          , 	PO_Memo)
 }
 
-
+ /**
+	 * taps on create order button to create an order
+	 */ 
 def static "androidOrders.newOrderScreen.createOrder"() {
     (new androidOrders.newOrderScreen()).createOrder()
 }
@@ -283,12 +289,16 @@ def static "androidOrders.newOrderScreen.click_On_NewOrder"() {
     (new androidOrders.newOrderScreen()).click_On_NewOrder()
 }
 
-
+ /**
+	 * verifies new order screen
+	 */ 
 def static "androidOrders.newOrderScreen.verifyNewOrderScreenAccount"() {
     (new androidOrders.newOrderScreen()).verifyNewOrderScreenAccount()
 }
 
-
+ /**
+	 * verifies new order screen
+	 */ 
 def static "androidOrders.newOrderScreen.verifyNewOrderScreenDetails"() {
     (new androidOrders.newOrderScreen()).verifyNewOrderScreenDetails()
 }
@@ -626,13 +636,6 @@ def static "iosOrders.cartScreen.clickOnC2Orders"() {
 }
 
  /**
-	 * opens the non c2 orders tab
-	 */ 
-def static "iosOrders.cartScreen.clickOnNonC2Orders"() {
-    (new iosOrders.cartScreen()).clickOnNonC2Orders()
-}
-
- /**
 	 * clicks on all place all orders button on cart screen
 	 */ 
 def static "iosOrders.cartScreen.clickOnPlaceAllOrders"() {
@@ -661,14 +664,6 @@ def static "iosOrders.cartScreen.deleteOrder"(
     	String poName	) {
     (new iosOrders.cartScreen()).deleteOrder(
         	poName)
-}
-
- /**
-	 * delete's the C2 order from the cart screen based on the purchase order name
-	 * seperate delete method for c2 as locators for c2 order tile not available...when done remove this method
-	 */ 
-def static "iosOrders.cartScreen.deleteC2Order"() {
-    (new iosOrders.cartScreen()).deleteC2Order()
 }
 
  /**
@@ -705,7 +700,6 @@ def static "iosOrders.cartScreen.returnTopMostOrderName"() {
 
  /**
 	 * this function verifies the pattern required for the order which was created without giving any purchase order name
-	 * @param orderName (order name which is under verification)
 	 */ 
 def static "iosOrders.cartScreen.verifyOrderNamePattern"(
     	String orderName	) {
@@ -1431,13 +1425,6 @@ def static "android_more_options.moreOptionsScreen.changeAccount"(
 }
 
  /**
-	 * enables beta feature CSOS
-	 */ 
-def static "android_more_options.moreOptionsScreen.enableBetaFeatureCSOS"() {
-    (new android_more_options.moreOptionsScreen()).enableBetaFeatureCSOS()
-}
-
- /**
 	 * takes the user from the the moreOptions Screen to inventory listing screen
 	 */ 
 def static "android_more_options.moreOptionsScreen.goToInventoryListingScreen"() {
@@ -2014,19 +2001,19 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
+}
+
+
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
     	TestObject testObject	
      , 	String testName	) {
     (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
         	testObject
          , 	testName)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
 }
 
 
@@ -2043,18 +2030,6 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
          , 	viewportSize)
 }
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
-}
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
-}
-
 
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	
@@ -2064,4 +2039,11 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
 }
