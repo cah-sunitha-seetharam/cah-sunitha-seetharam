@@ -64,8 +64,8 @@ class historyScreen {
 
 		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/goToOrderHistory_Button'), 0)
 	}
-	
-	
+
+
 	@Keyword
 	def verify_History_Screen_Details() {
 

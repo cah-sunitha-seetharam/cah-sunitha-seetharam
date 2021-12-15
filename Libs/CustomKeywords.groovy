@@ -271,11 +271,15 @@ def static "androidOrders.newOrderScreen.change_Account"(
         	New_Account)
 }
 
-
-def static "androidOrders.newOrderScreen.enter_Purchase_Order_Details"(
+ /**
+	 * adds poname pomemo to textfield
+	 * @param PO_Name (purchase order name for the order created)
+	 * @param PO_Memo (purchase order Memo for the order created)
+	 */ 
+def static "androidOrders.newOrderScreen.enterPurchaseOrderDetails"(
     	String PO_Name	
      , 	String PO_Memo	) {
-    (new androidOrders.newOrderScreen()).enter_Purchase_Order_Details(
+    (new androidOrders.newOrderScreen()).enterPurchaseOrderDetails(
         	PO_Name
          , 	PO_Memo)
 }
@@ -292,9 +296,18 @@ def static "androidOrders.newOrderScreen.click_On_NewOrder"() {
     (new androidOrders.newOrderScreen()).click_On_NewOrder()
 }
 
+ /**
+	 * verifies new order screen
+	 */ 
+def static "androidOrders.newOrderScreen.verifyNewOrderScreenAccount"() {
+    (new androidOrders.newOrderScreen()).verifyNewOrderScreenAccount()
+}
 
-def static "androidOrders.newOrderScreen.verify_NewOrder_Screen_Details"() {
-    (new androidOrders.newOrderScreen()).verify_NewOrder_Screen_Details()
+ /**
+	 * verifies new order screen
+	 */ 
+def static "androidOrders.newOrderScreen.verifyNewOrderScreenDetails"() {
+    (new androidOrders.newOrderScreen()).verifyNewOrderScreenDetails()
 }
 
  /**
@@ -637,13 +650,6 @@ def static "iosOrders.cartScreen.clickOnC2Orders"() {
 }
 
  /**
-	 * opens the non c2 orders tab
-	 */ 
-def static "iosOrders.cartScreen.clickOnNonC2Orders"() {
-    (new iosOrders.cartScreen()).clickOnNonC2Orders()
-}
-
- /**
 	 * clicks on all place all orders button on cart screen
 	 */ 
 def static "iosOrders.cartScreen.clickOnPlaceAllOrders"() {
@@ -672,14 +678,6 @@ def static "iosOrders.cartScreen.deleteOrder"(
     	String poName	) {
     (new iosOrders.cartScreen()).deleteOrder(
         	poName)
-}
-
- /**
-	 * delete's the C2 order from the cart screen based on the purchase order name
-	 * seperate delete method for c2 as locators for c2 order tile not available...when done remove this method
-	 */ 
-def static "iosOrders.cartScreen.deleteC2Order"() {
-    (new iosOrders.cartScreen()).deleteC2Order()
 }
 
  /**
@@ -716,7 +714,6 @@ def static "iosOrders.cartScreen.returnTopMostOrderName"() {
 
  /**
 	 * this function verifies the pattern required for the order which was created without giving any purchase order name
-	 * @param orderName (order name which is under verification)
 	 */ 
 def static "iosOrders.cartScreen.verifyOrderNamePattern"(
     	String orderName	) {
@@ -1139,6 +1136,62 @@ def static "androidOrders.orderDetailsScreen.clickOnBackToCart"() {
 }
 
  /**
+	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at ordering
+	 */ 
+def static "androidOrders.orderDetailsScreen.clickOnScanIcon"() {
+    (new androidOrders.orderDetailsScreen()).clickOnScanIcon()
+}
+
+ /**
+	 * scans the product, adds it to the order and also verifies some scan input details
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */ 
+def static "androidOrders.orderDetailsScreen.scanInputEvent"(
+    	String productToBeSearched	) {
+    (new androidOrders.orderDetailsScreen()).scanInputEvent(
+        	productToBeSearched)
+}
+
+ /**
+	 * this function adds the quantity for the product to be searched
+	 * @param quantity (quantity required to be added for the product to be searched)
+	 */ 
+def static "androidOrders.orderDetailsScreen.addQuantityforTheSearchedProduct"(
+    	int quantity	) {
+    (new androidOrders.orderDetailsScreen()).addQuantityforTheSearchedProduct(
+        	quantity)
+}
+
+ /**
+	 * this function gets the total added quantity of the product
+	 * @return quantityNumericalValue (of the product which has been added)
+	 */ 
+def static "androidOrders.orderDetailsScreen.returnQuantityOfTheAddedProduct"() {
+    (new androidOrders.orderDetailsScreen()).returnQuantityOfTheAddedProduct()
+}
+
+ /**
+	 * uploads the order by clicking on upload order button and verifies upload order button gets disabled after uploading
+	 */ 
+def static "androidOrders.orderDetailsScreen.uploadOrder"() {
+    (new androidOrders.orderDetailsScreen()).uploadOrder()
+}
+
+ /**
+	 * takes user back to the search product results to continue browsing
+	 */ 
+def static "androidOrders.orderDetailsScreen.clickOnContinueOrderingOnDesktop"() {
+    (new androidOrders.orderDetailsScreen()).clickOnContinueOrderingOnDesktop()
+}
+
+ /**
+	 * verifies order has been sent to desktop pop up
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyOrderHasbeensentToDesktopPopUp"() {
+    (new androidOrders.orderDetailsScreen()).verifyOrderHasbeensentToDesktopPopUp()
+}
+
+ /**
 	 * creates a new C2 order
 	 * @param poName (poName of the order), poMemo (poMemo of the order)
 	 */ 
@@ -1198,14 +1251,25 @@ def static "androidOrders.orderDetailsScreen.add_ALternate_Product"(
          , 	Quantity)
 }
 
-
-def static "androidOrders.orderDetailsScreen.verify_Order_Screen_Details_without_any_added_product"() {
-    (new androidOrders.orderDetailsScreen()).verify_Order_Screen_Details_without_any_added_product()
+ /**
+	 * verifies order screen details without any added product
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyOrderScreenDetailsWithoutAnyAddedProduct"() {
+    (new androidOrders.orderDetailsScreen()).verifyOrderScreenDetailsWithoutAnyAddedProduct()
 }
 
+ /**
+	 * verifies order screen details with added product
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyOrderScreenDetailsWithAddedProduct"() {
+    (new androidOrders.orderDetailsScreen()).verifyOrderScreenDetailsWithAddedProduct()
+}
 
-def static "androidOrders.orderDetailsScreen.verify_Order_Screen_Details_with_added_product"() {
-    (new androidOrders.orderDetailsScreen()).verify_Order_Screen_Details_with_added_product()
+ /**
+	 * verifies the pop up which appears after user clicks on upload order
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyUploadOrderPopUp"() {
+    (new androidOrders.orderDetailsScreen()).verifyUploadOrderPopUp()
 }
 
  /**
@@ -1799,24 +1863,70 @@ def static "androidOrders.cartScreen.delete_Order"(
         	Account_No)
 }
 
-
-def static "androidOrders.cartScreen.upload_All_Orders"() {
-    (new androidOrders.cartScreen()).upload_All_Orders()
+ /**
+	 * clicks on upload all orders button on cart screen
+	 */ 
+def static "androidOrders.cartScreen.clickOnUploadAllOrders"() {
+    (new androidOrders.cartScreen()).clickOnUploadAllOrders()
 }
 
-
-def static "androidOrders.cartScreen.place_All_Orders"() {
-    (new androidOrders.cartScreen()).place_All_Orders()
+ /**
+	 * verifies pop up screen which comes after clicking on upload all orders button on cart screen
+	 */ 
+def static "androidOrders.cartScreen.verifyUploadAllOrdersPopUp"() {
+    (new androidOrders.cartScreen()).verifyUploadAllOrdersPopUp()
 }
 
-
-def static "androidOrders.cartScreen.verify_Cart_Screen_Details_with_Added_Product"() {
-    (new androidOrders.cartScreen()).verify_Cart_Screen_Details_with_Added_Product()
+ /**
+	 * clicks on continue on desktop button on cart screen
+	 */ 
+def static "androidOrders.cartScreen.clickOnContinueOnDesktop"() {
+    (new androidOrders.cartScreen()).clickOnContinueOnDesktop()
 }
 
+ /**
+	 * clicks on place all orders button on cart screen
+	 */ 
+def static "androidOrders.cartScreen.clickOnPlaceAllOrders"() {
+    (new androidOrders.cartScreen()).clickOnPlaceAllOrders()
+}
 
-def static "androidOrders.cartScreen.verify_Cart_Screen_Details_without_Adding_any_Product"() {
-    (new androidOrders.cartScreen()).verify_Cart_Screen_Details_without_Adding_any_Product()
+ /**
+	 * verifies pop up screen which comes after clicking on place all orders button on cart screen
+	 */ 
+def static "androidOrders.cartScreen.verifyPlaceAllOrdersPopUp"() {
+    (new androidOrders.cartScreen()).verifyPlaceAllOrdersPopUp()
+}
+
+ /**
+	 * clicks on place my orders button on cart screen
+	 */ 
+def static "androidOrders.cartScreen.confirmPlacingAllOrders"() {
+    (new androidOrders.cartScreen()).confirmPlacingAllOrders()
+}
+
+ /**
+	 * verifies cart screen with added product
+	 */ 
+def static "androidOrders.cartScreen.verifyCartScreenDetailsWithAddedProduct"() {
+    (new androidOrders.cartScreen()).verifyCartScreenDetailsWithAddedProduct()
+}
+
+ /**
+	 * verifies that the created order should not be visible on the cart screen
+	 * @param poName (purchase order name used to create the order)
+	 */ 
+def static "androidOrders.cartScreen.verifyOrderNotVisibleOnTheCartScreen"(
+    	String poName	) {
+    (new androidOrders.cartScreen()).verifyOrderNotVisibleOnTheCartScreen(
+        	poName)
+}
+
+ /**
+	 * verifies the cart screen details without any product
+	 */ 
+def static "androidOrders.cartScreen.verifyCartScreenDetailsWithOutAddingAnyProduct"() {
+    (new androidOrders.cartScreen()).verifyCartScreenDetailsWithOutAddingAnyProduct()
 }
 
  /**

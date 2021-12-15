@@ -72,6 +72,93 @@ class orderDetailsScreen {
 
 
 	/**
+	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at ordering
+	 */
+	@Keyword
+	def clickOnScanIcon() {
+
+		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_Icon'), 0)
+
+		Mobile.verifyElementAttributeValue(findTestObject('Android/Orders/Order Details Screen/Scan Order/ordering_Text'), 'text', 'Ordering', 0)
+
+		Mobile.verifyElementAttributeValue(findTestObject('Android/Orders/Order Details Screen/Scan Order/priceCheck_Text'), 'text', 'Price Check', 0)
+	}
+
+	/**
+	 * scans the product, adds it to the order and also verifies some scan input details
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */
+	@Keyword
+	def scanInputEvent(String productToBeSearched) {
+
+		Mobile.setText(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_EditText'), productToBeSearched, 0)
+		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Scan Order/thisItemHasBeenAddedToYourOrder_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Scan Order/remove_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Scan Order/alternates_Text'), 0)
+	}
+
+	/**
+	 * this function adds the quantity for the product to be searched
+	 * @param quantity (quantity required to be added for the product to be searched)
+	 */
+
+	@Keyword
+	def addQuantityforTheSearchedProduct(int quantity) {
+
+		int i
+			for (i=1; i<= quantity; i++) {
+			Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/moreOperator_ImageView'),  0)
+		}
+	}
+
+	/**
+	 * this function gets the total added quantity of the product
+	 * @return quantityNumericalValue (of the product which has been added)
+	 */
+
+	@Keyword
+	def returnQuantityOfTheAddedProduct() {
+
+		String quantity= Mobile.getText(findTestObject('Android/Orders/Order Details Screen/Scan Order/quantityTextField_EditText'), 0)
+
+		KeywordUtil.logInfo(quantity)
+
+		float quantityNumericalValue=Float.valueOf(quantity)
+
+		return quantityNumericalValue
+	}
+
+	/**
+	 * uploads the order by clicking on upload order button and verifies upload order button gets disabled after uploading
+	 */
+	@Keyword
+	def uploadOrder() {
+
+		Mobile.tapAndHold(findTestObject('Android/Orders/Order Details Screen/Upload Order/Upload Order_Button'), 0, 0)
+	}
+
+
+	/**
+	 * takes user back to the search product results to continue browsing
+	 */
+	@Keyword
+	def clickOnContinueOrderingOnDesktop() {
+
+		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Upload Order/Continue order on the desktop_TextView'), 0)
+	}
+
+	/**
+	 * verifies order has been sent to desktop pop up
+	 */
+	@Keyword
+	def verifyOrderHasbeensentToDesktopPopUp() {
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Verification Details/orderHasbeenSentToDesktop_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Upload Order/Back to Cart_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Upload Order/Go to Dashboard_Button'), 0)
+	}
+
+	/**
 	 * creates a new C2 order
 	 * @param poName (poName of the order), poMemo (poMemo of the order)
 	 */
@@ -201,24 +288,25 @@ class orderDetailsScreen {
 	}
 
 
-
+	/**
+	 * verifies order screen details without any added product
+	 */
 	@Keyword
-	def verify_Order_Screen_Details_without_any_added_product() {
-
+	def verifyOrderScreenDetailsWithoutAnyAddedProduct() {
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Verification Details/Nothing to see here_TextView'), 0)
-
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Verification Details/Search products and add them to this order_TextView'),  0)
-
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Verification Details/0 lines in this order_TextView'),  0)
-
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Verification Details/Order_Name_Header'), 0)
-
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Verification Details/Scan_Icon'),0)
+		Mobile.verifyElementAttributeValue(findTestObject('Android/Orders/Order Details Screen/Upload Order/Upload Order_Button'), 'enabled', 'false', 0)
+		Mobile.verifyElementAttributeValue(findTestObject('Android/Orders/Order Details Screen/Place Order/Place Order_Button'), 'enabled', 'false', 0)
 	}
 
-
+	/**
+	 * verifies order screen details with added product
+	 */
 	@Keyword
-	def verify_Order_Screen_Details_with_added_product() {
+	def verifyOrderScreenDetailsWithAddedProduct() {
 
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/Lines_TextView'), 0)
 
@@ -239,5 +327,15 @@ class orderDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Verification Details/Scan_Icon'),0)
 
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Edit PO Name and Memo/Edit P.O. Name and memo_TextView'),	0)
+	}
+	
+	/**
+	 * verifies the pop up which appears after user clicks on upload order
+	 */
+	@Keyword
+	def verifyUploadOrderPopUp() {
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Upload Order/Continue order on the desktop_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Upload Order/Continue On Desktop_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Upload Order/Cancel and keep order on the app_Button'), 0)
 	}
 }
