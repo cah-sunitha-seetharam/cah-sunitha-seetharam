@@ -50,6 +50,13 @@ def static "androidDashboard.dashboardDetailsScreen.click_On_More_Options"() {
 }
 
  /**
+	 * clicks on more options, takes to beat features and enables it
+	 */ 
+def static "iosCommonKeywords.commonMethods.enableBetaFeatures"() {
+    (new iosCommonKeywords.commonMethods()).enableBetaFeatures()
+}
+
+ /**
 	 * clicks on product search field
 	 */ 
 def static "iosCommonKeywords.commonMethods.clickOnProductSearchTextField"() {
@@ -305,6 +312,13 @@ def static "iosOrders.ordersCommonScreen.clickOnHistoryTab"() {
 
 def static "iosOrders.ordersCommonScreen.clickOnCartTab"() {
     (new iosOrders.ordersCommonScreen()).clickOnCartTab()
+}
+
+ /**
+	 * deletes all orders from nonc2 and c2 order tab
+	 */ 
+def static "iosOrders.ordersCommonScreen.clearAllOrders"() {
+    (new iosOrders.ordersCommonScreen()).clearAllOrders()
 }
 
 
@@ -1921,13 +1935,6 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	
      , 	String testName	
@@ -1936,4 +1943,11 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
 }

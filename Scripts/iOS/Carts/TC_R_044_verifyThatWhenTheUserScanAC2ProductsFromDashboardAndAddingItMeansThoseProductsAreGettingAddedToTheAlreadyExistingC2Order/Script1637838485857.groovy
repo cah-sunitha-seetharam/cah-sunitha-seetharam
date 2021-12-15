@@ -18,7 +18,7 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-'starts the application'
+/*'starts the application'
 CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
 'login function called which takes user to the accounts selection screen'
@@ -32,7 +32,7 @@ CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(Global
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
+*/
 'takes user to the orders tab'
 CustomKeywords.'iosDashboard.dashboardScreen.clickOnOrders'()
 
@@ -141,4 +141,10 @@ CustomKeywords.'iosOrders.cartScreen.openC2OrderDetails'()
 
 'this function verifies that the product is visible on the order details screen'
 CustomKeywords.'iosOrders.orderDetailsScreen.verifyProductIsVisibleOnTheOrderDetailsScreen'(productSearch)
+
+'takes the application one screen back'
+CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
+
+'deletes the order and takes purchase order name as the argument'
+CustomKeywords.'iosOrders.cartScreen.deleteC2Order'()
 
