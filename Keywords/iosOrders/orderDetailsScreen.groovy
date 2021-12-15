@@ -391,9 +391,9 @@ class orderDetailsScreen {
 		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/goToDashboard_Button'), 0)
 	}
 
-	
-	
-	
+
+
+
 	/**
 	 * this function returns the cost of added product
 	 * @return productCost (of the product which has been added)
@@ -402,12 +402,12 @@ class orderDetailsScreen {
 	def returnCostOfTheAddedProduct() {
 
 		String testObj='Object Repository/iOS/Orders/Verification Details/productCost_Text'
-		
+
 		float productCost=(new iosCommonKeywords.commonMethods()).returnCostOfTheAddedProduct(testObj)//calling common method to get product cost
-		
-    	return productCost
+
+		return productCost
 	}
-	
+
 
 
 	/**
