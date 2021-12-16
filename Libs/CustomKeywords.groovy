@@ -628,6 +628,35 @@ def static "iosOrders.orderDetailsScreen.verifyUploadOrderPopUp"() {
 }
 
  /**
+	 * this function adds the product to be ordered - when price check toggle is selected
+	 * @param quantity (quantity required to be added for the product to be searched)
+	 */ 
+def static "iosOrders.orderDetailsScreen.addToOrder"() {
+    (new iosOrders.orderDetailsScreen()).addToOrder()
+}
+
+ /**
+	 * taps on go to order button on order confirmation screen and takes user to order details screen
+	 */ 
+def static "iosOrders.orderDetailsScreen.clickOnGoToOrder"() {
+    (new iosOrders.orderDetailsScreen()).clickOnGoToOrder()
+}
+
+ /**
+	 * taps on continue browsing button on order confirmation screen and takes user to scan result screen
+	 */ 
+def static "iosOrders.orderDetailsScreen.clickOnContinueBrowsing"() {
+    (new iosOrders.orderDetailsScreen()).clickOnContinueBrowsing()
+}
+
+ /**
+	 * verified user is taken to scan result screen after tapping on continue browsing button
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyScanResultScreenWithProduct"() {
+    (new iosOrders.orderDetailsScreen()).verifyScanResultScreenWithProduct()
+}
+
+ /**
 	 * enable EO mode by long pressing the account text/icon displayed on screen and then closes the opened fly-out
 	 */ 
 def static "androidCommonKeywords.emergencyOrderingMode.enableEOmodeAndCloseFlyout"() {
@@ -933,6 +962,24 @@ def static "iosOrders.cartScreen.verifyPlaceAllOrdersPopUp"() {
 	 */ 
 def static "iosOrders.cartScreen.verifyUploadAllOrdersPopUp"() {
     (new iosOrders.cartScreen()).verifyUploadAllOrdersPopUp()
+}
+
+ /**
+	 * this function returns the order name of the order/ title of the screen when user is on order details screen
+	 * return orderName (returns order name/ title of order details screen)
+	 */ 
+def static "iosOrders.cartScreen.returnOrderNameOrderDetailScreen"() {
+    (new iosOrders.cartScreen()).returnOrderNameOrderDetailScreen()
+}
+
+ /**
+	 * opens the order details page
+	 * @param orderName (purchase order name created after order added)
+	 */ 
+def static "iosOrders.cartScreen.openAnOrderDetailWithOrderName"(
+    	String orderName	) {
+    (new iosOrders.cartScreen()).openAnOrderDetailWithOrderName(
+        	orderName)
 }
 
  /**

@@ -11,7 +11,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description>password is taken from the profiles and passed as a parameter in the logIn function</description>
-      <initValue>'C@rdinal!'</initValue>
+      <initValue>'Cardinal1'</initValue>
       <name>Password</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
@@ -31,7 +31,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description>iOS application path is taken from the profiles and used in the start application under android common methods</description>
-      <initValue>'/Users/sahil.vidaysingh/Downloads/Hatch.app'</initValue>
+      <initValue>'/Users/purbasha.priyadarshi/Documents/Builds/iOS/Automation/Hatch.app'</initValue>
       <name>iOSAppPath</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
