@@ -103,7 +103,7 @@ class dashboardDetailsScreen {
 		element.click()
 	}
 
-	
+
 	/**
 	 * opens home tab where user can perform actions related to home
 	 */

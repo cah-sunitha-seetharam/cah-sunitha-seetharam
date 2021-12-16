@@ -39,12 +39,16 @@ def static "androidDashboard.dashboardDetailsScreen.clickOnOrders"() {
     (new androidDashboard.dashboardDetailsScreen()).clickOnOrders()
 }
 
-
+ /**
+	 * opens home tab where user can perform actions related to home
+	 */ 
 def static "androidDashboard.dashboardDetailsScreen.clickOnHomeTab"() {
     (new androidDashboard.dashboardDetailsScreen()).clickOnHomeTab()
 }
 
-
+ /**
+	 * opens more options tab where user can perform actions related to more options
+	 */ 
 def static "androidDashboard.dashboardDetailsScreen.clickOnMoreOptions"() {
     (new androidDashboard.dashboardDetailsScreen()).clickOnMoreOptions()
 }
@@ -1114,56 +1118,80 @@ def static "androidOrders.orderDetailsScreen.placeOrder"() {
     (new androidOrders.orderDetailsScreen()).placeOrder()
 }
 
-
+ /**
+	 * takes user back to cart
+	 */ 
 def static "androidOrders.orderDetailsScreen.clickOnBackToCart"() {
     (new androidOrders.orderDetailsScreen()).clickOnBackToCart()
 }
 
-
+ /**
+	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at ordering
+	 */ 
 def static "androidOrders.orderDetailsScreen.clickOnScanIcon"() {
     (new androidOrders.orderDetailsScreen()).clickOnScanIcon()
 }
 
-
+ /**
+	 * scans the product, adds it to the order and also verifies some scan input details
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */ 
 def static "androidOrders.orderDetailsScreen.scanInputEvent"(
     	String productToBeSearched	) {
     (new androidOrders.orderDetailsScreen()).scanInputEvent(
         	productToBeSearched)
 }
 
-
+ /**
+	 * this function adds the quantity for the product to be searched
+	 * @param quantity (quantity required to be added for the product to be searched)
+	 */ 
 def static "androidOrders.orderDetailsScreen.addQuantityforTheSearchedProduct"(
     	int quantity	) {
     (new androidOrders.orderDetailsScreen()).addQuantityforTheSearchedProduct(
         	quantity)
 }
 
-
+ /**
+	 * this function gets the total added quantity of the product
+	 * @return quantityNumericalValue (of the product which has been added)
+	 */ 
 def static "androidOrders.orderDetailsScreen.returnQuantityOfTheAddedProduct"() {
     (new androidOrders.orderDetailsScreen()).returnQuantityOfTheAddedProduct()
 }
 
-
+ /**
+	 * uploads the order by clicking on upload order button and verifies upload order button gets disabled after uploading
+	 */ 
 def static "androidOrders.orderDetailsScreen.uploadOrder"() {
     (new androidOrders.orderDetailsScreen()).uploadOrder()
 }
 
-
+ /**
+	 * takes user back to the search product results to continue browsing
+	 */ 
 def static "androidOrders.orderDetailsScreen.clickOnContinueOrderingOnDesktop"() {
     (new androidOrders.orderDetailsScreen()).clickOnContinueOrderingOnDesktop()
 }
 
-
+ /**
+	 * verifies order has been sent to desktop pop up
+	 */ 
 def static "androidOrders.orderDetailsScreen.verifyOrderHasbeensentToDesktopPopUp"() {
     (new androidOrders.orderDetailsScreen()).verifyOrderHasbeensentToDesktopPopUp()
 }
 
-
+ /**
+	 * verifies c2 label is visible or not
+	 */ 
 def static "androidOrders.orderDetailsScreen.verifyC2Label"() {
     (new androidOrders.orderDetailsScreen()).verifyC2Label()
 }
 
-
+ /**
+	 * creates a new C2 order
+	 * @param poName (poName of the order), poMemo (poMemo of the order)
+	 */ 
 def static "androidOrders.orderDetailsScreen.createNewC2Order"(
     	String poName	
      , 	String poMemo	) {
@@ -1172,19 +1200,37 @@ def static "androidOrders.orderDetailsScreen.createNewC2Order"(
          , 	poMemo)
 }
 
-
+ /**
+	 * this function selects toggle value for the product to be added which can be ordering or price check)
+	 * @param toggleValue (toggleValue required to be selected for the product to be added which can be ordering or price check)
+	 */ 
 def static "androidOrders.orderDetailsScreen.selectToggleValueForTheProductToBeSearched"(
     	String toggleValue	) {
     (new androidOrders.orderDetailsScreen()).selectToggleValueForTheProductToBeSearched(
         	toggleValue)
 }
 
+ /**
+	 * verifies the order value after adding a product
+	 * @param quantity (quantity which was added)
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyOrderValue"(
+    	Object quantity	) {
+    (new androidOrders.orderDetailsScreen()).verifyOrderValue(
+        	quantity)
+}
 
+ /**
+	 * clicks on c2 order availability and waits for the response while verifying the availability details for the c2 product
+	 */ 
 def static "androidOrders.orderDetailsScreen.checkC2ProductAvailability"() {
     (new androidOrders.orderDetailsScreen()).checkC2ProductAvailability()
 }
 
-
+ /**
+	 * searches for a product by setting product name and quantity as the input
+	 * @param productName (product to be added), quantity (total quantity required to be added)
+	 */ 
 def static "androidOrders.orderDetailsScreen.addProductToOrder"(
     	String productName	
      , 	String quantity	) {
@@ -1193,7 +1239,9 @@ def static "androidOrders.orderDetailsScreen.addProductToOrder"(
          , 	quantity)
 }
 
-
+ /**
+	 * takes user back to the search product results to continue browsing
+	 */ 
 def static "androidOrders.orderDetailsScreen.clickOnContinueOrdering"() {
     (new androidOrders.orderDetailsScreen()).clickOnContinueOrdering()
 }
@@ -1220,17 +1268,23 @@ def static "androidOrders.orderDetailsScreen.add_ALternate_Product"(
          , 	Quantity)
 }
 
-
+ /**
+	 * verifies order screen details without any added product
+	 */ 
 def static "androidOrders.orderDetailsScreen.verifyOrderScreenDetailsWithoutAnyAddedProduct"() {
     (new androidOrders.orderDetailsScreen()).verifyOrderScreenDetailsWithoutAnyAddedProduct()
 }
 
-
+ /**
+	 * verifies order screen details with added product
+	 */ 
 def static "androidOrders.orderDetailsScreen.verifyOrderScreenDetailsWithAddedProduct"() {
     (new androidOrders.orderDetailsScreen()).verifyOrderScreenDetailsWithAddedProduct()
 }
 
-
+ /**
+	 * verifies the pop up which appears after user clicks on upload order
+	 */ 
 def static "androidOrders.orderDetailsScreen.verifyUploadOrderPopUp"() {
     (new androidOrders.orderDetailsScreen()).verifyUploadOrderPopUp()
 }
@@ -1391,24 +1445,33 @@ def static "androidOrders.historyScreen.verify_History_Screen_Details"() {
     (new androidOrders.historyScreen()).verify_History_Screen_Details()
 }
 
-
+ /**
+	 * switches the account of user to another account
+	 * @param accountNo (accountNo which needs to be selected will be passed as a parameter)
+	 */ 
 def static "android_more_options.moreOptionsScreen.changeAccount"(
     	Object accountNo	) {
     (new android_more_options.moreOptionsScreen()).changeAccount(
         	accountNo)
 }
 
-
+ /**
+	 * enables beta csos feature
+	 */ 
 def static "android_more_options.moreOptionsScreen.enableBetaFeatureCSOS"() {
     (new android_more_options.moreOptionsScreen()).enableBetaFeatureCSOS()
 }
 
-
+ /**
+	 * takes the user from the the moreOptions Screen to inventory listing screen
+	 */ 
 def static "android_more_options.moreOptionsScreen.goToInventoryListingScreen"() {
     (new android_more_options.moreOptionsScreen()).goToInventoryListingScreen()
 }
 
-
+ /**
+	 * clicks on moreOptions tab, signsOut the user and takes user to the logInScreen
+	 */ 
 def static "android_more_options.moreOptionsScreen.signOut"() {
     (new android_more_options.moreOptionsScreen()).signOut()
 }
@@ -1677,23 +1740,14 @@ def static "android_inventory.Location_details_Screen.verify_Location_details_Sc
         	Location_Name)
 }
 
- /**
-	 * float value generator
-	 * @param stringToBeConvertedToFloatValue
-	 * @return float value for a string by removing characters
-	 */ 
+
 def static "common.commonMethods.floatValueGenerator"(
     	String stringToBeConvertedToFloatValue	) {
     (new common.commonMethods()).floatValueGenerator(
         	stringToBeConvertedToFloatValue)
 }
 
- /**
-	 * this function formats the decimal data for e.g 20.546 would be converted to 20.55 if decimalFormatRequired is 0.00
-	 * @param decimalDataToBeFormatted (decimal data required to be formatted), 
-	 * @param decimalFormatRequired (decimal format required for e.g 0.00 for rounding to 2 decimal places)
-	 * @return formattedDecimalData (formatted decimal data)
-	 */ 
+
 def static "common.commonMethods.formatDecimalData"(
     	Object decimalDataToBeFormatted	
      , 	String decimalFormatRequired	) {
@@ -1702,32 +1756,21 @@ def static "common.commonMethods.formatDecimalData"(
          , 	decimalFormatRequired)
 }
 
- /**
-	 * random alpha numeric String Generator 
-	 * @param length, required string length 
-	 * @return alpha-numeric string  
-	 */ 
+
 def static "common.commonMethods.randomStringGenerator"(
     	int length	) {
     (new common.commonMethods()).randomStringGenerator(
         	length)
 }
 
- /**
-	 * Read JSON file 
-	 * @param file name, Note: data files are considered to be on Data files location on project directory  
-	 * @return the JSON file object 
-	 */ 
+
 def static "common.commonMethods.readFileTypeJSON"(
     	String fileNameValue	) {
     (new common.commonMethods()).readFileTypeJSON(
         	fileNameValue)
 }
 
- /**
-	 * Get mobile driver for current session
-	 * @return mobile driver for current session
-	 */ 
+
 def static "common.commonMethods.getCurrentSessionMobileDriver"() {
     (new common.commonMethods()).getCurrentSessionMobileDriver()
 }
@@ -1986,17 +2029,17 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
-}
-
-
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
     	String testName	
      , 	RectangleSize viewportSize	) {
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
         	testName
          , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
 
 

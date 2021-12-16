@@ -342,7 +342,7 @@ class cartScreen {
 	}
 
 
-	
+
 	/**
 	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at ordering
 	 */
@@ -355,9 +355,9 @@ class cartScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Product Search/Scan Flow/priceCheck_Button'), 0)
 	}
-	
-	
-	
+
+
+
 	/**
 	 * scans the product, adds it to the order and also verifies some scan input details
 	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
@@ -393,8 +393,8 @@ class cartScreen {
 			Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/priceCheck_Button'), 0)
 		}
 	}
-	
-	
+
+
 
 
 	/**

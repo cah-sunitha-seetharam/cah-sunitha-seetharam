@@ -185,6 +185,11 @@
                 "productSearchCin": "4023347",
             },
         
+        "TC_R_044": {
+                "productSearchCin": "4023347",
+                "productSearchByNDC": "00527-1971-74",
+            },
+        
     },
 
 }

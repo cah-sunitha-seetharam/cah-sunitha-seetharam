@@ -58,10 +58,10 @@ Prerequisite:
       <name>expectedC2AnnotationCount</name>
    </variable>
    <variable>
-      <defaultValue>'1 Line'</defaultValue>
+      <defaultValue>'1\nLine'</defaultValue>
       <description>expected line count</description>
       <id>61011208-1dd7-49a0-b72e-e3aade833a46</id>
       <masked>false</masked>
-      <name>expectedLineCount</name>
+      <name>expectedLinesCount</name>
    </variable>
 </TestCaseEntity>

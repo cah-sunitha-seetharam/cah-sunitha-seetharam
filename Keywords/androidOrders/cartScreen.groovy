@@ -258,7 +258,7 @@ class cartScreen  {
 	@Keyword
 	def verifyLinesCount(String expectedLinesCount) {
 
-		String actualLinesCount=Mobile.getText(findTestObject('Object Repository/Android/Orders/Cart Screen/Verifictaion Details/lines_TextView'), 0)
+		String actualLinesCount=Mobile.getText(findTestObject('Object Repository/Android/Orders/Cart Screen/Verifictaion Details/lineCount_TextView'), 0)
 
 		assert actualLinesCount==expectedLinesCount
 	}
