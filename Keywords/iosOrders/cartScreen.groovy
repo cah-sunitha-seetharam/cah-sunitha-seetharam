@@ -461,27 +461,4 @@ class cartScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/cancelAndKeepOrdersOnTheApp_Button'), 0)
 	}
 	
-	/**
-	 * this function returns the order name of the order/ title of the screen when user is on order details screen
-	 * return orderName (returns order name/ title of order details screen)
-	 */
-	@Keyword
-	def returnOrderNameOrderDetailScreen() {
-
-		String orderName=Mobile.getText(findTestObject('iOS/Orders/Verification Details/orderDetailHeader_Label'), 0)
-
-		return orderName
-	}
-	
-	/**
-	 * opens the order details page
-	 * @param orderName (purchase order name created after order added)
-	 */
-	@Keyword
-	def openAnOrderDetailWithOrderName(String orderName) {
-
-		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Orders/Cart Screen/orderListOrderName_Label',[('TEXT'):orderName]), 0)
-
-		Mobile.tap(findTestObject('Object Repository/iOS/Orders/Cart Screen/orderListOrderName_Label',[('TEXT'):orderName]), 0)
-	}
 }
