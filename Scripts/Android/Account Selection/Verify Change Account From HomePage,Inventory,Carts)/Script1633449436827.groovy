@@ -33,6 +33,6 @@ CustomKeywords.'android_dashboard.Dashboard_details_Screen.click_On_More_Options
 
 CustomKeywords.'android_more_options_screen.Go_To_Inventory_Listing_Screen.Custom'()
 
-CustomKeywords.'android_inventory.Inventory_listing_Screen.change_Account'(New_Account)
+CustomKeywords.'androidInventory.inventoryListingScreen.change_Account'(New_Account)
 
 

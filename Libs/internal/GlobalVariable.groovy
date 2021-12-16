@@ -11,31 +11,36 @@ public class GlobalVariable {
      
     /**
      * <p>Profile Release : username is taken from the profiles and passed as a parameter in the logIn function
-Profile Stage : username is taken from the profiles and passed as a parameter in the logIn function</p>
+Profile Stage : username is taken from the profiles and passed as a parameter in the logIn function
+Profile StageMock : username is taken from the profiles and passed as a parameter in the logIn function</p>
      */
     public static Object Username
      
     /**
      * <p>Profile Release : password is taken from the profiles and passed as a parameter in the logIn function
-Profile Stage : password is taken from the profiles and passed as a parameter in the logIn function</p>
+Profile Stage : password is taken from the profiles and passed as a parameter in the logIn function
+Profile StageMock : password is taken from the profiles and passed as a parameter in the logIn function</p>
      */
     public static Object Password
      
     /**
      * <p>Profile Release : user account is taken from the profiles and passed as a parameter in the account selection screen
-Profile Stage : user account is taken from the profiles and passed as a parameter in the account selection screen</p>
+Profile Stage : user account is taken from the profiles and passed as a parameter in the account selection screen
+Profile StageMock : user account is taken from the profiles and passed as a parameter in the account selection screen</p>
      */
     public static Object Account
      
     /**
      * <p>Profile Release : environment of testing is taken from profiles and used in the environment selection screen
-Profile Stage : environment of testing is taken from profiles and used in the environment selection screen</p>
+Profile Stage : environment of testing is taken from profiles and used in the environment selection screen
+Profile StageMock : environment of testing is taken from profiles and used in the environment selection screen</p>
      */
     public static Object Environment
      
     /**
      * <p>Profile Release : android application path is taken from the profiles and used in the start application under android common methods
-Profile Stage : android application path is taken from the profiles and used in the start application under android common methods</p>
+Profile Stage : android application path is taken from the profiles and used in the start application under android common methods
+Profile StageMock : android application path is taken from the profiles and used in the start application under android common methods</p>
      */
     public static Object Android_App_Path
      
@@ -57,13 +62,15 @@ Profile Stage : iOS application path is taken from the profiles and used in the 
      
     /**
      * <p>Profile Release : Android activity that we want to wait for while opening the app
-Profile Stage : Android activity that we want to wait for while opening the app</p>
+Profile Stage : Android activity that we want to wait for while opening the app
+Profile StageMock : Android activity that we want to wait for while opening the app</p>
      */
     public static Object appWaitActivity
      
     /**
      * <p>Profile Release : Package value of the Android app that we need to run
-Profile Stage : Package value of the Android app that we need to run</p>
+Profile Stage : Package value of the Android app that we need to run
+Profile StageMock : Package value of the Android app that we need to run</p>
      */
     public static Object appPackage
      
@@ -74,6 +81,9 @@ Profile Stage : bundle id for iOS application</p>
     public static Object bundleID
      
     /**
+     * <p>Profile StageMock : iOS application path is taken from the profiles and used in the start application under android common methods</p>
+     */
+    public static Object iOS_App_Path
      * <p>Profile Release : change this to order (strictly follow the name), if test suite under execution is of orders module </p>
      */
     public static Object testSuiteModule
@@ -101,6 +111,8 @@ Profile Stage : bundle id for iOS application</p>
             appWaitActivity = selectedVariables['appWaitActivity']
             appPackage = selectedVariables['appPackage']
             bundleID = selectedVariables['bundleID']
+            iOS_App_Path = selectedVariables['iOS_App_Path']
+
             testSuiteModule = selectedVariables['testSuiteModule']
             a = selectedVariables['a']
             
