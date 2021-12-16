@@ -39,13 +39,15 @@ Profile StageMock : environment of testing is taken from profiles and used in th
      
     /**
      * <p>Profile Release : android application path is taken from the profiles and used in the start application under android common methods
-Profile Stage : android application path is taken from the profiles and used in the start application under android common methods</p>
+Profile Stage : android application path is taken from the profiles and used in the start application under android common methods
+Profile StageMock : android application path is taken from the profiles and used in the start application under android common methods</p>
      */
     public static Object AndroidAppPath
      
     /**
      * <p>Profile Release : iOS application path is taken from the profiles and used in the start application under android common methods
-Profile Stage : iOS application path is taken from the profiles and used in the start application under android common methods</p>
+Profile Stage : iOS application path is taken from the profiles and used in the start application under android common methods
+Profile StageMock : iOS application path is taken from the profiles and used in the start application under android common methods</p>
      */
     public static Object iOSAppPath
      
@@ -85,16 +87,6 @@ Profile Stage : bundle id for iOS application</p>
     public static Object testSuiteModule
      
     /**
-     * <p>Profile StageMock : android application path is taken from the profiles and used in the start application under android common methods</p>
-     */
-    public static Object Android_App_Path
-     
-    /**
-     * <p>Profile StageMock : iOS application path is taken from the profiles and used in the start application under android common methods</p>
-     */
-    public static Object iOS_App_Path
-     
-    /**
      * <p></p>
      */
     public static Object a
@@ -118,8 +110,6 @@ Profile Stage : bundle id for iOS application</p>
             appPackage = selectedVariables['appPackage']
             bundleID = selectedVariables['bundleID']
             testSuiteModule = selectedVariables['testSuiteModule']
-            Android_App_Path = selectedVariables['Android_App_Path']
-            iOS_App_Path = selectedVariables['iOS_App_Path']
             a = selectedVariables['a']
             
         } catch (Exception e) {
