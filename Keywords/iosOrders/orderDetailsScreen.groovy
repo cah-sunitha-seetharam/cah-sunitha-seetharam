@@ -495,7 +495,7 @@ class orderDetailsScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/cancelAndKeepOrdersOnTheApp_Button'), 0)
 	}
-	
+
 	/**
 	 * this function adds the product to be ordered - when price check toggle is selected
 	 * @param quantity (quantity required to be added for the product to be searched)
@@ -524,7 +524,7 @@ class orderDetailsScreen {
 
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/priceCheckToggle_Screen/goToOrder_Button'), 0)
 	}
-	
+
 	/**
 	 * taps on continue browsing button on order confirmation screen and takes user to scan result screen
 	 */
@@ -534,22 +534,33 @@ class orderDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/priceCheckToggle_Screen/continueBrowsing_Button'), 0)
 
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/priceCheckToggle_Screen/continueBrowsing_Button'), 0)
-		
 	}
-	
-	
+
+
 	/**
 	 * verified user is taken to scan result screen after tapping on continue browsing button
 	 */
 	@Keyword
 	def verifyScanResultScreenWithProduct() {
-		
+
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/priceCheckToggle_Screen/addToOrder_Text'), 0)
-		
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Scan Order/ordering_Button'), 0)
-		
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Scan Order/priceCheck_Button'), 0)
-		
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Scan Order/productDescription_Label'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Product Search/Scan Flow/ordering_Button'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Product Search/Scan Flow/priceCheck_Button'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Product Search/Scan Flow/productDescription_Label'), 0)
+	}
+	
+	/**
+	 * this function returns the order name of the order/ title of the screen when user is on order details screen
+	 * return orderName (returns order name/ title of order details screen)
+	 */
+	@Keyword
+	def returnOrderNameFromOrderDetailScreen() {
+
+		String orderName=Mobile.getText(findTestObject('iOS/Orders/Verification Details/orderDetailHeader_Label'), 0)
+
+		return orderName
 	}
 }

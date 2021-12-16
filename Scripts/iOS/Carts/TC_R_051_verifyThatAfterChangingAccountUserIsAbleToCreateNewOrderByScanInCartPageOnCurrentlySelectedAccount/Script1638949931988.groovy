@@ -52,22 +52,28 @@ CustomKeywords.'iosOrders.orderDetailsScreen.scanInputEvent'(productSearch1)
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'adds the quantity required to be added for the scanned product'
-CustomKeywords.'iosOrders.orderDetailsScreen.addQuantityforTheSearchedProduct'(quantity)
+CustomKeywords.'iosOrders.orderDetailsScreen.addQuantityforTheSearchedProduct'(quantity_1)
+
+'takes the application one screen back'
+CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
+
+'this function verifies cart screen with the add to order - product being displayed'
+CustomKeywords.'iosOrders.cartScreen.verifyCartScreenWithAddedProduct'()
+
+'this function returns the order name of the order which is at the top of the order list'
+String orderName_1 = CustomKeywords.'iosOrders.cartScreen.returnTopMostOrderName'()
+
+'open an order from cart screen with order name'
+CustomKeywords.'iosOrders.cartScreen.openAnOrderDetail'(orderName_1)
 
 'returns the quantity which has been added for the product searched'
 actualQuantityAdded = CustomKeywords.'iosOrders.orderDetailsScreen.returnQuantityOfTheAddedProduct'()
 
 'verifies whether actual quantity added equals the expected quantity'
-assert actualQuantityAdded == expectedQuantity 
+assert actualQuantityAdded == expectedQuantity_1 
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'() 
-
-'this function returns the order name of the order which is at the top of the order list'
-String orderName_1 = CustomKeywords.'iosOrders.cartScreen.returnTopMostOrderName'()
-
-'this function verifies the pattern required for the order name which was created without giving any purchase order name'
-CustomKeywords.'iosOrders.cartScreen.verifyOrderNamePattern'(orderName_1)
 
 
 
@@ -90,7 +96,7 @@ CustomKeywords.'iosOrders.orderDetailsScreen.scanInputEventWhileOnPriceCheck'(pr
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'adds the quantity required to be added for the scanned product'
-CustomKeywords.'iosOrders.orderDetailsScreen.addQuantityforTheSearchedProduct'(quantity)
+CustomKeywords.'iosOrders.orderDetailsScreen.addQuantityforTheSearchedProduct'(quantity_2)
 
 'clicks on add to order button to create the order'
 CustomKeywords.'iosOrders.orderDetailsScreen.addToOrder'()
@@ -102,7 +108,7 @@ CustomKeywords.'iosOrders.orderDetailsScreen.clickOnGoToOrder'()
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'this function returns the order name of the order which is at the top of the order list'
-String orderName_2 = CustomKeywords.'iosOrders.cartScreen.returnOrderNameOrderDetailScreen'()
+String orderName_2 = CustomKeywords.'iosOrders.orderDetailsScreen.returnOrderNameFromOrderDetailScreen'()
 
 'this function verifies the pattern required for the order which was created without giving any purchase order name'
 CustomKeywords.'iosOrders.cartScreen.verifyOrderNamePattern'(orderName_2)
@@ -119,7 +125,7 @@ CustomKeywords.'iosOrders.cartScreen.verifyCartScreenWithAddedProduct'()
 CustomKeywords.'iosOrders.newOrderScreen.change_Account'(accountNo_1)
 
 'opens an order from cart screen with order name which was created in the 1st account selection'
-CustomKeywords.'iosOrders.cartScreen.openAnOrderDetailWithOrderName'(orderName_1)
+CustomKeywords.'iosOrders.cartScreen.openAnOrderDetail'(orderName_1)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
@@ -148,7 +154,7 @@ CustomKeywords.'iosOrders.orderDetailsScreen.scanInputEventWhileOnPriceCheck'(pr
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'adds the quantity required to be added for the scanned product'
-CustomKeywords.'iosOrders.orderDetailsScreen.addQuantityforTheSearchedProduct'(quantity)
+CustomKeywords.'iosOrders.orderDetailsScreen.addQuantityforTheSearchedProduct'(quantity_2)
 
 'clicks on add to order button on scan result screen with product displayed as a scan result'
 CustomKeywords.'iosOrders.orderDetailsScreen.addToOrder'()
@@ -172,7 +178,7 @@ String orderName_3 = CustomKeywords.'iosOrders.cartScreen.returnTopMostOrderName
 CustomKeywords.'iosOrders.cartScreen.verifyOrderNamePattern'(orderName_3)
 
 'open an order from cart screen with order name'
-CustomKeywords.'iosOrders.cartScreen.openAnOrderDetailWithOrderName'(orderName_3)
+CustomKeywords.'iosOrders.cartScreen.openAnOrderDetail'(orderName_3)
 
 'this function verifies order detail screen after a product is added to order'
 CustomKeywords.'iosOrders.orderDetailsScreen.verifyOrderDetailsScreenAfterAddingAProduct'(productSearch3, expectedLinesCount)
