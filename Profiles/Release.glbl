@@ -59,4 +59,9 @@
       <initValue>'com.cardinalhealth.orderexpress.two'</initValue>
       <name>bundleID</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>change this to order (strictly follow the name), if test suite under execution is of orders module </description>
+      <initValue>'order'</initValue>
+      <name>testSuiteModule</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

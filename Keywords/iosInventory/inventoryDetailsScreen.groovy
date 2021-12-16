@@ -154,8 +154,6 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 
 
 
-
-
 	/**
 	 * deletes the location
 	 * @param locationName (name of the location to be deleted)

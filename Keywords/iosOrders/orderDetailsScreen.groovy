@@ -349,8 +349,6 @@ class orderDetailsScreen {
 	def uploadOrder() {
 
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Upload Order/uploadOrder_Button'), 0)
-
-		Mobile.verifyElementAttributeValue(findTestObject('iOS/Orders/Order Details Screen/Upload Order/uploadOrder_Button'), 'enabled', 'false', 0)
 	}
 
 

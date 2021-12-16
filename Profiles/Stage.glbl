@@ -16,23 +16,21 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description>user account is taken from the profiles and passed as a parameter in the account selection screen</description>
-      <initValue>'24-2150224901'</initValue>
+      <initValue>'8-106595'</initValue>
       <name>Account</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description>environment of testing is taken from profiles and used in the environment selection screen</description>
-      <initValue>'PMODStgMock'</initValue>
+      <initValue>'PMODStg'</initValue>
       <name>Environment</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description>android application path is taken from the profiles and used in the start application under android common methods</description>
-      <initValue>'/Users/shruthi/Documents/Orderexpress/OEPlusAndroid-5.0.1.20211127004606-SNAPSHOT-1170-prod-debug.apk'</initValue>
+      <initValue>'/Users/sahil.vidaysingh/Downloads/OEPlusAndroid-3.5.0.20210922020418-SNAPSHOT-1150-prod-debug.apk'</initValue>
       <name>Android_App_Path</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description>iOS application path is taken from the profiles and used in the start application under android common methods</description>
-      <initValue>'/Users/shruthi/Downloads/Hatch 2.app'</initValue>
-      <name>iOS_App_Path</name>
       <initValue>'/Users/sahil.vidaysingh/Downloads/Hatch.app'</initValue>
       <name>iOSAppPath</name>
    </GlobalVariableEntity>

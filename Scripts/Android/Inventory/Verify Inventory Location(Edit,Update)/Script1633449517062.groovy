@@ -27,23 +27,23 @@ CustomKeywords.'android_dashboard.Dashboard_details_Screen.click_On_More_Options
 
 CustomKeywords.'android_more_options_screen.Go_To_Inventory_Listing_Screen.Custom'()
 
-CustomKeywords.'android_inventory.Inventory_listing_Screen.create_Inventory'(Inventory_Name)
+CustomKeywords.'androidInventory.inventoryListingScreen.create_Inventory'(Inventory_Name)
 
-CustomKeywords.'android_inventory.Inventory_details_Screen.add_Location'(Location_Name, Cost_Type)
+CustomKeywords.'androidInventory.inventoryDetailsScreen.add_Location'(Location_Name, Cost_Type)
 
-CustomKeywords.'android_inventory.Inventory_details_Screen.click_On_Location'(Location_Name)
+CustomKeywords.'androidInventory.inventoryDetailsScreen.click_On_Location'(Location_Name)
 
-CustomKeywords.'android_inventory.Location_details_Screen.add_Product_To_Location'(Location_Name, Product_Name)
-
-Mobile.pressBack()
-
-CustomKeywords.'android_inventory.Location_details_Screen.edit_LocationName'(New_Location_Name, Product_Name, Location_Name)
+CustomKeywords.'androidInventory.locationDetailsScreen.add_Product_To_Location'(Location_Name, Product_Name)
 
 Mobile.pressBack()
 
-CustomKeywords.'android_inventory.Inventory_details_Screen.edit_InventoryName'(New_Inventory_Name, Inventory_Name)
+CustomKeywords.'androidInventory.locationDetailsScreen.edit_LocationName'(New_Location_Name, Product_Name, Location_Name)
 
 Mobile.pressBack()
 
-CustomKeywords.'android_inventory.Inventory_listing_Screen.delete_Inventory'(New_Inventory_Name)
+CustomKeywords.'androidInventory.inventoryDetailsScreen.edit_InventoryName'(New_Inventory_Name, Inventory_Name)
+
+Mobile.pressBack()
+
+CustomKeywords.'androidInventory.inventoryListingScreen.delete_Inventory'(New_Inventory_Name)
 

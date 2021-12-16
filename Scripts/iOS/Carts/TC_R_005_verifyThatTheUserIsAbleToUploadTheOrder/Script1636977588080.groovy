@@ -18,7 +18,7 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-'starts the application'
+/*'starts the application'
 CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
 'login function called which takes user to the accounts selection screen'
@@ -32,9 +32,9 @@ CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(Global
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
+*/
 'takes user to the orders tab'
-CustomKeywords.'iosDashboard.dashboardDetailsScreen.clickOnOrders'()
+CustomKeywords.'iosDashboard.dashboardScreen.clickOnOrders'()
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
