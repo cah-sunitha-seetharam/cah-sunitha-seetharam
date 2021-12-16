@@ -2,7 +2,7 @@
 <TestCaseEntity>
    <description>Verify that User is able to increase the Product Quantity by Scanning the same barcode again.                                                                                                             Prerequisite: Valid login credentials with multiple accounts available for the user, Valid barcodes.</description>
    <name>TC_R_019_VerifyThatUserIsAbleToIncreaseTheProductQuantityByScanningTheSameBarcodeAgain</name>
-   <tag></tag>
+   <tag>Inventory;Regression;Scan</tag>
    <comment></comment>
    <testCaseGuid>f746d5ed-99b3-4401-8bf9-fa2496e69d77</testCaseGuid>
    <variable>
@@ -24,7 +24,7 @@
       <description>cost type can be last price or current price paid</description>
       <id>34920892-7e98-409e-9ea4-17cc6f63fe29</id>
       <masked>false</masked>
-      <name>CostType</name>
+      <name>costType</name>
    </variable>
    <variable>
       <defaultValue>'Partial Count'</defaultValue>

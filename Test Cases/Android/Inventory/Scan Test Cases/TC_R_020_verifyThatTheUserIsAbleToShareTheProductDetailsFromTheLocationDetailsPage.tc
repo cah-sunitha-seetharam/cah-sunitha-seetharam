@@ -2,7 +2,7 @@
 <TestCaseEntity>
    <description>Verify that the user is able to Share the product details from the location details page.                                                                                                            Prerequisite: Valid login credentials with multiple accounts available for the user, Valid Barcodes.</description>
    <name>TC_R_020_verifyThatTheUserIsAbleToShareTheProductDetailsFromTheLocationDetailsPage</name>
-   <tag></tag>
+   <tag>Inventory;Regression;Scan</tag>
    <comment></comment>
    <testCaseGuid>5f9373fa-70d5-46c5-8786-453b0c81f9f4</testCaseGuid>
    <variable>

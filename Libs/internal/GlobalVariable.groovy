@@ -46,8 +46,7 @@ Profile StageMock : android application path is taken from the profiles and used
      
     /**
      * <p>Profile Release : iOS application path is taken from the profiles and used in the start application under android common methods
-Profile Stage : iOS application path is taken from the profiles and used in the start application under android common methods
-Profile StageMock : iOS application path is taken from the profiles and used in the start application under android common methods</p>
+Profile Stage : iOS application path is taken from the profiles and used in the start application under android common methods</p>
      */
     public static Object iOSAppPath
      
@@ -82,6 +81,11 @@ Profile Stage : bundle id for iOS application</p>
     public static Object bundleID
      
     /**
+     * <p>Profile StageMock : iOS application path is taken from the profiles and used in the start application under android common methods</p>
+     */
+    public static Object iOS_App_Path
+     
+    /**
      * <p></p>
      */
     public static Object a
@@ -104,6 +108,7 @@ Profile Stage : bundle id for iOS application</p>
             appWaitActivity = selectedVariables['appWaitActivity']
             appPackage = selectedVariables['appPackage']
             bundleID = selectedVariables['bundleID']
+            iOS_App_Path = selectedVariables['iOS_App_Path']
             a = selectedVariables['a']
             
         } catch (Exception e) {

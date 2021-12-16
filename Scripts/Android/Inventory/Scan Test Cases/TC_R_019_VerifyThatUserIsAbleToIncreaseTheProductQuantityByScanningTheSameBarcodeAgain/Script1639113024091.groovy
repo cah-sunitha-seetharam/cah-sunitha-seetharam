@@ -29,29 +29,29 @@ CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisi
 'selects the user account from the accounts list'
 CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
 
-'waits for 30(s) before refreshing the page to get the updated historyCount'
-WebUI.delay(30)
+'waits for 10(s) before refreshing the page to get the updated historyCount'
+WebUI.delay(10)
 
 'takes user from home screen to inventory listing screen'
 CustomKeywords.'androidCommonKeywords.commonMethods.takeUserFromHomeToInventoryListingScreen'()
 
 'output of random string generator is stored in inventoryName which will be passed into createInventory function'
-Inventory_Name = CustomKeywords.'common.commonMethods.randomStringGenerator'(inventoryNameLength)
+inventoryName = CustomKeywords.'common.commonMethods.randomStringGenerator'(inventoryNameLength)
 
 'creates an inventory by taking inventoryName as the argument'
-CustomKeywords.'android_inventory.Inventory_listing_Screen.create_Inventory'(Inventory_Name)
+CustomKeywords.'androidInventory.inventoryListingScreen.createInventory'(inventoryName)
 
 'ouput of random string generator is stored in locationName which will be passed into addLocation function'
-Location_Name = CustomKeywords.'common.commonMethods.randomStringGenerator'(locationNameLength)
+locationName = CustomKeywords.'common.commonMethods.randomStringGenerator'(locationNameLength)
 
 'adds location in location details page and takes locationName as the argument'
-CustomKeywords.'android_inventory.Inventory_details_Screen.add_Location'(Location_Name, CostType)
+CustomKeywords.'androidInventory.inventoryDetailsScreen.addLocation'(locationName, costType)
 
 'opens the location details and takes the locationName as the argument'
-CustomKeywords.'android_inventory.Inventory_details_Screen.click_On_Location'(Location_Name)
+CustomKeywords.'androidInventory.inventoryDetailsScreen.clickOnLocation'(locationName)
 
 'taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at full count'
-CustomKeywords.'android_inventory.locationDetailsScreen.clickOnScanIcon'()
+CustomKeywords.'androidInventory.locationDetailsScreen.clickOnScanIcon'()
 
 'reading the module test data file'
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inventoryTestData.json')
@@ -60,10 +60,10 @@ def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inve
 String productSearch = requestObject[GlobalVariable.Environment].TC_R_019.productSearchByNDC1
 
 'calling the function which selects the countType required for a product which is searched and takes countType as the argument'
-CustomKeywords.'android_inventory.locationDetailsScreen.selectCountTypeForTheProductToBeAdded'(countType)
+CustomKeywords.'androidInventory.locationDetailsScreen.selectCountTypeForTheProductToBeAdded'(countType)
 
 'calling the function which scans the product and adds it to the location, it takes productName/UPC/Cin/Ndc as the argument'
-CustomKeywords.'android_inventory.locationDetailsScreen.scanInputEvent'(productSearch)
+CustomKeywords.'androidInventory.locationDetailsScreen.scanInputEvent'(productSearch)
 
 'waits for 10(s) to load product'
 WebUI.delay(10)
@@ -72,19 +72,19 @@ WebUI.delay(10)
 CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
 
 'taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at full count'
-CustomKeywords.'android_inventory.locationDetailsScreen.clickOnScanIcon'()
+CustomKeywords.'androidInventory.locationDetailsScreen.clickOnScanIcon'()
 
 'calling the function which selects the countType required for a product which is searched and takes countType as the argument'
-CustomKeywords.'android_inventory.locationDetailsScreen.selectCountTypeForTheProductToBeAdded'(countType)
+CustomKeywords.'androidInventory.locationDetailsScreen.selectCountTypeForTheProductToBeAdded'(countType)
 
 'calling the function which scans the product and adds it to the location, it takes productName/UPC/Cin/Ndc as the argument'
-CustomKeywords.'android_inventory.locationDetailsScreen.scanInputEvent'(productSearch)
+CustomKeywords.'androidInventory.locationDetailsScreen.scanInputEvent'(productSearch)
 
 'takes the application one screen back'
 CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
 
 'stores the initial quantity of product added into the variable initialProductCount'
-int finalProductQuantity = CustomKeywords.'android_inventory.locationDetailsScreen.returnQuantityOfTheAddedProduct'()
+int finalProductQuantity = CustomKeywords.'androidInventory.locationDetailsScreen.returnQuantityOfTheAddedProduct'()
 
 'verifies whether the quantity added is according to the flow expected'
 assert finalProductQuantity == expectedProductQuantity
@@ -93,11 +93,11 @@ assert finalProductQuantity == expectedProductQuantity
 CustomKeywords.'androidCommonKeywords.commonMethods.pressBacknav'()
 
 'deletes the location and takes locationName as the argument'
-CustomKeywords.'android_inventory.Inventory_details_Screen.delete_Location'(Location_Name)
+CustomKeywords.'androidInventory.inventoryDetailsScreen.deleteLocation'(locationName)
 
 'takes the application one screen back'
 CustomKeywords.'androidCommonKeywords.commonMethods.pressBacknav'()
 
 'deletes the inventory and takes inventoryName as the argument'
-CustomKeywords.'android_inventory.Inventory_listing_Screen.delete_Inventory'(Inventory_Name)
+CustomKeywords.'androidInventory.inventoryListingScreen.deleteInventory'(inventoryName)
 
