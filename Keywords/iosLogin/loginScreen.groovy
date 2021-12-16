@@ -88,7 +88,7 @@ class loginScreen {
 	@Keyword()
 	def selectTypeOfTesting(String testingType='Automation') {
 
-		if (Mobile.verifyElementExist(findTestObject('iOS/LogIn/Testing Type/testingMode_Button'),5, FailureHandling.OPTIONAL)) {
+		if (Mobile.verifyElementExist(findTestObject('iOS/LogIn/Testing Type/testingMode_Button'),10, FailureHandling.OPTIONAL)) {
 
 			Mobile.tap(findTestObject('iOS/LogIn/Testing Type/testingMode_Button'), 0)
 

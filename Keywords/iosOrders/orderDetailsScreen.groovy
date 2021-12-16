@@ -85,13 +85,14 @@ class orderDetailsScreen {
 	@Keyword
 	def addProductToOrder(String productName, String quantity) {
 
-		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details_Screen/Add Product to Location/Product SearchField'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), 0, 0)
 
 		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
 		Mobile.setText(findTestObject('iOS/Product Search/productSearch_TextField'), productName, 0)
 
-		Mobile.tapAndHold(findTestObject('iOS/Product Search/Search Key_Button'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/Product Search/search_Keypad'), 0, 0)
+
 
 		Mobile.setText(findTestObject('iOS/Product Search/Quantity_TextField'), quantity, 0)
 
@@ -116,7 +117,6 @@ class orderDetailsScreen {
 
 		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/done_Button'), 0)
 	}
-
 
 
 
@@ -295,7 +295,7 @@ class orderDetailsScreen {
 
 
 	/**
-	 * scans the product, adds it to the order and also verifies some scan input details
+	 * scans the product, adds it to the order and also verifies some scan input details when 'ordering' toggle is selected
 	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
 	 */
 	@Keyword
@@ -312,6 +312,21 @@ class orderDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Verification Details/alternates_Text'), 0)
 	}
 
+	/**
+	 * scans the product, adds it to the order and also verifies some scan input details when 'price check' toggle is selected
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */
+	@Keyword
+	def scanInputEventWhileOnPriceCheck(String productToBeSearched) {
+
+		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/scanGray_Image'), 0)
+
+		Mobile.setText(findTestObject('iOS/Product Search/Scan Flow/enterBarcode_TextField'), productToBeSearched, 0)
+
+		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/done_Button'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Verification Details/alternates_Text'), 0)
+	}
 
 
 
@@ -479,5 +494,62 @@ class orderDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Verification Details/continueOrderOnTheDesktop_Text'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/cancelAndKeepOrdersOnTheApp_Button'), 0)
+	}
+	
+	/**
+	 * this function adds the product to be ordered - when price check toggle is selected
+	 * @param quantity (quantity required to be added for the product to be searched)
+	 */
+	@Keyword
+	def addToOrder() {
+
+		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/addToOrder_Text'), 0)
+
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/priceCheckToggle_Screen/newOrderCreated_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/priceCheckToggle_Screen/goToOrder_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/priceCheckToggle_Screen/continueBrowsing_Text'), 0)
+	}
+
+	/**
+	 * taps on go to order button on order confirmation screen and takes user to order details screen
+	 */
+	@Keyword
+	def clickOnGoToOrder() {
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/priceCheckToggle_Screen/goToOrder_Button'), 0)
+
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/priceCheckToggle_Screen/goToOrder_Button'), 0)
+	}
+	
+	/**
+	 * taps on continue browsing button on order confirmation screen and takes user to scan result screen
+	 */
+	@Keyword
+	def clickOnContinueBrowsing() {
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/priceCheckToggle_Screen/continueBrowsing_Button'), 0)
+
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/priceCheckToggle_Screen/continueBrowsing_Button'), 0)
+		
+	}
+	
+	
+	/**
+	 * verified user is taken to scan result screen after tapping on continue browsing button
+	 */
+	@Keyword
+	def verifyScanResultScreenWithProduct() {
+		
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/priceCheckToggle_Screen/addToOrder_Text'), 0)
+		
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Scan Order/ordering_Button'), 0)
+		
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Scan Order/priceCheck_Button'), 0)
+		
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Scan Order/productDescription_Label'), 0)
 	}
 }

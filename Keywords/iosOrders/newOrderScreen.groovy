@@ -45,13 +45,15 @@ class newOrderScreen {
 	def change_Account(String new_Account) {
 
 
-		Mobile.tap(findTestObject('iOS/Account_Selection/Change Account_Text'), 0)
+		//Mobile.tap(findTestObject('iOS/Account_Selection/changeAccount_Text'), 0)
+		
+		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Button'), 0)
 
-		Mobile.tap(findTestObject('iOS/Account_Selection/Change_Account_Navigation'), 0)
+		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Navigation'), 0)
 
-		Mobile.scrollToText(New_Account, FailureHandling.STOP_ON_FAILURE)
+		Mobile.scrollToText(new_Account, FailureHandling.STOP_ON_FAILURE)
 
-		Mobile.tap(findTestObject('iOS/Account_Selection/AccountNo_Text', [('val') : new_Account]), 0)
+		Mobile.tap(findTestObject('iOS/Account Selection/accountNo_Text', [('val') : new_Account]), 0)
 
 		int w = 1
 

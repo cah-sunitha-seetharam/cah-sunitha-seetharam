@@ -79,7 +79,7 @@ class commonMethods {
 		String formattedDecimalData=decimalFormat.format(decimalDataToBeFormatted) //storing formatted value in the variable formattedDecimalData
 		KeywordUtil.logInfo(formattedDecimalData)
 		return formattedDecimalData // returns formattedDecimalData
-		}
+	}
 
 
 	/**
