@@ -84,6 +84,9 @@ Profile Stage : bundle id for iOS application</p>
      * <p>Profile StageMock : iOS application path is taken from the profiles and used in the start application under android common methods</p>
      */
     public static Object iOS_App_Path
+     * <p>Profile Release : change this to order (strictly follow the name), if test suite under execution is of orders module </p>
+     */
+    public static Object testSuiteModule
      
     /**
      * <p></p>
@@ -109,6 +112,8 @@ Profile Stage : bundle id for iOS application</p>
             appPackage = selectedVariables['appPackage']
             bundleID = selectedVariables['bundleID']
             iOS_App_Path = selectedVariables['iOS_App_Path']
+
+            testSuiteModule = selectedVariables['testSuiteModule']
             a = selectedVariables['a']
             
         } catch (Exception e) {
