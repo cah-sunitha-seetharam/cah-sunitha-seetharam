@@ -438,12 +438,22 @@ def static "iosOrders.orderDetailsScreen.returnQuantityOfTheAddedProduct"() {
 }
 
  /**
-	 * scans the product, adds it to the order and also verifies some scan input details
+	 * scans the product, adds it to the order and also verifies some scan input details when 'ordering' toggle is selected
 	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
 	 */ 
 def static "iosOrders.orderDetailsScreen.scanInputEvent"(
     	String productToBeSearched	) {
     (new iosOrders.orderDetailsScreen()).scanInputEvent(
+        	productToBeSearched)
+}
+
+ /**
+	 * scans the product, adds it to the order and also verifies some scan input details when 'price check' toggle is selected
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */ 
+def static "iosOrders.orderDetailsScreen.scanInputEventWhileOnPriceCheck"(
+    	String productToBeSearched	) {
+    (new iosOrders.orderDetailsScreen()).scanInputEventWhileOnPriceCheck(
         	productToBeSearched)
 }
 
@@ -542,6 +552,35 @@ def static "iosOrders.orderDetailsScreen.verifyProductIsVisibleOnTheOrderDetails
 	 */ 
 def static "iosOrders.orderDetailsScreen.verifyUploadOrderPopUp"() {
     (new iosOrders.orderDetailsScreen()).verifyUploadOrderPopUp()
+}
+
+ /**
+	 * this function adds the product to be ordered - when price check toggle is selected
+	 * @param quantity (quantity required to be added for the product to be searched)
+	 */ 
+def static "iosOrders.orderDetailsScreen.addToOrder"() {
+    (new iosOrders.orderDetailsScreen()).addToOrder()
+}
+
+ /**
+	 * taps on go to order button on order confirmation screen and takes user to order details screen
+	 */ 
+def static "iosOrders.orderDetailsScreen.clickOnGoToOrder"() {
+    (new iosOrders.orderDetailsScreen()).clickOnGoToOrder()
+}
+
+ /**
+	 * taps on continue browsing button on order confirmation screen and takes user to scan result screen
+	 */ 
+def static "iosOrders.orderDetailsScreen.clickOnContinueBrowsing"() {
+    (new iosOrders.orderDetailsScreen()).clickOnContinueBrowsing()
+}
+
+ /**
+	 * verified user is taken to scan result screen after tapping on continue browsing button
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyScanResultScreenWithProduct"() {
+    (new iosOrders.orderDetailsScreen()).verifyScanResultScreenWithProduct()
 }
 
  /**
@@ -650,6 +689,13 @@ def static "iosOrders.cartScreen.clickOnC2Orders"() {
 }
 
  /**
+	 * opens the non c2 orders tab
+	 */ 
+def static "iosOrders.cartScreen.clickOnNonC2Orders"() {
+    (new iosOrders.cartScreen()).clickOnNonC2Orders()
+}
+
+ /**
 	 * clicks on all place all orders button on cart screen
 	 */ 
 def static "iosOrders.cartScreen.clickOnPlaceAllOrders"() {
@@ -678,6 +724,14 @@ def static "iosOrders.cartScreen.deleteOrder"(
     	String poName	) {
     (new iosOrders.cartScreen()).deleteOrder(
         	poName)
+}
+
+ /**
+	 * delete's the C2 order from the cart screen based on the purchase order name
+	 * seperate delete method for c2 as locators for c2 order tile not available...when done remove this method
+	 */ 
+def static "iosOrders.cartScreen.deleteC2Order"() {
+    (new iosOrders.cartScreen()).deleteC2Order()
 }
 
  /**
@@ -714,6 +768,7 @@ def static "iosOrders.cartScreen.returnTopMostOrderName"() {
 
  /**
 	 * this function verifies the pattern required for the order which was created without giving any purchase order name
+	 * @param orderName (order name which is under verification)
 	 */ 
 def static "iosOrders.cartScreen.verifyOrderNamePattern"(
     	String orderName	) {
@@ -834,6 +889,24 @@ def static "iosOrders.cartScreen.verifyPlaceAllOrdersPopUp"() {
 	 */ 
 def static "iosOrders.cartScreen.verifyUploadAllOrdersPopUp"() {
     (new iosOrders.cartScreen()).verifyUploadAllOrdersPopUp()
+}
+
+ /**
+	 * this function returns the order name of the order/ title of the screen when user is on order details screen
+	 * return orderName (returns order name/ title of order details screen)
+	 */ 
+def static "iosOrders.cartScreen.returnOrderNameOrderDetailScreen"() {
+    (new iosOrders.cartScreen()).returnOrderNameOrderDetailScreen()
+}
+
+ /**
+	 * opens the order details page
+	 * @param orderName (purchase order name created after order added)
+	 */ 
+def static "iosOrders.cartScreen.openAnOrderDetailWithOrderName"(
+    	String orderName	) {
+    (new iosOrders.cartScreen()).openAnOrderDetailWithOrderName(
+        	orderName)
 }
 
  /**
@@ -2015,19 +2088,19 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
     	TestObject testObject	
      , 	String testName	) {
     (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
         	testObject
          , 	testName)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
 }
 
 
