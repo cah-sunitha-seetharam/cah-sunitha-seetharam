@@ -47,7 +47,31 @@ class  commonMethods {
 		Mobile.startApplication(GlobalVariable.Android_App_Path, true) //Android_App_Path (Application path will be taken from the global profile and passed as a parameter to this method)
 
 	}
-
+	
+	/**
+	 * @param stringCharcterToBeRemoved (Removes characters in a string)
+	 */
+	@Keyword
+	def removeCharctersInString(String stringCharcterToBeRemoved) {
+		stringCharcterToBeRemoved.replaceAll("[^0-9.]", "")
+	}
+	
+	
+	/**
+	 * @param stringToBeConvertedToFloat (converts string to float)
+	 */
+	@Keyword
+	def stringToFloatConversion(String stringToBeConvertedToFloat) {
+		Float.parseFloat(stringToBeConvertedToFloat)
+	}
+	
+	/**
+	 * @param floatToBeConvertedToString (converts float to string and does formatting "0.00")
+	 */
+	@Keyword
+	def floatToStringConversionAndFormatting(Float floatToBeConvertedToString) {
+		String.format("%.02f", floatToBeConvertedToString)
+	}
 
 
 	/**
@@ -141,7 +165,7 @@ class  commonMethods {
 		Mobile.pressBack()
 	}
 
-	
+
 	/**
 	 * generates the coordinate x for a test object by considering ElementLeftPosition and ElementWidth
 	 * @param testObj (reference of the testObject passed as a parameter)

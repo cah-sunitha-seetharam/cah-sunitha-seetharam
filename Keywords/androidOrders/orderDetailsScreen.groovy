@@ -113,6 +113,34 @@ class orderDetailsScreen {
 	}
 
 	/**
+	 * verifies quantity updated caption
+	 */
+	@Keyword
+	def verifyQuantityUpdatedCaption() {
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Verification Details/quantityUpdated_TextView'), 0)
+	}
+
+	/**
+	 * verifies order name header label
+	 * @param poName (poName is the order name)
+	 */
+	@Keyword
+	def verifyOrderNameHeaderLabel(String poName){
+		Mobile.verifyElementVisible(findTestObject('Android/Orders/Order Details Screen/Verification Details/orderNameHeader_TextView',[('TEXT'):poName]),0)
+	}
+
+	/**
+	 * takes expected lines count as the argument and verifies the same
+	 * @param expectedLineCount (expected total line count after adding product and return to the order name page)
+	 */
+	@Keyword
+	def verifyLineCountOfOrderNamePage(String expectedLineCount){
+		String lineCount=Mobile.getText(findTestObject('Android/Orders/Order Details Screen/Verification Details/lineCountOrderPage_TextView'), 0)
+		String actualLineCount = (new androidCommonKeywords.commonMethods()).removeCharctersInString(lineCount)
+		assert expectedLineCount == actualLineCount
+	}
+
+	/**
 	 * this function gets the total added quantity of the product
 	 * @return quantityNumericalValue (of the product which has been added)
 	 */
@@ -220,24 +248,14 @@ class orderDetailsScreen {
 	 */
 	@Keyword
 	def verifyOrderValue(quantity) {
-
-		//int quantityIntegralValue=Integer.parseInt(quantity)
-
 		String productCost=Mobile.getText(findTestObject('Android/Orders/Verification Details/productCost_TextView'), 0)
-
-		float productCost_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(productCost)//converting uoiCost string to a float value
-
-		float expectedOrderTotal=quantity*productCost_dollarSymbolRemoved_FloatValue
-
-		KeywordUtil.logInfo(productCost)
-
-		String actualOrderTotal=Mobile.getText(findTestObject('Android/Orders/Verification Details/orderTotalCost_TextView'), 0)
-
-		float actualOrderTotal_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(actualOrderTotal)//converting uoiCost string to a float value
-
-		KeywordUtil.logInfo(actualOrderTotal)
-
-		assert expectedOrderTotal==actualOrderTotal_dollarSymbolRemoved_FloatValue
+		String removeCharctersInProductCost = (new androidCommonKeywords.commonMethods()).removeCharctersInString(productCost)
+		float productCostFloatValue = (new androidCommonKeywords.commonMethods()).stringToFloatConversion(removeCharctersInProductCost)
+		float totalCost=quantity*productCostFloatValue
+		String expectedOrderTotal = (new androidCommonKeywords.commonMethods()).floatToStringConversionAndFormatting(totalCost)
+		String OrderTotal = Mobile.getText(findTestObject('Android/Orders/Verification Details/orderTotalCost_TextView'), 0)
+		String actualOrderTotal = (new androidCommonKeywords.commonMethods()).removeCharctersInString(OrderTotal)
+		assert expectedOrderTotal == actualOrderTotal
 	}
 
 

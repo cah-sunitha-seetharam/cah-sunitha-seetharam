@@ -58,7 +58,7 @@ class cartScreen  {
 	@Keyword
 	def clickOnC2OrdersTab() {
 
-		Mobile.tap(findTestObject('Android/Orders/Cart Screen/c2Orders_Tab'), 0)
+		Mobile.tap(findTestObject('Android/Orders/Cart Screen/C2 Order/c2Orders_Tab'), 0)
 	}
 
 
@@ -128,6 +128,14 @@ class cartScreen  {
 	def clickOnUploadAllOrders() {
 
 		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Upload All_Orders/uploadAllOrders_Button'), 0)
+	}
+
+	/**
+	 * verifies cart screen without non c2 orders
+	 */
+	@Keyword
+	def verifyCartScreenWithOutNonC2Orders() {
+		Mobile.verifyElementNotVisible(findTestObject('Android/Orders/Cart Screen/Upload All_Orders/uploadAllOrders_Button'), 0)
 	}
 
 	/**
@@ -229,38 +237,58 @@ class cartScreen  {
 
 		Mobile.verifyElementNotVisible(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/orderName_TextView',[('TEXT'):poName]),0)
 	}
-	
-	
+
+
 	/**
 	 * verifies nonC2 annotation count
+	 * @param expectedAnnotationCount (expected annotation count count of nonc2 after adding product to the cart)
 	 */
 
 	@Keyword
 	def verifynonC2AnnotationCount(String expectedAnnotationCount) {
-	 String actualAnnotationCount = Mobile.getText(findTestObject('Android/Orders/Cart Screen/nonC2AnnotationCountTextView'), 0)
-	 assert expectedAnnotationCount == actualAnnotationCount
+		String actualAnnotationCount = Mobile.getText(findTestObject('Android/Orders/Cart Screen/Non C2 Order/nonC2AnnotationCount_TextView'), 0)
+		assert expectedAnnotationCount == actualAnnotationCount
 	}
-	
-	/**
-	 * verifies C2 annotation count
-	 */
 
-	@Keyword
-	def verifyC2AnnotationCount(String expectedAnnotationCount) {
-	 String actualAnnotationCount = Mobile.getText(findTestObject('Object Repository/Android/Orders/Cart Screen/c2AnnotationCount_TextView'), 0)
-	 assert expectedAnnotationCount == actualAnnotationCount
-	}
-	
 	/**
 	 * takes expected lines count as the argument and verifies the same
-	 * @param expectedLinesCount (expected lines count after adding products to the cart)
+	 * @param expectedLineCount (expected total line count of c2 after adding product to the cart)
 	 */
 	@Keyword
-	def verifyLinesCount(String expectedLinesCount) {
+	def verifyC2LineCount(String expectedlineCount){
+		String actualLineCount=Mobile.getText(findTestObject('Android/Orders/Cart Screen/C2 Order/lineCount_TextView'), 0)
+		assert expectedlineCount==actualLineCount
+	}
 
-		String actualLinesCount=Mobile.getText(findTestObject('Object Repository/Android/Orders/Cart Screen/Verifictaion Details/lineCount_TextView'), 0)
+	/**
+	 * takes expected lines count as the argument and verifies the same
+	 * @param expectedLineCount (expected total line count of non c2 after adding product to the cart)
+	 */
+	@Keyword
+	def verifyNonC2LineCount(String expectedlineCount){
+		String actualLineCount=Mobile.getText(findTestObject('Object Repository/Android/Orders/Cart Screen/Non C2 Order/lineCount_TextView'), 0)
+		assert expectedlineCount==actualLineCount
+	}
 
-		assert actualLinesCount==expectedLinesCount
+	/**
+	 * verifies C2 annotation count
+	 * @param expectedAnnotationCount (expected annotation count count after adding product and return to the order name page)
+	 */
+	@Keyword
+	def verifyC2AnnotationCount(String expectedAnnotationCount) {
+		String actualAnnotationCount = Mobile.getText(findTestObject('Android/Orders/Cart Screen/C2 Order/c2AnnotationCount_TextView'), 0)
+		assert expectedAnnotationCount == actualAnnotationCount
+	}
+
+	/**
+	 * takes expected lines count as the argument and verifies the same
+	 * @param expectedLinesCount (expected total line count after adding products to the cart)
+	 */
+	@Keyword
+	def verifyTotalLineCount(String expectedLineCount) {
+		String LinesCount=Mobile.getText(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/totalLineCount_TextView'), 0)
+		String actualLineCount = (new androidCommonKeywords.commonMethods()).removeCharctersInString(LinesCount)
+		assert expectedLineCount==actualLineCount
 	}
 
 
