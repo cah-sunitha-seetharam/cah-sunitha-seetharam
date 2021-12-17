@@ -64,6 +64,12 @@
             "productSearchByNDC4": "00009-7529-03",
         },
         
+        "TC_R_053": {
+            "productSearchByNDC1": "00049-0530-28",
+            "productSearchByNDC2": "61570-0131-98",
+            "productSearchByNDC3": "00069-0058-01",
+        },
+        
     },
     "PMODQa2": {
         "Carts": {
