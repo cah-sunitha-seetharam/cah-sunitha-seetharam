@@ -56,39 +56,28 @@ def static "androidDashboard.dashboardDetailsScreen.clickOnMoreOptionsTab"() {
     (new androidDashboard.dashboardDetailsScreen()).clickOnMoreOptionsTab()
 }
 
- /**
-	 * deletes the inventory from the inventory listing screen
-	 * @param inventoryName (inventory name of the inventory which needs to be deleted)
-	 */ 
+
 def static "androidInventory.inventoryListingScreen.deleteInventory"(
     	String inventoryName	) {
     (new androidInventory.inventoryListingScreen()).deleteInventory(
         	inventoryName)
 }
 
- /**
-	 * switches to another user account
-	 * @param newAccount (account no to which the user should switch)
-	 */ 
+
 def static "androidInventory.inventoryListingScreen.change_Account"(
     	String new_Account	) {
     (new androidInventory.inventoryListingScreen()).change_Account(
         	new_Account)
 }
 
- /**
-	 * creates a new inventory from inventory listing screen
-	 * @param inventoryName (name required for the new inventory)
-	 */ 
+
 def static "androidInventory.inventoryListingScreen.createInventory"(
     	String inventoryName	) {
     (new androidInventory.inventoryListingScreen()).createInventory(
         	inventoryName)
 }
 
- /**
-	 * verifies details of inventory listing screen
-	 */ 
+
 def static "androidInventory.inventoryListingScreen.verify_Inventory_Listing_Screen"() {
     (new androidInventory.inventoryListingScreen()).verify_Inventory_Listing_Screen()
 }
@@ -1264,9 +1253,11 @@ def static "androidInventory.locationDetailsScreen.delete_Product"() {
     (new androidInventory.locationDetailsScreen()).delete_Product()
 }
 
-
-def static "androidInventory.locationDetailsScreen.upload_Location"() {
-    (new androidInventory.locationDetailsScreen()).upload_Location()
+ /**
+	 * uploads location from the location details screen
+	 */ 
+def static "androidInventory.locationDetailsScreen.uploadLocation"() {
+    (new androidInventory.locationDetailsScreen()).uploadLocation()
 }
 
 
@@ -1704,21 +1695,14 @@ def static "android_more_options.moreOptionsScreen.signOut"() {
     (new android_more_options.moreOptionsScreen()).signOut()
 }
 
- /**
-	 * adds costType based on the argument which can be current or last price paid
-	 * @param costType (can be current or last price paid)
-	 */ 
+
 def static "androidInventory.inventoryDetailsScreen.addCostType"(
     	String costType	) {
     (new androidInventory.inventoryDetailsScreen()).addCostType(
         	costType)
 }
 
- /**
-	 * adds location to an inventory based on the cost type of current or last price paid
-	 * @param locationName (name of the location to be added)
-	 * @param costType (cost type required which can be current or last price paid)
-	 */ 
+
 def static "androidInventory.inventoryDetailsScreen.addLocation"(
     	String locationName	
      , 	String costType	) {
@@ -1743,16 +1727,6 @@ def static "androidInventory.inventoryDetailsScreen.clickOnLocation"(
         	locationName)
 }
 
- /**
-	 * deletes the location
-	 * @param locationName (name of the location to be deleted)
-	 */ 
-def static "androidInventory.inventoryDetailsScreen.deleteLocation"(
-    	String locationName	) {
-    (new androidInventory.inventoryDetailsScreen()).deleteLocation(
-        	locationName)
-}
-
 
 def static "androidInventory.inventoryDetailsScreen.search_And_Add_Product_By_Creating_New_Location"(
     	String Location_Name	
@@ -1769,6 +1743,20 @@ def static "androidInventory.inventoryDetailsScreen.verify_Inventory_Details_Scr
     	String Inventory_Name	) {
     (new androidInventory.inventoryDetailsScreen()).verify_Inventory_Details_Screen(
         	Inventory_Name)
+}
+
+
+def static "androidInventory.inventoryDetailsScreen.deleteLocationWithCostLocationCountVerification"(
+    	String locationName	) {
+    (new androidInventory.inventoryDetailsScreen()).deleteLocationWithCostLocationCountVerification(
+        	locationName)
+}
+
+
+def static "androidInventory.inventoryDetailsScreen.deleteLocation"(
+    	String locationName	) {
+    (new androidInventory.inventoryDetailsScreen()).deleteLocation(
+        	locationName)
 }
 
 
@@ -2260,17 +2248,17 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
-}
-
-
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
     	String testName	
      , 	RectangleSize viewportSize	) {
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
         	testName
          , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
 
 

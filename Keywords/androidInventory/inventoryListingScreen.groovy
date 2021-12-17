@@ -44,15 +44,25 @@ class inventoryListingScreen {
 
 	def commonMethodsObject=new commonMethods();
 
+
+
+
 	/**
 	 * deletes the inventory from the inventory listing screen
 	 * @param inventoryName (inventory name of the inventory which needs to be deleted)
 	 */
-
 	@Keyword
 	def deleteInventory(String inventoryName) {
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Delete Inventory/popup_menu'), 0)
+		String testObj='Android/Inventory/Inventory Listing Screen/Delete Inventory/slidePopUpForInventoryDeletion_Button'
+
+		int x_Coordinate=(new androidCommonKeywords.commonMethods()).tapXCoordinateGenerator(testObj)
+		
+		testObj='Android/Inventory/Inventory Detail Screen/Open Inventory Details/openInventory_Text'
+
+		int y_Coordinate=(new androidCommonKeywords.commonMethods()).tapYCoordinateGenerator(testObj,inventoryName)
+
+		Mobile.tapAtPosition(x_Coordinate, y_Coordinate)
 
 		Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Delete Inventory/Delete_Button'), 0)
 
@@ -60,10 +70,8 @@ class inventoryListingScreen {
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.verifyElementNotVisible(findTestObject('Android/Inventory/Inventory Detail Screen/Edit Inventory/afterEditInventoryVerification_TextView',
-				[('TEXT') : inventoryName]), 0)
+		Mobile.verifyElementNotVisible(findTestObject('Android/Inventory/Inventory Detail Screen/Open Inventory Details/openInventory_Text', [('TEXT') : inventoryName]),0)
 	}
-
 
 	/**
 	 * switches to another user account

@@ -157,21 +157,21 @@ class locationDetailsScreen {
 	}
 
 
-
+	/**
+	 * uploads location from the location details screen
+	 */
 	@Keyword
-	def upload_Location() {
+	def uploadLocation() {
 
-		int w=1
-
-		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Upload Location/enabledUpload_Button'), 0)
 
 		Mobile.verifyElementExist(findTestObject('Android/Inventory/Location Details Screen/Upload Location/locationUploaded_TextView'), 0)
 
 		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Upload Location/gotIt_Button'), 0)
+
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 	}
 
 
