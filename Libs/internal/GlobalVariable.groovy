@@ -42,11 +42,12 @@ Profile StageMock : environment of testing is taken from profiles and used in th
 Profile Stage : android application path is taken from the profiles and used in the start application under android common methods
 Profile StageMock : android application path is taken from the profiles and used in the start application under android common methods</p>
      */
-    public static Object Android_App_Path
+    public static Object AndroidAppPath
      
     /**
      * <p>Profile Release : iOS application path is taken from the profiles and used in the start application under android common methods
-Profile Stage : iOS application path is taken from the profiles and used in the start application under android common methods</p>
+Profile Stage : iOS application path is taken from the profiles and used in the start application under android common methods
+Profile StageMock : iOS application path is taken from the profiles and used in the start application under android common methods</p>
      */
     public static Object iOSAppPath
      
@@ -81,9 +82,6 @@ Profile Stage : bundle id for iOS application</p>
     public static Object bundleID
      
     /**
-     * <p>Profile StageMock : iOS application path is taken from the profiles and used in the start application under android common methods</p>
-     */
-    public static Object iOS_App_Path
      * <p>Profile Release : change this to order (strictly follow the name), if test suite under execution is of orders module </p>
      */
     public static Object testSuiteModule
@@ -104,15 +102,13 @@ Profile Stage : bundle id for iOS application</p>
             Password = selectedVariables['Password']
             Account = selectedVariables['Account']
             Environment = selectedVariables['Environment']
-            Android_App_Path = selectedVariables['Android_App_Path']
+            AndroidAppPath = selectedVariables['AndroidAppPath']
             iOSAppPath = selectedVariables['iOSAppPath']
             SmSession = selectedVariables['SmSession']
             accessToken = selectedVariables['accessToken']
             appWaitActivity = selectedVariables['appWaitActivity']
             appPackage = selectedVariables['appPackage']
             bundleID = selectedVariables['bundleID']
-            iOS_App_Path = selectedVariables['iOS_App_Path']
-
             testSuiteModule = selectedVariables['testSuiteModule']
             a = selectedVariables['a']
             
