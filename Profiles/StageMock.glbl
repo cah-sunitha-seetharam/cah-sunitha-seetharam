@@ -27,12 +27,12 @@
    <GlobalVariableEntity>
       <description>android application path is taken from the profiles and used in the start application under android common methods</description>
       <initValue>'/Users/shahul.hameed01/Downloads/Android/OEPlusAndroid-5.0.1.20211127004606-SNAPSHOT-1170-prod-debug.apk'</initValue>
-      <name>Android_App_Path</name>
+      <name>AndroidAppPath</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description>iOS application path is taken from the profiles and used in the start application under android common methods</description>
       <initValue>'/Users/shahul.hameed01/Downloads/iOS/Hatch.app'</initValue>
-      <name>iOS_App_Path</name>
+      <name>iOSAppPath</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>

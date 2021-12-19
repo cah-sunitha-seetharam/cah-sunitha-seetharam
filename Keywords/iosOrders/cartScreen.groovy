@@ -460,4 +460,5 @@ class cartScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/cancelAndKeepOrdersOnTheApp_Button'), 0)
 	}
+	
 }

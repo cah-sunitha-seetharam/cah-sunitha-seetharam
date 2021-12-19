@@ -54,7 +54,6 @@ def static "androidDashboard.dashboardDetailsScreen.clickOnMoreOptions"() {
 }
 
  /**
-
 	 * opens moreOptions tab where user can perform actions like signOut, goToInventoryListing Screen etc
 	 */ 
 def static "androidDashboard.dashboardDetailsScreen.clickOnMoreOptionsTab"() {
@@ -62,9 +61,9 @@ def static "androidDashboard.dashboardDetailsScreen.clickOnMoreOptionsTab"() {
 }
 
  /**
-		 * deletes the inventory from the inventory listing screen
-		 * @param inventoryName (inventory name of the inventory which needs to be deleted)
-		 */ 
+	 * deletes the inventory from the inventory listing screen
+	 * @param inventoryName (inventory name of the inventory which needs to be deleted)
+	 */ 
 def static "androidInventory.inventoryListingScreen.deleteInventory"(
     	String inventoryName	) {
     (new androidInventory.inventoryListingScreen()).deleteInventory(
@@ -96,6 +95,9 @@ def static "androidInventory.inventoryListingScreen.createInventory"(
 	 */ 
 def static "androidInventory.inventoryListingScreen.verify_Inventory_Listing_Screen"() {
     (new androidInventory.inventoryListingScreen()).verify_Inventory_Listing_Screen()
+}
+
+ /**
 	 * clicks on more options, takes to beat features and enables it
 	 */ 
 def static "iosCommonKeywords.commonMethods.enableBetaFeatures"() {
@@ -484,12 +486,22 @@ def static "iosOrders.orderDetailsScreen.returnQuantityOfTheAddedProduct"() {
 }
 
  /**
-	 * scans the product, adds it to the order and also verifies some scan input details
+	 * scans the product, adds it to the order and also verifies some scan input details when 'ordering' toggle is selected
 	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
 	 */ 
 def static "iosOrders.orderDetailsScreen.scanInputEvent"(
     	String productToBeSearched	) {
     (new iosOrders.orderDetailsScreen()).scanInputEvent(
+        	productToBeSearched)
+}
+
+ /**
+	 * scans the product, adds it to the order and also verifies some scan input details when 'price check' toggle is selected
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */ 
+def static "iosOrders.orderDetailsScreen.scanInputEventWhileOnPriceCheck"(
+    	String productToBeSearched	) {
+    (new iosOrders.orderDetailsScreen()).scanInputEventWhileOnPriceCheck(
         	productToBeSearched)
 }
 
@@ -588,6 +600,43 @@ def static "iosOrders.orderDetailsScreen.verifyProductIsVisibleOnTheOrderDetails
 	 */ 
 def static "iosOrders.orderDetailsScreen.verifyUploadOrderPopUp"() {
     (new iosOrders.orderDetailsScreen()).verifyUploadOrderPopUp()
+}
+
+ /**
+	 * this function adds the product to be ordered - when price check toggle is selected
+	 * @param quantity (quantity required to be added for the product to be searched)
+	 */ 
+def static "iosOrders.orderDetailsScreen.addToOrder"() {
+    (new iosOrders.orderDetailsScreen()).addToOrder()
+}
+
+ /**
+	 * taps on go to order button on order confirmation screen and takes user to order details screen
+	 */ 
+def static "iosOrders.orderDetailsScreen.clickOnGoToOrder"() {
+    (new iosOrders.orderDetailsScreen()).clickOnGoToOrder()
+}
+
+ /**
+	 * taps on continue browsing button on order confirmation screen and takes user to scan result screen
+	 */ 
+def static "iosOrders.orderDetailsScreen.clickOnContinueBrowsing"() {
+    (new iosOrders.orderDetailsScreen()).clickOnContinueBrowsing()
+}
+
+ /**
+	 * verified user is taken to scan result screen after tapping on continue browsing button
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyScanResultScreenWithProduct"() {
+    (new iosOrders.orderDetailsScreen()).verifyScanResultScreenWithProduct()
+}
+
+ /**
+	 * this function returns the order name of the order/ title of the screen when user is on order details screen
+	 * return orderName (returns order name/ title of order details screen)
+	 */ 
+def static "iosOrders.orderDetailsScreen.returnOrderNameFromOrderDetailScreen"() {
+    (new iosOrders.orderDetailsScreen()).returnOrderNameFromOrderDetailScreen()
 }
 
  /**
@@ -696,6 +745,13 @@ def static "iosOrders.cartScreen.clickOnC2Orders"() {
 }
 
  /**
+	 * opens the non c2 orders tab
+	 */ 
+def static "iosOrders.cartScreen.clickOnNonC2Orders"() {
+    (new iosOrders.cartScreen()).clickOnNonC2Orders()
+}
+
+ /**
 	 * clicks on all place all orders button on cart screen
 	 */ 
 def static "iosOrders.cartScreen.clickOnPlaceAllOrders"() {
@@ -724,6 +780,14 @@ def static "iosOrders.cartScreen.deleteOrder"(
     	String poName	) {
     (new iosOrders.cartScreen()).deleteOrder(
         	poName)
+}
+
+ /**
+	 * delete's the C2 order from the cart screen based on the purchase order name
+	 * seperate delete method for c2 as locators for c2 order tile not available...when done remove this method
+	 */ 
+def static "iosOrders.cartScreen.deleteC2Order"() {
+    (new iosOrders.cartScreen()).deleteC2Order()
 }
 
  /**
@@ -760,6 +824,7 @@ def static "iosOrders.cartScreen.returnTopMostOrderName"() {
 
  /**
 	 * this function verifies the pattern required for the order which was created without giving any purchase order name
+	 * @param orderName (order name which is under verification)
 	 */ 
 def static "iosOrders.cartScreen.verifyOrderNamePattern"(
     	String orderName	) {
@@ -1490,14 +1555,21 @@ def static "androidOrders.orderDetailsScreen.verifyUploadOrderPopUp"() {
     (new androidOrders.orderDetailsScreen()).verifyUploadOrderPopUp()
 }
 
-
+ /**
+	 * adds costType based on the argument which can be current or last price paid
+	 * @param costType (can be current or last price paid)
+	 */ 
 def static "iosInventory.inventoryDetailsScreen.addCostType"(
     	String costType	) {
     (new iosInventory.inventoryDetailsScreen()).addCostType(
         	costType)
 }
 
-
+ /**
+	 * adds location to an inventory based on the cost type of current or last price paid
+	 * @param locationName (name of the location to be added)
+	 * @param costType (cost type required which can be current or last price paid)
+	 */ 
 def static "iosInventory.inventoryDetailsScreen.addLocation"(
     	String locationName	
      , 	String costType	) {
@@ -1506,14 +1578,24 @@ def static "iosInventory.inventoryDetailsScreen.addLocation"(
          , 	costType)
 }
 
-
+ /**
+	 * opens the particular location details
+	 * @param locationName (name of the location)
+	 */ 
 def static "iosInventory.inventoryDetailsScreen.clickOnALocation"(
     	String locationName	) {
     (new iosInventory.inventoryDetailsScreen()).clickOnALocation(
         	locationName)
 }
 
-
+ /**
+	 * searches and adds the product from the inventory details screen by creating a new location
+	 * @param locationName (name of the location to be created) 
+	 * @param productName (name of the product to be added) 
+	 * @param countType (count type required which can be partial or full count) 
+	 * @param quantity (quantity of the product required to be added)
+	 * @param costType (cost type required which can be current or last price paid)
+	 */ 
 def static "iosInventory.inventoryDetailsScreen.clickOnScanIconAndAddProductByCreatingNewLocationViaInventoryDetailsScreen"(
     	String locationName	
      , 	String productName	
@@ -1528,28 +1610,42 @@ def static "iosInventory.inventoryDetailsScreen.clickOnScanIconAndAddProductByCr
          , 	costType)
 }
 
-
+ /**
+	 * deletes the location
+	 * @param locationName (name of the location to be deleted)
+	 */ 
 def static "iosInventory.inventoryDetailsScreen.deleteLocation"(
     	String locationName	) {
     (new iosInventory.inventoryDetailsScreen()).deleteLocation(
         	locationName)
 }
 
-
+ /**
+	 * verifies the location count, cost gets updated or not, of the inventory after the location is deleted
+	 * @param locationName (name of the location under verification)
+	 */ 
 def static "iosInventory.inventoryDetailsScreen.deleteLocationWithCostLocationCountVerification"(
     	String locationName	) {
     (new iosInventory.inventoryDetailsScreen()).deleteLocationWithCostLocationCountVerification(
         	locationName)
 }
 
-
+ /**
+	 * edits the inventory name
+	 * @param newInventoryName (new name of the inventory)
+	 */ 
 def static "iosInventory.inventoryDetailsScreen.editInventoryName"(
     	String newInventoryName	) {
     (new iosInventory.inventoryDetailsScreen()).editInventoryName(
         	newInventoryName)
 }
 
-
+ /**
+	 * searches and adds the product from the inventory details screen by creating a new location
+	 * @param locationName (name of the location to be created) 
+	 * @param productName (name of the product to be added)
+	 * @param costType (cost type required which can be current or last price paid)
+	 */ 
 def static "iosInventory.inventoryDetailsScreen.searchAndAddProductByCreatingNewLocation"(
     	String locationName	
      , 	String productName	
@@ -1560,21 +1656,30 @@ def static "iosInventory.inventoryDetailsScreen.searchAndAddProductByCreatingNew
          , 	costType)
 }
 
-
+ /**
+	 * verifies various details of the inventory details screen
+	 * @param inventoryName (name of the inventory which is under verification)
+	 */ 
 def static "iosInventory.inventoryDetailsScreen.verifyInventoryDetailsScreen"(
     	String inventoryName	) {
     (new iosInventory.inventoryDetailsScreen()).verifyInventoryDetailsScreen(
         	inventoryName)
 }
 
-
+ /**
+	 * this function verifies the location count
+	 * @param expectedLocationCount (expected location Count)
+	 */ 
 def static "iosInventory.inventoryDetailsScreen.verifyLocationCount"(
     	String expectedLocationCount	) {
     (new iosInventory.inventoryDetailsScreen()).verifyLocationCount(
         	expectedLocationCount)
 }
 
-
+ /**
+	 * this function verifies that the product is visible on the screen after it is searched from inventory details screen
+	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
+	 */ 
 def static "iosInventory.inventoryDetailsScreen.verifyProductIsVisibleOnScreenWhenSearchedFromInventoryDetailsScreen"(
     	Object productIdentificationNumber	) {
     (new iosInventory.inventoryDetailsScreen()).verifyProductIsVisibleOnScreenWhenSearchedFromInventoryDetailsScreen(
@@ -1637,14 +1742,21 @@ def static "android_more_options.moreOptionsScreen.signOut"() {
     (new android_more_options.moreOptionsScreen()).signOut()
 }
 
-
+ /**
+	 * adds costType based on the argument which can be current or last price paid
+	 * @param costType (can be current or last price paid)
+	 */ 
 def static "androidInventory.inventoryDetailsScreen.addCostType"(
     	String costType	) {
     (new androidInventory.inventoryDetailsScreen()).addCostType(
         	costType)
 }
 
-
+ /**
+	 * adds location to an inventory based on the cost type of current or last price paid
+	 * @param locationName (name of the location to be added)
+	 * @param costType (cost type required which can be current or last price paid)
+	 */ 
 def static "androidInventory.inventoryDetailsScreen.addLocation"(
     	String locationName	
      , 	String costType	) {
@@ -1669,7 +1781,10 @@ def static "androidInventory.inventoryDetailsScreen.clickOnLocation"(
         	locationName)
 }
 
-
+ /**
+	 * deletes the location
+	 * @param locationName (name of the location to be deleted)
+	 */ 
 def static "androidInventory.inventoryDetailsScreen.deleteLocation"(
     	String locationName	) {
     (new androidInventory.inventoryDetailsScreen()).deleteLocation(
@@ -2209,8 +2324,6 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
         	testName)
 }
 
-
-
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
     	TestObject testObject	
      , 	String testName	) {
@@ -2219,17 +2332,16 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
          , 	testName)
 }
 
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+}
+
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
     	String testName	
      , 	RectangleSize viewportSize	) {
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
         	testName
          , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
 
 
