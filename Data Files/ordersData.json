@@ -135,5 +135,19 @@
             "productSearchByNDC": "00527-1971-74",
         },
         
-    }
+    },
+    
+    "PMODStgMock": {
+        
+        "TC_R_043": {
+                "productSearchByNDC": "50580-0496-60",
+                "productSearchCin": "4023347",
+            },
+        
+        "TC_R_044": {
+                "productSearchCin": "4023347",
+                "productSearchByNDC": "00527-1971-74",
+            },
+        
+    },
 }
