@@ -152,7 +152,7 @@
     },
     
     "PMODStgMock": {
-        
+
         "TC_R_035": {
                 "productSearchByNDC": "50580-0496-60",
             },
@@ -161,6 +161,7 @@
                 "productSearchByNDC": "50580-0496-60",
             },
         
+
         "TC_R_043": {
                 "productSearchByNDC": "50580-0496-60",
                 "productSearchCin": "4023347",
@@ -181,4 +182,5 @@
                 "productSearchByNDC": "NDC: 00406-8003-24",
             },
         },
+
 }

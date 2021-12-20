@@ -248,6 +248,40 @@ class cartScreen  {
 
 		Mobile.verifyElementNotVisible(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/orderName_TextView',[('TEXT'):poName]),0)
 	}
+	
+	
+	/**
+	 * verifies nonC2 annotation count
+	 */
+
+	@Keyword
+	def verifynonC2AnnotationCount(String expectedAnnotationCount) {
+	 String actualAnnotationCount = Mobile.getText(findTestObject('Android/Orders/Cart Screen/nonC2AnnotationCountTextView'), 0)
+	 assert expectedAnnotationCount == actualAnnotationCount
+	}
+	
+	/**
+	 * verifies C2 annotation count
+	 */
+
+	@Keyword
+	def verifyC2AnnotationCount(String expectedAnnotationCount) {
+	 String actualAnnotationCount = Mobile.getText(findTestObject('Object Repository/Android/Orders/Cart Screen/c2AnnotationCount_TextView'), 0)
+	 assert expectedAnnotationCount == actualAnnotationCount
+	}
+	
+	/**
+	 * takes expected lines count as the argument and verifies the same
+	 * @param expectedLinesCount (expected lines count after adding products to the cart)
+	 */
+	@Keyword
+	def verifyLinesCount(String expectedLinesCount) {
+
+		String actualLinesCount=Mobile.getText(findTestObject('Object Repository/Android/Orders/Cart Screen/Verifictaion Details/lineCount_TextView'), 0)
+
+		assert actualLinesCount==expectedLinesCount
+	}
+
 
 	/**
 	 * verifies that the created order should not be visible on the cart screen
