@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the user  is able to Edit and Update Inventory and Inventory Locations Name
+Prerequisite: 
+Valid login credentials with multiple accounts available for the user.</description>
+   <name>TC_OE_004_verifyThatTheUserIsAbleToEditAndUpdateInventoryAndInventoryLocationName</name>
+   <tag>Inventory;Sanity</tag>
+   <comment></comment>
+   <testCaseGuid>30d40363-a5f0-4cea-a7e3-2f8340d4bb46</testCaseGuid>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of inventory to be created</description>
+      <id>a7c6a101-9902-4d14-8b8c-eb26e9dbf964</id>
+      <masked>false</masked>
+      <name>inventoryNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of location to be created</description>
+      <id>8d08197b-ce7f-4bb0-b04f-daa25052c73c</id>
+      <masked>false</masked>
+      <name>locationNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>'Last Price'</defaultValue>
+      <description>cost type can be last price or current price paid</description>
+      <id>fcd39d5e-8323-448a-9830-ec615544bbcd</id>
+      <masked>false</masked>
+      <name>costType_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'Current Price'</defaultValue>
+      <description>cost type can be last price or current price paid</description>
+      <id>de2d1173-6fef-4ac1-a6d9-97f61bcecb58</id>
+      <masked>false</masked>
+      <name>costType_2</name>
+   </variable>
+   <variable>
+      <defaultValue>'5'</defaultValue>
+      <description>default quantity value used for calculation of cost and not passed as a parameter for adding quantity of product</description>
+      <id>574701a1-2ba8-4be8-acbc-edcec06f1043</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+</TestCaseEntity>

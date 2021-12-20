@@ -14,6 +14,22 @@
             "purchaseOrderNumber": "Mobile-100121-215202",
             "sourceId": "MOBILE_APP"
         },
+
+        "TC_OE_010": {
+            "productSearchByNDC": "50580-0496-60",
+        },
+
+        "TC_OE_012": {
+            "productSearchByUPC": "300450-449092",
+        },
+
+        "TC_OE_014": {
+            "productSearchCin": "4133997",
+        },
+
+        "TC_OE_015": {
+            "productSearchByName": "tyl",
+        },
         
         "TC_R_005": {
             "productSearchCin": "4023347",

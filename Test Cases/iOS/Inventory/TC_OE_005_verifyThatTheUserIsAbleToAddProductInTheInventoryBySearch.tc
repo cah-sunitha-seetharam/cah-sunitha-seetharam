@@ -1,43 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
-   <description></description>
-   <name>View Location Product Details</name>
-   <tag></tag>
+   <description>Verify that the user  is able to Add product in the Inventory by Search.
+Prerequisite: 
+Valid login credentials with multiple accounts available for the user.</description>
+   <name>TC_OE_005_verifyThatTheUserIsAbleToAddProductInTheInventoryBySearch</name>
+   <tag>Inventory;Sanity</tag>
    <comment></comment>
-   <testCaseGuid>9afec0ec-0e75-44fd-b013-24da72b74a1f</testCaseGuid>
+   <testCaseGuid>b38e7327-f09e-4dfd-ba87-2a35f7566359</testCaseGuid>
    <variable>
       <defaultValue>6</defaultValue>
       <description>length of the name of inventory to be created</description>
-      <id>ce83d0f6-b64d-43cc-895c-80196da8aeda</id>
+      <id>26dfb16d-d2df-405f-8712-d4f3ec06be73</id>
       <masked>false</masked>
       <name>inventoryNameLength</name>
    </variable>
    <variable>
       <defaultValue>6</defaultValue>
       <description>length of the name of location to be created</description>
-      <id>c59ccf31-587f-41a9-9175-93cbf4fbbec2</id>
+      <id>6d6563bd-3acc-40b9-9ee0-72e12b0ffa5e</id>
       <masked>false</masked>
       <name>locationNameLength</name>
    </variable>
    <variable>
-      <defaultValue>'Current Price'</defaultValue>
+      <defaultValue>'Last Price'</defaultValue>
       <description>cost type can be last price or current price paid</description>
-      <id>84f98b23-4002-4e66-b71e-94345f408d3e</id>
+      <id>7f168128-c823-4dcb-8027-1cc4044e3f04</id>
       <masked>false</masked>
       <name>costType</name>
    </variable>
    <variable>
-      <defaultValue>'3'</defaultValue>
+      <defaultValue>'1'</defaultValue>
       <description>quantity required to be added</description>
-      <id>8ee2221e-9395-4244-bf44-a49eadcb1b81</id>
+      <id>08b2fb12-1ffe-4caa-a740-2a2a304e5b85</id>
       <masked>false</masked>
       <name>quantity</name>
-   </variable>
-   <variable>
-      <defaultValue>'1'</defaultValue>
-      <description>expected lines count</description>
-      <id>0e8d4362-7d62-4753-8877-9431b27e99ac</id>
-      <masked>false</masked>
-      <name>expectedLinesCount</name>
    </variable>
 </TestCaseEntity>

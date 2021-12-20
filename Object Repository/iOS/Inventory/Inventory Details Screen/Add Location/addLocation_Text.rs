@@ -3,7 +3,7 @@
    <description></description>
    <name>addLocation_Text</name>
    <tag></tag>
-   <elementGuidId>f80645bc-7ea8-461c-a00a-93ad3c640386</elementGuidId>
+   <elementGuidId>8f66869e-68b1-4467-b120-1cc9634040c0</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -83,6 +83,6 @@
       <type>Main</type>
       <value>//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeStaticText[5]</value>
    </webElementProperties>
-   <locator>//*[@type = 'XCUIElementTypeStaticText' and @label = 'Add location']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>Add location</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

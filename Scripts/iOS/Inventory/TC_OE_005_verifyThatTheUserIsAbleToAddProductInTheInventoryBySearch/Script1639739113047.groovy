@@ -42,29 +42,26 @@ CustomKeywords.'iosInventory.inventoryDetailsScreen.addLocation'(locationName, c
 'opens the location details and takes the locationName as the argument'
 CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnALocation'(locationName)
 
-'reading the module test data file  '
+'reading the module test data file'
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inventoryTestData.json')
 
-'reading the cin of product to be added'
-String productSearch = requestObject[GlobalVariable.Environment].TC_R_003.productSearchCin
+'reading the ndcNumber of product to be added'
+String productSearch = requestObject[GlobalVariable.Environment].TC_OE_005.productSearchByNDC
 
 'adds products to a location'
 CustomKeywords.'iosInventory.locationDetailsScreen.addProducttoLocation'(locationName, productSearch)
 
-'takes the application one screen back'
-CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
-
-'this function verifies that the product is visible on the location details screen'
-CustomKeywords.'iosInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen'(productSearch)
-
-'this function verifies the lines count'
-CustomKeywords.'iosInventory.locationDetailsScreen.verifyLinesCount'(expectedLinesCount)
+'calling the function which adds quantity required for a product to be added and takes quantity required as the argument'
+CustomKeywords.'iosInventory.locationDetailsScreen.addQuantityforTheSearchedProduct'(quantity)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
-'this function verifies the inventory details screen'
-CustomKeywords.'iosInventory.inventoryDetailsScreen.verifyInventoryDetailsScreen'(locationName)
+'clicks on share location button and verifies the pop-up screen and then closes the pop-up screen'
+CustomKeywords.'iosInventory.locationDetailsScreen.verifyShareLocationPopUp'()
+
+'takes the application one screen back'
+CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
 'deletes the location and takes locationName as the argument'
 CustomKeywords.'iosInventory.inventoryDetailsScreen.deleteLocation'(locationName)
