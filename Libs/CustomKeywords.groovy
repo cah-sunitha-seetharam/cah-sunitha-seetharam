@@ -39,14 +39,69 @@ def static "androidDashboard.dashboardDetailsScreen.clickOnOrders"() {
     (new androidDashboard.dashboardDetailsScreen()).clickOnOrders()
 }
 
-
-def static "androidDashboard.dashboardDetailsScreen.click_On_HomeTab"() {
-    (new androidDashboard.dashboardDetailsScreen()).click_On_HomeTab()
+ /**
+	 * opens home tab where user can perform actions related to home
+	 */ 
+def static "androidDashboard.dashboardDetailsScreen.clickOnHomeTab"() {
+    (new androidDashboard.dashboardDetailsScreen()).clickOnHomeTab()
 }
 
+ /**
+	 * opens more options tab where user can perform actions related to more options
+	 */ 
+def static "androidDashboard.dashboardDetailsScreen.clickOnMoreOptions"() {
+    (new androidDashboard.dashboardDetailsScreen()).clickOnMoreOptions()
+}
 
-def static "androidDashboard.dashboardDetailsScreen.click_On_More_Options"() {
-    (new androidDashboard.dashboardDetailsScreen()).click_On_More_Options()
+ /**
+	 * opens moreOptions tab where user can perform actions like signOut, goToInventoryListing Screen etc
+	 */ 
+def static "androidDashboard.dashboardDetailsScreen.clickOnMoreOptionsTab"() {
+    (new androidDashboard.dashboardDetailsScreen()).clickOnMoreOptionsTab()
+}
+
+ /**
+	 * deletes the inventory from the inventory listing screen
+	 * @param inventoryName (inventory name of the inventory which needs to be deleted)
+	 */ 
+def static "androidInventory.inventoryListingScreen.deleteInventory"(
+    	String inventoryName	) {
+    (new androidInventory.inventoryListingScreen()).deleteInventory(
+        	inventoryName)
+}
+
+ /**
+	 * switches to another user account
+	 * @param newAccount (account no to which the user should switch)
+	 */ 
+def static "androidInventory.inventoryListingScreen.change_Account"(
+    	String new_Account	) {
+    (new androidInventory.inventoryListingScreen()).change_Account(
+        	new_Account)
+}
+
+ /**
+	 * creates a new inventory from inventory listing screen
+	 * @param inventoryName (name required for the new inventory)
+	 */ 
+def static "androidInventory.inventoryListingScreen.createInventory"(
+    	String inventoryName	) {
+    (new androidInventory.inventoryListingScreen()).createInventory(
+        	inventoryName)
+}
+
+ /**
+	 * verifies details of inventory listing screen
+	 */ 
+def static "androidInventory.inventoryListingScreen.verify_Inventory_Listing_Screen"() {
+    (new androidInventory.inventoryListingScreen()).verify_Inventory_Listing_Screen()
+}
+
+ /**
+	 * clicks on more options, takes to beat features and enables it
+	 */ 
+def static "iosCommonKeywords.commonMethods.enableBetaFeatures"() {
+    (new iosCommonKeywords.commonMethods()).enableBetaFeatures()
 }
 
  /**
@@ -320,6 +375,13 @@ def static "iosOrders.ordersCommonScreen.clickOnCartTab"() {
     (new iosOrders.ordersCommonScreen()).clickOnCartTab()
 }
 
+ /**
+	 * deletes all orders from nonc2 and c2 order tab
+	 */ 
+def static "iosOrders.ordersCommonScreen.clearAllOrders"() {
+    (new iosOrders.ordersCommonScreen()).clearAllOrders()
+}
+
 
 def static "iosOrders.orderDetailsScreen.add_Alternate_Product"(
     	String product_Name	
@@ -424,12 +486,22 @@ def static "iosOrders.orderDetailsScreen.returnQuantityOfTheAddedProduct"() {
 }
 
  /**
-	 * scans the product, adds it to the order and also verifies some scan input details
+	 * scans the product, adds it to the order and also verifies some scan input details when 'ordering' toggle is selected
 	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
 	 */ 
 def static "iosOrders.orderDetailsScreen.scanInputEvent"(
     	String productToBeSearched	) {
     (new iosOrders.orderDetailsScreen()).scanInputEvent(
+        	productToBeSearched)
+}
+
+ /**
+	 * scans the product, adds it to the order and also verifies some scan input details when 'price check' toggle is selected
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */ 
+def static "iosOrders.orderDetailsScreen.scanInputEventWhileOnPriceCheck"(
+    	String productToBeSearched	) {
+    (new iosOrders.orderDetailsScreen()).scanInputEventWhileOnPriceCheck(
         	productToBeSearched)
 }
 
@@ -528,6 +600,43 @@ def static "iosOrders.orderDetailsScreen.verifyProductIsVisibleOnTheOrderDetails
 	 */ 
 def static "iosOrders.orderDetailsScreen.verifyUploadOrderPopUp"() {
     (new iosOrders.orderDetailsScreen()).verifyUploadOrderPopUp()
+}
+
+ /**
+	 * this function adds the product to be ordered - when price check toggle is selected
+	 * @param quantity (quantity required to be added for the product to be searched)
+	 */ 
+def static "iosOrders.orderDetailsScreen.addToOrder"() {
+    (new iosOrders.orderDetailsScreen()).addToOrder()
+}
+
+ /**
+	 * taps on go to order button on order confirmation screen and takes user to order details screen
+	 */ 
+def static "iosOrders.orderDetailsScreen.clickOnGoToOrder"() {
+    (new iosOrders.orderDetailsScreen()).clickOnGoToOrder()
+}
+
+ /**
+	 * taps on continue browsing button on order confirmation screen and takes user to scan result screen
+	 */ 
+def static "iosOrders.orderDetailsScreen.clickOnContinueBrowsing"() {
+    (new iosOrders.orderDetailsScreen()).clickOnContinueBrowsing()
+}
+
+ /**
+	 * verified user is taken to scan result screen after tapping on continue browsing button
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyScanResultScreenWithProduct"() {
+    (new iosOrders.orderDetailsScreen()).verifyScanResultScreenWithProduct()
+}
+
+ /**
+	 * this function returns the order name of the order/ title of the screen when user is on order details screen
+	 * return orderName (returns order name/ title of order details screen)
+	 */ 
+def static "iosOrders.orderDetailsScreen.returnOrderNameFromOrderDetailScreen"() {
+    (new iosOrders.orderDetailsScreen()).returnOrderNameFromOrderDetailScreen()
 }
 
  /**
@@ -636,6 +745,13 @@ def static "iosOrders.cartScreen.clickOnC2Orders"() {
 }
 
  /**
+	 * opens the non c2 orders tab
+	 */ 
+def static "iosOrders.cartScreen.clickOnNonC2Orders"() {
+    (new iosOrders.cartScreen()).clickOnNonC2Orders()
+}
+
+ /**
 	 * clicks on all place all orders button on cart screen
 	 */ 
 def static "iosOrders.cartScreen.clickOnPlaceAllOrders"() {
@@ -664,6 +780,14 @@ def static "iosOrders.cartScreen.deleteOrder"(
     	String poName	) {
     (new iosOrders.cartScreen()).deleteOrder(
         	poName)
+}
+
+ /**
+	 * delete's the C2 order from the cart screen based on the purchase order name
+	 * seperate delete method for c2 as locators for c2 order tile not available...when done remove this method
+	 */ 
+def static "iosOrders.cartScreen.deleteC2Order"() {
+    (new iosOrders.cartScreen()).deleteC2Order()
 }
 
  /**
@@ -700,6 +824,7 @@ def static "iosOrders.cartScreen.returnTopMostOrderName"() {
 
  /**
 	 * this function verifies the pattern required for the order which was created without giving any purchase order name
+	 * @param orderName (order name which is under verification)
 	 */ 
 def static "iosOrders.cartScreen.verifyOrderNamePattern"(
     	String orderName	) {
@@ -1105,6 +1230,151 @@ def static "iosLogin.loginScreen.selectTypeOfTesting"() {
 }
 
 
+def static "androidInventory.locationDetailsScreen.edit_LocationName"(
+    	String New_Location_Name	
+     , 	String CostType	
+     , 	String Previous_Name	) {
+    (new androidInventory.locationDetailsScreen()).edit_LocationName(
+        	New_Location_Name
+         , 	CostType
+         , 	Previous_Name)
+}
+
+
+def static "androidInventory.locationDetailsScreen.add_Product_To_Location"(
+    	String Location_Name	
+     , 	String Product_Name	) {
+    (new androidInventory.locationDetailsScreen()).add_Product_To_Location(
+        	Location_Name
+         , 	Product_Name)
+}
+
+
+def static "androidInventory.locationDetailsScreen.move_Product_To_Another_Location"(
+    	String Location_Name	) {
+    (new androidInventory.locationDetailsScreen()).move_Product_To_Another_Location(
+        	Location_Name)
+}
+
+
+def static "androidInventory.locationDetailsScreen.copy_Product_To_Another_Location"(
+    	String Location_Name	) {
+    (new androidInventory.locationDetailsScreen()).copy_Product_To_Another_Location(
+        	Location_Name)
+}
+
+
+def static "androidInventory.locationDetailsScreen.delete_Product"() {
+    (new androidInventory.locationDetailsScreen()).delete_Product()
+}
+
+
+def static "androidInventory.locationDetailsScreen.upload_Location"() {
+    (new androidInventory.locationDetailsScreen()).upload_Location()
+}
+
+
+def static "androidInventory.locationDetailsScreen.share_Location"() {
+    (new androidInventory.locationDetailsScreen()).share_Location()
+}
+
+
+def static "androidInventory.locationDetailsScreen.verify_Location_details_Screen"(
+    	String Location_Name	) {
+    (new androidInventory.locationDetailsScreen()).verify_Location_details_Screen(
+        	Location_Name)
+}
+
+ /**
+	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at full count
+	 */ 
+def static "androidInventory.locationDetailsScreen.clickOnScanIcon"() {
+    (new androidInventory.locationDetailsScreen()).clickOnScanIcon()
+}
+
+ /**
+	 * this function selects the toggle value of countType for the product to be added
+	 * @param countType (countType required to be selected for the product to be added which can be full or partial count)
+	 */ 
+def static "androidInventory.locationDetailsScreen.selectCountTypeForTheProductToBeAdded"(
+    	String countType	) {
+    (new androidInventory.locationDetailsScreen()).selectCountTypeForTheProductToBeAdded(
+        	countType)
+}
+
+ /**
+	 * scans the product and adds it to the location
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */ 
+def static "androidInventory.locationDetailsScreen.scanInputEvent"(
+    	String productToBeSearched	) {
+    (new androidInventory.locationDetailsScreen()).scanInputEvent(
+        	productToBeSearched)
+}
+
+ /**
+	 * this function gets the total added quantity of the product
+	 * @return quantityNumericalValue (of the product which has been added)
+	 */ 
+def static "androidInventory.locationDetailsScreen.returnQuantityOfTheAddedProduct"() {
+    (new androidInventory.locationDetailsScreen()).returnQuantityOfTheAddedProduct()
+}
+
+ /**
+	 * this function inputs the quantity value for the product to be searched
+	 * @param quantity (quantity required to be added for the product to be searched)
+	 */ 
+def static "androidInventory.locationDetailsScreen.addQuantityforTheSearchedProduct"(
+    	String quantity	) {
+    (new androidInventory.locationDetailsScreen()).addQuantityforTheSearchedProduct(
+        	quantity)
+}
+
+ /**
+	 * this function gets the unit of issue cost(UOI) of the added product
+	 * @return uoiCost_dollarSymbolRemoved_FloatValue (of the product which has been added)
+	 */ 
+def static "androidInventory.locationDetailsScreen.returnUOIOfTheAddedProduct"() {
+    (new androidInventory.locationDetailsScreen()).returnUOIOfTheAddedProduct()
+}
+
+ /**
+	 * this function will tap on share button and verify the Gmail option
+	 */ 
+def static "androidInventory.locationDetailsScreen.verifyGmailOnShareLocation"() {
+    (new androidInventory.locationDetailsScreen()).verifyGmailOnShareLocation()
+}
+
+ /**
+	 * verifies details of location details screen (if user wants to scan a product with same count type more than once, then in the test case, only the updated quantity along with countType and ndcNumber should be pushed into the stack)
+	 * @param countTypeStack (stack of the countTypes selected for adding each product)
+	 * @param quantityStack (stack of the quantity added for each product)
+	 * @param productNdcStack (stack of the ndcNumbers of added products)
+	 * @param unitOfIssueCostStack (stack of UOI costs of the added products)
+	 */ 
+def static "androidInventory.locationDetailsScreen.verifyLocationDetailsScreen"(
+    	Stack countTypeStack	
+     , 	Stack quantityStack	
+     , 	Stack productNdcStack	
+     , 	Stack unitOfIssueCostStack	) {
+    (new androidInventory.locationDetailsScreen()).verifyLocationDetailsScreen(
+        	countTypeStack
+         , 	quantityStack
+         , 	productNdcStack
+         , 	unitOfIssueCostStack)
+}
+
+ /**
+	 * deletes a product from the added products list in a location
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object	 */ 
+def static "androidInventory.locationDetailsScreen.deleteProduct"(
+    	String productNdcNumber	) {
+    (new androidInventory.locationDetailsScreen()).deleteProduct(
+        	productNdcNumber)
+}
+
+
 def static "androidOrders.orderDetailsScreen.upload_Order"() {
     (new androidOrders.orderDetailsScreen()).upload_Order()
 }
@@ -1178,6 +1448,13 @@ def static "androidOrders.orderDetailsScreen.verifyOrderHasbeensentToDesktopPopU
 }
 
  /**
+	 * verifies c2 label is visible or not
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyC2Label"() {
+    (new androidOrders.orderDetailsScreen()).verifyC2Label()
+}
+
+ /**
 	 * creates a new C2 order
 	 * @param poName (poName of the order), poMemo (poMemo of the order)
 	 */ 
@@ -1187,6 +1464,26 @@ def static "androidOrders.orderDetailsScreen.createNewC2Order"(
     (new androidOrders.orderDetailsScreen()).createNewC2Order(
         	poName
          , 	poMemo)
+}
+
+ /**
+	 * this function selects toggle value for the product to be added which can be ordering or price check)
+	 * @param toggleValue (toggleValue required to be selected for the product to be added which can be ordering or price check)
+	 */ 
+def static "androidOrders.orderDetailsScreen.selectToggleValueForTheProductToBeSearched"(
+    	String toggleValue	) {
+    (new androidOrders.orderDetailsScreen()).selectToggleValueForTheProductToBeSearched(
+        	toggleValue)
+}
+
+ /**
+	 * verifies the order value after adding a product
+	 * @param quantity (quantity which was added)
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyOrderValue"(
+    	Object quantity	) {
+    (new androidOrders.orderDetailsScreen()).verifyOrderValue(
+        	quantity)
 }
 
  /**
@@ -1425,6 +1722,13 @@ def static "android_more_options.moreOptionsScreen.changeAccount"(
 }
 
  /**
+	 * enables beta csos feature
+	 */ 
+def static "android_more_options.moreOptionsScreen.enableBetaFeatureCSOS"() {
+    (new android_more_options.moreOptionsScreen()).enableBetaFeatureCSOS()
+}
+
+ /**
 	 * takes the user from the the moreOptions Screen to inventory listing screen
 	 */ 
 def static "android_more_options.moreOptionsScreen.goToInventoryListingScreen"() {
@@ -1438,53 +1742,70 @@ def static "android_more_options.moreOptionsScreen.signOut"() {
     (new android_more_options.moreOptionsScreen()).signOut()
 }
 
+ /**
+	 * adds costType based on the argument which can be current or last price paid
+	 * @param costType (can be current or last price paid)
+	 */ 
+def static "androidInventory.inventoryDetailsScreen.addCostType"(
+    	String costType	) {
+    (new androidInventory.inventoryDetailsScreen()).addCostType(
+        	costType)
+}
 
-def static "android_inventory.Inventory_details_Screen.add_Location"(
-    	String Location_Name	
-     , 	String CostType	) {
-    (new android_inventory.Inventory_details_Screen()).add_Location(
-        	Location_Name
-         , 	CostType)
+ /**
+	 * adds location to an inventory based on the cost type of current or last price paid
+	 * @param locationName (name of the location to be added)
+	 * @param costType (cost type required which can be current or last price paid)
+	 */ 
+def static "androidInventory.inventoryDetailsScreen.addLocation"(
+    	String locationName	
+     , 	String costType	) {
+    (new androidInventory.inventoryDetailsScreen()).addLocation(
+        	locationName
+         , 	costType)
 }
 
 
-def static "android_inventory.Inventory_details_Screen.edit_InventoryName"(
+def static "androidInventory.inventoryDetailsScreen.edit_InventoryName"(
     	String New_Inventory_Name	
      , 	String Previous_Name	) {
-    (new android_inventory.Inventory_details_Screen()).edit_InventoryName(
+    (new androidInventory.inventoryDetailsScreen()).edit_InventoryName(
         	New_Inventory_Name
          , 	Previous_Name)
 }
 
 
-def static "android_inventory.Inventory_details_Screen.click_On_Location"(
-    	String Location_Name	) {
-    (new android_inventory.Inventory_details_Screen()).click_On_Location(
-        	Location_Name)
+def static "androidInventory.inventoryDetailsScreen.clickOnLocation"(
+    	String locationName	) {
+    (new androidInventory.inventoryDetailsScreen()).clickOnLocation(
+        	locationName)
+}
+
+ /**
+	 * deletes the location
+	 * @param locationName (name of the location to be deleted)
+	 */ 
+def static "androidInventory.inventoryDetailsScreen.deleteLocation"(
+    	String locationName	) {
+    (new androidInventory.inventoryDetailsScreen()).deleteLocation(
+        	locationName)
 }
 
 
-def static "android_inventory.Inventory_details_Screen.delete_Location"(
-    	String Location_Name	) {
-    (new android_inventory.Inventory_details_Screen()).delete_Location(
-        	Location_Name)
-}
-
-
-def static "android_inventory.Inventory_details_Screen.search_And_Add_Product_By_Creating_New_Location"(
+def static "androidInventory.inventoryDetailsScreen.search_And_Add_Product_By_Creating_New_Location"(
     	String Location_Name	
      , 	String Product_Name	
      , 	String CostType	) {
-    (new android_inventory.Inventory_details_Screen()).search_And_Add_Product_By_Creating_New_Location(
+    (new androidInventory.inventoryDetailsScreen()).search_And_Add_Product_By_Creating_New_Location(
         	Location_Name
          , 	Product_Name
          , 	CostType)
 }
 
 
-def static "android_inventory.Inventory_details_Screen.verify_Inventory_Details_Screen"(
+def static "androidInventory.inventoryDetailsScreen.verify_Inventory_Details_Screen"(
     	String Inventory_Name	) {
-    (new android_inventory.Inventory_details_Screen()).verify_Inventory_Details_Screen(
+    (new androidInventory.inventoryDetailsScreen()).verify_Inventory_Details_Screen(
         	Inventory_Name)
 }
 
@@ -1596,32 +1917,6 @@ def static "iosOrders.historyScreen.clickOnC2OrderForReviewAndSign"(
         	signingPassword)
 }
 
-
-def static "android_inventory.Inventory_listing_Screen.delete_Inventory"(
-    	String inventory_Name	) {
-    (new android_inventory.Inventory_listing_Screen()).delete_Inventory(
-        	inventory_Name)
-}
-
-
-def static "android_inventory.Inventory_listing_Screen.change_Account"(
-    	String new_Account	) {
-    (new android_inventory.Inventory_listing_Screen()).change_Account(
-        	new_Account)
-}
-
-
-def static "android_inventory.Inventory_listing_Screen.create_Inventory"(
-    	String Inventory_Name	) {
-    (new android_inventory.Inventory_listing_Screen()).create_Inventory(
-        	Inventory_Name)
-}
-
-
-def static "android_inventory.Inventory_listing_Screen.verify_Inventory_Listing_Screen"() {
-    (new android_inventory.Inventory_listing_Screen()).verify_Inventory_Listing_Screen()
-}
-
  /**
 	 * takes user to the new order screen
 	 */ 
@@ -1645,7 +1940,6 @@ def static "androidOrders.ordersCommonScreen.change_Account"(
     (new androidOrders.ordersCommonScreen()).change_Account(
         	new_Account)
 }
-
 
 def static "android_inventory.Location_details_Screen.edit_LocationName"(
     	String New_Location_Name	
@@ -1702,23 +1996,21 @@ def static "android_inventory.Location_details_Screen.verify_Location_details_Sc
         	Location_Name)
 }
 
+
+
  /**
 	 * float value generator
 	 * @param stringToBeConvertedToFloatValue
 	 * @return float value for a string by removing characters
 	 */ 
+
 def static "common.commonMethods.floatValueGenerator"(
     	String stringToBeConvertedToFloatValue	) {
     (new common.commonMethods()).floatValueGenerator(
         	stringToBeConvertedToFloatValue)
 }
 
- /**
-	 * this function formats the decimal data for e.g 20.546 would be converted to 20.55 if decimalFormatRequired is 0.00
-	 * @param decimalDataToBeFormatted (decimal data required to be formatted), 
-	 * @param decimalFormatRequired (decimal format required for e.g 0.00 for rounding to 2 decimal places)
-	 * @return formattedDecimalData (formatted decimal data)
-	 */ 
+
 def static "common.commonMethods.formatDecimalData"(
     	Object decimalDataToBeFormatted	
      , 	String decimalFormatRequired	) {
@@ -1727,32 +2019,21 @@ def static "common.commonMethods.formatDecimalData"(
          , 	decimalFormatRequired)
 }
 
- /**
-	 * random alpha numeric String Generator 
-	 * @param length, required string length 
-	 * @return alpha-numeric string  
-	 */ 
+
 def static "common.commonMethods.randomStringGenerator"(
     	int length	) {
     (new common.commonMethods()).randomStringGenerator(
         	length)
 }
 
- /**
-	 * Read JSON file 
-	 * @param file name, Note: data files are considered to be on Data files location on project directory  
-	 * @return the JSON file object 
-	 */ 
+
 def static "common.commonMethods.readFileTypeJSON"(
     	String fileNameValue	) {
     (new common.commonMethods()).readFileTypeJSON(
         	fileNameValue)
 }
 
- /**
-	 * Get mobile driver for current session
-	 * @return mobile driver for current session
-	 */ 
+
 def static "common.commonMethods.getCurrentSessionMobileDriver"() {
     (new common.commonMethods()).getCurrentSessionMobileDriver()
 }
@@ -1815,27 +2096,19 @@ def static "iosDashboard.dashboardScreen.verifyDashboardScreen"() {
     (new iosDashboard.dashboardScreen()).verifyDashboardScreen()
 }
 
- /**
-	 * opens the order details page
-	 * @param accountNo (accountNo used to create the order)
-	 */ 
+
 def static "androidOrders.cartScreen.openAnOrderDetails"(
     	String accountNo	) {
     (new androidOrders.cartScreen()).openAnOrderDetails(
         	accountNo)
 }
 
- /**
-	 * opens the c2 orders tab
-	 */ 
+
 def static "androidOrders.cartScreen.clickOnC2OrdersTab"() {
     (new androidOrders.cartScreen()).clickOnC2OrdersTab()
 }
 
- /**
-	 * opens the c2 order details
-	 * @param accountNo (account no which was used to create the order)
-	 */ 
+
 def static "androidOrders.cartScreen.openC2OrderDetailScreen"(
     	String accountNo	) {
     (new androidOrders.cartScreen()).openC2OrderDetailScreen(
@@ -1849,68 +2122,70 @@ def static "androidOrders.cartScreen.delete_Order"(
         	Account_No)
 }
 
- /**
-	 * clicks on upload all orders button on cart screen
-	 */ 
+
 def static "androidOrders.cartScreen.clickOnUploadAllOrders"() {
     (new androidOrders.cartScreen()).clickOnUploadAllOrders()
 }
 
- /**
-	 * verifies pop up screen which comes after clicking on upload all orders button on cart screen
-	 */ 
+
 def static "androidOrders.cartScreen.verifyUploadAllOrdersPopUp"() {
     (new androidOrders.cartScreen()).verifyUploadAllOrdersPopUp()
 }
 
- /**
-	 * clicks on continue on desktop button on cart screen
-	 */ 
+
 def static "androidOrders.cartScreen.clickOnContinueOnDesktop"() {
     (new androidOrders.cartScreen()).clickOnContinueOnDesktop()
 }
 
- /**
-	 * clicks on place all orders button on cart screen
-	 */ 
+
 def static "androidOrders.cartScreen.clickOnPlaceAllOrders"() {
     (new androidOrders.cartScreen()).clickOnPlaceAllOrders()
 }
 
- /**
-	 * verifies pop up screen which comes after clicking on place all orders button on cart screen
-	 */ 
+
 def static "androidOrders.cartScreen.verifyPlaceAllOrdersPopUp"() {
     (new androidOrders.cartScreen()).verifyPlaceAllOrdersPopUp()
 }
 
- /**
-	 * clicks on place my orders button on cart screen
-	 */ 
+
 def static "androidOrders.cartScreen.confirmPlacingAllOrders"() {
     (new androidOrders.cartScreen()).confirmPlacingAllOrders()
 }
 
- /**
-	 * verifies cart screen with added product
-	 */ 
+
 def static "androidOrders.cartScreen.verifyCartScreenDetailsWithAddedProduct"() {
     (new androidOrders.cartScreen()).verifyCartScreenDetailsWithAddedProduct()
 }
 
- /**
-	 * verifies that the created order should not be visible on the cart screen
-	 * @param poName (purchase order name used to create the order)
-	 */ 
+
 def static "androidOrders.cartScreen.verifyOrderNotVisibleOnTheCartScreen"(
     	String poName	) {
     (new androidOrders.cartScreen()).verifyOrderNotVisibleOnTheCartScreen(
         	poName)
 }
 
- /**
-	 * verifies the cart screen details without any product
-	 */ 
+
+def static "androidOrders.cartScreen.verifynonC2AnnotationCount"(
+    	String expectedAnnotationCount	) {
+    (new androidOrders.cartScreen()).verifynonC2AnnotationCount(
+        	expectedAnnotationCount)
+}
+
+
+def static "androidOrders.cartScreen.verifyC2AnnotationCount"(
+    	String expectedAnnotationCount	) {
+    (new androidOrders.cartScreen()).verifyC2AnnotationCount(
+        	expectedAnnotationCount)
+}
+
+
+def static "androidOrders.cartScreen.verifyLinesCount"(
+    	String expectedLinesCount	) {
+    (new androidOrders.cartScreen()).verifyLinesCount(
+        	expectedLinesCount)
+}
+
+
 def static "androidOrders.cartScreen.verifyCartScreenDetailsWithOutAddingAnyProduct"() {
     (new androidOrders.cartScreen()).verifyCartScreenDetailsWithOutAddingAnyProduct()
 }
@@ -1955,6 +2230,48 @@ def static "androidCommonKeywords.commonMethods.waitTimeForObjectToBeVisible"(
         	testObj
          , 	waitTime
          , 	waitLimit)
+}
+
+ /**
+	 * opens the inventory listing screen by firstly clicking on more options from dash-board
+	 * and then clicks on inventory under more options screen which takes user to inventory listing screen
+	 */ 
+def static "androidCommonKeywords.commonMethods.takeUserFromHomeToInventoryListingScreen"() {
+    (new androidCommonKeywords.commonMethods()).takeUserFromHomeToInventoryListingScreen()
+}
+
+ /**
+	 * navigate to previous screen
+	 * use this method whenever the back button is not available
+	 */ 
+def static "androidCommonKeywords.commonMethods.pressBacknav"() {
+    (new androidCommonKeywords.commonMethods()).pressBacknav()
+}
+
+ /**
+	 * generates the coordinate x for a test object by considering ElementLeftPosition and ElementWidth
+	 * @param testObj (reference of the testObject passed as a parameter)
+	 * @param text (name of the element)
+	 * @return int value for the xCoordinate
+	 */ 
+def static "androidCommonKeywords.commonMethods.tapXCoordinateGenerator"(
+    	String testObj	) {
+    (new androidCommonKeywords.commonMethods()).tapXCoordinateGenerator(
+        	testObj)
+}
+
+ /**
+	 * generates the coordinate y for a test object by considering ElementTopPosition and ElementHeight
+	 * @param testObj (reference of the testObject passed as a parameter)
+	 * @param text (name of the element)
+	 * @return int value for the yCoordinate
+	 */ 
+def static "androidCommonKeywords.commonMethods.tapYCoordinateGenerator"(
+    	String testObj	
+     , 	String text	) {
+    (new androidCommonKeywords.commonMethods()).tapYCoordinateGenerator(
+        	testObj
+         , 	text)
 }
 
  /**
@@ -2007,7 +2324,6 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
         	testName)
 }
 
-
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
     	TestObject testObject	
      , 	String testName	) {
@@ -2016,11 +2332,9 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
          , 	testName)
 }
 
-
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
-
 
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
     	String testName	

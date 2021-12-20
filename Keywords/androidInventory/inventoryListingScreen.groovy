@@ -1,4 +1,4 @@
-package android_inventory
+package androidInventory
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
@@ -37,13 +37,20 @@ import com.kms.katalon.core.util.KeywordUtil
 
 import com.kms.katalon.core.webui.exception.WebElementNotFoundException
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
+import androidCommonKeywords.commonMethods
 
 
-class Inventory_listing_Screen {
+class inventoryListingScreen {
+
+	def commonMethodsObject=new commonMethods();
+
+	/**
+	 * deletes the inventory from the inventory listing screen
+	 * @param inventoryName (inventory name of the inventory which needs to be deleted)
+	 */
 
 	@Keyword
-	def delete_Inventory(String inventory_Name) {
-
+	def deleteInventory(String inventoryName) {
 
 		Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Delete Inventory/popup_menu'), 0)
 
@@ -51,30 +58,23 @@ class Inventory_listing_Screen {
 
 		Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Delete Inventory/Yes_Button'), 0)
 
-		int w = 1
-
-		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
-
-
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.verifyElementNotVisible(findTestObject('Android/Inventory/Inventory Detail Screen/Edit Inventory/afterEditInventoryVerification_TextView',
-				[('TEXT') : inventory_Name]), 0)
+				[('TEXT') : inventoryName]), 0)
 	}
 
 
-
+	/**
+	 * switches to another user account
+	 * @param newAccount (account no to which the user should switch)
+	 */
 
 	@Keyword
 	def change_Account(String new_Account) {
 
-		int w = 1
-		
-		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
-		
+		commonMethodsObject.waitForProgressBarToBeInvisible()
+
 		Mobile.tap(findTestObject('Android/Dashboard/changeAccount_Button'), 0)
 
 		Mobile.tap(findTestObject('Android/Account Selection/ChangeAccount_TextView'), 0)
@@ -84,16 +84,17 @@ class Inventory_listing_Screen {
 		}
 		Mobile.tap(findTestObject('Android/Account Selection/AccountNo_TextView',[('val') : new_Account]), 0)
 
-		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 	}
 
 
-
+	/**
+	 * creates a new inventory from inventory listing screen
+	 * @param inventoryName (name required for the new inventory)
+	 */
 
 	@Keyword
-	def create_Inventory(String Inventory_Name) {
+	def createInventory(String inventoryName) {
 
 		if (Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Listing Screen/Verification Details/createInventory_TextView'), 4, FailureHandling.OPTIONAL)) {
 			Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Verification Details/createInventory_TextView'), 4, FailureHandling.OPTIONAL)
@@ -103,17 +104,16 @@ class Inventory_listing_Screen {
 		}
 		Mobile.tapAndHold(findTestObject('Android/Inventory/Inventory Listing Screen/Create New Inventory_Screen/inventoryName_TextField'), 0,0)
 
-		Mobile.setText(findTestObject('Android/Inventory/Inventory Listing Screen/Create New Inventory_Screen/inventoryName_TextField'), Inventory_Name,0)
+		Mobile.setText(findTestObject('Android/Inventory/Inventory Listing Screen/Create New Inventory_Screen/inventoryName_TextField'), inventoryName,0)
 
 		Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Create New Inventory_Screen/createInventory_Button'), 0)
 
-		int w = 1
-
-		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 	}
 
+	/**
+	 * verifies details of inventory listing screen
+	 */
 
 	@Keyword
 	def verify_Inventory_Listing_Screen() {

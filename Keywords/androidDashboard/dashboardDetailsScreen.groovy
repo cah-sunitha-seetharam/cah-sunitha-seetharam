@@ -104,18 +104,33 @@ class dashboardDetailsScreen {
 	}
 
 
+	/**
+	 * opens home tab where user can perform actions related to home
+	 */
 	@Keyword
-	def click_On_HomeTab() {
+	def clickOnHomeTab() {
 
-		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('iOS/Dashboard/Home_Tab'), 10)
+		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Android/Dashboard/home_TextView'), 10)
 		element.click()
 	}
 
-
+	/**
+	 * opens more options tab where user can perform actions related to more options
+	 */
 	@Keyword
-	def click_On_More_Options() {
+	def clickOnMoreOptions() {
 
 		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Android/Dashboard/moreOptions_Tab'), 10)
 		element.click()
 	}
+
+	/**
+	 * opens moreOptions tab where user can perform actions like signOut, goToInventoryListing Screen etc
+	 */
+	@Keyword
+	def clickOnMoreOptionsTab() {
+
+		Mobile.tap(findTestObject('Android/Dashboard/moreOptions_Tab'), 0)
+	}
+
 }

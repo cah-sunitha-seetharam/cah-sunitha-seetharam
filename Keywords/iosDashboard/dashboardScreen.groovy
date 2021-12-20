@@ -66,7 +66,7 @@ class dashboardScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Product Search/confirmation_Text'), 0)
 
-		Mobile.tapAndHold(	findTestObject('Object Repository/iOS/Product Search/afterAddingProductContinue_Button'), 0,0)
+		Mobile.tapAndHold(findTestObject('Object Repository/iOS/Product Search/afterAddingProductContinue_Button'), 0,0)
 	}
 
 	

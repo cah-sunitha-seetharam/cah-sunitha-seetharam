@@ -81,6 +81,18 @@ class cartScreen {
 	}
 
 
+
+	/**
+	 * opens the non c2 orders tab
+	 */
+	@Keyword
+	def clickOnNonC2Orders() {
+
+		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/nonc2Orders_Tab'), 0)
+	}
+
+
+
 	/**
 	 * clicks on all place all orders button on cart screen
 	 */
@@ -141,11 +153,39 @@ class cartScreen {
 
 		Mobile.swipe(1300, yCoordinateToSwipe, 0, yCoordinateToSwipe)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Delete_Order/Success_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Delete Order/success_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Delete_Order/Order(s) deleted successfully_Text'),0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Delete Order/orderDeletedSuccessfully_Text'),0)
 
-		Mobile.tapAndHold(findTestObject('iOS/Orders/Cart Screen/Delete_Order/OK_Button'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/Orders/Cart Screen/Delete Order/ok_Button'), 0, 0)
+	}
+
+
+
+	/**
+	 * delete's the C2 order from the cart screen based on the purchase order name
+	 * seperate delete method for c2 as locators for c2 order tile not available...when done remove this method
+	 */
+	@Keyword
+	def deleteC2Order() {
+
+		commonMethodsObject.waitForProgressBarToBeInvisible()
+
+		String testObj='iOS/Orders/Cart Screen/c2Order_View'
+
+		int elementHeight=Mobile.getElementHeight(findTestObject(testObj), 2)
+
+		int elementTopPosition = Mobile.getElementTopPosition(findTestObject(testObj), 0)
+
+		int yCoordinateToSwipe=(elementHeight/2)+elementTopPosition
+
+		Mobile.swipe(1300, yCoordinateToSwipe, 0, yCoordinateToSwipe)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Delete Order/success_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Delete Order/orderDeletedSuccessfully_Text'),0)
+
+		Mobile.tapAndHold(findTestObject('iOS/Orders/Cart Screen/Delete Order/ok_Button'), 0, 0)
 	}
 
 
@@ -201,6 +241,7 @@ class cartScreen {
 
 	/**
 	 * this function verifies the pattern required for the order which was created without giving any purchase order name
+	 * @param orderName (order name which is under verification)
 	 */
 	@Keyword
 	def verifyOrderNamePattern(final String orderName) {
@@ -209,7 +250,7 @@ class cartScreen {
 
 		Mobile.verifyMatch(orderName, regex, true)
 
-		KeywordUtil.logInfo("pattern matches"); //logInfo
+		KeywordUtil.logInfo("pattern matches"); //logInfo if pattern matches
 	}
 
 
@@ -248,7 +289,7 @@ class cartScreen {
 
 		Mobile.verifyElementAttributeValue(findTestObject('Object Repository/iOS/Dashboard/orders_Tab'), 'value', '1',0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Orders Common Screen/Cart Page_Tab'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Orders Common Screen/cartScreen_Tab'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/Enabled_Upload All Orders_Button'),0)
 
@@ -342,7 +383,7 @@ class cartScreen {
 	}
 
 
-	
+
 	/**
 	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at ordering
 	 */
@@ -355,9 +396,9 @@ class cartScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Product Search/Scan Flow/priceCheck_Button'), 0)
 	}
-	
-	
-	
+
+
+
 	/**
 	 * scans the product, adds it to the order and also verifies some scan input details
 	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
@@ -393,8 +434,8 @@ class cartScreen {
 			Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/priceCheck_Button'), 0)
 		}
 	}
-	
-	
+
+
 
 
 	/**
@@ -419,4 +460,5 @@ class cartScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/cancelAndKeepOrdersOnTheApp_Button'), 0)
 	}
+	
 }

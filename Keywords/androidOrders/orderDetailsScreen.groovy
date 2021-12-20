@@ -107,7 +107,7 @@ class orderDetailsScreen {
 	def addQuantityforTheSearchedProduct(int quantity) {
 
 		int i
-			for (i=1; i<= quantity; i++) {
+		for (i=1; i<= quantity; i++) {
 			Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/moreOperator_ImageView'),  0)
 		}
 	}
@@ -158,6 +158,16 @@ class orderDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Upload Order/Go to Dashboard_Button'), 0)
 	}
 
+
+	/**
+	 * verifies c2 label is visible or not
+	 */
+	@Keyword
+	def verifyC2Label() {
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/C2 Order Details Screen/Place C2 Order/C2_label'), 0)
+	}
+
 	/**
 	 * creates a new C2 order
 	 * @param poName (poName of the order), poMemo (poMemo of the order)
@@ -189,7 +199,46 @@ class orderDetailsScreen {
 	}
 
 
+	/**
+	 * this function selects toggle value for the product to be added which can be ordering or price check)
+	 * @param toggleValue (toggleValue required to be selected for the product to be added which can be ordering or price check)
+	 */
+	@Keyword
+	def selectToggleValueForTheProductToBeSearched(String toggleValue) {
 
+		if(toggleValue=="Ordering") {
+			Mobile.tap(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/ordering_Text'), 0)
+		}
+		else {
+			Mobile.tap(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/priceCheck_Text'), 0)
+		}
+	}
+
+	/**
+	 * verifies the order value after adding a product
+	 * @param quantity (quantity which was added)
+	 */
+	@Keyword
+	def verifyOrderValue(quantity) {
+
+		//int quantityIntegralValue=Integer.parseInt(quantity)
+
+		String productCost=Mobile.getText(findTestObject('Android/Orders/Verification Details/productCost_TextView'), 0)
+
+		float productCost_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(productCost)//converting uoiCost string to a float value
+
+		float expectedOrderTotal=quantity*productCost_dollarSymbolRemoved_FloatValue
+
+		KeywordUtil.logInfo(productCost)
+
+		String actualOrderTotal=Mobile.getText(findTestObject('Android/Orders/Verification Details/orderTotalCost_TextView'), 0)
+
+		float actualOrderTotal_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(actualOrderTotal)//converting uoiCost string to a float value
+
+		KeywordUtil.logInfo(actualOrderTotal)
+
+		assert expectedOrderTotal==actualOrderTotal_dollarSymbolRemoved_FloatValue
+	}
 
 
 	/**
@@ -328,7 +377,7 @@ class orderDetailsScreen {
 
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Edit PO Name and Memo/Edit P.O. Name and memo_TextView'),	0)
 	}
-	
+
 	/**
 	 * verifies the pop up which appears after user clicks on upload order
 	 */

@@ -56,6 +56,20 @@
             "productSearchByUPC": "305271-971746",
             "productSearchByNDC": "00527-1971-74",
         },
+        
+        "TC_R_051": {
+            "productSearchByNDC1": "00049-0530-28",
+            "productSearchByNDC2": "61570-0131-98",
+            "productSearchByNDC3": "00009-0306-12",
+            "productSearchByNDC4": "00009-7529-03",
+        },
+        
+        "TC_R_053": {
+            "productSearchByNDC1": "00049-0530-28",
+            "productSearchByNDC2": "61570-0131-98",
+            "productSearchByNDC3": "00069-0058-01",
+        },
+        
     },
     "PMODQa2": {
         "Carts": {
@@ -138,13 +152,22 @@
     },
     
     "PMODStgMock": {
-        
+      
         "TC_R_035": {
                 "productSearchByNDC": "50580-0496-60",
             },
         
         "TC_R_005": {
                 "productSearchByNDC": "50580-0496-60",
+
+        "TC_R_043": {
+                "productSearchByNDC": "50580-0496-60",
+                "productSearchCin": "4023347",
+            },
+        
+        "TC_R_044": {
+                "productSearchCin": "4023347",
+                "productSearchByNDC": "00527-1971-74",
             },
         
     },

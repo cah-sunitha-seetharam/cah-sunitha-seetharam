@@ -1,4 +1,4 @@
-package android_inventory
+package androidInventory
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
@@ -37,29 +37,46 @@ import com.kms.katalon.core.util.KeywordUtil
 
 import com.kms.katalon.core.webui.exception.WebElementNotFoundException
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
+import androidCommonKeywords.commonMethods
 
 
-class Inventory_details_Screen {
+class inventoryDetailsScreen {
 
+	def commonMethodsObject=new commonMethods();
+
+	/**
+	 * adds costType based on the argument which can be current or last price paid
+	 * @param costType (can be current or last price paid)
+	 */
 	@Keyword
-	def add_Location(String Location_Name, String CostType) {
+	def addCostType(String costType) {
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/addLocation_TextView'), 0)
-
-		Mobile.setText(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/locationName_TextField'), Location_Name,  0)
-
-		if (CostType == 'Last Cost Paid') {
+		if (costType == 'Last Cost Paid') {
 			Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/lastCostPaid_RadioButton'), 0)
 		} else {
 			Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/currentPrice_RadioButton'), 0)
 		}
-
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/createNewLocation_Button'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/createdLocation_TextView', [('TEXT') : Location_Name]),0, FailureHandling.OPTIONAL)
 	}
 
 
+	/**
+	 * adds location to an inventory based on the cost type of current or last price paid
+	 * @param locationName (name of the location to be added)
+	 * @param costType (cost type required which can be current or last price paid)
+	 */
+	@Keyword
+	def addLocation(String locationName, String costType) {
+
+		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/addLocation_TextView'), 0)
+
+		Mobile.setText(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/locationName_TextField'), locationName,  0)
+
+		(new androidInventory.inventoryDetailsScreen()).addCostType(costType)
+
+		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/createNewLocation_Button'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/createdLocation_TextView', [('TEXT') : locationName]),0, FailureHandling.OPTIONAL)
+	}
 
 
 
@@ -76,11 +93,8 @@ class Inventory_details_Screen {
 		Mobile.setText(findTestObject('Android/Inventory/Inventory Detail Screen/Edit Inventory/inventoryName_TextField'), New_Inventory_Name,0)
 
 		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Edit_Location/saveChanges_Button'), 0)
-		int w = 1
 
-		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 	}
 
 
@@ -88,21 +102,20 @@ class Inventory_details_Screen {
 
 
 	@Keyword
-	def click_On_Location(String Location_Name) {
+	def clickOnLocation(String locationName) {
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/openLocation_TextView',[('Location') : Location_Name]), 0)
+		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/openLocation_TextView',[('Location') : locationName]), 0)
 
-		int w=1
-
-		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 	}
 
 
-
+	/**
+	 * deletes the location
+	 * @param locationName (name of the location to be deleted)
+	 */
 	@Keyword
-	def delete_Location(String Location_Name) {
+	def deleteLocation(String locationName) {
 
 		Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Delete Inventory/popup_menu'), 0)
 
@@ -110,15 +123,13 @@ class Inventory_details_Screen {
 
 		Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Delete Inventory/Yes_Button'), 0)
 
-		int w=1
-
-		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.verifyElementNotVisible(findTestObject('Android/Inventory/Location Details Screen/Edit_Location/afterLocationEditVerfication_TextView',
-				[('TEXT') : Location_Name]), 0)
+				[('TEXT') : locationName]), 0)
 	}
+
+
 
 	@Keyword
 	def search_And_Add_Product_By_Creating_New_Location(String Location_Name, String Product_Name,String CostType) {

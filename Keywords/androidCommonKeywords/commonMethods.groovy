@@ -19,8 +19,14 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import com.kms.katalon.core.util.KeywordUtil
 import internal.GlobalVariable
+import androidDashboard.dashboardDetailsScreen
+import android_more_options.moreOptionsScreen
 
 class  commonMethods {
+
+	def dashboardObject=new dashboardDetailsScreen();
+	def moreOptionsScreenObject=new moreOptionsScreen();
+
 
 	/**
 	 * this method will take the application one screen back
@@ -38,7 +44,7 @@ class  commonMethods {
 	@Keyword
 	def installingAndlaunchingTheApplication() {
 
-		Mobile.startApplication(GlobalVariable.Android_App_Path, true) //Android_App_Path (Application path will be taken from the global profile and passed as a parameter to this method)
+		Mobile.startApplication(GlobalVariable.AndroidAppPath, true) //Android_App_Path (Application path will be taken from the global profile and passed as a parameter to this method)
 
 	}
 
@@ -101,4 +107,76 @@ class  commonMethods {
 		}
 
 	}
+
+
+
+	/**
+	 * opens the inventory listing screen by firstly clicking on more options from dash-board
+	 * and then clicks on inventory under more options screen which takes user to inventory listing screen
+	 */
+	@Keyword
+	def takeUserFromHomeToInventoryListingScreen() {
+
+		'takes user from dashboard to the moreOptions screen'
+		dashboardObject.clickOnMoreOptionsTab()
+
+		'waits until the progressBar is visible on the screen'
+		waitForProgressBarToBeInvisible()
+
+		'takes the user from moreOptions screen to the inventory listing screen'
+		moreOptionsScreenObject.goToInventoryListingScreen()
+
+		'waits until the progressBar is visible on the screen'
+		waitForProgressBarToBeInvisible()
+	}
+
+
+	/**
+	 * navigate to previous screen
+	 * use this method whenever the back button is not available
+	 */
+	@Keyword
+	def pressBacknav() {
+
+		Mobile.pressBack()
+	}
+
+	
+	/**
+	 * generates the coordinate x for a test object by considering ElementLeftPosition and ElementWidth
+	 * @param testObj (reference of the testObject passed as a parameter)
+	 * @param text (name of the element)
+	 * @return int value for the xCoordinate
+	 */
+	@Keyword
+	def tapXCoordinateGenerator(String testObj) {
+
+		int ElementLeftPosition=Mobile.getElementLeftPosition(findTestObject(testObj), 0)
+
+		int ElementWidth=Mobile.getElementWidth(findTestObject(testObj), 0)
+
+		int x_Coordinate=(ElementWidth/2)+ElementLeftPosition
+
+		return x_Coordinate
+	}
+
+
+	/**
+	 * generates the coordinate y for a test object by considering ElementTopPosition and ElementHeight
+	 * @param testObj (reference of the testObject passed as a parameter)
+	 * @param text (name of the element)
+	 * @return int value for the yCoordinate
+	 */
+	@Keyword
+	def tapYCoordinateGenerator(String testObj, String text) {
+
+		int ElementTopPosition = Mobile.getElementTopPosition(findTestObject(testObj, [('TEXT') : text]), 0)
+
+		int ElementHeight=Mobile.getElementHeight(findTestObject(testObj, [('TEXT') : text]), 0)
+
+		int y_Coordinate=(ElementHeight/2)+ElementTopPosition
+
+		return y_Coordinate
+	}
+
 }

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalVariableEntities>
+   <description></description>
+   <name>StageMock</name>
+   <tag></tag>
+   <defaultProfile>false</defaultProfile>
+   <GlobalVariableEntity>
+      <description>username is taken from the profiles and passed as a parameter in the logIn function</description>
+      <initValue>'auto_ws_acute'</initValue>
+      <name>Username</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>password is taken from the profiles and passed as a parameter in the logIn function</description>
+      <initValue>'Cardinal1'</initValue>
+      <name>Password</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>user account is taken from the profiles and passed as a parameter in the account selection screen</description>
+      <initValue>'11-2150245113'</initValue>
+      <name>Account</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>environment of testing is taken from profiles and used in the environment selection screen</description>
+      <initValue>'PMODStgMock'</initValue>
+      <name>Environment</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>android application path is taken from the profiles and used in the start application under android common methods</description>
+      <initValue>'/Users/shahul.hameed01/Downloads/Android/OEPlusAndroid-5.0.1.20211127004606-SNAPSHOT-1170-prod-debug.apk'</initValue>
+      <name>AndroidAppPath</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>iOS application path is taken from the profiles and used in the start application under android common methods</description>
+      <initValue>'/Users/shahul.hameed01/Downloads/iOS/Hatch.app'</initValue>
+      <name>iOSAppPath</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>SmSession</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>accessToken</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Android activity that we want to wait for while opening the app</description>
+      <initValue>'com.cardinalhealth.*'</initValue>
+      <name>appWaitActivity</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Package value of the Android app that we need to run</description>
+      <initValue>'com.cardinalhealth.orderexpress.two.debug'</initValue>
+      <name>appPackage</name>
+   </GlobalVariableEntity>
+</GlobalVariableEntities>

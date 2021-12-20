@@ -27,7 +27,7 @@
    <GlobalVariableEntity>
       <description>android application path is taken from the profiles and used in the start application under android common methods</description>
       <initValue>'/Users/sahil.vidaysingh/Downloads/OEPlusAndroid-3.5.0.20210922020418-SNAPSHOT-1150-prod-debug.apk'</initValue>
-      <name>Android_App_Path</name>
+      <name>AndroidAppPath</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description>iOS application path is taken from the profiles and used in the start application under android common methods</description>
@@ -58,5 +58,10 @@
       <description>bundle id for iOS application</description>
       <initValue>'com.cardinalhealth.orderexpress.two'</initValue>
       <name>bundleID</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>change this to order (strictly follow the name), if test suite under execution is of orders module </description>
+      <initValue>'order'</initValue>
+      <name>testSuiteModule</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

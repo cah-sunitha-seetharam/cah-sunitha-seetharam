@@ -57,8 +57,16 @@ class moreOptionsScreen {
 		Mobile.tap(findTestObject('Android/Account Selection/Accounts Listing Screen/Account_No', [('val') : accountNo]), 0)
 	}
 
-
-
+	/**
+	 * enables beta csos feature
+	 */
+	@Keyword()
+	def enableBetaFeatureCSOS() {
+		Mobile.tap(findTestObject('Android/More Options Screen/Beta Feature/betaFeatures_TextView'), 0)
+		Mobile.tap(findTestObject('Android/More Options Screen/Beta Feature/CSOSSubmitAndSignOff_Switch'), 0)
+		Mobile.tap(findTestObject('Android/More Options Screen/Beta Feature/iAgreeToTheTermsOfTheBetaProgram_CheckBox'), 0)
+		Mobile.tap(findTestObject('Android/More Options Screen/Beta Feature/confirm_Button'), 0)		
+	}
 
 	/**
 	 * takes the user from the the moreOptions Screen to inventory listing screen
@@ -67,7 +75,6 @@ class moreOptionsScreen {
 	def goToInventoryListingScreen() {
 
 		Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Verification Details/openInventory_TextView'), 0)
-
 	}
 
 
