@@ -258,6 +258,40 @@ class orderDetailsScreen {
 		assert expectedOrderTotal == actualOrderTotal
 	}
 
+	/**
+	 * this function returns the order value
+	 * @return actualOrderTotal(order total value)
+	 */
+	@Keyword
+	def returnOrderValue() {
+		String orderTotal=Mobile.getText(findTestObject('Android/Orders/Verification Details/orderTotalCost_TextView'), 0)
+		String actualOrderTotal = (new androidCommonKeywords.commonMethods()).removeCharctersInString(orderTotal)
+		return actualOrderTotal
+	}
+
+	/**
+	 * this function returns the cost of added product
+	 * @return productCost (of the product which has been added)
+	 */
+	@Keyword
+	def returnCostOfTheAddedProduct() {
+		String testObj='Object Repository/Android/Orders/Verification Details/productCost_TextView'
+		String productCost=(new androidCommonKeywords.commonMethods()).returnCostOfTheAddedProduct(testObj)//calling common method to get product cost
+		KeywordUtil.logInfo(productCost)
+		return productCost
+	}
+
+	/**
+	 * this function verifies that the product is visible on the order details screen
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */
+	@Keyword
+	def verifyProductIsVisibleOnTheOrderDetailsScreen(productNdcNumber) {
+		String testObj='Object Repository/Android/Orders/Verification Details/ordersNDCLabel_TextView'
+		(new androidCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
+	}
+
 
 	/**
 	 * clicks on c2 order availability and waits for the response while verifying the availability details for the c2 product

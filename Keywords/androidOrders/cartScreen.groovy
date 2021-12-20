@@ -238,6 +238,16 @@ class cartScreen  {
 		Mobile.verifyElementNotVisible(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/orderName_TextView',[('TEXT'):poName]),0)
 	}
 
+	/**
+	 * verifies that the created order should not be visible on the cart screen
+	 * @param poName (purchase order name used to create the order)
+	 */
+	@Keyword
+	def verifyOrderIsVisibleOnTheCartScreen(String poName) {
+
+		Mobile.verifyElementVisible(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/orderName_TextView',[('TEXT'):poName]),0)
+	}
+
 
 	/**
 	 * verifies nonC2 annotation count
@@ -289,6 +299,27 @@ class cartScreen  {
 		String LinesCount=Mobile.getText(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/totalLineCount_TextView'), 0)
 		String actualLineCount = (new androidCommonKeywords.commonMethods()).removeCharctersInString(LinesCount)
 		assert expectedLineCount==actualLineCount
+	}
+
+	/**
+	 * takes expected mobile orders count as the argument and verifies the same
+	 * @param expected mobile orders count (expected mobile orders count after adding products to the cart)
+	 */
+	@Keyword
+	def verifyMobileOrdersCount(String expectedMobileOrdersCount) {
+		String MobileOrdersCount=Mobile.getText(findTestObject('Object Repository/Android/Orders/Cart Screen/Verifictaion Details/mobileOrdersCount_TextView'), 0)
+		String actualMobileOrdersCount = (new androidCommonKeywords.commonMethods()).removeCharctersInString(MobileOrdersCount)
+		assert expectedMobileOrdersCount==actualMobileOrdersCount
+	}
+	/**
+	 * verifies the cart value after adding products
+	 * @param expectedCartValue (expected cart value which should be equal to actual cart total)
+	 */
+	@Keyword
+	def verifyCartValue(expectedCartValue) {
+		String cartTotal=Mobile.getText(findTestObject('Object Repository/Android/Orders/Cart Screen/Verifictaion Details/cartTotal_TextView'), 0)
+		String actualCartTotal=(new androidCommonKeywords.commonMethods()).removeCharctersInString(cartTotal)
+		assert expectedCartValue==actualCartTotal
 	}
 
 

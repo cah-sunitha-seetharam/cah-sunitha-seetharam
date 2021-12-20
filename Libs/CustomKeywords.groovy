@@ -334,7 +334,9 @@ def static "androidOrders.newOrderScreen.enterPurchaseOrderDetails"(
          , 	PO_Memo)
 }
 
-
+ /**
+	 * taps on create order button to create an order
+	 */ 
 def static "androidOrders.newOrderScreen.createOrder"() {
     (new androidOrders.newOrderScreen()).createOrder()
 }
@@ -1467,6 +1469,33 @@ def static "androidOrders.orderDetailsScreen.verifyOrderValue"(
 }
 
  /**
+	 * this function returns the order value
+	 * @return actualOrderTotal(order total value)
+	 */ 
+def static "androidOrders.orderDetailsScreen.returnOrderValue"() {
+    (new androidOrders.orderDetailsScreen()).returnOrderValue()
+}
+
+ /**
+	 * this function returns the cost of added product
+	 * @return productCost (of the product which has been added)
+	 */ 
+def static "androidOrders.orderDetailsScreen.returnCostOfTheAddedProduct"() {
+    (new androidOrders.orderDetailsScreen()).returnCostOfTheAddedProduct()
+}
+
+ /**
+	 * this function verifies that the product is visible on the order details screen
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyProductIsVisibleOnTheOrderDetailsScreen"(
+    	Object productNdcNumber	) {
+    (new androidOrders.orderDetailsScreen()).verifyProductIsVisibleOnTheOrderDetailsScreen(
+        	productNdcNumber)
+}
+
+ /**
 	 * clicks on c2 order availability and waits for the response while verifying the availability details for the c2 product
 	 */ 
 def static "androidOrders.orderDetailsScreen.checkC2ProductAvailability"() {
@@ -2353,6 +2382,16 @@ def static "androidOrders.cartScreen.verifyOrderNotVisibleOnTheCartScreen"(
 }
 
  /**
+	 * verifies that the created order should not be visible on the cart screen
+	 * @param poName (purchase order name used to create the order)
+	 */ 
+def static "androidOrders.cartScreen.verifyOrderIsVisibleOnTheCartScreen"(
+    	String poName	) {
+    (new androidOrders.cartScreen()).verifyOrderIsVisibleOnTheCartScreen(
+        	poName)
+}
+
+ /**
 	 * verifies nonC2 annotation count
 	 * @param expectedAnnotationCount (expected annotation count count of nonc2 after adding product to the cart)
 	 */ 
@@ -2403,6 +2442,26 @@ def static "androidOrders.cartScreen.verifyTotalLineCount"(
 }
 
  /**
+	 * takes expected mobile orders count as the argument and verifies the same
+	 * @param expected mobile orders count (expected mobile orders count after adding products to the cart)
+	 */ 
+def static "androidOrders.cartScreen.verifyMobileOrdersCount"(
+    	String expectedMobileOrdersCount	) {
+    (new androidOrders.cartScreen()).verifyMobileOrdersCount(
+        	expectedMobileOrdersCount)
+}
+
+ /**
+	 * verifies the cart value after adding products
+	 * @param expectedCartValue (expected cart value which should be equal to actual cart total)
+	 */ 
+def static "androidOrders.cartScreen.verifyCartValue"(
+    	Object expectedCartValue	) {
+    (new androidOrders.cartScreen()).verifyCartValue(
+        	expectedCartValue)
+}
+
+ /**
 	 * verifies the cart screen details without any product
 	 */ 
 def static "androidOrders.cartScreen.verifyCartScreenDetailsWithOutAddingAnyProduct"() {
@@ -2448,6 +2507,41 @@ def static "androidCommonKeywords.commonMethods.floatToStringConversionAndFormat
     	Float floatToBeConvertedToString	) {
     (new androidCommonKeywords.commonMethods()).floatToStringConversionAndFormatting(
         	floatToBeConvertedToString)
+}
+
+ /**
+	 * this function returns the total expected value of the added product
+	 * @return expectedOrderTotal (of the product which has been added)
+	 */ 
+def static "androidCommonKeywords.commonMethods.returnExpectedTotalValueForAddedProduct"(
+    	Object quantity	
+     , 	Object costOfProduct	) {
+    (new androidCommonKeywords.commonMethods()).returnExpectedTotalValueForAddedProduct(
+        	quantity
+         , 	costOfProduct)
+}
+
+ /**
+	 * this function returns the cost of added product
+	 * @return productCostCharcterRemoved (of the product which has been added)
+	 */ 
+def static "androidCommonKeywords.commonMethods.returnCostOfTheAddedProduct"(
+    	String testObj	) {
+    (new androidCommonKeywords.commonMethods()).returnCostOfTheAddedProduct(
+        	testObj)
+}
+
+ /**
+	 * this function verifies that the product is visible on the screen
+	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
+	 * @param testObj (test object of the element under verification)
+	 */ 
+def static "androidCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScreen"(
+    	Object testObj	
+     , 	Object productIdentificationNumber	) {
+    (new androidCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(
+        	testObj
+         , 	productIdentificationNumber)
 }
 
  /**
@@ -2555,19 +2649,19 @@ def static "api.apiCommonMethods.tokenGenerator"() {
 }
 
 
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
+}
+
+
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
     	Eyes eyes	
      , 	WebElement element	) {
     (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkElement(
         	eyes
          , 	element)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
 }
 
 
@@ -2594,13 +2688,6 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	
      , 	String testName	
@@ -2609,4 +2696,11 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
 }
