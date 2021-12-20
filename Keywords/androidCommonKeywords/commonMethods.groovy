@@ -44,7 +44,7 @@ class  commonMethods {
 	@Keyword
 	def installingAndlaunchingTheApplication() {
 
-		Mobile.startApplication(GlobalVariable.Android_App_Path, true) //Android_App_Path (Application path will be taken from the global profile and passed as a parameter to this method)
+		Mobile.startApplication(GlobalVariable.AndroidAppPath, true) //Android_App_Path (Application path will be taken from the global profile and passed as a parameter to this method)
 
 	}
 

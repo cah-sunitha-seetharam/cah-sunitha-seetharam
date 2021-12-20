@@ -51,7 +51,7 @@ class apiCommonMethods {
 		def testDataObject = this.readAPITestData()
 		def RequestObject = commonMethods.readFileTypeJSON("ordersData.json")  // reading the module test data file
 		def String purchaseOrderNumber  = commonMethods.randomStringGenerator(10)  // creating a random string for po number
-			ResponseObject cartCreation = WS.sendRequest(findTestObject('API/Carts API - POST', [('carts-api-host') : testDataObject.apiHost.mobileCarts, ('env') : testDataObject[environmentValue].urlHeaderInput.environment, ('x-api-key') : testDataObject[environmentValue].urlHeaderInput.xApiKey, ('Authorization') : GlobalVariable.accessToken
+		ResponseObject cartCreation = WS.sendRequest(findTestObject('API/Carts API - POST', [('carts-api-host') : testDataObject.apiHost.mobileCarts, ('env') : testDataObject[environmentValue].urlHeaderInput.environment, ('x-api-key') : testDataObject[environmentValue].urlHeaderInput.xApiKey, ('Authorization') : GlobalVariable.accessToken
 			, ('user') : GlobalVariable.Username, ('UUID') : testDataObject[environmentValue].urlHeaderInput.UUID, ('distributionCenter') : RequestObject[environmentValue].Carts.distributionCenter, ('customerNumber') : RequestObject[environmentValue].Carts.customerAccountNumber, ('purchaseOrderNumber') : purchaseOrderNumber
 			, ('cin1') : RequestObject[environmentValue].Carts.cin1, ('qty1') : RequestObject[environmentValue].Carts.qty1]))
 

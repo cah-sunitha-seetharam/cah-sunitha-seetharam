@@ -488,12 +488,22 @@ def static "iosOrders.orderDetailsScreen.returnQuantityOfTheAddedProduct"() {
 }
 
  /**
-	 * scans the product, adds it to the order and also verifies some scan input details
+	 * scans the product, adds it to the order and also verifies some scan input details when 'ordering' toggle is selected
 	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
 	 */ 
 def static "iosOrders.orderDetailsScreen.scanInputEvent"(
     	String productToBeSearched	) {
     (new iosOrders.orderDetailsScreen()).scanInputEvent(
+        	productToBeSearched)
+}
+
+ /**
+	 * scans the product, adds it to the order and also verifies some scan input details when 'price check' toggle is selected
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */ 
+def static "iosOrders.orderDetailsScreen.scanInputEventWhileOnPriceCheck"(
+    	String productToBeSearched	) {
+    (new iosOrders.orderDetailsScreen()).scanInputEventWhileOnPriceCheck(
         	productToBeSearched)
 }
 
@@ -592,6 +602,43 @@ def static "iosOrders.orderDetailsScreen.verifyProductIsVisibleOnTheOrderDetails
 	 */ 
 def static "iosOrders.orderDetailsScreen.verifyUploadOrderPopUp"() {
     (new iosOrders.orderDetailsScreen()).verifyUploadOrderPopUp()
+}
+
+ /**
+	 * this function adds the product to be ordered - when price check toggle is selected
+	 * @param quantity (quantity required to be added for the product to be searched)
+	 */ 
+def static "iosOrders.orderDetailsScreen.addToOrder"() {
+    (new iosOrders.orderDetailsScreen()).addToOrder()
+}
+
+ /**
+	 * taps on go to order button on order confirmation screen and takes user to order details screen
+	 */ 
+def static "iosOrders.orderDetailsScreen.clickOnGoToOrder"() {
+    (new iosOrders.orderDetailsScreen()).clickOnGoToOrder()
+}
+
+ /**
+	 * taps on continue browsing button on order confirmation screen and takes user to scan result screen
+	 */ 
+def static "iosOrders.orderDetailsScreen.clickOnContinueBrowsing"() {
+    (new iosOrders.orderDetailsScreen()).clickOnContinueBrowsing()
+}
+
+ /**
+	 * verified user is taken to scan result screen after tapping on continue browsing button
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyScanResultScreenWithProduct"() {
+    (new iosOrders.orderDetailsScreen()).verifyScanResultScreenWithProduct()
+}
+
+ /**
+	 * this function returns the order name of the order/ title of the screen when user is on order details screen
+	 * return orderName (returns order name/ title of order details screen)
+	 */ 
+def static "iosOrders.orderDetailsScreen.returnOrderNameFromOrderDetailScreen"() {
+    (new iosOrders.orderDetailsScreen()).returnOrderNameFromOrderDetailScreen()
 }
 
  /**
@@ -2665,6 +2712,13 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
+}
+
+
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
     	TestObject testObject	
      , 	String testName	) {
@@ -2673,6 +2727,9 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
          , 	testName)
 }
 
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+}
 
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
     	String testName	
@@ -2680,11 +2737,6 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
         	testName
          , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
 
 

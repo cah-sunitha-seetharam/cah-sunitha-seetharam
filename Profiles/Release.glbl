@@ -27,7 +27,7 @@
    <GlobalVariableEntity>
       <description>android application path is taken from the profiles and used in the start application under android common methods</description>
       <initValue>'/Users/sahil.vidaysingh/Downloads/OEPlusAndroid-3.5.0.20210922020418-SNAPSHOT-1150-prod-debug.apk'</initValue>
-      <name>Android_App_Path</name>
+      <name>AndroidAppPath</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description>iOS application path is taken from the profiles and used in the start application under android common methods</description>
