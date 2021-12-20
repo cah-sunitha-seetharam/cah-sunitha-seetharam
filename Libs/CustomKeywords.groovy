@@ -56,28 +56,39 @@ def static "androidDashboard.dashboardDetailsScreen.clickOnMoreOptionsTab"() {
     (new androidDashboard.dashboardDetailsScreen()).clickOnMoreOptionsTab()
 }
 
-
+ /**
+	 * deletes the inventory from the inventory listing screen
+	 * @param inventoryName (inventory name of the inventory which needs to be deleted)
+	 */ 
 def static "androidInventory.inventoryListingScreen.deleteInventory"(
     	String inventoryName	) {
     (new androidInventory.inventoryListingScreen()).deleteInventory(
         	inventoryName)
 }
 
-
+ /**
+	 * switches to another user account
+	 * @param newAccount (account no to which the user should switch)
+	 */ 
 def static "androidInventory.inventoryListingScreen.change_Account"(
     	String new_Account	) {
     (new androidInventory.inventoryListingScreen()).change_Account(
         	new_Account)
 }
 
-
+ /**
+	 * creates a new inventory from inventory listing screen
+	 * @param inventoryName (name required for the new inventory)
+	 */ 
 def static "androidInventory.inventoryListingScreen.createInventory"(
     	String inventoryName	) {
     (new androidInventory.inventoryListingScreen()).createInventory(
         	inventoryName)
 }
 
-
+ /**
+	 * verifies details of inventory listing screen
+	 */ 
 def static "androidInventory.inventoryListingScreen.verify_Inventory_Listing_Screen"() {
     (new androidInventory.inventoryListingScreen()).verify_Inventory_Listing_Screen()
 }
@@ -1361,6 +1372,17 @@ def static "androidInventory.locationDetailsScreen.deleteProduct"(
         	productNdcNumber)
 }
 
+ /**
+	 * verifies that the latest added product is at the top of the added products list, then deletes the latest added product and continues the process to verifyReverseChronologicalOrder of the added products
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */ 
+def static "androidInventory.locationDetailsScreen.verifyReverseChronologicalOrder"(
+    	Stack productNdcNumber	) {
+    (new androidInventory.locationDetailsScreen()).verifyReverseChronologicalOrder(
+        	productNdcNumber)
+}
+
 
 def static "androidOrders.orderDetailsScreen.upload_Order"() {
     (new androidOrders.orderDetailsScreen()).upload_Order()
@@ -1695,14 +1717,21 @@ def static "android_more_options.moreOptionsScreen.signOut"() {
     (new android_more_options.moreOptionsScreen()).signOut()
 }
 
-
+ /**
+	 * adds costType based on the argument which can be current or last price paid
+	 * @param costType (can be current or last price paid)
+	 */ 
 def static "androidInventory.inventoryDetailsScreen.addCostType"(
     	String costType	) {
     (new androidInventory.inventoryDetailsScreen()).addCostType(
         	costType)
 }
 
-
+ /**
+	 * adds location to an inventory based on the cost type of current or last price paid
+	 * @param locationName (name of the location to be added)
+	 * @param costType (cost type required which can be current or last price paid)
+	 */ 
 def static "androidInventory.inventoryDetailsScreen.addLocation"(
     	String locationName	
      , 	String costType	) {
@@ -1745,14 +1774,20 @@ def static "androidInventory.inventoryDetailsScreen.verify_Inventory_Details_Scr
         	Inventory_Name)
 }
 
-
+ /**
+	 * verifies the location count, cost gets updated or not, of the inventory after the location is deleted
+	 * @param locationName (name of the location under verification)
+	 */ 
 def static "androidInventory.inventoryDetailsScreen.deleteLocationWithCostLocationCountVerification"(
     	String locationName	) {
     (new androidInventory.inventoryDetailsScreen()).deleteLocationWithCostLocationCountVerification(
         	locationName)
 }
 
-
+ /**
+	 * deletes the location
+	 * @param locationName (name of the location to be deleted)
+	 */ 
 def static "androidInventory.inventoryDetailsScreen.deleteLocation"(
     	String locationName	) {
     (new androidInventory.inventoryDetailsScreen()).deleteLocation(

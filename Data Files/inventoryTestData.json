@@ -189,8 +189,17 @@
         "TC_R_007": {
             "productSearchCin": "4023347",
             "productSearchByNDC1": "42023-0107-01",
-        },
+        	},
 
+        "TC_R_010": {
+            "productSearchByNDC1": "42023-0107-01",
+            "productSearchByNDC2": "50580-0496-60",
+            "productSearchByNDC3": "49884-0111-74",
+        	},
+
+        "TC_R_015": {
+            "productSearchCin": "4023347",
+        },
             
         "TC_R_019": {
             "productSearchByNDC1": "42023-0107-01",

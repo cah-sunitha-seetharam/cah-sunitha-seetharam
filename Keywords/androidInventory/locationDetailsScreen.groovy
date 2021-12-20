@@ -376,4 +376,32 @@ class locationDetailsScreen {
 
 		Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Delete Inventory/Yes_Button'), 0)
 	}
+
+
+	/**
+	 * verifies that the latest added product is at the top of the added products list, then deletes the latest added product and continues the process to verifyReverseChronologicalOrder of the added products
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */
+	@Keyword
+	def verifyReverseChronologicalOrder(Stack productNdcNumber) {
+
+		String topProductIdentificationNumber
+		while(!productNdcNumber.isEmpty()) //loops while productIdentificationNumbersStack is not empty
+		{
+			String actualproductIdentificationNumber, testObj='Android/Inventory/Location Details Screen/Verification Details/ndc_Label'
+
+			topProductIdentificationNumber=productNdcNumber.pop() //pops the top ProductIdentificationNumber from the productNdcStack and stores value in the topProductNdc
+
+			actualproductIdentificationNumber=Mobile.getText(findTestObject(testObj),0) //gets the ProductIdentificationNumber of the top added product in the location details page
+
+			assert actualproductIdentificationNumber==("NDC: "+topProductIdentificationNumber) // verifies actualproductIdentificationNumber equals the ProductIdentificationNumber of the topmost product in the products list
+			
+			KeywordUtil.logInfo("actualproductIdentificationNumber is " + actualproductIdentificationNumber );
+			KeywordUtil.logInfo("topProductIdentificationNumber is " + topProductIdentificationNumber );
+			
+			(new androidInventory.locationDetailsScreen()).deleteProduct(topProductIdentificationNumber)//calling delete product function and passing the topProductIdentificationNumber
+			
+		}
+	}
 }
