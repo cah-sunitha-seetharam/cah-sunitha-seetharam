@@ -23,18 +23,20 @@ CustomKeywords.'androidCommonKeywords.commonMethods.installingAndlaunchingTheApp
 'logins with username password and then opens account selection page'
 CustomKeywords.'androidLogin.loginScreen.login'(GlobalVariable.Username, GlobalVariable.Password)
 
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
 'after login, verifies page caption and selects account'
 CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
+
+'------------------------enables beta feature CSOS---------------------------'
+
+CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnMoreOptions'()
+CustomKeywords.'android_more_options.moreOptionsScreen.enableBetaFeatureCSOS'()
+
+'----------------------------------------------------------------------------'
 
 'opens cart page'
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnOrders'()
 
-'verifies cart page without any added product'
-CustomKeywords.'androidOrders.cartScreen.verifyCartScreenDetailsWithOutAddingAnyProduct'()
-
+'--------------------------c2 order--------------------------'
 'takes user to the new order screen'
 CustomKeywords.'androidOrders.ordersCommonScreen.clickOnNewOrder'()
 
@@ -47,8 +49,8 @@ CustomKeywords.'androidOrders.newOrderScreen.enterPurchaseOrderDetails'(poName, 
 'clicks on create order to create an order'
 CustomKeywords.'androidOrders.newOrderScreen.createOrder'()
 
-'verifies order details screen without any added product'
-CustomKeywords.'androidOrders.orderDetailsScreen.verifyOrderScreenDetailsWithoutAnyAddedProduct'()
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'clicks on scan icon and also verifies that the default scan toggle value is at ordering'
 CustomKeywords.'androidOrders.orderDetailsScreen.clickOnScanIcon'()
@@ -57,10 +59,13 @@ CustomKeywords.'androidOrders.orderDetailsScreen.clickOnScanIcon'()
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('ordersData.json')
 
 'reading the product name of product to be added (nonC2 product)'
-String productSearch = requestObject[GlobalVariable.Environment].TC_R_005.productSearchByNDC
+String productSearchByCin = requestObject[GlobalVariable.Environment].TC_R_044.productSearchCin
+
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'takes productSearch which can be productName/Cin/UPC/NDC as the input and adds it to the order by scanning the product'
-CustomKeywords.'androidOrders.orderDetailsScreen.scanInputEvent'(productSearch)
+CustomKeywords.'androidOrders.orderDetailsScreen.scanInputEvent'(productSearchByCin)
 
 'adds quantity of the product'
 CustomKeywords.'androidOrders.orderDetailsScreen.addQuantityforTheSearchedProduct'(quantity)
@@ -77,23 +82,47 @@ actualQuantityAdded = CustomKeywords.'androidOrders.orderDetailsScreen.returnQua
 'verifies wheather actual quantity added equals the expected quantity'
 assert actualQuantityAdded == expectedQuantity
 
-'uploads the order by clicking on upload order button'
-CustomKeywords.'androidOrders.orderDetailsScreen.uploadOrder'()
+'verifies c2 label is visible or not'
+CustomKeywords.'androidOrders.orderDetailsScreen.verifyC2Label'()
+
+'takes the application one screen back'
+CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'verifies the pop up screen which appears after user clicks on upload order'
-CustomKeywords.'androidOrders.orderDetailsScreen.verifyUploadOrderPopUp'()
+'takes user to the dashboard screen'
+CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnHomeTab'()
 
-'opens order has been sent to desktop popup'
-CustomKeywords.'androidOrders.cartScreen.clickOnContinueOnDesktop'()
+'-----------------------c2 order------------------------'
 
-'verifies order has been sent to desktop popup'
-CustomKeywords.'androidOrders.orderDetailsScreen.verifyOrderHasbeensentToDesktopPopUp'()
+'reading the product name of product to be added (nonC2 product)'
+String productSearchByNDC = requestObject[GlobalVariable.Environment].TC_R_044.productSearchByNDC
 
-'takes user back to cart screen'
-CustomKeywords.'androidOrders.orderDetailsScreen.clickOnBackToCart'()
+'clicks on scan icon and also verifies that the default scan toggle value is at ordering'
+CustomKeywords.'androidOrders.orderDetailsScreen.clickOnScanIcon'()
 
-'verifies that the order should not be visible on the screen and takes purchase order name as the argument'
-CustomKeywords.'androidOrders.cartScreen.verifyOrderNotVisibleOnTheCartScreen'(poName)
+'selects toggle value which can be ordering or price check'
+CustomKeywords.'androidOrders.orderDetailsScreen.selectToggleValueForTheProductToBeSearched'(toggleValue)
+
+'takes productSearch which can be productName/Cin/UPC/NDC as the input and adds it to the order by scanning the product'
+CustomKeywords.'androidOrders.orderDetailsScreen.scanInputEvent'(productSearchByNDC)
+
+'takes the application one screen back'
+CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
+
+'opens cart page'
+CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnOrders'()
+
+'opens the c2 order tab'
+CustomKeywords.'androidOrders.cartScreen.clickOnC2OrdersTab'()
+
+'verifies line count'
+CustomKeywords.'androidOrders.cartScreen.verifyLinesCount'(expectedLinesCount)
+
+String accountNo = GlobalVariable.Account
+
+'opens c2 order details'
+CustomKeywords.'androidOrders.cartScreen.openC2OrderDetailScreen'(accountNo)
+
+
