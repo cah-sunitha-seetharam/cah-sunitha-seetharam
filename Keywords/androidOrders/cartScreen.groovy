@@ -41,14 +41,25 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 class cartScreen  {
 
+	//	/**
+	//	 * opens the order details page
+	//	 * @param accountNo (accountNo used to create the order)
+	//	 */
+	//	@Keyword
+	//	def openAnOrderDetails(String accountNo) {
+	//
+	//		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/orderDetails_button',[('Order_Name') : accountNo]),  0)
+	//	}
+
+
 	/**
 	 * opens the order details page
-	 * @param accountNo (accountNo used to create the order)
+	 * @param poName (purchase order name used to create the order)
 	 */
 	@Keyword
-	def openAnOrderDetails(String accountNo) {
+	def openAnOrderDetail(String poName) {
 
-		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/orderDetails_button',[('Order_Name') : accountNo]),  0)
+		Mobile.tap(findTestObject('Object Repository/Android/Orders/Orders Common Screen/orderListOrderName_TextView',[('TEXT'):poName]), 0)
 	}
 
 
@@ -63,15 +74,15 @@ class cartScreen  {
 
 
 
-	/**
-	 * opens the c2 order details
-	 * @param accountNo (account no which was used to create the order)
-	 */
-	@Keyword
-	def openC2OrderDetailScreen(String accountNo) {
-
-		Mobile.tap(findTestObject('Object Repository/Android/Orders/C2 Order Details Screen/createdOrder_TextView',[('TEXT'):accountNo]), 0)
-	}
+	//	/**
+	//	 * opens the c2 order details
+	//	 * @param accountNo (account no which was used to create the order)
+	//	 */
+	//	@Keyword
+	//	def openC2OrderDetailScreen(String accountNo) {
+	//
+	//		Mobile.tap(findTestObject('Object Repository/Android/Orders/C2 Order Details Screen/createdOrder_TextView',[('TEXT'):accountNo]), 0)
+	//	}
 
 
 
@@ -260,24 +271,37 @@ class cartScreen  {
 		assert expectedAnnotationCount == actualAnnotationCount
 	}
 
+
 	/**
-	 * takes expected lines count as the argument and verifies the same
-	 * @param expectedLineCount (expected total line count of c2 after adding product to the cart)
+	 * takes expected lines count of c2 or non c2 as the argument and verifies the same
+	 * @param expectedLineCount (expected total line count of non c2 or c2 after adding product to the cart)
 	 */
 	@Keyword
-	def verifyC2LineCount(String expectedlineCount){
-		String actualLineCount=Mobile.getText(findTestObject('Android/Orders/Cart Screen/C2 Order/lineCount_TextView'), 0)
+	def verifyLineCountofC2OrNonC2Product(String expectedlineCount){
+		String lineCount=Mobile.getText(findTestObject('Android/Orders/Cart Screen/lineCountC2OrNonC2Product_TextView'), 0)
+		String actualLineCount = (new androidCommonKeywords.commonMethods()).removeCharctersInString(lineCount)
 		assert expectedlineCount==actualLineCount
 	}
 
 	/**
-	 * takes expected lines count as the argument and verifies the same
-	 * @param expectedLineCount (expected total line count of non c2 after adding product to the cart)
+	 * this function returns the order name of the order which is at the top of the order list
+	 * return orderName (returns topmost order name)
 	 */
 	@Keyword
-	def verifyNonC2LineCount(String expectedlineCount){
-		String actualLineCount=Mobile.getText(findTestObject('Object Repository/Android/Orders/Cart Screen/Non C2 Order/lineCount_TextView'), 0)
-		assert expectedlineCount==actualLineCount
+	def returnTopMostOrderName() {
+		String orderName=Mobile.getText(findTestObject('Object Repository/Android/Orders/Cart Screen/orderListOrderName_TextView'), 0)
+		return orderName
+	}
+
+	/**
+	 * this function verifies the pattern required for the order which was created without giving any purchase order name
+	 * @param orderName (order name which is under verification)
+	 */
+	@Keyword
+	def verifyOrderNamePattern(final String orderName) {
+		final String regex = "(Mobile)(-)([0-9]{6})(-)([0-9]{6})"
+		Mobile.verifyMatch(orderName, regex, true)
+		KeywordUtil.logInfo("pattern matches"); //logInfo if pattern matches
 	}
 
 	/**

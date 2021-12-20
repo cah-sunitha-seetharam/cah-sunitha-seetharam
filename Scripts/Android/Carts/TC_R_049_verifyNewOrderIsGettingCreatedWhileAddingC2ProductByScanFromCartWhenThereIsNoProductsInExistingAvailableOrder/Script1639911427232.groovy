@@ -132,10 +132,11 @@ CustomKeywords.'androidOrders.cartScreen.verifyC2AnnotationCount'(c2AnnotationCo
 'opens the c2 order tab'
 CustomKeywords.'androidOrders.cartScreen.clickOnC2OrdersTab'()
 
-String accountNo = GlobalVariable.Account
+'this function returns the order name of the order which is at the top of the order list'
+String orderName = CustomKeywords.'androidOrders.cartScreen.returnTopMostOrderName'()
 
-'opens c2 order details'
-CustomKeywords.'androidOrders.cartScreen.openC2OrderDetailScreen'(accountNo)
+'opens order details and takes order name as the argument'
+CustomKeywords.'androidOrders.cartScreen.openAnOrderDetail'(orderName)
 
 'reading the product name of product to be added (C2 product)'
 productSearch = requestObject[GlobalVariable.Environment].TC_R_049.productSearchByNDC

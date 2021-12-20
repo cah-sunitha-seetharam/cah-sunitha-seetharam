@@ -108,15 +108,13 @@ CustomKeywords.'androidOrders.cartScreen.clickOnC2OrdersTab'()
 CustomKeywords.'androidOrders.cartScreen.verifyTotalLineCount'(totalLineCount)
 
 'takes c2LineCount count as the argument and verifies the same'
-CustomKeywords.'androidOrders.cartScreen.verifyC2LineCount'(c2LineCount)
+CustomKeywords.'androidOrders.cartScreen.verifyLineCountofC2OrNonC2Product'(c2LineCount)
 
 'takes expectedAnnotationCount count as the argument and verifies the same'
 CustomKeywords.'androidOrders.cartScreen.verifyC2AnnotationCount'(expectedAnnotationCount)
 
-String accountNo = GlobalVariable.Account
-
 'opens c2 order details'
-CustomKeywords.'androidOrders.cartScreen.openC2OrderDetailScreen'(accountNo)
+CustomKeywords.'androidOrders.cartScreen.openAnOrderDetail'(poName)
 
 'verifies the order value after adding a product'
 CustomKeywords.'androidOrders.orderDetailsScreen.verifyOrderValue'(expectedQuantity)
@@ -151,13 +149,19 @@ CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnOrders'()
 
 'takes nonc2LineCount count as the argument and verifies the same'
-CustomKeywords.'androidOrders.cartScreen.verifyNonC2LineCount'(nonc2LineCount)
+CustomKeywords.'androidOrders.cartScreen.verifyLineCountofC2OrNonC2Product'(nonc2LineCount)
 
 'takes expectedAnnotationCount count as the argument and verifies the same'
 CustomKeywords.'androidOrders.cartScreen.verifynonC2AnnotationCount'(expectedAnnotationCount)
 
-'opens order details of non c2 order'
-CustomKeywords.'androidOrders.cartScreen.openAnOrderDetails'(GlobalVariable.Account)
+'this function returns the order name of the order which is at the top of the order list'
+String orderName = CustomKeywords.'androidOrders.cartScreen.returnTopMostOrderName'()
+
+'this function verifies the pattern required for the order which was created without giving any purchase order name'
+CustomKeywords.'androidOrders.cartScreen.verifyOrderNamePattern'(orderName)
+
+'opens order details and takes order name as the argument'
+CustomKeywords.'androidOrders.cartScreen.openAnOrderDetail'(orderName)
 
 '-------------------------upload order non c2----------------------------'
 
@@ -186,7 +190,7 @@ CustomKeywords.'androidOrders.cartScreen.verifyCartScreenWithOutNonC2Orders'()
 CustomKeywords.'androidOrders.cartScreen.clickOnC2OrdersTab'()
 
 'takes c2LineCount count as the argument and verifies the same'
-CustomKeywords.'androidOrders.cartScreen.verifyC2LineCount'(c2LineCount)
+CustomKeywords.'androidOrders.cartScreen.verifyLineCountofC2OrNonC2Product'(c2LineCount)
 
 'takes expectedAnnotationCount count as the argument and verifies the same'
 CustomKeywords.'androidOrders.cartScreen.verifyC2AnnotationCount'(expectedAnnotationCount)

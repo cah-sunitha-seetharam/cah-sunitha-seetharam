@@ -66,14 +66,14 @@ Prerequisite:
       <name>toggleValue</name>
    </variable>
    <variable>
-      <defaultValue>'1 Line'</defaultValue>
+      <defaultValue>'1'</defaultValue>
       <description>expected line count of the nonc2order in cart page</description>
       <id>13bb4a29-0433-4389-9e6f-9ad922c11191</id>
       <masked>false</masked>
       <name>nonc2LineCount</name>
    </variable>
    <variable>
-      <defaultValue>'1 Line'</defaultValue>
+      <defaultValue>'1'</defaultValue>
       <description>expected line count of the c2order in cart page</description>
       <id>bdc127ef-1748-4f39-8a66-bc2bb67998ba</id>
       <masked>false</masked>

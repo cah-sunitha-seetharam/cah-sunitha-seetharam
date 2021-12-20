@@ -1798,56 +1798,6 @@ def static "android_more_options.moreOptionsScreen.signOut"() {
     (new android_more_options.moreOptionsScreen()).signOut()
 }
 
-
-def static "android_inventory.Inventory_details_Screen.add_Location"(
-    	String Location_Name	
-     , 	String CostType	) {
-    (new android_inventory.Inventory_details_Screen()).add_Location(
-        	Location_Name
-         , 	CostType)
-}
-
-
-def static "android_inventory.Inventory_details_Screen.edit_InventoryName"(
-    	String New_Inventory_Name	
-     , 	String Previous_Name	) {
-    (new android_inventory.Inventory_details_Screen()).edit_InventoryName(
-        	New_Inventory_Name
-         , 	Previous_Name)
-}
-
-
-def static "android_inventory.Inventory_details_Screen.click_On_Location"(
-    	String Location_Name	) {
-    (new android_inventory.Inventory_details_Screen()).click_On_Location(
-        	Location_Name)
-}
-
-
-def static "android_inventory.Inventory_details_Screen.delete_Location"(
-    	String Location_Name	) {
-    (new android_inventory.Inventory_details_Screen()).delete_Location(
-        	Location_Name)
-}
-
-
-def static "android_inventory.Inventory_details_Screen.search_And_Add_Product_By_Creating_New_Location"(
-    	String Location_Name	
-     , 	String Product_Name	
-     , 	String CostType	) {
-    (new android_inventory.Inventory_details_Screen()).search_And_Add_Product_By_Creating_New_Location(
-        	Location_Name
-         , 	Product_Name
-         , 	CostType)
-}
-
-
-def static "android_inventory.Inventory_details_Screen.verify_Inventory_Details_Screen"(
-    	String Inventory_Name	) {
-    (new android_inventory.Inventory_details_Screen()).verify_Inventory_Details_Screen(
-        	Inventory_Name)
-}
-
  /**
 	 * adds costType based on the argument which can be current or last price paid
 	 * @param costType (can be current or last price paid)
@@ -1947,148 +1897,6 @@ def static "iosOrders.newOrderScreen.verify_NewOrder_Screen_Details"() {
     (new iosOrders.newOrderScreen()).verify_NewOrder_Screen_Details()
 }
 
-
-def static "android_inventory.locationDetailsScreen.edit_LocationName"(
-    	String New_Location_Name	
-     , 	String CostType	
-     , 	String Previous_Name	) {
-    (new android_inventory.locationDetailsScreen()).edit_LocationName(
-        	New_Location_Name
-         , 	CostType
-         , 	Previous_Name)
-}
-
-
-def static "android_inventory.locationDetailsScreen.add_Product_To_Location"(
-    	String Location_Name	
-     , 	String Product_Name	) {
-    (new android_inventory.locationDetailsScreen()).add_Product_To_Location(
-        	Location_Name
-         , 	Product_Name)
-}
-
-
-def static "android_inventory.locationDetailsScreen.move_Product_To_Another_Location"(
-    	String Location_Name	) {
-    (new android_inventory.locationDetailsScreen()).move_Product_To_Another_Location(
-        	Location_Name)
-}
-
-
-def static "android_inventory.locationDetailsScreen.copy_Product_To_Another_Location"(
-    	String Location_Name	) {
-    (new android_inventory.locationDetailsScreen()).copy_Product_To_Another_Location(
-        	Location_Name)
-}
-
-
-def static "android_inventory.locationDetailsScreen.delete_Product"() {
-    (new android_inventory.locationDetailsScreen()).delete_Product()
-}
-
-
-def static "android_inventory.locationDetailsScreen.upload_Location"() {
-    (new android_inventory.locationDetailsScreen()).upload_Location()
-}
-
-
-def static "android_inventory.locationDetailsScreen.share_Location"() {
-    (new android_inventory.locationDetailsScreen()).share_Location()
-}
-
-
-def static "android_inventory.locationDetailsScreen.verify_Location_details_Screen"(
-    	String Location_Name	) {
-    (new android_inventory.locationDetailsScreen()).verify_Location_details_Screen(
-        	Location_Name)
-}
-
- /**
-	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at full count
-	 */ 
-def static "android_inventory.locationDetailsScreen.clickOnScanIcon"() {
-    (new android_inventory.locationDetailsScreen()).clickOnScanIcon()
-}
-
- /**
-	 * this function selects the toggle value of countType for the product to be added
-	 * @param countType (countType required to be selected for the product to be added which can be full or partial count)
-	 */ 
-def static "android_inventory.locationDetailsScreen.selectCountTypeForTheProductToBeAdded"(
-    	String countType	) {
-    (new android_inventory.locationDetailsScreen()).selectCountTypeForTheProductToBeAdded(
-        	countType)
-}
-
- /**
-	 * scans the product and adds it to the location
-	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
-	 */ 
-def static "android_inventory.locationDetailsScreen.scanInputEvent"(
-    	String productToBeSearched	) {
-    (new android_inventory.locationDetailsScreen()).scanInputEvent(
-        	productToBeSearched)
-}
-
- /**
-	 * this function gets the total added quantity of the product
-	 * @return quantityNumericalValue (of the product which has been added)
-	 */ 
-def static "android_inventory.locationDetailsScreen.returnQuantityOfTheAddedProduct"() {
-    (new android_inventory.locationDetailsScreen()).returnQuantityOfTheAddedProduct()
-}
-
- /**
-	 * this function inputs the quantity value for the product to be searched
-	 * @param quantity (quantity required to be added for the product to be searched)
-	 */ 
-def static "android_inventory.locationDetailsScreen.addQuantityforTheSearchedProduct"(
-    	String quantity	) {
-    (new android_inventory.locationDetailsScreen()).addQuantityforTheSearchedProduct(
-        	quantity)
-}
-
- /**
-	 * this function gets the unit of issue cost(UOI) of the added product
-	 * @return uoiCost_dollarSymbolRemoved_FloatValue (of the product which has been added)
-	 */ 
-def static "android_inventory.locationDetailsScreen.returnUOIOfTheAddedProduct"() {
-    (new android_inventory.locationDetailsScreen()).returnUOIOfTheAddedProduct()
-}
-
- /**
-	 * this function will tap on share button and verify the Gmail option
-	 */ 
-def static "android_inventory.locationDetailsScreen.verifyGmailOnShareLocation"() {
-    (new android_inventory.locationDetailsScreen()).verifyGmailOnShareLocation()
-}
-
- /**
-	 * verifies details of location details screen (if user wants to scan a product with same count type more than once, then in the test case, only the updated quantity along with countType and ndcNumber should be pushed into the stack)
-	 * @param countTypeStack (stack of the countTypes selected for adding each product)
-	 * @param quantityStack (stack of the quantity added for each product)
-	 * @param productNdcStack (stack of the ndcNumbers of added products)
-	 * @param unitOfIssueCostStack (stack of UOI costs of the added products)
-	 */ 
-def static "android_inventory.locationDetailsScreen.verifyLocationDetailsScreen"(
-    	Stack countTypeStack	
-     , 	Stack quantityStack	
-     , 	Stack productNdcStack	
-     , 	Stack unitOfIssueCostStack	) {
-    (new android_inventory.locationDetailsScreen()).verifyLocationDetailsScreen(
-        	countTypeStack
-         , 	quantityStack
-         , 	productNdcStack
-         , 	unitOfIssueCostStack)
-}
-
-
-def static "android_inventory.locationDetailsScreen.deleteProduct"(
-    	String productNdcNumber	) {
-    (new android_inventory.locationDetailsScreen()).deleteProduct(
-        	productNdcNumber)
-}
-
  /**
 	 * switches to another user account
 	 * @param newAccount (account no to which the user should switch)
@@ -2163,32 +1971,6 @@ def static "iosOrders.historyScreen.clickOnC2OrderForReviewAndSign"(
     	String signingPassword	) {
     (new iosOrders.historyScreen()).clickOnC2OrderForReviewAndSign(
         	signingPassword)
-}
-
-
-def static "android_inventory.Inventory_listing_Screen.delete_Inventory"(
-    	String inventory_Name	) {
-    (new android_inventory.Inventory_listing_Screen()).delete_Inventory(
-        	inventory_Name)
-}
-
-
-def static "android_inventory.Inventory_listing_Screen.change_Account"(
-    	String new_Account	) {
-    (new android_inventory.Inventory_listing_Screen()).change_Account(
-        	new_Account)
-}
-
-
-def static "android_inventory.Inventory_listing_Screen.create_Inventory"(
-    	String Inventory_Name	) {
-    (new android_inventory.Inventory_listing_Screen()).create_Inventory(
-        	Inventory_Name)
-}
-
-
-def static "android_inventory.Inventory_listing_Screen.verify_Inventory_Listing_Screen"() {
-    (new android_inventory.Inventory_listing_Screen()).verify_Inventory_Listing_Screen()
 }
 
  /**
@@ -2330,12 +2112,12 @@ def static "iosDashboard.dashboardScreen.verifyDashboardScreen"() {
 
  /**
 	 * opens the order details page
-	 * @param accountNo (accountNo used to create the order)
+	 * @param poName (purchase order name used to create the order)
 	 */ 
-def static "androidOrders.cartScreen.openAnOrderDetails"(
-    	String accountNo	) {
-    (new androidOrders.cartScreen()).openAnOrderDetails(
-        	accountNo)
+def static "androidOrders.cartScreen.openAnOrderDetail"(
+    	String poName	) {
+    (new androidOrders.cartScreen()).openAnOrderDetail(
+        	poName)
 }
 
  /**
@@ -2343,16 +2125,6 @@ def static "androidOrders.cartScreen.openAnOrderDetails"(
 	 */ 
 def static "androidOrders.cartScreen.clickOnC2OrdersTab"() {
     (new androidOrders.cartScreen()).clickOnC2OrdersTab()
-}
-
- /**
-	 * opens the c2 order details
-	 * @param accountNo (account no which was used to create the order)
-	 */ 
-def static "androidOrders.cartScreen.openC2OrderDetailScreen"(
-    	String accountNo	) {
-    (new androidOrders.cartScreen()).openC2OrderDetailScreen(
-        	accountNo)
 }
 
 
@@ -2449,23 +2221,31 @@ def static "androidOrders.cartScreen.verifynonC2AnnotationCount"(
 }
 
  /**
-	 * takes expected lines count as the argument and verifies the same
-	 * @param expectedLineCount (expected total line count of c2 after adding product to the cart)
+	 * takes expected lines count of c2 or non c2 as the argument and verifies the same
+	 * @param expectedLineCount (expected total line count of non c2 or c2 after adding product to the cart)
 	 */ 
-def static "androidOrders.cartScreen.verifyC2LineCount"(
+def static "androidOrders.cartScreen.verifyLineCountofC2OrNonC2Product"(
     	String expectedlineCount	) {
-    (new androidOrders.cartScreen()).verifyC2LineCount(
+    (new androidOrders.cartScreen()).verifyLineCountofC2OrNonC2Product(
         	expectedlineCount)
 }
 
  /**
-	 * takes expected lines count as the argument and verifies the same
-	 * @param expectedLineCount (expected total line count of non c2 after adding product to the cart)
+	 * this function returns the order name of the order which is at the top of the order list
+	 * return orderName (returns topmost order name)
 	 */ 
-def static "androidOrders.cartScreen.verifyNonC2LineCount"(
-    	String expectedlineCount	) {
-    (new androidOrders.cartScreen()).verifyNonC2LineCount(
-        	expectedlineCount)
+def static "androidOrders.cartScreen.returnTopMostOrderName"() {
+    (new androidOrders.cartScreen()).returnTopMostOrderName()
+}
+
+ /**
+	 * this function verifies the pattern required for the order which was created without giving any purchase order name
+	 * @param orderName (order name which is under verification)
+	 */ 
+def static "androidOrders.cartScreen.verifyOrderNamePattern"(
+    	String orderName	) {
+    (new androidOrders.cartScreen()).verifyOrderNamePattern(
+        	orderName)
 }
 
  /**
@@ -2696,13 +2476,6 @@ def static "api.apiCommonMethods.tokenGenerator"() {
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
     	Eyes eyes	
      , 	WebElement element	) {
@@ -2727,9 +2500,6 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
          , 	testName)
 }
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
-}
 
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
     	String testName	
@@ -2737,6 +2507,18 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
         	testName
          , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
 }
 
 
@@ -2748,11 +2530,4 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
 }
