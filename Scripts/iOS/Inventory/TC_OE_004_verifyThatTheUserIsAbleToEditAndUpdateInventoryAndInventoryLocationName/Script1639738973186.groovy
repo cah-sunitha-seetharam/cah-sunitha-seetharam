@@ -55,10 +55,7 @@ def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inve
 productSearch = requestObject[GlobalVariable.Environment].TC_OE_004.productSearchByNDC
 
 'adds products to a location'
-CustomKeywords.'iosInventory.locationDetailsScreen.addProducttoLocation'(locationName_1, productSearch)
-
-'calling the function which adds quantity required for a product to be added and takes quantity required as the argument'
-CustomKeywords.'iosInventory.locationDetailsScreen.addQuantityforTheSearchedProduct'(quantity)
+CustomKeywords.'iosInventory.locationDetailsScreen.addProducttoLocation'(locationName_1, productSearch,quantity)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()

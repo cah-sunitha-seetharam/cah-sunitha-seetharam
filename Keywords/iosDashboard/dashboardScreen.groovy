@@ -69,7 +69,7 @@ class dashboardScreen {
 		Mobile.tapAndHold(findTestObject('Object Repository/iOS/Product Search/afterAddingProductContinue_Button'), 0,0)
 	}
 
-	
+
 
 	/**
 	 * changes the user account
@@ -143,5 +143,8 @@ class dashboardScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/Dashboard/Verification/homeHeader_Label'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Dashboard/Verification/homeBottomNavigationTab_Bar'), 0)
+		
+		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Account Selection/changeAccount_Button'), 0)
+		
 	}
 }

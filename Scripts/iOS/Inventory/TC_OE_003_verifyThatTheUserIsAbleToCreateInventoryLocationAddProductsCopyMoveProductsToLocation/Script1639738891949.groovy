@@ -52,10 +52,7 @@ productSearch_1 = requestObject[GlobalVariable.Environment].TC_OE_003.productSea
 productSearch_2 = requestObject[GlobalVariable.Environment].TC_OE_003.productSearchByNDC2
 
 'adds products to a location'
-CustomKeywords.'iosInventory.locationDetailsScreen.addProducttoLocation'(locationName_1, productSearch_1)
-
-'calling the function which adds quantity required for a product to be added and takes quantity required as the argument'
-CustomKeywords.'iosInventory.locationDetailsScreen.addQuantityforTheSearchedProduct'(quantity)
+CustomKeywords.'iosInventory.locationDetailsScreen.addProducttoLocation'(locationName_1, productSearch_1,quantity)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
@@ -73,10 +70,7 @@ CustomKeywords.'iosInventory.inventoryDetailsScreen.addLocation'(locationName_2,
 CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnALocation'(locationName_2)
 
 'adds products to a location'
-CustomKeywords.'iosInventory.locationDetailsScreen.addProducttoLocation'(locationName_2, productSearch_1)
-
-'calling the function which adds quantity required for a product to be added and takes quantity required as the argument'
-CustomKeywords.'iosInventory.locationDetailsScreen.addQuantityforTheSearchedProduct'(quantity)
+CustomKeywords.'iosInventory.locationDetailsScreen.addProducttoLocation'(locationName_2, productSearch_1, quantity)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
@@ -127,13 +121,10 @@ actualQuantity = CustomKeywords.'iosInventory.locationDetailsScreen.returnQuanti
 actualQuantity == expectedProductQuantity_2
 
 'this function verifies that the product is visible on the location details screen'
-CustomKeywords.'iosInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen'(productSearch_2)
+CustomKeywords.'iosInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen'(productSearch_1)
 
 'adds products to a location'
-CustomKeywords.'iosInventory.locationDetailsScreen.addProducttoLocation'(locationName_2, productSearch_2)
-
-'calling the function which adds quantity required for a product to be added and takes quantity required as the argument'
-CustomKeywords.'iosInventory.locationDetailsScreen.addQuantityforTheSearchedProduct'(quantity)
+CustomKeywords.'iosInventory.locationDetailsScreen.addProducttoLocation'(locationName_2, productSearch_2,quantity)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
@@ -148,10 +139,7 @@ CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnALocation'(locationNa
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'adds products to a location'
-CustomKeywords.'iosInventory.locationDetailsScreen.addProducttoLocation'(locationName_1, productSearch_2)
-
-'calling the function which adds quantity required for a product to be added and takes quantity required as the argument'
-CustomKeywords.'iosInventory.locationDetailsScreen.addQuantityforTheSearchedProduct'(quantity)
+CustomKeywords.'iosInventory.locationDetailsScreen.addProducttoLocation'(locationName_1, productSearch_2,quantity)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()

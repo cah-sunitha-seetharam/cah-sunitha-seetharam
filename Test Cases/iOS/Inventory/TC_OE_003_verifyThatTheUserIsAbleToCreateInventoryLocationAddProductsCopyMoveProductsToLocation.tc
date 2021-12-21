@@ -36,7 +36,7 @@ Valid login credentials with multiple accounts available for the user.   </descr
       <name>costType_2</name>
    </variable>
    <variable>
-      <defaultValue>'1'</defaultValue>
+      <defaultValue>'5'</defaultValue>
       <description>default quantity value used for calculation of cost and not passed as a parameter for adding quantity of product</description>
       <id>574701a1-2ba8-4be8-acbc-edcec06f1043</id>
       <masked>false</masked>
