@@ -39,14 +39,18 @@ def static "androidDashboard.dashboardDetailsScreen.clickOnOrders"() {
     (new androidDashboard.dashboardDetailsScreen()).clickOnOrders()
 }
 
-
-def static "androidDashboard.dashboardDetailsScreen.click_On_HomeTab"() {
-    (new androidDashboard.dashboardDetailsScreen()).click_On_HomeTab()
+ /**
+	 * opens home tab where user can perform actions related to home
+	 */ 
+def static "androidDashboard.dashboardDetailsScreen.clickOnHomeTab"() {
+    (new androidDashboard.dashboardDetailsScreen()).clickOnHomeTab()
 }
 
-
-def static "androidDashboard.dashboardDetailsScreen.click_On_More_Options"() {
-    (new androidDashboard.dashboardDetailsScreen()).click_On_More_Options()
+ /**
+	 * opens more options tab where user can perform actions related to more options
+	 */ 
+def static "androidDashboard.dashboardDetailsScreen.clickOnMoreOptions"() {
+    (new androidDashboard.dashboardDetailsScreen()).clickOnMoreOptions()
 }
 
  /**
@@ -1205,9 +1209,11 @@ def static "androidInventory.locationDetailsScreen.delete_Product"() {
     (new androidInventory.locationDetailsScreen()).delete_Product()
 }
 
-
-def static "androidInventory.locationDetailsScreen.upload_Location"() {
-    (new androidInventory.locationDetailsScreen()).upload_Location()
+ /**
+	 * uploads location from the location details screen
+	 */ 
+def static "androidInventory.locationDetailsScreen.uploadLocation"() {
+    (new androidInventory.locationDetailsScreen()).uploadLocation()
 }
 
 
@@ -1311,6 +1317,17 @@ def static "androidInventory.locationDetailsScreen.deleteProduct"(
         	productNdcNumber)
 }
 
+ /**
+	 * verifies that the latest added product is at the top of the added products list, then deletes the latest added product and continues the process to verifyReverseChronologicalOrder of the added products
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */ 
+def static "androidInventory.locationDetailsScreen.verifyReverseChronologicalOrder"(
+    	Stack productNdcNumber	) {
+    (new androidInventory.locationDetailsScreen()).verifyReverseChronologicalOrder(
+        	productNdcNumber)
+}
+
 
 def static "androidOrders.orderDetailsScreen.upload_Order"() {
     (new androidOrders.orderDetailsScreen()).upload_Order()
@@ -1385,6 +1402,13 @@ def static "androidOrders.orderDetailsScreen.verifyOrderHasbeensentToDesktopPopU
 }
 
  /**
+	 * verifies c2 label is visible or not
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyC2Label"() {
+    (new androidOrders.orderDetailsScreen()).verifyC2Label()
+}
+
+ /**
 	 * creates a new C2 order
 	 * @param poName (poName of the order), poMemo (poMemo of the order)
 	 */ 
@@ -1394,6 +1418,26 @@ def static "androidOrders.orderDetailsScreen.createNewC2Order"(
     (new androidOrders.orderDetailsScreen()).createNewC2Order(
         	poName
          , 	poMemo)
+}
+
+ /**
+	 * this function selects toggle value for the product to be added which can be ordering or price check)
+	 * @param toggleValue (toggleValue required to be selected for the product to be added which can be ordering or price check)
+	 */ 
+def static "androidOrders.orderDetailsScreen.selectToggleValueForTheProductToBeSearched"(
+    	String toggleValue	) {
+    (new androidOrders.orderDetailsScreen()).selectToggleValueForTheProductToBeSearched(
+        	toggleValue)
+}
+
+ /**
+	 * verifies the order value after adding a product
+	 * @param quantity (quantity which was added)
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyOrderValue"(
+    	Object quantity	) {
+    (new androidOrders.orderDetailsScreen()).verifyOrderValue(
+        	quantity)
 }
 
  /**
@@ -1592,6 +1636,13 @@ def static "android_more_options.moreOptionsScreen.changeAccount"(
 }
 
  /**
+	 * enables beta csos feature
+	 */ 
+def static "android_more_options.moreOptionsScreen.enableBetaFeatureCSOS"() {
+    (new android_more_options.moreOptionsScreen()).enableBetaFeatureCSOS()
+}
+
+ /**
 	 * takes the user from the the moreOptions Screen to inventory listing screen
 	 */ 
 def static "android_more_options.moreOptionsScreen.goToInventoryListingScreen"() {
@@ -1644,16 +1695,6 @@ def static "androidInventory.inventoryDetailsScreen.clickOnLocation"(
         	locationName)
 }
 
- /**
-	 * deletes the location
-	 * @param locationName (name of the location to be deleted)
-	 */ 
-def static "androidInventory.inventoryDetailsScreen.deleteLocation"(
-    	String locationName	) {
-    (new androidInventory.inventoryDetailsScreen()).deleteLocation(
-        	locationName)
-}
-
 
 def static "androidInventory.inventoryDetailsScreen.search_And_Add_Product_By_Creating_New_Location"(
     	String Location_Name	
@@ -1670,6 +1711,26 @@ def static "androidInventory.inventoryDetailsScreen.verify_Inventory_Details_Scr
     	String Inventory_Name	) {
     (new androidInventory.inventoryDetailsScreen()).verify_Inventory_Details_Screen(
         	Inventory_Name)
+}
+
+ /**
+	 * verifies the location count, cost gets updated or not, of the inventory after the location is deleted
+	 * @param locationName (name of the location under verification)
+	 */ 
+def static "androidInventory.inventoryDetailsScreen.deleteLocationWithCostLocationCountVerification"(
+    	String locationName	) {
+    (new androidInventory.inventoryDetailsScreen()).deleteLocationWithCostLocationCountVerification(
+        	locationName)
+}
+
+ /**
+	 * deletes the location
+	 * @param locationName (name of the location to be deleted)
+	 */ 
+def static "androidInventory.inventoryDetailsScreen.deleteLocation"(
+    	String locationName	) {
+    (new androidInventory.inventoryDetailsScreen()).deleteLocation(
+        	locationName)
 }
 
 
@@ -1804,23 +1865,76 @@ def static "androidOrders.ordersCommonScreen.change_Account"(
         	new_Account)
 }
 
+def static "android_inventory.Location_details_Screen.edit_LocationName"(
+    	String New_Location_Name	
+     , 	String CostType	
+     , 	String Previous_Name	) {
+    (new android_inventory.Location_details_Screen()).edit_LocationName(
+        	New_Location_Name
+         , 	CostType
+         , 	Previous_Name)
+}
+
+
+def static "android_inventory.Location_details_Screen.add_Product_To_Location"(
+    	String Location_Name	
+     , 	String Product_Name	) {
+    (new android_inventory.Location_details_Screen()).add_Product_To_Location(
+        	Location_Name
+         , 	Product_Name)
+}
+
+
+def static "android_inventory.Location_details_Screen.move_Product_To_Another_Location"(
+    	String Location_Name	) {
+    (new android_inventory.Location_details_Screen()).move_Product_To_Another_Location(
+        	Location_Name)
+}
+
+
+def static "android_inventory.Location_details_Screen.copy_Product_To_Another_Location"(
+    	String Location_Name	) {
+    (new android_inventory.Location_details_Screen()).copy_Product_To_Another_Location(
+        	Location_Name)
+}
+
+
+def static "android_inventory.Location_details_Screen.delete_Product"() {
+    (new android_inventory.Location_details_Screen()).delete_Product()
+}
+
+
+def static "android_inventory.Location_details_Screen.upload_Location"() {
+    (new android_inventory.Location_details_Screen()).upload_Location()
+}
+
+
+def static "android_inventory.Location_details_Screen.share_Location"() {
+    (new android_inventory.Location_details_Screen()).share_Location()
+}
+
+
+def static "android_inventory.Location_details_Screen.verify_Location_details_Screen"(
+    	String Location_Name	) {
+    (new android_inventory.Location_details_Screen()).verify_Location_details_Screen(
+        	Location_Name)
+}
+
+
+
  /**
 	 * float value generator
 	 * @param stringToBeConvertedToFloatValue
 	 * @return float value for a string by removing characters
 	 */ 
+
 def static "common.commonMethods.floatValueGenerator"(
     	String stringToBeConvertedToFloatValue	) {
     (new common.commonMethods()).floatValueGenerator(
         	stringToBeConvertedToFloatValue)
 }
 
- /**
-	 * this function formats the decimal data for e.g 20.546 would be converted to 20.55 if decimalFormatRequired is 0.00
-	 * @param decimalDataToBeFormatted (decimal data required to be formatted), 
-	 * @param decimalFormatRequired (decimal format required for e.g 0.00 for rounding to 2 decimal places)
-	 * @return formattedDecimalData (formatted decimal data)
-	 */ 
+
 def static "common.commonMethods.formatDecimalData"(
     	Object decimalDataToBeFormatted	
      , 	String decimalFormatRequired	) {
@@ -1829,32 +1943,21 @@ def static "common.commonMethods.formatDecimalData"(
          , 	decimalFormatRequired)
 }
 
- /**
-	 * random alpha numeric String Generator 
-	 * @param length, required string length 
-	 * @return alpha-numeric string  
-	 */ 
+
 def static "common.commonMethods.randomStringGenerator"(
     	int length	) {
     (new common.commonMethods()).randomStringGenerator(
         	length)
 }
 
- /**
-	 * Read JSON file 
-	 * @param file name, Note: data files are considered to be on Data files location on project directory  
-	 * @return the JSON file object 
-	 */ 
+
 def static "common.commonMethods.readFileTypeJSON"(
     	String fileNameValue	) {
     (new common.commonMethods()).readFileTypeJSON(
         	fileNameValue)
 }
 
- /**
-	 * Get mobile driver for current session
-	 * @return mobile driver for current session
-	 */ 
+
 def static "common.commonMethods.getCurrentSessionMobileDriver"() {
     (new common.commonMethods()).getCurrentSessionMobileDriver()
 }
@@ -1900,27 +2003,19 @@ def static "iosDashboard.dashboardScreen.verifyDashboardScreen"() {
     (new iosDashboard.dashboardScreen()).verifyDashboardScreen()
 }
 
- /**
-	 * opens the order details page
-	 * @param accountNo (accountNo used to create the order)
-	 */ 
+
 def static "androidOrders.cartScreen.openAnOrderDetails"(
     	String accountNo	) {
     (new androidOrders.cartScreen()).openAnOrderDetails(
         	accountNo)
 }
 
- /**
-	 * opens the c2 orders tab
-	 */ 
+
 def static "androidOrders.cartScreen.clickOnC2OrdersTab"() {
     (new androidOrders.cartScreen()).clickOnC2OrdersTab()
 }
 
- /**
-	 * opens the c2 order details
-	 * @param accountNo (account no which was used to create the order)
-	 */ 
+
 def static "androidOrders.cartScreen.openC2OrderDetailScreen"(
     	String accountNo	) {
     (new androidOrders.cartScreen()).openC2OrderDetailScreen(
@@ -1934,68 +2029,70 @@ def static "androidOrders.cartScreen.delete_Order"(
         	Account_No)
 }
 
- /**
-	 * clicks on upload all orders button on cart screen
-	 */ 
+
 def static "androidOrders.cartScreen.clickOnUploadAllOrders"() {
     (new androidOrders.cartScreen()).clickOnUploadAllOrders()
 }
 
- /**
-	 * verifies pop up screen which comes after clicking on upload all orders button on cart screen
-	 */ 
+
 def static "androidOrders.cartScreen.verifyUploadAllOrdersPopUp"() {
     (new androidOrders.cartScreen()).verifyUploadAllOrdersPopUp()
 }
 
- /**
-	 * clicks on continue on desktop button on cart screen
-	 */ 
+
 def static "androidOrders.cartScreen.clickOnContinueOnDesktop"() {
     (new androidOrders.cartScreen()).clickOnContinueOnDesktop()
 }
 
- /**
-	 * clicks on place all orders button on cart screen
-	 */ 
+
 def static "androidOrders.cartScreen.clickOnPlaceAllOrders"() {
     (new androidOrders.cartScreen()).clickOnPlaceAllOrders()
 }
 
- /**
-	 * verifies pop up screen which comes after clicking on place all orders button on cart screen
-	 */ 
+
 def static "androidOrders.cartScreen.verifyPlaceAllOrdersPopUp"() {
     (new androidOrders.cartScreen()).verifyPlaceAllOrdersPopUp()
 }
 
- /**
-	 * clicks on place my orders button on cart screen
-	 */ 
+
 def static "androidOrders.cartScreen.confirmPlacingAllOrders"() {
     (new androidOrders.cartScreen()).confirmPlacingAllOrders()
 }
 
- /**
-	 * verifies cart screen with added product
-	 */ 
+
 def static "androidOrders.cartScreen.verifyCartScreenDetailsWithAddedProduct"() {
     (new androidOrders.cartScreen()).verifyCartScreenDetailsWithAddedProduct()
 }
 
- /**
-	 * verifies that the created order should not be visible on the cart screen
-	 * @param poName (purchase order name used to create the order)
-	 */ 
+
 def static "androidOrders.cartScreen.verifyOrderNotVisibleOnTheCartScreen"(
     	String poName	) {
     (new androidOrders.cartScreen()).verifyOrderNotVisibleOnTheCartScreen(
         	poName)
 }
 
- /**
-	 * verifies the cart screen details without any product
-	 */ 
+
+def static "androidOrders.cartScreen.verifynonC2AnnotationCount"(
+    	String expectedAnnotationCount	) {
+    (new androidOrders.cartScreen()).verifynonC2AnnotationCount(
+        	expectedAnnotationCount)
+}
+
+
+def static "androidOrders.cartScreen.verifyC2AnnotationCount"(
+    	String expectedAnnotationCount	) {
+    (new androidOrders.cartScreen()).verifyC2AnnotationCount(
+        	expectedAnnotationCount)
+}
+
+
+def static "androidOrders.cartScreen.verifyLinesCount"(
+    	String expectedLinesCount	) {
+    (new androidOrders.cartScreen()).verifyLinesCount(
+        	expectedLinesCount)
+}
+
+
 def static "androidOrders.cartScreen.verifyCartScreenDetailsWithOutAddingAnyProduct"() {
     (new androidOrders.cartScreen()).verifyCartScreenDetailsWithOutAddingAnyProduct()
 }
@@ -2134,7 +2231,6 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
         	testName)
 }
 
-
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
     	TestObject testObject	
      , 	String testName	) {
@@ -2148,13 +2244,17 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
 
-
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
     	String testName	
      , 	RectangleSize viewportSize	) {
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
         	testName
          , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
 
 

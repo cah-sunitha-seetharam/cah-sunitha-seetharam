@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MobileElementEntity>
    <description></description>
-   <name>tapOnLocation_Text</name>
+   <name>noOfLocation_Text</name>
    <tag></tag>
    <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
@@ -18,21 +18,21 @@
       <matchCondition>equals</matchCondition>
       <name>index</name>
       <type>Main</type>
-      <value>4</value>
+      <value>1</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>${Location}</value>
+      <value>0</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvInventoryLocationName</value>
+      <value>com.cardinalhealth.orderexpress.two.debug:id/tvLocationsCount</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -116,21 +116,21 @@
       <matchCondition>equals</matchCondition>
       <name>x</name>
       <type>Main</type>
-      <value>260</value>
+      <value>144</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>y</name>
       <type>Main</type>
-      <value>972</value>
+      <value>697</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>width</name>
       <type>Main</type>
-      <value>142</value>
+      <value>24</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -144,7 +144,7 @@
       <matchCondition>equals</matchCondition>
       <name>bounds</name>
       <type>Main</type>
-      <value>[260,972][402,1029]</value>
+      <value>[144,697][168,754]</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -158,8 +158,8 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[2]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[4]</value>
+      <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[2]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = '${Location}' or . = '${Location}') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/tvInventoryLocationName']</locator>
+   <locator>//*[@class = 'android.widget.TextView' and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/tvLocationsCount']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>
