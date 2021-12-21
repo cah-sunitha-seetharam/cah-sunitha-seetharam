@@ -294,17 +294,6 @@ class cartScreen  {
 	}
 
 
-	/**
-	 * verifies nonC2 annotation count
-	 * @param expectedAnnotationCount (expected annotation count count of nonc2 after adding product to the cart)
-	 */
-
-	@Keyword
-	def verifynonC2AnnotationCount(String expectedAnnotationCount) {
-		String actualAnnotationCount = Mobile.getText(findTestObject('Android/Orders/Cart Screen/Non C2 Order/nonC2AnnotationCount_TextView'), 0)
-		assert expectedAnnotationCount == actualAnnotationCount
-	}
-
 
 	/**
 	 * takes expected lines count of c2 or non c2 as the argument and verifies the same
@@ -338,15 +327,6 @@ class cartScreen  {
 		KeywordUtil.logInfo("pattern matches"); //logInfo if pattern matches
 	}
 
-	/**
-	 * verifies C2 annotation count
-	 * @param expectedAnnotationCount (expected annotation count count after adding product and return to the order name page)
-	 */
-	@Keyword
-	def verifyC2AnnotationCount(String expectedAnnotationCount) {
-		String actualAnnotationCount = Mobile.getText(findTestObject('Android/Orders/Cart Screen/C2 Order/c2AnnotationCount_TextView'), 0)
-		assert expectedAnnotationCount == actualAnnotationCount
-	}
 
 	/**
 	 * takes expected lines count as the argument and verifies the same
