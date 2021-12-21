@@ -57,7 +57,9 @@ class BeforeAfterListeners {
 		else  //  platform is iOS
 		{
 
-			if(testCaseContext.getTestCaseStatus()=='FAILED' && GlobalVariable.testSuiteModule=="order")//if test case failed and is from orders module
+			String testCaseID=testCaseContext.getTestCaseId()
+
+			if((testCaseContext.getTestCaseStatus()=='FAILED' || testCaseContext.getTestCaseStatus()=='ERROR') && testCaseID.contains("Carts"))//if test case failed and is from orders module
 			{
 				(new iosOrders.ordersCommonScreen()).clearAllOrders()
 			}
@@ -69,6 +71,7 @@ class BeforeAfterListeners {
 				driver.closeApp()  // Close the open app
 				driver.terminateApp(GlobalVariable.bundleID)  // Terminate the application(if it is running).
 			}
+
 
 		}
 
@@ -104,7 +107,7 @@ class BeforeAfterListeners {
 		{
 			RunConfiguration.setMobileDriverPreferencesProperty("appWaitActivity", GlobalVariable.appWaitActivity)   // relative reference of activity name to wait for while opening the app
 			RunConfiguration.setMobileDriverPreferencesProperty("appPackage", GlobalVariable.appPackage) // this value will get from profile
-			Mobile.startApplication(GlobalVariable.Android_App_Path, true)  // Install the build file (Application)
+			Mobile.startApplication(GlobalVariable.AndroidAppPath, true)  // Install the build file (Application)
 			AppiumDriver<?> driver =  commonMethods.getCurrentSessionMobileDriver()
 			CustomKeywords.'android_login.Login_Screen.login'(GlobalVariable.Password)  // Invoking the Environment selection and login method
 

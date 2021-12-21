@@ -29,8 +29,8 @@ CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisi
 'selects the user account from the accounts list'
 CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
 
-'waits for 30(s) before refreshing the page to get the updated historyCount'
-WebUI.delay(30)
+'waits for 10(s) before refreshing the page to get the updated historyCount'
+WebUI.delay(10)
 
 'takes user from home screen to inventory listing screen'
 CustomKeywords.'androidCommonKeywords.commonMethods.takeUserFromHomeToInventoryListingScreen'()
@@ -98,7 +98,7 @@ quantityStack.push(quantity)
 'takes the application one screen back'
 CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
 
-'waits for 10(s) before refreshing the page to get the updated historyCount'
+'waits for 10(s) to load data'
 WebUI.delay(10)
 
 'reading the ndcNumber of product to be added'

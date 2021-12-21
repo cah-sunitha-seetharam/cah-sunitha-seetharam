@@ -34,13 +34,16 @@ import com.kms.katalon.core.testobject.TestObjectProperty
 import com.kms.katalon.core.mobile.helper.MobileElementCommonHelper
 import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-
+import common.commonMethods
 import com.kms.katalon.core.webui.exception.WebElementNotFoundException
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 
 class orderDetailsScreen {
 
+	def commonMethodsObject=new commonMethods();
+	def commonIosMethodsObject=new iosCommonKeywords.commonMethods();
+	
 
 	@Keyword
 	def add_Alternate_Product(String product_Name, String quantity) {
@@ -87,20 +90,21 @@ class orderDetailsScreen {
 
 		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), 0, 0)
 
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+		commonIosMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.setText(findTestObject('iOS/Product Search/productSearch_TextField'), productName, 0)
 
 		Mobile.tapAndHold(findTestObject('iOS/Product Search/search_Keypad'), 0, 0)
 
-
 		Mobile.setText(findTestObject('iOS/Product Search/Quantity_TextField'), quantity, 0)
 
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+		commonIosMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Place All Orders/Done_Keypad'), 0)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/addToOrder_Text'), 0)
+		
+		Mobile.tap(findTestObject('iOS/Product Search/Continue_Button'), 0)
 	}
 
 
@@ -220,9 +224,14 @@ class orderDetailsScreen {
 	}
 
 
-	@Keyword
-	def edit_PO_Name_and_Memo(String po_Name,String po_Memo) {
 
+	/**
+	 * edits the order details which are purchase order name and memo
+	 * @param poName (new poName of the order)
+	 * @param poMemo (new poMemo of the order)
+	 */
+	@Keyword
+	def editPONameAndMemo(String poName,String poMemo) {
 
 		Mobile.scrollToText('Edit')
 
@@ -232,7 +241,7 @@ class orderDetailsScreen {
 
 		Mobile.clearText(findTestObject('iOS/Orders/Order Details Screen/Edit PO Name and Memo/poMemoField_TextField'), 0)
 
-		Mobile.setText(findTestObject('iOS/Orders/Order Details Screen/Edit PO Name and Memo/poMemoField_TextField'), po_Name, 0)
+		Mobile.setText(findTestObject('iOS/Orders/Order Details Screen/Edit PO Name and Memo/poMemoField_TextField'), poName, 0)
 
 		Mobile.tapAndHold(findTestObject('iOS/Product Search/returnKeypad_Button'), 0,0)
 
@@ -240,7 +249,7 @@ class orderDetailsScreen {
 
 		Mobile.clearText(findTestObject('iOS/Orders/Order Details Screen/Edit PO Name and Memo/Edit P.O_TextField'), 0)
 
-		Mobile.setText(findTestObject('iOS/Orders/Order Details Screen/Edit PO Name and Memo/Edit P.O_TextField'), po_Memo, 0)
+		Mobile.setText(findTestObject('iOS/Orders/Order Details Screen/Edit PO Name and Memo/Edit P.O_TextField'), poName, 0)
 
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Edit PO Name and Memo/Update Order_Button'), 0)
 	}
@@ -452,19 +461,23 @@ class orderDetailsScreen {
 
 		String productCost=Mobile.getText(findTestObject('iOS/Orders/Verification Details/productCost_Text'), 0)
 
-		float productCost_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(productCost)//converting uoiCost string to a float value
+		float productCost_dollarSymbolRemoved_FloatValue=commonMethodsObject.floatValueGenerator(productCost)//converting uoiCost string to a float value
 
 		float expectedOrderTotal=quantityIntegralValue*productCost_dollarSymbolRemoved_FloatValue
 
-		KeywordUtil.logInfo(productCost)
+		String formattedExpectedOrderTotal=commonMethodsObject.formatDecimalData(expectedOrderTotal,"0.00") //formatting the data to be rounded off to upper level and to two decimal places
+
+		float formattedExpectedOrderTotal_FloatValue=commonMethodsObject.floatValueGenerator(formattedExpectedOrderTotal)///converting formattedExpectedOrderTotal string to a float value
+
+		KeywordUtil.logInfo(formattedExpectedOrderTotal)
 
 		String actualOrderTotal=Mobile.getText(findTestObject('iOS/Orders/Verification Details/orderTotal_Text'), 0)
 
-		float actualOrderTotal_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(actualOrderTotal)//converting uoiCost string to a float value
+		float actualOrderTotal_dollarSymbolRemoved_FloatValue=commonMethodsObject.floatValueGenerator(actualOrderTotal)//converting actualOrderTotal string to a float value
 
 		KeywordUtil.logInfo(actualOrderTotal)
 
-		assert expectedOrderTotal==actualOrderTotal_dollarSymbolRemoved_FloatValue
+		assert formattedExpectedOrderTotal_FloatValue==actualOrderTotal_dollarSymbolRemoved_FloatValue
 	}
 
 
@@ -551,7 +564,7 @@ class orderDetailsScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Product Search/Scan Flow/productDescription_Label'), 0)
 	}
-	
+
 	/**
 	 * this function returns the order name of the order/ title of the screen when user is on order details screen
 	 * return orderName (returns order name/ title of order details screen)

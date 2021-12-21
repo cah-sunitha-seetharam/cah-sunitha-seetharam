@@ -6,59 +6,38 @@
    <comment></comment>
    <testCaseGuid>9afec0ec-0e75-44fd-b013-24da72b74a1f</testCaseGuid>
    <variable>
-      <defaultValue>'Cardinal1'</defaultValue>
-      <description></description>
-      <id>e9afa028-56d1-4071-9ac2-d92082e422c5</id>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of inventory to be created</description>
+      <id>ce83d0f6-b64d-43cc-895c-80196da8aeda</id>
       <masked>false</masked>
-      <name>Password</name>
+      <name>inventoryNameLength</name>
    </variable>
    <variable>
-      <defaultValue>'KatalonInvv'</defaultValue>
-      <description></description>
-      <id>8232e0b3-cfea-4b9e-a4e5-181289aaca40</id>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of location to be created</description>
+      <id>c59ccf31-587f-41a9-9175-93cbf4fbbec2</id>
       <masked>false</masked>
-      <name>Inventory_Name</name>
+      <name>locationNameLength</name>
    </variable>
    <variable>
-      <defaultValue>'jujutsuu'</defaultValue>
-      <description></description>
-      <id>b0efaa64-5dcb-4229-9e31-e047521771b8</id>
+      <defaultValue>'Current Price'</defaultValue>
+      <description>cost type can be last price or current price paid</description>
+      <id>84f98b23-4002-4e66-b71e-94345f408d3e</id>
       <masked>false</masked>
-      <name>Location_Name</name>
+      <name>costType</name>
    </variable>
    <variable>
-      <defaultValue>'tyl'</defaultValue>
-      <description></description>
-      <id>3e8eb048-9ede-49c0-8853-4f826e648887</id>
+      <defaultValue>'3'</defaultValue>
+      <description>quantity required to be added</description>
+      <id>8ee2221e-9395-4244-bf44-a49eadcb1b81</id>
       <masked>false</masked>
-      <name>Product_Name</name>
+      <name>quantity</name>
    </variable>
    <variable>
-      <defaultValue>'Last Price'</defaultValue>
-      <description></description>
-      <id>3adde9a9-bb08-4ef9-a105-37f7359679dc</id>
+      <defaultValue>'1'</defaultValue>
+      <description>expected lines count</description>
+      <id>0e8d4362-7d62-4753-8877-9431b27e99ac</id>
       <masked>false</masked>
-      <name>Cost_Type</name>
-   </variable>
-   <variable>
-      <defaultValue>'11-487698'</defaultValue>
-      <description></description>
-      <id>fd9cb911-f473-4748-8054-37b973a361cc</id>
-      <masked>false</masked>
-      <name>Account</name>
-   </variable>
-   <variable>
-      <defaultValue>'11-2052038154'</defaultValue>
-      <description></description>
-      <id>8a59d64b-5aed-4166-8a42-373fc8259a7f</id>
-      <masked>false</masked>
-      <name>Account2</name>
-   </variable>
-   <variable>
-      <defaultValue>'8-106078'</defaultValue>
-      <description></description>
-      <id>29a063cd-0050-43d8-b55a-4f5857bdb8c5</id>
-      <masked>false</masked>
-      <name>Account1</name>
+      <name>expectedLinesCount</name>
    </variable>
 </TestCaseEntity>

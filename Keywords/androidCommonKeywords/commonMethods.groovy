@@ -198,7 +198,7 @@ class  commonMethods {
 	 */
 	@Keyword
 	def pressBacknav() {
-
+		WebUI.delay(2)
 		Mobile.pressBack()
 	}
 

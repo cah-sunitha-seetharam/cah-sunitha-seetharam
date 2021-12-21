@@ -3,11 +3,11 @@
    <description></description>
    <name>tapOnLocation_Text</name>
    <tag></tag>
-   <elementGuidId>891573cd-b638-4263-a852-d3e8a36f101a</elementGuidId>
+   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
-      <isSelected>false</isSelected>
+      <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
@@ -19,6 +19,13 @@
       <name>index</name>
       <type>Main</type>
       <value>4</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>${Location}</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -109,7 +116,7 @@
       <matchCondition>equals</matchCondition>
       <name>x</name>
       <type>Main</type>
-      <value>244</value>
+      <value>260</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -123,7 +130,7 @@
       <matchCondition>equals</matchCondition>
       <name>width</name>
       <type>Main</type>
-      <value>154</value>
+      <value>142</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -137,7 +144,7 @@
       <matchCondition>equals</matchCondition>
       <name>bounds</name>
       <type>Main</type>
-      <value>[244,972][398,1029]</value>
+      <value>[260,972][402,1029]</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -153,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[2]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[4]</value>
    </webElementProperties>
-   <locator>//*[@resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/tvInventoryLocationName']</locator>
+   <locator>//*[@class = 'android.widget.TextView' and (@text = '${Location}' or . = '${Location}') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/tvInventoryLocationName']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

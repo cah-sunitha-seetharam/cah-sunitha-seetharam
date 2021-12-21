@@ -110,26 +110,6 @@ class inventoryDetailsScreen {
 	}
 
 
-	/**
-	 * deletes the location
-	 * @param locationName (name of the location to be deleted)
-	 */
-	@Keyword
-	def deleteLocation(String locationName) {
-
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Delete Inventory/popup_menu'), 0)
-
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Delete Inventory/Delete_Button'), 0)
-
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Delete Inventory/Yes_Button'), 0)
-
-		commonMethodsObject.waitForProgressBarToBeInvisible()
-
-		Mobile.verifyElementNotVisible(findTestObject('Android/Inventory/Location Details Screen/Edit_Location/afterLocationEditVerfication_TextView',
-				[('TEXT') : locationName]), 0)
-	}
-
-
 
 	@Keyword
 	def search_And_Add_Product_By_Creating_New_Location(String Location_Name, String Product_Name,String CostType) {
@@ -190,5 +170,78 @@ class inventoryDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/Scan_Icon'),0)
 
 		Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/inventoryName_TextView',[('TEXT'):Inventory_Name]),0)
+	}
+
+	/**
+	 * verifies the location count, cost gets updated or not, of the inventory after the location is deleted
+	 * @param locationName (name of the location under verification)
+	 */
+	@Keyword
+	def deleteLocationWithCostLocationCountVerification(String locationName) {
+
+		int initialInventoryLocationCount=Mobile.getText(findTestObject('Android/Inventory/Location Details Screen/Verification Details/inventoryLine_Text'), 0)// initial inventory location count
+
+		String initialInventoryTotal=Mobile.getText(findTestObject('Android/Inventory/Location Details Screen/Verification Details/inventoryTotal_Text'), 0)// inventory value with location added
+
+		String locationValue=Mobile.getText(findTestObject('Android/Inventory/Location Details Screen/Verification Details/locationValue_Text'), 0)//location value with added product
+
+		float inventoryTotal_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(initialInventoryTotal)//converting initialInventoryTotal string to a float value
+
+		float locationValue_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(locationValue)//converting locationValue string to a float value
+
+		(new androidInventory.inventoryDetailsScreen()).deleteLocation(locationName)//calling delete location function
+
+		commonMethodsObject.pressBacknav()
+
+		int finalInventoryLocationCount=Mobile.getText(findTestObject('Android/Inventory/Location Details Screen/Verification Details/noOfLocation_Text'), 0)//final inventory location count after deleting a location
+
+		String finalInventoryTotal=Mobile.getText(findTestObject('Android/Inventory/Location Details Screen/Verification Details/Inventory_locationValue_Text'), 0)//final inventory total after deleting a location
+
+		float finalInventoryTotal_charactersRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(finalInventoryTotal)///converting finalInventoryTotal string to a float value
+
+	/*	KeywordUtil.logInfo("initialInventoryTotal is " + initialInventoryTotal );
+		KeywordUtil.logInfo("locationValue is " + locationValue );
+		KeywordUtil.logInfo("inventoryTotal_dollarSymbolRemoved_FloatValue is " + inventoryTotal_dollarSymbolRemoved_FloatValue );
+		KeywordUtil.logInfo("locationValue_dollarSymbolRemoved_FloatValue is " + locationValue_dollarSymbolRemoved_FloatValue );
+		KeywordUtil.logInfo("finalInventoryLocationCount is " + finalInventoryLocationCount );
+		KeywordUtil.logInfo("finalInventoryTotal is " + finalInventoryTotal );
+		KeywordUtil.logInfo("finalInventoryTotal_charactersRemoved_FloatValue is " + finalInventoryTotal_charactersRemoved_FloatValue );
+	*/
+
+		assert inventoryTotal_dollarSymbolRemoved_FloatValue==(finalInventoryTotal_charactersRemoved_FloatValue+locationValue_dollarSymbolRemoved_FloatValue)
+
+		assert finalInventoryLocationCount==(initialInventoryLocationCount-1)
+	}
+
+	/**
+	 * deletes the location
+	 * @param locationName (name of the location to be deleted)
+	 */
+	@Keyword
+	def deleteLocation(String locationName) {
+
+		int ElementTopPosition = Mobile.getElementTopPosition(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/tapOnLocation_Text', [('Location') : locationName]), 0)
+
+		int ElementHeight=Mobile.getElementHeight(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/tapOnLocation_Text', [('Location') : locationName]), 0)
+
+		int y_Coordinate=(ElementHeight/2)+ElementTopPosition
+
+		int ElementLeftPosition=Mobile.getElementLeftPosition(findTestObject('Android/Inventory/Location Details Screen/Delete Location/slidePopUpForLocationDeletion_Button'), 0)
+
+		int ElementWidth=Mobile.getElementWidth(findTestObject('Android/Inventory/Location Details Screen/Delete Location/slidePopUpForLocationDeletion_Button'), 0)
+
+		int x_Coordinate=(ElementWidth/2)+ElementLeftPosition
+
+		Mobile.tapAtPosition(x_Coordinate, y_Coordinate)
+
+		Mobile.tap(	findTestObject('Android/Inventory/Inventory Listing Screen/Delete Inventory/delete_Button'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Inventory/Location Details Screen/Delete Location/selectingYesWillAlsoDeleteThisLocationsInventoryOnTheWebsiteAndCannotBeUndone_Text'),0)
+
+		Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Create New Inventory_Screen/yes_Button'), 0)
+
+		commonMethodsObject.waitForProgressBarToBeInvisible()
+
+		Mobile.verifyElementNotVisible(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/locationNameVerification_Text', [('LName') : locationName]),0)
 	}
 }

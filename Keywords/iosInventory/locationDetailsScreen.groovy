@@ -52,7 +52,7 @@ class locationDetailsScreen {
 	 * @param productName (name of the product to be added)
 	 */
 	@Keyword
-	def addProducttoLocation(String locationName, String productName) {
+	def addProducttoLocation(String locationName, String productName, String quantity) {
 
 		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), 0, 0)
 
@@ -63,6 +63,8 @@ class locationDetailsScreen {
 		Mobile.tapAndHold(findTestObject('iOS/Product Search/search_Keypad'), 0, 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
+
+		addQuantityforTheSearchedProduct(quantity)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/addProductToLocation_Text', [('Location') : locationName]),0)
 

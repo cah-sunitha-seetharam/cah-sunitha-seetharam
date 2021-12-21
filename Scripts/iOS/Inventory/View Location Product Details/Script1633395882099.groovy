@@ -17,35 +17,61 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-CustomKeywords.'ios_common_keywords.Start_Application.custom'()
+/*'starts the application'
+CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
-CustomKeywords.'ios_login.Login_Screen.login'(Password)
+'takes user from login to home screen and takes username, password, account no as the arguments'
+CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen'(GlobalVariable.Username, GlobalVariable.Password, 
+    GlobalVariable.Account)
+*/
+'takes user from home screen to inventory listing screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromHomeToInventoryListingScreen'()
 
-CustomKeywords.'ios_account_selection.Select_An_Account.Custom'(Account)
+'output of random string generator is stored in inventoryName which will be passed into create_Inventory function'
+inventoryName = CustomKeywords.'common.commonMethods.randomStringGenerator'(inventoryNameLength)
 
-CustomKeywords.'ios_dashboard.dashboard_details.click_On_More_Options'()
+'creates an inventory by taking inventoryName as the argument'
+CustomKeywords.'iosInventory.inventoryListingScreen.createInventory'(inventoryName)
 
-CustomKeywords.'ios_more_options_screen.Go_To_Inventory_Listing_Screen.Custom'()
+'ouput of random string generator is stored in locationName which will be passed into add_Location function\n'
+locationName = CustomKeywords.'common.commonMethods.randomStringGenerator'(locationNameLength)
 
-CustomKeywords.'ios_inventory.Inventory_listing_Screen.create_Inventory'(Inventory_Name)
+'adds location in location details page and takes locationName as the argument'
+CustomKeywords.'iosInventory.inventoryDetailsScreen.addLocation'(locationName, costType)
 
-CustomKeywords.'ios_inventory.Inventory_details_Screen.add_Location'(Location_Name, Cost_Type)
+'opens the location details and takes the locationName as the argument'
+CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnALocation'(locationName)
 
-CustomKeywords.'ios_inventory.Inventory_details_Screen.click_On_Location'(Location_Name)
+'reading the module test data file  '
+def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inventoryTestData.json')
 
-CustomKeywords.'ios_inventory.Location_details_Screen.add_Product_to_Location'(Location_Name, Product_Name)
+'reading the cin of product to be added'
+String productSearch = requestObject[GlobalVariable.Environment].TC_R_003.productSearchCin
 
-CustomKeywords.'ios_common_keywords.Go_Back.Custom'()
+'adds products to a location'
+CustomKeywords.'iosInventory.locationDetailsScreen.addProducttoLocation'(locationName, productSearch)
 
-CustomKeywords.'ios_inventory.Location_details_Screen.verify_Location_details_Screen'(Location_Name)
+'takes the application one screen back'
+CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
-CustomKeywords.'ios_common_keywords.Go_Back.Custom'()
+'this function verifies that the product is visible on the location details screen'
+CustomKeywords.'iosInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen'(productSearch)
 
-CustomKeywords.'ios_inventory.Inventory_details_Screen.delete_Location'()
+'this function verifies the lines count'
+CustomKeywords.'iosInventory.locationDetailsScreen.verifyLinesCount'(expectedLinesCount)
 
-CustomKeywords.'ios_common_keywords.Go_Back.Custom'()
+'takes the application one screen back'
+CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
-CustomKeywords.'ios_inventory.Inventory_listing_Screen.verify_Inventory_Listing_Screen'()
+'this function verifies the inventory details screen'
+CustomKeywords.'iosInventory.inventoryDetailsScreen.verifyInventoryDetailsScreen'(locationName)
 
-CustomKeywords.'ios_inventory.Inventory_listing_Screen.delete_Inventory'(Inventory_Name)
+'deletes the location and takes locationName as the argument'
+CustomKeywords.'iosInventory.inventoryDetailsScreen.deleteLocation'(locationName)
+
+'takes the application one screen back'
+CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
+
+'deletes the inventory and takes inventoryName as the argument'
+CustomKeywords.'iosInventory.inventoryListingScreen.deleteInventory'(inventoryName)
 

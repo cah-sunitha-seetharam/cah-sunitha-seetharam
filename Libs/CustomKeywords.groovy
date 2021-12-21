@@ -455,13 +455,17 @@ def static "iosOrders.orderDetailsScreen.createNewC2Order"(
          , 	poMemo)
 }
 
-
-def static "iosOrders.orderDetailsScreen.edit_PO_Name_and_Memo"(
-    	String po_Name	
-     , 	String po_Memo	) {
-    (new iosOrders.orderDetailsScreen()).edit_PO_Name_and_Memo(
-        	po_Name
-         , 	po_Memo)
+ /**
+	 * edits the order details which are purchase order name and memo
+	 * @param poName (new poName of the order)
+	 * @param poMemo (new poMemo of the order)
+	 */ 
+def static "iosOrders.orderDetailsScreen.editPONameAndMemo"(
+    	String poName	
+     , 	String poMemo	) {
+    (new iosOrders.orderDetailsScreen()).editPONameAndMemo(
+        	poName
+         , 	poMemo)
 }
 
  /**
@@ -956,10 +960,12 @@ def static "iosOrders.cartScreen.verifyUploadAllOrdersPopUp"() {
 	 */ 
 def static "iosInventory.locationDetailsScreen.addProducttoLocation"(
     	String locationName	
-     , 	String productName	) {
+     , 	String productName	
+     , 	String quantity	) {
     (new iosInventory.locationDetailsScreen()).addProducttoLocation(
         	locationName
-         , 	productName)
+         , 	productName
+         , 	quantity)
 }
 
  /**
@@ -1270,9 +1276,11 @@ def static "androidInventory.locationDetailsScreen.delete_Product"() {
     (new androidInventory.locationDetailsScreen()).delete_Product()
 }
 
-
-def static "androidInventory.locationDetailsScreen.upload_Location"() {
-    (new androidInventory.locationDetailsScreen()).upload_Location()
+ /**
+	 * uploads location from the location details screen
+	 */ 
+def static "androidInventory.locationDetailsScreen.uploadLocation"() {
+    (new androidInventory.locationDetailsScreen()).uploadLocation()
 }
 
 
@@ -1373,6 +1381,17 @@ def static "androidInventory.locationDetailsScreen.verifyLocationDetailsScreen"(
 def static "androidInventory.locationDetailsScreen.deleteProduct"(
     	String productNdcNumber	) {
     (new androidInventory.locationDetailsScreen()).deleteProduct(
+        	productNdcNumber)
+}
+
+ /**
+	 * verifies that the latest added product is at the top of the added products list, then deletes the latest added product and continues the process to verifyReverseChronologicalOrder of the added products
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */ 
+def static "androidInventory.locationDetailsScreen.verifyReverseChronologicalOrder"(
+    	Stack productNdcNumber	) {
+    (new androidInventory.locationDetailsScreen()).verifyReverseChronologicalOrder(
         	productNdcNumber)
 }
 
@@ -1837,16 +1856,6 @@ def static "androidInventory.inventoryDetailsScreen.clickOnLocation"(
         	locationName)
 }
 
- /**
-	 * deletes the location
-	 * @param locationName (name of the location to be deleted)
-	 */ 
-def static "androidInventory.inventoryDetailsScreen.deleteLocation"(
-    	String locationName	) {
-    (new androidInventory.inventoryDetailsScreen()).deleteLocation(
-        	locationName)
-}
-
 
 def static "androidInventory.inventoryDetailsScreen.search_And_Add_Product_By_Creating_New_Location"(
     	String Location_Name	
@@ -1863,6 +1872,26 @@ def static "androidInventory.inventoryDetailsScreen.verify_Inventory_Details_Scr
     	String Inventory_Name	) {
     (new androidInventory.inventoryDetailsScreen()).verify_Inventory_Details_Screen(
         	Inventory_Name)
+}
+
+ /**
+	 * verifies the location count, cost gets updated or not, of the inventory after the location is deleted
+	 * @param locationName (name of the location under verification)
+	 */ 
+def static "androidInventory.inventoryDetailsScreen.deleteLocationWithCostLocationCountVerification"(
+    	String locationName	) {
+    (new androidInventory.inventoryDetailsScreen()).deleteLocationWithCostLocationCountVerification(
+        	locationName)
+}
+
+ /**
+	 * deletes the location
+	 * @param locationName (name of the location to be deleted)
+	 */ 
+def static "androidInventory.inventoryDetailsScreen.deleteLocation"(
+    	String locationName	) {
+    (new androidInventory.inventoryDetailsScreen()).deleteLocation(
+        	locationName)
 }
 
 
@@ -1997,76 +2026,23 @@ def static "androidOrders.ordersCommonScreen.change_Account"(
         	new_Account)
 }
 
-def static "android_inventory.Location_details_Screen.edit_LocationName"(
-    	String New_Location_Name	
-     , 	String CostType	
-     , 	String Previous_Name	) {
-    (new android_inventory.Location_details_Screen()).edit_LocationName(
-        	New_Location_Name
-         , 	CostType
-         , 	Previous_Name)
-}
-
-
-def static "android_inventory.Location_details_Screen.add_Product_To_Location"(
-    	String Location_Name	
-     , 	String Product_Name	) {
-    (new android_inventory.Location_details_Screen()).add_Product_To_Location(
-        	Location_Name
-         , 	Product_Name)
-}
-
-
-def static "android_inventory.Location_details_Screen.move_Product_To_Another_Location"(
-    	String Location_Name	) {
-    (new android_inventory.Location_details_Screen()).move_Product_To_Another_Location(
-        	Location_Name)
-}
-
-
-def static "android_inventory.Location_details_Screen.copy_Product_To_Another_Location"(
-    	String Location_Name	) {
-    (new android_inventory.Location_details_Screen()).copy_Product_To_Another_Location(
-        	Location_Name)
-}
-
-
-def static "android_inventory.Location_details_Screen.delete_Product"() {
-    (new android_inventory.Location_details_Screen()).delete_Product()
-}
-
-
-def static "android_inventory.Location_details_Screen.upload_Location"() {
-    (new android_inventory.Location_details_Screen()).upload_Location()
-}
-
-
-def static "android_inventory.Location_details_Screen.share_Location"() {
-    (new android_inventory.Location_details_Screen()).share_Location()
-}
-
-
-def static "android_inventory.Location_details_Screen.verify_Location_details_Screen"(
-    	String Location_Name	) {
-    (new android_inventory.Location_details_Screen()).verify_Location_details_Screen(
-        	Location_Name)
-}
-
-
-
  /**
 	 * float value generator
 	 * @param stringToBeConvertedToFloatValue
 	 * @return float value for a string by removing characters
 	 */ 
-
 def static "common.commonMethods.floatValueGenerator"(
     	String stringToBeConvertedToFloatValue	) {
     (new common.commonMethods()).floatValueGenerator(
         	stringToBeConvertedToFloatValue)
 }
 
-
+ /**
+	 * this function formats the decimal data for e.g 20.546 would be converted to 20.55 if decimalFormatRequired is 0.00
+	 * @param decimalDataToBeFormatted (decimal data required to be formatted), 
+	 * @param decimalFormatRequired (decimal format required for e.g 0.00 for rounding to 2 decimal places)
+	 * @return formattedDecimalData (formatted decimal data)
+	 */ 
 def static "common.commonMethods.formatDecimalData"(
     	Object decimalDataToBeFormatted	
      , 	String decimalFormatRequired	) {
@@ -2075,21 +2051,32 @@ def static "common.commonMethods.formatDecimalData"(
          , 	decimalFormatRequired)
 }
 
-
+ /**
+	 * random alpha numeric String Generator 
+	 * @param length, required string length 
+	 * @return alpha-numeric string  
+	 */ 
 def static "common.commonMethods.randomStringGenerator"(
     	int length	) {
     (new common.commonMethods()).randomStringGenerator(
         	length)
 }
 
-
+ /**
+	 * Read JSON file 
+	 * @param file name, Note: data files are considered to be on Data files location on project directory  
+	 * @return the JSON file object 
+	 */ 
 def static "common.commonMethods.readFileTypeJSON"(
     	String fileNameValue	) {
     (new common.commonMethods()).readFileTypeJSON(
         	fileNameValue)
 }
 
-
+ /**
+	 * Get mobile driver for current session
+	 * @return mobile driver for current session
+	 */ 
 def static "common.commonMethods.getCurrentSessionMobileDriver"() {
     (new common.commonMethods()).getCurrentSessionMobileDriver()
 }
@@ -2543,6 +2530,7 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
         	testName)
 }
 
+
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
     	TestObject testObject	
      , 	String testName	) {
@@ -2551,9 +2539,6 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
          , 	testName)
 }
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
-}
 
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
     	String testName	
@@ -2574,7 +2559,6 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
         	eyes)
 }
-
 
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	
