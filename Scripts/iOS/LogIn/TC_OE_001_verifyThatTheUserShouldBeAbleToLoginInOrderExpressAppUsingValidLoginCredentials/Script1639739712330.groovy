@@ -17,35 +17,11 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-CustomKeywords.'ios_common_keywords.Start_Application.custom'()
+'starts the application'
+CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
-CustomKeywords.'ios_login.Login_Screen.login'(Password)
+'takes user from login to home screen and takes username, password, account no as the arguments'
+CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen'(GlobalVariable.Username, GlobalVariable.Password, GlobalVariable.Account)
 
-CustomKeywords.'ios_account_selection.Select_An_Account.Custom'(account)
-
-CustomKeywords.'ios_dashboard.dashboard_details.click_On_Orders'()
-
-CustomKeywords.'ios_orders.Orders_Screen.click_On_NewOrder'()
-
-CustomKeywords.'ios_orders.New_Order_Screen.enter_Purchase_Order_Details'(PO_Name, PO_Memo)
-
-CustomKeywords.'ios_orders.New_Order_Screen.create_Order'()
-
-CustomKeywords.'ios_common_keywords.Go_Back.Custom'()
-
-CustomKeywords.'ios_orders.Cart_Screen.delete_Order'(account)
-
-CustomKeywords.'ios_dashboard.dashboard_details.click_On_Orders'()
-
-CustomKeywords.'ios_dashboard.dashboard_details.Adding_Product_from_Dashboard_To_Cart'(Product_Name, quantity)
-
-CustomKeywords.'ios_common_keywords.Go_Back.Custom'()
-
-CustomKeywords.'ios_dashboard.dashboard_details.click_On_Orders'()
-
-CustomKeywords.'ios_dashboard.dashboard_details.Adding_Product_from_Dashboard_To_Cart'(Product_Name, quantity)
-
-CustomKeywords.'ios_common_keywords.Go_Back.Custom'()
-
-CustomKeywords.'ios_orders.Cart_Screen.click_On_Order'(account)
-
+'verifies the details of login Page'
+CustomKeywords.'iosDashboard.dashboardScreen.verifyDashboardScreen'()

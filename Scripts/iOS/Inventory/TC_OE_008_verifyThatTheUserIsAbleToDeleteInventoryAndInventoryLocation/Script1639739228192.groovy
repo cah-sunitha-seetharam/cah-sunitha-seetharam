@@ -46,25 +46,16 @@ CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnALocation'(locationNa
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inventoryTestData.json')
 
 'reading the cin of product to be added'
-String productSearch = requestObject[GlobalVariable.Environment].TC_R_003.productSearchCin
+String productSearch = requestObject[GlobalVariable.Environment].TC_OE_008.productSearchCin
 
 'adds products to a location'
-CustomKeywords.'iosInventory.locationDetailsScreen.addProducttoLocation'(locationName, productSearch)
+CustomKeywords.'iosInventory.locationDetailsScreen.addProducttoLocation'(locationName, productSearch,quantity)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
-'this function verifies that the product is visible on the location details screen'
-CustomKeywords.'iosInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen'(productSearch)
-
-'this function verifies the lines count'
-CustomKeywords.'iosInventory.locationDetailsScreen.verifyLinesCount'(expectedLinesCount)
-
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
-
-'this function verifies the inventory details screen'
-CustomKeywords.'iosInventory.inventoryDetailsScreen.verifyInventoryDetailsScreen'(locationName)
 
 'deletes the location and takes locationName as the argument'
 CustomKeywords.'iosInventory.inventoryDetailsScreen.deleteLocation'(locationName)

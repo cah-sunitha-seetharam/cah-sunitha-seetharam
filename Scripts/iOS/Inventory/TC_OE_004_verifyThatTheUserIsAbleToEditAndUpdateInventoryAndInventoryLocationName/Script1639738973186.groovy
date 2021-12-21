@@ -28,28 +28,34 @@ CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen'(G
 CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromHomeToInventoryListingScreen'()
 
 'output of random string generator is stored in inventoryName which will be passed into create_Inventory function'
-inventoryName = CustomKeywords.'common.commonMethods.randomStringGenerator'(inventoryNameLength)
+inventoryName_1 = CustomKeywords.'common.commonMethods.randomStringGenerator'(inventoryNameLength)
+
+'output of random string generator is stored in inventoryName which will be passed into create_Inventory function'
+inventoryName_2 = CustomKeywords.'common.commonMethods.randomStringGenerator'(inventoryNameLength)
 
 'creates an inventory by taking inventoryName as the argument'
-CustomKeywords.'iosInventory.inventoryListingScreen.createInventory'(inventoryName)
+CustomKeywords.'iosInventory.inventoryListingScreen.createInventory'(inventoryName_1)
 
-'ouput of random string generator is stored in locationName which will be passed into add_Location function\n'
-locationName = CustomKeywords.'common.commonMethods.randomStringGenerator'(locationNameLength)
+'ouput of random string generator is stored in locationName which will be passed into add_Location function'
+locationName_1 = CustomKeywords.'common.commonMethods.randomStringGenerator'(locationNameLength)
+
+'ouput of random string generator is stored in locationName which will be passed into add_Location function'
+locationName_2 = CustomKeywords.'common.commonMethods.randomStringGenerator'(locationNameLength)
 
 'adds location in location details page and takes locationName as the argument'
-CustomKeywords.'iosInventory.inventoryDetailsScreen.addLocation'(locationName, costType)
+CustomKeywords.'iosInventory.inventoryDetailsScreen.addLocation'(locationName_1, costType_1)
 
 'opens the location details and takes the locationName as the argument'
-CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnALocation'(locationName)
+CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnALocation'(locationName_1)
 
-'reading the module test data file  '
+'reading the module test data file'
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inventoryTestData.json')
 
-'reading the cin of product to be added'
-String productSearch = requestObject[GlobalVariable.Environment].TC_R_003.productSearchCin
+'reading the ndc of product to be added'
+productSearch = requestObject[GlobalVariable.Environment].TC_OE_004.productSearchByNDC
 
 'adds products to a location'
-CustomKeywords.'iosInventory.locationDetailsScreen.addProducttoLocation'(locationName, productSearch)
+CustomKeywords.'iosInventory.locationDetailsScreen.addProducttoLocation'(locationName_1, productSearch,quantity)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
@@ -57,21 +63,18 @@ CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 'this function verifies that the product is visible on the location details screen'
 CustomKeywords.'iosInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen'(productSearch)
 
-'this function verifies the lines count'
-CustomKeywords.'iosInventory.locationDetailsScreen.verifyLinesCount'(expectedLinesCount)
+'searches and adds the product from the inventory details screen by creating a new location'
+CustomKeywords.'iosInventory.locationDetailsScreen.editLocationName'(locationName_2, costType_2)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
-'this function verifies the inventory details screen'
-CustomKeywords.'iosInventory.inventoryDetailsScreen.verifyInventoryDetailsScreen'(locationName)
-
-'deletes the location and takes locationName as the argument'
-CustomKeywords.'iosInventory.inventoryDetailsScreen.deleteLocation'(locationName)
+'adds location in location details page and takes locationName as the argument'
+CustomKeywords.'iosInventory.inventoryDetailsScreen.editInventoryName'(inventoryName_2)
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
 'deletes the inventory and takes inventoryName as the argument'
-CustomKeywords.'iosInventory.inventoryListingScreen.deleteInventory'(inventoryName)
+CustomKeywords.'iosInventory.inventoryListingScreen.deleteInventory'(inventoryName_2)
 

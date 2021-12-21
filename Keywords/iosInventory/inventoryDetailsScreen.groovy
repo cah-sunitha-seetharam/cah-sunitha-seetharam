@@ -66,7 +66,14 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 	@Keyword
 	def addLocation(String locationName, String costType) {
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/addLocation_Text'), 0)
+		if(Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/addLocation_Text'),5, FailureHandling.OPTIONAL)){
+
+			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/addLocation_Text'), 0)
+		}
+
+		else {
+			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/addLocation_Button'), 0)
+		}
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName_TextField'), 0)
 
@@ -233,9 +240,9 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 	@Keyword
 	def editInventoryName(String newInventoryName) {
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Edit Inventory/Edit Inventory_Text'), 0)
+		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Edit Inventory/editInventory_Text'), 0)
 
-		Mobile.clearText(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName_TextField'), 0)
+		Mobile.clearText(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/locationName_TextField'), 0)
 
 		Mobile.setText(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName_TextField'), newInventoryName, 0)
 
@@ -293,7 +300,7 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 	@Keyword
 	def verifyInventoryDetailsScreen(String inventoryName) {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Verification Details/createdOnDate_Text'),0)
+		//Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Verification Details/createdOnDate_Text'),0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Verification Details/inventoryHeader_Label'), 0)
 
