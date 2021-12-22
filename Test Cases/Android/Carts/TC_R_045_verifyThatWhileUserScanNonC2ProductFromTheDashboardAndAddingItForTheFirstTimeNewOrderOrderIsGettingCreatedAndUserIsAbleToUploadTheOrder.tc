@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that While User scan Non C2 Product from the dashboard and adding it for the first time, New Order order is getting created and user is able to upload the Order.
+
+Prerequisite:
+1. Valid login credentials with multiple accounts available for the user.
+3. Product Barcode of C2 Products and Non C2 Products should be available.</description>
+   <name>TC_R_045_verifyThatWhileUserScanNonC2ProductFromTheDashboardAndAddingItForTheFirstTimeNewOrderOrderIsGettingCreatedAndUserIsAbleToUploadTheOrder</name>
+   <tag>Order;Regression;Scan</tag>
+   <comment></comment>
+   <testCaseGuid>166c8621-83ad-4b82-8f34-358b79a31f60</testCaseGuid>
+   <variable>
+      <defaultValue>'poName'</defaultValue>
+      <description>purchase order name for the order created</description>
+      <id>6a39cc83-d261-4c6e-898d-cac961bdf7e1</id>
+      <masked>false</masked>
+      <name>poName</name>
+   </variable>
+   <variable>
+      <defaultValue>'poMemo'</defaultValue>
+      <description>purchase order memo for the order created</description>
+      <id>eaf66315-2e6a-4683-9efe-b52aa77fc43c</id>
+      <masked>false</masked>
+      <name>poMemo</name>
+   </variable>
+   <variable>
+      <defaultValue>2</defaultValue>
+      <description>quantity added for the product searched</description>
+      <id>1d20bf1f-05dc-4496-a202-fca6f7cc5db8</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+   <variable>
+      <defaultValue>3</defaultValue>
+      <description>expected quantity added for the product searched</description>
+      <id>7b4dba07-bef1-4538-8911-6f4032a5db46</id>
+      <masked>false</masked>
+      <name>expectedQuantity</name>
+   </variable>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description>expected total line count of order name page</description>
+      <id>f56b3890-cca5-4a90-950f-d4fea8e9b354</id>
+      <masked>false</masked>
+      <name>lineCountOfOrderName</name>
+   </variable>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description>expected total line count of the order in cart page</description>
+      <id>3864ea1a-8054-4bc6-b2ef-e3f945eed056</id>
+      <masked>false</masked>
+      <name>totalLineCount</name>
+   </variable>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description>expected annotation count of the order in cart page</description>
+      <id>391f598a-8708-44c5-ae82-d7ad7a69a911</id>
+      <masked>false</masked>
+      <name>expectedAnnotationCount</name>
+   </variable>
+   <variable>
+      <defaultValue>'Ordering'</defaultValue>
+      <description>toogle value can be ordering or price check</description>
+      <id>6cb65b71-1b48-4756-bf11-4c0139ed318d</id>
+      <masked>false</masked>
+      <name>toggleValue</name>
+   </variable>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description>expected line count of the nonc2order in cart page</description>
+      <id>13bb4a29-0433-4389-9e6f-9ad922c11191</id>
+      <masked>false</masked>
+      <name>nonc2LineCount</name>
+   </variable>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description>expected line count of the c2order in cart page</description>
+      <id>bdc127ef-1748-4f39-8a66-bc2bb67998ba</id>
+      <masked>false</masked>
+      <name>c2LineCount</name>
+   </variable>
+</TestCaseEntity>
