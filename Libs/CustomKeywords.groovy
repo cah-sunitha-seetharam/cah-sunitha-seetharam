@@ -7,6 +7,8 @@ import java.lang.String
 
 import java.util.Stack
 
+import java.lang.Float
+
 import com.applitools.eyes.selenium.Eyes
 
 import org.openqa.selenium.WebElement
@@ -310,6 +312,26 @@ def static "iosCommonKeywords.commonMethods.waitTimeForObjectToBeVisible"(
         	testObj
          , 	waitTime
          , 	waitLimit)
+}
+
+ /**
+	 * changes the user account
+	 * @param newAccount
+	 */ 
+def static "iosCommonKeywords.commonMethods.changeAccount"(
+    	String newAccount	) {
+    (new iosCommonKeywords.commonMethods()).changeAccount(
+        	newAccount)
+}
+
+ /**
+	 * verifies whether the selected user account is same as the account required
+	 * @param expectedAccountNo (expected user account no)
+	 */ 
+def static "iosCommonKeywords.commonMethods.verifySelectedAccount"(
+    	String expectedAccountNo	) {
+    (new iosCommonKeywords.commonMethods()).verifySelectedAccount(
+        	expectedAccountNo)
 }
 
 
@@ -1446,6 +1468,33 @@ def static "androidOrders.orderDetailsScreen.addQuantityforTheSearchedProduct"(
 }
 
  /**
+	 * verifies quantity updated caption
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyQuantityUpdatedCaption"() {
+    (new androidOrders.orderDetailsScreen()).verifyQuantityUpdatedCaption()
+}
+
+ /**
+	 * verifies order name header label
+	 * @param poName (poName is the order name)
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyOrderNameHeaderLabel"(
+    	String poName	) {
+    (new androidOrders.orderDetailsScreen()).verifyOrderNameHeaderLabel(
+        	poName)
+}
+
+ /**
+	 * takes expected lines count as the argument and verifies the same
+	 * @param expectedLineCount (expected total line count after adding product and return to the order name page)
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyLineCountOfOrderNamePage"(
+    	String expectedLineCount	) {
+    (new androidOrders.orderDetailsScreen()).verifyLineCountOfOrderNamePage(
+        	expectedLineCount)
+}
+
+ /**
 	 * this function gets the total added quantity of the product
 	 * @return quantityNumericalValue (of the product which has been added)
 	 */ 
@@ -1511,6 +1560,33 @@ def static "androidOrders.orderDetailsScreen.verifyOrderValue"(
     	Object quantity	) {
     (new androidOrders.orderDetailsScreen()).verifyOrderValue(
         	quantity)
+}
+
+ /**
+	 * this function returns the order value
+	 * @return actualOrderTotal(order total value)
+	 */ 
+def static "androidOrders.orderDetailsScreen.returnOrderValue"() {
+    (new androidOrders.orderDetailsScreen()).returnOrderValue()
+}
+
+ /**
+	 * this function returns the cost of added product
+	 * @return productCost (of the product which has been added)
+	 */ 
+def static "androidOrders.orderDetailsScreen.returnCostOfTheAddedProduct"() {
+    (new androidOrders.orderDetailsScreen()).returnCostOfTheAddedProduct()
+}
+
+ /**
+	 * this function verifies that the product is visible on the order details screen
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyProductIsVisibleOnTheOrderDetailsScreen"(
+    	Object productNdcNumber	) {
+    (new androidOrders.orderDetailsScreen()).verifyProductIsVisibleOnTheOrderDetailsScreen(
+        	productNdcNumber)
 }
 
  /**
@@ -1676,11 +1752,13 @@ def static "iosInventory.inventoryDetailsScreen.editInventoryName"(
 def static "iosInventory.inventoryDetailsScreen.searchAndAddProductByCreatingNewLocation"(
     	String locationName	
      , 	String productName	
-     , 	String costType	) {
+     , 	String costType	
+     , 	String quantity	) {
     (new iosInventory.inventoryDetailsScreen()).searchAndAddProductByCreatingNewLocation(
         	locationName
          , 	productName
-         , 	costType)
+         , 	costType
+         , 	quantity)
 }
 
  /**
@@ -2100,12 +2178,21 @@ def static "iosDashboard.dashboardScreen.verifyDashboardScreen"() {
 
  /**
 	 * opens the order details page
+<<<<<<< HEAD
 	 * @param accountNo (accountNo used to create the order)
 	 */ 
 def static "androidOrders.cartScreen.openAnOrderDetails"(
     	String accountNo	) {
     (new androidOrders.cartScreen()).openAnOrderDetails(
         	accountNo)
+=======
+	 * @param poName (purchase order name used to create the order)
+	 */ 
+def static "androidOrders.cartScreen.openAnOrderDetail"(
+    	String poName	) {
+    (new androidOrders.cartScreen()).openAnOrderDetail(
+        	poName)
+>>>>>>> develop
 }
 
  /**
@@ -2115,6 +2202,7 @@ def static "androidOrders.cartScreen.clickOnC2OrdersTab"() {
     (new androidOrders.cartScreen()).clickOnC2OrdersTab()
 }
 
+<<<<<<< HEAD
  /**
 	 * opens the c2 order details
 	 * @param accountNo (account no which was used to create the order)
@@ -2125,6 +2213,8 @@ def static "androidOrders.cartScreen.openC2OrderDetailScreen"(
         	accountNo)
 }
 
+=======
+>>>>>>> develop
 
 def static "androidOrders.cartScreen.delete_Order"(
     	Object Account_No	) {
@@ -2140,6 +2230,16 @@ def static "androidOrders.cartScreen.clickOnUploadAllOrders"() {
 }
 
  /**
+<<<<<<< HEAD
+=======
+	 * verifies cart screen without non c2 orders
+	 */ 
+def static "androidOrders.cartScreen.verifyCartScreenWithOutNonC2Orders"() {
+    (new androidOrders.cartScreen()).verifyCartScreenWithOutNonC2Orders()
+}
+
+ /**
+>>>>>>> develop
 	 * verifies pop up screen which comes after clicking on upload all orders button on cart screen
 	 */ 
 def static "androidOrders.cartScreen.verifyUploadAllOrdersPopUp"() {
@@ -2220,6 +2320,77 @@ def static "androidOrders.cartScreen.verifyLinesCount"(
 }
 
  /**
+<<<<<<< HEAD
+=======
+	 * verifies that the created order should not be visible on the cart screen
+	 * @param poName (purchase order name used to create the order)
+	 */ 
+def static "androidOrders.cartScreen.verifyOrderIsVisibleOnTheCartScreen"(
+    	String poName	) {
+    (new androidOrders.cartScreen()).verifyOrderIsVisibleOnTheCartScreen(
+        	poName)
+}
+
+ /**
+	 * takes expected lines count of c2 or non c2 as the argument and verifies the same
+	 * @param expectedLineCount (expected total line count of non c2 or c2 after adding product to the cart)
+	 */ 
+def static "androidOrders.cartScreen.verifyLineCountofC2OrNonC2Product"(
+    	String expectedlineCount	) {
+    (new androidOrders.cartScreen()).verifyLineCountofC2OrNonC2Product(
+        	expectedlineCount)
+}
+
+ /**
+	 * this function returns the order name of the order which is at the top of the order list
+	 * return orderName (returns topmost order name)
+	 */ 
+def static "androidOrders.cartScreen.returnTopMostOrderName"() {
+    (new androidOrders.cartScreen()).returnTopMostOrderName()
+}
+
+ /**
+	 * this function verifies the pattern required for the order which was created without giving any purchase order name
+	 * @param orderName (order name which is under verification)
+	 */ 
+def static "androidOrders.cartScreen.verifyOrderNamePattern"(
+    	String orderName	) {
+    (new androidOrders.cartScreen()).verifyOrderNamePattern(
+        	orderName)
+}
+
+ /**
+	 * takes expected lines count as the argument and verifies the same
+	 * @param expectedLinesCount (expected total line count after adding products to the cart)
+	 */ 
+def static "androidOrders.cartScreen.verifyTotalLineCount"(
+    	String expectedLineCount	) {
+    (new androidOrders.cartScreen()).verifyTotalLineCount(
+        	expectedLineCount)
+}
+
+ /**
+	 * takes expected mobile orders count as the argument and verifies the same
+	 * @param expected mobile orders count (expected mobile orders count after adding products to the cart)
+	 */ 
+def static "androidOrders.cartScreen.verifyMobileOrdersCount"(
+    	String expectedMobileOrdersCount	) {
+    (new androidOrders.cartScreen()).verifyMobileOrdersCount(
+        	expectedMobileOrdersCount)
+}
+
+ /**
+	 * verifies the cart value after adding products
+	 * @param expectedCartValue (expected cart value which should be equal to actual cart total)
+	 */ 
+def static "androidOrders.cartScreen.verifyCartValue"(
+    	Object expectedCartValue	) {
+    (new androidOrders.cartScreen()).verifyCartValue(
+        	expectedCartValue)
+}
+
+ /**
+>>>>>>> develop
 	 * verifies the cart screen details without any product
 	 */ 
 def static "androidOrders.cartScreen.verifyCartScreenDetailsWithOutAddingAnyProduct"() {
@@ -2238,6 +2409,68 @@ def static "androidCommonKeywords.commonMethods.goOneScreenBack"() {
 	 */ 
 def static "androidCommonKeywords.commonMethods.installingAndlaunchingTheApplication"() {
     (new androidCommonKeywords.commonMethods()).installingAndlaunchingTheApplication()
+}
+
+ /**
+	 * @param stringCharcterToBeRemoved (Removes characters in a string)
+	 */ 
+def static "androidCommonKeywords.commonMethods.removeCharctersInString"(
+    	String stringCharcterToBeRemoved	) {
+    (new androidCommonKeywords.commonMethods()).removeCharctersInString(
+        	stringCharcterToBeRemoved)
+}
+
+ /**
+	 * @param stringToBeConvertedToFloat (converts string to float)
+	 */ 
+def static "androidCommonKeywords.commonMethods.stringToFloatConversion"(
+    	String stringToBeConvertedToFloat	) {
+    (new androidCommonKeywords.commonMethods()).stringToFloatConversion(
+        	stringToBeConvertedToFloat)
+}
+
+ /**
+	 * @param floatToBeConvertedToString (converts float to string and does formatting "0.00")
+	 */ 
+def static "androidCommonKeywords.commonMethods.floatToStringConversionAndFormatting"(
+    	Float floatToBeConvertedToString	) {
+    (new androidCommonKeywords.commonMethods()).floatToStringConversionAndFormatting(
+        	floatToBeConvertedToString)
+}
+
+ /**
+	 * this function returns the total expected value of the added product
+	 * @return expectedOrderTotal (of the product which has been added)
+	 */ 
+def static "androidCommonKeywords.commonMethods.returnExpectedTotalValueForAddedProduct"(
+    	Object quantity	
+     , 	Object costOfProduct	) {
+    (new androidCommonKeywords.commonMethods()).returnExpectedTotalValueForAddedProduct(
+        	quantity
+         , 	costOfProduct)
+}
+
+ /**
+	 * this function returns the cost of added product
+	 * @return productCostCharcterRemoved (of the product which has been added)
+	 */ 
+def static "androidCommonKeywords.commonMethods.returnCostOfTheAddedProduct"(
+    	String testObj	) {
+    (new androidCommonKeywords.commonMethods()).returnCostOfTheAddedProduct(
+        	testObj)
+}
+
+ /**
+	 * this function verifies that the product is visible on the screen
+	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
+	 * @param testObj (test object of the element under verification)
+	 */ 
+def static "androidCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScreen"(
+    	Object testObj	
+     , 	Object productIdentificationNumber	) {
+    (new androidCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(
+        	testObj
+         , 	productIdentificationNumber)
 }
 
  /**
@@ -2384,6 +2617,21 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
 }
 
 
+<<<<<<< HEAD
+=======
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
+}
+
+
+>>>>>>> develop
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	
      , 	String testName	
@@ -2392,11 +2640,4 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
 }

@@ -49,7 +49,7 @@ class  commonMethods {
 		Mobile.tap(findTestObject('iOS/More Options Screen/termsAgree_CheckBox'), 0)
 
 		Mobile.tap(findTestObject('iOS/More Options Screen/disclaimerConfirm_Button'), 0)
-		
+
 		waitForProgressBarToBeInvisible()
 	}
 
@@ -380,5 +380,42 @@ class  commonMethods {
 			KeywordUtil.logInfo("waitLimit of " + waitLimit + "(s) croosed and object is still visible on the screen!!!!! " +e.toString()); //logInfo if assertion fails
 		}
 
+	}
+
+
+
+	/**
+	 * changes the user account
+	 * @param newAccount
+	 */
+	@Keyword
+	def changeAccount(String newAccount) {
+
+		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Text'), 0)
+
+		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Navigation'), 0)
+
+		Mobile.scrollToText(newAccount, FailureHandling.STOP_ON_FAILURE)
+
+		Mobile.tap(findTestObject('iOS/Account Selection/AccountNo_Text', [('val') : newAccount]), 0)
+	}
+
+
+
+	/**
+	 * verifies whether the selected user account is same as the account required
+	 * @param expectedAccountNo (expected user account no)
+	 */
+	@Keyword
+	def verifySelectedAccount(String expectedAccountNo) {
+
+		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Text'), 0)
+
+		String actualAccountNo=Mobile.getText(findTestObject('iOS/Account Selection/selectedAccount_Label'), 0)
+		
+		assert expectedAccountNo==actualAccountNo
+		
+		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Text'), 0)
+		
 	}
 }

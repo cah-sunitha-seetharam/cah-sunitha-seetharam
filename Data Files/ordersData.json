@@ -42,6 +42,12 @@
             "productSearchByNDC": "00603-2215-21",
         },
         
+
+        "TC_R_013": {
+            "productSearchCin": "4023347",
+            "productSearchByName": "tyl",
+
+        },
         
         
         "TC_R_035": {
@@ -148,7 +154,11 @@
             "productSearchByNDC": "00603-2215-21",
         },
         
-        
+        "TC_R_013": {
+            "productSearchCin": "4023347",
+            "productSearchByName": "tyl",
+
+        },
         
         "TC_R_035": {
             "productSearchCin": "4023347",
@@ -182,13 +192,15 @@
     },
     
     "PMODStgMock": {
-      
+
         "TC_R_035": {
                 "productSearchByNDC": "50580-0496-60",
             },
         
         "TC_R_005": {
                 "productSearchByNDC": "50580-0496-60",
+            },
+        
 
         "TC_R_043": {
                 "productSearchByNDC": "50580-0496-60",
@@ -200,5 +212,15 @@
                 "productSearchByNDC": "00527-1971-74",
             },
         
-    },
+        "TC_R_045": {
+                "productSearchCin": "4023347",
+                "productSearchByNDC": "50580-0496-60",
+            },
+        
+        "TC_R_049": {
+                "productSearchCin": "4023347",
+                "productSearchByNDC": "NDC: 00406-8003-24",
+            },
+        },
+
 }
