@@ -4,7 +4,7 @@
 
 Prerequisite:
 1. Valid login credentials with multiple accounts available for the user</description>
-   <name>TC_R_059_VerifyNewOrderCreatedWhileAddingAAlternateProductFromProductDetailsPageWhenThereIsNoExistingOrderFromHomeCartScreen</name>
+   <name>TC_R_059_verifyNewOrderCreatedWhileAddingAAlternateProductFromProductDetailsPageWhenThereIsNoExistingOrderFromHomeCartScreen</name>
    <tag>Order;Regression;Scan</tag>
    <comment></comment>
    <testCaseGuid>46ea133c-7b2b-4470-9ab2-5da3abf6f95f</testCaseGuid>
