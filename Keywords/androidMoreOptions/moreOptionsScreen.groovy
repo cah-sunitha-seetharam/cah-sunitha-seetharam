@@ -1,4 +1,4 @@
-package android_more_options
+package androidMoreOptions
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
@@ -65,7 +65,7 @@ class moreOptionsScreen {
 		Mobile.tap(findTestObject('Android/More Options Screen/Beta Feature/betaFeatures_TextView'), 0)
 		Mobile.tap(findTestObject('Android/More Options Screen/Beta Feature/CSOSSubmitAndSignOff_Switch'), 0)
 		Mobile.tap(findTestObject('Android/More Options Screen/Beta Feature/iAgreeToTheTermsOfTheBetaProgram_CheckBox'), 0)
-		Mobile.tap(findTestObject('Android/More Options Screen/Beta Feature/confirm_Button'), 0)		
+		Mobile.tap(findTestObject('Android/More Options Screen/Beta Feature/confirm_Button'), 0)
 	}
 
 	/**

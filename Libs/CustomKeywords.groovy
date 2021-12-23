@@ -644,6 +644,14 @@ def static "iosOrders.orderDetailsScreen.returnOrderNameFromOrderDetailScreen"()
 }
 
  /**
+	 * taps on continue ordering button on order details screen after user has added a product to order
+	 * and takes user to scan result screen
+	 */ 
+def static "iosOrders.orderDetailsScreen.clickOnContinueOrdering"() {
+    (new iosOrders.orderDetailsScreen()).clickOnContinueOrdering()
+}
+
+ /**
 	 * enable EO mode by long pressing the account text/icon displayed on screen and then closes the opened fly-out
 	 */ 
 def static "androidCommonKeywords.emergencyOrderingMode.enableEOmodeAndCloseFlyout"() {
@@ -1734,31 +1742,31 @@ def static "androidOrders.historyScreen.verify_History_Screen_Details"() {
 	 * switches the account of user to another account
 	 * @param accountNo (accountNo which needs to be selected will be passed as a parameter)
 	 */ 
-def static "android_more_options.moreOptionsScreen.changeAccount"(
+def static "androidMoreOptions.moreOptionsScreen.changeAccount"(
     	Object accountNo	) {
-    (new android_more_options.moreOptionsScreen()).changeAccount(
+    (new androidMoreOptions.moreOptionsScreen()).changeAccount(
         	accountNo)
 }
 
  /**
 	 * enables beta csos feature
 	 */ 
-def static "android_more_options.moreOptionsScreen.enableBetaFeatureCSOS"() {
-    (new android_more_options.moreOptionsScreen()).enableBetaFeatureCSOS()
+def static "androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS"() {
+    (new androidMoreOptions.moreOptionsScreen()).enableBetaFeatureCSOS()
 }
 
  /**
 	 * takes the user from the the moreOptions Screen to inventory listing screen
 	 */ 
-def static "android_more_options.moreOptionsScreen.goToInventoryListingScreen"() {
-    (new android_more_options.moreOptionsScreen()).goToInventoryListingScreen()
+def static "androidMoreOptions.moreOptionsScreen.goToInventoryListingScreen"() {
+    (new androidMoreOptions.moreOptionsScreen()).goToInventoryListingScreen()
 }
 
  /**
 	 * clicks on moreOptions tab, signsOut the user and takes user to the logInScreen
 	 */ 
-def static "android_more_options.moreOptionsScreen.signOut"() {
-    (new android_more_options.moreOptionsScreen()).signOut()
+def static "androidMoreOptions.moreOptionsScreen.signOut"() {
+    (new androidMoreOptions.moreOptionsScreen()).signOut()
 }
 
  /**
@@ -1866,8 +1874,8 @@ def static "iosOrders.newOrderScreen.createOrder"() {
 }
 
 
-def static "iosOrders.newOrderScreen.verify_NewOrder_Screen_Details"() {
-    (new iosOrders.newOrderScreen()).verify_NewOrder_Screen_Details()
+def static "iosOrders.newOrderScreen.verifyNewOrderScreenDetails"() {
+    (new iosOrders.newOrderScreen()).verifyNewOrderScreenDetails()
 }
 
  /**
@@ -1929,6 +1937,13 @@ def static "iosMoreOptions.moreOptionsScreen.goToInventoryListingScreen"() {
 	 */ 
 def static "iosMoreOptions.moreOptionsScreen.signOut"() {
     (new iosMoreOptions.moreOptionsScreen()).signOut()
+}
+
+ /**
+	 * enables beta csos feature toggle from more options
+	 */ 
+def static "iosMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS"() {
+    (new iosMoreOptions.moreOptionsScreen()).enableBetaFeatureCSOS()
 }
 
 
@@ -2083,19 +2098,27 @@ def static "iosDashboard.dashboardScreen.verifyDashboardScreen"() {
     (new iosDashboard.dashboardScreen()).verifyDashboardScreen()
 }
 
-
+ /**
+	 * opens the order details page
+	 * @param accountNo (accountNo used to create the order)
+	 */ 
 def static "androidOrders.cartScreen.openAnOrderDetails"(
     	String accountNo	) {
     (new androidOrders.cartScreen()).openAnOrderDetails(
         	accountNo)
 }
 
-
+ /**
+	 * opens the c2 orders tab
+	 */ 
 def static "androidOrders.cartScreen.clickOnC2OrdersTab"() {
     (new androidOrders.cartScreen()).clickOnC2OrdersTab()
 }
 
-
+ /**
+	 * opens the c2 order details
+	 * @param accountNo (account no which was used to create the order)
+	 */ 
 def static "androidOrders.cartScreen.openC2OrderDetailScreen"(
     	String accountNo	) {
     (new androidOrders.cartScreen()).openC2OrderDetailScreen(
@@ -2109,70 +2132,96 @@ def static "androidOrders.cartScreen.delete_Order"(
         	Account_No)
 }
 
-
+ /**
+	 * clicks on upload all orders button on cart screen
+	 */ 
 def static "androidOrders.cartScreen.clickOnUploadAllOrders"() {
     (new androidOrders.cartScreen()).clickOnUploadAllOrders()
 }
 
-
+ /**
+	 * verifies pop up screen which comes after clicking on upload all orders button on cart screen
+	 */ 
 def static "androidOrders.cartScreen.verifyUploadAllOrdersPopUp"() {
     (new androidOrders.cartScreen()).verifyUploadAllOrdersPopUp()
 }
 
-
+ /**
+	 * clicks on continue on desktop button on cart screen
+	 */ 
 def static "androidOrders.cartScreen.clickOnContinueOnDesktop"() {
     (new androidOrders.cartScreen()).clickOnContinueOnDesktop()
 }
 
-
+ /**
+	 * clicks on place all orders button on cart screen
+	 */ 
 def static "androidOrders.cartScreen.clickOnPlaceAllOrders"() {
     (new androidOrders.cartScreen()).clickOnPlaceAllOrders()
 }
 
-
+ /**
+	 * verifies pop up screen which comes after clicking on place all orders button on cart screen
+	 */ 
 def static "androidOrders.cartScreen.verifyPlaceAllOrdersPopUp"() {
     (new androidOrders.cartScreen()).verifyPlaceAllOrdersPopUp()
 }
 
-
+ /**
+	 * clicks on place my orders button on cart screen
+	 */ 
 def static "androidOrders.cartScreen.confirmPlacingAllOrders"() {
     (new androidOrders.cartScreen()).confirmPlacingAllOrders()
 }
 
-
+ /**
+	 * verifies cart screen with added product
+	 */ 
 def static "androidOrders.cartScreen.verifyCartScreenDetailsWithAddedProduct"() {
     (new androidOrders.cartScreen()).verifyCartScreenDetailsWithAddedProduct()
 }
 
-
+ /**
+	 * verifies that the created order should not be visible on the cart screen
+	 * @param poName (purchase order name used to create the order)
+	 */ 
 def static "androidOrders.cartScreen.verifyOrderNotVisibleOnTheCartScreen"(
     	String poName	) {
     (new androidOrders.cartScreen()).verifyOrderNotVisibleOnTheCartScreen(
         	poName)
 }
 
-
+ /**
+	 * verifies nonC2 annotation count
+	 */ 
 def static "androidOrders.cartScreen.verifynonC2AnnotationCount"(
     	String expectedAnnotationCount	) {
     (new androidOrders.cartScreen()).verifynonC2AnnotationCount(
         	expectedAnnotationCount)
 }
 
-
+ /**
+	 * verifies C2 annotation count
+	 */ 
 def static "androidOrders.cartScreen.verifyC2AnnotationCount"(
     	String expectedAnnotationCount	) {
     (new androidOrders.cartScreen()).verifyC2AnnotationCount(
         	expectedAnnotationCount)
 }
 
-
+ /**
+	 * takes expected lines count as the argument and verifies the same
+	 * @param expectedLinesCount (expected lines count after adding products to the cart)
+	 */ 
 def static "androidOrders.cartScreen.verifyLinesCount"(
     	String expectedLinesCount	) {
     (new androidOrders.cartScreen()).verifyLinesCount(
         	expectedLinesCount)
 }
 
-
+ /**
+	 * verifies the cart screen details without any product
+	 */ 
 def static "androidOrders.cartScreen.verifyCartScreenDetailsWithOutAddingAnyProduct"() {
     (new androidOrders.cartScreen()).verifyCartScreenDetailsWithOutAddingAnyProduct()
 }
@@ -2321,17 +2370,17 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+}
+
+
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
     	String testName	
      , 	RectangleSize viewportSize	) {
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
         	testName
          , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
 
 

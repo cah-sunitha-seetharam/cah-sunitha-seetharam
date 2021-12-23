@@ -20,7 +20,7 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import com.kms.katalon.core.util.KeywordUtil
 import internal.GlobalVariable
 import androidDashboard.dashboardDetailsScreen
-import android_more_options.moreOptionsScreen
+import androidMoreOptions.moreOptionsScreen
 
 class  commonMethods {
 

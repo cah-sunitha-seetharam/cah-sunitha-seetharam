@@ -43,7 +43,7 @@ class orderDetailsScreen {
 
 	def commonMethodsObject=new commonMethods();
 	def commonIosMethodsObject=new iosCommonKeywords.commonMethods();
-	
+
 
 	@Keyword
 	def add_Alternate_Product(String product_Name, String quantity) {
@@ -96,15 +96,15 @@ class orderDetailsScreen {
 
 		Mobile.tapAndHold(findTestObject('iOS/Product Search/search_Keypad'), 0, 0)
 
-		Mobile.setText(findTestObject('iOS/Product Search/Quantity_TextField'), quantity, 0)
+		Mobile.setText(findTestObject('iOS/Product Search/quantity_TextField'), quantity, 0)
 
 		commonIosMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Place All Orders/Done_Keypad'), 0)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/addToOrder_Text'), 0)
-		
-		Mobile.tap(findTestObject('iOS/Product Search/Continue_Button'), 0)
+
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Create C2 Order/continueOrdering_Button'), 0)
 	}
 
 
@@ -130,11 +130,13 @@ class orderDetailsScreen {
 	@Keyword
 	def checkC2OrderAvailability() {
 
-		Mobile.tap(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/checkAvailability_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/checkAvailabilityNew_Button'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/oneMoment_Text'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/weNeedJustAMinuteToEnsureThatWeHaveEverythingInStock_Texr'),0)
+		
+		WebUI.delay(15)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/yourC2OrderIsReadyToSign_Text'),0)
 
@@ -575,5 +577,17 @@ class orderDetailsScreen {
 		String orderName=Mobile.getText(findTestObject('iOS/Orders/Verification Details/orderDetailHeader_Label'), 0)
 
 		return orderName
+	}
+
+	/**
+	 * taps on continue ordering button on order details screen after user has added a product to order
+	 * and takes user to scan result screen
+	 */
+	@Keyword
+	def clickOnContinueOrdering() {
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Create C2 Order/continueOrdering_Button'), 0)
+
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Create C2 Order/continueOrdering_Button'), 0)
 	}
 }

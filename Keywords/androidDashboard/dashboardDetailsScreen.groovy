@@ -132,5 +132,4 @@ class dashboardDetailsScreen {
 
 		Mobile.tap(findTestObject('Android/Dashboard/moreOptions_Tab'), 0)
 	}
-
 }

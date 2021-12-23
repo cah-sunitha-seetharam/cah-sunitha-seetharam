@@ -44,9 +44,9 @@ class  commonMethods {
 
 		Mobile.tap(findTestObject('iOS/More Options Screen/betaFeatures_Tab'), 0)
 
-		Mobile.tap(findTestObject('iOS/More Options Screen/betaFeatureSwitch_Button'), 0)
+		Mobile.tap(findTestObject('iOS/More Options Screen/betaFeatureSwitch_Toggle'), 0)
 
-		Mobile.tap(findTestObject('iOS/More Options Screen/termsAgreeCheckBox_Button'), 0)
+		Mobile.tap(findTestObject('iOS/More Options Screen/termsAgree_CheckBox'), 0)
 
 		Mobile.tap(findTestObject('iOS/More Options Screen/disclaimerConfirm_Button'), 0)
 		
