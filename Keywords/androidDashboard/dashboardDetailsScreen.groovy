@@ -92,6 +92,13 @@ class dashboardDetailsScreen {
 		Mobile.tap(findTestObject('iOS/Product_Search/Continue Browsing_Button'), 0)
 	}
 
+	/**
+	 * this function verifies the dash-board details Screen
+	 */
+	@Keyword
+	def verifyDashboardPage() {
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Dashboard/home_Tab'), 0)
+	}
 
 	/**
 	 * opens orders tab where user can perform actions related to orders
@@ -124,6 +131,7 @@ class dashboardDetailsScreen {
 		element.click()
 	}
 
+
 	/**
 	 * opens moreOptions tab where user can perform actions like signOut, goToInventoryListing Screen etc
 	 */
@@ -132,5 +140,4 @@ class dashboardDetailsScreen {
 
 		Mobile.tap(findTestObject('Android/Dashboard/moreOptions_Tab'), 0)
 	}
-
 }

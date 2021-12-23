@@ -35,6 +35,13 @@ def static "androidDashboard.dashboardDetailsScreen.Adding_Product_from_Dashboar
 }
 
  /**
+	 * this function verifies the dash-board details Screen
+	 */ 
+def static "androidDashboard.dashboardDetailsScreen.verifyDashboardPage"() {
+    (new androidDashboard.dashboardDetailsScreen()).verifyDashboardPage()
+}
+
+ /**
 	 * opens orders tab where user can perform actions related to orders
 	 */ 
 def static "androidDashboard.dashboardDetailsScreen.clickOnOrders"() {
@@ -1400,7 +1407,9 @@ def static "androidOrders.orderDetailsScreen.upload_Order"() {
     (new androidOrders.orderDetailsScreen()).upload_Order()
 }
 
-
+ /**
+	 * places the order and verifies confirmation pop up
+	 */ 
 def static "androidOrders.orderDetailsScreen.placeOrder"() {
     (new androidOrders.orderDetailsScreen()).placeOrder()
 }
@@ -1410,6 +1419,26 @@ def static "androidOrders.orderDetailsScreen.placeOrder"() {
 	 */ 
 def static "androidOrders.orderDetailsScreen.clickOnBackToCart"() {
     (new androidOrders.orderDetailsScreen()).clickOnBackToCart()
+}
+
+ /**
+	 * opens alternates page
+	 * @param Alternates (alternates to be selected)
+	 */ 
+def static "androidOrders.orderDetailsScreen.tapOnAlternatesInProductDetailsPage"(
+    	String Alternates	) {
+    (new androidOrders.orderDetailsScreen()).tapOnAlternatesInProductDetailsPage(
+        	Alternates)
+}
+
+ /**
+	 * verifies filterByOptions
+	 * @param Alternates (alternates to be selected)
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyFilterByOptions"(
+    	String Alternates	) {
+    (new androidOrders.orderDetailsScreen()).verifyFilterByOptions(
+        	Alternates)
 }
 
  /**
@@ -1437,6 +1466,40 @@ def static "androidOrders.orderDetailsScreen.addQuantityforTheSearchedProduct"(
     	int quantity	) {
     (new androidOrders.orderDetailsScreen()).addQuantityforTheSearchedProduct(
         	quantity)
+}
+
+ /**
+	 * this function adds the quantity in product detail page
+	 * @param quantity (quantity required to add in product detail page)
+	 */ 
+def static "androidOrders.orderDetailsScreen.addQuantityInProductDetailsPage"(
+    	int quantity	) {
+    (new androidOrders.orderDetailsScreen()).addQuantityInProductDetailsPage(
+        	quantity)
+}
+
+ /**
+	 * this function adds the quantity in alternates page
+	 * @param quantity (quantity required to add in product detail page)
+	 */ 
+def static "androidOrders.orderDetailsScreen.addQuantityInAlternatesPage"(
+    	int quantity	) {
+    (new androidOrders.orderDetailsScreen()).addQuantityInAlternatesPage(
+        	quantity)
+}
+
+ /**
+	 * taps on alternate to order in alternates page and opens confirmation pop up
+	 */ 
+def static "androidOrders.orderDetailsScreen.tapOnAddAlternateToOrderInAlternatesPage"() {
+    (new androidOrders.orderDetailsScreen()).tapOnAddAlternateToOrderInAlternatesPage()
+}
+
+ /**
+	 * verifies confirmation pop up in alternates page 
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyConfirmationPopUpInALternatesPage"() {
+    (new androidOrders.orderDetailsScreen()).verifyConfirmationPopUpInALternatesPage()
 }
 
  /**
@@ -1482,6 +1545,13 @@ def static "androidOrders.orderDetailsScreen.uploadOrder"() {
 }
 
  /**
+	 * uploads the c2 order 
+	 */ 
+def static "androidOrders.orderDetailsScreen.uploadOrderC2"() {
+    (new androidOrders.orderDetailsScreen()).uploadOrderC2()
+}
+
+ /**
 	 * takes user back to the search product results to continue browsing
 	 */ 
 def static "androidOrders.orderDetailsScreen.clickOnContinueOrderingOnDesktop"() {
@@ -1493,6 +1563,13 @@ def static "androidOrders.orderDetailsScreen.clickOnContinueOrderingOnDesktop"()
 	 */ 
 def static "androidOrders.orderDetailsScreen.verifyOrderHasbeensentToDesktopPopUp"() {
     (new androidOrders.orderDetailsScreen()).verifyOrderHasbeensentToDesktopPopUp()
+}
+
+ /**
+	 * verifies c2 order is not visible under non c2 order
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyC2OrderIsNotVisibleUnderNonC2Order"() {
+    (new androidOrders.orderDetailsScreen()).verifyC2OrderIsNotVisibleUnderNonC2Order()
 }
 
  /**
@@ -1512,6 +1589,35 @@ def static "androidOrders.orderDetailsScreen.createNewC2Order"(
     (new androidOrders.orderDetailsScreen()).createNewC2Order(
         	poName
          , 	poMemo)
+}
+
+ /**
+	 * creates a new C2 order
+	 * @param poName (poName of the order), poMemo (poMemo of the order)
+	 */ 
+def static "androidOrders.orderDetailsScreen.createNewOrderForC2"(
+    	String poName	
+     , 	String poMemo	) {
+    (new androidOrders.orderDetailsScreen()).createNewOrderForC2(
+        	poName
+         , 	poMemo)
+}
+
+ /**
+	 * enables radio button and adds c2 product
+	 * @param poName (poName of the order)
+	 */ 
+def static "androidOrders.orderDetailsScreen.enableRadioButtonForNewOrderC2Creation"(
+    	String poName	) {
+    (new androidOrders.orderDetailsScreen()).enableRadioButtonForNewOrderC2Creation(
+        	poName)
+}
+
+ /**
+	 * verifies confirmation pop up after adding c2 order 
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyConfirmationPopUpAfterAddingC2Order"() {
+    (new androidOrders.orderDetailsScreen()).verifyConfirmationPopUpAfterAddingC2Order()
 }
 
  /**
@@ -1551,6 +1657,22 @@ def static "androidOrders.orderDetailsScreen.returnCostOfTheAddedProduct"() {
 }
 
  /**
+	 * this function returns the order name in search page
+	 */ 
+def static "androidOrders.orderDetailsScreen.returnProductNameAfterSearch"() {
+    (new androidOrders.orderDetailsScreen()).returnProductNameAfterSearch()
+}
+
+ /**
+	 * this function verifies the product details page
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyProductDetailAfterSelectingMoreDetails"(
+    	String orderNameInSearchPage	) {
+    (new androidOrders.orderDetailsScreen()).verifyProductDetailAfterSelectingMoreDetails(
+        	orderNameInSearchPage)
+}
+
+ /**
 	 * this function verifies that the product is visible on the order details screen
 	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
 	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
@@ -1559,6 +1681,20 @@ def static "androidOrders.orderDetailsScreen.verifyProductIsVisibleOnTheOrderDet
     	Object productNdcNumber	) {
     (new androidOrders.orderDetailsScreen()).verifyProductIsVisibleOnTheOrderDetailsScreen(
         	productNdcNumber)
+}
+
+ /**
+	 * this function verifies the product after search
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyProductAfterSearch"() {
+    (new androidOrders.orderDetailsScreen()).verifyProductAfterSearch()
+}
+
+ /**
+	 * this function verifies the product tile
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyProductTile"() {
+    (new androidOrders.orderDetailsScreen()).verifyProductTile()
 }
 
  /**
@@ -1581,10 +1717,48 @@ def static "androidOrders.orderDetailsScreen.addProductToOrder"(
 }
 
  /**
-	 * takes user back to the search product results to continue browsing
+	 * searches for a product by setting product name 
+	 * @param productName (product to be added)
+	 */ 
+def static "androidOrders.orderDetailsScreen.searchProductInOrderDetailPage"(
+    	String productName	) {
+    (new androidOrders.orderDetailsScreen()).searchProductInOrderDetailPage(
+        	productName)
+}
+
+ /**
+	 * opens product tile
+	 */ 
+def static "androidOrders.orderDetailsScreen.clickOnProductTile"() {
+    (new androidOrders.orderDetailsScreen()).clickOnProductTile()
+}
+
+ /**
+	 * opens more details of product details
+	 */ 
+def static "androidOrders.orderDetailsScreen.clickOnMoreDetails"() {
+    (new androidOrders.orderDetailsScreen()).clickOnMoreDetails()
+}
+
+ /**
+	 * adds product in product details page
+	 */ 
+def static "androidOrders.orderDetailsScreen.tapOnAddToOrderInProductDetailsPage"() {
+    (new androidOrders.orderDetailsScreen()).tapOnAddToOrderInProductDetailsPage()
+}
+
+ /**
+	 * takes user back to the search product results to continue ordering
 	 */ 
 def static "androidOrders.orderDetailsScreen.clickOnContinueOrdering"() {
     (new androidOrders.orderDetailsScreen()).clickOnContinueOrdering()
+}
+
+ /**
+	 * takes user back to the search product results to continue browsing
+	 */ 
+def static "androidOrders.orderDetailsScreen.tapOnContinueBrowsing"() {
+    (new androidOrders.orderDetailsScreen()).tapOnContinueBrowsing()
 }
 
 
@@ -2147,25 +2321,13 @@ def static "androidOrders.cartScreen.openAnOrderDetail"(
     	String poName	) {
     (new androidOrders.cartScreen()).openAnOrderDetail(
         	poName)
-
-
-def static "androidOrders.cartScreen.openAnOrderDetails"(
-    	String accountNo	) {
-    (new androidOrders.cartScreen()).openAnOrderDetails(
-        	accountNo)
-
 }
 
-
+ /**
+	 * opens the c2 orders tab
+	 */ 
 def static "androidOrders.cartScreen.clickOnC2OrdersTab"() {
     (new androidOrders.cartScreen()).clickOnC2OrdersTab()
-}
-
-
-def static "androidOrders.cartScreen.openC2OrderDetailScreen"(
-    	String accountNo	) {
-    (new androidOrders.cartScreen()).openC2OrderDetailScreen(
-        	accountNo)
 }
 
 
@@ -2175,7 +2337,9 @@ def static "androidOrders.cartScreen.delete_Order"(
         	Account_No)
 }
 
-
+ /**
+	 * clicks on upload all orders button on cart screen
+	 */ 
 def static "androidOrders.cartScreen.clickOnUploadAllOrders"() {
     (new androidOrders.cartScreen()).clickOnUploadAllOrders()
 }
@@ -2190,43 +2354,82 @@ def static "androidOrders.cartScreen.verifyCartScreenWithOutNonC2Orders"() {
  /**
 	 * verifies pop up screen which comes after clicking on upload all orders button on cart screen
 	 */ 
-
 def static "androidOrders.cartScreen.verifyUploadAllOrdersPopUp"() {
     (new androidOrders.cartScreen()).verifyUploadAllOrdersPopUp()
 }
 
-
+ /**
+	 * clicks on continue on desktop button on cart screen
+	 */ 
 def static "androidOrders.cartScreen.clickOnContinueOnDesktop"() {
     (new androidOrders.cartScreen()).clickOnContinueOnDesktop()
 }
 
-
+ /**
+	 * clicks on place all orders button on cart screen
+	 */ 
 def static "androidOrders.cartScreen.clickOnPlaceAllOrders"() {
     (new androidOrders.cartScreen()).clickOnPlaceAllOrders()
 }
 
-
+ /**
+	 * verifies pop up screen which comes after clicking on place all orders button on cart screen
+	 */ 
 def static "androidOrders.cartScreen.verifyPlaceAllOrdersPopUp"() {
     (new androidOrders.cartScreen()).verifyPlaceAllOrdersPopUp()
 }
 
-
+ /**
+	 * clicks on place my orders button on cart screen
+	 */ 
 def static "androidOrders.cartScreen.confirmPlacingAllOrders"() {
     (new androidOrders.cartScreen()).confirmPlacingAllOrders()
 }
 
-
+ /**
+	 * verifies cart screen with added product
+	 */ 
 def static "androidOrders.cartScreen.verifyCartScreenDetailsWithAddedProduct"() {
     (new androidOrders.cartScreen()).verifyCartScreenDetailsWithAddedProduct()
 }
 
-
+ /**
+	 * verifies that the created order should not be visible on the cart screen
+	 * @param poName (purchase order name used to create the order)
+	 */ 
 def static "androidOrders.cartScreen.verifyOrderNotVisibleOnTheCartScreen"(
     	String poName	) {
     (new androidOrders.cartScreen()).verifyOrderNotVisibleOnTheCartScreen(
         	poName)
 }
 
+ /**
+	 * verifies nonC2 annotation count
+	 */ 
+def static "androidOrders.cartScreen.verifynonC2AnnotationCount"(
+    	String expectedAnnotationCount	) {
+    (new androidOrders.cartScreen()).verifynonC2AnnotationCount(
+        	expectedAnnotationCount)
+}
+
+ /**
+	 * verifies C2 annotation count
+	 */ 
+def static "androidOrders.cartScreen.verifyC2AnnotationCount"(
+    	String expectedAnnotationCount	) {
+    (new androidOrders.cartScreen()).verifyC2AnnotationCount(
+        	expectedAnnotationCount)
+}
+
+ /**
+	 * takes expected lines count as the argument and verifies the same
+	 * @param expectedLinesCount (expected lines count after adding products to the cart)
+	 */ 
+def static "androidOrders.cartScreen.verifyLinesCount"(
+    	String expectedLinesCount	) {
+    (new androidOrders.cartScreen()).verifyLinesCount(
+        	expectedLinesCount)
+}
 
  /**
 	 * verifies that the created order should not be visible on the cart screen
@@ -2236,17 +2439,6 @@ def static "androidOrders.cartScreen.verifyOrderIsVisibleOnTheCartScreen"(
     	String poName	) {
     (new androidOrders.cartScreen()).verifyOrderIsVisibleOnTheCartScreen(
         	poName)
-}
-
- /**
-	 * verifies nonC2 annotation count
-	 * @param expectedAnnotationCount (expected annotation count count of nonc2 after adding product to the cart)
-	 */ 
-
-def static "androidOrders.cartScreen.verifynonC2AnnotationCount"(
-    	String expectedAnnotationCount	) {
-    (new androidOrders.cartScreen()).verifynonC2AnnotationCount(
-        	expectedAnnotationCount)
 }
 
  /**
@@ -2275,17 +2467,6 @@ def static "androidOrders.cartScreen.verifyOrderNamePattern"(
     	String orderName	) {
     (new androidOrders.cartScreen()).verifyOrderNamePattern(
         	orderName)
-}
-
- /**
-	 * verifies C2 annotation count
-	 * @param expectedAnnotationCount (expected annotation count count after adding product and return to the order name page)
-	 */ 
-
-def static "androidOrders.cartScreen.verifyC2AnnotationCount"(
-    	String expectedAnnotationCount	) {
-    (new androidOrders.cartScreen()).verifyC2AnnotationCount(
-        	expectedAnnotationCount)
 }
 
  /**
@@ -2321,15 +2502,6 @@ def static "androidOrders.cartScreen.verifyCartValue"(
  /**
 	 * verifies the cart screen details without any product
 	 */ 
-
-
-def static "androidOrders.cartScreen.verifyLinesCount"(
-    	String expectedLinesCount	) {
-    (new androidOrders.cartScreen()).verifyLinesCount(
-        	expectedLinesCount)
-}
-
-
 def static "androidOrders.cartScreen.verifyCartScreenDetailsWithOutAddingAnyProduct"() {
     (new androidOrders.cartScreen()).verifyCartScreenDetailsWithOutAddingAnyProduct()
 }
@@ -2554,12 +2726,6 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
-}
-
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	
      , 	String testName	
@@ -2568,4 +2734,11 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
 }
