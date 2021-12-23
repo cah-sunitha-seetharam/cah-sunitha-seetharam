@@ -41,14 +41,25 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 class cartScreen  {
 
+	//	/**
+	//	 * opens the order details page
+	//	 * @param accountNo (accountNo used to create the order)
+	//	 */
+	//	@Keyword
+	//	def openAnOrderDetails(String accountNo) {
+	//
+	//		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/orderDetails_button',[('Order_Name') : accountNo]),  0)
+	//	}
+
+
 	/**
 	 * opens the order details page
-	 * @param accountNo (accountNo used to create the order)
+	 * @param poName (purchase order name used to create the order)
 	 */
 	@Keyword
-	def openAnOrderDetails(String accountNo) {
+	def openAnOrderDetail(String poName) {
 
-		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/orderDetails_button',[('Order_Name') : accountNo]),  0)
+		Mobile.tap(findTestObject('Object Repository/Android/Orders/Orders Common Screen/orderListOrderName_TextView',[('TEXT'):poName]), 0)
 	}
 
 
@@ -58,20 +69,20 @@ class cartScreen  {
 	@Keyword
 	def clickOnC2OrdersTab() {
 
-		Mobile.tap(findTestObject('Android/Orders/Cart Screen/c2Orders_Tab'), 0)
+		Mobile.tap(findTestObject('Android/Orders/Cart Screen/C2 Order/c2Orders_Tab'), 0)
 	}
 
 
 
-	/**
-	 * opens the c2 order details
-	 * @param accountNo (account no which was used to create the order)
-	 */
-	@Keyword
-	def openC2OrderDetailScreen(String accountNo) {
-
-		Mobile.tap(findTestObject('Object Repository/Android/Orders/C2 Order Details Screen/createdOrder_TextView',[('TEXT'):accountNo]), 0)
-	}
+	//	/**
+	//	 * opens the c2 order details
+	//	 * @param accountNo (account no which was used to create the order)
+	//	 */
+	//	@Keyword
+	//	def openC2OrderDetailScreen(String accountNo) {
+	//
+	//		Mobile.tap(findTestObject('Object Repository/Android/Orders/C2 Order Details Screen/createdOrder_TextView',[('TEXT'):accountNo]), 0)
+	//	}
 
 
 
@@ -128,6 +139,14 @@ class cartScreen  {
 	def clickOnUploadAllOrders() {
 
 		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Upload All_Orders/uploadAllOrders_Button'), 0)
+	}
+
+	/**
+	 * verifies cart screen without non c2 orders
+	 */
+	@Keyword
+	def verifyCartScreenWithOutNonC2Orders() {
+		Mobile.verifyElementNotVisible(findTestObject('Android/Orders/Cart Screen/Upload All_Orders/uploadAllOrders_Button'), 0)
 	}
 
 	/**
@@ -261,6 +280,84 @@ class cartScreen  {
 		String actualLinesCount=Mobile.getText(findTestObject('Object Repository/Android/Orders/Cart Screen/Verifictaion Details/lineCount_TextView'), 0)
 
 		assert actualLinesCount==expectedLinesCount
+	}
+
+
+	/**
+	 * verifies that the created order should not be visible on the cart screen
+	 * @param poName (purchase order name used to create the order)
+	 */
+	@Keyword
+	def verifyOrderIsVisibleOnTheCartScreen(String poName) {
+
+		Mobile.verifyElementVisible(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/orderName_TextView',[('TEXT'):poName]),0)
+	}
+
+
+
+	/**
+	 * takes expected lines count of c2 or non c2 as the argument and verifies the same
+	 * @param expectedLineCount (expected total line count of non c2 or c2 after adding product to the cart)
+	 */
+	@Keyword
+	def verifyLineCountofC2OrNonC2Product(String expectedlineCount){
+		String lineCount=Mobile.getText(findTestObject('Android/Orders/Cart Screen/lineCountC2OrNonC2Product_TextView'), 0)
+		String actualLineCount = (new androidCommonKeywords.commonMethods()).removeCharctersInString(lineCount)
+		assert expectedlineCount==actualLineCount
+	}
+
+	/**
+	 * this function returns the order name of the order which is at the top of the order list
+	 * return orderName (returns topmost order name)
+	 */
+	@Keyword
+	def returnTopMostOrderName() {
+		String orderName=Mobile.getText(findTestObject('Object Repository/Android/Orders/Cart Screen/orderListOrderName_TextView'), 0)
+		return orderName
+	}
+
+	/**
+	 * this function verifies the pattern required for the order which was created without giving any purchase order name
+	 * @param orderName (order name which is under verification)
+	 */
+	@Keyword
+	def verifyOrderNamePattern(final String orderName) {
+		final String regex = "(Mobile)(-)([0-9]{6})(-)([0-9]{6})"
+		Mobile.verifyMatch(orderName, regex, true)
+		KeywordUtil.logInfo("pattern matches"); //logInfo if pattern matches
+	}
+
+
+	/**
+	 * takes expected lines count as the argument and verifies the same
+	 * @param expectedLinesCount (expected total line count after adding products to the cart)
+	 */
+	@Keyword
+	def verifyTotalLineCount(String expectedLineCount) {
+		String LinesCount=Mobile.getText(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/totalLineCount_TextView'), 0)
+		String actualLineCount = (new androidCommonKeywords.commonMethods()).removeCharctersInString(LinesCount)
+		assert expectedLineCount==actualLineCount
+	}
+
+	/**
+	 * takes expected mobile orders count as the argument and verifies the same
+	 * @param expected mobile orders count (expected mobile orders count after adding products to the cart)
+	 */
+	@Keyword
+	def verifyMobileOrdersCount(String expectedMobileOrdersCount) {
+		String MobileOrdersCount=Mobile.getText(findTestObject('Object Repository/Android/Orders/Cart Screen/Verifictaion Details/mobileOrdersCount_TextView'), 0)
+		String actualMobileOrdersCount = (new androidCommonKeywords.commonMethods()).removeCharctersInString(MobileOrdersCount)
+		assert expectedMobileOrdersCount==actualMobileOrdersCount
+	}
+	/**
+	 * verifies the cart value after adding products
+	 * @param expectedCartValue (expected cart value which should be equal to actual cart total)
+	 */
+	@Keyword
+	def verifyCartValue(expectedCartValue) {
+		String cartTotal=Mobile.getText(findTestObject('Object Repository/Android/Orders/Cart Screen/Verifictaion Details/cartTotal_TextView'), 0)
+		String actualCartTotal=(new androidCommonKeywords.commonMethods()).removeCharctersInString(cartTotal)
+		assert expectedCartValue==actualCartTotal
 	}
 
 

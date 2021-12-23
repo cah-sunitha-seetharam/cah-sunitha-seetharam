@@ -48,6 +48,67 @@ class  commonMethods {
 
 	}
 
+	/**
+	 * @param stringCharcterToBeRemoved (Removes characters in a string)
+	 */
+	@Keyword
+	def removeCharctersInString(String stringCharcterToBeRemoved) {
+		stringCharcterToBeRemoved.replaceAll("[^0-9.]", "")
+	}
+
+
+	/**
+	 * @param stringToBeConvertedToFloat (converts string to float)
+	 */
+	@Keyword
+	def stringToFloatConversion(String stringToBeConvertedToFloat) {
+		Float.parseFloat(stringToBeConvertedToFloat)
+	}
+
+	/**
+	 * @param floatToBeConvertedToString (converts float to string and does formatting "0.00")
+	 */
+	@Keyword
+	def floatToStringConversionAndFormatting(Float floatToBeConvertedToString) {
+		String.format("%.02f", floatToBeConvertedToString)
+	}
+
+	/**
+	 * this function returns the total expected value of the added product
+	 * @return expectedOrderTotal (of the product which has been added)
+	 */
+	@Keyword
+	def returnExpectedTotalValueForAddedProduct(quantity, costOfProduct) {
+		float costOfProductFloatValue = (new androidCommonKeywords.commonMethods()).stringToFloatConversion(costOfProduct)
+		float costOfAddedProduct=quantity*costOfProductFloatValue
+		String expectedOrderTotal = (new androidCommonKeywords.commonMethods()).floatToStringConversionAndFormatting(costOfAddedProduct)
+		return (expectedOrderTotal)
+	}
+
+
+	/**
+	 * this function returns the cost of added product
+	 * @return productCostCharcterRemoved (of the product which has been added)
+	 */
+	@Keyword
+	def returnCostOfTheAddedProduct(String testObj) {
+		String productCost= Mobile.getText(findTestObject(testObj), 0)
+		KeywordUtil.logInfo(productCost)
+		String productCostCharcterRemoved = (new androidCommonKeywords.commonMethods()).removeCharctersInString(productCost)
+		return productCostCharcterRemoved
+	}
+
+	/**
+	 * this function verifies that the product is visible on the screen
+	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
+	 * @param testObj (test object of the element under verification)
+	 */
+	@Keyword
+	def verifyProductIsVisibleOnTheScreen(testObj,productIdentificationNumber) {
+
+		Mobile.verifyElementExist(findTestObject(testObj,[('TEXT'):productIdentificationNumber]),0)
+	}
+
 
 
 	/**
