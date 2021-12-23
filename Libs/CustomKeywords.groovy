@@ -321,6 +321,26 @@ def static "iosCommonKeywords.commonMethods.waitTimeForObjectToBeVisible"(
          , 	waitLimit)
 }
 
+ /**
+	 * changes the user account
+	 * @param newAccount
+	 */ 
+def static "iosCommonKeywords.commonMethods.changeAccount"(
+    	String newAccount	) {
+    (new iosCommonKeywords.commonMethods()).changeAccount(
+        	newAccount)
+}
+
+ /**
+	 * verifies whether the selected user account is same as the account required
+	 * @param expectedAccountNo (expected user account no)
+	 */ 
+def static "iosCommonKeywords.commonMethods.verifySelectedAccount"(
+    	String expectedAccountNo	) {
+    (new iosCommonKeywords.commonMethods()).verifySelectedAccount(
+        	expectedAccountNo)
+}
+
 
 def static "androidOrders.newOrderScreen.change_Account"(
     	String New_Account	) {
@@ -1898,11 +1918,13 @@ def static "iosInventory.inventoryDetailsScreen.editInventoryName"(
 def static "iosInventory.inventoryDetailsScreen.searchAndAddProductByCreatingNewLocation"(
     	String locationName	
      , 	String productName	
-     , 	String costType	) {
+     , 	String costType	
+     , 	String quantity	) {
     (new iosInventory.inventoryDetailsScreen()).searchAndAddProductByCreatingNewLocation(
         	locationName
          , 	productName
-         , 	costType)
+         , 	costType
+         , 	quantity)
 }
 
  /**
@@ -2723,6 +2745,13 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
 
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
 }
 
 
