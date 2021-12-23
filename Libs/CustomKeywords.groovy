@@ -314,6 +314,26 @@ def static "iosCommonKeywords.commonMethods.waitTimeForObjectToBeVisible"(
          , 	waitLimit)
 }
 
+ /**
+	 * changes the user account
+	 * @param newAccount
+	 */ 
+def static "iosCommonKeywords.commonMethods.changeAccount"(
+    	String newAccount	) {
+    (new iosCommonKeywords.commonMethods()).changeAccount(
+        	newAccount)
+}
+
+ /**
+	 * verifies whether the selected user account is same as the account required
+	 * @param expectedAccountNo (expected user account no)
+	 */ 
+def static "iosCommonKeywords.commonMethods.verifySelectedAccount"(
+    	String expectedAccountNo	) {
+    (new iosCommonKeywords.commonMethods()).verifySelectedAccount(
+        	expectedAccountNo)
+}
+
 
 def static "androidOrders.newOrderScreen.change_Account"(
     	String New_Account	) {
@@ -1724,11 +1744,13 @@ def static "iosInventory.inventoryDetailsScreen.editInventoryName"(
 def static "iosInventory.inventoryDetailsScreen.searchAndAddProductByCreatingNewLocation"(
     	String locationName	
      , 	String productName	
-     , 	String costType	) {
+     , 	String costType	
+     , 	String quantity	) {
     (new iosInventory.inventoryDetailsScreen()).searchAndAddProductByCreatingNewLocation(
         	locationName
          , 	productName
-         , 	costType)
+         , 	costType
+         , 	quantity)
 }
 
  /**
@@ -2147,25 +2169,13 @@ def static "androidOrders.cartScreen.openAnOrderDetail"(
     	String poName	) {
     (new androidOrders.cartScreen()).openAnOrderDetail(
         	poName)
-
-
-def static "androidOrders.cartScreen.openAnOrderDetails"(
-    	String accountNo	) {
-    (new androidOrders.cartScreen()).openAnOrderDetails(
-        	accountNo)
-
 }
 
-
+ /**
+	 * opens the c2 orders tab
+	 */ 
 def static "androidOrders.cartScreen.clickOnC2OrdersTab"() {
     (new androidOrders.cartScreen()).clickOnC2OrdersTab()
-}
-
-
-def static "androidOrders.cartScreen.openC2OrderDetailScreen"(
-    	String accountNo	) {
-    (new androidOrders.cartScreen()).openC2OrderDetailScreen(
-        	accountNo)
 }
 
 
@@ -2175,7 +2185,9 @@ def static "androidOrders.cartScreen.delete_Order"(
         	Account_No)
 }
 
-
+ /**
+	 * clicks on upload all orders button on cart screen
+	 */ 
 def static "androidOrders.cartScreen.clickOnUploadAllOrders"() {
     (new androidOrders.cartScreen()).clickOnUploadAllOrders()
 }
@@ -2190,43 +2202,82 @@ def static "androidOrders.cartScreen.verifyCartScreenWithOutNonC2Orders"() {
  /**
 	 * verifies pop up screen which comes after clicking on upload all orders button on cart screen
 	 */ 
-
 def static "androidOrders.cartScreen.verifyUploadAllOrdersPopUp"() {
     (new androidOrders.cartScreen()).verifyUploadAllOrdersPopUp()
 }
 
-
+ /**
+	 * clicks on continue on desktop button on cart screen
+	 */ 
 def static "androidOrders.cartScreen.clickOnContinueOnDesktop"() {
     (new androidOrders.cartScreen()).clickOnContinueOnDesktop()
 }
 
-
+ /**
+	 * clicks on place all orders button on cart screen
+	 */ 
 def static "androidOrders.cartScreen.clickOnPlaceAllOrders"() {
     (new androidOrders.cartScreen()).clickOnPlaceAllOrders()
 }
 
-
+ /**
+	 * verifies pop up screen which comes after clicking on place all orders button on cart screen
+	 */ 
 def static "androidOrders.cartScreen.verifyPlaceAllOrdersPopUp"() {
     (new androidOrders.cartScreen()).verifyPlaceAllOrdersPopUp()
 }
 
-
+ /**
+	 * clicks on place my orders button on cart screen
+	 */ 
 def static "androidOrders.cartScreen.confirmPlacingAllOrders"() {
     (new androidOrders.cartScreen()).confirmPlacingAllOrders()
 }
 
-
+ /**
+	 * verifies cart screen with added product
+	 */ 
 def static "androidOrders.cartScreen.verifyCartScreenDetailsWithAddedProduct"() {
     (new androidOrders.cartScreen()).verifyCartScreenDetailsWithAddedProduct()
 }
 
-
+ /**
+	 * verifies that the created order should not be visible on the cart screen
+	 * @param poName (purchase order name used to create the order)
+	 */ 
 def static "androidOrders.cartScreen.verifyOrderNotVisibleOnTheCartScreen"(
     	String poName	) {
     (new androidOrders.cartScreen()).verifyOrderNotVisibleOnTheCartScreen(
         	poName)
 }
 
+ /**
+	 * verifies nonC2 annotation count
+	 */ 
+def static "androidOrders.cartScreen.verifynonC2AnnotationCount"(
+    	String expectedAnnotationCount	) {
+    (new androidOrders.cartScreen()).verifynonC2AnnotationCount(
+        	expectedAnnotationCount)
+}
+
+ /**
+	 * verifies C2 annotation count
+	 */ 
+def static "androidOrders.cartScreen.verifyC2AnnotationCount"(
+    	String expectedAnnotationCount	) {
+    (new androidOrders.cartScreen()).verifyC2AnnotationCount(
+        	expectedAnnotationCount)
+}
+
+ /**
+	 * takes expected lines count as the argument and verifies the same
+	 * @param expectedLinesCount (expected lines count after adding products to the cart)
+	 */ 
+def static "androidOrders.cartScreen.verifyLinesCount"(
+    	String expectedLinesCount	) {
+    (new androidOrders.cartScreen()).verifyLinesCount(
+        	expectedLinesCount)
+}
 
  /**
 	 * verifies that the created order should not be visible on the cart screen
@@ -2236,17 +2287,6 @@ def static "androidOrders.cartScreen.verifyOrderIsVisibleOnTheCartScreen"(
     	String poName	) {
     (new androidOrders.cartScreen()).verifyOrderIsVisibleOnTheCartScreen(
         	poName)
-}
-
- /**
-	 * verifies nonC2 annotation count
-	 * @param expectedAnnotationCount (expected annotation count count of nonc2 after adding product to the cart)
-	 */ 
-
-def static "androidOrders.cartScreen.verifynonC2AnnotationCount"(
-    	String expectedAnnotationCount	) {
-    (new androidOrders.cartScreen()).verifynonC2AnnotationCount(
-        	expectedAnnotationCount)
 }
 
  /**
@@ -2275,17 +2315,6 @@ def static "androidOrders.cartScreen.verifyOrderNamePattern"(
     	String orderName	) {
     (new androidOrders.cartScreen()).verifyOrderNamePattern(
         	orderName)
-}
-
- /**
-	 * verifies C2 annotation count
-	 * @param expectedAnnotationCount (expected annotation count count after adding product and return to the order name page)
-	 */ 
-
-def static "androidOrders.cartScreen.verifyC2AnnotationCount"(
-    	String expectedAnnotationCount	) {
-    (new androidOrders.cartScreen()).verifyC2AnnotationCount(
-        	expectedAnnotationCount)
 }
 
  /**
@@ -2321,15 +2350,6 @@ def static "androidOrders.cartScreen.verifyCartValue"(
  /**
 	 * verifies the cart screen details without any product
 	 */ 
-
-
-def static "androidOrders.cartScreen.verifyLinesCount"(
-    	String expectedLinesCount	) {
-    (new androidOrders.cartScreen()).verifyLinesCount(
-        	expectedLinesCount)
-}
-
-
 def static "androidOrders.cartScreen.verifyCartScreenDetailsWithOutAddingAnyProduct"() {
     (new androidOrders.cartScreen()).verifyCartScreenDetailsWithOutAddingAnyProduct()
 }
@@ -2559,6 +2579,7 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
         	eyes)
 }
+
 
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	
