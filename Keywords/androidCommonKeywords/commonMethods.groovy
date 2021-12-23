@@ -120,9 +120,6 @@ class  commonMethods {
 		'takes user from dashboard to the moreOptions screen'
 		dashboardObject.clickOnMoreOptionsTab()
 
-		'waits until the progressBar is visible on the screen'
-		waitForProgressBarToBeInvisible()
-
 		'takes the user from moreOptions screen to the inventory listing screen'
 		moreOptionsScreenObject.goToInventoryListingScreen()
 
@@ -141,7 +138,7 @@ class  commonMethods {
 		Mobile.pressBack()
 	}
 
-	
+
 	/**
 	 * generates the coordinate x for a test object by considering ElementLeftPosition and ElementWidth
 	 * @param testObj (reference of the testObject passed as a parameter)
@@ -179,4 +176,27 @@ class  commonMethods {
 		return y_Coordinate
 	}
 
+
+	/**
+	 * this function verifies that the product is visible on the screen
+	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
+	 * @param testObj (test object of the element under verification)
+	 */
+	@Keyword
+	def verifyProductIsVisibleOnTheScreen(testObj,productIdentificationNumber) {
+
+		Mobile.verifyElementExist(findTestObject(testObj,[('TEXT'):productIdentificationNumber]),0)
+	}
+
+
+	/**
+	 * this function verifies that the product is not visible on the screen
+	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
+	 * @param testObj (test object of the element under verification)
+	 */
+	@Keyword
+	def verifyProductIsNotVisibleOnTheScreen(testObj,productIdentificationNumber) {
+
+		Mobile.verifyElementNotVisible(findTestObject(testObj,[('TEXT'):productIdentificationNumber]),0)
+	}
 }

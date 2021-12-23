@@ -7,11 +7,11 @@ import java.lang.String
 
 import java.util.Stack
 
+import com.kms.katalon.core.testobject.TestObject
+
 import com.applitools.eyes.selenium.Eyes
 
 import org.openqa.selenium.WebElement
-
-import com.kms.katalon.core.testobject.TestObject
 
 import com.applitools.eyes.RectangleSize
 
@@ -1393,6 +1393,35 @@ def static "androidInventory.locationDetailsScreen.verifyReverseChronologicalOrd
         	productNdcNumber)
 }
 
+ /**
+	 * this function verifies that the product is not visible on the location details screen
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */ 
+def static "androidInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen"(
+    	Object productNdcNumber	) {
+    (new androidInventory.locationDetailsScreen()).verifyProductIsVisibleOnTheLocationDetailsScreen(
+        	productNdcNumber)
+}
+
+ /**
+	 * this function taps on remove button and then product entry should get removed from the location as well as the scan result screen
+	 */ 
+def static "androidInventory.locationDetailsScreen.clickOnRemoveButtonToRemoveAlreadyScannedProduct"() {
+    (new androidInventory.locationDetailsScreen()).clickOnRemoveButtonToRemoveAlreadyScannedProduct()
+}
+
+ /**
+	 * this function verifies that the product is visible on the location details screen
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */ 
+def static "androidInventory.locationDetailsScreen.verifyProductIsNotVisibleOnTheLocationDetailsScreen"(
+    	Object productNdcNumber	) {
+    (new androidInventory.locationDetailsScreen()).verifyProductIsNotVisibleOnTheLocationDetailsScreen(
+        	productNdcNumber)
+}
+
 
 def static "androidOrders.orderDetailsScreen.upload_Order"() {
     (new androidOrders.orderDetailsScreen()).upload_Order()
@@ -1838,6 +1867,48 @@ def static "androidInventory.inventoryDetailsScreen.deleteLocation"(
         	locationName)
 }
 
+ /**
+	 * searches and adds the product from the inventory details screen by creating a new location
+	 * @param locationName (name of the location to be created)
+	 * @param productName (name of the product to be added)
+	 * @param countType (count type required which can be partial or full count)
+	 * @param quantity (quantity of the product required to be added)
+	 * @param costType (cost type required which can be current or last price paid)
+	 */ 
+def static "androidInventory.inventoryDetailsScreen.clickOnScanIconAndAddProductByCreatingNewLocationViaInventoryDetailsScreen"(
+    	String locationName	
+     , 	String productName	
+     , 	String countType	
+     , 	String quantity	
+     , 	String costType	) {
+    (new androidInventory.inventoryDetailsScreen()).clickOnScanIconAndAddProductByCreatingNewLocationViaInventoryDetailsScreen(
+        	locationName
+         , 	productName
+         , 	countType
+         , 	quantity
+         , 	costType)
+}
+
+ /**
+	 * this function verifies that the product is visible on the screen after it is searched from inventory details screen
+	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
+	 */ 
+def static "androidInventory.inventoryDetailsScreen.verifyProductIsVisibleOnScreenWhenSearchedFromInventoryDetailsScreen"(
+    	Object productIdentificationNumber	) {
+    (new androidInventory.inventoryDetailsScreen()).verifyProductIsVisibleOnScreenWhenSearchedFromInventoryDetailsScreen(
+        	productIdentificationNumber)
+}
+
+ /**
+	 * opens the particular location details
+	 * @param locationName (name of the location)
+	 */ 
+def static "androidInventory.inventoryDetailsScreen.clickOnALocation"(
+    	String locationName	) {
+    (new androidInventory.inventoryDetailsScreen()).clickOnALocation(
+        	locationName)
+}
+
 
 def static "iosOrders.newOrderScreen.change_Account"(
     	String new_Account	) {
@@ -2083,19 +2154,27 @@ def static "iosDashboard.dashboardScreen.verifyDashboardScreen"() {
     (new iosDashboard.dashboardScreen()).verifyDashboardScreen()
 }
 
-
+ /**
+	 * opens the order details page
+	 * @param accountNo (accountNo used to create the order)
+	 */ 
 def static "androidOrders.cartScreen.openAnOrderDetails"(
     	String accountNo	) {
     (new androidOrders.cartScreen()).openAnOrderDetails(
         	accountNo)
 }
 
-
+ /**
+	 * opens the c2 orders tab
+	 */ 
 def static "androidOrders.cartScreen.clickOnC2OrdersTab"() {
     (new androidOrders.cartScreen()).clickOnC2OrdersTab()
 }
 
-
+ /**
+	 * opens the c2 order details
+	 * @param accountNo (account no which was used to create the order)
+	 */ 
 def static "androidOrders.cartScreen.openC2OrderDetailScreen"(
     	String accountNo	) {
     (new androidOrders.cartScreen()).openC2OrderDetailScreen(
@@ -2109,70 +2188,96 @@ def static "androidOrders.cartScreen.delete_Order"(
         	Account_No)
 }
 
-
+ /**
+	 * clicks on upload all orders button on cart screen
+	 */ 
 def static "androidOrders.cartScreen.clickOnUploadAllOrders"() {
     (new androidOrders.cartScreen()).clickOnUploadAllOrders()
 }
 
-
+ /**
+	 * verifies pop up screen which comes after clicking on upload all orders button on cart screen
+	 */ 
 def static "androidOrders.cartScreen.verifyUploadAllOrdersPopUp"() {
     (new androidOrders.cartScreen()).verifyUploadAllOrdersPopUp()
 }
 
-
+ /**
+	 * clicks on continue on desktop button on cart screen
+	 */ 
 def static "androidOrders.cartScreen.clickOnContinueOnDesktop"() {
     (new androidOrders.cartScreen()).clickOnContinueOnDesktop()
 }
 
-
+ /**
+	 * clicks on place all orders button on cart screen
+	 */ 
 def static "androidOrders.cartScreen.clickOnPlaceAllOrders"() {
     (new androidOrders.cartScreen()).clickOnPlaceAllOrders()
 }
 
-
+ /**
+	 * verifies pop up screen which comes after clicking on place all orders button on cart screen
+	 */ 
 def static "androidOrders.cartScreen.verifyPlaceAllOrdersPopUp"() {
     (new androidOrders.cartScreen()).verifyPlaceAllOrdersPopUp()
 }
 
-
+ /**
+	 * clicks on place my orders button on cart screen
+	 */ 
 def static "androidOrders.cartScreen.confirmPlacingAllOrders"() {
     (new androidOrders.cartScreen()).confirmPlacingAllOrders()
 }
 
-
+ /**
+	 * verifies cart screen with added product
+	 */ 
 def static "androidOrders.cartScreen.verifyCartScreenDetailsWithAddedProduct"() {
     (new androidOrders.cartScreen()).verifyCartScreenDetailsWithAddedProduct()
 }
 
-
+ /**
+	 * verifies that the created order should not be visible on the cart screen
+	 * @param poName (purchase order name used to create the order)
+	 */ 
 def static "androidOrders.cartScreen.verifyOrderNotVisibleOnTheCartScreen"(
     	String poName	) {
     (new androidOrders.cartScreen()).verifyOrderNotVisibleOnTheCartScreen(
         	poName)
 }
 
-
+ /**
+	 * verifies nonC2 annotation count
+	 */ 
 def static "androidOrders.cartScreen.verifynonC2AnnotationCount"(
     	String expectedAnnotationCount	) {
     (new androidOrders.cartScreen()).verifynonC2AnnotationCount(
         	expectedAnnotationCount)
 }
 
-
+ /**
+	 * verifies C2 annotation count
+	 */ 
 def static "androidOrders.cartScreen.verifyC2AnnotationCount"(
     	String expectedAnnotationCount	) {
     (new androidOrders.cartScreen()).verifyC2AnnotationCount(
         	expectedAnnotationCount)
 }
 
-
+ /**
+	 * takes expected lines count as the argument and verifies the same
+	 * @param expectedLinesCount (expected lines count after adding products to the cart)
+	 */ 
 def static "androidOrders.cartScreen.verifyLinesCount"(
     	String expectedLinesCount	) {
     (new androidOrders.cartScreen()).verifyLinesCount(
         	expectedLinesCount)
 }
 
-
+ /**
+	 * verifies the cart screen details without any product
+	 */ 
 def static "androidOrders.cartScreen.verifyCartScreenDetailsWithOutAddingAnyProduct"() {
     (new androidOrders.cartScreen()).verifyCartScreenDetailsWithOutAddingAnyProduct()
 }
@@ -2262,6 +2367,32 @@ def static "androidCommonKeywords.commonMethods.tapYCoordinateGenerator"(
 }
 
  /**
+	 * this function verifies that the product is visible on the screen
+	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
+	 * @param testObj (test object of the element under verification)
+	 */ 
+def static "androidCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScreen"(
+    	Object testObj	
+     , 	Object productIdentificationNumber	) {
+    (new androidCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(
+        	testObj
+         , 	productIdentificationNumber)
+}
+
+ /**
+	 * this function verifies that the product is not visible on the screen
+	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
+	 * @param testObj (test object of the element under verification)
+	 */ 
+def static "androidCommonKeywords.commonMethods.verifyProductIsNotVisibleOnTheScreen"(
+    	Object testObj	
+     , 	Object productIdentificationNumber	) {
+    (new androidCommonKeywords.commonMethods()).verifyProductIsNotVisibleOnTheScreen(
+        	testObj
+         , 	productIdentificationNumber)
+}
+
+ /**
 	 * Create an order using Carts Post method , the input is fetched from the (module) ordersDatajson file set on Data Files 
 	 * @return an object with orderId and purchaseOrderNumber 
 	 */ 
@@ -2296,15 +2427,6 @@ def static "api.apiCommonMethods.tokenGenerator"() {
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
-    	Eyes eyes	
-     , 	WebElement element	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkElement(
-        	eyes
-         , 	element)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
     	String testName	) {
     (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
@@ -2321,17 +2443,12 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
-    	String testName	
-     , 	RectangleSize viewportSize	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
-        	testName
-         , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
+    	Eyes eyes	
+     , 	WebElement element	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkElement(
+        	eyes
+         , 	element)
 }
 
 
@@ -2350,4 +2467,18 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
     	Eyes eyes	) {
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
         	eyes)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
+    	String testName	
+     , 	RectangleSize viewportSize	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
+        	testName
+         , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
