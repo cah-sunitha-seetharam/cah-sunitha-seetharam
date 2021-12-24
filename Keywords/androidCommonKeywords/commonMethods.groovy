@@ -97,20 +97,7 @@ class  commonMethods {
 		String productCostCharcterRemoved = (new androidCommonKeywords.commonMethods()).removeCharctersInString(productCost)
 		return productCostCharcterRemoved
 	}
-
-	/**
-	 * this function verifies that the product is visible on the screen
-	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
-	 * @param testObj (test object of the element under verification)
-	 */
-	@Keyword
-	def verifyProductIsVisibleOnTheScreen(testObj,productIdentificationNumber) {
-
-		Mobile.verifyElementExist(findTestObject(testObj,[('TEXT'):productIdentificationNumber]),0)
-	}
-
-
-
+	
 	/**
 	 * refreshes the screen by doing a vertical swipe by considering the deviceHeight and deviceWidth
 	 */

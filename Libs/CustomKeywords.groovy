@@ -7,13 +7,13 @@ import java.lang.String
 
 import java.util.Stack
 
-import com.kms.katalon.core.testobject.TestObject
-
 import java.lang.Float
 
 import com.applitools.eyes.selenium.Eyes
 
 import org.openqa.selenium.WebElement
+
+import com.kms.katalon.core.testobject.TestObject
 
 import com.applitools.eyes.RectangleSize
 
@@ -2212,21 +2212,12 @@ def static "iosDashboard.dashboardScreen.verifyDashboardScreen"() {
 
  /**
 	 * opens the order details page
-	 * @param accountNo (accountNo used to create the order)
-	 */ 
 	 * @param poName (purchase order name used to create the order)
 	 */ 
 def static "androidOrders.cartScreen.openAnOrderDetail"(
     	String poName	) {
     (new androidOrders.cartScreen()).openAnOrderDetail(
         	poName)
-
-
-def static "androidOrders.cartScreen.openAnOrderDetails"(
-    	String accountNo	) {
-    (new androidOrders.cartScreen()).openAnOrderDetails(
-        	accountNo)
-
 }
 
  /**
@@ -2234,16 +2225,6 @@ def static "androidOrders.cartScreen.openAnOrderDetails"(
 	 */ 
 def static "androidOrders.cartScreen.clickOnC2OrdersTab"() {
     (new androidOrders.cartScreen()).clickOnC2OrdersTab()
-}
-
- /**
-	 * opens the c2 order details
-	 * @param accountNo (account no which was used to create the order)
-	 */ 
-def static "androidOrders.cartScreen.openC2OrderDetailScreen"(
-    	String accountNo	) {
-    (new androidOrders.cartScreen()).openC2OrderDetailScreen(
-        	accountNo)
 }
 
 
@@ -2261,8 +2242,6 @@ def static "androidOrders.cartScreen.clickOnUploadAllOrders"() {
 }
 
  /**
-	 * verifies pop up screen which comes after clicking on upload all orders button on cart screen
-	 */ 
 	 * verifies cart screen without non c2 orders
 	 */ 
 def static "androidOrders.cartScreen.verifyCartScreenWithOutNonC2Orders"() {
@@ -2272,7 +2251,6 @@ def static "androidOrders.cartScreen.verifyCartScreenWithOutNonC2Orders"() {
  /**
 	 * verifies pop up screen which comes after clicking on upload all orders button on cart screen
 	 */ 
-
 def static "androidOrders.cartScreen.verifyUploadAllOrdersPopUp"() {
     (new androidOrders.cartScreen()).verifyUploadAllOrdersPopUp()
 }
@@ -2325,7 +2303,30 @@ def static "androidOrders.cartScreen.verifyOrderNotVisibleOnTheCartScreen"(
  /**
 	 * verifies nonC2 annotation count
 	 */ 
+def static "androidOrders.cartScreen.verifynonC2AnnotationCount"(
+    	String expectedAnnotationCount	) {
+    (new androidOrders.cartScreen()).verifynonC2AnnotationCount(
+        	expectedAnnotationCount)
+}
 
+ /**
+	 * verifies C2 annotation count
+	 */ 
+def static "androidOrders.cartScreen.verifyC2AnnotationCount"(
+    	String expectedAnnotationCount	) {
+    (new androidOrders.cartScreen()).verifyC2AnnotationCount(
+        	expectedAnnotationCount)
+}
+
+ /**
+	 * takes expected lines count as the argument and verifies the same
+	 * @param expectedLinesCount (expected lines count after adding products to the cart)
+	 */ 
+def static "androidOrders.cartScreen.verifyLinesCount"(
+    	String expectedLinesCount	) {
+    (new androidOrders.cartScreen()).verifyLinesCount(
+        	expectedLinesCount)
+}
 
  /**
 	 * verifies that the created order should not be visible on the cart screen
@@ -2338,19 +2339,6 @@ def static "androidOrders.cartScreen.verifyOrderIsVisibleOnTheCartScreen"(
 }
 
  /**
-	 * verifies nonC2 annotation count
-	 * @param expectedAnnotationCount (expected annotation count count of nonc2 after adding product to the cart)
-	 */ 
-
-def static "androidOrders.cartScreen.verifynonC2AnnotationCount"(
-    	String expectedAnnotationCount	) {
-    (new androidOrders.cartScreen()).verifynonC2AnnotationCount(
-        	expectedAnnotationCount)
-}
-
- /**
-	 * verifies C2 annotation count
-	 */ 
 	 * takes expected lines count of c2 or non c2 as the argument and verifies the same
 	 * @param expectedLineCount (expected total line count of non c2 or c2 after adding product to the cart)
 	 */ 
@@ -2379,20 +2367,7 @@ def static "androidOrders.cartScreen.verifyOrderNamePattern"(
 }
 
  /**
-	 * verifies C2 annotation count
-	 * @param expectedAnnotationCount (expected annotation count count after adding product and return to the order name page)
-	 */ 
-
-def static "androidOrders.cartScreen.verifyC2AnnotationCount"(
-    	String expectedAnnotationCount	) {
-    (new androidOrders.cartScreen()).verifyC2AnnotationCount(
-        	expectedAnnotationCount)
-}
-
- /**
 	 * takes expected lines count as the argument and verifies the same
-	 * @param expectedLinesCount (expected lines count after adding products to the cart)
-	 */ 
 	 * @param expectedLinesCount (expected total line count after adding products to the cart)
 	 */ 
 def static "androidOrders.cartScreen.verifyTotalLineCount"(
@@ -2419,17 +2394,6 @@ def static "androidOrders.cartScreen.verifyCartValue"(
     	Object expectedCartValue	) {
     (new androidOrders.cartScreen()).verifyCartValue(
         	expectedCartValue)
-}
-
- /**
-	 * verifies the cart screen details without any product
-	 */ 
-
-
-def static "androidOrders.cartScreen.verifyLinesCount"(
-    	String expectedLinesCount	) {
-    (new androidOrders.cartScreen()).verifyLinesCount(
-        	expectedLinesCount)
 }
 
  /**
@@ -2500,19 +2464,6 @@ def static "androidCommonKeywords.commonMethods.returnCostOfTheAddedProduct"(
     	String testObj	) {
     (new androidCommonKeywords.commonMethods()).returnCostOfTheAddedProduct(
         	testObj)
-}
-
- /**
-	 * this function verifies that the product is visible on the screen
-	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
-	 * @param testObj (test object of the element under verification)
-	 */ 
-def static "androidCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScreen"(
-    	Object testObj	
-     , 	Object productIdentificationNumber	) {
-    (new androidCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(
-        	testObj
-         , 	productIdentificationNumber)
 }
 
  /**
@@ -2646,6 +2597,15 @@ def static "api.apiCommonMethods.tokenGenerator"() {
 }
 
 
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
+    	Eyes eyes	
+     , 	WebElement element	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkElement(
+        	eyes
+         , 	element)
+}
+
+
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
     	String testName	) {
     (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
@@ -2662,36 +2622,8 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
-    	Eyes eyes	
-     , 	WebElement element	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkElement(
-        	eyes
-         , 	element)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
-}
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
-    	String baselineName	
-     , 	String testName	
-     , 	RectangleSize viewportSize	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpenWithBaseline(
-        	baselineName
-         , 	testName
-         , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
 
 
@@ -2704,7 +2636,19 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
 }
 
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
+    	String baselineName	
+     , 	String testName	
+     , 	RectangleSize viewportSize	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpenWithBaseline(
+        	baselineName
+         , 	testName
+         , 	viewportSize)
+}
