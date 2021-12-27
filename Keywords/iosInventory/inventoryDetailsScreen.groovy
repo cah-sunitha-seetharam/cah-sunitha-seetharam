@@ -41,7 +41,6 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 class inventoryDetailsScreen extends inventoryListingScreen {
 
 	def commonMethodsObject=new commonMethods();
-	def locationDetailsScreenObject=new locationDetailsScreen();
 
 
 	/**
@@ -80,7 +79,7 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 
 		Mobile.setText(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName_TextField'), locationName, 0)
 
-		addCostType(costType)
+		(new iosInventory.inventoryDetailsScreen()).addCostType(costType)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory Screen/createNewLocation_Button'), 0)
 
@@ -258,7 +257,7 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 	 * @param costType (cost type required which can be current or last price paid)
 	 */
 	@Keyword
-	def searchAndAddProductByCreatingNewLocation(String locationName, String productName,String costType, String quantity) {
+	def searchAndAddProductByCreatingNewLocation(String locationName, String productName,String costType) {
 
 		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), 0, 0)
 
@@ -268,8 +267,6 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 
 		Mobile.tapAndHold(findTestObject('iOS/Product Search/search_Keypad'), 0, 0)
 
-		locationDetailsScreenObject.addQuantityforTheSearchedProduct(quantity)
-
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/addProductToInventory_Text'), 0)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/createANewLocation_Text'), 0)
@@ -278,8 +275,11 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 
 		Mobile.setText(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName_TextField'), locationName, 0)
 
-		addCostType(costType)
-
+		if (costType == 'Last Price') {
+			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/lastPrice_Button'), 0)
+		} else {
+			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/currentPrice_Button'), 0)
+		}
 		Mobile.tapAndHold(findTestObject('iOS/Product Search/doneKeypad_Button'), 0, 0)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/createNewLocation_Text'), 0)

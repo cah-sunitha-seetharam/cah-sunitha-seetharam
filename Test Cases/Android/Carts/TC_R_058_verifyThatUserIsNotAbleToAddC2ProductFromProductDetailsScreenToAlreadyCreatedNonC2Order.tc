@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that user is not able to Add C2 Product from Product details screen to already created Non C2 Order 
+
+Prerequisite:
+1. Valid login credentials with multiple accounts available for the user
+2. Non C2 order should be available with Non-C2 Product in it</description>
+   <name>TC_R_058_verifyThatUserIsNotAbleToAddC2ProductFromProductDetailsScreenToAlreadyCreatedNonC2Order</name>
+   <tag>Order;Regression;Scan</tag>
+   <comment></comment>
+   <testCaseGuid>3e4b66a7-c8be-4e0c-a49a-375171bbed31</testCaseGuid>
+   <variable>
+      <defaultValue>4</defaultValue>
+      <description>quantity of the added for the product </description>
+      <id>1da55bec-1a71-48ee-8260-15512542f42d</id>
+      <masked>false</masked>
+      <name>quantity1</name>
+   </variable>
+   <variable>
+      <defaultValue>2</defaultValue>
+      <description>quantity of the added for the product </description>
+      <id>7587685e-69cb-4d16-9805-0f6bcef96da5</id>
+      <masked>false</masked>
+      <name>quantity2</name>
+   </variable>
+   <variable>
+      <defaultValue>'poName'</defaultValue>
+      <description>purchase order name for the order created</description>
+      <id>0da45239-8e65-40c7-ab13-4c4ff22ada4e</id>
+      <masked>false</masked>
+      <name>poName</name>
+   </variable>
+   <variable>
+      <defaultValue>'poMemo'</defaultValue>
+      <description>purchase order memo for the order created</description>
+      <id>37c82b07-979c-4cc4-a473-02b2daac8dda</id>
+      <masked>false</masked>
+      <name>poMemo</name>
+   </variable>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description>expected annotation count of the order in cart page</description>
+      <id>dee26c8f-317e-4ae7-8488-07df7241c4f4</id>
+      <masked>false</masked>
+      <name>expectedAnnotationCount</name>
+   </variable>
+</TestCaseEntity>
