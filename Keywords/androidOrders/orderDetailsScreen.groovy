@@ -51,19 +51,31 @@ class orderDetailsScreen {
 
 
 	/**
-	 * places the order and verifies confirmation pop up
+	 * places the order 
 	 */
 
 	@Keyword
-	def placeOrder() {
+	def clickOnPlaceOrder() {
 		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Place Order/Place Order_Button'), 0, )
+	}
+
+	/**
+	 * verifies place order confirmation pop up
+	 */
+	@Keyword
+	def verifyPlaceOrderPopUp() {
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Place Order/goBackAndReviewMyOrder_Button'), 0)
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Place Order/goToDashboard_Button'), 0)
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Place Order/placeMyOrder_Button'), 0)
-		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Place Order/placeMyOrder_Button'), 0)
 	}
 
-
+	/**
+	 * confirms place order by clicking on place my order button
+	 */
+	@Keyword
+	def confirmPlaceOrder() {
+		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Place Order/placeMyOrder_Button'), 0)
+	}
 
 	/**
 	 * takes user back to cart
@@ -105,16 +117,16 @@ class orderDetailsScreen {
 
 
 	/**
-	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at ordering
+	 * taps on scan icon and takes user to scanning product screen and also verifies ordering and price check
 	 */
 	@Keyword
 	def clickOnScanIcon() {
 
 		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_Icon'), 0)
 
-		Mobile.verifyElementAttributeValue(findTestObject('Android/Orders/Order Details Screen/Scan Order/ordering_Text'), 'text', 'Ordering', 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Scan Order/ordering_Text'), 0)
 
-		Mobile.verifyElementAttributeValue(findTestObject('Android/Orders/Order Details Screen/Scan Order/priceCheck_Text'), 'text', 'Price Check', 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Scan Order/priceCheck_Text'), 0)
 	}
 
 	/**
