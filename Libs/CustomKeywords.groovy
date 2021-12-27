@@ -1437,10 +1437,24 @@ def static "androidOrders.orderDetailsScreen.upload_Order"() {
 }
 
  /**
-	 * places the order and verifies confirmation pop up
+	 * places the order 
 	 */ 
-def static "androidOrders.orderDetailsScreen.placeOrder"() {
-    (new androidOrders.orderDetailsScreen()).placeOrder()
+def static "androidOrders.orderDetailsScreen.clickOnPlaceOrder"() {
+    (new androidOrders.orderDetailsScreen()).clickOnPlaceOrder()
+}
+
+ /**
+	 * verifies place order confirmation pop up
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyPlaceOrderPopUp"() {
+    (new androidOrders.orderDetailsScreen()).verifyPlaceOrderPopUp()
+}
+
+ /**
+	 * confirms place order by clicking on place my order button
+	 */ 
+def static "androidOrders.orderDetailsScreen.confirmPlaceOrder"() {
+    (new androidOrders.orderDetailsScreen()).confirmPlaceOrder()
 }
 
  /**
@@ -1471,7 +1485,7 @@ def static "androidOrders.orderDetailsScreen.verifyFilterByOptions"(
 }
 
  /**
-	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at ordering
+	 * taps on scan icon and takes user to scanning product screen and also verifies ordering and price check
 	 */ 
 def static "androidOrders.orderDetailsScreen.clickOnScanIcon"() {
     (new androidOrders.orderDetailsScreen()).clickOnScanIcon()
