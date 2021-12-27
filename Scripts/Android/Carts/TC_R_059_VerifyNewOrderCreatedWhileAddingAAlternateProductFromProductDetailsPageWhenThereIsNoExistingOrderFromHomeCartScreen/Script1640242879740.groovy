@@ -89,6 +89,9 @@ String orderName = CustomKeywords.'androidOrders.cartScreen.returnTopMostOrderNa
 'opens order details and takes order name as the argument'
 CustomKeywords.'androidOrders.cartScreen.openAnOrderDetail'(orderName)
 
+'places the order and verifies confirmation pop up'
+CustomKeywords.'androidOrders.orderDetailsScreen.placeOrder'()
+
 'places the order'
 CustomKeywords.'androidOrders.orderDetailsScreen.clickOnPlaceOrder'()
 

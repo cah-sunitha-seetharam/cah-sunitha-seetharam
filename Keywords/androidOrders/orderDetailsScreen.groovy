@@ -41,11 +41,20 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 class orderDetailsScreen {
 
+	/**
+	 * uploads the order 
+	 */
 	@Keyword
 	def upload_Order() {
 
 		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Upload Order/Upload Order_button'), 0)
+	}
 
+	/**
+	 * opens confirmation pop up 
+	 */
+	@Keyword
+	def continueOnDesktop() {
 		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Upload Order/Continue On Desktop_button'), 0)
 	}
 
@@ -114,7 +123,6 @@ class orderDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Alternates Screen/manufacturerFilterByOptions_TextView'), 0)
 		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Alternates Screen/suggestedAlternate_TextView'), 0)
 	}
-
 
 	/**
 	 * taps on scan icon and takes user to scanning product screen and also verifies ordering and price check
@@ -434,6 +442,25 @@ class orderDetailsScreen {
 	}
 
 	/**
+	 * this function returns the top most product name in order details page
+	 */
+	@Keyword
+	def returnTopMostProductNameInOrderDetails(){
+		String productName=Mobile.getText(findTestObject('Object Repository/Android/Orders/Order Details Screen/Verification Details/productName_TextView'), 0)
+		return productName
+	}
+
+	/**
+	 * verifies that the added top most product should  be visible on the order details page
+	 * @param productname (top most added product name)
+	 */
+	@Keyword
+	def verifyProductNameIsVisibleUnderOrderDetails(String productname) {
+
+		Mobile.verifyElementVisible(findTestObject('Object Repository/Android/Orders/Order Details Screen/Verification Details/productName_TextView',[('TEXT'):productname]),0)
+	}
+
+	/**
 	 * this function verifies the product details page
 	 */
 
@@ -557,6 +584,14 @@ class orderDetailsScreen {
 	}
 
 	/**
+	 * removes product from orders details
+	 */
+	@Keyword
+	def removeProduct() {
+		Mobile.tap(findTestObject('Object Repository/Android/Orders/Order Details Screen/Verification Details/Remove Product_TextView'), 0)
+	}
+
+	/**
 	 * adds product in product details page
 	 */
 	@Keyword
@@ -582,6 +617,13 @@ class orderDetailsScreen {
 		Mobile.tap(findTestObject('Object Repository/Android/Orders/C2 Order Details Screen/Place C2 Order/continueBrowsing_Button') ,0)
 	}
 
+	/**
+	 * takes user to the order details
+	 */
+	@Keyword
+	def tapOnGoToOrder() {
+		Mobile.tap(findTestObject('Object Repository/Android/Orders/Alternates Screen/goToOrder_TextView') ,0)
+	}
 
 	@Keyword
 	def edit_PO_Name_and_Memo(String PO_Name,String PO_Memo, String New_po_Name, String New_po_Memo ) {
