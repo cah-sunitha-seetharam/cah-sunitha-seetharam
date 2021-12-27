@@ -220,6 +220,16 @@
         "TC_R_059": {
                 "productSearchByName": "tyl",
             },
+        
+        "TC_R_060": {
+                "productSearchCin": "4023347",
+                "productSearchByName": "coca",
+            },
+        
+        "TC_R_061": {
+                "productSearchCin": "4023347",
+                "productSearchByName": "tyl",
+            },
         },
 
 }

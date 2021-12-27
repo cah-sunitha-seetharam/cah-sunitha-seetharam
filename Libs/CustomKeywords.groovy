@@ -1402,9 +1402,18 @@ def static "androidInventory.locationDetailsScreen.verifyReverseChronologicalOrd
         	productNdcNumber)
 }
 
-
+ /**
+	 * uploads the order 
+	 */ 
 def static "androidOrders.orderDetailsScreen.upload_Order"() {
     (new androidOrders.orderDetailsScreen()).upload_Order()
+}
+
+ /**
+	 * opens confirmation pop up 
+	 */ 
+def static "androidOrders.orderDetailsScreen.continueOnDesktop"() {
+    (new androidOrders.orderDetailsScreen()).continueOnDesktop()
 }
 
  /**
@@ -1664,6 +1673,23 @@ def static "androidOrders.orderDetailsScreen.returnProductNameAfterSearch"() {
 }
 
  /**
+	 * this function returns the top most product name in order details page
+	 */ 
+def static "androidOrders.orderDetailsScreen.returnTopMostProductNameInOrderDetails"() {
+    (new androidOrders.orderDetailsScreen()).returnTopMostProductNameInOrderDetails()
+}
+
+ /**
+	 * verifies that the added top most product should  be visible on the order details page
+	 * @param productname (top most added product name)
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyProductNameIsVisibleUnderOrderDetails"(
+    	String productname	) {
+    (new androidOrders.orderDetailsScreen()).verifyProductNameIsVisibleUnderOrderDetails(
+        	productname)
+}
+
+ /**
 	 * this function verifies the product details page
 	 */ 
 def static "androidOrders.orderDetailsScreen.verifyProductDetailAfterSelectingMoreDetails"(
@@ -1741,6 +1767,13 @@ def static "androidOrders.orderDetailsScreen.clickOnMoreDetails"() {
 }
 
  /**
+	 * removes product from orders details
+	 */ 
+def static "androidOrders.orderDetailsScreen.removeProduct"() {
+    (new androidOrders.orderDetailsScreen()).removeProduct()
+}
+
+ /**
 	 * adds product in product details page
 	 */ 
 def static "androidOrders.orderDetailsScreen.tapOnAddToOrderInProductDetailsPage"() {
@@ -1759,6 +1792,13 @@ def static "androidOrders.orderDetailsScreen.clickOnContinueOrdering"() {
 	 */ 
 def static "androidOrders.orderDetailsScreen.tapOnContinueBrowsing"() {
     (new androidOrders.orderDetailsScreen()).tapOnContinueBrowsing()
+}
+
+ /**
+	 * takes user to the order details
+	 */ 
+def static "androidOrders.orderDetailsScreen.tapOnGoToOrder"() {
+    (new androidOrders.orderDetailsScreen()).tapOnGoToOrder()
 }
 
 
@@ -2432,7 +2472,7 @@ def static "androidOrders.cartScreen.verifyLinesCount"(
 }
 
  /**
-	 * verifies that the created order should not be visible on the cart screen
+	 * verifies that the created order should be visible on the cart screen
 	 * @param poName (purchase order name used to create the order)
 	 */ 
 def static "androidOrders.cartScreen.verifyOrderIsVisibleOnTheCartScreen"(
@@ -2457,6 +2497,14 @@ def static "androidOrders.cartScreen.verifyLineCountofC2OrNonC2Product"(
 	 */ 
 def static "androidOrders.cartScreen.returnTopMostOrderName"() {
     (new androidOrders.cartScreen()).returnTopMostOrderName()
+}
+
+ /**
+	 * this function returns the order name from confirmation pop up of upload order
+	 * return orderName (returns order name)
+	 */ 
+def static "androidOrders.cartScreen.returnOrderNameFromConfirmationPopupOfUploadOrder"() {
+    (new androidOrders.cartScreen()).returnOrderNameFromConfirmationPopupOfUploadOrder()
 }
 
  /**
