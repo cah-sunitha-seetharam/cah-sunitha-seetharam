@@ -1402,6 +1402,35 @@ def static "androidInventory.locationDetailsScreen.verifyReverseChronologicalOrd
         	productNdcNumber)
 }
 
+ /**
+	 * this function verifies that the product is not visible on the location details screen
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */ 
+def static "androidInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen"(
+    	Object productNdcNumber	) {
+    (new androidInventory.locationDetailsScreen()).verifyProductIsVisibleOnTheLocationDetailsScreen(
+        	productNdcNumber)
+}
+
+ /**
+	 * this function taps on remove button and then product entry should get removed from the location as well as the scan result screen
+	 */ 
+def static "androidInventory.locationDetailsScreen.clickOnRemoveButtonToRemoveAlreadyScannedProduct"() {
+    (new androidInventory.locationDetailsScreen()).clickOnRemoveButtonToRemoveAlreadyScannedProduct()
+}
+
+ /**
+	 * this function verifies that the product is visible on the location details screen
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */ 
+def static "androidInventory.locationDetailsScreen.verifyProductIsNotVisibleOnTheLocationDetailsScreen"(
+    	Object productNdcNumber	) {
+    (new androidInventory.locationDetailsScreen()).verifyProductIsNotVisibleOnTheLocationDetailsScreen(
+        	productNdcNumber)
+}
+
 
 def static "androidOrders.orderDetailsScreen.upload_Order"() {
     (new androidOrders.orderDetailsScreen()).upload_Order()
@@ -2068,6 +2097,48 @@ def static "androidInventory.inventoryDetailsScreen.deleteLocation"(
         	locationName)
 }
 
+ /**
+	 * searches and adds the product from the inventory details screen by creating a new location
+	 * @param locationName (name of the location to be created)
+	 * @param productName (name of the product to be added)
+	 * @param countType (count type required which can be partial or full count)
+	 * @param quantity (quantity of the product required to be added)
+	 * @param costType (cost type required which can be current or last price paid)
+	 */ 
+def static "androidInventory.inventoryDetailsScreen.clickOnScanIconAndAddProductByCreatingNewLocationViaInventoryDetailsScreen"(
+    	String locationName	
+     , 	String productName	
+     , 	String countType	
+     , 	String quantity	
+     , 	String costType	) {
+    (new androidInventory.inventoryDetailsScreen()).clickOnScanIconAndAddProductByCreatingNewLocationViaInventoryDetailsScreen(
+        	locationName
+         , 	productName
+         , 	countType
+         , 	quantity
+         , 	costType)
+}
+
+ /**
+	 * this function verifies that the product is visible on the screen after it is searched from inventory details screen
+	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
+	 */ 
+def static "androidInventory.inventoryDetailsScreen.verifyProductIsVisibleOnScreenWhenSearchedFromInventoryDetailsScreen"(
+    	Object productIdentificationNumber	) {
+    (new androidInventory.inventoryDetailsScreen()).verifyProductIsVisibleOnScreenWhenSearchedFromInventoryDetailsScreen(
+        	productIdentificationNumber)
+}
+
+ /**
+	 * opens the particular location details
+	 * @param locationName (name of the location)
+	 */ 
+def static "androidInventory.inventoryDetailsScreen.clickOnALocation"(
+    	String locationName	) {
+    (new androidInventory.inventoryDetailsScreen()).clickOnALocation(
+        	locationName)
+}
+
 
 def static "iosOrders.newOrderScreen.change_Account"(
     	String new_Account	) {
@@ -2570,19 +2641,6 @@ def static "androidCommonKeywords.commonMethods.returnCostOfTheAddedProduct"(
 }
 
  /**
-	 * this function verifies that the product is visible on the screen
-	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
-	 * @param testObj (test object of the element under verification)
-	 */ 
-def static "androidCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScreen"(
-    	Object testObj	
-     , 	Object productIdentificationNumber	) {
-    (new androidCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(
-        	testObj
-         , 	productIdentificationNumber)
-}
-
- /**
 	 * refreshes the screen by doing a vertical swipe by considering the deviceHeight and deviceWidth
 	 */ 
 def static "androidCommonKeywords.commonMethods.verticalSwipeForRefresh"() {
@@ -2653,6 +2711,32 @@ def static "androidCommonKeywords.commonMethods.tapYCoordinateGenerator"(
 }
 
  /**
+	 * this function verifies that the product is visible on the screen
+	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
+	 * @param testObj (test object of the element under verification)
+	 */ 
+def static "androidCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScreen"(
+    	Object testObj	
+     , 	Object productIdentificationNumber	) {
+    (new androidCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(
+        	testObj
+         , 	productIdentificationNumber)
+}
+
+ /**
+	 * this function verifies that the product is not visible on the screen
+	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
+	 * @param testObj (test object of the element under verification)
+	 */ 
+def static "androidCommonKeywords.commonMethods.verifyProductIsNotVisibleOnTheScreen"(
+    	Object testObj	
+     , 	Object productIdentificationNumber	) {
+    (new androidCommonKeywords.commonMethods()).verifyProductIsNotVisibleOnTheScreen(
+        	testObj
+         , 	productIdentificationNumber)
+}
+
+ /**
 	 * Create an order using Carts Post method , the input is fetched from the (module) ordersDatajson file set on Data Files 
 	 * @return an object with orderId and purchaseOrderNumber 
 	 */ 
@@ -2712,17 +2796,17 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+}
+
+
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
     	String testName	
      , 	RectangleSize viewportSize	) {
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
         	testName
          , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
 
 

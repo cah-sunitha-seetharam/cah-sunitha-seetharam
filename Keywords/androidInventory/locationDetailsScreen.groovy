@@ -247,6 +247,8 @@ class locationDetailsScreen {
 	def scanInputEvent(String productToBeSearched) {
 
 		Mobile.setText(findTestObject('Object Repository/Android/Product Search/Scan Flow/enterBarcode_TextField'), productToBeSearched, 0)
+		
+		WebUI.delay(1) // added 1 sec delay since there is no progress loader
 
 		Mobile.tap(findTestObject('Object Repository/Android/Product Search/Scan Flow/scan_Done_Button'), 0)
 	}
@@ -396,12 +398,56 @@ class locationDetailsScreen {
 			actualproductIdentificationNumber=Mobile.getText(findTestObject(testObj),0) //gets the ProductIdentificationNumber of the top added product in the location details page
 
 			assert actualproductIdentificationNumber==("NDC: "+topProductIdentificationNumber) // verifies actualproductIdentificationNumber equals the ProductIdentificationNumber of the topmost product in the products list
-			
+
 			KeywordUtil.logInfo("actualproductIdentificationNumber is " + actualproductIdentificationNumber );
 			KeywordUtil.logInfo("topProductIdentificationNumber is " + topProductIdentificationNumber );
-			
+
 			(new androidInventory.locationDetailsScreen()).deleteProduct(topProductIdentificationNumber)//calling delete product function and passing the topProductIdentificationNumber
-			
+
 		}
 	}
+
+
+	/**
+	 * this function verifies that the product is not visible on the location details screen
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */
+	@Keyword
+	def verifyProductIsVisibleOnTheLocationDetailsScreen(productNdcNumber) {
+
+		String testObj='Android/Inventory/Location Details Screen/Delete Product/ndcNumber_Text'
+
+		(new androidCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
+	}
+
+
+	/**
+	 * this function taps on remove button and then product entry should get removed from the location as well as the scan result screen
+	 */
+	@Keyword
+	def clickOnRemoveButtonToRemoveAlreadyScannedProduct() {
+
+		Mobile.verifyElementExist(findTestObject('Android/Inventory/Location Details Screen/Add Product to_Location/thisItemHasBeenAddedToYourLocation_Text'),0)
+
+		String testObj='Remove'
+
+		Mobile.scrollToText(testObj, FailureHandling.STOP_ON_FAILURE)
+
+		Mobile.tap(findTestObject('Android/Product Search/removeItem_Button'), 0)
+	}
+
+	/**
+	 * this function verifies that the product is visible on the location details screen
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */
+	@Keyword
+	def verifyProductIsNotVisibleOnTheLocationDetailsScreen(productNdcNumber) {
+
+		String testObj='Android/Inventory/Location Details Screen/Delete Product/ndcNumber_Text'
+
+		(new androidCommonKeywords.commonMethods()).verifyProductIsNotVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsNotVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
+	}
+
 }

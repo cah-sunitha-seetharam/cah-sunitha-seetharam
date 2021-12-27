@@ -49,7 +49,7 @@ class  commonMethods {
 		Mobile.tap(findTestObject('iOS/More Options Screen/termsAgreeCheckBox_Button'), 0)
 
 		Mobile.tap(findTestObject('iOS/More Options Screen/disclaimerConfirm_Button'), 0)
-		
+
 		waitForProgressBarToBeInvisible()
 	}
 

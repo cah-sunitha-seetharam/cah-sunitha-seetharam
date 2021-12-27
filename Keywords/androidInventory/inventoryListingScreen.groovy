@@ -57,7 +57,7 @@ class inventoryListingScreen {
 		String testObj='Android/Inventory/Inventory Listing Screen/Delete Inventory/slidePopUpForInventoryDeletion_Button'
 
 		int x_Coordinate=(new androidCommonKeywords.commonMethods()).tapXCoordinateGenerator(testObj)
-		
+
 		testObj='Android/Inventory/Inventory Detail Screen/Open Inventory Details/openInventory_Text'
 
 		int y_Coordinate=(new androidCommonKeywords.commonMethods()).tapYCoordinateGenerator(testObj,inventoryName)
