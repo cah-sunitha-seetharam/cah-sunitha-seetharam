@@ -1466,12 +1466,6 @@ def static "androidOrders.orderDetailsScreen.continueOnDesktop"() {
 }
 
  /**
-	 * places the order and verifies confirmation pop up
-	 */ 
-def static "androidOrders.orderDetailsScreen.placeOrder"() {
-    (new androidOrders.orderDetailsScreen()).placeOrder()
-  
-  /**
 	 * places the order 
 	 */ 
 def static "androidOrders.orderDetailsScreen.clickOnPlaceOrder"() {
@@ -1862,13 +1856,14 @@ def static "androidOrders.orderDetailsScreen.clickOnContinueOrdering"() {
 def static "androidOrders.orderDetailsScreen.tapOnContinueBrowsing"() {
     (new androidOrders.orderDetailsScreen()).tapOnContinueBrowsing()
 }
-  
+
  /**
 	 * takes user to the order details
 	 */ 
 def static "androidOrders.orderDetailsScreen.tapOnGoToOrder"() {
     (new androidOrders.orderDetailsScreen()).tapOnGoToOrder()
 }
+
 
 def static "androidOrders.orderDetailsScreen.edit_PO_Name_and_Memo"(
     	String PO_Name	
