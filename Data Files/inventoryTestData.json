@@ -14,7 +14,7 @@
         "TC_OE_005": {
             "productSearchCin": "4023347",
             "productSearchByNDC": "00406-8003-24",
-            
+            "productSearchByNDC": "42023-0107-01",  
         },
 
         "TC_OE_007": {
@@ -142,8 +142,8 @@
                    "productSearchCin": "4023347",
                    
                },
-               
-           "TC_R_003": {
+           
+        "TC_R_003": {
             "productSearchCin": "4023347",
             "productSearchByName": "tyl",
             

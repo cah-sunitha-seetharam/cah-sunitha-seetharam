@@ -17,11 +17,23 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-'starts the application'
-CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
+CustomKeywords.'ios_common_keywords.Start_Application.custom'()
 
-'takes user from login to home screen and takes username, password, account no as the arguments'
-CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen'(GlobalVariable.Username, GlobalVariable.Password, GlobalVariable.Account)
+CustomKeywords.'ios_login.Login_Screen.verify_LoginPage_Details'()
 
-'verifies the details of login Page'
-CustomKeywords.'iosDashboard.dashboardScreen.verifyDashboardScreen'()
+CustomKeywords.'ios_login.Login_Screen.login'(password)
+
+CustomKeywords.'ios_account_selection.Select_An_Account.Custom'(account)
+
+CustomKeywords.'ios_account_selection.Change_Account.Custom'(new_account)
+
+CustomKeywords.'ios_dashboard.dashboard_details.click_On_Orders'()
+
+CustomKeywords.'ios_account_selection.Change_Account.Custom'(new_account)
+
+CustomKeywords.'ios_dashboard.dashboard_details.click_On_More_Options'()
+
+CustomKeywords.'ios_more_options_screen.Go_To_Inventory_Listing_Screen.Custom'()
+
+CustomKeywords.'ios_account_selection.Change_Account.Custom'(new_account)
+

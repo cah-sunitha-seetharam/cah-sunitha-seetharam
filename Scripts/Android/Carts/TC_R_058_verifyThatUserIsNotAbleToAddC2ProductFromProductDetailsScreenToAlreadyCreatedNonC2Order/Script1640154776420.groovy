@@ -32,7 +32,7 @@ CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(Gl
 'opens cart page'
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnOrders'()
 
-'clicks on scan icon and also verifies that the default scan toggle value is at ordering'
+'taps on scan icon and takes user to scanning product screen and also verifies ordering and price check'
 CustomKeywords.'androidOrders.orderDetailsScreen.clickOnScanIcon'()
 
 'waits until the progressBar is visible on the screen'

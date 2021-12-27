@@ -57,7 +57,7 @@ class orderDetailsScreen {
 	def continueOnDesktop() {
 		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Upload Order/Continue On Desktop_button'), 0)
 	}
-
+  
 	/**
 	 * places the order and verifies confirmation pop up
 	 */
@@ -69,9 +69,34 @@ class orderDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Place Order/goToDashboard_Button'), 0)
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Place Order/placeMyOrder_Button'), 0)
 		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Place Order/placeMyOrder_Button'), 0)
+
+
+	/**
+	 * places the order 
+	 */
+
+	@Keyword
+	def clickOnPlaceOrder() {
+		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Place Order/Place Order_Button'), 0, )
 	}
 
+	/**
+	 * verifies place order confirmation pop up
+	 */
+	@Keyword
+	def verifyPlaceOrderPopUp() {
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Place Order/goBackAndReviewMyOrder_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Place Order/goToDashboard_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Place Order/placeMyOrder_Button'), 0)
+	}
 
+	/**
+	 * confirms place order by clicking on place my order button
+	 */
+	@Keyword
+	def confirmPlaceOrder() {
+		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Place Order/placeMyOrder_Button'), 0)
+	}
 
 	/**
 	 * takes user back to cart
@@ -90,6 +115,25 @@ class orderDetailsScreen {
 	def tapOnAlternatesInProductDetailsPage(String Alternates) {
 		Mobile.scrollToText(Alternates, FailureHandling.STOP_ON_FAILURE)
 		Mobile.tap(findTestObject('Object Repository/Android/Orders/Product Info/Product Details/alternates_TextView',[('TEXT') : Alternates]), 0)
+	}
+    
+	/**
+	 * verifies filterByOptions
+	 * @param Alternates (alternates to be selected)
+	 */
+	@Keyword
+	def verifyFilterByOptions(String Alternates) {
+		Mobile.verifyElementVisible(findTestObject('Object Repository/Android/Orders/Alternates Screen/alternateHeaderName_TextView',[('TEXT') : Alternates]), 0)
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Alternates Screen/InStockFilterByOptions_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Alternates Screen/formFilterByOptions_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Alternates Screen/sizeFilterByOptions_TextView'), 0)
+		int ElementTopPosition = Mobile.getElementTopPosition(findTestObject('Object Repository/Android/Orders/Alternates Screen/InStockFilterByOptions_TextView'), 0)
+		int ElementHeight=Mobile.getElementHeight(findTestObject('Object Repository/Android/Orders/Alternates Screen/InStockFilterByOptions_TextView'), 0)
+		int yCoordinateToSwipe=(ElementHeight/2)+ElementTopPosition
+		Mobile.swipe(500, yCoordinateToSwipe, 0, yCoordinateToSwipe)
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Alternates Screen/contract_FilterByOptions_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Alternates Screen/manufacturerFilterByOptions_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Alternates Screen/suggestedAlternate_TextView'), 0)
 	}
 
 	/**
@@ -113,16 +157,16 @@ class orderDetailsScreen {
 
 
 	/**
-	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at ordering
+	 * taps on scan icon and takes user to scanning product screen and also verifies ordering and price check
 	 */
 	@Keyword
 	def clickOnScanIcon() {
 
 		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_Icon'), 0)
 
-		Mobile.verifyElementAttributeValue(findTestObject('Android/Orders/Order Details Screen/Scan Order/ordering_Text'), 'text', 'Ordering', 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Scan Order/ordering_Text'), 0)
 
-		Mobile.verifyElementAttributeValue(findTestObject('Android/Orders/Order Details Screen/Scan Order/priceCheck_Text'), 'text', 'Price Check', 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Scan Order/priceCheck_Text'), 0)
 	}
 
 	/**
@@ -199,7 +243,6 @@ class orderDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Alternates Screen/goToOrder_TextView'), 0)
 		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Alternates Screen/newOrderCreated_TextView'), 0)
 	}
-
 
 	/**
 	 * verifies quantity updated caption

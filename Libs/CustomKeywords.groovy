@@ -321,26 +321,6 @@ def static "iosCommonKeywords.commonMethods.waitTimeForObjectToBeVisible"(
          , 	waitLimit)
 }
 
- /**
-	 * changes the user account
-	 * @param newAccount
-	 */ 
-def static "iosCommonKeywords.commonMethods.changeAccount"(
-    	String newAccount	) {
-    (new iosCommonKeywords.commonMethods()).changeAccount(
-        	newAccount)
-}
-
- /**
-	 * verifies whether the selected user account is same as the account required
-	 * @param expectedAccountNo (expected user account no)
-	 */ 
-def static "iosCommonKeywords.commonMethods.verifySelectedAccount"(
-    	String expectedAccountNo	) {
-    (new iosCommonKeywords.commonMethods()).verifySelectedAccount(
-        	expectedAccountNo)
-}
-
 
 def static "androidOrders.newOrderScreen.change_Account"(
     	String New_Account	) {
@@ -1470,6 +1450,26 @@ def static "androidOrders.orderDetailsScreen.continueOnDesktop"() {
 	 */ 
 def static "androidOrders.orderDetailsScreen.placeOrder"() {
     (new androidOrders.orderDetailsScreen()).placeOrder()
+  
+  /**
+	 * places the order 
+	 */ 
+def static "androidOrders.orderDetailsScreen.clickOnPlaceOrder"() {
+    (new androidOrders.orderDetailsScreen()).clickOnPlaceOrder()
+}
+
+ /**
+	 * verifies place order confirmation pop up
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyPlaceOrderPopUp"() {
+    (new androidOrders.orderDetailsScreen()).verifyPlaceOrderPopUp()
+}
+
+ /**
+	 * confirms place order by clicking on place my order button
+	 */ 
+def static "androidOrders.orderDetailsScreen.confirmPlaceOrder"() {
+    (new androidOrders.orderDetailsScreen()).confirmPlaceOrder()
 }
 
  /**
@@ -1500,7 +1500,7 @@ def static "androidOrders.orderDetailsScreen.verifyFilterByOptions"(
 }
 
  /**
-	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at ordering
+	 * taps on scan icon and takes user to scanning product screen and also verifies ordering and price check
 	 */ 
 def static "androidOrders.orderDetailsScreen.clickOnScanIcon"() {
     (new androidOrders.orderDetailsScreen()).clickOnScanIcon()
@@ -1842,14 +1842,13 @@ def static "androidOrders.orderDetailsScreen.clickOnContinueOrdering"() {
 def static "androidOrders.orderDetailsScreen.tapOnContinueBrowsing"() {
     (new androidOrders.orderDetailsScreen()).tapOnContinueBrowsing()
 }
-
+  
  /**
 	 * takes user to the order details
 	 */ 
 def static "androidOrders.orderDetailsScreen.tapOnGoToOrder"() {
     (new androidOrders.orderDetailsScreen()).tapOnGoToOrder()
 }
-
 
 def static "androidOrders.orderDetailsScreen.edit_PO_Name_and_Memo"(
     	String PO_Name	
@@ -1987,13 +1986,11 @@ def static "iosInventory.inventoryDetailsScreen.editInventoryName"(
 def static "iosInventory.inventoryDetailsScreen.searchAndAddProductByCreatingNewLocation"(
     	String locationName	
      , 	String productName	
-     , 	String costType	
-     , 	String quantity	) {
+     , 	String costType	) {
     (new iosInventory.inventoryDetailsScreen()).searchAndAddProductByCreatingNewLocation(
         	locationName
          , 	productName
-         , 	costType
-         , 	quantity)
+         , 	costType)
 }
 
  /**

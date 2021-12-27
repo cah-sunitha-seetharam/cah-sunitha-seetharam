@@ -92,5 +92,14 @@ CustomKeywords.'androidOrders.cartScreen.openAnOrderDetail'(orderName)
 'places the order and verifies confirmation pop up'
 CustomKeywords.'androidOrders.orderDetailsScreen.placeOrder'()
 
+'places the order'
+CustomKeywords.'androidOrders.orderDetailsScreen.clickOnPlaceOrder'()
+
+'verifies place order confirmation pop up'
+CustomKeywords.'androidOrders.orderDetailsScreen.verifyPlaceOrderPopUp'()
+
+'confirms place order by clicking on place my order button'
+CustomKeywords.'androidOrders.orderDetailsScreen.confirmPlaceOrder'()
+
 'verifies that the order should not be visible on the screen and takes purchase order name as the argument'
 CustomKeywords.'androidOrders.cartScreen.verifyOrderNotVisibleOnTheCartScreen'(orderName)
