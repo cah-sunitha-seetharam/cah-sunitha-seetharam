@@ -284,7 +284,7 @@ class cartScreen  {
 
 
 	/**
-	 * verifies that the created order should not be visible on the cart screen
+	 * verifies that the created order should be visible on the cart screen
 	 * @param poName (purchase order name used to create the order)
 	 */
 	@Keyword
@@ -313,6 +313,16 @@ class cartScreen  {
 	@Keyword
 	def returnTopMostOrderName() {
 		String orderName=Mobile.getText(findTestObject('Object Repository/Android/Orders/Cart Screen/orderListOrderName_TextView'), 0)
+		return orderName
+	}
+
+	/**
+	 * this function returns the order name from confirmation pop up of upload order
+	 * return orderName (returns order name)
+	 */
+	@Keyword
+	def returnOrderNameFromConfirmationPopupOfUploadOrder() {
+		String orderName=Mobile.getText(findTestObject('Object Repository/Android/Orders/Order Details Screen/Upload Order/orderNameInConfirmtionPopUp_TextView'), 0)
 		return orderName
 	}
 

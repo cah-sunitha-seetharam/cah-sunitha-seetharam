@@ -43,7 +43,7 @@ class orderDetailsScreen {
 
 	def commonMethodsObject=new commonMethods();
 	def commonIosMethodsObject=new iosCommonKeywords.commonMethods();
-	
+
 
 	@Keyword
 	def add_Alternate_Product(String product_Name, String quantity) {
@@ -103,7 +103,7 @@ class orderDetailsScreen {
 		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Place All Orders/Done_Keypad'), 0)
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/addToOrder_Text'), 0)
-		
+
 		Mobile.tap(findTestObject('iOS/Product Search/Continue_Button'), 0)
 	}
 
