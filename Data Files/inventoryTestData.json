@@ -221,8 +221,6 @@
                 "productSearchCin": "4023347",
                 "productSearchByNDC": "00527-1971-74",
             },
-        
-    },
 
         "TC_R_003": {
             "productSearchCin": "4023347",
@@ -269,6 +267,11 @@
             "productSearchByNDC2": "50580-0496-60",
             "productSearchByNDC3": "49884-0111-74",
             },
+
+        "TC_R_034": {
+            "productSearchByNDC1": "00574-7116-12",
+            "productSearchByNDC2": "49884-0111-74",
+        },
         
     },
 }
