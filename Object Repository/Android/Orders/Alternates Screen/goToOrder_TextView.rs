@@ -3,7 +3,7 @@
    <description></description>
    <name>goToOrder_TextView</name>
    <tag></tag>
-   <elementGuidId>2c37281a-3726-4c51-aa80-720c694bc3b2</elementGuidId>
+   <elementGuidId>aa4941d6-7e64-47d9-957f-45ef86313d7d</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/goToOrderText</value>
+      <value>${GlobalVariable.appPackage}:id/goToOrderText</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>com.cardinalhealth.orderexpress.two.debug:id/goToOrderText</locator>
+   <locator>${GlobalVariable.appPackage}:id/goToOrderText</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>
