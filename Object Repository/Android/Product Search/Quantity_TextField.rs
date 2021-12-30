@@ -3,7 +3,7 @@
    <description></description>
    <name>Quantity_TextField</name>
    <tag></tag>
-   <elementGuidId>e5941111-09d1-47e4-8a67-8d557beb4781</elementGuidId>
+   <elementGuidId>4e4500ee-eee7-4e5e-b387-f2fc6be5cd33</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>${GlobalVariable.appPackage}:id/productEditQtyTxt</value>
+      <value>com.cardinalhealth.orderexpress.two.debug:id/productEditQtyTxt</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.EditText[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.EditText' and @resource-id = '${GlobalVariable.appPackage}:id/productEditQtyTxt']</locator>
+   <locator>//*[@class = 'android.widget.EditText' and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/productEditQtyTxt']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

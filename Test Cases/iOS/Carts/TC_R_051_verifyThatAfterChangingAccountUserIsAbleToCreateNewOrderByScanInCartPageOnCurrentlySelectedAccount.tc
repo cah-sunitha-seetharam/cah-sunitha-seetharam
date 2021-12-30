@@ -37,28 +37,28 @@ Prerequisite:
       <name>toggleValue</name>
    </variable>
    <variable>
-      <defaultValue>2</defaultValue>
+      <defaultValue>'2'</defaultValue>
       <description>quantity added for the product searched</description>
       <id>3b1a620b-99fb-4251-a6be-194c4dc73461</id>
       <masked>false</masked>
       <name>quantity_1</name>
    </variable>
    <variable>
-      <defaultValue>3</defaultValue>
+      <defaultValue>'2'</defaultValue>
       <description>expected quantity added for the product searched</description>
       <id>629c2533-f51c-4489-9a2e-dadb7f5394e9</id>
       <masked>false</masked>
       <name>expectedQuantity_1</name>
    </variable>
    <variable>
-      <defaultValue>1</defaultValue>
+      <defaultValue>'1'</defaultValue>
       <description>quantity added for the product searched</description>
       <id>43433d13-7261-4eab-b9de-594629ac950b</id>
       <masked>false</masked>
       <name>quantity_2</name>
    </variable>
    <variable>
-      <defaultValue>1</defaultValue>
+      <defaultValue>'1'</defaultValue>
       <description>expected quantity added for the product searched</description>
       <id>aa853063-e843-44c3-b979-2fd024dce66d</id>
       <masked>false</masked>
