@@ -70,6 +70,13 @@ def static "androidDashboard.dashboardDetailsScreen.clickOnMoreOptionsTab"() {
 }
 
  /**
+	 * opens receiving tab
+	 */ 
+def static "androidDashboard.dashboardDetailsScreen.clickOnReceivingTab"() {
+    (new androidDashboard.dashboardDetailsScreen()).clickOnReceivingTab()
+}
+
+ /**
 	 * deletes the inventory from the inventory listing screen
 	 * @param inventoryName (inventory name of the inventory which needs to be deleted)
 	 */ 
@@ -2097,6 +2104,157 @@ def static "android_more_options.moreOptionsScreen.signOut"() {
 }
 
  /**
+	 * clicks on continue button after selection of shipments or invoice by user
+	 */ 
+def static "androidReceiving.receivingReusableMethods.clickOnContinue"() {
+    (new androidReceiving.receivingReusableMethods()).clickOnContinue()
+}
+
+ /**
+	 * click on scan icon
+	 */ 
+def static "androidReceiving.receivingReusableMethods.clickOnScanIcon"() {
+    (new androidReceiving.receivingReusableMethods()).clickOnScanIcon()
+}
+
+ /**
+	 * takes product to be searched as the argument and searches for the product
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.scanInputEvent"(
+    	String productToBeSearched	) {
+    (new androidReceiving.receivingReusableMethods()).scanInputEvent(
+        	productToBeSearched)
+}
+
+ /**
+	 * allows over-ages in receiving
+	 */ 
+def static "androidReceiving.receivingReusableMethods.selectAllowOverages"() {
+    (new androidReceiving.receivingReusableMethods()).selectAllowOverages()
+}
+
+ /**
+	 * this function will select shipments on the receiving screen
+	 */ 
+def static "androidReceiving.receivingReusableMethods.selectShipments"() {
+    (new androidReceiving.receivingReusableMethods()).selectShipments()
+}
+
+ /**
+	 * this function will select invoices on the receiving screen
+	 */ 
+def static "androidReceiving.receivingReusableMethods.selectInvoices"() {
+    (new androidReceiving.receivingReusableMethods()).selectInvoices()
+}
+
+ /**
+	 * takes user to previous day shipments from today's shipments screen
+	 */ 
+def static "androidReceiving.receivingReusableMethods.switchToPreviousDayShipments"() {
+    (new androidReceiving.receivingReusableMethods()).switchToPreviousDayShipments()
+}
+
+ /**
+	 * takes user to today's shipments from previous day shipments screen
+	 */ 
+def static "androidReceiving.receivingReusableMethods.switchToTodayShipments"() {
+    (new androidReceiving.receivingReusableMethods()).switchToTodayShipments()
+}
+
+ /**
+	 * verifies that over-ages are allowed
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyAllowedOverages"() {
+    (new androidReceiving.receivingReusableMethods()).verifyAllowedOverages()
+}
+
+ /**
+	 * verifies details of the instances of product associated with the account
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyInstancesOfProductAssociatedWithAccount"(
+    	Object productNdcNumber	) {
+    (new androidReceiving.receivingReusableMethods()).verifyInstancesOfProductAssociatedWithAccount(
+        	productNdcNumber)
+}
+
+ /**
+	 * this function verifies the shipments detail
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyShipmentsListScreenDetails"() {
+    (new androidReceiving.receivingReusableMethods()).verifyShipmentsListScreenDetails()
+}
+
+ /**
+	 * this method verifies the invoices detail
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyInvoicesListScreenDetails"() {
+    (new androidReceiving.receivingReusableMethods()).verifyInvoicesListScreenDetails()
+}
+
+ /**
+	 * this function verifies the shipment is visible on the screen
+	 * @param shipmentNumber (shipment number)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyShipmentIsVisible"(
+    	Object shipmentNumber	) {
+    (new androidReceiving.receivingReusableMethods()).verifyShipmentIsVisible(
+        	shipmentNumber)
+}
+
+ /**
+	 * this function verifies the invoice is visible on the screen
+	 * @param invoiceNumber (invoice number)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyInvoiceIsVisible"(
+    	Object invoiceNumber	) {
+    (new androidReceiving.receivingReusableMethods()).verifyInvoiceIsVisible(
+        	invoiceNumber)
+}
+
+ /**
+	 * this function verifies the receiving screen details
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyReceivingScreen"() {
+    (new androidReceiving.receivingReusableMethods()).verifyReceivingScreen()
+}
+
+ /**
+	 * verifies the receiving screen pop-up which comes after user goes to receiving tab details
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyReceivingScreenPopUp"() {
+    (new androidReceiving.receivingReusableMethods()).verifyReceivingScreenPopUp()
+}
+
+ /**
+	 * this function opens shipment details
+	 * @param shipmentNumber (shipment number)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.openShipmentDetails"(
+    	Object shipmentNumber	) {
+    (new androidReceiving.receivingReusableMethods()).openShipmentDetails(
+        	shipmentNumber)
+}
+
+ /**
+	 * verifies shipment details
+	 * @param shipmentNumber (shipment number)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyShipmentDetails"(
+    	Object shipmentNumber	) {
+    (new androidReceiving.receivingReusableMethods()).verifyShipmentDetails(
+        	shipmentNumber)
+}
+
+ /**
+	 * verifies if no new orders to be received
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyNoNewOrdersToReceive"() {
+    (new androidReceiving.receivingReusableMethods()).verifyNoNewOrdersToReceive()
+}
+
+ /**
 	 * adds costType based on the argument which can be current or last price paid
 	 * @param costType (can be current or last price paid)
 	 */ 
@@ -2864,19 +3022,19 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
     	TestObject testObject	
      , 	String testName	) {
     (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
         	testObject
          , 	testName)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
 }
 
 
@@ -2894,6 +3052,13 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
+}
+
+
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	
      , 	String testName	
@@ -2902,11 +3067,4 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
 }

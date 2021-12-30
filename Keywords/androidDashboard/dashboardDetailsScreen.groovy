@@ -140,4 +140,14 @@ class dashboardDetailsScreen {
 
 		Mobile.tap(findTestObject('Android/Dashboard/moreOptions_Tab'), 0)
 	}
+
+
+	/**
+	 * opens receiving tab
+	 */
+	@Keyword
+	def clickOnReceivingTab() {
+
+		Mobile.tap(findTestObject('Object Repository/Android/Dashboard/receiving_Tab'), 0)
+	}
 }
