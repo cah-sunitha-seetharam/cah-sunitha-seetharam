@@ -3,7 +3,7 @@
    <description></description>
    <name>c2AnnotationCount_TextView</name>
    <tag></tag>
-   <elementGuidId>c6cd0653-0635-403a-9a09-3f79feeac610</elementGuidId>
+   <elementGuidId>6fcb5013-3cff-4bda-9b8e-8de47c5f06a0</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvOrdersCount</value>
+      <value>${GlobalVariable.appPackage}:id/tvOrdersCount</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.viewpager.widget.ViewPager[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.widget.TextView[2]</value>
    </webElementProperties>
-   <locator>com.cardinalhealth.orderexpress.two.debug:id/tvOrdersCount</locator>
+   <locator>${GlobalVariable.appPackage}:id/tvOrdersCount</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

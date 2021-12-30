@@ -349,6 +349,16 @@ def static "androidOrders.newOrderScreen.change_Account"(
 }
 
  /**
+	 * selects different account
+	 * @param accountNo (account number used for selection)
+	 */ 
+def static "androidOrders.newOrderScreen.changeAccount"(
+    	String accountNo	) {
+    (new androidOrders.newOrderScreen()).changeAccount(
+        	accountNo)
+}
+
+ /**
 	 * adds poname pomemo to textfield
 	 * @param PO_Name (purchase order name for the order created)
 	 * @param PO_Memo (purchase order Memo for the order created)
@@ -1566,6 +1576,16 @@ def static "androidOrders.orderDetailsScreen.scanInputEvent"(
 }
 
  /**
+	 * scans the product while on price check, adds it to the order and also verifies some scan input details
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */ 
+def static "androidOrders.orderDetailsScreen.scanInputEventWhileOnPriceCheck"(
+    	String productToBeSearched	) {
+    (new androidOrders.orderDetailsScreen()).scanInputEventWhileOnPriceCheck(
+        	productToBeSearched)
+}
+
+ /**
 	 * this function adds the quantity for the product to be searched
 	 * @param quantity (quantity required to be added for the product to be searched)
 	 */ 
@@ -1785,6 +1805,20 @@ def static "androidOrders.orderDetailsScreen.verifyProductNameIsVisibleUnderOrde
     	String productname	) {
     (new androidOrders.orderDetailsScreen()).verifyProductNameIsVisibleUnderOrderDetails(
         	productname)
+}
+
+ /**
+	 * taps on add to order and shows confirmation pop up
+	 */ 
+def static "androidOrders.orderDetailsScreen.tapOnAddToOrderInScanSearchResults"() {
+    (new androidOrders.orderDetailsScreen()).tapOnAddToOrderInScanSearchResults()
+}
+
+ /**
+	 * after selecting add to order verifies item added confirmation popup in scan search results 
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyConfirmationPopUpInScanSearchResults"() {
+    (new androidOrders.orderDetailsScreen()).verifyConfirmationPopUpInScanSearchResults()
 }
 
  /**

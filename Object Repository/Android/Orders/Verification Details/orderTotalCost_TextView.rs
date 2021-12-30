@@ -3,7 +3,7 @@
    <description></description>
    <name>orderTotalCost_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>fddf1dbc-2e3a-4bf6-acb3-475c3308bf9f</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -33,7 +33,7 @@ Order Total</value>
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/ordersMoneyCount</value>
+      <value>${GlobalVariable.appPackage}:id/ordersMoneyCount</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -161,6 +161,6 @@ Order Total</value>
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView[2]</value>
    </webElementProperties>
-   <locator>com.cardinalhealth.orderexpress.two.debug:id/ordersMoneyCount</locator>
+   <locator>${GlobalVariable.appPackage}:id/ordersMoneyCount</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>
