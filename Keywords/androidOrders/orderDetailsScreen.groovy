@@ -353,6 +353,20 @@ class orderDetailsScreen {
 		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/goToOrder_TextView'), 0)
 	}
 
+	@Keyword
+	def scanInputEventAndverifyConfirmationPopUpOfC2InScanSearchResults(String productToBeSearched) {
+		Mobile.setText(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_EditText'), productToBeSearched, 0)
+		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/C2 Order/thisIsAC2ItemWouldYouLikeToCreateANewOrderOrAddToExistingOrder_ConfirmationPopUp_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/C2 Order/selectOrCreateANewOrder_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/C2 Order/cancel_TextView'), 0)
+	}
+	
+	@Keyword
+	def tapOnSelectOrCrateANewOrderInScanSearchResults() {
+		Mobile.tap(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/C2 Order/selectOrCreateANewOrder_Button'), 0)
+	}
+	
 	/**
 	 * creates a new C2 order
 	 * @param poName (poName of the order), poMemo (poMemo of the order)

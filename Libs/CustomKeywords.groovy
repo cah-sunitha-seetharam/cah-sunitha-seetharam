@@ -1683,6 +1683,18 @@ def static "androidOrders.orderDetailsScreen.createNewC2Order"(
          , 	poMemo)
 }
 
+
+def static "androidOrders.orderDetailsScreen.scanInputEventAndverifyConfirmationPopUpOfC2InScanSearchResults"(
+    	String productToBeSearched	) {
+    (new androidOrders.orderDetailsScreen()).scanInputEventAndverifyConfirmationPopUpOfC2InScanSearchResults(
+        	productToBeSearched)
+}
+
+
+def static "androidOrders.orderDetailsScreen.tapOnSelectOrCrateANewOrderInScanSearchResults"() {
+    (new androidOrders.orderDetailsScreen()).tapOnSelectOrCrateANewOrderInScanSearchResults()
+}
+
  /**
 	 * creates a new C2 order
 	 * @param poName (poName of the order), poMemo (poMemo of the order)
