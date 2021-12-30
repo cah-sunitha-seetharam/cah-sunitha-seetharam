@@ -97,7 +97,7 @@ class  commonMethods {
 		String productCostCharcterRemoved = (new androidCommonKeywords.commonMethods()).removeCharctersInString(productCost)
 		return productCostCharcterRemoved
 	}
-	
+
 	/**
 	 * refreshes the screen by doing a vertical swipe by considering the deviceHeight and deviceWidth
 	 */
@@ -247,4 +247,42 @@ class  commonMethods {
 
 		Mobile.verifyElementNotVisible(findTestObject(testObj,[('TEXT'):productIdentificationNumber]),0)
 	}
+	
+	
+	/**
+	 * clicks on product search field
+	 */
+	@Keyword
+	def clickOnProductSearchTextField() {
+
+		Mobile.tapAndHold(findTestObject('Android/Inventory/Location Details Screen/Add Product to_Location/productSearch_TextField'), 0, 0)
+	}
+	
+	/**
+	 * inputs the product search which can be name/Cin/UPC/NDC in the product search-field
+	 * @param productSearch (which can be name/Cin/UPC/NDC in the product search-field)
+	 */
+	@Keyword
+	def enterProductInSearchField(productSearch) {
+
+		Mobile.setText(findTestObject('Android/Inventory/Location Details Screen/Add Product to_Location/productSearch_TextField'), productSearch, 0)
+	}
+	
+	
+	/**
+	 * performs basic text management operations:Copy,Cut,Paste,Share
+	 * @param operationToBePerformed (in operationToBePerformed argument all alphabets should be lower-case except the first one for e.g Copy, Cut)
+	 */
+	@Keyword
+	def performBasicTextManagementOperation(String operationToBePerformed) {
+
+		Mobile.tapAndHold(findTestObject('Android/Inventory/Location Details Screen/Add Product to_Location/productSearch_TextField'), 0, 0)
+
+		Mobile.tap(findTestObject('Object Repository/iOS/Verification/selectAll_MenuItem'), 5,FailureHandling.OPTIONAL)
+
+		Mobile.tap(findTestObject('Object Repository/iOS/Verification/textOperation_MenuItem',[('TEXT'):operationToBePerformed]), 0)
+
+		waitForProgressBarToBeInvisible()
+	}
+
 }

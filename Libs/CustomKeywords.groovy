@@ -9,11 +9,11 @@ import java.util.Stack
 
 import java.lang.Float
 
+import com.kms.katalon.core.testobject.TestObject
+
 import com.applitools.eyes.selenium.Eyes
 
 import org.openqa.selenium.WebElement
-
-import com.kms.katalon.core.testobject.TestObject
 
 import com.applitools.eyes.RectangleSize
 
@@ -1452,6 +1452,41 @@ def static "androidInventory.locationDetailsScreen.verifyProductIsNotVisibleOnTh
 }
 
  /**
+	 * copies products from a location to another location
+	 * @param locationName (name of the location to which product will be copied)
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object	 */ 
+def static "androidInventory.locationDetailsScreen.copyProductToAnotherLocation"(
+    	String locationName	
+     , 	String productNdcNumber	) {
+    (new androidInventory.locationDetailsScreen()).copyProductToAnotherLocation(
+        	locationName
+         , 	productNdcNumber)
+}
+
+ /**
+	 * this function gets the count type of the added product and verifies whether that is equal to the expected count type
+	 */ 
+def static "androidInventory.locationDetailsScreen.verifyCountTypeOfProduct"(
+    	String expectedCountType	) {
+    (new androidInventory.locationDetailsScreen()).verifyCountTypeOfProduct(
+        	expectedCountType)
+}
+
+ /**
+	 * moves products from a location to another location
+	 * @param locationName (name of the location to which product will be moved)
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object	 */ 
+def static "androidInventory.locationDetailsScreen.moveProductToAnotherLocation"(
+    	String locationName	
+     , 	String productNdcNumber	) {
+    (new androidInventory.locationDetailsScreen()).moveProductToAnotherLocation(
+        	locationName
+         , 	productNdcNumber)
+}
+
+ /**
 	 * uploads the order 
 	 */ 
 def static "androidOrders.orderDetailsScreen.upload_Order"() {
@@ -2215,6 +2250,16 @@ def static "androidInventory.inventoryDetailsScreen.clickOnALocation"(
         	locationName)
 }
 
+ /**
+	 * this function verifies the location count
+	 * @param expectedLocationCount (expected location Count)
+	 */ 
+def static "androidInventory.inventoryDetailsScreen.verifyLocationCount"(
+    	String expectedLocationCount	) {
+    (new androidInventory.inventoryDetailsScreen()).verifyLocationCount(
+        	expectedLocationCount)
+}
+
 
 def static "iosOrders.newOrderScreen.change_Account"(
     	String new_Account	) {
@@ -2821,6 +2866,33 @@ def static "androidCommonKeywords.commonMethods.verifyProductIsNotVisibleOnTheSc
 }
 
  /**
+	 * clicks on product search field
+	 */ 
+def static "androidCommonKeywords.commonMethods.clickOnProductSearchTextField"() {
+    (new androidCommonKeywords.commonMethods()).clickOnProductSearchTextField()
+}
+
+ /**
+	 * inputs the product search which can be name/Cin/UPC/NDC in the product search-field
+	 * @param productSearch (which can be name/Cin/UPC/NDC in the product search-field)
+	 */ 
+def static "androidCommonKeywords.commonMethods.enterProductInSearchField"(
+    	Object productSearch	) {
+    (new androidCommonKeywords.commonMethods()).enterProductInSearchField(
+        	productSearch)
+}
+
+ /**
+	 * performs basic text management operations:Copy,Cut,Paste,Share
+	 * @param operationToBePerformed (in operationToBePerformed argument all alphabets should be lower-case except the first one for e.g Copy, Cut)
+	 */ 
+def static "androidCommonKeywords.commonMethods.performBasicTextManagementOperation"(
+    	String operationToBePerformed	) {
+    (new androidCommonKeywords.commonMethods()).performBasicTextManagementOperation(
+        	operationToBePerformed)
+}
+
+ /**
 	 * Create an order using Carts Post method , the input is fetched from the (module) ordersDatajson file set on Data Files 
 	 * @return an object with orderId and purchaseOrderNumber 
 	 */ 
@@ -2855,12 +2927,12 @@ def static "api.apiCommonMethods.tokenGenerator"() {
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
-    	Eyes eyes	
-     , 	WebElement element	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkElement(
-        	eyes
-         , 	element)
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
+    	TestObject testObject	
+     , 	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
+        	testObject
+         , 	testName)
 }
 
 
@@ -2871,26 +2943,19 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
-    	TestObject testObject	
-     , 	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
-        	testObject
-         , 	testName)
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
+    	Eyes eyes	
+     , 	WebElement element	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkElement(
+        	eyes
+         , 	element)
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
-    	String testName	
-     , 	RectangleSize viewportSize	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
-        	testName
-         , 	viewportSize)
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
 }
 
 
@@ -2905,8 +2970,15 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
+    	String testName	
+     , 	RectangleSize viewportSize	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
+        	testName
+         , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
