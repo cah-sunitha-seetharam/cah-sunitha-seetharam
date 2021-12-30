@@ -73,6 +73,31 @@ class receivingReusableMethods {
 
 
 	/**
+	 * this function opens shipment details
+	 * @param shipmentNumber (shipment number)
+	 */
+	@Keyword
+	def openShipmentDetails(shipmentNumber) {
+
+		Mobile.tap(findTestObject('Object Repository/Android/Receiving/shipment_Tile',[('TEXT'):shipmentNumber]), 0)
+	}
+
+
+
+	/**
+	 * this function opens invoice details
+	 * @param invoiceNumber (invoice number)
+	 */
+	@Keyword
+	def openInvoiceDetails(invoiceNumber) {
+
+		Mobile.tap(findTestObject('Android/Receiving/invoice_Tile',[('TEXT'):invoiceNumber]), 0)
+	}
+
+
+
+
+	/**
 	 * takes product to be searched as the argument and searches for the product
 	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
 	 */
@@ -98,17 +123,6 @@ class receivingReusableMethods {
 
 
 	/**
-	 * this function will select shipments on the receiving screen
-	 */
-	@Keyword
-	def selectShipments() {
-
-		Mobile.tap(findTestObject('Object Repository/Android/Receiving/shipments_TextView'), 0)
-	}
-
-
-
-	/**
 	 * this function will select invoices on the receiving screen
 	 */
 	@Keyword
@@ -120,10 +134,20 @@ class receivingReusableMethods {
 
 
 	/**
+	 * this function will select shipments on the receiving screen
+	 */
+	@Keyword
+	def selectShipments() {
+
+		Mobile.tap(findTestObject('Object Repository/Android/Receiving/shipments_TextView'), 0)
+	}
+
+
+	/**
 	 * takes user to previous day shipments from today's shipments screen
 	 */
 	@Keyword
-	def switchToPreviousDayShipments() {
+	def switchToPreviousDay() {
 
 		Mobile.tap(findTestObject('Object Repository/Android/Receiving/switchToPreviousDayShipments_Button'), 0)
 	}
@@ -133,10 +157,11 @@ class receivingReusableMethods {
 	 * takes user to today's shipments from previous day shipments screen
 	 */
 	@Keyword
-	def switchToTodayShipments() {
+	def switchToToday() {
 
 		Mobile.tap(findTestObject('Object Repository/Android/Receiving/switchToTodayShipments_Button'), 0)
 	}
+
 
 
 	/**
@@ -175,19 +200,15 @@ class receivingReusableMethods {
 
 
 	/**
-	 * this function verifies the shipments detail
+	 * this function verifies the invoice is visible on the screen
+	 * @param invoiceNumber (invoice number)
 	 */
 	@Keyword
-	def verifyShipmentsListScreenDetails() {
+	def verifyInvoiceIsVisible(invoiceNumber) {
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/totesCount_TextView'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/totes_TextView'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/toteReceivedStatus_TextView'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/date_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/invoice_Tile',[('TEXT'):invoiceNumber]), 0)
 	}
+
 
 
 
@@ -210,24 +231,47 @@ class receivingReusableMethods {
 
 
 	/**
-	 * this function verifies the shipment is visible on the screen
-	 * @param shipmentNumber (shipment number)
-	 */
-	@Keyword
-	def verifyShipmentIsVisible(shipmentNumber) {
-
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/shipment_Tile',[('TEXT'):shipmentNumber]), 0)
-	}
-
-
-	/**
-	 * this function verifies the invoice is visible on the screen
+	 * this method verifies the invoices detail
 	 * @param invoiceNumber (invoice number)
 	 */
 	@Keyword
-	def verifyInvoiceIsVisible(invoiceNumber) {
+	def verifyInvoicesDetails(invoiceNumber) {
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/invoice_Tile',[('TEXT'):invoiceNumber]), 0)
+		Mobile.verifyElementAttributeValue(findTestObject('Android/Receiving/receiveAll_Button'), 'enabled','true',0)
+
+		Mobile.verifyElementAttributeValue(findTestObject('Android/Receiving/uploadCompletedTotes_Button'),'enabled','false', 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/invoice_TextView',[('TEXT'):invoiceNumber]), 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/totesReceived_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/deliveredDate_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/toteID_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/productsReceived_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/issue_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/itemQuantity_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/receivingUpperLimit_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/receivedCount_TextField'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/receivedCount_TextView'), 0)
+	}
+
+
+
+
+	/**
+	 * verifies if no new orders to be received
+	 */
+	@Keyword
+	def verifyNoNewOrdersToReceive() {
+
+		Mobile.getText(findTestObject('Android/Receiving/noNewOrdersToReceive_TextView'), 0)
 	}
 
 
@@ -277,18 +321,6 @@ class receivingReusableMethods {
 
 
 	/**
-	 * this function opens shipment details
-	 * @param shipmentNumber (shipment number)
-	 */
-	@Keyword
-	def openShipmentDetails(shipmentNumber) {
-
-		Mobile.tap(findTestObject('Object Repository/Android/Receiving/shipment_Tile',[('TEXT'):shipmentNumber]), 0)
-	}
-
-
-
-	/**
 	 * verifies shipment details
 	 * @param shipmentNumber (shipment number)
 	 */
@@ -323,11 +355,29 @@ class receivingReusableMethods {
 
 
 	/**
-	 * verifies if no new orders to be received
+	 * this function verifies the shipment is visible on the screen
+	 * @param shipmentNumber (shipment number)
 	 */
 	@Keyword
-	def verifyNoNewOrdersToReceive() {
+	def verifyShipmentIsVisible(shipmentNumber) {
 
-		Mobile.getText(findTestObject('Android/Receiving/noNewOrdersToReceive_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/shipment_Tile',[('TEXT'):shipmentNumber]), 0)
+	}
+
+
+
+	/**
+	 * this function verifies the shipments detail
+	 */
+	@Keyword
+	def verifyShipmentsListScreenDetails() {
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/totesCount_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/totes_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/toteReceivedStatus_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/date_TextView'), 0)
 	}
 }

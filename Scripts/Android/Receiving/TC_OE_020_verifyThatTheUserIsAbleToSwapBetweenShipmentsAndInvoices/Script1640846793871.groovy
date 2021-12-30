@@ -29,6 +29,9 @@ CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisi
 'after login, verifies page caption and selects account'
 CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
 
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
 'takes user to dashboard screen'
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnReceivingTab'()
 
@@ -56,21 +59,33 @@ CustomKeywords.'androidReceiving.receivingReusableMethods.switchToPreviousDay'()
 'this function verifies the shipments detail'
 CustomKeywords.'androidReceiving.receivingReusableMethods.verifyShipmentsListScreenDetails'()
 
-'reading the module test data file'
-def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('receivingTestData.json')
-
-'reading the product name of product to be added (nonC2 product)'
-String productSearch = requestObject[GlobalVariable.Environment].TC_R_001.productSearchByNDC
-
-'click on scan icon'
-CustomKeywords.'androidReceiving.receivingReusableMethods.clickOnScanIcon'()
+'this function opens shipment details'
+CustomKeywords.'androidReceiving.receivingReusableMethods.openShipmentDetails'(shipmentNumber)
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'takes product to be searched as the argument and searches for the product'
-CustomKeywords.'androidReceiving.receivingReusableMethods.scanInputEvent'(productSearch)
+'verifies the invoices detail and takes shipment number as the argument'
+CustomKeywords.'androidReceiving.receivingReusableMethods.verifyShipmentDetails'(shipmentNumber)
 
-'verifies details of the instances of product associated with the account'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyInstancesOfProductAssociatedWithAccount'(productSearch)
+'takes user to one screen back'
+Mobile.pressBack()
+
+'this function will select invoices on the receiving screen'
+CustomKeywords.'androidReceiving.receivingReusableMethods.selectInvoices'()
+
+'verifies the invoice is visible on the screen'
+CustomKeywords.'androidReceiving.receivingReusableMethods.verifyInvoiceIsVisible'(invoiceNumber)
+
+'this method verifies the invoices detail'
+CustomKeywords.'androidReceiving.receivingReusableMethods.verifyInvoicesListScreenDetails'()
+
+'this function opens invoice details'
+CustomKeywords.'androidReceiving.receivingReusableMethods.openInvoiceDetails'(invoiceNumber)
+
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
+'verifies the invoices detail and takes invoice number as the argument'
+CustomKeywords.'androidReceiving.receivingReusableMethods.verifyInvoicesDetails'(invoiceNumber)
 

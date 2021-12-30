@@ -35,8 +35,8 @@ CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnReceivingTab'()
 'verifies the receiving screen pop-up which comes after user goes to receiving tab details'
 CustomKeywords.'androidReceiving.receivingReusableMethods.verifyReceivingScreenPopUp'()
 
-'this function will select shipments on the receiving screen'
-CustomKeywords.'androidReceiving.receivingReusableMethods.selectShipments'()
+'this function will select invoices on the receiving screen'
+CustomKeywords.'androidReceiving.receivingReusableMethods.selectInvoices'()
 
 'allows over-ages in receiving'
 CustomKeywords.'androidReceiving.receivingReusableMethods.selectAllowOverages'()
@@ -50,27 +50,30 @@ CustomKeywords.'androidReceiving.receivingReusableMethods.verifyReceivingScreen'
 'verifies that over-ages are allowed'
 CustomKeywords.'androidReceiving.receivingReusableMethods.verifyAllowedOverages'()
 
-'takes user to previous day from today screen'
+'takes user to today from previous day screen'
 CustomKeywords.'androidReceiving.receivingReusableMethods.switchToPreviousDay'()
 
-'this function verifies the shipments detail'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyShipmentsListScreenDetails'()
+'this method verifies the invoices detail'
+CustomKeywords.'androidReceiving.receivingReusableMethods.verifyInvoicesListScreenDetails'()
 
-'reading the module test data file'
-def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('receivingTestData.json')
-
-'reading the product name of product to be added (nonC2 product)'
-String productSearch = requestObject[GlobalVariable.Environment].TC_R_001.productSearchByNDC
-
-'click on scan icon'
-CustomKeywords.'androidReceiving.receivingReusableMethods.clickOnScanIcon'()
+'this function opens invoice details'
+CustomKeywords.'androidReceiving.receivingReusableMethods.openInvoiceDetails'(invoiceNumber)
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'takes product to be searched as the argument and searches for the product'
-CustomKeywords.'androidReceiving.receivingReusableMethods.scanInputEvent'(productSearch)
+'takes user to one screen back'
+Mobile.pressBack()
 
-'verifies details of the instances of product associated with the account'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyInstancesOfProductAssociatedWithAccount'(productSearch)
+'this function will select shipments on the receiving screen'
+CustomKeywords.'androidReceiving.receivingReusableMethods.selectShipments'()
+
+'this function opens shipment details'
+CustomKeywords.'androidReceiving.receivingReusableMethods.openShipmentDetails'(shipmentNumber)
+
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
+'verifies shipment details'
+CustomKeywords.'androidReceiving.receivingReusableMethods.verifyShipmentDetails'(shipmentNumber)
 

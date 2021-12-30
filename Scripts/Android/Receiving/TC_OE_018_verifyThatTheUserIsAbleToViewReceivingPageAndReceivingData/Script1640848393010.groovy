@@ -50,8 +50,8 @@ CustomKeywords.'androidReceiving.receivingReusableMethods.verifyReceivingScreen'
 'verifies that over-ages are allowed'
 CustomKeywords.'androidReceiving.receivingReusableMethods.verifyAllowedOverages'()
 
-'takes user to previous day shipments from today shipments screen'
-CustomKeywords.'androidReceiving.receivingReusableMethods.switchToPreviousDayShipments'()
+'takes user to previous day from today screen'
+CustomKeywords.'androidReceiving.receivingReusableMethods.switchToPreviousDay'()
 
 'this function verifies the shipments detail'
 CustomKeywords.'androidReceiving.receivingReusableMethods.verifyShipmentsListScreenDetails'()
@@ -77,8 +77,8 @@ CustomKeywords.'androidReceiving.receivingReusableMethods.verifyInvoiceIsVisible
 'this method verifies the invoices detail'
 CustomKeywords.'androidReceiving.receivingReusableMethods.verifyInvoicesListScreenDetails'()
 
-'takes user to todays shipments from previous day shipments screen'
-CustomKeywords.'androidReceiving.receivingReusableMethods.switchToTodayShipments'()
+'takes user to todays from previous day screen'
+CustomKeywords.'androidReceiving.receivingReusableMethods.switchToToday'()
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
