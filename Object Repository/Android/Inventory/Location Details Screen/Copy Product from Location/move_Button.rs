@@ -3,7 +3,7 @@
    <description></description>
    <name>move_Button</name>
    <tag></tag>
-   <elementGuidId>caf33867-4873-471c-b5f4-8d7ec46a51e2</elementGuidId>
+   <elementGuidId>d1ba23d2-5aeb-4869-bcec-337f9c57839d</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvMove</value>
+      <value>${GlobalVariable.appPackage}:id/tvMove</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[2]/android.widget.FrameLayout[1]/android.view.ViewGroup[2]/android.widget.TextView[3]</value>
    </webElementProperties>
-   <locator>//*[(@text = 'Move' or . = 'Move') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/tvMove']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/tvMove</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

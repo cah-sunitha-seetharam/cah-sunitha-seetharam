@@ -3,7 +3,7 @@
    <description></description>
    <name>movingProductConfirmation_Text</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>a7ea7753-8477-4ae7-b169-c8db9d122d35</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/item_added_to_location</value>
+      <value>${GlobalVariable.appPackage}:id/item_added_to_location</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Item moved to ${TEXT}') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/item_added_to_location']</locator>
+   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Item moved to ${TEXT}' or . = 'Item moved to ${TEXT}') and @resource-id = '${GlobalVariable.appPackage}:id/item_added_to_location']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

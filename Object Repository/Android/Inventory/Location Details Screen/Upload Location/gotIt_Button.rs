@@ -3,7 +3,7 @@
    <description></description>
    <name>gotIt_Button</name>
    <tag></tag>
-   <elementGuidId>b7030374-7138-4c05-8129-b5965f126ac6</elementGuidId>
+   <elementGuidId>e1250330-35a0-45d0-9db2-0b11f7c0ac3a</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/positiveButton</value>
+      <value>${GlobalVariable.appPackage}:id/positiveButton</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.Button[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.Button' and (@text = 'Got it' or . = 'Got it') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/positiveButton']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/positiveButton</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

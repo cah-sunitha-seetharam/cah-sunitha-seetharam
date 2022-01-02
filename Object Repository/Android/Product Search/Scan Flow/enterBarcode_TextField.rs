@@ -3,7 +3,7 @@
    <description></description>
    <name>enterBarcode_TextField</name>
    <tag></tag>
-   <elementGuidId>f50fcb4c-aa67-46c6-891e-b9ad9cd5fcca</elementGuidId>
+   <elementGuidId>471e5b41-2fd4-4171-805f-f7548b1a52d8</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/ScanView</value>
+      <value>${GlobalVariable.appPackage}:id/ScanView</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.EditText[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.EditText' and (@text = 'Scan' or . = 'Scan') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/ScanView']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/ScanView</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

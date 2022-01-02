@@ -3,7 +3,7 @@
    <description></description>
    <name>goToLocationAfterMovingProduct_Text</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>a4bffad2-4ef8-443a-bbd0-addf739cb464</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvDestinationLocation</value>
+      <value>${GlobalVariable.appPackage}:id/tvDestinationLocation</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Go to ${Location}') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/tvDestinationLocation']</locator>
+   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Go to ${Location}' or . = 'Go to ${Location}') and @resource-id = '${GlobalVariable.appPackage}:id/tvDestinationLocation']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>
