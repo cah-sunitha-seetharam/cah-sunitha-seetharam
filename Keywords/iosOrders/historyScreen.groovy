@@ -58,15 +58,15 @@ class historyScreen {
 	 * @param password (password-which is required for placing the c2 order)
 	 */
 	@Keyword
-	def clickOnC2OrderForReviewAndSign(String signingPassword) {
+	def clickOnC2OrderForReviewAndSign(String poNumber, String signingPassword) {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/orderHeld_Label'), 0)
 
-		Mobile.tap(findTestObject('iOS/Orders/Create C2 Order/pONumber_Label'), 0)
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Create C2 Order/pONumber_Label',[('TEXT'):poNumber.toUpperCase()]), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/orderStatus_Label'), 0)
 
-		Mobile.tap(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/signNow_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/signNow_New_Button'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/signatureNeeded_Text'), 0)
 

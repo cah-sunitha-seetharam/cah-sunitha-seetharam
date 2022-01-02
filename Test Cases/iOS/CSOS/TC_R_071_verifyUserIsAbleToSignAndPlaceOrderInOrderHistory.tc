@@ -33,4 +33,11 @@
       <masked>false</masked>
       <name>quantity</name>
    </variable>
+   <variable>
+      <defaultValue>'csos'</defaultValue>
+      <description></description>
+      <id>ea48d9cf-be64-4c02-b0e0-596bfc8a843b</id>
+      <masked>false</masked>
+      <name>signingPassword</name>
+   </variable>
 </TestCaseEntity>

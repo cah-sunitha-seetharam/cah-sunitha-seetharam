@@ -2034,9 +2034,11 @@ def static "iosOrders.historyScreen.verify_History_Screen_Details"() {
 	 * @param password (password-which is required for placing the c2 order)
 	 */ 
 def static "iosOrders.historyScreen.clickOnC2OrderForReviewAndSign"(
-    	String signingPassword	) {
+    	String poNumber	
+     , 	String signingPassword	) {
     (new iosOrders.historyScreen()).clickOnC2OrderForReviewAndSign(
-        	signingPassword)
+        	poNumber
+         , 	signingPassword)
 }
 
  /**
@@ -2178,21 +2180,12 @@ def static "iosDashboard.dashboardScreen.verifyDashboardScreen"() {
 
  /**
 	 * opens the order details page
-<<<<<<< HEAD
-	 * @param accountNo (accountNo used to create the order)
-	 */ 
-def static "androidOrders.cartScreen.openAnOrderDetails"(
-    	String accountNo	) {
-    (new androidOrders.cartScreen()).openAnOrderDetails(
-        	accountNo)
-=======
 	 * @param poName (purchase order name used to create the order)
 	 */ 
 def static "androidOrders.cartScreen.openAnOrderDetail"(
     	String poName	) {
     (new androidOrders.cartScreen()).openAnOrderDetail(
         	poName)
->>>>>>> develop
 }
 
  /**
@@ -2202,19 +2195,6 @@ def static "androidOrders.cartScreen.clickOnC2OrdersTab"() {
     (new androidOrders.cartScreen()).clickOnC2OrdersTab()
 }
 
-<<<<<<< HEAD
- /**
-	 * opens the c2 order details
-	 * @param accountNo (account no which was used to create the order)
-	 */ 
-def static "androidOrders.cartScreen.openC2OrderDetailScreen"(
-    	String accountNo	) {
-    (new androidOrders.cartScreen()).openC2OrderDetailScreen(
-        	accountNo)
-}
-
-=======
->>>>>>> develop
 
 def static "androidOrders.cartScreen.delete_Order"(
     	Object Account_No	) {
@@ -2230,8 +2210,6 @@ def static "androidOrders.cartScreen.clickOnUploadAllOrders"() {
 }
 
  /**
-<<<<<<< HEAD
-=======
 	 * verifies cart screen without non c2 orders
 	 */ 
 def static "androidOrders.cartScreen.verifyCartScreenWithOutNonC2Orders"() {
@@ -2239,7 +2217,6 @@ def static "androidOrders.cartScreen.verifyCartScreenWithOutNonC2Orders"() {
 }
 
  /**
->>>>>>> develop
 	 * verifies pop up screen which comes after clicking on upload all orders button on cart screen
 	 */ 
 def static "androidOrders.cartScreen.verifyUploadAllOrdersPopUp"() {
@@ -2320,8 +2297,6 @@ def static "androidOrders.cartScreen.verifyLinesCount"(
 }
 
  /**
-<<<<<<< HEAD
-=======
 	 * verifies that the created order should not be visible on the cart screen
 	 * @param poName (purchase order name used to create the order)
 	 */ 
@@ -2390,7 +2365,6 @@ def static "androidOrders.cartScreen.verifyCartValue"(
 }
 
  /**
->>>>>>> develop
 	 * verifies the cart screen details without any product
 	 */ 
 def static "androidOrders.cartScreen.verifyCartScreenDetailsWithOutAddingAnyProduct"() {
@@ -2587,19 +2561,19 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
     	TestObject testObject	
      , 	String testName	) {
     (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
         	testObject
          , 	testName)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
 }
 
 
@@ -2617,13 +2591,6 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
 }
 
 
-<<<<<<< HEAD
-=======
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
-}
-
-
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
     	Eyes eyes	) {
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
@@ -2631,7 +2598,6 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
 }
 
 
->>>>>>> develop
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	
      , 	String testName	

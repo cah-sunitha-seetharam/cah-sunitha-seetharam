@@ -83,7 +83,7 @@ CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'
 'clicks on place order'
 CustomKeywords.'iosOrders.orderDetailsScreen.placeOrder'()
 
-WebUI.delay(15)
+WebUI.delay(20)
 
 'clicks on c2 order availability and waits for the response while verifying the availability details for the c2 product\n'
 CustomKeywords.'iosOrders.orderDetailsScreen.checkC2OrderAvailability'()
@@ -94,7 +94,7 @@ CustomKeywords.'iosOrders.orderDetailsScreen.clickOnBackToCart'()
 'takes user to history screen'
 CustomKeywords.'iosOrders.ordersCommonScreen.clickOnHistoryTab'()
 
-WebUI.delay(15)
+WebUI.delay(20)
 
 'gets the initials historyCount before review and sign of c2 order and stores value in variable initialCount'
 initialCount = Mobile.getText(findTestObject('iOS/Orders/History Screen/orderHistoryCount_Text'), 0)
@@ -102,8 +102,11 @@ initialCount = Mobile.getText(findTestObject('iOS/Orders/History Screen/orderHis
 'verifies same order which was placed is available in order history'
 Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Create C2 Order/pONumber_Label',[('TEXT'):poNumber.toUpperCase()]), 0)
 
+//'opens the order'
+//Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Create C2 Order/pONumber_Label',[('TEXT'):poNumber.toUpperCase()]), 0)
+
 'reviews and signs the c2 order by taking signingPassword as the argument'
-CustomKeywords.'iosOrders.historyScreen.clickOnC2OrderForReviewAndSign'(signingPassword)
+CustomKeywords.'iosOrders.historyScreen.clickOnC2OrderForReviewAndSign'(poNumber,signingPassword)
 
 'performs a vertical swipe to refresh the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.verticalSwipeForRefresh'()
