@@ -9,11 +9,11 @@ import java.util.Stack
 
 import java.lang.Float
 
+import com.kms.katalon.core.testobject.TestObject
+
 import com.applitools.eyes.selenium.Eyes
 
 import org.openqa.selenium.WebElement
-
-import com.kms.katalon.core.testobject.TestObject
 
 import com.applitools.eyes.RectangleSize
 
@@ -67,6 +67,13 @@ def static "androidDashboard.dashboardDetailsScreen.clickOnMoreOptions"() {
 	 */ 
 def static "androidDashboard.dashboardDetailsScreen.clickOnMoreOptionsTab"() {
     (new androidDashboard.dashboardDetailsScreen()).clickOnMoreOptionsTab()
+}
+
+ /**
+	 * opens receiving tab
+	 */ 
+def static "androidDashboard.dashboardDetailsScreen.clickOnReceivingTab"() {
+    (new androidDashboard.dashboardDetailsScreen()).clickOnReceivingTab()
 }
 
  /**
@@ -1313,7 +1320,9 @@ def static "androidInventory.locationDetailsScreen.delete_Product"() {
     (new androidInventory.locationDetailsScreen()).delete_Product()
 }
 
-
+ /**
+	 * uploads location from the location details screen
+	 */ 
 def static "androidInventory.locationDetailsScreen.uploadLocation"() {
     (new androidInventory.locationDetailsScreen()).uploadLocation()
 }
@@ -1330,48 +1339,73 @@ def static "androidInventory.locationDetailsScreen.verify_Location_details_Scree
         	Location_Name)
 }
 
-
+ /**
+	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at full count
+	 */ 
 def static "androidInventory.locationDetailsScreen.clickOnScanIcon"() {
     (new androidInventory.locationDetailsScreen()).clickOnScanIcon()
 }
 
-
+ /**
+	 * this function selects the toggle value of countType for the product to be added
+	 * @param countType (countType required to be selected for the product to be added which can be full or partial count)
+	 */ 
 def static "androidInventory.locationDetailsScreen.selectCountTypeForTheProductToBeAdded"(
     	String countType	) {
     (new androidInventory.locationDetailsScreen()).selectCountTypeForTheProductToBeAdded(
         	countType)
 }
 
-
+ /**
+	 * scans the product and adds it to the location
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */ 
 def static "androidInventory.locationDetailsScreen.scanInputEvent"(
     	String productToBeSearched	) {
     (new androidInventory.locationDetailsScreen()).scanInputEvent(
         	productToBeSearched)
 }
 
-
+ /**
+	 * this function gets the total added quantity of the product
+	 * @return quantityNumericalValue (of the product which has been added)
+	 */ 
 def static "androidInventory.locationDetailsScreen.returnQuantityOfTheAddedProduct"() {
     (new androidInventory.locationDetailsScreen()).returnQuantityOfTheAddedProduct()
 }
 
-
+ /**
+	 * this function inputs the quantity value for the product to be searched
+	 * @param quantity (quantity required to be added for the product to be searched)
+	 */ 
 def static "androidInventory.locationDetailsScreen.addQuantityforTheSearchedProduct"(
     	String quantity	) {
     (new androidInventory.locationDetailsScreen()).addQuantityforTheSearchedProduct(
         	quantity)
 }
 
-
+ /**
+	 * this function gets the unit of issue cost(UOI) of the added product
+	 * @return uoiCost_dollarSymbolRemoved_FloatValue (of the product which has been added)
+	 */ 
 def static "androidInventory.locationDetailsScreen.returnUOIOfTheAddedProduct"() {
     (new androidInventory.locationDetailsScreen()).returnUOIOfTheAddedProduct()
 }
 
-
+ /**
+	 * this function will tap on share button and verify the Gmail option
+	 */ 
 def static "androidInventory.locationDetailsScreen.verifyGmailOnShareLocation"() {
     (new androidInventory.locationDetailsScreen()).verifyGmailOnShareLocation()
 }
 
-
+ /**
+	 * verifies details of location details screen (if user wants to scan a product with same count type more than once, then in the test case, only the updated quantity along with countType and ndcNumber should be pushed into the stack)
+	 * @param countTypeStack (stack of the countTypes selected for adding each product)
+	 * @param quantityStack (stack of the quantity added for each product)
+	 * @param productNdcStack (stack of the ndcNumbers of added products)
+	 * @param unitOfIssueCostStack (stack of UOI costs of the added products)
+	 */ 
 def static "androidInventory.locationDetailsScreen.verifyLocationDetailsScreen"(
     	Stack countTypeStack	
      , 	Stack quantityStack	
@@ -1384,40 +1418,61 @@ def static "androidInventory.locationDetailsScreen.verifyLocationDetailsScreen"(
          , 	unitOfIssueCostStack)
 }
 
-
+ /**
+	 * deletes a product from the added products list in a location
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object	 */ 
 def static "androidInventory.locationDetailsScreen.deleteProduct"(
     	String productNdcNumber	) {
     (new androidInventory.locationDetailsScreen()).deleteProduct(
         	productNdcNumber)
 }
 
-
+ /**
+	 * verifies that the latest added product is at the top of the added products list, then deletes the latest added product and continues the process to verifyReverseChronologicalOrder of the added products
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */ 
 def static "androidInventory.locationDetailsScreen.verifyReverseChronologicalOrder"(
     	Stack productNdcNumber	) {
     (new androidInventory.locationDetailsScreen()).verifyReverseChronologicalOrder(
         	productNdcNumber)
 }
 
-
+ /**
+	 * this function verifies that the product is not visible on the location details screen
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */ 
 def static "androidInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen"(
     	Object productNdcNumber	) {
     (new androidInventory.locationDetailsScreen()).verifyProductIsVisibleOnTheLocationDetailsScreen(
         	productNdcNumber)
 }
 
-
+ /**
+	 * this function taps on remove button and then product entry should get removed from the location as well as the scan result screen
+	 */ 
 def static "androidInventory.locationDetailsScreen.clickOnRemoveButtonToRemoveAlreadyScannedProduct"() {
     (new androidInventory.locationDetailsScreen()).clickOnRemoveButtonToRemoveAlreadyScannedProduct()
 }
 
-
+ /**
+	 * this function verifies that the product is visible on the location details screen
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */ 
 def static "androidInventory.locationDetailsScreen.verifyProductIsNotVisibleOnTheLocationDetailsScreen"(
     	Object productNdcNumber	) {
     (new androidInventory.locationDetailsScreen()).verifyProductIsNotVisibleOnTheLocationDetailsScreen(
         	productNdcNumber)
 }
 
-
+ /**
+	 * copies products from a location to another location
+	 * @param locationName (name of the location to which product will be copied)
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object	 */ 
 def static "androidInventory.locationDetailsScreen.copyProductToAnotherLocation"(
     	String locationName	
      , 	String productNdcNumber	) {
@@ -1426,14 +1481,20 @@ def static "androidInventory.locationDetailsScreen.copyProductToAnotherLocation"
          , 	productNdcNumber)
 }
 
-
+ /**
+	 * this function gets the count type of the added product and verifies whether that is equal to the expected count type
+	 */ 
 def static "androidInventory.locationDetailsScreen.verifyCountTypeOfProduct"(
     	String expectedCountType	) {
     (new androidInventory.locationDetailsScreen()).verifyCountTypeOfProduct(
         	expectedCountType)
 }
 
-
+ /**
+	 * moves products from a location to another location
+	 * @param locationName (name of the location to which product will be moved)
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object	 */ 
 def static "androidInventory.locationDetailsScreen.moveProductToAnotherLocation"(
     	String locationName	
      , 	String productNdcNumber	) {
@@ -1442,7 +1503,10 @@ def static "androidInventory.locationDetailsScreen.moveProductToAnotherLocation"
          , 	productNdcNumber)
 }
 
-
+ /**
+	 * this function verifies the lines count
+	 * @param expectedLinesCount (expected lines Count)
+	 */ 
 def static "androidInventory.locationDetailsScreen.verifyLinesCount"(
     	String expectedLinesCount	) {
     (new androidInventory.locationDetailsScreen()).verifyLinesCount(
@@ -2149,6 +2213,157 @@ def static "android_more_options.moreOptionsScreen.goToInventoryListingScreen"()
 	 */ 
 def static "android_more_options.moreOptionsScreen.signOut"() {
     (new android_more_options.moreOptionsScreen()).signOut()
+}
+
+ /**
+	 * clicks on continue button after selection of shipments or invoice by user
+	 */ 
+def static "androidReceiving.receivingReusableMethods.clickOnContinue"() {
+    (new androidReceiving.receivingReusableMethods()).clickOnContinue()
+}
+
+ /**
+	 * click on scan icon
+	 */ 
+def static "androidReceiving.receivingReusableMethods.clickOnScanIcon"() {
+    (new androidReceiving.receivingReusableMethods()).clickOnScanIcon()
+}
+
+ /**
+	 * takes product to be searched as the argument and searches for the product
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.scanInputEvent"(
+    	String productToBeSearched	) {
+    (new androidReceiving.receivingReusableMethods()).scanInputEvent(
+        	productToBeSearched)
+}
+
+ /**
+	 * allows over-ages in receiving
+	 */ 
+def static "androidReceiving.receivingReusableMethods.selectAllowOverages"() {
+    (new androidReceiving.receivingReusableMethods()).selectAllowOverages()
+}
+
+ /**
+	 * this function will select shipments on the receiving screen
+	 */ 
+def static "androidReceiving.receivingReusableMethods.selectShipments"() {
+    (new androidReceiving.receivingReusableMethods()).selectShipments()
+}
+
+ /**
+	 * this function will select invoices on the receiving screen
+	 */ 
+def static "androidReceiving.receivingReusableMethods.selectInvoices"() {
+    (new androidReceiving.receivingReusableMethods()).selectInvoices()
+}
+
+ /**
+	 * takes user to previous day shipments from today's shipments screen
+	 */ 
+def static "androidReceiving.receivingReusableMethods.switchToPreviousDayShipments"() {
+    (new androidReceiving.receivingReusableMethods()).switchToPreviousDayShipments()
+}
+
+ /**
+	 * takes user to today's shipments from previous day shipments screen
+	 */ 
+def static "androidReceiving.receivingReusableMethods.switchToTodayShipments"() {
+    (new androidReceiving.receivingReusableMethods()).switchToTodayShipments()
+}
+
+ /**
+	 * verifies that over-ages are allowed
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyAllowedOverages"() {
+    (new androidReceiving.receivingReusableMethods()).verifyAllowedOverages()
+}
+
+ /**
+	 * verifies details of the instances of product associated with the account
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyInstancesOfProductAssociatedWithAccount"(
+    	Object productNdcNumber	) {
+    (new androidReceiving.receivingReusableMethods()).verifyInstancesOfProductAssociatedWithAccount(
+        	productNdcNumber)
+}
+
+ /**
+	 * this function verifies the shipments detail
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyShipmentsListScreenDetails"() {
+    (new androidReceiving.receivingReusableMethods()).verifyShipmentsListScreenDetails()
+}
+
+ /**
+	 * this method verifies the invoices detail
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyInvoicesListScreenDetails"() {
+    (new androidReceiving.receivingReusableMethods()).verifyInvoicesListScreenDetails()
+}
+
+ /**
+	 * this function verifies the shipment is visible on the screen
+	 * @param shipmentNumber (shipment number)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyShipmentIsVisible"(
+    	Object shipmentNumber	) {
+    (new androidReceiving.receivingReusableMethods()).verifyShipmentIsVisible(
+        	shipmentNumber)
+}
+
+ /**
+	 * this function verifies the invoice is visible on the screen
+	 * @param invoiceNumber (invoice number)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyInvoiceIsVisible"(
+    	Object invoiceNumber	) {
+    (new androidReceiving.receivingReusableMethods()).verifyInvoiceIsVisible(
+        	invoiceNumber)
+}
+
+ /**
+	 * this function verifies the receiving screen details
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyReceivingScreen"() {
+    (new androidReceiving.receivingReusableMethods()).verifyReceivingScreen()
+}
+
+ /**
+	 * verifies the receiving screen pop-up which comes after user goes to receiving tab details
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyReceivingScreenPopUp"() {
+    (new androidReceiving.receivingReusableMethods()).verifyReceivingScreenPopUp()
+}
+
+ /**
+	 * this function opens shipment details
+	 * @param shipmentNumber (shipment number)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.openShipmentDetails"(
+    	Object shipmentNumber	) {
+    (new androidReceiving.receivingReusableMethods()).openShipmentDetails(
+        	shipmentNumber)
+}
+
+ /**
+	 * verifies shipment details
+	 * @param shipmentNumber (shipment number)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyShipmentDetails"(
+    	Object shipmentNumber	) {
+    (new androidReceiving.receivingReusableMethods()).verifyShipmentDetails(
+        	shipmentNumber)
+}
+
+ /**
+	 * verifies if no new orders to be received
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyNoNewOrdersToReceive"() {
+    (new androidReceiving.receivingReusableMethods()).verifyNoNewOrdersToReceive()
 }
 
  /**
@@ -2964,15 +3179,6 @@ def static "api.apiCommonMethods.tokenGenerator"() {
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
-    	Eyes eyes	
-     , 	WebElement element	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkElement(
-        	eyes
-         , 	element)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
     	String testName	) {
     (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
@@ -2989,17 +3195,26 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
+    	Eyes eyes	
+     , 	WebElement element	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkElement(
+        	eyes
+         , 	element)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+}
+
+
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
     	String testName	
      , 	RectangleSize viewportSize	) {
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
         	testName
          , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
 
 
@@ -3012,6 +3227,7 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
          , 	testName
          , 	viewportSize)
 }
+
 
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
     	Eyes eyes	) {
