@@ -3,7 +3,7 @@
    <description></description>
    <name>locationName_Button</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>fac1b419-a2af-48ce-be94-ac8313a4c4a1</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/textInputEditTextLocationName</value>
+      <value>${GlobalVariable.appPackage}:id/textInputEditTextLocationName</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.EditText[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.EditText' and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/textInputEditTextLocationName']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/textInputEditTextLocationName</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

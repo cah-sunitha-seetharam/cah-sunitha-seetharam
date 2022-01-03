@@ -3,7 +3,7 @@
    <description></description>
    <name>inventoryLine_Text</name>
    <tag></tag>
-   <elementGuidId>5b3f593a-746c-4458-93da-d7cf8132335f</elementGuidId>
+   <elementGuidId>568040c0-a907-4943-ac8a-42e9b9eaea43</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>

@@ -3,7 +3,7 @@
    <description></description>
    <name>selectingYesWillAlsoDeleteThisLocationsInventoryOnTheWebsiteAndCannotBeUndone_Text</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>8c4dec2d-c4dd-406a-8d64-85c15819229e</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvDeleteInventorySecondaryInfo</value>
+      <value>${GlobalVariable.appPackage}:id/tvDeleteInventorySecondaryInfo</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[2]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = concat('Selecting Yes will also delete this location' , &quot;'&quot; , 's inventory on the website and cannot be undone.') or . = concat('Selecting Yes will also delete this location' , &quot;'&quot; , 's inventory on the website and cannot be undone.')) and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/tvDeleteInventorySecondaryInfo']</locator>
+   <locator>//*[@class = 'android.widget.TextView' and (@text = concat('Selecting Yes will also delete this location' , &quot;'&quot; , 's inventory on the website and cannot be undone.') or . = concat('Selecting Yes will also delete this location' , &quot;'&quot; , 's inventory on the website and cannot be undone.')) and @resource-id = '${GlobalVariable.appPackage}:id/tvDeleteInventorySecondaryInfo']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

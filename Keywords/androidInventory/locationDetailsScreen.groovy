@@ -406,7 +406,7 @@ class locationDetailsScreen {
 			KeywordUtil.logInfo("actualproductIdentificationNumber is " + actualproductIdentificationNumber );
 			KeywordUtil.logInfo("topProductIdentificationNumber is " + topProductIdentificationNumber );
 
-			(new androidInventory.locationDetailsScreen()).deleteProduct(topProductIdentificationNumber)//calling delete product function and passing the topProductIdentificationNumber
+			(new androidInventory.locationDetailsScreen()).deleteProduct("NDC: "+topProductIdentificationNumber)//calling delete product function and passing the topProductIdentificationNumber
 
 		}
 	}

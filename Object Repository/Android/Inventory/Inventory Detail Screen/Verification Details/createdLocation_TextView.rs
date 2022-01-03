@@ -3,7 +3,7 @@
    <description></description>
    <name>createdLocation_TextView</name>
    <tag></tag>
-   <elementGuidId>4afb5236-3acc-47e8-8d1e-78c06dcbb030</elementGuidId>
+   <elementGuidId>531cf0bb-8c81-4b03-94e3-5b6de64dd900</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
@@ -34,11 +34,11 @@
       <value>${TEXT}</value>
    </webElementProperties>
    <webElementProperties>
-      <isSelected>false</isSelected>
+      <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvInventoryLocationName</value>
+      <value>${GlobalVariable.appPackage}:id/tvInventoryLocationName</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -166,6 +166,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[2]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[4]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = '${TEXT}' or . = '${TEXT}') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/tvInventoryLocationName']</locator>
+   <locator>//*[@class = 'android.widget.TextView' and (@text = '${TEXT}' or . = '${TEXT}') and @resource-id = '${GlobalVariable.appPackage}:id/tvInventoryLocationName']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

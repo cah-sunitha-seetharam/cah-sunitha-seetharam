@@ -3,7 +3,7 @@
    <description></description>
    <name>alternateNDC_Text</name>
    <tag></tag>
-   <elementGuidId>36d86445-b40d-4b2f-b2c1-d355072c5a68</elementGuidId>
+   <elementGuidId>0101a39a-526b-417c-8d8e-7fd75411edc1</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvNdc</value>
+      <value>${GlobalVariable.appPackage}:id/tvNdc</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[2]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[4]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/tvNdc']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/tvNdc</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

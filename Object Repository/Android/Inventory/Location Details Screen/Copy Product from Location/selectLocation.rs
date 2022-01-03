@@ -3,7 +3,7 @@
    <description></description>
    <name>selectLocation</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>ff3d48c3-3183-4bc3-9c55-6124ee801d38</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -25,7 +25,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/rbLocation</value>
+      <value>${GlobalVariable.appPackage}:id/rbLocation</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[2]/android.view.ViewGroup[1]/android.widget.RadioButton[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.RadioButton' and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/rbLocation' and (@text = '' or . = '')]</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/rbLocation</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>
