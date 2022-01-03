@@ -290,10 +290,20 @@
             "productSearchByNDC3": "49884-0111-74",
             },
 
-        "TC_R_034": {
+          "TC_R_021": {
+            "productSearchByUPC": "306032-215215",
+            "productSearchByNDC": "00603-2215-21",
+            
+            },
+        
+            "TC_R_023": {
+            "productSearchCin": "4023347",
+            },
+
+            "TC_R_034": {
             "productSearchByNDC1": "00574-7116-12",
             "productSearchByNDC2": "49884-0111-74",
-        },
+            }
         
     },
 }

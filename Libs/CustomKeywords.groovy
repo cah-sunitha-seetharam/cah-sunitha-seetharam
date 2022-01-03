@@ -1442,6 +1442,13 @@ def static "androidInventory.locationDetailsScreen.moveProductToAnotherLocation"
          , 	productNdcNumber)
 }
 
+
+def static "androidInventory.locationDetailsScreen.verifyLinesCount"(
+    	String expectedLinesCount	) {
+    (new androidInventory.locationDetailsScreen()).verifyLinesCount(
+        	expectedLinesCount)
+}
+
  /**
 	 * uploads the order 
 	 */ 
@@ -2946,13 +2953,6 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	
      , 	String testName	
@@ -2961,4 +2961,10 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
+}
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
 }
