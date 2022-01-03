@@ -41,17 +41,11 @@ CustomKeywords.'androidReceiving.receivingReusableMethods.verifyReceivingScreenP
 'this function will select shipments on the receiving screen'
 CustomKeywords.'androidReceiving.receivingReusableMethods.selectShipments'()
 
-'allows over-ages in receiving'
-CustomKeywords.'androidReceiving.receivingReusableMethods.selectAllowOverages'()
-
 'clicks on continue button after selection of shipments or invoice by user'
 CustomKeywords.'androidReceiving.receivingReusableMethods.clickOnContinue'()
 
 'this function verifies the receiving screen details'
 CustomKeywords.'androidReceiving.receivingReusableMethods.verifyReceivingScreen'()
-
-'verifies that over-ages are allowed'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyAllowedOverages'()
 
 'takes user to previous day from today screen'
 CustomKeywords.'androidReceiving.receivingReusableMethods.switchToPreviousDay'()

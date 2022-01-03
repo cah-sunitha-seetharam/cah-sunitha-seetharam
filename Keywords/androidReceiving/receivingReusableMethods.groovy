@@ -380,4 +380,70 @@ class receivingReusableMethods {
 
 		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/date_TextView'), 0)
 	}
+
+
+
+	/**
+	 * takes expected received product count as the argument and verifies that it should be same as the actual count visible
+	 * @param expectedReceivedProductCount (expected received product count)
+	 */
+	@Keyword
+	def verifyReceivedProductCount(expectedReceivedProductCount) {
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/productReceivedCount_TextView',[('TEXT'):expectedReceivedProductCount]), 0)
+	}
+
+
+
+	/**
+	 * clicks on receive all totes_button
+	 */
+	@Keyword
+	def clickOnReceiveAllTotes() {
+
+		Mobile.tap(findTestObject('Android/Receiving/receiveAll_Button'),0)
+	}
+
+
+	/**
+	 * uploads completed_totes
+	 */
+	@Keyword
+	def uploadCompletedTotes() {
+
+		Mobile.tap(findTestObject('Object Repository/Android/Receiving/uploadCompletedTotes_Button'),0)
+	}
+
+
+	/**
+	 * verifies the pop up after uploading_totes
+	 */
+	@Keyword
+	def verifyUploadTotesPopUp() {
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/invoiceUploadCompleted_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/allTotesUploaded_TextView'), 0)
+	}
+
+
+	/**
+	 * takes user back to receiving after uploading_totes
+	 */
+	@Keyword
+	def clickOnBackToReceiving() {
+
+		Mobile.tap(findTestObject('Android/Receiving/backToReceiving_Button'), 0)
+	}
+
+
+	/**
+	 * verifies the invoice is not visible on the screen
+	 * @param invoiceNumber (invoice number)
+	 */
+	@Keyword
+	def verifyInvoiceIsNotVisible(invoiceNumber) {
+
+		Mobile.verifyElementNotVisible(findTestObject('Android/Receiving/invoice_Tile',[('TEXT'):invoiceNumber]), 0)
+	}
 }

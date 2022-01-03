@@ -2275,6 +2275,54 @@ def static "androidReceiving.receivingReusableMethods.verifyShipmentsListScreenD
 }
 
  /**
+	 * takes expected received product count as the argument and verifies that it should be same as the actual count visible
+	 * @param expectedReceivedProductCount (expected received product count)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyReceivedProductCount"(
+    	Object expectedReceivedProductCount	) {
+    (new androidReceiving.receivingReusableMethods()).verifyReceivedProductCount(
+        	expectedReceivedProductCount)
+}
+
+ /**
+	 * clicks on receive all totes_button
+	 */ 
+def static "androidReceiving.receivingReusableMethods.clickOnReceiveAllTotes"() {
+    (new androidReceiving.receivingReusableMethods()).clickOnReceiveAllTotes()
+}
+
+ /**
+	 * uploads completed_totes
+	 */ 
+def static "androidReceiving.receivingReusableMethods.uploadCompletedTotes"() {
+    (new androidReceiving.receivingReusableMethods()).uploadCompletedTotes()
+}
+
+ /**
+	 * verifies the pop up after uploading_totes
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyUploadTotesPopUp"() {
+    (new androidReceiving.receivingReusableMethods()).verifyUploadTotesPopUp()
+}
+
+ /**
+	 * takes user back to receiving after uploading_totes
+	 */ 
+def static "androidReceiving.receivingReusableMethods.clickOnBackToReceiving"() {
+    (new androidReceiving.receivingReusableMethods()).clickOnBackToReceiving()
+}
+
+ /**
+	 * verifies the invoice is not visible on the screen
+	 * @param invoiceNumber (invoice number)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyInvoiceIsNotVisible"(
+    	Object invoiceNumber	) {
+    (new androidReceiving.receivingReusableMethods()).verifyInvoiceIsNotVisible(
+        	invoiceNumber)
+}
+
+ /**
 	 * adds costType based on the argument which can be current or last price paid
 	 * @param costType (can be current or last price paid)
 	 */ 
@@ -3042,13 +3090,6 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
     	TestObject testObject	
      , 	String testName	) {
@@ -3058,8 +3099,10 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
 }
 
 
@@ -3072,6 +3115,18 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
+}
+
+
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	
      , 	String testName	
@@ -3080,11 +3135,4 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
 }
