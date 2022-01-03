@@ -243,7 +243,7 @@ class locationDetailsScreen {
 	 */
 	@Keyword
 	def scanInputEvent(String productToBeSearched) {
-		
+
 		Mobile.tap(findTestObject('Android/Product Search/Scan Flow/enterBarcode_TextField'), 0)
 
 		Mobile.setText(findTestObject('Object Repository/Android/Product Search/Scan Flow/enterBarcode_TextField'), productToBeSearched, 0)
@@ -352,8 +352,8 @@ class locationDetailsScreen {
 			(new androidInventory.locationDetailsScreen()).deleteProduct(topProductNdc) //calling delete product function and passing the topProductNdc delete_Product
 		}
 		String formattedTotalCostOfAddedProduct=(new common.commonMethods()).formatDecimalData(totalCostOfAddedProduct,"0.00") //formatting the data to be rounded off to upper level and to two decimal places
-		float formattedTotalCostOfAddedProduct_FloatValue=(new common.commonMethods()).floatValueGenerator(formattedTotalCostOfAddedProduct)///converting formattedTotalCostOfAddedProduct string to a float value		 
-		
+		float formattedTotalCostOfAddedProduct_FloatValue=(new common.commonMethods()).floatValueGenerator(formattedTotalCostOfAddedProduct)///converting formattedTotalCostOfAddedProduct string to a float value
+
 		// assert inventoryTotal_charactersRemoved_FloatValue==(formattedTotalCostOfAddedProduct_FloatValue)
 		KeywordUtil.logInfo("expected is " + Math.round(inventoryTotal_charactersRemoved_FloatValue) );
 		KeywordUtil.logInfo("actual is " + Math.round(formattedTotalCostOfAddedProduct_FloatValue) );
@@ -406,7 +406,7 @@ class locationDetailsScreen {
 			KeywordUtil.logInfo("actualproductIdentificationNumber is " + actualproductIdentificationNumber );
 			KeywordUtil.logInfo("topProductIdentificationNumber is " + topProductIdentificationNumber );
 
-			(new androidInventory.locationDetailsScreen()).deleteProduct(topProductIdentificationNumber)//calling delete product function and passing the topProductIdentificationNumber
+			(new androidInventory.locationDetailsScreen()).deleteProduct("NDC: "+topProductIdentificationNumber)//calling delete product function and passing the topProductIdentificationNumber
 
 		}
 	}
@@ -454,7 +454,7 @@ class locationDetailsScreen {
 		(new androidCommonKeywords.commonMethods()).verifyProductIsNotVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsNotVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
 	}
 
-	
+
 	/**
 	 * copies products from a location to another location
 	 * @param locationName (name of the location to which product will be copied)
@@ -476,14 +476,14 @@ class locationDetailsScreen {
 		Mobile.tap(	findTestObject('Android/Inventory/Location Details Screen/Copy Product from Location/copy_Button'), 0)
 
 		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Copy Product from Location/copyToLocation_Text', [('Location') : locationName]), 0)
-		
-		
+
+
 		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Copy Product from Location/selectLocation'), 0)
-		
+
 
 		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Copy Product from Location/copyProduct_Text'), 0)
 
-	    Mobile.verifyElementExist(findTestObject('Android/Inventory/Location Details Screen/Copy Product from Location/copyingProductConfirmation_Text',[('TEXT'):locationName]),0)
+		Mobile.verifyElementExist(findTestObject('Android/Inventory/Location Details Screen/Copy Product from Location/copyingProductConfirmation_Text',[('TEXT'):locationName]),0)
 
 		Mobile.verifyElementExist(findTestObject('Android/Inventory/Location Details Screen/Verification Details/backToLocation_Button'),0)
 
@@ -491,7 +491,7 @@ class locationDetailsScreen {
 
 		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Copy Product from Location/goToLocationAfterCopyingProduct_Text', [('Location') : locationName]),0)
 	}
-	
+
 	/**
 	 * this function gets the count type of the added product and verifies whether that is equal to the expected count type
 	 */
@@ -503,8 +503,8 @@ class locationDetailsScreen {
 		assert (countType+" COUNT")==(expectedCountType.toUpperCase()) // verifies countType equals the countType of the product in the products list
 
 	}
-	
-	
+
+
 	/**
 	 * moves products from a location to another location
 	 * @param locationName (name of the location to which product will be moved)
@@ -512,7 +512,7 @@ class locationDetailsScreen {
 	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object	 */
 	@Keyword
 	def moveProductToAnotherLocation(String locationName, String productNdcNumber) {
-		
+
 		KeywordUtil.logInfo("locationName is " + locationName );
 		KeywordUtil.logInfo("productNdcNumber is " + productNdcNumber );
 
@@ -521,7 +521,7 @@ class locationDetailsScreen {
 		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Copy Product from Location/move_Button'), 0)
 
 		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Move Product to Another Location/moveToLocation_Text', [('Location') : locationName]),0)
-		
+
 		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Copy Product from Location/selectLocation'), 0)
 
 		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Move Product to Another Location/moveProduct_Text'), 0)
@@ -534,4 +534,18 @@ class locationDetailsScreen {
 
 		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Move Product To Another Location/goToLocationAfterMovingProduct_Text', [('Location') : locationName]),0)
 	}
+	
+	/**
+	 * this function verifies the lines count
+	 * @param expectedLinesCount (expected lines Count)
+	 */
+	@Keyword
+	def verifyLinesCount(String expectedLinesCount) {
+
+		String actualLinesCount=Mobile.getText(findTestObject('Android/Inventory/Location Details Screen/Verification Details/inventoryLine_Text'),0) //gets the actualLinesCount on the location details page
+
+		assert actualLinesCount==expectedLinesCount //actual lines count has to be equal to expected lines count
+	}
+	
+	
 }

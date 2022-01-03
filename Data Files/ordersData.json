@@ -250,6 +250,12 @@
                 "productSearchCin": "4023347",
                 "productSearchByName": "tyl",
             },
+        
+        "TC_OE_011": {
+            "productSearchByNDC": "00450-0449-09",
+            "productSearchCin": "4023347",
+            },
+        
         },
 
 }

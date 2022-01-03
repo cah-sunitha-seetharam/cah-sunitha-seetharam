@@ -9,11 +9,11 @@ import java.util.Stack
 
 import java.lang.Float
 
-import com.kms.katalon.core.testobject.TestObject
-
 import com.applitools.eyes.selenium.Eyes
 
 import org.openqa.selenium.WebElement
+
+import com.kms.katalon.core.testobject.TestObject
 
 import com.applitools.eyes.RectangleSize
 
@@ -1320,9 +1320,7 @@ def static "androidInventory.locationDetailsScreen.delete_Product"() {
     (new androidInventory.locationDetailsScreen()).delete_Product()
 }
 
- /**
-	 * uploads location from the location details screen
-	 */ 
+
 def static "androidInventory.locationDetailsScreen.uploadLocation"() {
     (new androidInventory.locationDetailsScreen()).uploadLocation()
 }
@@ -1339,73 +1337,48 @@ def static "androidInventory.locationDetailsScreen.verify_Location_details_Scree
         	Location_Name)
 }
 
- /**
-	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at full count
-	 */ 
+
 def static "androidInventory.locationDetailsScreen.clickOnScanIcon"() {
     (new androidInventory.locationDetailsScreen()).clickOnScanIcon()
 }
 
- /**
-	 * this function selects the toggle value of countType for the product to be added
-	 * @param countType (countType required to be selected for the product to be added which can be full or partial count)
-	 */ 
+
 def static "androidInventory.locationDetailsScreen.selectCountTypeForTheProductToBeAdded"(
     	String countType	) {
     (new androidInventory.locationDetailsScreen()).selectCountTypeForTheProductToBeAdded(
         	countType)
 }
 
- /**
-	 * scans the product and adds it to the location
-	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
-	 */ 
+
 def static "androidInventory.locationDetailsScreen.scanInputEvent"(
     	String productToBeSearched	) {
     (new androidInventory.locationDetailsScreen()).scanInputEvent(
         	productToBeSearched)
 }
 
- /**
-	 * this function gets the total added quantity of the product
-	 * @return quantityNumericalValue (of the product which has been added)
-	 */ 
+
 def static "androidInventory.locationDetailsScreen.returnQuantityOfTheAddedProduct"() {
     (new androidInventory.locationDetailsScreen()).returnQuantityOfTheAddedProduct()
 }
 
- /**
-	 * this function inputs the quantity value for the product to be searched
-	 * @param quantity (quantity required to be added for the product to be searched)
-	 */ 
+
 def static "androidInventory.locationDetailsScreen.addQuantityforTheSearchedProduct"(
     	String quantity	) {
     (new androidInventory.locationDetailsScreen()).addQuantityforTheSearchedProduct(
         	quantity)
 }
 
- /**
-	 * this function gets the unit of issue cost(UOI) of the added product
-	 * @return uoiCost_dollarSymbolRemoved_FloatValue (of the product which has been added)
-	 */ 
+
 def static "androidInventory.locationDetailsScreen.returnUOIOfTheAddedProduct"() {
     (new androidInventory.locationDetailsScreen()).returnUOIOfTheAddedProduct()
 }
 
- /**
-	 * this function will tap on share button and verify the Gmail option
-	 */ 
+
 def static "androidInventory.locationDetailsScreen.verifyGmailOnShareLocation"() {
     (new androidInventory.locationDetailsScreen()).verifyGmailOnShareLocation()
 }
 
- /**
-	 * verifies details of location details screen (if user wants to scan a product with same count type more than once, then in the test case, only the updated quantity along with countType and ndcNumber should be pushed into the stack)
-	 * @param countTypeStack (stack of the countTypes selected for adding each product)
-	 * @param quantityStack (stack of the quantity added for each product)
-	 * @param productNdcStack (stack of the ndcNumbers of added products)
-	 * @param unitOfIssueCostStack (stack of UOI costs of the added products)
-	 */ 
+
 def static "androidInventory.locationDetailsScreen.verifyLocationDetailsScreen"(
     	Stack countTypeStack	
      , 	Stack quantityStack	
@@ -1418,61 +1391,40 @@ def static "androidInventory.locationDetailsScreen.verifyLocationDetailsScreen"(
          , 	unitOfIssueCostStack)
 }
 
- /**
-	 * deletes a product from the added products list in a location
-	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
-	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object	 */ 
+
 def static "androidInventory.locationDetailsScreen.deleteProduct"(
     	String productNdcNumber	) {
     (new androidInventory.locationDetailsScreen()).deleteProduct(
         	productNdcNumber)
 }
 
- /**
-	 * verifies that the latest added product is at the top of the added products list, then deletes the latest added product and continues the process to verifyReverseChronologicalOrder of the added products
-	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
-	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
-	 */ 
+
 def static "androidInventory.locationDetailsScreen.verifyReverseChronologicalOrder"(
     	Stack productNdcNumber	) {
     (new androidInventory.locationDetailsScreen()).verifyReverseChronologicalOrder(
         	productNdcNumber)
 }
 
- /**
-	 * this function verifies that the product is not visible on the location details screen
-	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
-	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
-	 */ 
+
 def static "androidInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen"(
     	Object productNdcNumber	) {
     (new androidInventory.locationDetailsScreen()).verifyProductIsVisibleOnTheLocationDetailsScreen(
         	productNdcNumber)
 }
 
- /**
-	 * this function taps on remove button and then product entry should get removed from the location as well as the scan result screen
-	 */ 
+
 def static "androidInventory.locationDetailsScreen.clickOnRemoveButtonToRemoveAlreadyScannedProduct"() {
     (new androidInventory.locationDetailsScreen()).clickOnRemoveButtonToRemoveAlreadyScannedProduct()
 }
 
- /**
-	 * this function verifies that the product is visible on the location details screen
-	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
-	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
-	 */ 
+
 def static "androidInventory.locationDetailsScreen.verifyProductIsNotVisibleOnTheLocationDetailsScreen"(
     	Object productNdcNumber	) {
     (new androidInventory.locationDetailsScreen()).verifyProductIsNotVisibleOnTheLocationDetailsScreen(
         	productNdcNumber)
 }
 
- /**
-	 * copies products from a location to another location
-	 * @param locationName (name of the location to which product will be copied)
-	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
-	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object	 */ 
+
 def static "androidInventory.locationDetailsScreen.copyProductToAnotherLocation"(
     	String locationName	
      , 	String productNdcNumber	) {
@@ -1481,26 +1433,27 @@ def static "androidInventory.locationDetailsScreen.copyProductToAnotherLocation"
          , 	productNdcNumber)
 }
 
- /**
-	 * this function gets the count type of the added product and verifies whether that is equal to the expected count type
-	 */ 
+
 def static "androidInventory.locationDetailsScreen.verifyCountTypeOfProduct"(
     	String expectedCountType	) {
     (new androidInventory.locationDetailsScreen()).verifyCountTypeOfProduct(
         	expectedCountType)
 }
 
- /**
-	 * moves products from a location to another location
-	 * @param locationName (name of the location to which product will be moved)
-	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
-	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object	 */ 
+
 def static "androidInventory.locationDetailsScreen.moveProductToAnotherLocation"(
     	String locationName	
      , 	String productNdcNumber	) {
     (new androidInventory.locationDetailsScreen()).moveProductToAnotherLocation(
         	locationName
          , 	productNdcNumber)
+}
+
+
+def static "androidInventory.locationDetailsScreen.verifyLinesCount"(
+    	String expectedLinesCount	) {
+    (new androidInventory.locationDetailsScreen()).verifyLinesCount(
+        	expectedLinesCount)
 }
 
  /**
@@ -1726,6 +1679,30 @@ def static "androidOrders.orderDetailsScreen.createNewC2Order"(
 }
 
  /**
+	 * verifies confirmation pop up of c2 in scan search results
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyConfirmationPopUpOfC2InScanSearchResults"() {
+    (new androidOrders.orderDetailsScreen()).verifyConfirmationPopUpOfC2InScanSearchResults()
+}
+
+ /**
+	 * scans the product, adds it to the order 
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */ 
+def static "androidOrders.orderDetailsScreen.scanInputEventWithoutVerification"(
+    	String productToBeSearched	) {
+    (new androidOrders.orderDetailsScreen()).scanInputEventWithoutVerification(
+        	productToBeSearched)
+}
+
+ /**
+	 * opens create new order page for c2
+	 */ 
+def static "androidOrders.orderDetailsScreen.tapOnSelectOrCrateANewOrderInScanSearchResults"() {
+    (new androidOrders.orderDetailsScreen()).tapOnSelectOrCrateANewOrderInScanSearchResults()
+}
+
+ /**
 	 * creates a new C2 order
 	 * @param poName (poName of the order), poMemo (poMemo of the order)
 	 */ 
@@ -1733,6 +1710,15 @@ def static "androidOrders.orderDetailsScreen.createNewOrderForC2"(
     	String poName	
      , 	String poMemo	) {
     (new androidOrders.orderDetailsScreen()).createNewOrderForC2(
+        	poName
+         , 	poMemo)
+}
+
+
+def static "androidOrders.orderDetailsScreen.createNewOrderForC2WithoutVerification"(
+    	String poName	
+     , 	String poMemo	) {
+    (new androidOrders.orderDetailsScreen()).createNewOrderForC2WithoutVerification(
         	poName
          , 	poMemo)
 }
@@ -2714,11 +2700,28 @@ def static "androidOrders.cartScreen.clickOnC2OrdersTab"() {
     (new androidOrders.cartScreen()).clickOnC2OrdersTab()
 }
 
+ /**
+		 * opens the c2 order details
+		 * @param accountNo (account no which was used to create the order)
+		 */ 
+def static "androidOrders.cartScreen.openC2OrderDetailScreen"(
+    	String accountNo	) {
+    (new androidOrders.cartScreen()).openC2OrderDetailScreen(
+        	accountNo)
+}
+
 
 def static "androidOrders.cartScreen.delete_Order"(
     	Object Account_No	) {
     (new androidOrders.cartScreen()).delete_Order(
         	Account_No)
+}
+
+ /**
+	 * deletes order 
+	 */ 
+def static "androidOrders.cartScreen.deleteOrder"() {
+    (new androidOrders.cartScreen()).deleteOrder()
 }
 
  /**
@@ -3128,21 +3131,11 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
-    	TestObject testObject	
-     , 	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
-        	testObject
-         , 	testName)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
     	String testName	) {
     (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
         	testName)
 }
-
 
 
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
@@ -3153,12 +3146,6 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
          , 	element)
 }
 
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
-}
 
 
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
@@ -3176,8 +3163,6 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
-}
-
 
 
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
@@ -3192,3 +3177,15 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
+    	String baselineName	
+     , 	String testName	
+     , 	RectangleSize viewportSize	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpenWithBaseline(
+        	baselineName
+         , 	testName
+         , 	viewportSize)
+}
+
