@@ -3,21 +3,42 @@
    <description>Verify that the user is able to Create Order by Scan the barcode 
 Prerequisite: Valid login credentials with multiple accounts available for the user and Valid Barcodes.  </description>
    <name>TC_OE_011_verifyThatTheUserIsAbleToCreateOrderByScanTheBarcode</name>
-   <tag></tag>
+   <tag>Order;Sanity;Scan</tag>
    <comment></comment>
    <testCaseGuid>2d1fc105-963f-43b5-adc9-096a9f2077d1</testCaseGuid>
    <variable>
       <defaultValue>'poName'</defaultValue>
-      <description></description>
+      <description>purchase order name for the order created</description>
       <id>31d96026-556a-478b-99b4-ae21a3c11ab5</id>
       <masked>false</masked>
       <name>poName</name>
    </variable>
    <variable>
       <defaultValue>'poMemo'</defaultValue>
-      <description></description>
+      <description>purchase order memo for the order created</description>
       <id>300e7820-f2b3-4dd3-8f8e-1dd12ec26aa7</id>
       <masked>false</masked>
       <name>poMemo</name>
+   </variable>
+   <variable>
+      <defaultValue>'poName1'</defaultValue>
+      <description>purchase order name for the order created</description>
+      <id>e236e395-5aef-42fc-83b7-2f4fddebeeba</id>
+      <masked>false</masked>
+      <name>poName1</name>
+   </variable>
+   <variable>
+      <defaultValue>'poMemo1'</defaultValue>
+      <description>purchase order memo for the order created</description>
+      <id>1a4de2df-0fa1-4189-a8c9-5ce3a9ac1809</id>
+      <masked>false</masked>
+      <name>poMemo1</name>
+   </variable>
+   <variable>
+      <defaultValue>2</defaultValue>
+      <description>quantity added for the product searched</description>
+      <id>8039d2be-d372-4d5c-aede-c48a01c472c8</id>
+      <masked>false</masked>
+      <name>quantity</name>
    </variable>
 </TestCaseEntity>

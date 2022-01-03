@@ -1683,14 +1683,26 @@ def static "androidOrders.orderDetailsScreen.createNewC2Order"(
          , 	poMemo)
 }
 
+ /**
+	 * verifies confirmation pop up of c2 in scan search results
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyConfirmationPopUpOfC2InScanSearchResults"() {
+    (new androidOrders.orderDetailsScreen()).verifyConfirmationPopUpOfC2InScanSearchResults()
+}
 
-def static "androidOrders.orderDetailsScreen.scanInputEventAndverifyConfirmationPopUpOfC2InScanSearchResults"(
+ /**
+	 * scans the product, adds it to the order 
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */ 
+def static "androidOrders.orderDetailsScreen.scanInputEventWithoutVerification"(
     	String productToBeSearched	) {
-    (new androidOrders.orderDetailsScreen()).scanInputEventAndverifyConfirmationPopUpOfC2InScanSearchResults(
+    (new androidOrders.orderDetailsScreen()).scanInputEventWithoutVerification(
         	productToBeSearched)
 }
 
-
+ /**
+	 * opens create new order page for c2
+	 */ 
 def static "androidOrders.orderDetailsScreen.tapOnSelectOrCrateANewOrderInScanSearchResults"() {
     (new androidOrders.orderDetailsScreen()).tapOnSelectOrCrateANewOrderInScanSearchResults()
 }
@@ -1703,6 +1715,15 @@ def static "androidOrders.orderDetailsScreen.createNewOrderForC2"(
     	String poName	
      , 	String poMemo	) {
     (new androidOrders.orderDetailsScreen()).createNewOrderForC2(
+        	poName
+         , 	poMemo)
+}
+
+
+def static "androidOrders.orderDetailsScreen.createNewOrderForC2WithoutVerification"(
+    	String poName	
+     , 	String poMemo	) {
+    (new androidOrders.orderDetailsScreen()).createNewOrderForC2WithoutVerification(
         	poName
          , 	poMemo)
 }
@@ -2523,11 +2544,28 @@ def static "androidOrders.cartScreen.clickOnC2OrdersTab"() {
     (new androidOrders.cartScreen()).clickOnC2OrdersTab()
 }
 
+ /**
+		 * opens the c2 order details
+		 * @param accountNo (account no which was used to create the order)
+		 */ 
+def static "androidOrders.cartScreen.openC2OrderDetailScreen"(
+    	String accountNo	) {
+    (new androidOrders.cartScreen()).openC2OrderDetailScreen(
+        	accountNo)
+}
+
 
 def static "androidOrders.cartScreen.delete_Order"(
     	Object Account_No	) {
     (new androidOrders.cartScreen()).delete_Order(
         	Account_No)
+}
+
+ /**
+	 * deletes order 
+	 */ 
+def static "androidOrders.cartScreen.deleteOrder"() {
+    (new androidOrders.cartScreen()).deleteOrder()
 }
 
  /**

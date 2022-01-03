@@ -3,7 +3,7 @@
    <description></description>
    <name>thisIsAC2ItemWouldYouLikeToCreateANewOrderOrAddToExistingOrder_ConfirmationPopUp_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>5ba30bf5-0551-4309-ba8d-d458bf4ad3e0</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvSelectOrderWarningTitle</value>
+      <value>${GlobalVariable.appPackage}:id/tvSelectOrderWarningTitle</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>com.cardinalhealth.orderexpress.two.debug:id/tvSelectOrderWarningTitle</locator>
+   <locator>${GlobalVariable.appPackage}:id/tvSelectOrderWarningTitle</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

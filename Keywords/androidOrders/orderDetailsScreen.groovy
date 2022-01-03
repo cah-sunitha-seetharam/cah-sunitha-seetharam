@@ -353,20 +353,36 @@ class orderDetailsScreen {
 		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/goToOrder_TextView'), 0)
 	}
 
+
+	/**
+	 * verifies confirmation pop up of c2 in scan search results
+	 */
 	@Keyword
-	def scanInputEventAndverifyConfirmationPopUpOfC2InScanSearchResults(String productToBeSearched) {
-		Mobile.setText(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_EditText'), productToBeSearched, 0)
-		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_Button'), 0)
+	def verifyConfirmationPopUpOfC2InScanSearchResults() {
 		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/C2 Order/thisIsAC2ItemWouldYouLikeToCreateANewOrderOrAddToExistingOrder_ConfirmationPopUp_TextView'), 0)
 		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/C2 Order/selectOrCreateANewOrder_Button'), 0)
 		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/C2 Order/cancel_TextView'), 0)
 	}
 	
+	
+	/**
+	 * scans the product, adds it to the order 
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */
+	@Keyword
+	def scanInputEventWithoutVerification(String productToBeSearched) {
+		Mobile.setText(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_EditText'), productToBeSearched, 0)
+		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_Button'), 0)
+	}
+
+	/**
+	 * opens create new order page for c2
+	 */
 	@Keyword
 	def tapOnSelectOrCrateANewOrderInScanSearchResults() {
 		Mobile.tap(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/C2 Order/selectOrCreateANewOrder_Button'), 0)
 	}
-	
+
 	/**
 	 * creates a new C2 order
 	 * @param poName (poName of the order), poMemo (poMemo of the order)
@@ -381,6 +397,17 @@ class orderDetailsScreen {
 		Mobile.setText(findTestObject('Android/Orders/New Order Screen/P.O. Memo (Optional)_TextField'), poMemo, 0)
 		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/createNewOrder_Button'), 0)
 	}
+
+
+
+	@Keyword
+	def createNewOrderForC2WithoutVerification(String poName, String poMemo) {
+		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/createANewOrder_TextView'), 0)
+		Mobile.setText(findTestObject('Android/Orders/New Order Screen/P.O. Name (Optional)_TextField'), poName, 0)
+		Mobile.setText(findTestObject('Android/Orders/New Order Screen/P.O. Memo (Optional)_TextField'), poMemo, 0)
+		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/createNewOrder_Button'), 0)
+	}
+
 
 	/**
 	 * enables radio button and adds c2 product

@@ -71,23 +71,25 @@ CustomKeywords.'androidOrders.orderDetailsScreen.clickOnScanIcon'()
 String productSearch2 = requestObject[GlobalVariable.Environment].TC_OE_011.productSearchCin
 
 'takes productSearch which can be productName/Cin/UPC/NDC as the input and adds it to the order by scanning the product'
-CustomKeywords.'androidOrders.orderDetailsScreen.scanInputEvent'(productSearch2)
+CustomKeywords.'androidOrders.orderDetailsScreen.scanInputEventWithoutVerification'(productSearch2)
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
+'verifies confirmation pop up of c2 in scan search results'
 CustomKeywords.'androidOrders.orderDetailsScreen.verifyConfirmationPopUpOfC2InScanSearchResults'()
 
+'opens create new order page for c2'
 CustomKeywords.'androidOrders.orderDetailsScreen.tapOnSelectOrCrateANewOrderInScanSearchResults'()
 
 'creates a new C2 order'
-CustomKeywords.'androidOrders.orderDetailsScreen.createNewOrderForC2'(poName, poMemo)
+CustomKeywords.'androidOrders.orderDetailsScreen.createNewOrderForC2WithoutVerification'(poName1, poMemo1)
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'enables radio button and adds c2 product'
-CustomKeywords.'androidOrders.orderDetailsScreen.enableRadioButtonForNewOrderC2Creation'(poName)
+CustomKeywords.'androidOrders.orderDetailsScreen.enableRadioButtonForNewOrderC2Creation'(poName1)
 
 'takes user back to the search product results to continue browsing'
 CustomKeywords.'androidOrders.orderDetailsScreen.tapOnContinueBrowsing'()
@@ -97,3 +99,25 @@ CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
 
 'takes the application one screen back'
 CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
+
+'deletes order'
+CustomKeywords.'androidOrders.cartScreen.deleteOrder'()
+
+'opens home tab where user can perform actions related to home'
+CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnHomeTab'()
+
+'clicks on scan icon and also verifies that the default scan toggle value is at ordering'
+CustomKeywords.'androidOrders.orderDetailsScreen.clickOnScanIcon'()
+
+'takes productSearch which can be productName/Cin/UPC/NDC as the input and adds it to the order by scanning the product'
+CustomKeywords.'androidOrders.orderDetailsScreen.scanInputEventWithoutVerification'(productSearch1)
+
+'adds the quantity for the product to be searched'
+CustomKeywords.'androidOrders.orderDetailsScreen.addQuantityforTheSearchedProduct'(quantity)
+
+'taps on add to order in scan search results'
+CustomKeywords.'androidOrders.orderDetailsScreen.tapOnAddToOrderInScanSearchResults'()
+
+'takes user to the order details'
+CustomKeywords.'androidOrders.orderDetailsScreen.tapOnGoToOrder'()
+
