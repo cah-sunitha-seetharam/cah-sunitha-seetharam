@@ -58,7 +58,20 @@ class newOrderScreen {
 			WebUI.delay(w)
 		}
 	}
-
+	
+	/**
+	 * selects different account
+	 * @param accountNo (account number used for selection)
+	 */
+	@Keyword
+	def changeAccount(String accountNo) {
+		Mobile.tap(findTestObject('Android/Dashboard/changeAccount_Button'), 0)
+		Mobile.tap(findTestObject('Android/Account Selection/ChangeAccount_TextView'), 0)
+		Mobile.scrollToText(accountNo, FailureHandling.STOP_ON_FAILURE)
+		Mobile.tap(findTestObject('Android/Account Selection/AccountNo_TextView',[('val') : accountNo]), 0)
+	}
+	
+	
 	/**
 	 * adds poname pomemo to textfield
 	 * @param PO_Name (purchase order name for the order created)

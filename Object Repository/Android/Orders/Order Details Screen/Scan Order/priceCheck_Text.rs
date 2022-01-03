@@ -3,7 +3,7 @@
    <description></description>
    <name>priceCheck_Text</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>c66375a8-ff26-41c7-80dd-9652bcb19115</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvPriceCheck</value>
+      <value>${GlobalVariable.appPackage}:id/tvPriceCheck</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>com.cardinalhealth.orderexpress.two.debug:id/tvPriceCheck</locator>
+   <locator>${GlobalVariable.appPackage}:id/tvPriceCheck</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

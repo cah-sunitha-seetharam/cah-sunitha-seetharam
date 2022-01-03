@@ -9,11 +9,11 @@ import java.util.Stack
 
 import java.lang.Float
 
+import com.kms.katalon.core.testobject.TestObject
+
 import com.applitools.eyes.selenium.Eyes
 
 import org.openqa.selenium.WebElement
-
-import com.kms.katalon.core.testobject.TestObject
 
 import com.applitools.eyes.RectangleSize
 
@@ -353,6 +353,16 @@ def static "androidOrders.newOrderScreen.change_Account"(
     	String New_Account	) {
     (new androidOrders.newOrderScreen()).change_Account(
         	New_Account)
+}
+
+ /**
+	 * selects different account
+	 * @param accountNo (account number used for selection)
+	 */ 
+def static "androidOrders.newOrderScreen.changeAccount"(
+    	String accountNo	) {
+    (new androidOrders.newOrderScreen()).changeAccount(
+        	accountNo)
 }
 
  /**
@@ -1459,6 +1469,41 @@ def static "androidInventory.locationDetailsScreen.verifyProductIsNotVisibleOnTh
 }
 
  /**
+	 * copies products from a location to another location
+	 * @param locationName (name of the location to which product will be copied)
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object	 */ 
+def static "androidInventory.locationDetailsScreen.copyProductToAnotherLocation"(
+    	String locationName	
+     , 	String productNdcNumber	) {
+    (new androidInventory.locationDetailsScreen()).copyProductToAnotherLocation(
+        	locationName
+         , 	productNdcNumber)
+}
+
+ /**
+	 * this function gets the count type of the added product and verifies whether that is equal to the expected count type
+	 */ 
+def static "androidInventory.locationDetailsScreen.verifyCountTypeOfProduct"(
+    	String expectedCountType	) {
+    (new androidInventory.locationDetailsScreen()).verifyCountTypeOfProduct(
+        	expectedCountType)
+}
+
+ /**
+	 * moves products from a location to another location
+	 * @param locationName (name of the location to which product will be moved)
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object	 */ 
+def static "androidInventory.locationDetailsScreen.moveProductToAnotherLocation"(
+    	String locationName	
+     , 	String productNdcNumber	) {
+    (new androidInventory.locationDetailsScreen()).moveProductToAnotherLocation(
+        	locationName
+         , 	productNdcNumber)
+}
+
+ /**
 	 * uploads the order 
 	 */ 
 def static "androidOrders.orderDetailsScreen.upload_Order"() {
@@ -1534,6 +1579,16 @@ def static "androidOrders.orderDetailsScreen.clickOnScanIcon"() {
 def static "androidOrders.orderDetailsScreen.scanInputEvent"(
     	String productToBeSearched	) {
     (new androidOrders.orderDetailsScreen()).scanInputEvent(
+        	productToBeSearched)
+}
+
+ /**
+	 * scans the product while on price check, adds it to the order and also verifies some scan input details
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */ 
+def static "androidOrders.orderDetailsScreen.scanInputEventWhileOnPriceCheck"(
+    	String productToBeSearched	) {
+    (new androidOrders.orderDetailsScreen()).scanInputEventWhileOnPriceCheck(
         	productToBeSearched)
 }
 
@@ -1757,6 +1812,20 @@ def static "androidOrders.orderDetailsScreen.verifyProductNameIsVisibleUnderOrde
     	String productname	) {
     (new androidOrders.orderDetailsScreen()).verifyProductNameIsVisibleUnderOrderDetails(
         	productname)
+}
+
+ /**
+	 * taps on add to order and shows confirmation pop up
+	 */ 
+def static "androidOrders.orderDetailsScreen.tapOnAddToOrderInScanSearchResults"() {
+    (new androidOrders.orderDetailsScreen()).tapOnAddToOrderInScanSearchResults()
+}
+
+ /**
+	 * after selecting add to order verifies item added confirmation popup in scan search results 
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyConfirmationPopUpInScanSearchResults"() {
+    (new androidOrders.orderDetailsScreen()).verifyConfirmationPopUpInScanSearchResults()
 }
 
  /**
@@ -2373,6 +2442,16 @@ def static "androidInventory.inventoryDetailsScreen.clickOnALocation"(
         	locationName)
 }
 
+ /**
+	 * this function verifies the location count
+	 * @param expectedLocationCount (expected location Count)
+	 */ 
+def static "androidInventory.inventoryDetailsScreen.verifyLocationCount"(
+    	String expectedLocationCount	) {
+    (new androidInventory.inventoryDetailsScreen()).verifyLocationCount(
+        	expectedLocationCount)
+}
+
 
 def static "iosOrders.newOrderScreen.change_Account"(
     	String new_Account	) {
@@ -2979,6 +3058,33 @@ def static "androidCommonKeywords.commonMethods.verifyProductIsNotVisibleOnTheSc
 }
 
  /**
+	 * clicks on product search field
+	 */ 
+def static "androidCommonKeywords.commonMethods.clickOnProductSearchTextField"() {
+    (new androidCommonKeywords.commonMethods()).clickOnProductSearchTextField()
+}
+
+ /**
+	 * inputs the product search which can be name/Cin/UPC/NDC in the product search-field
+	 * @param productSearch (which can be name/Cin/UPC/NDC in the product search-field)
+	 */ 
+def static "androidCommonKeywords.commonMethods.enterProductInSearchField"(
+    	Object productSearch	) {
+    (new androidCommonKeywords.commonMethods()).enterProductInSearchField(
+        	productSearch)
+}
+
+ /**
+	 * performs basic text management operations:Copy,Cut,Paste,Share
+	 * @param operationToBePerformed (in operationToBePerformed argument all alphabets should be lower-case except the first one for e.g Copy, Cut)
+	 */ 
+def static "androidCommonKeywords.commonMethods.performBasicTextManagementOperation"(
+    	String operationToBePerformed	) {
+    (new androidCommonKeywords.commonMethods()).performBasicTextManagementOperation(
+        	operationToBePerformed)
+}
+
+ /**
 	 * Create an order using Carts Post method , the input is fetched from the (module) ordersDatajson file set on Data Files 
 	 * @return an object with orderId and purchaseOrderNumber 
 	 */ 
@@ -3013,12 +3119,12 @@ def static "api.apiCommonMethods.tokenGenerator"() {
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
-    	Eyes eyes	
-     , 	WebElement element	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkElement(
-        	eyes
-         , 	element)
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
+    	TestObject testObject	
+     , 	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
+        	testObject
+         , 	testName)
 }
 
 
@@ -3038,17 +3144,20 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
+    	Eyes eyes	
+     , 	WebElement element	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkElement(
+        	eyes
+         , 	element)
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
-    	String testName	
-     , 	RectangleSize viewportSize	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
-        	testName
-         , 	viewportSize)
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
 }
 
 
@@ -3067,4 +3176,19 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
+}
+
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
+    	String testName	
+     , 	RectangleSize viewportSize	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
+        	testName
+         , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }

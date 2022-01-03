@@ -3,7 +3,7 @@
    <description></description>
    <name>addToOrder_Button</name>
    <tag></tag>
-   <elementGuidId>3f014125-67e3-4d3b-a6c1-3492be51f439</elementGuidId>
+   <elementGuidId>331e6b92-0381-47f2-836a-e3d83fbe9652</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/addToOrderButton</value>
+      <value>${GlobalVariable.appPackage}:id/addToOrderButton</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.Button[1]</value>
    </webElementProperties>
-   <locator>com.cardinalhealth.orderexpress.two.debug:id/addToOrderButton</locator>
+   <locator>${GlobalVariable.appPackage}:id/addToOrderButton</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>
