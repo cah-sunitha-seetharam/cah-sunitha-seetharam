@@ -467,6 +467,75 @@ def static "iosOrders.orderDetailsScreen.checkC2OrderAvailability"() {
 }
 
  /**
+	 * searches for a product by setting product name
+	 * @param productName (product to be added)
+	 */ 
+def static "iosOrders.orderDetailsScreen.searchProductInOrderDetailPage"(
+    	String productName	) {
+    (new iosOrders.orderDetailsScreen()).searchProductInOrderDetailPage(
+        	productName)
+}
+
+ /**
+	 * opens product tile
+	 */ 
+def static "iosOrders.orderDetailsScreen.clickOnProductTile"() {
+    (new iosOrders.orderDetailsScreen()).clickOnProductTile()
+}
+
+ /**
+	 * opens more details of product details
+	 */ 
+def static "iosOrders.orderDetailsScreen.clickOnMoreDetails"() {
+    (new iosOrders.orderDetailsScreen()).clickOnMoreDetails()
+}
+
+ /**
+	 * opens alternates page
+	 */ 
+def static "iosOrders.orderDetailsScreen.tapOnAlternatesInProductDetailsPage"() {
+    (new iosOrders.orderDetailsScreen()).tapOnAlternatesInProductDetailsPage()
+}
+
+ /**
+	 * verifies filterByOptions
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyFilterByOptions"() {
+    (new iosOrders.orderDetailsScreen()).verifyFilterByOptions()
+}
+
+ /**
+	 * this function adds the quantity in alternates page
+	 * @param quantity (quantity required to add in product detail page)
+	 */ 
+def static "iosOrders.orderDetailsScreen.addQuantityInAlternatesPage"(
+    	String quantity	) {
+    (new iosOrders.orderDetailsScreen()).addQuantityInAlternatesPage(
+        	quantity)
+}
+
+ /**
+		 * taps on alternate to order in alternates page and opens confirmation pop up
+		 */ 
+def static "iosOrders.orderDetailsScreen.tapOnAddAlternateToOrderInAlternatesPage"() {
+    (new iosOrders.orderDetailsScreen()).tapOnAddAlternateToOrderInAlternatesPage()
+}
+
+ /**
+		 * verifies confirmation pop up in alternates page
+		 */ 
+def static "iosOrders.orderDetailsScreen.verifyConfirmationPopUpInALternatesPage"() {
+    (new iosOrders.orderDetailsScreen()).verifyConfirmationPopUpInALternatesPage()
+}
+
+ /**
+		 * takes user back to the search product results to continue browsing
+		 */ 
+def static "iosOrders.orderDetailsScreen.tapOnContinueBrowsing"() {
+    (new iosOrders.orderDetailsScreen()).tapOnContinueBrowsing()
+}
+
+ /**
 	 * takes user back to cart screen and verifies user is on the cart screen or not
 	 */ 
 def static "iosOrders.orderDetailsScreen.clickOnBackToCart"() {
@@ -517,6 +586,27 @@ def static "iosOrders.orderDetailsScreen.editPONameAndMemo"(
 	 */ 
 def static "iosOrders.orderDetailsScreen.placeOrder"() {
     (new iosOrders.orderDetailsScreen()).placeOrder()
+}
+
+ /**
+	 * places the order
+	 */ 
+def static "iosOrders.orderDetailsScreen.clickOnPlaceOrder"() {
+    (new iosOrders.orderDetailsScreen()).clickOnPlaceOrder()
+}
+
+ /**
+	 * verifies place order confirmation pop up
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyPlaceOrderPopUp"() {
+    (new iosOrders.orderDetailsScreen()).verifyPlaceOrderPopUp()
+}
+
+ /**
+	 * confirms place order by clicking on place my order button
+	 */ 
+def static "iosOrders.orderDetailsScreen.confirmPlaceOrder"() {
+    (new iosOrders.orderDetailsScreen()).confirmPlaceOrder()
 }
 
  /**

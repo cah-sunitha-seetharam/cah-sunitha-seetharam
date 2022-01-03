@@ -90,6 +90,10 @@
             "productSearchByNDC3": "00069-0058-01",
         },
         
+        "TC_R_059": {
+            "productSearchByName": "mir",
+        },
+        
     },
     "PMODQa2": {
         "Carts": {
