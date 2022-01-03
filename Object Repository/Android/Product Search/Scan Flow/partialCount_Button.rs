@@ -3,7 +3,7 @@
    <description></description>
    <name>partialCount_Button</name>
    <tag></tag>
-   <elementGuidId>a73614d9-2756-4d12-9842-6605832e8a05</elementGuidId>
+   <elementGuidId>9b280fa2-bfef-4ee3-9ca3-0825cd0815bd</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvPartialCount</value>
+      <value>${GlobalVariable.appPackage}:id/tvPartialCount</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.view.ViewGroup[1]/android.widget.TextView[2]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Partial Count' or . = 'Partial Count') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/tvPartialCount']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/tvPartialCount</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

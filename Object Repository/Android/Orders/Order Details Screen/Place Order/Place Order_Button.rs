@@ -3,7 +3,7 @@
    <description></description>
    <name>Place Order_Button</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>54136a7f-5765-4cd5-bffd-562863958e19</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.widget.Button[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.Button' and (@text = 'Place Order' or . = 'Place Order') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/btnPlaceOrder']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>com.cardinalhealth.orderexpress.two.debug:id/btnPlaceOrder</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

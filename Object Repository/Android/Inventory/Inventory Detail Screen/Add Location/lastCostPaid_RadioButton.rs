@@ -3,7 +3,7 @@
    <description></description>
    <name>lastCostPaid_RadioButton</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>8dd07644-d1e5-42c1-bf5c-6648d8dcf5dc</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/rbLastPrice</value>
+      <value>${GlobalVariable.appPackage}:id/rbLastPrice</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.RadioGroup[1]/android.widget.RadioButton[2]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.RadioButton' and (@text = 'Last Cost Paid' or . = 'Last Cost Paid') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/rbLastPrice']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/rbLastPrice</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

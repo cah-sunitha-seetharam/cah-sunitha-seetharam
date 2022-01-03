@@ -3,7 +3,7 @@
    <description></description>
    <name>createNewLocation_Button</name>
    <tag></tag>
-   <elementGuidId>25687343-9fc6-4d61-a863-3d8e75d3b1ea</elementGuidId>
+   <elementGuidId>98bbfbd2-329b-46bd-bf5e-61094cfd55ff</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/btnCreateNewLocation</value>
+      <value>${GlobalVariable.appPackage}:id/btnCreateNewLocation</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.Button[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.Button' and (@text = 'Create New Location' or . = 'Create New Location') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/btnCreateNewLocation']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/btnCreateNewLocation</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

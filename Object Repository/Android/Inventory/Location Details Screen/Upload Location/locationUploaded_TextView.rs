@@ -3,7 +3,7 @@
    <description></description>
    <name>locationUploaded_TextView</name>
    <tag></tag>
-   <elementGuidId>493f316f-523e-4f93-82b2-c8c6d3790ea4</elementGuidId>
+   <elementGuidId>b1350833-83dd-4a4a-b274-abed2e6f4b68</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/dialogTitle</value>
+      <value>${GlobalVariable.appPackage}:id/dialogTitle</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Location Uploaded!' or . = 'Location Uploaded!') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/dialogTitle']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/dialogTitle</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

@@ -144,8 +144,6 @@ class locationDetailsScreen {
 	}
 
 
-
-
 	@Keyword
 	def delete_Product() {
 
@@ -246,7 +244,11 @@ class locationDetailsScreen {
 	@Keyword
 	def scanInputEvent(String productToBeSearched) {
 
+		Mobile.tap(findTestObject('Android/Product Search/Scan Flow/enterBarcode_TextField'), 0)
+
 		Mobile.setText(findTestObject('Object Repository/Android/Product Search/Scan Flow/enterBarcode_TextField'), productToBeSearched, 0)
+
+		WebUI.delay(1) // added 1 sec delay since there is no progress loader
 
 		Mobile.tap(findTestObject('Object Repository/Android/Product Search/Scan Flow/scan_Done_Button'), 0)
 	}
@@ -351,7 +353,11 @@ class locationDetailsScreen {
 		}
 		String formattedTotalCostOfAddedProduct=(new common.commonMethods()).formatDecimalData(totalCostOfAddedProduct,"0.00") //formatting the data to be rounded off to upper level and to two decimal places
 		float formattedTotalCostOfAddedProduct_FloatValue=(new common.commonMethods()).floatValueGenerator(formattedTotalCostOfAddedProduct)///converting formattedTotalCostOfAddedProduct string to a float value
-		assert inventoryTotal_charactersRemoved_FloatValue==(formattedTotalCostOfAddedProduct_FloatValue)
+
+		// assert inventoryTotal_charactersRemoved_FloatValue==(formattedTotalCostOfAddedProduct_FloatValue)
+		KeywordUtil.logInfo("expected is " + Math.round(inventoryTotal_charactersRemoved_FloatValue) );
+		KeywordUtil.logInfo("actual is " + Math.round(formattedTotalCostOfAddedProduct_FloatValue) );
+		assert Math.round(inventoryTotal_charactersRemoved_FloatValue) == Math.round(formattedTotalCostOfAddedProduct_FloatValue) // Changed to round value to avoid decimal difference on float conversion
 	}
 
 	/**
@@ -396,12 +402,150 @@ class locationDetailsScreen {
 			actualproductIdentificationNumber=Mobile.getText(findTestObject(testObj),0) //gets the ProductIdentificationNumber of the top added product in the location details page
 
 			assert actualproductIdentificationNumber==("NDC: "+topProductIdentificationNumber) // verifies actualproductIdentificationNumber equals the ProductIdentificationNumber of the topmost product in the products list
-			
+
 			KeywordUtil.logInfo("actualproductIdentificationNumber is " + actualproductIdentificationNumber );
 			KeywordUtil.logInfo("topProductIdentificationNumber is " + topProductIdentificationNumber );
-			
-			(new androidInventory.locationDetailsScreen()).deleteProduct(topProductIdentificationNumber)//calling delete product function and passing the topProductIdentificationNumber
-			
+
+			(new androidInventory.locationDetailsScreen()).deleteProduct("NDC: "+topProductIdentificationNumber)//calling delete product function and passing the topProductIdentificationNumber
+
 		}
 	}
+
+
+	/**
+	 * this function verifies that the product is not visible on the location details screen
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */
+	@Keyword
+	def verifyProductIsVisibleOnTheLocationDetailsScreen(productNdcNumber) {
+
+		String testObj='Android/Inventory/Location Details Screen/Delete Product/ndcNumber_Text'
+
+		(new androidCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
+	}
+
+
+	/**
+	 * this function taps on remove button and then product entry should get removed from the location as well as the scan result screen
+	 */
+	@Keyword
+	def clickOnRemoveButtonToRemoveAlreadyScannedProduct() {
+
+		Mobile.verifyElementExist(findTestObject('Android/Inventory/Location Details Screen/Add Product to_Location/thisItemHasBeenAddedToYourLocation_Text'),0)
+
+		String testObj='Remove'
+
+		Mobile.scrollToText(testObj, FailureHandling.STOP_ON_FAILURE)
+
+		Mobile.tap(findTestObject('Android/Product Search/removeItem_Button'), 0)
+	}
+
+	/**
+	 * this function verifies that the product is visible on the location details screen
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */
+	@Keyword
+	def verifyProductIsNotVisibleOnTheLocationDetailsScreen(productNdcNumber) {
+
+		String testObj='Android/Inventory/Location Details Screen/Delete Product/ndcNumber_Text'
+
+		(new androidCommonKeywords.commonMethods()).verifyProductIsNotVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsNotVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
+	}
+
+
+	/**
+	 * copies products from a location to another location
+	 * @param locationName (name of the location to which product will be copied)
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object	 */
+	@Keyword
+	def copyProductToAnotherLocation(String locationName, String productNdcNumber) {
+
+		String testObj='Android/Inventory/Location Details Screen/Verification Details/slidePopUp_Button'
+
+		int x_Coordinate=(new androidCommonKeywords.commonMethods()).tapXCoordinateGenerator(testObj)
+
+		testObj='Android/Inventory/Location Details Screen/Delete Product/ndcNumber_Text'
+
+		int y_Coordinate=(new androidCommonKeywords.commonMethods()).tapYCoordinateGenerator(testObj,productNdcNumber)
+
+		Mobile.tapAtPosition(x_Coordinate, y_Coordinate)
+
+		Mobile.tap(	findTestObject('Android/Inventory/Location Details Screen/Copy Product from Location/copy_Button'), 0)
+
+		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Copy Product from Location/copyToLocation_Text', [('Location') : locationName]), 0)
+
+
+		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Copy Product from Location/selectLocation'), 0)
+
+
+		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Copy Product from Location/copyProduct_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Inventory/Location Details Screen/Copy Product from Location/copyingProductConfirmation_Text',[('TEXT'):locationName]),0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Inventory/Location Details Screen/Verification Details/backToLocation_Button'),0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Inventory/Location Details Screen/Verification Details/productInfo_Text'),0)
+
+		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Copy Product from Location/goToLocationAfterCopyingProduct_Text', [('Location') : locationName]),0)
+	}
+
+	/**
+	 * this function gets the count type of the added product and verifies whether that is equal to the expected count type
+	 */
+	@Keyword
+	def verifyCountTypeOfProduct(String expectedCountType) {
+
+		String countType=Mobile.getText(findTestObject('Android/Inventory/Location Details Screen/Verification Details/addedProductCountType_Text'),0) //gets the countType of the added product in the location details page
+
+		assert (countType+" COUNT")==(expectedCountType.toUpperCase()) // verifies countType equals the countType of the product in the products list
+
+	}
+
+
+	/**
+	 * moves products from a location to another location
+	 * @param locationName (name of the location to which product will be moved)
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object	 */
+	@Keyword
+	def moveProductToAnotherLocation(String locationName, String productNdcNumber) {
+
+		KeywordUtil.logInfo("locationName is " + locationName );
+		KeywordUtil.logInfo("productNdcNumber is " + productNdcNumber );
+
+		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Verification Details/slidePopUp_Button'), 0)
+
+		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Copy Product from Location/move_Button'), 0)
+
+		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Move Product to Another Location/moveToLocation_Text', [('Location') : locationName]),0)
+
+		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Copy Product from Location/selectLocation'), 0)
+
+		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Move Product to Another Location/moveProduct_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Inventory/Location Details Screen/Move Product to Another Location/movingProductConfirmation_Text',[('TEXT'):locationName]),0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Inventory/Location Details Screen/Verification Details/backToLocation_Button'),0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Inventory/Location Details Screen/Verification Details/productInfo_Text'),0)
+
+		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Move Product To Another Location/goToLocationAfterMovingProduct_Text', [('Location') : locationName]),0)
+	}
+	
+	/**
+	 * this function verifies the lines count
+	 * @param expectedLinesCount (expected lines Count)
+	 */
+	@Keyword
+	def verifyLinesCount(String expectedLinesCount) {
+
+		String actualLinesCount=Mobile.getText(findTestObject('Android/Inventory/Location Details Screen/Verification Details/inventoryLine_Text'),0) //gets the actualLinesCount on the location details page
+
+		assert actualLinesCount==expectedLinesCount //actual lines count has to be equal to expected lines count
+	}
+	
+	
 }

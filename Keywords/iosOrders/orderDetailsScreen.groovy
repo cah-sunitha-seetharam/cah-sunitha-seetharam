@@ -105,6 +105,8 @@ class orderDetailsScreen {
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/addToOrder_Text'), 0)
 
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Create C2 Order/continueOrdering_Button'), 0)
+
+		Mobile.tap(findTestObject('iOS/Product Search/Continue_Button'), 0)
 	}
 
 

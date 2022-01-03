@@ -3,7 +3,7 @@
    <description></description>
    <name>createNewInventory_Tab</name>
    <tag></tag>
-   <elementGuidId>5f13ced8-df0a-4bfd-91ac-70922de55d8e</elementGuidId>
+   <elementGuidId>2556e9e3-e961-4f3d-b2c9-0e687a419363</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
@@ -38,7 +38,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvCreateNewInventory</value>
+      <value>${GlobalVariable.appPackage}:id/tvCreateNewInventory</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -166,6 +166,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[1]/android.widget.TextView[3]</value>
    </webElementProperties>
-   <locator>//*[(@text = 'Create New Inventory' or . = 'Create New Inventory')]</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/tvCreateNewInventory</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

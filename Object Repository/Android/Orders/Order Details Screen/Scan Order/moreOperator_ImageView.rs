@@ -3,7 +3,7 @@
    <description></description>
    <name>moreOperator_ImageView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>1f01a187-3769-4694-a6b9-1ace6bb699ad</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -25,7 +25,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/plusButton</value>
+      <value>${GlobalVariable.appPackage}:id/plusButton</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -167,6 +167,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.ImageView[4]</value>
    </webElementProperties>
-   <locator>com.cardinalhealth.orderexpress.two.debug:id/plusButton</locator>
+   <locator>${GlobalVariable.appPackage}:id/plusButton</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

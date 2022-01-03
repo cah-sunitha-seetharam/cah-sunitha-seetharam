@@ -199,14 +199,14 @@ class inventoryDetailsScreen {
 
 		float finalInventoryTotal_charactersRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(finalInventoryTotal)///converting finalInventoryTotal string to a float value
 
-	/*	KeywordUtil.logInfo("initialInventoryTotal is " + initialInventoryTotal );
-		KeywordUtil.logInfo("locationValue is " + locationValue );
-		KeywordUtil.logInfo("inventoryTotal_dollarSymbolRemoved_FloatValue is " + inventoryTotal_dollarSymbolRemoved_FloatValue );
-		KeywordUtil.logInfo("locationValue_dollarSymbolRemoved_FloatValue is " + locationValue_dollarSymbolRemoved_FloatValue );
-		KeywordUtil.logInfo("finalInventoryLocationCount is " + finalInventoryLocationCount );
-		KeywordUtil.logInfo("finalInventoryTotal is " + finalInventoryTotal );
-		KeywordUtil.logInfo("finalInventoryTotal_charactersRemoved_FloatValue is " + finalInventoryTotal_charactersRemoved_FloatValue );
-	*/
+		/*	KeywordUtil.logInfo("initialInventoryTotal is " + initialInventoryTotal );
+		 KeywordUtil.logInfo("locationValue is " + locationValue );
+		 KeywordUtil.logInfo("inventoryTotal_dollarSymbolRemoved_FloatValue is " + inventoryTotal_dollarSymbolRemoved_FloatValue );
+		 KeywordUtil.logInfo("locationValue_dollarSymbolRemoved_FloatValue is " + locationValue_dollarSymbolRemoved_FloatValue );
+		 KeywordUtil.logInfo("finalInventoryLocationCount is " + finalInventoryLocationCount );
+		 KeywordUtil.logInfo("finalInventoryTotal is " + finalInventoryTotal );
+		 KeywordUtil.logInfo("finalInventoryTotal_charactersRemoved_FloatValue is " + finalInventoryTotal_charactersRemoved_FloatValue );
+		 */
 
 		assert inventoryTotal_dollarSymbolRemoved_FloatValue==(finalInventoryTotal_charactersRemoved_FloatValue+locationValue_dollarSymbolRemoved_FloatValue)
 
@@ -243,5 +243,90 @@ class inventoryDetailsScreen {
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.verifyElementNotVisible(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/locationNameVerification_Text', [('LName') : locationName]),0)
+	}
+
+
+	/**
+	 * searches and adds the product from the inventory details screen by creating a new location
+	 * @param locationName (name of the location to be created)
+	 * @param productName (name of the product to be added)
+	 * @param countType (count type required which can be partial or full count)
+	 * @param quantity (quantity of the product required to be added)
+	 * @param costType (cost type required which can be current or last price paid)
+	 */
+	@Keyword
+	def clickOnScanIconAndAddProductByCreatingNewLocationViaInventoryDetailsScreen(String locationName, String productName,String countType, String quantity, String costType) {
+
+		Mobile.tap(findTestObject('Android/Product Search/Scan Flow/scan_Icon'), 0)
+
+		commonMethodsObject.waitForProgressBarToBeInvisible()
+
+		'calling the function which selects the countType required for a product which is searched and takes countType as the argument'
+		(new androidInventory.locationDetailsScreen()).selectCountTypeForTheProductToBeAdded(countType)
+
+		'calling the function which scans the product and adds it to the location, it takes productName/UPC/Cin/Ndc as the argument'
+		(new androidInventory.locationDetailsScreen()).scanInputEvent(productName)
+
+		'calling the function which adds quantity required for a product to be added and takes quantity required as the argument'
+		(new androidInventory.locationDetailsScreen()).addQuantityforTheSearchedProduct(quantity)
+
+		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Product to Inventory using Search from Inventory Details Screen/addItemFromAlternate_Button'), 0)
+
+		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Product to Inventory using Search from Inventory Details Screen/createLocation_Label'), 0)
+
+		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Product to Inventory using Search from Inventory Details Screen/locationName_Button'), 0)
+
+		Mobile.setText(findTestObject('Android/Inventory/Inventory Detail Screen/Add Product to Inventory using Search from Inventory Details Screen/locationName_TextField'), locationName, 0)
+
+		(new androidInventory.inventoryDetailsScreen()).addCostType(costType)
+
+		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Product to Inventory using Search from Inventory Details Screen/createNewLocation_Button'), 0)
+
+		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Product to Inventory using Search from Inventory Details Screen/createdLocation_Text',[('TEXT'):locationName]), 0)
+
+		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Product to Inventory using Search from Inventory Details Screen/location_RadioButton'), 0)
+
+		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Product to Inventory using Search from Inventory Details Screen/addToInventory_Button'), 0)
+
+		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Product to Inventory using Search from Inventory Details Screen/goToLocation_button'), 0)
+	}
+
+
+	/**
+	 * this function verifies that the product is visible on the screen after it is searched from inventory details screen
+	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
+	 */
+	@Keyword
+	def verifyProductIsVisibleOnScreenWhenSearchedFromInventoryDetailsScreen(productIdentificationNumber) {
+
+		String testObj='Android/Inventory/Inventory Detail Screen/Add Product to Inventory using Search from Inventory Details Screen/alternateNDC_Text'
+
+		(new androidCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(testObj,productIdentificationNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
+
+	}
+
+	/**
+	 * opens the particular location details
+	 * @param locationName (name of the location)
+	 */
+	@Keyword
+	def clickOnALocation(String locationName) {
+
+		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/tapOnLocation_Text', [('Location') : locationName]), 0)
+
+		commonMethodsObject.waitForProgressBarToBeInvisible()
+	}
+	
+	/**
+	 * this function verifies the location count
+	 * @param expectedLocationCount (expected location Count)
+	 */
+	@Keyword
+	def verifyLocationCount(String expectedLocationCount) {
+
+		String actualLocationCount=Mobile.getText(findTestObject('Android/Inventory/Location Details Screen/Verification Details/inventoryLine_Text'),0) //gets the actual Location Count on the inventory details page
+
+		assert actualLocationCount==expectedLocationCount //actual location count has to be equal to expected lines count
+
 	}
 }
