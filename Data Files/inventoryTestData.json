@@ -303,7 +303,12 @@
             "TC_R_034": {
             "productSearchByNDC1": "00574-7116-12",
             "productSearchByNDC2": "49884-0111-74",
-            }
+            },
+
+            "TC_R_046": {
+            "productSearchByUPC": "305747-116121",
+            "productSearchByNDC": "00574-7116-12",
+        	}
         
     },
 }
