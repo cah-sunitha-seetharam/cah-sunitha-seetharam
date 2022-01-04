@@ -4,7 +4,7 @@ import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-
+import com.sun.net.httpserver.Authenticator.Failure
 import com.kms.katalon.core.annotation.Keyword
 import com.kms.katalon.core.checkpoint.Checkpoint
 import com.kms.katalon.core.checkpoint.CheckpointFactory
@@ -20,11 +20,12 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords
 
 import internal.GlobalVariable
+import io.appium.java_client.AppiumDriver
 import io.appium.java_client.MobileElement
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.By
-
+import org.openqa.selenium.TakesScreenshot
 import com.kms.katalon.core.mobile.keyword.internal.MobileDriverFactory
 import com.kms.katalon.core.webui.driver.DriverFactory
 
@@ -41,13 +42,20 @@ import com.kms.katalon.core.webui.exception.WebElementNotFoundException
 import com.kms.katalon.core.configuration.RunConfiguration
 
 import groovy.json.JsonOutput as JsonOutput
-import groovy.json.JsonSlurper as JsonSlurper
+import groovy.json.JsonSlurper
+import java.awt.image.BufferedImage
 import java.io.File
 import java.math.RoundingMode
 import java.text.DecimalFormat
-
+import common.commonMethods
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 class receivingReusableMethods {
+
+
+	def androidCommonKeywordsObject=new androidCommonKeywords.commonMethods()
+
 
 	/**
 	 * clicks on continue button after selection of shipments or invoice by user
@@ -190,7 +198,7 @@ class receivingReusableMethods {
 
 		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/ndc_TextView',[('TEXT'):productNdcNumber]), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/receiving_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/receivedTag_TextView'), 0)
 
 		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/issue_TextView'), 0)
 
@@ -335,6 +343,8 @@ class receivingReusableMethods {
 
 		Mobile.verifyElementExist(findTestObject('Android/Receiving/totesReceived_TextView'), 0)
 
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/collapseView_Image'), 0)
+
 		Mobile.verifyElementExist(findTestObject('Android/Receiving/deliveredDate_TextView'), 0)
 
 		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/toteID_TextView'), 0)
@@ -390,7 +400,9 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyReceivedProductCount(expectedReceivedProductCount) {
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/productReceivedCount_TextView',[('TEXT'):expectedReceivedProductCount]), 0)
+		String actualProductCountString = Mobile.getText(findTestObject('Android/Receiving/productReceivedCount_TextView'), 0)
+
+		expectedReceivedProductCount= actualProductCountString[0]
 	}
 
 
@@ -446,4 +458,90 @@ class receivingReusableMethods {
 
 		Mobile.verifyElementNotVisible(findTestObject('Android/Receiving/invoice_Tile',[('TEXT'):invoiceNumber]), 0)
 	}
+
+
+	/**
+	 * expands the view to see detailed view of_tote
+	 */
+	@Keyword
+	def expandToSeeDetailedViewOfTotes() {
+
+		Mobile.tap(findTestObject('Object Repository/Android/Receiving/expandView_Image'), 0)
+	}
+
+
+
+	/**
+	 * collapses the detailed view of_tote
+	 */
+	@Keyword
+	def collpaseViewOfTotes() {
+
+		Mobile.tap(findTestObject('Object Repository/Android/Receiving/collapseView_Image'), 0)
+	}
+
+
+
+	/**
+	 * test colour method
+	 */
+	@Keyword
+	def colorTestFunction() {
+		AppiumDriver<?> driver =  commonMethods.getCurrentSessionMobileDriver() // mobile driver value of the current session
+		MobileElement elem = (MobileElement) driver.findElement(By.id('com.cardinalhealth.orderexpress.two.debug:id/bigLayout'));
+
+		org.openqa.selenium.Point point = elem.getCenter();
+		int centerx = point.getX();
+		int centerY = point.getY();
+
+		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(var1)
+
+		BufferedImage image = ImageIO.read(scrFile);
+		// Getting pixel color by position x and y
+		int clr=  image.getRGB(centerx,centerY);
+		int  red   = (clr & 0x00ff0000) >> 16;
+		int  green = (clr & 0x0000ff00) >> 8;
+		int  blue  =  clr & 0x000000ff;
+		KeywordUtil.logInfo("Red Color value = "+ red);
+		KeywordUtil.logInfo("Green Color value = "+ green);
+		KeywordUtil.logInfo("Blue Color value = "+ blue);
+	}
+
+
+
+	/**
+	 * takes received product count as the argument and enters count in the text-field
+	 * @param receivedProductCount (received product count)
+	 */
+	@Keyword
+	def editReceivedProductCount(int receivedProductCount) {
+		
+		Mobile.setText(findTestObject('Object Repository/Android/Receiving/receivedCount_TextField'), receivedProductCount.toString(),0)
+	}
+
+
+
+	/**
+	 * returns max upper value without over-age product count
+	 * @return maxCount (max upper value without over-age product count)
+	 */
+	@Keyword
+	def returnUpperLimitReceivingProductCount() {
+
+		String maxCount=Mobile.getText(findTestObject('Android/Receiving/productReceivedCount_TextView'),0)
+
+		return androidCommonKeywordsObject.removeCharctersInString(maxCount)
+	}
+
+
+	/**
+	 * verifies over-age tag is visible after inputting receiving count which is more than the max upper limit
+	 */
+	@Keyword
+	def verifyOverAgeTag() {
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/overageTag_TextView'), 0)
+	}
+
+
 }

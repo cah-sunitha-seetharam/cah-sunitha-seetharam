@@ -16,6 +16,7 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
+import com.kms.katalon.core.util.KeywordUtil
 
 'installs and launches the application'
 CustomKeywords.'androidCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
@@ -35,6 +36,9 @@ CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnReceivingTab'()
 'verifies the receiving screen pop-up which comes after user goes to receiving tab details'
 CustomKeywords.'androidReceiving.receivingReusableMethods.verifyReceivingScreenPopUp'()
 
+'allows over-ages in receiving'
+CustomKeywords.'androidReceiving.receivingReusableMethods.selectAllowOverages'()
+
 'this function will select invoices on the receiving screen'
 CustomKeywords.'androidReceiving.receivingReusableMethods.selectInvoices'()
 
@@ -43,6 +47,9 @@ CustomKeywords.'androidReceiving.receivingReusableMethods.clickOnContinue'()
 
 'this function verifies the receiving screen details'
 CustomKeywords.'androidReceiving.receivingReusableMethods.verifyReceivingScreen'()
+
+'verifies that over-ages are allowed'
+CustomKeywords.'androidReceiving.receivingReusableMethods.verifyAllowedOverages'()
 
 'takes user to today from previous day screen'
 CustomKeywords.'androidReceiving.receivingReusableMethods.switchToPreviousDay'()
@@ -59,26 +66,25 @@ CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisi
 'verifies the invoices detail and takes invoice number as the argument'
 CustomKeywords.'androidReceiving.receivingReusableMethods.verifyInvoicesDetails'(invoiceNumber)
 
-'takes expected received product count as the argument and verifies that it should be same as the actual count visible'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyReceivedProductCount'(expectedReceivedProductCount_1)
+'returns max upper value without over-age product count'
+String maxUpperLimitWithoutOverage = CustomKeywords.'androidReceiving.receivingReusableMethods.returnUpperLimitReceivingProductCount'()
 
-'clicks on receive all totes button'
-CustomKeywords.'androidReceiving.receivingReusableMethods.clickOnReceiveAllTotes'()
+KeywordUtil.logInfo(maxUpperLimitWithoutOverage)
 
-'takes expected received product count as the argument and verifies that it should be same as the actual count visible'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyReceivedProductCount'(expectedReceivedProductCount_2)
+'takes received product count as the argument and enters count in the text-field'
+CustomKeywords.'androidReceiving.receivingReusableMethods.editReceivedProductCount'(++(maxUpperLimitWithoutOverage.toInteger()))
 
-'uploads completed totes'
-CustomKeywords.'androidReceiving.receivingReusableMethods.uploadCompletedTotes'()
+'verifies over-age tag is visible after inputting receiving count which is more than the max upper limit'
+CustomKeywords.'androidReceiving.receivingReusableMethods.verifyOverAgeTag'()
 
-'verifies the pop up after uploading totes'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyUploadTotesPopUp'()
+'takes received product count as the argument and enters count in the text-field'
+CustomKeywords.'androidReceiving.receivingReusableMethods.editReceivedProductCount'(receivingCount)
 
-'takes user back to receiving after uploading totes'
-CustomKeywords.'androidReceiving.receivingReusableMethods.clickOnBackToReceiving'()
+'Simulate pressing back button on a mobile device'
+Mobile.pressBack()
 
-'verifies the invoice is not visible on the screen'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyInvoiceIsNotVisible'(invoiceNumber)
+'Simulate pressing back button on a mobile device'
+Mobile.pressBack()
 
 'this function will select shipments on the receiving screen'
 CustomKeywords.'androidReceiving.receivingReusableMethods.selectShipments'()
@@ -92,11 +98,28 @@ CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisi
 'verifies shipment details'
 CustomKeywords.'androidReceiving.receivingReusableMethods.verifyShipmentDetails'(shipmentNumber)
 
-'takes expected received product count as the argument and verifies that it should be same as the actual count visible'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyReceivedProductCount'(expectedReceivedProductCount_1)
+'returns max upper value without over-age product count'
+maxUpperLimitWithoutOverage = CustomKeywords.'androidReceiving.receivingReusableMethods.returnUpperLimitReceivingProductCount'()
+
+KeywordUtil.logInfo(maxUpperLimitWithoutOverage)
+
+'takes received product count as the argument and enters count in the text-field'
+CustomKeywords.'androidReceiving.receivingReusableMethods.editReceivedProductCount'(++(maxUpperLimitWithoutOverage.toInteger()))
+
+'verifies over-age tag is visible after inputting receiving count which is more than the max upper limit'
+CustomKeywords.'androidReceiving.receivingReusableMethods.verifyOverAgeTag'()
+
+'takes received product count as the argument and enters count in the text-field'
+CustomKeywords.'androidReceiving.receivingReusableMethods.editReceivedProductCount'(receivingCount)
+
+'clicks on receive all totes button'
+CustomKeywords.'androidReceiving.receivingReusableMethods.colorTestFunction'()
 
 'clicks on receive all totes button'
 CustomKeywords.'androidReceiving.receivingReusableMethods.clickOnReceiveAllTotes'()
+
+'clicks on receive all totes button'
+CustomKeywords.'androidReceiving.receivingReusableMethods.colorTestFunction'()
 
 'expands the view to see detailed view of_tote'
 CustomKeywords.'androidReceiving.receivingReusableMethods.expandToSeeDetailedViewOfTotes'()
