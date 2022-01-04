@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>&quot;Verify New Order created  while adding a Alternate Product from Product details page when there is no existing order from Home/Cart screen
+
+Prerequisite:
+1. Valid login credentials with multiple accounts available for the user&quot;</description>
+   <name>TC_R_059_verifyNewOrderCreatedWhileAddingAAlternateProductFromProductDetailsPageWhenThereIsNoExistingOrderFromHomeCartScreen</name>
+   <tag>Order;Regression;Scan</tag>
+   <comment></comment>
+   <testCaseGuid>803b30de-079e-458b-a09f-170649b8df33</testCaseGuid>
+   <variable>
+      <defaultValue>'2'</defaultValue>
+      <description></description>
+      <id>a93e96eb-e8c1-4392-a41a-4f57e27eefc3</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+</TestCaseEntity>
