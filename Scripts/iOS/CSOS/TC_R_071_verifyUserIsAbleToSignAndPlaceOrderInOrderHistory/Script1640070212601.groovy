@@ -3,6 +3,7 @@ import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 import static com.kms.katalon.core.testobject.ObjectRepository.findWindowsObject
+
 import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
 import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
@@ -14,6 +15,7 @@ import com.kms.katalon.core.testobject.TestObject as TestObject
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
+
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
@@ -48,10 +50,10 @@ CustomKeywords.'iosOrders.newOrderScreen.createOrder'()
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'reading the module test data file'
-def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inventoryTestData.json')
+def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('csosData.json')
 
-'reading the product name of product to be added (nonC2 product)'
-String productSearch = requestObject[GlobalVariable.Environment].TC_JT_CSOS_001.productSearchCin
+'reading the product name of product to be added (C2 product)'
+String productSearch = requestObject[GlobalVariable.Environment].TC_R_071.productSearchCin
 
 'adds product to the order by taking product and quanity as the argument'
 CustomKeywords.'iosOrders.orderDetailsScreen.addProductToOrder'(productSearch, quantity)
@@ -64,9 +66,6 @@ CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
-
-'gets the c2 order count'
-c2OrderCount = Mobile.getText(findTestObject('iOS/Orders/Cart Screen/c2OrdersCount_Label'), 0)
 
 'opens the c2 orders tab'
 CustomKeywords.'iosOrders.cartScreen.clickOnC2Orders'()
@@ -83,36 +82,35 @@ CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'
 'clicks on place order'
 CustomKeywords.'iosOrders.orderDetailsScreen.placeOrder'()
 
-WebUI.delay(20)
+WebUI.delay(15)
 
 'clicks on c2 order availability and waits for the response while verifying the availability details for the c2 product\n'
 CustomKeywords.'iosOrders.orderDetailsScreen.checkC2OrderAvailability'()
 
 'takes user back to cart'
-CustomKeywords.'iosOrders.orderDetailsScreen.clickOnBackToCart'()
-
-'takes user to history screen'
-CustomKeywords.'iosOrders.ordersCommonScreen.clickOnHistoryTab'()
-
-WebUI.delay(20)
+CustomKeywords.'iosOrders.orderDetailsScreen.clickOnReviewAndSignButton'()
 
 'gets the initials historyCount before review and sign of c2 order and stores value in variable initialCount'
-initialCount = Mobile.getText(findTestObject('iOS/Orders/History Screen/orderHistoryCount_Text'), 0)
-
-'verifies same order which was placed is available in order history'
-Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Create C2 Order/pONumber_Label',[('TEXT'):poNumber.toUpperCase()]), 0)
-
-//'opens the order'
-//Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Create C2 Order/pONumber_Label',[('TEXT'):poNumber.toUpperCase()]), 0)
+int initialCount = Mobile.getText(findTestObject('iOS/Orders/History Screen/orderHistoryCount_Text'), 0).toInteger()
 
 'reviews and signs the c2 order by taking signingPassword as the argument'
-CustomKeywords.'iosOrders.historyScreen.clickOnC2OrderForReviewAndSign'(poNumber,signingPassword)
+CustomKeywords.'iosOrders.historyScreen.completeReviewSignAndPlaceAnOrderFlow'(poNumber,signingPassword)
 
-'performs a vertical swipe to refresh the screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.verticalSwipeForRefresh'()
+'waits for 30 secs for the order status to be updated'
+WebUI.delay(30)
 
-+'gets the final historyCount after review and sign of c2 order which should be one less than the initial count and stores value in the variable finalCount'
-finalCount = Mobile.getText(findTestObject('iOS/Orders/History Screen/orderHistoryCount_Text'), 0)
+//'performs a vertical swipe to refresh the screen - does not work'
+//CustomKeywords.'iosCommonKeywords.commonMethods.verticalSwipeForRefresh'()
+
+'clicks on history to refresh history tab - work around if vertical swipe does not work'
+CustomKeywords.'iosOrders.historyScreen.clickOnHistoryTab'()
+
+'gets the final historyCount after review and sign of c2 order which should be one less than the initial count and stores value in the variable finalCount'
+int finalCount = Mobile.getText(findTestObject('iOS/Orders/History Screen/orderHistoryCount_Text'), 0).toInteger()
 
 'asserts that the final historyCount should be one less than the initial historyCount after signing the password for c2order'
 assert finalCount == (initialCount - 1)
+
+'verifies order status after signature is successfully processed'
+CustomKeywords.'iosOrders.historyScreen.verifyOrderStatusInOrderHistoryList'(poNumber)
+

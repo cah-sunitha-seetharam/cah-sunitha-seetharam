@@ -22,6 +22,8 @@ import internal.GlobalVariable
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.By
+import org.openqa.selenium.Keys as Keys
+import java.awt.Robot as Robot
 
 import com.kms.katalon.core.mobile.keyword.internal.MobileDriverFactory
 import com.kms.katalon.core.webui.driver.DriverFactory
@@ -106,7 +108,7 @@ class orderDetailsScreen {
 
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Create C2 Order/continueOrdering_Button'), 0)
 
-		Mobile.tap(findTestObject('iOS/Product Search/Continue_Button'), 0)
+		//Mobile.tap(findTestObject('iOS/Product Search/Continue_Button'), 0)
 	}
 
 
@@ -137,12 +139,14 @@ class orderDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/oneMoment_Text'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/weNeedJustAMinuteToEnsureThatWeHaveEverythingInStock_Texr'),0)
-		
+
 		WebUI.delay(15)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/yourC2OrderIsReadyToSign_Text'),0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/pleaseReviewAndSignYourOrder_Text'),0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/reviewAndSign_Button'),0)
 	}
 
 
@@ -269,6 +273,8 @@ class orderDetailsScreen {
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Place Order/placeOrder_Button'), 0)
 
 		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Place All Orders/placeMyOrder(s)_Text'), 0)
+
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 	}
 
 
@@ -568,6 +574,7 @@ class orderDetailsScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Product Search/Scan Flow/productDescription_Label'), 0)
 	}
+	
 
 	/**
 	 * this function returns the order name of the order/ title of the screen when user is on order details screen
@@ -580,6 +587,7 @@ class orderDetailsScreen {
 
 		return orderName
 	}
+	
 
 	/**
 	 * taps on continue ordering button on order details screen after user has added a product to order
@@ -592,4 +600,64 @@ class orderDetailsScreen {
 
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Create C2 Order/continueOrdering_Button'), 0)
 	}
+	
+
+	/**
+	 * takes user back to history screen and verifies user is on the history screen or not
+	 */
+	@Keyword
+	def clickOnReviewAndSignButton() {
+
+		Mobile.tap(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/reviewAndSign_Button'), 0)
+
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/History Screen/orderHistory_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/History Screen/historyScreen_Header'),  0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/History Screen/scan_Icon'),0)
+	}
+	
+	
+	/**
+	 * try removing all characters in UTN field
+	 */
+	@Keyword
+	def removeCharactersInUTNField() {
+		
+		Mobile.clearText(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/uniqueTrackingNumber_TextField'), 0)
+			
+		Mobile.delay(1)
+		
+		Mobile.sendKeys(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/uniqueTrackingNumber_TextField'), Keys.chord(Keys.RETURN))
+		
+	}
+	
+	/**
+	 * fetch UTN number and store it in a string
+	 */
+	@Keyword
+	def getUTNFromUTNTextField() {
+		
+		String beforeUTN = Mobile.getText(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/uniqueTrackingNumber_TextField'), 0)
+		
+		return beforeUTN;
+		
+	}
+	
+	
+	/**
+	 * verifies only last 6 digit got deleted, first 3 characters could not be removed & validation error displayed after removing characters
+	 */
+	@Keyword
+	def verifyValidationErrorAfterRemovingCharactesInUTNField() {
+		
+		String actualErrorMsg = Mobile.getText(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/uniqueTrackingNumberError_Label_2'), 0)
+		
+		String expectedErrorMsg = 'Please provide a Unique Tracking Number in the following format: AANNNN (two alphabetic characters followed by four numeric digits).'
+		
+		assert expectedErrorMsg.equalsIgnoreCase(actualErrorMsg)
+	}
+	
 }

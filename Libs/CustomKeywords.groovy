@@ -698,6 +698,34 @@ def static "iosOrders.orderDetailsScreen.clickOnContinueOrdering"() {
 }
 
  /**
+	 * takes user back to history screen and verifies user is on the history screen or not
+	 */ 
+def static "iosOrders.orderDetailsScreen.clickOnReviewAndSignButton"() {
+    (new iosOrders.orderDetailsScreen()).clickOnReviewAndSignButton()
+}
+
+ /**
+	 * try removing all characters in UTN field
+	 */ 
+def static "iosOrders.orderDetailsScreen.removeCharactersInUTNField"() {
+    (new iosOrders.orderDetailsScreen()).removeCharactersInUTNField()
+}
+
+ /**
+	 * fetch UTN number and store it in a string
+	 */ 
+def static "iosOrders.orderDetailsScreen.getUTNFromUTNTextField"() {
+    (new iosOrders.orderDetailsScreen()).getUTNFromUTNTextField()
+}
+
+ /**
+	 * verifies only last 6 digit got deleted, first 3 characters could not be removed & validation error displayed after removing characters
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyValidationErrorAfterRemovingCharactesInUTNField"() {
+    (new iosOrders.orderDetailsScreen()).verifyValidationErrorAfterRemovingCharactesInUTNField()
+}
+
+ /**
 	 * enable EO mode by long pressing the account text/icon displayed on screen and then closes the opened fly-out
 	 */ 
 def static "androidCommonKeywords.emergencyOrderingMode.enableEOmodeAndCloseFlyout"() {
@@ -2604,20 +2632,36 @@ def static "iosMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS"() {
 }
 
 
-def static "iosOrders.historyScreen.verify_History_Screen_Details"() {
-    (new iosOrders.historyScreen()).verify_History_Screen_Details()
+def static "iosOrders.historyScreen.verifyHistoryScreenDetails"() {
+    (new iosOrders.historyScreen()).verifyHistoryScreenDetails()
 }
 
  /**
 	 * opens the c2 order details, verifies the order status labels and signIns the password required for placing c2 order
 	 * @param password (password-which is required for placing the c2 order)
 	 */ 
-def static "iosOrders.historyScreen.clickOnC2OrderForReviewAndSign"(
+def static "iosOrders.historyScreen.completeReviewSignAndPlaceAnOrderFlow"(
     	String poNumber	
      , 	String signingPassword	) {
-    (new iosOrders.historyScreen()).clickOnC2OrderForReviewAndSign(
+    (new iosOrders.historyScreen()).completeReviewSignAndPlaceAnOrderFlow(
         	poNumber
          , 	signingPassword)
+}
+
+ /**
+	 * clicks on history tab button to open history tab in order history screen
+	 */ 
+def static "iosOrders.historyScreen.clickOnHistoryTab"() {
+    (new iosOrders.historyScreen()).clickOnHistoryTab()
+}
+
+ /**
+	 * verifies order status changes from held to allocated 30 seconds after successfully placing the signed order
+	 */ 
+def static "iosOrders.historyScreen.verifyOrderStatusInOrderHistoryList"(
+    	String poNumber	) {
+    (new iosOrders.historyScreen()).verifyOrderStatusInOrderHistoryList(
+        	poNumber)
 }
 
  /**
@@ -3205,19 +3249,19 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
+}
+
+
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
     	TestObject testObject	
      , 	String testName	) {
     (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
         	testObject
          , 	testName)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
 }
 
 

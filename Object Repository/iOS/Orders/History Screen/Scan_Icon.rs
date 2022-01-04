@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MobileElementEntity>
    <description></description>
-   <name>Scan_Icon</name>
+   <name>scan_Icon</name>
    <tag></tag>
    <elementGuidId>e5d690b3-3fe2-4706-bd40-106f23a166a3</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
