@@ -9,11 +9,11 @@ import java.util.Stack
 
 import java.lang.Float
 
-import com.kms.katalon.core.testobject.TestObject
-
 import com.applitools.eyes.selenium.Eyes
 
 import org.openqa.selenium.WebElement
+
+import com.kms.katalon.core.testobject.TestObject
 
 import com.applitools.eyes.RectangleSize
 
@@ -687,6 +687,42 @@ def static "iosOrders.orderDetailsScreen.verifyScanResultScreenWithProduct"() {
 	 */ 
 def static "iosOrders.orderDetailsScreen.returnOrderNameFromOrderDetailScreen"() {
     (new iosOrders.orderDetailsScreen()).returnOrderNameFromOrderDetailScreen()
+}
+
+ /**
+	 * taps on continue ordering button on order details screen after user has added a product to order
+	 * and takes user to scan result screen
+	 */ 
+def static "iosOrders.orderDetailsScreen.clickOnContinueOrdering"() {
+    (new iosOrders.orderDetailsScreen()).clickOnContinueOrdering()
+}
+
+ /**
+	 * takes user back to history screen and verifies user is on the history screen or not
+	 */ 
+def static "iosOrders.orderDetailsScreen.clickOnReviewAndSignButton"() {
+    (new iosOrders.orderDetailsScreen()).clickOnReviewAndSignButton()
+}
+
+ /**
+	 * try removing all characters in UTN field
+	 */ 
+def static "iosOrders.orderDetailsScreen.removeCharactersInUTNField"() {
+    (new iosOrders.orderDetailsScreen()).removeCharactersInUTNField()
+}
+
+ /**
+	 * fetch UTN number and store it in a string
+	 */ 
+def static "iosOrders.orderDetailsScreen.getUTNFromUTNTextField"() {
+    (new iosOrders.orderDetailsScreen()).getUTNFromUTNTextField()
+}
+
+ /**
+	 * verifies only last 6 digit got deleted, first 3 characters could not be removed & validation error displayed after removing characters
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyValidationErrorAfterRemovingCharactesInUTNField"() {
+    (new iosOrders.orderDetailsScreen()).verifyValidationErrorAfterRemovingCharactesInUTNField()
 }
 
  /**
@@ -2188,31 +2224,31 @@ def static "androidOrders.historyScreen.verify_History_Screen_Details"() {
 	 * switches the account of user to another account
 	 * @param accountNo (accountNo which needs to be selected will be passed as a parameter)
 	 */ 
-def static "android_more_options.moreOptionsScreen.changeAccount"(
+def static "androidMoreOptions.moreOptionsScreen.changeAccount"(
     	Object accountNo	) {
-    (new android_more_options.moreOptionsScreen()).changeAccount(
+    (new androidMoreOptions.moreOptionsScreen()).changeAccount(
         	accountNo)
 }
 
  /**
 	 * enables beta csos feature
 	 */ 
-def static "android_more_options.moreOptionsScreen.enableBetaFeatureCSOS"() {
-    (new android_more_options.moreOptionsScreen()).enableBetaFeatureCSOS()
+def static "androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS"() {
+    (new androidMoreOptions.moreOptionsScreen()).enableBetaFeatureCSOS()
 }
 
  /**
 	 * takes the user from the the moreOptions Screen to inventory listing screen
 	 */ 
-def static "android_more_options.moreOptionsScreen.goToInventoryListingScreen"() {
-    (new android_more_options.moreOptionsScreen()).goToInventoryListingScreen()
+def static "androidMoreOptions.moreOptionsScreen.goToInventoryListingScreen"() {
+    (new androidMoreOptions.moreOptionsScreen()).goToInventoryListingScreen()
 }
 
  /**
 	 * clicks on moreOptions tab, signsOut the user and takes user to the logInScreen
 	 */ 
-def static "android_more_options.moreOptionsScreen.signOut"() {
-    (new android_more_options.moreOptionsScreen()).signOut()
+def static "androidMoreOptions.moreOptionsScreen.signOut"() {
+    (new androidMoreOptions.moreOptionsScreen()).signOut()
 }
 
  /**
@@ -2523,8 +2559,8 @@ def static "iosOrders.newOrderScreen.createOrder"() {
 }
 
 
-def static "iosOrders.newOrderScreen.verify_NewOrder_Screen_Details"() {
-    (new iosOrders.newOrderScreen()).verify_NewOrder_Screen_Details()
+def static "iosOrders.newOrderScreen.verifyNewOrderScreenDetails"() {
+    (new iosOrders.newOrderScreen()).verifyNewOrderScreenDetails()
 }
 
  /**
@@ -2588,19 +2624,44 @@ def static "iosMoreOptions.moreOptionsScreen.signOut"() {
     (new iosMoreOptions.moreOptionsScreen()).signOut()
 }
 
+ /**
+	 * enables beta csos feature toggle from more options
+	 */ 
+def static "iosMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS"() {
+    (new iosMoreOptions.moreOptionsScreen()).enableBetaFeatureCSOS()
+}
 
-def static "iosOrders.historyScreen.verify_History_Screen_Details"() {
-    (new iosOrders.historyScreen()).verify_History_Screen_Details()
+
+def static "iosOrders.historyScreen.verifyHistoryScreenDetails"() {
+    (new iosOrders.historyScreen()).verifyHistoryScreenDetails()
 }
 
  /**
 	 * opens the c2 order details, verifies the order status labels and signIns the password required for placing c2 order
 	 * @param password (password-which is required for placing the c2 order)
 	 */ 
-def static "iosOrders.historyScreen.clickOnC2OrderForReviewAndSign"(
-    	String signingPassword	) {
-    (new iosOrders.historyScreen()).clickOnC2OrderForReviewAndSign(
-        	signingPassword)
+def static "iosOrders.historyScreen.completeReviewSignAndPlaceAnOrderFlow"(
+    	String poNumber	
+     , 	String signingPassword	) {
+    (new iosOrders.historyScreen()).completeReviewSignAndPlaceAnOrderFlow(
+        	poNumber
+         , 	signingPassword)
+}
+
+ /**
+	 * clicks on history tab button to open history tab in order history screen
+	 */ 
+def static "iosOrders.historyScreen.clickOnHistoryTab"() {
+    (new iosOrders.historyScreen()).clickOnHistoryTab()
+}
+
+ /**
+	 * verifies order status changes from held to allocated 30 seconds after successfully placing the signed order
+	 */ 
+def static "iosOrders.historyScreen.verifyOrderStatusInOrderHistoryList"(
+    	String poNumber	) {
+    (new iosOrders.historyScreen()).verifyOrderStatusInOrderHistoryList(
+        	poNumber)
 }
 
  /**
@@ -3179,6 +3240,15 @@ def static "api.apiCommonMethods.tokenGenerator"() {
 }
 
 
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
+    	Eyes eyes	
+     , 	WebElement element	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkElement(
+        	eyes
+         , 	element)
+}
+
+
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
     	String testName	) {
     (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
@@ -3195,12 +3265,12 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
-    	Eyes eyes	
-     , 	WebElement element	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkElement(
-        	eyes
-         , 	element)
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
+    	String testName	
+     , 	RectangleSize viewportSize	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
+        	testName
+         , 	viewportSize)
 }
 
 
@@ -3209,12 +3279,10 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
-    	String testName	
-     , 	RectangleSize viewportSize	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
-        	testName
-         , 	viewportSize)
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
 }
 
 
@@ -3226,11 +3294,4 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
 }

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_R_071_verifyUserIsAbleToSignAndPlaceOrderInOrderHistory</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>8f2692e1-a258-453e-b77b-4eef7ab2c9e5</testCaseGuid>
+   <variable>
+      <defaultValue>'29-214315'</defaultValue>
+      <description></description>
+      <id>5dd05330-b677-4c12-a4bd-12fb8c732cb3</id>
+      <masked>false</masked>
+      <name>accountNo</name>
+   </variable>
+   <variable>
+      <defaultValue>'2'</defaultValue>
+      <description></description>
+      <id>945c5f43-45a7-46e6-a1e8-3e979bb35488</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+   <variable>
+      <defaultValue>'csos'</defaultValue>
+      <description></description>
+      <id>ea48d9cf-be64-4c02-b0e0-596bfc8a843b</id>
+      <masked>false</masked>
+      <name>signingPassword</name>
+   </variable>
+</TestCaseEntity>
