@@ -16,7 +16,7 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
-import com.kms.katalon.core.util.KeywordUtil
+import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
 
 'installs and launches the application'
 CustomKeywords.'androidCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
@@ -74,14 +74,14 @@ KeywordUtil.logInfo(maxUpperLimitWithoutOverage)
 'takes received product count as the argument and enters count in the text-field'
 CustomKeywords.'androidReceiving.receivingReusableMethods.editReceivedProductCount'(++(maxUpperLimitWithoutOverage.toInteger()))
 
+'Simulate pressing back button on a mobile device'
+Mobile.pressBack()
+
 'verifies over-age tag is visible after inputting receiving count which is more than the max upper limit'
 CustomKeywords.'androidReceiving.receivingReusableMethods.verifyOverAgeTag'()
 
 'takes received product count as the argument and enters count in the text-field'
 CustomKeywords.'androidReceiving.receivingReusableMethods.editReceivedProductCount'(receivingCount)
-
-'Simulate pressing back button on a mobile device'
-Mobile.pressBack()
 
 'Simulate pressing back button on a mobile device'
 Mobile.pressBack()
@@ -106,6 +106,9 @@ KeywordUtil.logInfo(maxUpperLimitWithoutOverage)
 'takes received product count as the argument and enters count in the text-field'
 CustomKeywords.'androidReceiving.receivingReusableMethods.editReceivedProductCount'(++(maxUpperLimitWithoutOverage.toInteger()))
 
+'Simulate pressing back button on a mobile device'
+Mobile.pressBack()
+
 'verifies over-age tag is visible after inputting receiving count which is more than the max upper limit'
 CustomKeywords.'androidReceiving.receivingReusableMethods.verifyOverAgeTag'()
 
@@ -113,13 +116,7 @@ CustomKeywords.'androidReceiving.receivingReusableMethods.verifyOverAgeTag'()
 CustomKeywords.'androidReceiving.receivingReusableMethods.editReceivedProductCount'(receivingCount)
 
 'clicks on receive all totes button'
-CustomKeywords.'androidReceiving.receivingReusableMethods.colorTestFunction'()
-
-'clicks on receive all totes button'
 CustomKeywords.'androidReceiving.receivingReusableMethods.clickOnReceiveAllTotes'()
-
-'clicks on receive all totes button'
-CustomKeywords.'androidReceiving.receivingReusableMethods.colorTestFunction'()
 
 'expands the view to see detailed view of_tote'
 CustomKeywords.'androidReceiving.receivingReusableMethods.expandToSeeDetailedViewOfTotes'()

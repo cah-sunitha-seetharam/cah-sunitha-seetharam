@@ -2269,8 +2269,28 @@ def static "androidReceiving.receivingReusableMethods.collpaseViewOfTotes"() {
 }
 
 
-def static "androidReceiving.receivingReusableMethods.colorTestFunction"() {
-    (new androidReceiving.receivingReusableMethods()).colorTestFunction()
+def static "androidReceiving.receivingReusableMethods.makeTestObject"(
+    	String resourceId	) {
+    (new androidReceiving.receivingReusableMethods()).makeTestObject(
+        	resourceId)
+}
+
+
+def static "androidReceiving.receivingReusableMethods.testFunction"() {
+    (new androidReceiving.receivingReusableMethods()).testFunction()
+}
+
+
+def static "androidReceiving.receivingReusableMethods.verifyElementColor"(
+    	int expectedRedIntensity	
+     , 	int expectedGreenIntensity	
+     , 	int expectedBlueIntensity	
+     , 	String idOfTheElement	) {
+    (new androidReceiving.receivingReusableMethods()).verifyElementColor(
+        	expectedRedIntensity
+         , 	expectedGreenIntensity
+         , 	expectedBlueIntensity
+         , 	idOfTheElement)
 }
 
 
@@ -3074,17 +3094,17 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+}
+
+
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
     	String testName	
      , 	RectangleSize viewportSize	) {
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
         	testName
          , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
 
 

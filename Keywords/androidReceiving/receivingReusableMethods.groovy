@@ -50,6 +50,8 @@ import java.text.DecimalFormat
 import common.commonMethods
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import org.openqa.selenium.OutputType
+import org.openqa.selenium.Point
 
 class receivingReusableMethods {
 
@@ -414,6 +416,13 @@ class receivingReusableMethods {
 	def clickOnReceiveAllTotes() {
 
 		Mobile.tap(findTestObject('Android/Receiving/receiveAll_Button'),0)
+
+		Mobile.verifyElementExist(('Object Repository/Android/Receiving/toteReceivingStatus_View'), 0)
+		String idOfTheElement=Mobile.getAttribute(findTestObject('Object Repository/Android/Receiving/toteReceivingStatus_View'), 'resource-id', 0)
+
+		KeywordUtil.logInfo(idOfTheElement)
+
+		verifyElementColor(200,200,200,idOfTheElement)
 	}
 
 
@@ -483,30 +492,91 @@ class receivingReusableMethods {
 
 
 	/**
-	 * test colour method
+	 * creates a test object at run time
+	 * resourceId (resource-id of the object)
 	 */
 	@Keyword
-	def colorTestFunction() {
-		AppiumDriver<?> driver =  commonMethods.getCurrentSessionMobileDriver() // mobile driver value of the current session
-		MobileElement elem = (MobileElement) driver.findElement(By.id('com.cardinalhealth.orderexpress.two.debug:id/bigLayout'));
-
-		org.openqa.selenium.Point point = elem.getCenter();
-		int centerx = point.getX();
-		int centerY = point.getY();
-
-		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(var1)
-
-		BufferedImage image = ImageIO.read(scrFile);
-		// Getting pixel color by position x and y
-		int clr=  image.getRGB(centerx,centerY);
-		int  red   = (clr & 0x00ff0000) >> 16;
-		int  green = (clr & 0x0000ff00) >> 8;
-		int  blue  =  clr & 0x000000ff;
-		KeywordUtil.logInfo("Red Color value = "+ red);
-		KeywordUtil.logInfo("Green Color value = "+ green);
-		KeywordUtil.logInfo("Blue Color value = "+ blue);
+	static TestObject makeTestObject(String resourceId) {
+		TestObject to = new TestObject()
+		to.addProperty("resourceId", ConditionType.EQUALS, resourceId)
+		return to
 	}
 
+
+
+	@Keyword
+	def testFunction() {
+		//Mobile.tap(findTestObject('Android/Login/Environment Selection Screen/Environment_Spinner'), 0)
+		//Mobile.tap((makeTOwithXPath("com.cardinalhealth.orderexpress.two.debug:id/serverLocationSpinner")), 0)
+		// DriverFactory.getWebDriver().findElements(By.id("com.cardinalhealth.orderexpress.two.debug:id/serverLocationSpinner"));
+
+		'com.cardinalhealth.orderexpress.two.debug:id/serverLocationSpinner'
+
+		MobileElement element = MobileElementCommonHelper.findElement(makeTestObject("${GlobalVariable.appPackage}:id/serverLocationSpinner"), 0)
+		element.click()
+
+		String testProfile=RunConfiguration.getExecutionProfile()
+		KeywordUtil.logInfo(testProfile)
+
+		Mobile.tap(findTestObject('Android/Login/Environment Selecttion Screen/environment_Spinner',[('appPackage'):GlobalVariable.appPackage]), 0)
+
+	}
+
+
+
+
+	/**
+	 * verifies element colour by taking a screenshot and comparing with colour of specific pixels
+	 * @param expectedRedIntensity
+	 * @param expectedGreenIntensity
+	 * @param expectedBlueIntensity
+	 * @param idOfTheElement
+	 */
+	@Keyword
+	def verifyElementColor(int expectedRedIntensity, int expectedGreenIntensity, int expectedBlueIntensity, String idOfTheElement) {
+
+		'mobile driver value of the current session'
+		AppiumDriver<?> driver =  commonMethods.getCurrentSessionMobileDriver()
+
+		'locate the element by passing the locator strategy that can be of users choice'
+		MobileElement element = (MobileElement) driver.findElement(By.id("${idOfTheElement}"));
+
+		//MobileElement element = (MobileElement) driver.findElement(By.id("${GlobalVariable.appPackage}:id/textViewReceivingBig"));
+
+		'gets the center coordinates'
+		Point point = element.getCenter()
+
+		'stores x coordinate in Xcenter'
+		int Xcenter = point.getX()
+
+		'stores y coordinate in Ycenter'
+		int Ycenter = point.getY();
+
+		'takes screenshot as a file'
+		File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE)
+
+		'Returns a BufferedImage as the result of decoding a supplied File with an ImageReader chosen automatically from among those currently registered'
+		BufferedImage image = ImageIO.read(file);
+
+		'Returns an integer pixel in the default RGB color model (TYPE_INT_ARGB)'
+		'TYPE_INT_ARGB: represents color as an int of 4 bytes with Blue channels in 0-7, Green channels in 8-15 and Red channels in 24-31'
+		int rgbPixel=  image.getRGB(Xcenter,Ycenter);
+		KeywordUtil.logInfo("TYPE_INT_ARGB = "+ rgbPixel);
+
+		'as red channels in 24-31, using bitwise AND operator with hexadecimal code of color Red and right shifting by 16 bits'
+		int  actualRedIntensity   = (rgbPixel & 0x00ff0000) >> 16
+
+		'as green channels in 8-15, using bitwise AND operator with hexadecimal code of color Green and right shifting by 8 bits'
+		int  actualGreenIntensity = (rgbPixel & 0x0000ff00) >> 8
+
+		'as Blue channels in 0-7, using bitwise AND operator with hexadecimal code of Blue and no need to shift bits'
+		int  actualBlueIntensity  = (rgbPixel & 0x000000ff)
+
+		assert actualRedIntensity==expectedRedIntensity
+		assert actualGreenIntensity==expectedGreenIntensity
+		assert actualBlueIntensity==expectedBlueIntensity
+
+	}
 
 
 	/**
@@ -515,7 +585,7 @@ class receivingReusableMethods {
 	 */
 	@Keyword
 	def editReceivedProductCount(int receivedProductCount) {
-		
+
 		Mobile.setText(findTestObject('Object Repository/Android/Receiving/receivedCount_TextField'), receivedProductCount.toString(),0)
 	}
 
@@ -528,7 +598,8 @@ class receivingReusableMethods {
 	@Keyword
 	def returnUpperLimitReceivingProductCount() {
 
-		String maxCount=Mobile.getText(findTestObject('Android/Receiving/productReceivedCount_TextView'),0)
+		String maxCount=Mobile.getText(findTestObject('Android/Receiving/maxReceivingProductCount_TextView'), 0)
+
 
 		return androidCommonKeywordsObject.removeCharctersInString(maxCount)
 	}
@@ -542,6 +613,4 @@ class receivingReusableMethods {
 
 		Mobile.verifyElementExist(findTestObject('Android/Receiving/overageTag_TextView'), 0)
 	}
-
-
 }
