@@ -3,7 +3,7 @@
    <description></description>
    <name>currentPrice_RadioButton</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>7ac8154f-9141-4871-8881-d1b4b679d791</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/rbCurrentPrice</value>
+      <value>${GlobalVariable.appPackage}:id/rbCurrentPrice</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.RadioGroup[1]/android.widget.RadioButton[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.RadioButton' and (@text = 'Current Price' or . = 'Current Price') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/rbCurrentPrice']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/rbCurrentPrice</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

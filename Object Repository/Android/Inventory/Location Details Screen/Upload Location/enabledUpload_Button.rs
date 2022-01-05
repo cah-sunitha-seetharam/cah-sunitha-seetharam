@@ -3,7 +3,7 @@
    <description></description>
    <name>enabledUpload_Button</name>
    <tag></tag>
-   <elementGuidId>64499381-a50d-4c7d-ac01-3c73ef886684</elementGuidId>
+   <elementGuidId>1386680a-2a89-4c89-a920-192f295b016c</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/btnUploadInventoryLocationItems</value>
+      <value>${GlobalVariable.appPackage}:id/btnUploadInventoryLocationItems</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.widget.Button[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.Button' and (@text = 'Upload' or . = 'Upload') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/btnUploadInventoryLocationItems' and @enabled = 'true']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/btnUploadInventoryLocationItems</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

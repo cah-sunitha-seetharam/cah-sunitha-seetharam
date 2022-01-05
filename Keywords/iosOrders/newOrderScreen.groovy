@@ -46,7 +46,7 @@ class newOrderScreen {
 
 
 		//Mobile.tap(findTestObject('iOS/Account_Selection/changeAccount_Text'), 0)
-		
+
 		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Button'), 0)
 
 		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Navigation'), 0)
@@ -98,7 +98,7 @@ class newOrderScreen {
 
 
 	@Keyword
-	def verify_NewOrder_Screen_Details() {
+	def verifyNewOrderScreenDetails() {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/New Order Screen/Create a new order_Text'), 0)
 

@@ -90,6 +90,10 @@
             "productSearchByNDC3": "00069-0058-01",
         },
         
+        "TC_R_059": {
+            "productSearchByName": "mir",
+        },
+        
     },
     "PMODQa2": {
         "Carts": {
@@ -220,6 +224,18 @@
                 "productSearchByNDC": "NDC: 00406-8003-24",
             },
         
+        "TC_R_051": {
+            "productSearchByNDC1": "00450-0449-10",
+            "productSearchByNDC2": "00450-0296-04",
+            "productSearchByNDC3": "00450-0444-27",
+            },
+        
+        "TC_R_053": {
+            "productSearchByNDC1": "00450-0449-10",
+            "productSearchByNDC2": "00450-0296-04",
+            "productSearchCin": "4023347",
+            },
+        
         "TC_R_058": {
                 "productSearchByNDC": "00450-0449-09",
                 "productSearchCin": "4023347",
@@ -238,6 +254,12 @@
                 "productSearchCin": "4023347",
                 "productSearchByName": "tyl",
             },
+        
+        "TC_OE_011": {
+            "productSearchByNDC": "00450-0449-09",
+            "productSearchCin": "4023347",
+            },
+        
         },
 
 }

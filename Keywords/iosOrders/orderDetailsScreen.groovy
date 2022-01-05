@@ -22,6 +22,8 @@ import internal.GlobalVariable
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.By
+import org.openqa.selenium.Keys as Keys
+import java.awt.Robot as Robot
 
 import com.kms.katalon.core.mobile.keyword.internal.MobileDriverFactory
 import com.kms.katalon.core.webui.driver.DriverFactory
@@ -96,7 +98,7 @@ class orderDetailsScreen {
 
 		Mobile.tapAndHold(findTestObject('iOS/Product Search/search_Keypad'), 0, 0)
 
-		Mobile.setText(findTestObject('iOS/Product Search/Quantity_TextField'), quantity, 0)
+		Mobile.setText(findTestObject('iOS/Product Search/quantity_TextField'), quantity, 0)
 
 		commonIosMethodsObject.waitForProgressBarToBeInvisible()
 
@@ -104,7 +106,9 @@ class orderDetailsScreen {
 
 		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/addToOrder_Text'), 0)
 
-		Mobile.tap(findTestObject('iOS/Product Search/Continue_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Create C2 Order/continueOrdering_Button'), 0)
+
+		//Mobile.tap(findTestObject('iOS/Product Search/Continue_Button'), 0)
 	}
 
 
@@ -130,19 +134,112 @@ class orderDetailsScreen {
 	@Keyword
 	def checkC2OrderAvailability() {
 
-		Mobile.tap(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/checkAvailability_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/checkAvailabilityNew_Button'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/oneMoment_Text'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/weNeedJustAMinuteToEnsureThatWeHaveEverythingInStock_Texr'),0)
 
+		WebUI.delay(15)
+
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/yourC2OrderIsReadyToSign_Text'),0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/pleaseReviewAndSignYourOrder_Text'),0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/reviewAndSign_Button'),0)
 	}
 
+	/**
+	 * searches for a product by setting product name
+	 * @param productName (product to be added)
+	 */
+	@Keyword
+	def searchProductInOrderDetailPage(String productName) {
+		Mobile.tap(findTestObject('Object Repository/iOS/Product Search/productSearch_TextField'), 0)
+		Mobile.setText(findTestObject('Object Repository/iOS/Product Search/productSearch_TextField'), productName ,0)
+		Mobile.tapAndHold(findTestObject('Object Repository/iOS/Orders/Product Info/Product Search/search_keypad'), 0, 0)
+	}
 
+	/**
+	 * opens product tile
+	 */
+	@Keyword
+	def clickOnProductTile() {
+		Mobile.tap(findTestObject('Object Repository/iOS/Orders/Product Info/Product Search/NDC_Text'), 0)
+	}
 
+	/**
+	 * opens more details of product details
+	 */
+	@Keyword
+	def clickOnMoreDetails() {
+		Mobile.tap(findTestObject('Object Repository/iOS/Orders/Product Info/Product Search/moreDetailsView_Text'), 0)
+	}
+	
+	/**
+	 * opens alternates page
+	 */
+	@Keyword
+	def tapOnAlternatesInProductDetailsPage() {
+		Mobile.tap(findTestObject('iOS/Orders/Product Info/Product Details/alternates_Text'), 0)
+	}
+	
+	/**
+	 * verifies filterByOptions
+	 */
+	@Keyword
+	def verifyFilterByOptions() {
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Alternates Screen/stockedFilterByOptions_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Alternates Screen/formFilterByOptions_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Alternates Screen/sizeFliterByOptions_Text'), 0)
+		int ElementTopPosition = Mobile.getElementTopPosition(findTestObject('iOS/Orders/Alternates Screen/stockedFilterByOptions_Text'), 0)
+		int ElementHeight=Mobile.getElementHeight(findTestObject('iOS/Orders/Alternates Screen/stockedFilterByOptions_Text'), 0)
+		int yCoordinateToSwipe=(ElementHeight/2)+ElementTopPosition
+		Mobile.swipe(500, yCoordinateToSwipe, 0, yCoordinateToSwipe)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Alternates Screen/contractFilterByOptions_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Alternates Screen/manufacturerFilterByOptions_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Alternates Screen/suggestedAlternate_TextView'), 0)
+	}
+	
+	/**
+	 * this function adds the quantity in alternates page
+	 * @param quantity (quantity required to add in product detail page)
+	 */
+	@Keyword
+	def addQuantityInAlternatesPage(String quantity) {
+			Mobile.setText(findTestObject('iOS/Orders/Alternates Screen/quantity_TextField'), quantity, 0)
+		    Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/done_Button'), 0)
+		}
+
+		/**
+		 * taps on alternate to order in alternates page and opens confirmation pop up
+		 */
+		@Keyword
+		def tapOnAddAlternateToOrderInAlternatesPage() {
+			Mobile.tap(findTestObject('iOS/Orders/Alternates Screen/addAlternateToOrder_Text'),  0)
+		}
+	
+		/**
+		 * verifies confirmation pop up in alternates page
+		 */
+		@Keyword
+		def verifyConfirmationPopUpInALternatesPage() {
+			Mobile.verifyElementExist(findTestObject('iOS/Orders/Alternates Screen/itemAddedConfirmationTitle_Text'), 0)
+			Mobile.verifyElementExist(findTestObject('iOS/Orders/Alternates Screen/continueBrowsing_Button'), 0)
+			Mobile.verifyElementExist(findTestObject('iOS/Orders/Alternates Screen/goToOrder_Text'), 0)
+			Mobile.verifyElementExist(findTestObject('iOS/Orders/Alternates Screen/newOrderCreated_Text'), 0)
+		}
+		
+		/**
+		 * takes user back to the search product results to continue browsing
+		 */
+		@Keyword
+		def tapOnContinueBrowsing() {
+	
+			Mobile.tap(findTestObject('iOS/Orders/Alternates Screen/continueBrowsing_Button') ,0)
+		}
+		
+		
 	/**
 	 * takes user back to cart screen and verifies user is on the cart screen or not
 	 */
@@ -265,9 +362,38 @@ class orderDetailsScreen {
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Place Order/placeOrder_Button'), 0)
 
 		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Place All Orders/placeMyOrder(s)_Text'), 0)
+
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 	}
 
+	/**
+	 * places the order
+	 */
 
+	@Keyword
+	def clickOnPlaceOrder() {
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Place Order/placeOrder_Button'), 0)
+	}
+
+	/**
+	 * verifies place order confirmation pop up
+	 */
+	@Keyword
+	def verifyPlaceOrderPopUp() {
+		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Orders/Order Details Screen/Place Order/goBackAndReviewMyOrder_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Place All Orders/placeMyOrder(s)_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Place Order/yourOrderWillBePlaced_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Place Order/YourOrderWillGoIntoProcessingImmediately_Text'), 0)
+	}
+
+	/**
+	 * confirms place order by clicking on place my order button
+	 */
+	@Keyword
+	def confirmPlaceOrder() {
+		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Place All Orders/placeMyOrder(s)_Text'), 0)
+	}
+	
 
 
 	/**
@@ -564,6 +690,7 @@ class orderDetailsScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Product Search/Scan Flow/productDescription_Label'), 0)
 	}
+	
 
 	/**
 	 * this function returns the order name of the order/ title of the screen when user is on order details screen
@@ -576,4 +703,77 @@ class orderDetailsScreen {
 
 		return orderName
 	}
+	
+
+	/**
+	 * taps on continue ordering button on order details screen after user has added a product to order
+	 * and takes user to scan result screen
+	 */
+	@Keyword
+	def clickOnContinueOrdering() {
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Create C2 Order/continueOrdering_Button'), 0)
+
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Create C2 Order/continueOrdering_Button'), 0)
+	}
+	
+
+	/**
+	 * takes user back to history screen and verifies user is on the history screen or not
+	 */
+	@Keyword
+	def clickOnReviewAndSignButton() {
+
+		Mobile.tap(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/reviewAndSign_Button'), 0)
+
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/History Screen/orderHistory_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/History Screen/historyScreen_Header'),  0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/History Screen/scan_Icon'),0)
+	}
+	
+	
+	/**
+	 * try removing all characters in UTN field
+	 */
+	@Keyword
+	def removeCharactersInUTNField() {
+		
+		Mobile.clearText(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/uniqueTrackingNumber_TextField'), 0)
+			
+		Mobile.delay(1)
+		
+		Mobile.sendKeys(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/uniqueTrackingNumber_TextField'), Keys.chord(Keys.RETURN))
+		
+	}
+	
+	/**
+	 * fetch UTN number and store it in a string
+	 */
+	@Keyword
+	def getUTNFromUTNTextField() {
+		
+		String beforeUTN = Mobile.getText(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/uniqueTrackingNumber_TextField'), 0)
+		
+		return beforeUTN;
+		
+	}
+	
+	
+	/**
+	 * verifies only last 6 digit got deleted, first 3 characters could not be removed & validation error displayed after removing characters
+	 */
+	@Keyword
+	def verifyValidationErrorAfterRemovingCharactesInUTNField() {
+		
+		String actualErrorMsg = Mobile.getText(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/uniqueTrackingNumberError_Label_2'), 0)
+		
+		String expectedErrorMsg = 'Please provide a Unique Tracking Number in the following format: AANNNN (two alphabetic characters followed by four numeric digits).'
+		
+		assert expectedErrorMsg.equalsIgnoreCase(actualErrorMsg)
+	}
+	
 }

@@ -305,7 +305,6 @@ class inventoryDetailsScreen {
 
 	}
 
-
 	/**
 	 * opens the particular location details
 	 * @param locationName (name of the location)
@@ -316,5 +315,18 @@ class inventoryDetailsScreen {
 		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/tapOnLocation_Text', [('Location') : locationName]), 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
+	}
+	
+	/**
+	 * this function verifies the location count
+	 * @param expectedLocationCount (expected location Count)
+	 */
+	@Keyword
+	def verifyLocationCount(String expectedLocationCount) {
+
+		String actualLocationCount=Mobile.getText(findTestObject('Android/Inventory/Location Details Screen/Verification Details/inventoryLine_Text'),0) //gets the actual Location Count on the inventory details page
+
+		assert actualLocationCount==expectedLocationCount //actual location count has to be equal to expected lines count
+
 	}
 }

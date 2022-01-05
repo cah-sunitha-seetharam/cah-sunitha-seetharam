@@ -150,4 +150,5 @@ class dashboardDetailsScreen {
 
 		Mobile.tap(findTestObject('Object Repository/Android/Dashboard/receiving_Tab'), 0)
 	}
+
 }

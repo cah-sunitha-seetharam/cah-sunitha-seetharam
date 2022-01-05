@@ -152,6 +152,19 @@ class orderDetailsScreen {
 	}
 
 	/**
+	 * scans the product while on price check, adds it to the order and also verifies some scan input details
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */
+	@Keyword
+	def scanInputEventWhileOnPriceCheck(String productToBeSearched) {
+		Mobile.setText(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_EditText'), productToBeSearched, 0)
+		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Scan Order/alternates_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/addToOrder_Button'), 0)
+	}
+
+
+	/**
 	 * this function adds the quantity for the product to be searched
 	 * @param quantity (quantity required to be added for the product to be searched)
 	 */
@@ -340,6 +353,36 @@ class orderDetailsScreen {
 		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/goToOrder_TextView'), 0)
 	}
 
+
+	/**
+	 * verifies confirmation pop up of c2 in scan search results
+	 */
+	@Keyword
+	def verifyConfirmationPopUpOfC2InScanSearchResults() {
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/C2 Order/thisIsAC2ItemWouldYouLikeToCreateANewOrderOrAddToExistingOrder_ConfirmationPopUp_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/C2 Order/selectOrCreateANewOrder_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/C2 Order/cancel_TextView'), 0)
+	}
+	
+	
+	/**
+	 * scans the product, adds it to the order 
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */
+	@Keyword
+	def scanInputEventWithoutVerification(String productToBeSearched) {
+		Mobile.setText(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_EditText'), productToBeSearched, 0)
+		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_Button'), 0)
+	}
+
+	/**
+	 * opens create new order page for c2
+	 */
+	@Keyword
+	def tapOnSelectOrCrateANewOrderInScanSearchResults() {
+		Mobile.tap(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/C2 Order/selectOrCreateANewOrder_Button'), 0)
+	}
+
 	/**
 	 * creates a new C2 order
 	 * @param poName (poName of the order), poMemo (poMemo of the order)
@@ -354,6 +397,17 @@ class orderDetailsScreen {
 		Mobile.setText(findTestObject('Android/Orders/New Order Screen/P.O. Memo (Optional)_TextField'), poMemo, 0)
 		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/createNewOrder_Button'), 0)
 	}
+
+
+
+	@Keyword
+	def createNewOrderForC2WithoutVerification(String poName, String poMemo) {
+		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/createANewOrder_TextView'), 0)
+		Mobile.setText(findTestObject('Android/Orders/New Order Screen/P.O. Name (Optional)_TextField'), poName, 0)
+		Mobile.setText(findTestObject('Android/Orders/New Order Screen/P.O. Memo (Optional)_TextField'), poMemo, 0)
+		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/createNewOrder_Button'), 0)
+	}
+
 
 	/**
 	 * enables radio button and adds c2 product
@@ -459,6 +513,27 @@ class orderDetailsScreen {
 
 		Mobile.verifyElementVisible(findTestObject('Object Repository/Android/Orders/Order Details Screen/Verification Details/productName_TextView',[('TEXT'):productname]),0)
 	}
+
+	/**
+	 * taps on add to order and shows confirmation pop up
+	 */
+	@Keyword
+	def tapOnAddToOrderInScanSearchResults () {
+		Mobile.tap(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/addToOrder_Button'), 0)
+	}
+
+	/**
+	 * after selecting add to order verifies item added confirmation popup in scan search results 
+	 */
+	@Keyword
+	def verifyConfirmationPopUpInScanSearchResults() {
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/itemAddedConfirmationPopUp_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/CIN-ConfirmationPopUp_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/goToOrder_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/continueBrowsing_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/productNameConfirmationPopUp_TextView'), 0)
+	}
+
 
 	/**
 	 * this function verifies the product details page
