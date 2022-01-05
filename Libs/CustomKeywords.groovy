@@ -356,16 +356,6 @@ def static "androidOrders.newOrderScreen.change_Account"(
 }
 
  /**
-	 * selects different account
-	 * @param accountNo (account number used for selection)
-	 */ 
-def static "androidOrders.newOrderScreen.changeAccount"(
-    	String accountNo	) {
-    (new androidOrders.newOrderScreen()).changeAccount(
-        	accountNo)
-}
-
- /**
 	 * adds poname pomemo to textfield
 	 * @param PO_Name (purchase order name for the order created)
 	 * @param PO_Memo (purchase order Memo for the order created)
@@ -467,75 +457,6 @@ def static "iosOrders.orderDetailsScreen.checkC2OrderAvailability"() {
 }
 
  /**
-	 * searches for a product by setting product name
-	 * @param productName (product to be added)
-	 */ 
-def static "iosOrders.orderDetailsScreen.searchProductInOrderDetailPage"(
-    	String productName	) {
-    (new iosOrders.orderDetailsScreen()).searchProductInOrderDetailPage(
-        	productName)
-}
-
- /**
-	 * opens product tile
-	 */ 
-def static "iosOrders.orderDetailsScreen.clickOnProductTile"() {
-    (new iosOrders.orderDetailsScreen()).clickOnProductTile()
-}
-
- /**
-	 * opens more details of product details
-	 */ 
-def static "iosOrders.orderDetailsScreen.clickOnMoreDetails"() {
-    (new iosOrders.orderDetailsScreen()).clickOnMoreDetails()
-}
-
- /**
-	 * opens alternates page
-	 */ 
-def static "iosOrders.orderDetailsScreen.tapOnAlternatesInProductDetailsPage"() {
-    (new iosOrders.orderDetailsScreen()).tapOnAlternatesInProductDetailsPage()
-}
-
- /**
-	 * verifies filterByOptions
-	 */ 
-def static "iosOrders.orderDetailsScreen.verifyFilterByOptions"() {
-    (new iosOrders.orderDetailsScreen()).verifyFilterByOptions()
-}
-
- /**
-	 * this function adds the quantity in alternates page
-	 * @param quantity (quantity required to add in product detail page)
-	 */ 
-def static "iosOrders.orderDetailsScreen.addQuantityInAlternatesPage"(
-    	String quantity	) {
-    (new iosOrders.orderDetailsScreen()).addQuantityInAlternatesPage(
-        	quantity)
-}
-
- /**
-		 * taps on alternate to order in alternates page and opens confirmation pop up
-		 */ 
-def static "iosOrders.orderDetailsScreen.tapOnAddAlternateToOrderInAlternatesPage"() {
-    (new iosOrders.orderDetailsScreen()).tapOnAddAlternateToOrderInAlternatesPage()
-}
-
- /**
-		 * verifies confirmation pop up in alternates page
-		 */ 
-def static "iosOrders.orderDetailsScreen.verifyConfirmationPopUpInALternatesPage"() {
-    (new iosOrders.orderDetailsScreen()).verifyConfirmationPopUpInALternatesPage()
-}
-
- /**
-		 * takes user back to the search product results to continue browsing
-		 */ 
-def static "iosOrders.orderDetailsScreen.tapOnContinueBrowsing"() {
-    (new iosOrders.orderDetailsScreen()).tapOnContinueBrowsing()
-}
-
- /**
 	 * takes user back to cart screen and verifies user is on the cart screen or not
 	 */ 
 def static "iosOrders.orderDetailsScreen.clickOnBackToCart"() {
@@ -586,27 +507,6 @@ def static "iosOrders.orderDetailsScreen.editPONameAndMemo"(
 	 */ 
 def static "iosOrders.orderDetailsScreen.placeOrder"() {
     (new iosOrders.orderDetailsScreen()).placeOrder()
-}
-
- /**
-	 * places the order
-	 */ 
-def static "iosOrders.orderDetailsScreen.clickOnPlaceOrder"() {
-    (new iosOrders.orderDetailsScreen()).clickOnPlaceOrder()
-}
-
- /**
-	 * verifies place order confirmation pop up
-	 */ 
-def static "iosOrders.orderDetailsScreen.verifyPlaceOrderPopUp"() {
-    (new iosOrders.orderDetailsScreen()).verifyPlaceOrderPopUp()
-}
-
- /**
-	 * confirms place order by clicking on place my order button
-	 */ 
-def static "iosOrders.orderDetailsScreen.confirmPlaceOrder"() {
-    (new iosOrders.orderDetailsScreen()).confirmPlaceOrder()
 }
 
  /**
@@ -777,42 +677,6 @@ def static "iosOrders.orderDetailsScreen.verifyScanResultScreenWithProduct"() {
 	 */ 
 def static "iosOrders.orderDetailsScreen.returnOrderNameFromOrderDetailScreen"() {
     (new iosOrders.orderDetailsScreen()).returnOrderNameFromOrderDetailScreen()
-}
-
- /**
-	 * taps on continue ordering button on order details screen after user has added a product to order
-	 * and takes user to scan result screen
-	 */ 
-def static "iosOrders.orderDetailsScreen.clickOnContinueOrdering"() {
-    (new iosOrders.orderDetailsScreen()).clickOnContinueOrdering()
-}
-
- /**
-	 * takes user back to history screen and verifies user is on the history screen or not
-	 */ 
-def static "iosOrders.orderDetailsScreen.clickOnReviewAndSignButton"() {
-    (new iosOrders.orderDetailsScreen()).clickOnReviewAndSignButton()
-}
-
- /**
-	 * try removing all characters in UTN field
-	 */ 
-def static "iosOrders.orderDetailsScreen.removeCharactersInUTNField"() {
-    (new iosOrders.orderDetailsScreen()).removeCharactersInUTNField()
-}
-
- /**
-	 * fetch UTN number and store it in a string
-	 */ 
-def static "iosOrders.orderDetailsScreen.getUTNFromUTNTextField"() {
-    (new iosOrders.orderDetailsScreen()).getUTNFromUTNTextField()
-}
-
- /**
-	 * verifies only last 6 digit got deleted, first 3 characters could not be removed & validation error displayed after removing characters
-	 */ 
-def static "iosOrders.orderDetailsScreen.verifyValidationErrorAfterRemovingCharactesInUTNField"() {
-    (new iosOrders.orderDetailsScreen()).verifyValidationErrorAfterRemovingCharactesInUTNField()
 }
 
  /**
@@ -1332,10 +1196,7 @@ def static "iosInventory.locationDetailsScreen.verifyShareLocationPopUp"() {
     (new iosInventory.locationDetailsScreen()).verifyShareLocationPopUp()
 }
 
- /**
-	 * performs login function by selecting the type of testing (automation or manual), environment of testing(taken from the global profile), entering user-name and password
-	 * @param username (it is taken from the global profile but passed as a parameter),password  (it is taken from the global profile but passed as a parameter)
-	 */ 
+
 def static "iosLogin.loginScreen.login"(
     	Object username	
      , 	Object password	) {
@@ -1344,62 +1205,50 @@ def static "iosLogin.loginScreen.login"(
          , 	password)
 }
 
- /**
-	 * selects the environment of testing which is taken from the global profile
-	 */ 
+
 def static "iosLogin.loginScreen.selectEnvironment"() {
     (new iosLogin.loginScreen()).selectEnvironment()
 }
 
- /**
-	 * selects type of testing which can be manual or automation
-	 * @param testingType (directly passed as a parameter for automation)
-	 */ 
+
 def static "iosLogin.loginScreen.selectTypeOfTesting"(
     	String testingType	) {
     (new iosLogin.loginScreen()).selectTypeOfTesting(
         	testingType)
 }
 
- /**
-	 * enters the user-name
-	 * @param username (it is taken from the global profile but passed as a parameter)
-	 */ 
+
 def static "iosLogin.loginScreen.enterUsername"(
     	String username	) {
     (new iosLogin.loginScreen()).enterUsername(
         	username)
 }
 
- /**
-	 * enters the password
-	 * @param password (it is taken from the global profile but passed as a parameter)
-	 */ 
+
 def static "iosLogin.loginScreen.enterPassword"(
     	String password	) {
     (new iosLogin.loginScreen()).enterPassword(
         	password)
 }
 
- /**
-	 * clicks on signIn button and takes to the dash-board of the application
-	 */ 
+
 def static "iosLogin.loginScreen.clickOnSignInButton"() {
     (new iosLogin.loginScreen()).clickOnSignInButton()
 }
 
- /**
-	 * clicks on forget password button
-	 */ 
+
 def static "iosLogin.loginScreen.clickOnForgotPassword"() {
     (new iosLogin.loginScreen()).clickOnForgotPassword()
 }
 
- /**
-	 * verifies the details of login Page
-	 */ 
+
 def static "iosLogin.loginScreen.verifyLoginPageDetails"() {
     (new iosLogin.loginScreen()).verifyLoginPageDetails()
+}
+
+
+def static "iosLogin.loginScreen.cancelUpdatePopUp"() {
+    (new iosLogin.loginScreen()).cancelUpdatePopUp()
 }
 
 
@@ -1595,51 +1444,6 @@ def static "androidInventory.locationDetailsScreen.verifyProductIsNotVisibleOnTh
 }
 
  /**
-	 * copies products from a location to another location
-	 * @param locationName (name of the location to which product will be copied)
-	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
-	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object	 */ 
-def static "androidInventory.locationDetailsScreen.copyProductToAnotherLocation"(
-    	String locationName	
-     , 	String productNdcNumber	) {
-    (new androidInventory.locationDetailsScreen()).copyProductToAnotherLocation(
-        	locationName
-         , 	productNdcNumber)
-}
-
- /**
-	 * this function gets the count type of the added product and verifies whether that is equal to the expected count type
-	 */ 
-def static "androidInventory.locationDetailsScreen.verifyCountTypeOfProduct"(
-    	String expectedCountType	) {
-    (new androidInventory.locationDetailsScreen()).verifyCountTypeOfProduct(
-        	expectedCountType)
-}
-
- /**
-	 * moves products from a location to another location
-	 * @param locationName (name of the location to which product will be moved)
-	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
-	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object	 */ 
-def static "androidInventory.locationDetailsScreen.moveProductToAnotherLocation"(
-    	String locationName	
-     , 	String productNdcNumber	) {
-    (new androidInventory.locationDetailsScreen()).moveProductToAnotherLocation(
-        	locationName
-         , 	productNdcNumber)
-}
-
- /**
-	 * this function verifies the lines count
-	 * @param expectedLinesCount (expected lines Count)
-	 */ 
-def static "androidInventory.locationDetailsScreen.verifyLinesCount"(
-    	String expectedLinesCount	) {
-    (new androidInventory.locationDetailsScreen()).verifyLinesCount(
-        	expectedLinesCount)
-}
-
- /**
 	 * uploads the order 
 	 */ 
 def static "androidOrders.orderDetailsScreen.upload_Order"() {
@@ -1715,16 +1519,6 @@ def static "androidOrders.orderDetailsScreen.clickOnScanIcon"() {
 def static "androidOrders.orderDetailsScreen.scanInputEvent"(
     	String productToBeSearched	) {
     (new androidOrders.orderDetailsScreen()).scanInputEvent(
-        	productToBeSearched)
-}
-
- /**
-	 * scans the product while on price check, adds it to the order and also verifies some scan input details
-	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
-	 */ 
-def static "androidOrders.orderDetailsScreen.scanInputEventWhileOnPriceCheck"(
-    	String productToBeSearched	) {
-    (new androidOrders.orderDetailsScreen()).scanInputEventWhileOnPriceCheck(
         	productToBeSearched)
 }
 
@@ -1862,30 +1656,6 @@ def static "androidOrders.orderDetailsScreen.createNewC2Order"(
 }
 
  /**
-	 * verifies confirmation pop up of c2 in scan search results
-	 */ 
-def static "androidOrders.orderDetailsScreen.verifyConfirmationPopUpOfC2InScanSearchResults"() {
-    (new androidOrders.orderDetailsScreen()).verifyConfirmationPopUpOfC2InScanSearchResults()
-}
-
- /**
-	 * scans the product, adds it to the order 
-	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
-	 */ 
-def static "androidOrders.orderDetailsScreen.scanInputEventWithoutVerification"(
-    	String productToBeSearched	) {
-    (new androidOrders.orderDetailsScreen()).scanInputEventWithoutVerification(
-        	productToBeSearched)
-}
-
- /**
-	 * opens create new order page for c2
-	 */ 
-def static "androidOrders.orderDetailsScreen.tapOnSelectOrCrateANewOrderInScanSearchResults"() {
-    (new androidOrders.orderDetailsScreen()).tapOnSelectOrCrateANewOrderInScanSearchResults()
-}
-
- /**
 	 * creates a new C2 order
 	 * @param poName (poName of the order), poMemo (poMemo of the order)
 	 */ 
@@ -1893,15 +1663,6 @@ def static "androidOrders.orderDetailsScreen.createNewOrderForC2"(
     	String poName	
      , 	String poMemo	) {
     (new androidOrders.orderDetailsScreen()).createNewOrderForC2(
-        	poName
-         , 	poMemo)
-}
-
-
-def static "androidOrders.orderDetailsScreen.createNewOrderForC2WithoutVerification"(
-    	String poName	
-     , 	String poMemo	) {
-    (new androidOrders.orderDetailsScreen()).createNewOrderForC2WithoutVerification(
         	poName
          , 	poMemo)
 }
@@ -1981,20 +1742,6 @@ def static "androidOrders.orderDetailsScreen.verifyProductNameIsVisibleUnderOrde
     	String productname	) {
     (new androidOrders.orderDetailsScreen()).verifyProductNameIsVisibleUnderOrderDetails(
         	productname)
-}
-
- /**
-	 * taps on add to order and shows confirmation pop up
-	 */ 
-def static "androidOrders.orderDetailsScreen.tapOnAddToOrderInScanSearchResults"() {
-    (new androidOrders.orderDetailsScreen()).tapOnAddToOrderInScanSearchResults()
-}
-
- /**
-	 * after selecting add to order verifies item added confirmation popup in scan search results 
-	 */ 
-def static "androidOrders.orderDetailsScreen.verifyConfirmationPopUpInScanSearchResults"() {
-    (new androidOrders.orderDetailsScreen()).verifyConfirmationPopUpInScanSearchResults()
 }
 
  /**
@@ -2314,202 +2061,238 @@ def static "androidOrders.historyScreen.verify_History_Screen_Details"() {
 	 * switches the account of user to another account
 	 * @param accountNo (accountNo which needs to be selected will be passed as a parameter)
 	 */ 
-def static "androidMoreOptions.moreOptionsScreen.changeAccount"(
+def static "android_more_options.moreOptionsScreen.changeAccount"(
     	Object accountNo	) {
-    (new androidMoreOptions.moreOptionsScreen()).changeAccount(
+    (new android_more_options.moreOptionsScreen()).changeAccount(
         	accountNo)
 }
 
  /**
 	 * enables beta csos feature
 	 */ 
-def static "androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS"() {
-    (new androidMoreOptions.moreOptionsScreen()).enableBetaFeatureCSOS()
+def static "android_more_options.moreOptionsScreen.enableBetaFeatureCSOS"() {
+    (new android_more_options.moreOptionsScreen()).enableBetaFeatureCSOS()
 }
 
  /**
 	 * takes the user from the the moreOptions Screen to inventory listing screen
 	 */ 
-def static "androidMoreOptions.moreOptionsScreen.goToInventoryListingScreen"() {
-    (new androidMoreOptions.moreOptionsScreen()).goToInventoryListingScreen()
+def static "android_more_options.moreOptionsScreen.goToInventoryListingScreen"() {
+    (new android_more_options.moreOptionsScreen()).goToInventoryListingScreen()
 }
 
  /**
 	 * clicks on moreOptions tab, signsOut the user and takes user to the logInScreen
 	 */ 
-def static "androidMoreOptions.moreOptionsScreen.signOut"() {
-    (new androidMoreOptions.moreOptionsScreen()).signOut()
+def static "android_more_options.moreOptionsScreen.signOut"() {
+    (new android_more_options.moreOptionsScreen()).signOut()
 }
 
- /**
-	 * clicks on continue button after selection of shipments or invoice by user
-	 */ 
+
 def static "androidReceiving.receivingReusableMethods.clickOnContinue"() {
     (new androidReceiving.receivingReusableMethods()).clickOnContinue()
 }
 
- /**
-	 * click on scan icon
-	 */ 
+
 def static "androidReceiving.receivingReusableMethods.clickOnScanIcon"() {
     (new androidReceiving.receivingReusableMethods()).clickOnScanIcon()
 }
 
- /**
-	 * this function opens shipment details
-	 * @param shipmentNumber (shipment number)
-	 */ 
+
 def static "androidReceiving.receivingReusableMethods.openShipmentDetails"(
     	Object shipmentNumber	) {
     (new androidReceiving.receivingReusableMethods()).openShipmentDetails(
         	shipmentNumber)
 }
 
- /**
-	 * this function opens invoice details
-	 * @param invoiceNumber (invoice number)
-	 */ 
+
 def static "androidReceiving.receivingReusableMethods.openInvoiceDetails"(
     	Object invoiceNumber	) {
     (new androidReceiving.receivingReusableMethods()).openInvoiceDetails(
         	invoiceNumber)
 }
 
- /**
-	 * takes product to be searched as the argument and searches for the product
-	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
-	 */ 
+
 def static "androidReceiving.receivingReusableMethods.scanInputEvent"(
     	String productToBeSearched	) {
     (new androidReceiving.receivingReusableMethods()).scanInputEvent(
         	productToBeSearched)
 }
 
- /**
-	 * allows over-ages in receiving
-	 */ 
+
 def static "androidReceiving.receivingReusableMethods.selectAllowOverages"() {
     (new androidReceiving.receivingReusableMethods()).selectAllowOverages()
 }
 
- /**
-	 * this function will select invoices on the receiving screen
-	 */ 
+
 def static "androidReceiving.receivingReusableMethods.selectInvoices"() {
     (new androidReceiving.receivingReusableMethods()).selectInvoices()
 }
 
- /**
-	 * this function will select shipments on the receiving screen
-	 */ 
+
 def static "androidReceiving.receivingReusableMethods.selectShipments"() {
     (new androidReceiving.receivingReusableMethods()).selectShipments()
 }
 
- /**
-	 * takes user to previous day shipments from today's shipments screen
-	 */ 
+
 def static "androidReceiving.receivingReusableMethods.switchToPreviousDay"() {
     (new androidReceiving.receivingReusableMethods()).switchToPreviousDay()
 }
 
- /**
-	 * takes user to today's shipments from previous day shipments screen
-	 */ 
+
 def static "androidReceiving.receivingReusableMethods.switchToToday"() {
     (new androidReceiving.receivingReusableMethods()).switchToToday()
 }
 
- /**
-	 * verifies that over-ages are allowed
-	 */ 
+
 def static "androidReceiving.receivingReusableMethods.verifyAllowedOverages"() {
     (new androidReceiving.receivingReusableMethods()).verifyAllowedOverages()
 }
 
- /**
-	 * verifies details of the instances of product associated with the account
-	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
-	 */ 
+
 def static "androidReceiving.receivingReusableMethods.verifyInstancesOfProductAssociatedWithAccount"(
     	Object productNdcNumber	) {
     (new androidReceiving.receivingReusableMethods()).verifyInstancesOfProductAssociatedWithAccount(
         	productNdcNumber)
 }
 
- /**
-	 * this function verifies the invoice is visible on the screen
-	 * @param invoiceNumber (invoice number)
-	 */ 
+
 def static "androidReceiving.receivingReusableMethods.verifyInvoiceIsVisible"(
     	Object invoiceNumber	) {
     (new androidReceiving.receivingReusableMethods()).verifyInvoiceIsVisible(
         	invoiceNumber)
 }
 
- /**
-	 * this method verifies the invoices detail
-	 */ 
+
 def static "androidReceiving.receivingReusableMethods.verifyInvoicesListScreenDetails"() {
     (new androidReceiving.receivingReusableMethods()).verifyInvoicesListScreenDetails()
 }
 
- /**
-	 * this method verifies the invoices detail
-	 * @param invoiceNumber (invoice number)
-	 */ 
+
 def static "androidReceiving.receivingReusableMethods.verifyInvoicesDetails"(
     	Object invoiceNumber	) {
     (new androidReceiving.receivingReusableMethods()).verifyInvoicesDetails(
         	invoiceNumber)
 }
 
- /**
-	 * verifies if no new orders to be received
-	 */ 
+
 def static "androidReceiving.receivingReusableMethods.verifyNoNewOrdersToReceive"() {
     (new androidReceiving.receivingReusableMethods()).verifyNoNewOrdersToReceive()
 }
 
- /**
-	 * this function verifies the receiving screen details
-	 */ 
+
 def static "androidReceiving.receivingReusableMethods.verifyReceivingScreen"() {
     (new androidReceiving.receivingReusableMethods()).verifyReceivingScreen()
 }
 
- /**
-	 * verifies the receiving screen pop-up which comes after user goes to receiving tab details
-	 */ 
+
 def static "androidReceiving.receivingReusableMethods.verifyReceivingScreenPopUp"() {
     (new androidReceiving.receivingReusableMethods()).verifyReceivingScreenPopUp()
 }
 
- /**
-	 * verifies shipment details
-	 * @param shipmentNumber (shipment number)
-	 */ 
+
 def static "androidReceiving.receivingReusableMethods.verifyShipmentDetails"(
     	Object shipmentNumber	) {
     (new androidReceiving.receivingReusableMethods()).verifyShipmentDetails(
         	shipmentNumber)
 }
 
- /**
-	 * this function verifies the shipment is visible on the screen
-	 * @param shipmentNumber (shipment number)
-	 */ 
+
 def static "androidReceiving.receivingReusableMethods.verifyShipmentIsVisible"(
     	Object shipmentNumber	) {
     (new androidReceiving.receivingReusableMethods()).verifyShipmentIsVisible(
         	shipmentNumber)
 }
 
- /**
-	 * this function verifies the shipments detail
-	 */ 
+
 def static "androidReceiving.receivingReusableMethods.verifyShipmentsListScreenDetails"() {
     (new androidReceiving.receivingReusableMethods()).verifyShipmentsListScreenDetails()
+}
+
+
+def static "androidReceiving.receivingReusableMethods.verifyReceivedProductCount"(
+    	Object expectedReceivedProductCount	) {
+    (new androidReceiving.receivingReusableMethods()).verifyReceivedProductCount(
+        	expectedReceivedProductCount)
+}
+
+
+def static "androidReceiving.receivingReusableMethods.clickOnReceiveAllTotes"() {
+    (new androidReceiving.receivingReusableMethods()).clickOnReceiveAllTotes()
+}
+
+
+def static "androidReceiving.receivingReusableMethods.uploadCompletedTotes"() {
+    (new androidReceiving.receivingReusableMethods()).uploadCompletedTotes()
+}
+
+
+def static "androidReceiving.receivingReusableMethods.verifyUploadTotesPopUp"() {
+    (new androidReceiving.receivingReusableMethods()).verifyUploadTotesPopUp()
+}
+
+
+def static "androidReceiving.receivingReusableMethods.clickOnBackToReceiving"() {
+    (new androidReceiving.receivingReusableMethods()).clickOnBackToReceiving()
+}
+
+
+def static "androidReceiving.receivingReusableMethods.verifyInvoiceIsNotVisible"(
+    	Object invoiceNumber	) {
+    (new androidReceiving.receivingReusableMethods()).verifyInvoiceIsNotVisible(
+        	invoiceNumber)
+}
+
+
+def static "androidReceiving.receivingReusableMethods.expandToSeeDetailedViewOfTotes"() {
+    (new androidReceiving.receivingReusableMethods()).expandToSeeDetailedViewOfTotes()
+}
+
+
+def static "androidReceiving.receivingReusableMethods.collpaseViewOfTotes"() {
+    (new androidReceiving.receivingReusableMethods()).collpaseViewOfTotes()
+}
+
+
+def static "androidReceiving.receivingReusableMethods.makeTestObject"(
+    	String resourceId	) {
+    (new androidReceiving.receivingReusableMethods()).makeTestObject(
+        	resourceId)
+}
+
+
+def static "androidReceiving.receivingReusableMethods.testFunction"() {
+    (new androidReceiving.receivingReusableMethods()).testFunction()
+}
+
+
+def static "androidReceiving.receivingReusableMethods.verifyElementColor"(
+    	int expectedRedIntensity	
+     , 	int expectedGreenIntensity	
+     , 	int expectedBlueIntensity	
+     , 	String idOfTheElement	) {
+    (new androidReceiving.receivingReusableMethods()).verifyElementColor(
+        	expectedRedIntensity
+         , 	expectedGreenIntensity
+         , 	expectedBlueIntensity
+         , 	idOfTheElement)
+}
+
+
+def static "androidReceiving.receivingReusableMethods.editReceivedProductCount"(
+    	int receivedProductCount	) {
+    (new androidReceiving.receivingReusableMethods()).editReceivedProductCount(
+        	receivedProductCount)
+}
+
+
+def static "androidReceiving.receivingReusableMethods.returnUpperLimitReceivingProductCount"() {
+    (new androidReceiving.receivingReusableMethods()).returnUpperLimitReceivingProductCount()
+}
+
+
+def static "androidReceiving.receivingReusableMethods.verifyOverAgeTag"() {
+    (new androidReceiving.receivingReusableMethods()).verifyOverAgeTag()
 }
 
  /**
@@ -2631,16 +2414,6 @@ def static "androidInventory.inventoryDetailsScreen.clickOnALocation"(
         	locationName)
 }
 
- /**
-	 * this function verifies the location count
-	 * @param expectedLocationCount (expected location Count)
-	 */ 
-def static "androidInventory.inventoryDetailsScreen.verifyLocationCount"(
-    	String expectedLocationCount	) {
-    (new androidInventory.inventoryDetailsScreen()).verifyLocationCount(
-        	expectedLocationCount)
-}
-
 
 def static "iosOrders.newOrderScreen.change_Account"(
     	String new_Account	) {
@@ -2669,8 +2442,8 @@ def static "iosOrders.newOrderScreen.createOrder"() {
 }
 
 
-def static "iosOrders.newOrderScreen.verifyNewOrderScreenDetails"() {
-    (new iosOrders.newOrderScreen()).verifyNewOrderScreenDetails()
+def static "iosOrders.newOrderScreen.verify_NewOrder_Screen_Details"() {
+    (new iosOrders.newOrderScreen()).verify_NewOrder_Screen_Details()
 }
 
  /**
@@ -2734,44 +2507,19 @@ def static "iosMoreOptions.moreOptionsScreen.signOut"() {
     (new iosMoreOptions.moreOptionsScreen()).signOut()
 }
 
- /**
-	 * enables beta csos feature toggle from more options
-	 */ 
-def static "iosMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS"() {
-    (new iosMoreOptions.moreOptionsScreen()).enableBetaFeatureCSOS()
-}
 
-
-def static "iosOrders.historyScreen.verifyHistoryScreenDetails"() {
-    (new iosOrders.historyScreen()).verifyHistoryScreenDetails()
+def static "iosOrders.historyScreen.verify_History_Screen_Details"() {
+    (new iosOrders.historyScreen()).verify_History_Screen_Details()
 }
 
  /**
 	 * opens the c2 order details, verifies the order status labels and signIns the password required for placing c2 order
 	 * @param password (password-which is required for placing the c2 order)
 	 */ 
-def static "iosOrders.historyScreen.completeReviewSignAndPlaceAnOrderFlow"(
-    	String poNumber	
-     , 	String signingPassword	) {
-    (new iosOrders.historyScreen()).completeReviewSignAndPlaceAnOrderFlow(
-        	poNumber
-         , 	signingPassword)
-}
-
- /**
-	 * clicks on history tab button to open history tab in order history screen
-	 */ 
-def static "iosOrders.historyScreen.clickOnHistoryTab"() {
-    (new iosOrders.historyScreen()).clickOnHistoryTab()
-}
-
- /**
-	 * verifies order status changes from held to allocated 30 seconds after successfully placing the signed order
-	 */ 
-def static "iosOrders.historyScreen.verifyOrderStatusInOrderHistoryList"(
-    	String poNumber	) {
-    (new iosOrders.historyScreen()).verifyOrderStatusInOrderHistoryList(
-        	poNumber)
+def static "iosOrders.historyScreen.clickOnC2OrderForReviewAndSign"(
+    	String signingPassword	) {
+    (new iosOrders.historyScreen()).clickOnC2OrderForReviewAndSign(
+        	signingPassword)
 }
 
  /**
@@ -2928,28 +2676,11 @@ def static "androidOrders.cartScreen.clickOnC2OrdersTab"() {
     (new androidOrders.cartScreen()).clickOnC2OrdersTab()
 }
 
- /**
-		 * opens the c2 order details
-		 * @param accountNo (account no which was used to create the order)
-		 */ 
-def static "androidOrders.cartScreen.openC2OrderDetailScreen"(
-    	String accountNo	) {
-    (new androidOrders.cartScreen()).openC2OrderDetailScreen(
-        	accountNo)
-}
-
 
 def static "androidOrders.cartScreen.delete_Order"(
     	Object Account_No	) {
     (new androidOrders.cartScreen()).delete_Order(
         	Account_No)
-}
-
- /**
-	 * deletes order 
-	 */ 
-def static "androidOrders.cartScreen.deleteOrder"() {
-    (new androidOrders.cartScreen()).deleteOrder()
 }
 
  /**
@@ -3289,33 +3020,6 @@ def static "androidCommonKeywords.commonMethods.verifyProductIsNotVisibleOnTheSc
 }
 
  /**
-	 * clicks on product search field
-	 */ 
-def static "androidCommonKeywords.commonMethods.clickOnProductSearchTextField"() {
-    (new androidCommonKeywords.commonMethods()).clickOnProductSearchTextField()
-}
-
- /**
-	 * inputs the product search which can be name/Cin/UPC/NDC in the product search-field
-	 * @param productSearch (which can be name/Cin/UPC/NDC in the product search-field)
-	 */ 
-def static "androidCommonKeywords.commonMethods.enterProductInSearchField"(
-    	Object productSearch	) {
-    (new androidCommonKeywords.commonMethods()).enterProductInSearchField(
-        	productSearch)
-}
-
- /**
-	 * performs basic text management operations:Copy,Cut,Paste,Share
-	 * @param operationToBePerformed (in operationToBePerformed argument all alphabets should be lower-case except the first one for e.g Copy, Cut)
-	 */ 
-def static "androidCommonKeywords.commonMethods.performBasicTextManagementOperation"(
-    	String operationToBePerformed	) {
-    (new androidCommonKeywords.commonMethods()).performBasicTextManagementOperation(
-        	operationToBePerformed)
-}
-
- /**
 	 * Create an order using Carts Post method , the input is fetched from the (module) ordersDatajson file set on Data Files 
 	 * @return an object with orderId and purchaseOrderNumber 
 	 */ 
@@ -3359,19 +3063,19 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
+}
+
+
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
     	TestObject testObject	
      , 	String testName	) {
     (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
         	testObject
          , 	testName)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
 }
 
 
@@ -3389,13 +3093,6 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	
      , 	String testName	
@@ -3404,4 +3101,11 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
 }

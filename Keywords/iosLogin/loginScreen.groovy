@@ -49,6 +49,7 @@ class loginScreen {
 	@Keyword()
 	def login(username,password) {
 
+		cancelUpdatePopUp()
 		selectTypeOfTesting()
 		selectEnvironment()
 		enterUsername(username)
@@ -164,5 +165,17 @@ class loginScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/LogIn/Login_Details_Screen/welcome_Text'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/LogIn/Login_Details_Screen/orderExpress_Logo'), 0)
+	}
+	
+	
+	
+	/**
+	 * taps on cancel button for update if popUp is visible
+	 */
+	@Keyword()
+	def cancelUpdatePopUp() {
+
+		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/cancelUpdate_Button'), 5,FailureHandling.OPTIONAL)
+
 	}
 }
