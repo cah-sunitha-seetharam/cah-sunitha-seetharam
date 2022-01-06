@@ -187,8 +187,14 @@ class loginScreen {
 	 */
 	@Keyword()
 	def cancelUpdatePopUp() {
+		
+		if (Mobile.verifyElementExist(findTestObject('iOS/LogIn/Login_Details_Screen/cancelUpdate_Button'),10, FailureHandling.OPTIONAL)) {
 
 		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/cancelUpdate_Button'), 5,FailureHandling.OPTIONAL)
+		
+		}
+		
+		Mobile.delay(3)
 
 	}
 }
