@@ -30,7 +30,7 @@ CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(Gl
 
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnMoreOptions'()
 
-CustomKeywords.'android_more_options.moreOptionsScreen.enableBetaFeatureCSOS'()
+CustomKeywords.'androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS'()
 
 '------------------------------------------------------------------------------'
 
@@ -121,3 +121,19 @@ CustomKeywords.'androidOrders.orderDetailsScreen.tapOnAddToOrderInScanSearchResu
 'takes user to the order details'
 CustomKeywords.'androidOrders.orderDetailsScreen.tapOnGoToOrder'()
 
+'---------------deletes order------------------'
+
+'takes the application one screen back'
+CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
+
+'opens cart page'
+CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnOrders'()
+
+'deletes order'
+CustomKeywords.'androidOrders.cartScreen.deleteOrder'()
+
+'opens the c2 orders tab'
+CustomKeywords.'androidOrders.cartScreen.clickOnC2OrdersTab'()
+
+'deletes order'
+CustomKeywords.'androidOrders.cartScreen.deleteOrder'()

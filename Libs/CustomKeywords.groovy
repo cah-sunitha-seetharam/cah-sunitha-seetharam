@@ -505,6 +505,53 @@ def static "iosOrders.orderDetailsScreen.verifyFilterByOptions"() {
 }
 
  /**
+	 * this function verifies the product after search
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyProductAfterSearch"() {
+    (new iosOrders.orderDetailsScreen()).verifyProductAfterSearch()
+}
+
+ /**
+	 * verifies c2 order is not visible under non c2 order
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyC2OrderIsNotVisibleUnderNonC2Order"() {
+    (new iosOrders.orderDetailsScreen()).verifyC2OrderIsNotVisibleUnderNonC2Order()
+}
+
+ /**
+	 * this function returns the order name in search page
+	 */ 
+def static "iosOrders.orderDetailsScreen.returnProductNameAfterSearch"() {
+    (new iosOrders.orderDetailsScreen()).returnProductNameAfterSearch()
+}
+
+ /**
+	 * this function verifies the product tile
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyProductTile"() {
+    (new iosOrders.orderDetailsScreen()).verifyProductTile()
+}
+
+ /**
+	 * this function verifies the product details page
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyProductDetailAfterSelectingMoreDetails"(
+    	String orderNameInSearchPage	) {
+    (new iosOrders.orderDetailsScreen()).verifyProductDetailAfterSelectingMoreDetails(
+        	orderNameInSearchPage)
+}
+
+ /**
+	 * verifies order name header label
+	 * @param poName (poName is the order name)
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyOrderNameHeaderLabel"(
+    	String poName	) {
+    (new iosOrders.orderDetailsScreen()).verifyOrderNameHeaderLabel(
+        	poName)
+}
+
+ /**
 	 * this function adds the quantity in alternates page
 	 * @param quantity (quantity required to add in product detail page)
 	 */ 
@@ -515,22 +562,39 @@ def static "iosOrders.orderDetailsScreen.addQuantityInAlternatesPage"(
 }
 
  /**
-		 * taps on alternate to order in alternates page and opens confirmation pop up
-		 */ 
+	 * this function adds the quantity in product detail page
+	 * @param quantity (quantity required to add in product detail page)
+	 */ 
+def static "iosOrders.orderDetailsScreen.addQuantityInProductDetailsPage"(
+    	String quantity	) {
+    (new iosOrders.orderDetailsScreen()).addQuantityInProductDetailsPage(
+        	quantity)
+}
+
+ /**
+	 * adds product in product details page
+	 */ 
+def static "iosOrders.orderDetailsScreen.tapOnAddToOrderInProductDetailsPage"() {
+    (new iosOrders.orderDetailsScreen()).tapOnAddToOrderInProductDetailsPage()
+}
+
+ /**
+	 * taps on alternate to order in alternates page and opens confirmation pop up
+	 */ 
 def static "iosOrders.orderDetailsScreen.tapOnAddAlternateToOrderInAlternatesPage"() {
     (new iosOrders.orderDetailsScreen()).tapOnAddAlternateToOrderInAlternatesPage()
 }
 
  /**
-		 * verifies confirmation pop up in alternates page
-		 */ 
+	 * verifies confirmation pop up in alternates page
+	 */ 
 def static "iosOrders.orderDetailsScreen.verifyConfirmationPopUpInALternatesPage"() {
     (new iosOrders.orderDetailsScreen()).verifyConfirmationPopUpInALternatesPage()
 }
 
  /**
-		 * takes user back to the search product results to continue browsing
-		 */ 
+	 * takes user back to the search product results to continue browsing
+	 */ 
 def static "iosOrders.orderDetailsScreen.tapOnContinueBrowsing"() {
     (new iosOrders.orderDetailsScreen()).tapOnContinueBrowsing()
 }
@@ -1369,6 +1433,18 @@ def static "iosLogin.loginScreen.enterUsername"(
     	String username	) {
     (new iosLogin.loginScreen()).enterUsername(
         	username)
+}
+
+ /**
+	 * performs re-login with username and password
+	 * @param username password (it is taken from the global profile but passed as a parameter)
+	 */ 
+def static "iosLogin.loginScreen.reLogin"(
+    	String username	
+     , 	String password	) {
+    (new iosLogin.loginScreen()).reLogin(
+        	username
+         , 	password)
 }
 
  /**
@@ -2936,9 +3012,16 @@ def static "androidOrders.cartScreen.clickOnC2OrdersTab"() {
 }
 
  /**
-		 * opens the c2 order details
-		 * @param accountNo (account no which was used to create the order)
-		 */ 
+	 * opens the nonc2 orders tab
+	 */ 
+def static "androidOrders.cartScreen.clickOnNonC2OrdersTab"() {
+    (new androidOrders.cartScreen()).clickOnNonC2OrdersTab()
+}
+
+ /**
+	 * opens the c2 order details
+	 * @param accountNo (account no which was used to create the order)
+	 */ 
 def static "androidOrders.cartScreen.openC2OrderDetailScreen"(
     	String accountNo	) {
     (new androidOrders.cartScreen()).openC2OrderDetailScreen(

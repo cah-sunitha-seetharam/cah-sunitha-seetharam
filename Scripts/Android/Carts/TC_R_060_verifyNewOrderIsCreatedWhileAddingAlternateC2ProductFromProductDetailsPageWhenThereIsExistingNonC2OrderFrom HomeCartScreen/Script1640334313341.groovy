@@ -62,7 +62,7 @@ CustomKeywords.'androidOrders.orderDetailsScreen.removeProduct'()
 CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
 
 'takes the application back to login page'
-CustomKeywords.'android_more_options.moreOptionsScreen.signOut'()
+CustomKeywords.'androidMoreOptions.moreOptionsScreen.signOut'()
 
 '-----------------------------------signIn---------------------------------------'
 
@@ -79,7 +79,7 @@ CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(Gl
 
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnMoreOptions'()
 
-CustomKeywords.'android_more_options.moreOptionsScreen.enableBetaFeatureCSOS'()
+CustomKeywords.'androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS'()
 
 '------------------------------------------------------------------------------'
 

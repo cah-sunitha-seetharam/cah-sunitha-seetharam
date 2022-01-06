@@ -235,6 +235,9 @@ CustomKeywords.'androidOrders.cartScreen.confirmPlacingAllOrders'()
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
+'takes user back to cart screen'
+CustomKeywords.'androidOrders.orderDetailsScreen.clickOnBackToCart'()
+
 'verifies that the order should not be visible on the screen and takes purchase order name as the argument'
 CustomKeywords.'androidOrders.cartScreen.verifyOrderNotVisibleOnTheCartScreen'(poName1)
 CustomKeywords.'androidOrders.cartScreen.verifyOrderNotVisibleOnTheCartScreen'(poName2)

@@ -29,7 +29,7 @@ CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(Gl
 '------------------------enables beta feature CSOS---------------------------'
 
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnMoreOptions'()
-CustomKeywords.'android_more_options.moreOptionsScreen.enableBetaFeatureCSOS'()
+CustomKeywords.'androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS'()
 
 '----------------------------------------------------------------------------'
 
@@ -195,3 +195,10 @@ CustomKeywords.'androidOrders.cartScreen.verifyLineCountofC2OrNonC2Product'(c2Li
 'takes expectedAnnotationCount count as the argument and verifies the same'
 CustomKeywords.'androidOrders.cartScreen.verifyC2AnnotationCount'(expectedAnnotationCount)
 
+'---------------deletes order------------------'
+
+'opens the c2 orders tab'
+CustomKeywords.'androidOrders.cartScreen.clickOnC2OrdersTab'()
+
+'deletes order'
+CustomKeywords.'androidOrders.cartScreen.deleteOrder'()
