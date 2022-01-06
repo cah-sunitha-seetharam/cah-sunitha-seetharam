@@ -4,7 +4,7 @@
  Prerequisite: 
 1.Valid login credentials with multiple accounts available for the user.   
 2. Receiving data should be available </description>
-   <name>TC_OE_018_verifyThatTheUserIsAbleToViewTheReceivingDataOfThePreviousDay</name>
+   <name>TC_OE_018_verifyThatTheUserIsAbleToViewReceivingPageAndReceivingData</name>
    <tag>Receiving;Sanity</tag>
    <comment></comment>
    <testCaseGuid>481f9d62-872e-4aa7-80bf-e17f37f38859</testCaseGuid>

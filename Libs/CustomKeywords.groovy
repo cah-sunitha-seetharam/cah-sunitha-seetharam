@@ -1402,6 +1402,13 @@ def static "iosLogin.loginScreen.verifyLoginPageDetails"() {
     (new iosLogin.loginScreen()).verifyLoginPageDetails()
 }
 
+ /**
+	 * taps on cancel button for update if popUp is visible
+	 */ 
+def static "iosLogin.loginScreen.cancelUpdatePopUp"() {
+    (new iosLogin.loginScreen()).cancelUpdatePopUp()
+}
+
 
 def static "iosLogin.loginScreen.selectTypeOfTesting"() {
     (new iosLogin.loginScreen()).selectTypeOfTesting()
@@ -2356,6 +2363,26 @@ def static "androidReceiving.receivingReusableMethods.clickOnScanIcon"() {
 }
 
  /**
+	 * this function opens shipment details
+	 * @param shipmentNumber (shipment number)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.openShipmentDetails"(
+    	Object shipmentNumber	) {
+    (new androidReceiving.receivingReusableMethods()).openShipmentDetails(
+        	shipmentNumber)
+}
+
+ /**
+	 * this function opens invoice details
+	 * @param invoiceNumber (invoice number)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.openInvoiceDetails"(
+    	Object invoiceNumber	) {
+    (new androidReceiving.receivingReusableMethods()).openInvoiceDetails(
+        	invoiceNumber)
+}
+
+ /**
 	 * takes product to be searched as the argument and searches for the product
 	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
 	 */ 
@@ -2373,13 +2400,6 @@ def static "androidReceiving.receivingReusableMethods.selectAllowOverages"() {
 }
 
  /**
-	 * this function will select shipments on the receiving screen
-	 */ 
-def static "androidReceiving.receivingReusableMethods.selectShipments"() {
-    (new androidReceiving.receivingReusableMethods()).selectShipments()
-}
-
- /**
 	 * this function will select invoices on the receiving screen
 	 */ 
 def static "androidReceiving.receivingReusableMethods.selectInvoices"() {
@@ -2387,17 +2407,24 @@ def static "androidReceiving.receivingReusableMethods.selectInvoices"() {
 }
 
  /**
+	 * this function will select shipments on the receiving screen
+	 */ 
+def static "androidReceiving.receivingReusableMethods.selectShipments"() {
+    (new androidReceiving.receivingReusableMethods()).selectShipments()
+}
+
+ /**
 	 * takes user to previous day shipments from today's shipments screen
 	 */ 
-def static "androidReceiving.receivingReusableMethods.switchToPreviousDayShipments"() {
-    (new androidReceiving.receivingReusableMethods()).switchToPreviousDayShipments()
+def static "androidReceiving.receivingReusableMethods.switchToPreviousDay"() {
+    (new androidReceiving.receivingReusableMethods()).switchToPreviousDay()
 }
 
  /**
 	 * takes user to today's shipments from previous day shipments screen
 	 */ 
-def static "androidReceiving.receivingReusableMethods.switchToTodayShipments"() {
-    (new androidReceiving.receivingReusableMethods()).switchToTodayShipments()
+def static "androidReceiving.receivingReusableMethods.switchToToday"() {
+    (new androidReceiving.receivingReusableMethods()).switchToToday()
 }
 
  /**
@@ -2418,10 +2445,13 @@ def static "androidReceiving.receivingReusableMethods.verifyInstancesOfProductAs
 }
 
  /**
-	 * this function verifies the shipments detail
+	 * this function verifies the invoice is visible on the screen
+	 * @param invoiceNumber (invoice number)
 	 */ 
-def static "androidReceiving.receivingReusableMethods.verifyShipmentsListScreenDetails"() {
-    (new androidReceiving.receivingReusableMethods()).verifyShipmentsListScreenDetails()
+def static "androidReceiving.receivingReusableMethods.verifyInvoiceIsVisible"(
+    	Object invoiceNumber	) {
+    (new androidReceiving.receivingReusableMethods()).verifyInvoiceIsVisible(
+        	invoiceNumber)
 }
 
  /**
@@ -2432,23 +2462,20 @@ def static "androidReceiving.receivingReusableMethods.verifyInvoicesListScreenDe
 }
 
  /**
-	 * this function verifies the shipment is visible on the screen
-	 * @param shipmentNumber (shipment number)
+	 * this method verifies the invoices detail
+	 * @param invoiceNumber (invoice number)
 	 */ 
-def static "androidReceiving.receivingReusableMethods.verifyShipmentIsVisible"(
-    	Object shipmentNumber	) {
-    (new androidReceiving.receivingReusableMethods()).verifyShipmentIsVisible(
-        	shipmentNumber)
+def static "androidReceiving.receivingReusableMethods.verifyInvoicesDetails"(
+    	Object invoiceNumber	) {
+    (new androidReceiving.receivingReusableMethods()).verifyInvoicesDetails(
+        	invoiceNumber)
 }
 
  /**
-	 * this function verifies the invoice is visible on the screen
-	 * @param invoiceNumber (invoice number)
+	 * verifies if no new orders to be received
 	 */ 
-def static "androidReceiving.receivingReusableMethods.verifyInvoiceIsVisible"(
-    	Object invoiceNumber	) {
-    (new androidReceiving.receivingReusableMethods()).verifyInvoiceIsVisible(
-        	invoiceNumber)
+def static "androidReceiving.receivingReusableMethods.verifyNoNewOrdersToReceive"() {
+    (new androidReceiving.receivingReusableMethods()).verifyNoNewOrdersToReceive()
 }
 
  /**
@@ -2466,16 +2493,6 @@ def static "androidReceiving.receivingReusableMethods.verifyReceivingScreenPopUp
 }
 
  /**
-	 * this function opens shipment details
-	 * @param shipmentNumber (shipment number)
-	 */ 
-def static "androidReceiving.receivingReusableMethods.openShipmentDetails"(
-    	Object shipmentNumber	) {
-    (new androidReceiving.receivingReusableMethods()).openShipmentDetails(
-        	shipmentNumber)
-}
-
- /**
 	 * verifies shipment details
 	 * @param shipmentNumber (shipment number)
 	 */ 
@@ -2486,10 +2503,20 @@ def static "androidReceiving.receivingReusableMethods.verifyShipmentDetails"(
 }
 
  /**
-	 * verifies if no new orders to be received
+	 * this function verifies the shipment is visible on the screen
+	 * @param shipmentNumber (shipment number)
 	 */ 
-def static "androidReceiving.receivingReusableMethods.verifyNoNewOrdersToReceive"() {
-    (new androidReceiving.receivingReusableMethods()).verifyNoNewOrdersToReceive()
+def static "androidReceiving.receivingReusableMethods.verifyShipmentIsVisible"(
+    	Object shipmentNumber	) {
+    (new androidReceiving.receivingReusableMethods()).verifyShipmentIsVisible(
+        	shipmentNumber)
+}
+
+ /**
+	 * this function verifies the shipments detail
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyShipmentsListScreenDetails"() {
+    (new androidReceiving.receivingReusableMethods()).verifyShipmentsListScreenDetails()
 }
 
  /**
@@ -3339,6 +3366,15 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
+    	TestObject testObject	
+     , 	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
+        	testObject
+         , 	testName)
+}
+
+
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
     	String testName	) {
     (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
@@ -3346,12 +3382,8 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
-    	TestObject testObject	
-     , 	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
-        	testObject
-         , 	testName)
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
 
 
@@ -3364,18 +3396,6 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	
      , 	String testName	
@@ -3384,4 +3404,11 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
 }
