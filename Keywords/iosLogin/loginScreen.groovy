@@ -114,7 +114,20 @@ class loginScreen {
 		//Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/loginBar_buttonDown'), 0)
 	}
 
-
+	
+	/**
+	 * performs re-login with username and password
+	 * @param username password (it is taken from the global profile but passed as a parameter)
+	 */
+	@Keyword()
+	def reLogin(String username, String password ) {
+		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/loginUserName_Button'), 0)
+		Mobile.setText(findTestObject('iOS/LogIn/Login_Details_Screen/userName_TextField'), username, 0)
+		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/password_Button'), 0)
+		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/password_Button'), 0)
+		Mobile.setText(findTestObject('iOS/LogIn/Login_Details_Screen/passwordSecure_TextField'), password, 0)
+		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/SignIn_Button'),0)
+	}
 
 
 	/**

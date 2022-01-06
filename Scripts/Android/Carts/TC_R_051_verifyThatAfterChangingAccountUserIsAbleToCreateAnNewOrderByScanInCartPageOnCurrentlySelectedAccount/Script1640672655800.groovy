@@ -30,7 +30,7 @@ CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(ac
 
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnMoreOptions'()
 
-CustomKeywords.'android_more_options.moreOptionsScreen.enableBetaFeatureCSOS'()
+CustomKeywords.'androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS'()
 
 '----------------------accountNo_1(Non C2)---------------------------'
 
@@ -181,3 +181,25 @@ CustomKeywords.'androidOrders.orderDetailsScreen.verifyOrderValue'(expectedQuant
 'takes expected lines count as the argument and verifies the same'
 CustomKeywords.'androidOrders.orderDetailsScreen.verifyLineCountOfOrderNamePage'(lineCountOfOrderNamePage)
 
+'-------------------------delete orders in all 3 accounts----------------------'
+
+'takes the application one screen back'
+CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
+
+'change account using account selection icon'
+CustomKeywords.'androidOrders.newOrderScreen.changeAccount'(accountNo_1)
+
+'deletes order'
+CustomKeywords.'androidOrders.cartScreen.deleteOrder'()
+
+'change account using account selection icon'
+CustomKeywords.'androidOrders.newOrderScreen.changeAccount'(accountNo_2)
+
+'deletes order'
+CustomKeywords.'androidOrders.cartScreen.deleteOrder'()
+
+'change account using account selection icon'
+CustomKeywords.'androidOrders.newOrderScreen.changeAccount'(accountNo_3)
+
+'deletes order'
+CustomKeywords.'androidOrders.cartScreen.deleteOrder'()

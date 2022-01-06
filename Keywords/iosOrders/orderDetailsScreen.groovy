@@ -200,46 +200,143 @@ class orderDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Alternates Screen/manufacturerFilterByOptions_Text'), 0)
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Alternates Screen/suggestedAlternate_TextView'), 0)
 	}
-	
+
+	/**
+	 * this function verifies the product after search
+	 */
+	@Keyword
+	def verifyProductAfterSearch() {
+		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Orders/Product Info/Product Search/NDC_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Search/productDescriptionLabel_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Search/UOI_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Search/quantity_TextField'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Search/manufacturer_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Search/alternates_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Search/addToOrder_Text'), 0)
+	}
+
+	/**
+	 * verifies c2 order is not visible under non c2 order
+	 */
+	@Keyword
+	def verifyC2OrderIsNotVisibleUnderNonC2Order() {
+		Mobile.verifyElementNotVisible(findTestObject('iOS/Orders/Product Info/Product Details/c2Label_Text'), 0)
+	}
+
+	/**
+	 * this function returns the order name in search page
+	 */
+	@Keyword
+	def returnProductNameAfterSearch(){
+		String orderNameInSearchPage=Mobile.getText(findTestObject('iOS/Orders/Product Info/Product Search/productDescriptionLabel_Text'), 0)
+		return orderNameInSearchPage
+	}
+
+	/**
+	 * this function verifies the product tile
+	 */
+	@Keyword
+	def verifyProductTile() {
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Search/CIN_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Search/UPC_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Search/retailPrice_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Orders/Product Info/Product Search/moreDetailsView_Text'), 0)
+	}
+
+	/**
+	 * this function verifies the product details page
+	 */
+
+	@Keyword
+	def verifyProductDetailAfterSelectingMoreDetails(String orderNameInSearchPage){
+		String orderNameInProductDetailsPage=Mobile.getText(findTestObject('iOS/Orders/Product Info/Product Details/productDescriptionLabel_Text'), 0)
+		assert orderNameInSearchPage== orderNameInProductDetailsPage
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Details/c2Label_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Details/productSize_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Details/NDC_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Details/UOI_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Details/stockStatus_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Details/returnable_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Details/quantity_TextField'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Details/less_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Details/more_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Details/strength_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Details/form_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Details/UPC_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Details/CIN_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Details/contractAlias_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Details/retailPrice_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Details/CIN_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Orders/Product Info/Product Details/alternates_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Details/AddToOrder_Button'), 0)
+	}
+
+	/**
+	 * verifies order name header label
+	 * @param poName (poName is the order name)
+	 */
+	@Keyword
+	def verifyOrderNameHeaderLabel(String poName){
+		Mobile.verifyElementVisible(findTestObject('Object Repository/iOS/Orders/Verification Details/OrderDetailHeader_Label',[('TEXT'):poName]),0)
+	}
+
 	/**
 	 * this function adds the quantity in alternates page
 	 * @param quantity (quantity required to add in product detail page)
 	 */
 	@Keyword
 	def addQuantityInAlternatesPage(String quantity) {
-			Mobile.setText(findTestObject('iOS/Orders/Alternates Screen/quantity_TextField'), quantity, 0)
-		    Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/done_Button'), 0)
-		}
+		Mobile.setText(findTestObject('iOS/Orders/Alternates Screen/quantity_TextField'), quantity, 0)
+		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/done_Button'), 0)
+	}
 
-		/**
-		 * taps on alternate to order in alternates page and opens confirmation pop up
-		 */
-		@Keyword
-		def tapOnAddAlternateToOrderInAlternatesPage() {
-			Mobile.tap(findTestObject('iOS/Orders/Alternates Screen/addAlternateToOrder_Text'),  0)
-		}
-	
-		/**
-		 * verifies confirmation pop up in alternates page
-		 */
-		@Keyword
-		def verifyConfirmationPopUpInALternatesPage() {
-			Mobile.verifyElementExist(findTestObject('iOS/Orders/Alternates Screen/itemAddedConfirmationTitle_Text'), 0)
-			Mobile.verifyElementExist(findTestObject('iOS/Orders/Alternates Screen/continueBrowsing_Button'), 0)
-			Mobile.verifyElementExist(findTestObject('iOS/Orders/Alternates Screen/goToOrder_Text'), 0)
-			Mobile.verifyElementExist(findTestObject('iOS/Orders/Alternates Screen/newOrderCreated_Text'), 0)
-		}
-		
-		/**
-		 * takes user back to the search product results to continue browsing
-		 */
-		@Keyword
-		def tapOnContinueBrowsing() {
-	
-			Mobile.tap(findTestObject('iOS/Orders/Alternates Screen/continueBrowsing_Button') ,0)
-		}
-		
-		
+	/**
+	 * this function adds the quantity in product detail page
+	 * @param quantity (quantity required to add in product detail page)
+	 */
+	@Keyword
+	def addQuantityInProductDetailsPage(String quantity) {
+		Mobile.setText(findTestObject('iOS/Orders/Product Info/Product Details/quantity_TextField'), quantity, 0)
+		Mobile.tap(findTestObject('iOS/Orders/Product Info/Product Details/quantity_TextField'), 0)
+	}
+
+	/**
+	 * adds product in product details page
+	 */
+	@Keyword
+	def tapOnAddToOrderInProductDetailsPage() {
+		Mobile.tap(findTestObject('iOS/Orders/Product Info/Product Details/AddToOrder_Button'), 0)
+	}
+
+	/**
+	 * taps on alternate to order in alternates page and opens confirmation pop up
+	 */
+	@Keyword
+	def tapOnAddAlternateToOrderInAlternatesPage() {
+		Mobile.tap(findTestObject('iOS/Orders/Alternates Screen/addAlternateToOrder_Text'),  0)
+	}
+
+	/**
+	 * verifies confirmation pop up in alternates page
+	 */
+	@Keyword
+	def verifyConfirmationPopUpInALternatesPage() {
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Alternates Screen/itemAddedConfirmationTitle_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Alternates Screen/continueBrowsing_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Alternates Screen/goToOrder_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Orders/Alternates Screen/newOrderCreated_Text'), 0)
+	}
+
+	/**
+	 * takes user back to the search product results to continue browsing
+	 */
+	@Keyword
+	def tapOnContinueBrowsing() {
+
+		Mobile.tap(findTestObject('iOS/Orders/Alternates Screen/continueBrowsing_Button') ,0)
+	}
+
+
 	/**
 	 * takes user back to cart screen and verifies user is on the cart screen or not
 	 */

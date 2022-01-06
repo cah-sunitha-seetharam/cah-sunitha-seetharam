@@ -90,6 +90,11 @@
             "productSearchByNDC3": "00069-0058-01",
         },
         
+        "TC_R_058": {
+            "productSearchByNDC": "00450-0449-09",
+            "productSearchCin": "4023347",
+        },
+        
         "TC_R_059": {
             "productSearchByName": "mir",
         },

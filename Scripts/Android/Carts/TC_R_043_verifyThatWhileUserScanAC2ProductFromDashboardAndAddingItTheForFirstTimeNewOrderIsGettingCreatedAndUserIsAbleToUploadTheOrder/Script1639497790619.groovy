@@ -147,3 +147,8 @@ CustomKeywords.'androidOrders.cartScreen.verifynonC2AnnotationCount'(expectednon
 
 'verifies line count'
 CustomKeywords.'androidOrders.cartScreen.verifyLinesCount'(expectedLinesCount)
+
+'---------------deletes order------------------'
+
+'deletes order'
+CustomKeywords.'androidOrders.cartScreen.deleteOrder'()

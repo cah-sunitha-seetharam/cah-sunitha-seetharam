@@ -30,7 +30,7 @@ CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(Gl
 
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnMoreOptions'()
 
-CustomKeywords.'android_more_options.moreOptionsScreen.enableBetaFeatureCSOS'()
+CustomKeywords.'androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS'()
 
 '----------------------------------------------------------------------------'
 
