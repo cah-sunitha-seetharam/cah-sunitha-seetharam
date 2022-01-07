@@ -3,7 +3,7 @@
    <description></description>
    <name>fullCount_Button</name>
    <tag></tag>
-   <elementGuidId>ef3df8b8-2f7b-42cb-8807-87682627c552</elementGuidId>
+   <elementGuidId>3556f4b7-bd67-4fa4-879e-c5d357d06b67</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvFullCount</value>
+      <value>${GlobalVariable.appPackage}:id/tvFullCount</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Full Count' or . = 'Full Count') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/tvFullCount']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/tvFullCount</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

@@ -1,0 +1,26 @@
+{
+    "PMODSTGMOCK": {
+        
+        "TC_R_071": {
+            "productSearchCin": "4023347",
+        },  
+
+        "TC_R_072": {
+            "productSearchCin": "4023347",
+        },   
+
+    },
+
+   "PMODStg": {
+        
+        "TC_R_071": {
+            "productSearchCin": "4023347",
+        }, 
+
+
+        "TC_R_072": {
+            "productSearchCin": "4023347",
+        }  
+    },
+
+}

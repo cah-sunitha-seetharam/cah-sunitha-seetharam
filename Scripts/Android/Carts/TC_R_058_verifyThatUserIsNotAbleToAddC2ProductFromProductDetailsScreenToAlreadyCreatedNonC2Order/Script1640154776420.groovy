@@ -54,7 +54,7 @@ CustomKeywords.'androidOrders.orderDetailsScreen.addQuantityforTheSearchedProduc
 CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
 
 'takes the application back to login page'
-CustomKeywords.'android_more_options.moreOptionsScreen.signOut'()
+CustomKeywords.'androidMoreOptions.moreOptionsScreen.signOut'()
 
 '-----------------------------------signIn---------------------------------------'
 
@@ -71,7 +71,7 @@ CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(Gl
 
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnMoreOptions'()
 
-CustomKeywords.'android_more_options.moreOptionsScreen.enableBetaFeatureCSOS'()
+CustomKeywords.'androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS'()
 
 '------------------------------------------------------------------------------'
 
@@ -176,3 +176,9 @@ CustomKeywords.'androidOrders.cartScreen.openAnOrderDetail'(orderName)
 
 'verifies c2 order is not visible under non c2 order'
 CustomKeywords.'androidOrders.orderDetailsScreen.verifyC2OrderIsNotVisibleUnderNonC2Order'()
+
+'takes the application one screen back'
+CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
+
+'deletes order'
+CustomKeywords.'androidOrders.cartScreen.deleteOrder'()

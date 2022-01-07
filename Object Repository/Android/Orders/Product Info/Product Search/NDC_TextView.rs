@@ -3,7 +3,7 @@
    <description></description>
    <name>NDC_TextView</name>
    <tag></tag>
-   <elementGuidId>dc8a4da1-a1a9-410b-b415-fcad65925c2e</elementGuidId>
+   <elementGuidId>cca4f66b-9e02-411f-a66f-46af78bfcc29</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/ndcTextView</value>
+      <value>${GlobalVariable.appPackage}:id/ndcTextView</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView[7]</value>
    </webElementProperties>
-   <locator>com.cardinalhealth.orderexpress.two.debug:id/ndcTextView</locator>
+   <locator>${GlobalVariable.appPackage}:id/ndcTextView</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

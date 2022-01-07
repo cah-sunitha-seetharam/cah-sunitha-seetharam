@@ -27,9 +27,10 @@ CustomKeywords.'androidLogin.loginScreen.login'(GlobalVariable.Username, GlobalV
 CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
 
 '------------------------enables beta feature CSOS---------------------------'
+
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnMoreOptions'()
 
-CustomKeywords.'android_more_options.moreOptionsScreen.enableBetaFeatureCSOS'()
+CustomKeywords.'androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS'()
 
 '----------------------------------------------------------------------------'
 
@@ -89,9 +90,6 @@ String orderName = CustomKeywords.'androidOrders.cartScreen.returnTopMostOrderNa
 'opens order details and takes order name as the argument'
 CustomKeywords.'androidOrders.cartScreen.openAnOrderDetail'(orderName)
 
-'places the order and verifies confirmation pop up'
-CustomKeywords.'androidOrders.orderDetailsScreen.placeOrder'()
-
 'places the order'
 CustomKeywords.'androidOrders.orderDetailsScreen.clickOnPlaceOrder'()
 
@@ -101,5 +99,9 @@ CustomKeywords.'androidOrders.orderDetailsScreen.verifyPlaceOrderPopUp'()
 'confirms place order by clicking on place my order button'
 CustomKeywords.'androidOrders.orderDetailsScreen.confirmPlaceOrder'()
 
+'takes user back to cart'
+CustomKeywords.'androidOrders.orderDetailsScreen.clickOnBackToCart'()
+
 'verifies that the order should not be visible on the screen and takes purchase order name as the argument'
 CustomKeywords.'androidOrders.cartScreen.verifyOrderNotVisibleOnTheCartScreen'(orderName)
+

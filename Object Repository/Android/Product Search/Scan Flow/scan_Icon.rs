@@ -3,7 +3,7 @@
    <description></description>
    <name>scan_Icon</name>
    <tag></tag>
-   <elementGuidId>8a8aa42a-1fdc-4534-9978-23c35a9d7121</elementGuidId>
+   <elementGuidId>74ca3fa9-b422-46dc-ab10-9d4c56a0e38a</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/scanIcon</value>
+      <value>${GlobalVariable.appPackage}:id/scanIcon</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Scan' or . = 'Scan') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/scanIcon']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/scanIcon</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

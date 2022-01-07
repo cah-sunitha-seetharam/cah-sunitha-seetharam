@@ -64,4 +64,19 @@ class moreOptionsScreen {
 
 		Mobile.tap(findTestObject('iOS/More Options Screen/SignOut/Sign_Out_Button'), 0)
 	}
+	
+	/**
+	 * enables beta csos feature toggle from more options
+	 */
+	@Keyword()
+	def enableBetaFeatureCSOS() {
+		Mobile.tap(findTestObject('iOS/More Options Screen/betaFeatures_Tab'), 0)
+		
+		Mobile.tap(findTestObject('iOS/More Options Screen/betaFeatureSwitch_Toggle'), 0)
+		
+		Mobile.tap(findTestObject('iOS/More Options Screen/termsAgree_CheckBox'), 0)
+		
+		Mobile.tap(findTestObject('iOS/More Options Screen/disclaimerConfirm_Button'), 0)
+	}
+
 }

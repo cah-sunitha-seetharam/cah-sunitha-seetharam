@@ -53,7 +53,7 @@ CustomKeywords.'androidOrders.orderDetailsScreen.addQuantityforTheSearchedProduc
 CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
 
 'takes the application back to login page'
-CustomKeywords.'android_more_options.moreOptionsScreen.signOut'()
+CustomKeywords.'androidMoreOptions.moreOptionsScreen.signOut'()
 
 '-----------------------------------signIn---------------------------------------'
 
@@ -70,7 +70,7 @@ CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(Gl
 
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnMoreOptions'()
 
-CustomKeywords.'android_more_options.moreOptionsScreen.enableBetaFeatureCSOS'()
+CustomKeywords.'androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS'()
 
 '------------------------------------------------------------------------------'
 
@@ -139,3 +139,15 @@ CustomKeywords.'androidOrders.orderDetailsScreen.verifyProductNameIsVisibleUnder
 
 'takes lines count as the argument and verifies the same'
 CustomKeywords.'androidOrders.orderDetailsScreen.verifyLineCountOfOrderNamePage'(lineCountOfOrderNamePage)
+
+'takes the application one screen back'
+CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
+
+'deletes order'
+CustomKeywords.'androidOrders.cartScreen.deleteOrder'()
+
+'opens the c2 orders tab'
+CustomKeywords.'androidOrders.cartScreen.clickOnC2OrdersTab'()
+
+'deletes order'
+CustomKeywords.'androidOrders.cartScreen.deleteOrder'()

@@ -72,17 +72,24 @@ class cartScreen  {
 		Mobile.tap(findTestObject('Android/Orders/Cart Screen/C2 Order/c2Orders_Tab'), 0)
 	}
 
+	/**
+	 * opens the nonc2 orders tab
+	 */
+	@Keyword
+	def clickOnNonC2OrdersTab() {
 
+		Mobile.tap(findTestObject('Object Repository/Android/Orders/Cart Screen/Non C2 Order/nonC2OrdersTab_TextView'), 0)
+	}
 
-	//	/**
-	//	 * opens the c2 order details
-	//	 * @param accountNo (account no which was used to create the order)
-	//	 */
-	//	@Keyword
-	//	def openC2OrderDetailScreen(String accountNo) {
-	//
-	//		Mobile.tap(findTestObject('Object Repository/Android/Orders/C2 Order Details Screen/createdOrder_TextView',[('TEXT'):accountNo]), 0)
-	//	}
+	/**
+	 * opens the c2 order details
+	 * @param accountNo (account no which was used to create the order)
+	 */
+	@Keyword
+	def openC2OrderDetailScreen(String accountNo) {
+
+		Mobile.tap(findTestObject('Object Repository/Android/Orders/C2 Order Details Screen/createdOrder_TextView',[('TEXT'):accountNo]), 0)
+	}
 
 
 
@@ -114,6 +121,20 @@ class cartScreen  {
 		}
 	}
 
+	/**
+	 * deletes order 
+	 */
+	@Keyword
+	def deleteOrder() {
+		int ElementTopPosition = Mobile.getElementTopPosition(findTestObject('Android/Orders/Cart Screen/lineCountC2OrNonC2Product_TextView'),  0)
+		int ElementHeight=Mobile.getElementHeight(findTestObject('Android/Orders/Cart Screen/lineCountC2OrNonC2Product_TextView'),  0)
+		int y_Coordinate_To_Swipe=(ElementHeight/2)+ElementTopPosition
+		Mobile.swipe(200, y_Coordinate_To_Swipe, 0, y_Coordinate_To_Swipe)
+		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Delete Order/YES_Button'), 0)
+	}
+
+
+
 
 	//	@Keyword
 	//	def upload_All_Orders() {
@@ -123,7 +144,7 @@ class cartScreen  {
 	//		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
 	//			WebUI.delay(w)
 	//		}
-	//		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Upload All_Orders/uploadAllOrders_Button'), 0)
+	//		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/uploadAllOrders_Button'), 0)
 	//
 	//		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Upload Order/Continue On Desktop_button'), 0)
 	//
@@ -138,7 +159,7 @@ class cartScreen  {
 	@Keyword
 	def clickOnUploadAllOrders() {
 
-		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Upload All_Orders/uploadAllOrders_Button'), 0)
+		Mobile.tap(findTestObject('Object Repository/Android/Orders/Cart Screen/Upload All_Orders/uploadAllOrders_Button'), 0)
 	}
 
 	/**
@@ -146,7 +167,7 @@ class cartScreen  {
 	 */
 	@Keyword
 	def verifyCartScreenWithOutNonC2Orders() {
-		Mobile.verifyElementNotVisible(findTestObject('Android/Orders/Cart Screen/Upload All_Orders/uploadAllOrders_Button'), 0)
+		Mobile.verifyElementNotVisible(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/uploadAllOrders_Button'), 0)
 	}
 
 	/**
@@ -248,28 +269,28 @@ class cartScreen  {
 
 		Mobile.verifyElementNotVisible(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/orderName_TextView',[('TEXT'):poName]),0)
 	}
-	
-	
+
+
 	/**
 	 * verifies nonC2 annotation count
 	 */
 
 	@Keyword
 	def verifynonC2AnnotationCount(String expectedAnnotationCount) {
-	 String actualAnnotationCount = Mobile.getText(findTestObject('Android/Orders/Cart Screen/nonC2AnnotationCountTextView'), 0)
-	 assert expectedAnnotationCount == actualAnnotationCount
+		String actualAnnotationCount = Mobile.getText(findTestObject('Android/Orders/Cart Screen/nonC2AnnotationCountTextView'), 0)
+		assert expectedAnnotationCount == actualAnnotationCount
 	}
-	
+
 	/**
 	 * verifies C2 annotation count
 	 */
 
 	@Keyword
 	def verifyC2AnnotationCount(String expectedAnnotationCount) {
-	 String actualAnnotationCount = Mobile.getText(findTestObject('Object Repository/Android/Orders/Cart Screen/c2AnnotationCount_TextView'), 0)
-	 assert expectedAnnotationCount == actualAnnotationCount
+		String actualAnnotationCount = Mobile.getText(findTestObject('Object Repository/Android/Orders/Cart Screen/c2AnnotationCount_TextView'), 0)
+		assert expectedAnnotationCount == actualAnnotationCount
 	}
-	
+
 	/**
 	 * takes expected lines count as the argument and verifies the same
 	 * @param expectedLinesCount (expected lines count after adding products to the cart)
@@ -386,7 +407,7 @@ class cartScreen  {
 
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/mobileOrdersCount_TextView'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/Lines_TextView'), 0)
+		//	Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/Lines_TextView'), 0)
 
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/cartTotal_TextView'), 0)
 

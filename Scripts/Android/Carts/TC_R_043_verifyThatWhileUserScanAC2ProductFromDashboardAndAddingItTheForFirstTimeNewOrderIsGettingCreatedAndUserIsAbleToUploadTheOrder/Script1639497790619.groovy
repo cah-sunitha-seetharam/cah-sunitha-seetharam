@@ -29,7 +29,7 @@ CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(Gl
 '------------------------enables beta feature CSOS---------------------------'
 
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnMoreOptions'()
-CustomKeywords.'android_more_options.moreOptionsScreen.enableBetaFeatureCSOS'()
+CustomKeywords.'androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS'()
 
 '----------------------------------------------------------------------------'
 
@@ -147,3 +147,8 @@ CustomKeywords.'androidOrders.cartScreen.verifynonC2AnnotationCount'(expectednon
 
 'verifies line count'
 CustomKeywords.'androidOrders.cartScreen.verifyLinesCount'(expectedLinesCount)
+
+'---------------deletes order------------------'
+
+'deletes order'
+CustomKeywords.'androidOrders.cartScreen.deleteOrder'()

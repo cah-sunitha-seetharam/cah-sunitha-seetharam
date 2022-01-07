@@ -3,7 +3,7 @@
    <description></description>
    <name>scan_Done_Button</name>
    <tag></tag>
-   <elementGuidId>b147dd7f-efb2-4c16-807d-1ddc08208896</elementGuidId>
+   <elementGuidId>383103f9-1fa3-4e00-834f-797b0fe68afb</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/go</value>
+      <value>${GlobalVariable.appPackage}:id/go</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.Button[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.Button' and (@text = 'SCAN' or . = 'SCAN') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/go']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/go</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

@@ -30,7 +30,7 @@ CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(Gl
 '------------------------enables beta feature CSOS---------------------------'
 
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnMoreOptions'()
-CustomKeywords.'android_more_options.moreOptionsScreen.enableBetaFeatureCSOS'()
+CustomKeywords.'androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS'()
 
 '----------------------------------------------------------------------------'
 
@@ -164,4 +164,16 @@ CustomKeywords.'androidOrders.cartScreen.verifyTotalLineCount'(totalLineCount2)
 
 'this function verifies the cart value and takes expected cart value as an argument'
 CustomKeywords.'androidOrders.cartScreen.verifyCartValue'(orderValue)
+
+'---------------deletes order------------------'
+
+'deletes order'
+CustomKeywords.'androidOrders.cartScreen.deleteOrder'()
+
+'opens the c2 orders tab'
+CustomKeywords.'androidOrders.cartScreen.clickOnC2OrdersTab'()
+
+'deletes order'
+CustomKeywords.'androidOrders.cartScreen.deleteOrder'()
+
 
