@@ -54,4 +54,19 @@
       <initValue>'com.cardinalhealth.orderexpress.two.debug'</initValue>
       <name>appPackage</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>if Android app is already installed then set this to true else false</description>
+      <initValue>false</initValue>
+      <name>isAndroidAppInstalled</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>if iOS app is already installed then set this to true else false</description>
+      <initValue>true</initValue>
+      <name>isIosAppInstalled</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>bundle id for iOS application</description>
+      <initValue>'com.cardinalhealth.orderexpress.two'</initValue>
+      <name>bundleID</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

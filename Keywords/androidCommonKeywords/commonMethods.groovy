@@ -19,13 +19,18 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import com.kms.katalon.core.util.KeywordUtil
 import internal.GlobalVariable
+import io.appium.java_client.AppiumDriver
+import io.appium.java_client.android.AndroidDriver
 import androidDashboard.dashboardDetailsScreen
 import android_more_options.moreOptionsScreen
+import com.kms.katalon.core.configuration.RunConfiguration
+import com.kms.katalon.core.mobile.keyword.internal.MobileDriverFactory
 
 class  commonMethods {
 
 	def dashboardObject=new dashboardDetailsScreen();
 	def moreOptionsScreenObject=new moreOptionsScreen();
+	def commonMethodsObject=new common.commonMethods()
 
 
 	/**
@@ -38,15 +43,29 @@ class  commonMethods {
 	}
 
 
+
 	/**
-	 * installs as well as launches the application
+	 * reads value from the global boolean variable: isAndroidAppInstalled
+	 * and if it is set to true, launches already installed application else installs and launches the application
 	 */
 	@Keyword
 	def installingAndlaunchingTheApplication() {
 
-		Mobile.startApplication(GlobalVariable.AndroidAppPath, true) //Android_App_Path (Application path will be taken from the global profile and passed as a parameter to this method)
 
+		if (GlobalVariable.isAndroidAppInstalled)
+		{
+			KeywordUtil.logInfo("application is already installed")
+			Mobile.startExistingApplication(GlobalVariable.appPackage)
+			
+		}
+		else {
+			KeywordUtil.logInfo("need to install the application")
+			RunConfiguration.setMobileDriverPreferencesProperty("appWaitActivity", GlobalVariable.appWaitActivity)   // relative reference of activity name to wait for while opening the app
+			RunConfiguration.setMobileDriverPreferencesProperty("appPackage", GlobalVariable.appPackage) // this value will get from profile
+			Mobile.startApplication(GlobalVariable.AndroidAppPath, true)
+		}
 	}
+	
 
 	/**
 	 * @param stringCharcterToBeRemoved (Removes characters in a string)
@@ -97,7 +116,7 @@ class  commonMethods {
 		String productCostCharcterRemoved = (new androidCommonKeywords.commonMethods()).removeCharctersInString(productCost)
 		return productCostCharcterRemoved
 	}
-	
+
 	/**
 	 * refreshes the screen by doing a vertical swipe by considering the deviceHeight and deviceWidth
 	 */

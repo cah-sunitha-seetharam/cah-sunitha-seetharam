@@ -19,11 +19,12 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords
 
 import internal.GlobalVariable
-
+import io.appium.java_client.AppiumDriver
+import io.appium.java_client.MobileElement
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.By
-
+import org.openqa.selenium.TakesScreenshot
 import com.kms.katalon.core.mobile.keyword.internal.MobileDriverFactory
 import com.kms.katalon.core.webui.driver.DriverFactory
 
@@ -40,11 +41,15 @@ import com.kms.katalon.core.webui.exception.WebElementNotFoundException
 import com.kms.katalon.core.configuration.RunConfiguration
 
 import groovy.json.JsonOutput as JsonOutput
-import groovy.json.JsonSlurper as JsonSlurper
+import groovy.json.JsonSlurper
+import java.awt.image.BufferedImage
 import java.io.File
 import java.math.RoundingMode
 import java.text.DecimalFormat
-
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import org.openqa.selenium.OutputType
+import org.openqa.selenium.Point
 
 class commonMethods {
 
@@ -125,5 +130,56 @@ class commonMethods {
 
 	def static WebDriver getCurrentSessionMobileDriver() {
 		return MobileDriverFactory.getDriver();
+	}
+
+
+
+	/**
+	 * verifies element colour by taking a screenshot and comparing with colour of specific pixels
+	 * @param expectedRedIntensity
+	 * @param expectedGreenIntensity
+	 * @param expectedBlueIntensity
+	 * @param idOfTheElement
+	 */
+	@Keyword
+	def verifyElementColor(int expectedRedIntensity, int expectedGreenIntensity, int expectedBlueIntensity, String idOfTheElement) {
+
+		'mobile driver value of the current session'
+		AppiumDriver<?> driver =  commonMethods.getCurrentSessionMobileDriver()
+
+		'locate the element by passing the locator strategy that can be of users choice'
+		MobileElement element = (MobileElement) driver.findElement(By.id("${idOfTheElement}"));
+
+		'gets the center coordinates'
+		Point point = element.getCenter()
+
+		'stores x coordinate in Xcenter'
+		int Xcenter = point.getX()
+
+		'stores y coordinate in Ycenter'
+		int Ycenter = point.getY();
+
+		'takes screenshot as a file'
+		File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE)
+
+		'Returns a BufferedImage as the result of decoding a supplied File with an ImageReader chosen automatically from among those currently registered'
+		BufferedImage image = ImageIO.read(file);
+
+		'Returns an integer pixel in the default RGB color model (TYPE_INT_ARGB)'
+		'TYPE_INT_ARGB: represents color as an int of 4 bytes with Blue channels in 0-7, Green channels in 8-15 and Red channels in 24-31'
+		int rgbPixel=  image.getRGB(Xcenter,Ycenter);
+
+		'as red channels in 24-31, using bitwise AND operator with hexadecimal code of color Red and right shifting by 16 bits'
+		int  actualRedIntensity   = (rgbPixel & 0x00ff0000) >> 16
+
+		'as green channels in 8-15, using bitwise AND operator with hexadecimal code of color Green and right shifting by 8 bits'
+		int  actualGreenIntensity = (rgbPixel & 0x0000ff00) >> 8
+
+		'as Blue channels in 0-7, using bitwise AND operator with hexadecimal code of Blue and no need to shift bits'
+		int  actualBlueIntensity  = (rgbPixel & 0x000000ff)
+
+		assert actualRedIntensity==expectedRedIntensity
+		assert actualGreenIntensity==expectedGreenIntensity
+		assert actualBlueIntensity==expectedBlueIntensity
 	}
 }

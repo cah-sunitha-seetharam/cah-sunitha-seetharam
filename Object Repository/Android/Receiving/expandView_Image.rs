@@ -3,7 +3,7 @@
    <description></description>
    <name>expandView_Image</name>
    <tag></tag>
-   <elementGuidId>71186512-21ba-499b-b82d-d0a373e120bb</elementGuidId>
+   <elementGuidId>d20b351f-9b3d-40b3-872e-afb7bc07948f</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.widget.FrameLayout[2]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.ImageView[1]</value>
    </webElementProperties>
-   <locator>com.cardinalhealth.orderexpress.two.debug:id/ivExpandCollapse</locator>
+   <locator>${GlobalVariable.appPackage}:id/ivExpandCollapse</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>
