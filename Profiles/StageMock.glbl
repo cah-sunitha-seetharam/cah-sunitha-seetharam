@@ -61,7 +61,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description>if iOS app is already installed then set this to true else false</description>
-      <initValue>true</initValue>
+      <initValue>false</initValue>
       <name>isIosAppInstalled</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
