@@ -77,7 +77,8 @@ Profile StageMock : Package value of the Android app that we need to run</p>
      
     /**
      * <p>Profile Release : bundle id for iOS application
-Profile Stage : bundle id for iOS application</p>
+Profile Stage : bundle id for iOS application
+Profile StageMock : bundle id for iOS application</p>
      */
     public static Object bundleID
      
@@ -85,6 +86,20 @@ Profile Stage : bundle id for iOS application</p>
      * <p>Profile Release : change this to order (strictly follow the name), if test suite under execution is of orders module </p>
      */
     public static Object testSuiteModule
+     
+    /**
+     * <p>Profile Release : if Android app is already installed then set this to true else false
+Profile Stage : if Android app is already installed then set this to true else false
+Profile StageMock : if Android app is already installed then set this to true else false</p>
+     */
+    public static Object isAndroidAppInstalled
+     
+    /**
+     * <p>Profile Release : if iOS app is already installed then set this to true else false
+Profile Stage : if iOS app is already installed then set this to true else false
+Profile StageMock : if iOS app is already installed then set this to true else false</p>
+     */
+    public static Object isIosAppInstalled
      
     /**
      * <p></p>
@@ -110,6 +125,8 @@ Profile Stage : bundle id for iOS application</p>
             appPackage = selectedVariables['appPackage']
             bundleID = selectedVariables['bundleID']
             testSuiteModule = selectedVariables['testSuiteModule']
+            isAndroidAppInstalled = selectedVariables['isAndroidAppInstalled']
+            isIosAppInstalled = selectedVariables['isIosAppInstalled']
             a = selectedVariables['a']
             
         } catch (Exception e) {

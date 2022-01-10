@@ -184,7 +184,8 @@ def static "iosCommonKeywords.commonMethods.goOneScreenBack"() {
 }
 
  /**
-	 * installs as well as launches the application
+	 * reads value from the global boolean variable: isIosAppInstalled
+	 * and if it is set to true, launches already installed application else installs and launches the application
 	 */ 
 def static "iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication"() {
     (new iosCommonKeywords.commonMethods()).installingAndlaunchingTheApplication()
@@ -2596,6 +2597,117 @@ def static "androidReceiving.receivingReusableMethods.verifyShipmentsListScreenD
 }
 
  /**
+	 * takes expected received product count as the argument and verifies that it should be same as the actual count visible
+	 * @param expectedReceivedProductCount (expected received product count)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyReceivedProductCount"(
+    	Object expectedReceivedProductCount	) {
+    (new androidReceiving.receivingReusableMethods()).verifyReceivedProductCount(
+        	expectedReceivedProductCount)
+}
+
+ /**
+	 * clicks on receive all totes_button
+	 */ 
+def static "androidReceiving.receivingReusableMethods.clickOnReceiveAllTotes"() {
+    (new androidReceiving.receivingReusableMethods()).clickOnReceiveAllTotes()
+}
+
+ /**
+	 * uploads completed_totes
+	 */ 
+def static "androidReceiving.receivingReusableMethods.uploadCompletedTotes"() {
+    (new androidReceiving.receivingReusableMethods()).uploadCompletedTotes()
+}
+
+ /**
+	 * verifies the pop up after uploading_totes
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyUploadTotesPopUp"() {
+    (new androidReceiving.receivingReusableMethods()).verifyUploadTotesPopUp()
+}
+
+ /**
+	 * takes user back to receiving after uploading_totes
+	 */ 
+def static "androidReceiving.receivingReusableMethods.clickOnBackToReceiving"() {
+    (new androidReceiving.receivingReusableMethods()).clickOnBackToReceiving()
+}
+
+ /**
+	 * verifies the invoice is not visible on the screen
+	 * @param invoiceNumber (invoice number)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyInvoiceIsNotVisible"(
+    	Object invoiceNumber	) {
+    (new androidReceiving.receivingReusableMethods()).verifyInvoiceIsNotVisible(
+        	invoiceNumber)
+}
+
+ /**
+	 * expands the view to see detailed view of_tote
+	 */ 
+def static "androidReceiving.receivingReusableMethods.expandToSeeDetailedViewOfTotes"() {
+    (new androidReceiving.receivingReusableMethods()).expandToSeeDetailedViewOfTotes()
+}
+
+ /**
+	 * collapses the detailed view of_tote
+	 */ 
+def static "androidReceiving.receivingReusableMethods.collpaseViewOfTotes"() {
+    (new androidReceiving.receivingReusableMethods()).collpaseViewOfTotes()
+}
+
+ /**
+	 * creates a test object at run time
+	 * resourceId (resource-id of the object)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.makeTestObject"(
+    	String resourceId	) {
+    (new androidReceiving.receivingReusableMethods()).makeTestObject(
+        	resourceId)
+}
+
+ /**
+	 * test method for run time object creation
+	 */ 
+def static "androidReceiving.receivingReusableMethods.testFunction"() {
+    (new androidReceiving.receivingReusableMethods()).testFunction()
+}
+
+ /**
+	 * takes received product count as the argument and enters count in the text-field
+	 * @param receivedProductCount (received product count)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.editReceivedProductCount"(
+    	int receivedProductCount	) {
+    (new androidReceiving.receivingReusableMethods()).editReceivedProductCount(
+        	receivedProductCount)
+}
+
+ /**
+	 * returns max upper value without over-age product count
+	 * @return maxCount (max upper value without over-age product count)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.returnUpperLimitReceivingProductCount"() {
+    (new androidReceiving.receivingReusableMethods()).returnUpperLimitReceivingProductCount()
+}
+
+ /**
+	 * verifies over-age tag is visible after inputting receiving count which is more than the max upper limit
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyOverAgeTag"() {
+    (new androidReceiving.receivingReusableMethods()).verifyOverAgeTag()
+}
+
+ /**
+	 * verifies received tag is visible after inputting receiving count which is less or equal to the max upper limit
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyReceivedTag"() {
+    (new androidReceiving.receivingReusableMethods()).verifyReceivedTag()
+}
+
+ /**
 	 * adds costType based on the argument which can be current or last price paid
 	 * @param costType (can be current or last price paid)
 	 */ 
@@ -2937,6 +3049,25 @@ def static "common.commonMethods.getCurrentSessionMobileDriver"() {
 }
 
  /**
+	 * verifies element colour by taking a screenshot and comparing with colour of specific pixels
+	 * @param expectedRedIntensity
+	 * @param expectedGreenIntensity
+	 * @param expectedBlueIntensity
+	 * @param idOfTheElement
+	 */ 
+def static "common.commonMethods.verifyElementColor"(
+    	int expectedRedIntensity	
+     , 	int expectedGreenIntensity	
+     , 	int expectedBlueIntensity	
+     , 	String idOfTheElement	) {
+    (new common.commonMethods()).verifyElementColor(
+        	expectedRedIntensity
+         , 	expectedGreenIntensity
+         , 	expectedBlueIntensity
+         , 	idOfTheElement)
+}
+
+ /**
 	 * adds the product from dash-board to inventory
 	 * @param productName
 	 * @param quantity
@@ -3227,7 +3358,8 @@ def static "androidCommonKeywords.commonMethods.goOneScreenBack"() {
 }
 
  /**
-	 * installs as well as launches the application
+	 * reads value from the global boolean variable: isAndroidAppInstalled
+	 * and if it is set to true, launches already installed application else installs and launches the application
 	 */ 
 def static "androidCommonKeywords.commonMethods.installingAndlaunchingTheApplication"() {
     (new androidCommonKeywords.commonMethods()).installingAndlaunchingTheApplication()
@@ -3477,7 +3609,6 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
         	testName
          , 	viewportSize)
 }
-
 
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	

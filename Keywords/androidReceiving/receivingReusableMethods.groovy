@@ -4,7 +4,8 @@ import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-
+import com.sun.net.httpserver.Authenticator.Failure
+import common.commonMethods
 import com.kms.katalon.core.annotation.Keyword
 import com.kms.katalon.core.checkpoint.Checkpoint
 import com.kms.katalon.core.checkpoint.CheckpointFactory
@@ -20,11 +21,13 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords
 
 import internal.GlobalVariable
+import io.appium.java_client.AppiumDriver
 import io.appium.java_client.MobileElement
+import io.appium.java_client.android.AndroidDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.By
-
+import org.openqa.selenium.TakesScreenshot
 import com.kms.katalon.core.mobile.keyword.internal.MobileDriverFactory
 import com.kms.katalon.core.webui.driver.DriverFactory
 
@@ -41,14 +44,25 @@ import com.kms.katalon.core.webui.exception.WebElementNotFoundException
 import com.kms.katalon.core.configuration.RunConfiguration
 
 import groovy.json.JsonOutput as JsonOutput
-import groovy.json.JsonSlurper as JsonSlurper
+import groovy.json.JsonSlurper
+import java.awt.image.BufferedImage
 import java.io.File
 import java.math.RoundingMode
 import java.text.DecimalFormat
-
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import org.openqa.selenium.OutputType
+import org.openqa.selenium.Point
+import org.openqa.selenium.Keys as Keys
+import org.openqa.selenium.remote.DesiredCapabilities;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 
 class receivingReusableMethods {
 
+
+	def androidCommonKeywordsObject=new androidCommonKeywords.commonMethods()
+	def commonMethodsObject=new commonMethods()
 	/**
 	 * clicks on continue button after selection of shipments or invoice by user
 	 */
@@ -190,7 +204,7 @@ class receivingReusableMethods {
 
 		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/ndc_TextView',[('TEXT'):productNdcNumber]), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/receiving_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/receivedTag_TextView'), 0)
 
 		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/issue_TextView'), 0)
 
@@ -335,6 +349,8 @@ class receivingReusableMethods {
 
 		Mobile.verifyElementExist(findTestObject('Android/Receiving/totesReceived_TextView'), 0)
 
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/collapseView_Image'), 0)
+
 		Mobile.verifyElementExist(findTestObject('Android/Receiving/deliveredDate_TextView'), 0)
 
 		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/toteID_TextView'), 0)
@@ -379,5 +395,184 @@ class receivingReusableMethods {
 		Mobile.verifyElementExist(findTestObject('Android/Receiving/toteReceivedStatus_TextView'), 0)
 
 		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/date_TextView'), 0)
+	}
+
+
+
+	/**
+	 * takes expected received product count as the argument and verifies that it should be same as the actual count visible
+	 * @param expectedReceivedProductCount (expected received product count)
+	 */
+	@Keyword
+	def verifyReceivedProductCount(expectedReceivedProductCount) {
+
+		String actualProductCountString = Mobile.getText(findTestObject('Android/Receiving/productReceivedCount_TextView'), 0)
+
+		expectedReceivedProductCount= actualProductCountString[0]
+	}
+
+
+
+	/**
+	 * clicks on receive all totes_button
+	 */
+	@Keyword
+	def clickOnReceiveAllTotes() {
+
+		Mobile.tap(findTestObject('Android/Receiving/receiveAll_Button'),0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/toteReceivingStatus_View'), 0)
+
+		String idOfTheElement=Mobile.getAttribute(findTestObject('Android/Receiving/toteReceivingStatus_View'), 'resource-id', 0)
+
+		KeywordUtil.logInfo(idOfTheElement)
+
+		commonMethodsObject.verifyElementColor(146,255,161,idOfTheElement) //light green with hex code #92ffa1
+	}
+
+
+	/**
+	 * uploads completed_totes
+	 */
+	@Keyword
+	def uploadCompletedTotes() {
+
+		Mobile.tap(findTestObject('Object Repository/Android/Receiving/uploadCompletedTotes_Button'),0)
+	}
+
+
+	/**
+	 * verifies the pop up after uploading_totes
+	 */
+	@Keyword
+	def verifyUploadTotesPopUp() {
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/invoiceUploadCompleted_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/allTotesUploaded_TextView'), 0)
+	}
+
+
+	/**
+	 * takes user back to receiving after uploading_totes
+	 */
+	@Keyword
+	def clickOnBackToReceiving() {
+
+		Mobile.tap(findTestObject('Android/Receiving/backToReceiving_Button'), 0)
+	}
+
+
+	/**
+	 * verifies the invoice is not visible on the screen
+	 * @param invoiceNumber (invoice number)
+	 */
+	@Keyword
+	def verifyInvoiceIsNotVisible(invoiceNumber) {
+
+		Mobile.verifyElementNotVisible(findTestObject('Android/Receiving/invoice_Tile',[('TEXT'):invoiceNumber]), 0)
+	}
+
+
+	/**
+	 * expands the view to see detailed view of_tote
+	 */
+	@Keyword
+	def expandToSeeDetailedViewOfTotes() {
+
+		Mobile.tap(findTestObject('Object Repository/Android/Receiving/expandView_Image'), 0)
+	}
+
+
+
+	/**
+	 * collapses the detailed view of_tote
+	 */
+	@Keyword
+	def collpaseViewOfTotes() {
+
+		Mobile.tap(findTestObject('Object Repository/Android/Receiving/collapseView_Image'), 0)
+	}
+
+
+
+	/**
+	 * creates a test object at run time
+	 * resourceId (resource-id of the object)
+	 */
+	@Keyword
+	static TestObject makeTestObject(String resourceId) {
+		TestObject to = new TestObject()
+		to.addProperty("resourceId", ConditionType.EQUALS, resourceId)
+		return to
+	}
+
+
+	/**
+	 * test method for run time object creation
+	 */
+	@Keyword
+	def testFunction() {
+		//Mobile.tap(findTestObject('Android/Login/Environment Selection Screen/Environment_Spinner'), 0)
+		//Mobile.tap((makeTOwithXPath("com.cardinalhealth.orderexpress.two.debug:id/serverLocationSpinner")), 0)
+		// DriverFactory.getWebDriver().findElements(By.id("com.cardinalhealth.orderexpress.two.debug:id/serverLocationSpinner"));
+
+		'com.cardinalhealth.orderexpress.two.debug:id/serverLocationSpinner'
+
+		MobileElement element = MobileElementCommonHelper.findElement(makeTestObject("${GlobalVariable.appPackage}:id/serverLocationSpinner"), 0)
+		element.click()
+
+		String testProfile=RunConfiguration.getExecutionProfile()
+		KeywordUtil.logInfo(testProfile)
+
+		Mobile.tap(findTestObject('Android/Login/Environment Selecttion Screen/environment_Spinner',[('appPackage'):GlobalVariable.appPackage]), 0)
+
+	}
+
+
+
+	/**
+	 * takes received product count as the argument and enters count in the text-field
+	 * @param receivedProductCount (received product count)
+	 */
+	@Keyword
+	def editReceivedProductCount(int receivedProductCount) {
+
+		Mobile.setText(findTestObject('Object Repository/Android/Receiving/receivedCount_TextField'), receivedProductCount.toString(),0)
+	}
+
+
+
+	/**
+	 * returns max upper value without over-age product count
+	 * @return maxCount (max upper value without over-age product count)
+	 */
+	@Keyword
+	def returnUpperLimitReceivingProductCount() {
+
+		String maxCount=Mobile.getText(findTestObject('Android/Receiving/maxReceivingProductCount_TextView'), 0)
+
+		return androidCommonKeywordsObject.removeCharctersInString(maxCount)
+	}
+
+
+	/**
+	 * verifies over-age tag is visible after inputting receiving count which is more than the max upper limit
+	 */
+	@Keyword
+	def verifyOverAgeTag() {
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/overageTag_TextView'), 0)
+	}
+
+
+
+	/**
+	 * verifies received tag is visible after inputting receiving count which is less or equal to the max upper limit
+	 */
+	@Keyword
+	def verifyReceivedTag() {
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/recivedTag_TextView'), 0)
 	}
 }

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
-   <description>Verify that the user is Able to swap between Shipments and Invoices.                  
- Prerequisite: Valid login credentials with multiple accounts available for the user. </description>
+   <description>Verify that the user is Able to select Receive Tote Button and Upload selected Totes
+ Prerequisite: 
+1.Valid login credentials with multiple accounts available for the user.   
+2. Receiving data should be available </description>
    <name>TC_OE_020_verifyThatTheUserIsAbleToSwapBetweenShipmentsAndInvoices</name>
    <tag>Receiving;Sanity</tag>
    <comment></comment>

@@ -64,4 +64,14 @@
       <initValue>'order'</initValue>
       <name>testSuiteModule</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>if Android app is already installed then set this to true else false</description>
+      <initValue>false</initValue>
+      <name>isAndroidAppInstalled</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>if iOS app is already installed then set this to true else false</description>
+      <initValue>false</initValue>
+      <name>isIosAppInstalled</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>
