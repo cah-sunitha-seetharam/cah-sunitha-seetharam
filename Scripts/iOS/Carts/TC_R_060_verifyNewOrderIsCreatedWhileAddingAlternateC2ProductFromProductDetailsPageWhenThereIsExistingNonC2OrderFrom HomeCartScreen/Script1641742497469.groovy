@@ -84,7 +84,7 @@ CustomKeywords.'iosLogin.loginScreen.cancelUpdatePopUp'()
 CustomKeywords.'iosLogin.loginScreen.enterUsername'(GlobalVariable.Username)
 
 'enters the password'
-CustomKeywords.'iosLogin.loginScreen.enterPassword_2'(GlobalVariable.Password)
+CustomKeywords.'iosLogin.loginScreen.enterPassword'(GlobalVariable.Password)
 
 'clicks on signIn button and takes to the dash-board of the application'
 CustomKeywords.'iosLogin.loginScreen.clickOnSignInButton'()

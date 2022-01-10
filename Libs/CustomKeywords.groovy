@@ -1474,16 +1474,6 @@ def static "iosLogin.loginScreen.selectTypeOfTesting"(
 }
 
  /**
-	 * enters the password
-	 * @param password (it is taken from the global profile but passed as a parameter)
-	 */ 
-def static "iosLogin.loginScreen.enterPassword_2"(
-    	String password	) {
-    (new iosLogin.loginScreen()).enterPassword_2(
-        	password)
-}
-
- /**
 	 * enters the user-name
 	 * @param username (it is taken from the global profile but passed as a parameter)
 	 */ 

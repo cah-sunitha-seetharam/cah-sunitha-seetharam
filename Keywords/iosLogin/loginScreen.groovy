@@ -97,22 +97,7 @@ class loginScreen {
 		}
 	}
 
-	/**
-	 * enters the password
-	 * @param password (it is taken from the global profile but passed as a parameter)
-	 */
-	@Keyword()
-	def enterPassword_2(String password) {
-
-		if ( Mobile.verifyElementNotExist(findTestObject('iOS/LogIn/Login_Details_Screen/autoSavedUserName_Text',[('Text'):GlobalVariable.Username]), 0, FailureHandling.OPTIONAL)) {
-			Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/password_Button'), 0)
-			Mobile.setText(findTestObject('iOS/LogIn/Login_Details_Screen/passwordSecure_TextField'), password, 0)
-		}
-		else {
-			Mobile.doubleTap(findTestObject('iOS/LogIn/Login_Details_Screen/password_Button'), 0)
-			Mobile.setText(findTestObject('iOS/LogIn/Login_Details_Screen/passwordSecure_TextField'), password, 0)
-		}
-	}
+	
 
 	/**
 	 * enters the user-name
@@ -138,7 +123,7 @@ class loginScreen {
 	@Keyword()
 	def enterPassword(String password) {
 
-		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/password_Button'), 0)
+		Mobile.doubleTap(findTestObject('iOS/LogIn/Login_Details_Screen/password_Button'), 0)
 
 		Mobile.setText(findTestObject('iOS/LogIn/Login_Details_Screen/passwordSecure_TextField'), password, 0)
 	}
