@@ -126,7 +126,23 @@ class orderDetailsScreen {
 		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/done_Button'), 0)
 	}
 
-
+	/**
+	 * this function returns the top most product name in order details page
+	 */
+	@Keyword
+	def returnTopMostProductNameInOrderDetails(){
+		String productName=Mobile.getText(findTestObject('Object Repository/iOS/Orders/Order Details Screen/Verification Details/productDescriptionLabel_Text'), 0)
+		return productName
+	}
+	
+	/**
+	 * verifies that the added top most product should  be visible on the order details page
+	 * @param productname (top most added product name)
+	 */
+	@Keyword
+	def verifyProductNameIsVisibleUnderOrderDetails(String productname) {
+		Mobile.verifyElementVisible(findTestObject('Object Repository/iOS/Orders/Order Details Screen/Verification Details/productDescriptionLabel_Text',[('TEXT'): productname]) ,0)
+	}
 
 	/**
 	 * clicks on c2 order availability and waits for the response while verifying the availability details for the c2 product
@@ -175,7 +191,7 @@ class orderDetailsScreen {
 	def clickOnMoreDetails() {
 		Mobile.tap(findTestObject('Object Repository/iOS/Orders/Product Info/Product Search/moreDetailsView_Text'), 0)
 	}
-	
+
 	/**
 	 * opens alternates page
 	 */
@@ -183,7 +199,7 @@ class orderDetailsScreen {
 	def tapOnAlternatesInProductDetailsPage() {
 		Mobile.tap(findTestObject('iOS/Orders/Product Info/Product Details/alternates_Text'), 0)
 	}
-	
+
 	/**
 	 * verifies filterByOptions
 	 */
@@ -241,6 +257,15 @@ class orderDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Search/UPC_Text'), 0)
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Search/retailPrice_Text'), 0)
 		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Orders/Product Info/Product Search/moreDetailsView_Text'), 0)
+	}
+
+
+	/**
+	 * removes product from orders details
+	 */
+	@Keyword
+	def removeProduct() {
+		Mobile.tap(findTestObject('Object Repository/iOS/Orders/Order Details Screen/Verification Details/Remove Item_Button'), 0)
 	}
 
 	/**
@@ -366,7 +391,13 @@ class orderDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/goToDashboard_Button'), 0)
 	}
 
-
+	/**
+	 * takes user back to the search product results to continue browsing
+	 */
+	@Keyword
+	def tapContinueOnDesktop() {
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Upload Order/continueOnDesktop_Button'), 0)
+	}
 
 	/**
 	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at ordering
@@ -490,7 +521,7 @@ class orderDetailsScreen {
 	def confirmPlaceOrder() {
 		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Place All Orders/placeMyOrder(s)_Text'), 0)
 	}
-	
+
 
 
 	/**
@@ -787,7 +818,7 @@ class orderDetailsScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Product Search/Scan Flow/productDescription_Label'), 0)
 	}
-	
+
 
 	/**
 	 * this function returns the order name of the order/ title of the screen when user is on order details screen
@@ -800,7 +831,7 @@ class orderDetailsScreen {
 
 		return orderName
 	}
-	
+
 
 	/**
 	 * taps on continue ordering button on order details screen after user has added a product to order
@@ -813,7 +844,7 @@ class orderDetailsScreen {
 
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Create C2 Order/continueOrdering_Button'), 0)
 	}
-	
+
 
 	/**
 	 * takes user back to history screen and verifies user is on the history screen or not
@@ -831,46 +862,43 @@ class orderDetailsScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/History Screen/scan_Icon'),0)
 	}
-	
-	
+
+
 	/**
 	 * try removing all characters in UTN field
 	 */
 	@Keyword
 	def removeCharactersInUTNField() {
-		
+
 		Mobile.clearText(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/uniqueTrackingNumber_TextField'), 0)
-			
+
 		Mobile.delay(1)
-		
+
 		Mobile.sendKeys(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/uniqueTrackingNumber_TextField'), Keys.chord(Keys.RETURN))
-		
 	}
-	
+
 	/**
 	 * fetch UTN number and store it in a string
 	 */
 	@Keyword
 	def getUTNFromUTNTextField() {
-		
+
 		String beforeUTN = Mobile.getText(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/uniqueTrackingNumber_TextField'), 0)
-		
+
 		return beforeUTN;
-		
 	}
-	
-	
+
+
 	/**
 	 * verifies only last 6 digit got deleted, first 3 characters could not be removed & validation error displayed after removing characters
 	 */
 	@Keyword
 	def verifyValidationErrorAfterRemovingCharactesInUTNField() {
-		
+
 		String actualErrorMsg = Mobile.getText(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/uniqueTrackingNumberError_Label_2'), 0)
-		
+
 		String expectedErrorMsg = 'Please provide a Unique Tracking Number in the following format: AANNNN (two alphabetic characters followed by four numeric digits).'
-		
+
 		assert expectedErrorMsg.equalsIgnoreCase(actualErrorMsg)
 	}
-	
 }

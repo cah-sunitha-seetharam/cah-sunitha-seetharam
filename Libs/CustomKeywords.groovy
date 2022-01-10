@@ -460,6 +460,23 @@ def static "iosOrders.orderDetailsScreen.addQuantityforTheSearchedProduct"(
 }
 
  /**
+	 * this function returns the top most product name in order details page
+	 */ 
+def static "iosOrders.orderDetailsScreen.returnTopMostProductNameInOrderDetails"() {
+    (new iosOrders.orderDetailsScreen()).returnTopMostProductNameInOrderDetails()
+}
+
+ /**
+	 * verifies that the added top most product should  be visible on the order details page
+	 * @param productname (top most added product name)
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyProductNameIsVisibleUnderOrderDetails"(
+    	String productname	) {
+    (new iosOrders.orderDetailsScreen()).verifyProductNameIsVisibleUnderOrderDetails(
+        	productname)
+}
+
+ /**
 	 * clicks on c2 order availability and waits for the response while verifying the availability details for the c2 product
 	 */ 
 def static "iosOrders.orderDetailsScreen.checkC2OrderAvailability"() {
@@ -530,6 +547,13 @@ def static "iosOrders.orderDetailsScreen.returnProductNameAfterSearch"() {
 	 */ 
 def static "iosOrders.orderDetailsScreen.verifyProductTile"() {
     (new iosOrders.orderDetailsScreen()).verifyProductTile()
+}
+
+ /**
+	 * removes product from orders details
+	 */ 
+def static "iosOrders.orderDetailsScreen.removeProduct"() {
+    (new iosOrders.orderDetailsScreen()).removeProduct()
 }
 
  /**
@@ -611,6 +635,13 @@ def static "iosOrders.orderDetailsScreen.clickOnBackToCart"() {
 	 */ 
 def static "iosOrders.orderDetailsScreen.clickOnContinueOrderingOnDesktop"() {
     (new iosOrders.orderDetailsScreen()).clickOnContinueOrderingOnDesktop()
+}
+
+ /**
+	 * takes user back to the search product results to continue browsing
+	 */ 
+def static "iosOrders.orderDetailsScreen.tapContinueOnDesktop"() {
+    (new iosOrders.orderDetailsScreen()).tapContinueOnDesktop()
 }
 
  /**
@@ -1055,6 +1086,23 @@ def static "iosOrders.cartScreen.openAnOrderDetail"(
 }
 
  /**
+	 * takes expected mobile orders count as the argument and verifies the same
+	 * @param expected mobile orders count (expected mobile orders count after adding products to the cart)
+	 */ 
+def static "iosOrders.cartScreen.verifyMobileOrdersCount"(
+    	String expectedMobileOrdersCount	) {
+    (new iosOrders.cartScreen()).verifyMobileOrdersCount(
+        	expectedMobileOrdersCount)
+}
+
+ /**
+	 *verifies C2 order view
+	 */ 
+def static "iosOrders.cartScreen.verifyC2OrderViewIsNotVisible"() {
+    (new iosOrders.cartScreen()).verifyC2OrderViewIsNotVisible()
+}
+
+ /**
 	 * this function returns the order name of the order which is at the top of the order list
 	 * return orderName (returns topmost order name)
 	 */ 
@@ -1426,6 +1474,16 @@ def static "iosLogin.loginScreen.selectTypeOfTesting"(
 }
 
  /**
+	 * enters the password
+	 * @param password (it is taken from the global profile but passed as a parameter)
+	 */ 
+def static "iosLogin.loginScreen.enterPassword_2"(
+    	String password	) {
+    (new iosLogin.loginScreen()).enterPassword_2(
+        	password)
+}
+
+ /**
 	 * enters the user-name
 	 * @param username (it is taken from the global profile but passed as a parameter)
 	 */ 
@@ -1433,18 +1491,6 @@ def static "iosLogin.loginScreen.enterUsername"(
     	String username	) {
     (new iosLogin.loginScreen()).enterUsername(
         	username)
-}
-
- /**
-	 * performs re-login with username and password
-	 * @param username password (it is taken from the global profile but passed as a parameter)
-	 */ 
-def static "iosLogin.loginScreen.reLogin"(
-    	String username	
-     , 	String password	) {
-    (new iosLogin.loginScreen()).reLogin(
-        	username
-         , 	password)
 }
 
  /**
