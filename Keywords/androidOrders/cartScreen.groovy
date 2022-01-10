@@ -74,16 +74,25 @@ class cartScreen  {
 
 
 
-		/**
-		 * opens the c2 order details
-		 * @param accountNo (account no which was used to create the order)
-		 */
-		@Keyword
-		def openC2OrderDetailScreen(String accountNo) {
-	
-			Mobile.tap(findTestObject('Object Repository/Android/Orders/C2 Order Details Screen/createdOrder_TextView',[('TEXT'):accountNo]), 0)
-		}
+	/**
+	 * opens the c2 order details
+	 * @param accountNo (account no which was used to create the order)
+	 */
+	@Keyword
+	def openC2OrderDetailScreen(String accountNo) {
 
+		Mobile.tap(findTestObject('Object Repository/Android/Orders/C2 Order Details Screen/createdOrder_TextView',[('TEXT'):accountNo]), 0)
+	}
+
+	
+	/**
+	 * opens the c2 order details
+	 */
+	@Keyword
+	def openC2OrderDetails() {
+
+		Mobile.tap(findTestObject('Object Repository/Android/Orders/C2 Order Details Screen/createdOrder_Text'), 0)
+	}
 
 
 	@Keyword
