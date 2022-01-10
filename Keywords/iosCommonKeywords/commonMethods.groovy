@@ -25,6 +25,7 @@ import iosDashboard.dashboardScreen
 import iosLogin.loginScreen
 import iosMoreOptions.moreOptionsScreen
 import iosOrders.cartScreen
+import com.kms.katalon.core.mobile.keyword.internal.MobileDriverFactory
 
 class  commonMethods {
 
@@ -151,15 +152,25 @@ class  commonMethods {
 	}
 
 
-
 	/**
-	 * installs as well as launches the application
+	 * reads value from the global boolean variable: isIosAppInstalled
+	 * and if it is set to true, launches already installed application else installs and launches the application
 	 */
 	@Keyword
 	def installingAndlaunchingTheApplication() {
 
-		Mobile.startApplication(GlobalVariable.iOSAppPath, true) //iOS_App_Path (Application path will be taken from the global profile and passed as a parameter to startApplication method)
+
+		if (GlobalVariable.isIosAppInstalled)
+		{
+			KeywordUtil.logInfo("application is already installed")
+			Mobile.startExistingApplication(GlobalVariable.bundleID)
+		}
+		else {
+			KeywordUtil.logInfo("need to install the application")
+			Mobile.startApplication(GlobalVariable.iOSAppPath, true)
+		}
 	}
+
 
 
 	/**

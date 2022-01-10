@@ -50,11 +50,11 @@ CustomKeywords.'androidReceiving.receivingReusableMethods.verifyReceivingScreen'
 'verifies that over-ages are allowed'
 CustomKeywords.'androidReceiving.receivingReusableMethods.verifyAllowedOverages'()
 
-'takes user to previous day shipments from today shipments screen'
-CustomKeywords.'androidReceiving.receivingReusableMethods.switchToPreviousDayShipments'()
+'takes user to previous day from today screen'
+CustomKeywords.'androidReceiving.receivingReusableMethods.switchToPreviousDay'()
 
 'this function verifies the shipments detail'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyPreviousDayShipments'()
+CustomKeywords.'androidReceiving.receivingReusableMethods.verifyShipmentsListScreenDetails'()
 
 'reading the module test data file'
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('receivingTestData.json')

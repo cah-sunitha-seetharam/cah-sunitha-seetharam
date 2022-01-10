@@ -29,6 +29,9 @@ CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisi
 'after login, verifies page caption and selects account'
 CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
 
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
 'takes user to dashboard screen'
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnReceivingTab'()
 
@@ -38,20 +41,14 @@ CustomKeywords.'androidReceiving.receivingReusableMethods.verifyReceivingScreenP
 'this function will select shipments on the receiving screen'
 CustomKeywords.'androidReceiving.receivingReusableMethods.selectShipments'()
 
-'allows over-ages in receiving'
-CustomKeywords.'androidReceiving.receivingReusableMethods.selectAllowOverages'()
-
 'clicks on continue button after selection of shipments or invoice by user'
 CustomKeywords.'androidReceiving.receivingReusableMethods.clickOnContinue'()
 
 'this function verifies the receiving screen details'
 CustomKeywords.'androidReceiving.receivingReusableMethods.verifyReceivingScreen'()
 
-'verifies that over-ages are allowed'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyAllowedOverages'()
-
-'takes user to previous day shipments from today shipments screen'
-CustomKeywords.'androidReceiving.receivingReusableMethods.switchToPreviousDayShipments'()
+'takes user to previous day from today screen'
+CustomKeywords.'androidReceiving.receivingReusableMethods.switchToPreviousDay'()
 
 'this function verifies the shipments detail'
 CustomKeywords.'androidReceiving.receivingReusableMethods.verifyShipmentsListScreenDetails'()
@@ -62,7 +59,7 @@ CustomKeywords.'androidReceiving.receivingReusableMethods.openShipmentDetails'(s
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'verifies shipment details'
+'verifies the invoices detail and takes shipment number as the argument'
 CustomKeywords.'androidReceiving.receivingReusableMethods.verifyShipmentDetails'(shipmentNumber)
 
 'takes user to one screen back'
@@ -77,11 +74,12 @@ CustomKeywords.'androidReceiving.receivingReusableMethods.verifyInvoiceIsVisible
 'this method verifies the invoices detail'
 CustomKeywords.'androidReceiving.receivingReusableMethods.verifyInvoicesListScreenDetails'()
 
-'takes user to todays shipments from previous day shipments screen'
-CustomKeywords.'androidReceiving.receivingReusableMethods.switchToTodayShipments'()
+'this function opens invoice details'
+CustomKeywords.'androidReceiving.receivingReusableMethods.openInvoiceDetails'(invoiceNumber)
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-' verifies if no new orders to be received'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyNoNewOrdersToReceive'()
+'verifies the invoices detail and takes invoice number as the argument'
+CustomKeywords.'androidReceiving.receivingReusableMethods.verifyInvoicesDetails'(invoiceNumber)
+

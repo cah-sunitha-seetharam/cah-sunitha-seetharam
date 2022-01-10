@@ -184,7 +184,8 @@ def static "iosCommonKeywords.commonMethods.goOneScreenBack"() {
 }
 
  /**
-	 * installs as well as launches the application
+	 * reads value from the global boolean variable: isIosAppInstalled
+	 * and if it is set to true, launches already installed application else installs and launches the application
 	 */ 
 def static "iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication"() {
     (new iosCommonKeywords.commonMethods()).installingAndlaunchingTheApplication()
@@ -505,6 +506,53 @@ def static "iosOrders.orderDetailsScreen.verifyFilterByOptions"() {
 }
 
  /**
+	 * this function verifies the product after search
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyProductAfterSearch"() {
+    (new iosOrders.orderDetailsScreen()).verifyProductAfterSearch()
+}
+
+ /**
+	 * verifies c2 order is not visible under non c2 order
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyC2OrderIsNotVisibleUnderNonC2Order"() {
+    (new iosOrders.orderDetailsScreen()).verifyC2OrderIsNotVisibleUnderNonC2Order()
+}
+
+ /**
+	 * this function returns the order name in search page
+	 */ 
+def static "iosOrders.orderDetailsScreen.returnProductNameAfterSearch"() {
+    (new iosOrders.orderDetailsScreen()).returnProductNameAfterSearch()
+}
+
+ /**
+	 * this function verifies the product tile
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyProductTile"() {
+    (new iosOrders.orderDetailsScreen()).verifyProductTile()
+}
+
+ /**
+	 * this function verifies the product details page
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyProductDetailAfterSelectingMoreDetails"(
+    	String orderNameInSearchPage	) {
+    (new iosOrders.orderDetailsScreen()).verifyProductDetailAfterSelectingMoreDetails(
+        	orderNameInSearchPage)
+}
+
+ /**
+	 * verifies order name header label
+	 * @param poName (poName is the order name)
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyOrderNameHeaderLabel"(
+    	String poName	) {
+    (new iosOrders.orderDetailsScreen()).verifyOrderNameHeaderLabel(
+        	poName)
+}
+
+ /**
 	 * this function adds the quantity in alternates page
 	 * @param quantity (quantity required to add in product detail page)
 	 */ 
@@ -515,22 +563,39 @@ def static "iosOrders.orderDetailsScreen.addQuantityInAlternatesPage"(
 }
 
  /**
-		 * taps on alternate to order in alternates page and opens confirmation pop up
-		 */ 
+	 * this function adds the quantity in product detail page
+	 * @param quantity (quantity required to add in product detail page)
+	 */ 
+def static "iosOrders.orderDetailsScreen.addQuantityInProductDetailsPage"(
+    	String quantity	) {
+    (new iosOrders.orderDetailsScreen()).addQuantityInProductDetailsPage(
+        	quantity)
+}
+
+ /**
+	 * adds product in product details page
+	 */ 
+def static "iosOrders.orderDetailsScreen.tapOnAddToOrderInProductDetailsPage"() {
+    (new iosOrders.orderDetailsScreen()).tapOnAddToOrderInProductDetailsPage()
+}
+
+ /**
+	 * taps on alternate to order in alternates page and opens confirmation pop up
+	 */ 
 def static "iosOrders.orderDetailsScreen.tapOnAddAlternateToOrderInAlternatesPage"() {
     (new iosOrders.orderDetailsScreen()).tapOnAddAlternateToOrderInAlternatesPage()
 }
 
  /**
-		 * verifies confirmation pop up in alternates page
-		 */ 
+	 * verifies confirmation pop up in alternates page
+	 */ 
 def static "iosOrders.orderDetailsScreen.verifyConfirmationPopUpInALternatesPage"() {
     (new iosOrders.orderDetailsScreen()).verifyConfirmationPopUpInALternatesPage()
 }
 
  /**
-		 * takes user back to the search product results to continue browsing
-		 */ 
+	 * takes user back to the search product results to continue browsing
+	 */ 
 def static "iosOrders.orderDetailsScreen.tapOnContinueBrowsing"() {
     (new iosOrders.orderDetailsScreen()).tapOnContinueBrowsing()
 }
@@ -1372,6 +1437,18 @@ def static "iosLogin.loginScreen.enterUsername"(
 }
 
  /**
+	 * performs re-login with username and password
+	 * @param username password (it is taken from the global profile but passed as a parameter)
+	 */ 
+def static "iosLogin.loginScreen.reLogin"(
+    	String username	
+     , 	String password	) {
+    (new iosLogin.loginScreen()).reLogin(
+        	username
+         , 	password)
+}
+
+ /**
 	 * enters the password
 	 * @param password (it is taken from the global profile but passed as a parameter)
 	 */ 
@@ -1400,6 +1477,13 @@ def static "iosLogin.loginScreen.clickOnForgotPassword"() {
 	 */ 
 def static "iosLogin.loginScreen.verifyLoginPageDetails"() {
     (new iosLogin.loginScreen()).verifyLoginPageDetails()
+}
+
+ /**
+	 * taps on cancel button for update if popUp is visible
+	 */ 
+def static "iosLogin.loginScreen.cancelUpdatePopUp"() {
+    (new iosLogin.loginScreen()).cancelUpdatePopUp()
 }
 
 
@@ -2439,6 +2523,26 @@ def static "androidReceiving.receivingReusableMethods.clickOnScanIcon"() {
 }
 
  /**
+	 * this function opens shipment details
+	 * @param shipmentNumber (shipment number)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.openShipmentDetails"(
+    	Object shipmentNumber	) {
+    (new androidReceiving.receivingReusableMethods()).openShipmentDetails(
+        	shipmentNumber)
+}
+
+ /**
+	 * this function opens invoice details
+	 * @param invoiceNumber (invoice number)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.openInvoiceDetails"(
+    	Object invoiceNumber	) {
+    (new androidReceiving.receivingReusableMethods()).openInvoiceDetails(
+        	invoiceNumber)
+}
+
+ /**
 	 * takes product to be searched as the argument and searches for the product
 	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
 	 */ 
@@ -2456,13 +2560,6 @@ def static "androidReceiving.receivingReusableMethods.selectAllowOverages"() {
 }
 
  /**
-	 * this function will select shipments on the receiving screen
-	 */ 
-def static "androidReceiving.receivingReusableMethods.selectShipments"() {
-    (new androidReceiving.receivingReusableMethods()).selectShipments()
-}
-
- /**
 	 * this function will select invoices on the receiving screen
 	 */ 
 def static "androidReceiving.receivingReusableMethods.selectInvoices"() {
@@ -2470,17 +2567,24 @@ def static "androidReceiving.receivingReusableMethods.selectInvoices"() {
 }
 
  /**
+	 * this function will select shipments on the receiving screen
+	 */ 
+def static "androidReceiving.receivingReusableMethods.selectShipments"() {
+    (new androidReceiving.receivingReusableMethods()).selectShipments()
+}
+
+ /**
 	 * takes user to previous day shipments from today's shipments screen
 	 */ 
-def static "androidReceiving.receivingReusableMethods.switchToPreviousDayShipments"() {
-    (new androidReceiving.receivingReusableMethods()).switchToPreviousDayShipments()
+def static "androidReceiving.receivingReusableMethods.switchToPreviousDay"() {
+    (new androidReceiving.receivingReusableMethods()).switchToPreviousDay()
 }
 
  /**
 	 * takes user to today's shipments from previous day shipments screen
 	 */ 
-def static "androidReceiving.receivingReusableMethods.switchToTodayShipments"() {
-    (new androidReceiving.receivingReusableMethods()).switchToTodayShipments()
+def static "androidReceiving.receivingReusableMethods.switchToToday"() {
+    (new androidReceiving.receivingReusableMethods()).switchToToday()
 }
 
  /**
@@ -2501,10 +2605,13 @@ def static "androidReceiving.receivingReusableMethods.verifyInstancesOfProductAs
 }
 
  /**
-	 * this function verifies the shipments detail
+	 * this function verifies the invoice is visible on the screen
+	 * @param invoiceNumber (invoice number)
 	 */ 
-def static "androidReceiving.receivingReusableMethods.verifyShipmentsListScreenDetails"() {
-    (new androidReceiving.receivingReusableMethods()).verifyShipmentsListScreenDetails()
+def static "androidReceiving.receivingReusableMethods.verifyInvoiceIsVisible"(
+    	Object invoiceNumber	) {
+    (new androidReceiving.receivingReusableMethods()).verifyInvoiceIsVisible(
+        	invoiceNumber)
 }
 
  /**
@@ -2515,23 +2622,20 @@ def static "androidReceiving.receivingReusableMethods.verifyInvoicesListScreenDe
 }
 
  /**
-	 * this function verifies the shipment is visible on the screen
-	 * @param shipmentNumber (shipment number)
+	 * this method verifies the invoices detail
+	 * @param invoiceNumber (invoice number)
 	 */ 
-def static "androidReceiving.receivingReusableMethods.verifyShipmentIsVisible"(
-    	Object shipmentNumber	) {
-    (new androidReceiving.receivingReusableMethods()).verifyShipmentIsVisible(
-        	shipmentNumber)
+def static "androidReceiving.receivingReusableMethods.verifyInvoicesDetails"(
+    	Object invoiceNumber	) {
+    (new androidReceiving.receivingReusableMethods()).verifyInvoicesDetails(
+        	invoiceNumber)
 }
 
  /**
-	 * this function verifies the invoice is visible on the screen
-	 * @param invoiceNumber (invoice number)
+	 * verifies if no new orders to be received
 	 */ 
-def static "androidReceiving.receivingReusableMethods.verifyInvoiceIsVisible"(
-    	Object invoiceNumber	) {
-    (new androidReceiving.receivingReusableMethods()).verifyInvoiceIsVisible(
-        	invoiceNumber)
+def static "androidReceiving.receivingReusableMethods.verifyNoNewOrdersToReceive"() {
+    (new androidReceiving.receivingReusableMethods()).verifyNoNewOrdersToReceive()
 }
 
  /**
@@ -2549,16 +2653,6 @@ def static "androidReceiving.receivingReusableMethods.verifyReceivingScreenPopUp
 }
 
  /**
-	 * this function opens shipment details
-	 * @param shipmentNumber (shipment number)
-	 */ 
-def static "androidReceiving.receivingReusableMethods.openShipmentDetails"(
-    	Object shipmentNumber	) {
-    (new androidReceiving.receivingReusableMethods()).openShipmentDetails(
-        	shipmentNumber)
-}
-
- /**
 	 * verifies shipment details
 	 * @param shipmentNumber (shipment number)
 	 */ 
@@ -2569,10 +2663,131 @@ def static "androidReceiving.receivingReusableMethods.verifyShipmentDetails"(
 }
 
  /**
-	 * verifies if no new orders to be received
+	 * this function verifies the shipment is visible on the screen
+	 * @param shipmentNumber (shipment number)
 	 */ 
-def static "androidReceiving.receivingReusableMethods.verifyNoNewOrdersToReceive"() {
-    (new androidReceiving.receivingReusableMethods()).verifyNoNewOrdersToReceive()
+def static "androidReceiving.receivingReusableMethods.verifyShipmentIsVisible"(
+    	Object shipmentNumber	) {
+    (new androidReceiving.receivingReusableMethods()).verifyShipmentIsVisible(
+        	shipmentNumber)
+}
+
+ /**
+	 * this function verifies the shipments detail
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyShipmentsListScreenDetails"() {
+    (new androidReceiving.receivingReusableMethods()).verifyShipmentsListScreenDetails()
+}
+
+ /**
+	 * takes expected received product count as the argument and verifies that it should be same as the actual count visible
+	 * @param expectedReceivedProductCount (expected received product count)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyReceivedProductCount"(
+    	Object expectedReceivedProductCount	) {
+    (new androidReceiving.receivingReusableMethods()).verifyReceivedProductCount(
+        	expectedReceivedProductCount)
+}
+
+ /**
+	 * clicks on receive all totes_button
+	 */ 
+def static "androidReceiving.receivingReusableMethods.clickOnReceiveAllTotes"() {
+    (new androidReceiving.receivingReusableMethods()).clickOnReceiveAllTotes()
+}
+
+ /**
+	 * uploads completed_totes
+	 */ 
+def static "androidReceiving.receivingReusableMethods.uploadCompletedTotes"() {
+    (new androidReceiving.receivingReusableMethods()).uploadCompletedTotes()
+}
+
+ /**
+	 * verifies the pop up after uploading_totes
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyUploadTotesPopUp"() {
+    (new androidReceiving.receivingReusableMethods()).verifyUploadTotesPopUp()
+}
+
+ /**
+	 * takes user back to receiving after uploading_totes
+	 */ 
+def static "androidReceiving.receivingReusableMethods.clickOnBackToReceiving"() {
+    (new androidReceiving.receivingReusableMethods()).clickOnBackToReceiving()
+}
+
+ /**
+	 * verifies the invoice is not visible on the screen
+	 * @param invoiceNumber (invoice number)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyInvoiceIsNotVisible"(
+    	Object invoiceNumber	) {
+    (new androidReceiving.receivingReusableMethods()).verifyInvoiceIsNotVisible(
+        	invoiceNumber)
+}
+
+ /**
+	 * expands the view to see detailed view of_tote
+	 */ 
+def static "androidReceiving.receivingReusableMethods.expandToSeeDetailedViewOfTotes"() {
+    (new androidReceiving.receivingReusableMethods()).expandToSeeDetailedViewOfTotes()
+}
+
+ /**
+	 * collapses the detailed view of_tote
+	 */ 
+def static "androidReceiving.receivingReusableMethods.collpaseViewOfTotes"() {
+    (new androidReceiving.receivingReusableMethods()).collpaseViewOfTotes()
+}
+
+ /**
+	 * creates a test object at run time
+	 * resourceId (resource-id of the object)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.makeTestObject"(
+    	String resourceId	) {
+    (new androidReceiving.receivingReusableMethods()).makeTestObject(
+        	resourceId)
+}
+
+ /**
+	 * test method for run time object creation
+	 */ 
+def static "androidReceiving.receivingReusableMethods.testFunction"() {
+    (new androidReceiving.receivingReusableMethods()).testFunction()
+}
+
+ /**
+	 * takes received product count as the argument and enters count in the text-field
+	 * @param receivedProductCount (received product count)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.editReceivedProductCount"(
+    	int receivedProductCount	) {
+    (new androidReceiving.receivingReusableMethods()).editReceivedProductCount(
+        	receivedProductCount)
+}
+
+ /**
+	 * returns max upper value without over-age product count
+	 * @return maxCount (max upper value without over-age product count)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.returnUpperLimitReceivingProductCount"() {
+    (new androidReceiving.receivingReusableMethods()).returnUpperLimitReceivingProductCount()
+}
+
+ /**
+	 * verifies over-age tag is visible after inputting receiving count which is more than the max upper limit
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyOverAgeTag"() {
+    (new androidReceiving.receivingReusableMethods()).verifyOverAgeTag()
+}
+
+ /**
+	 * verifies received tag is visible after inputting receiving count which is less or equal to the max upper limit
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyReceivedTag"() {
+    (new androidReceiving.receivingReusableMethods()).verifyReceivedTag()
 }
 
  /**
@@ -2917,6 +3132,25 @@ def static "common.commonMethods.getCurrentSessionMobileDriver"() {
 }
 
  /**
+	 * verifies element colour by taking a screenshot and comparing with colour of specific pixels
+	 * @param expectedRedIntensity
+	 * @param expectedGreenIntensity
+	 * @param expectedBlueIntensity
+	 * @param idOfTheElement
+	 */ 
+def static "common.commonMethods.verifyElementColor"(
+    	int expectedRedIntensity	
+     , 	int expectedGreenIntensity	
+     , 	int expectedBlueIntensity	
+     , 	String idOfTheElement	) {
+    (new common.commonMethods()).verifyElementColor(
+        	expectedRedIntensity
+         , 	expectedGreenIntensity
+         , 	expectedBlueIntensity
+         , 	idOfTheElement)
+}
+
+ /**
 	 * adds the product from dash-board to inventory
 	 * @param productName
 	 * @param quantity
@@ -2989,6 +3223,14 @@ def static "androidOrders.cartScreen.openAnOrderDetail"(
 	 */ 
 def static "androidOrders.cartScreen.clickOnC2OrdersTab"() {
     (new androidOrders.cartScreen()).clickOnC2OrdersTab()
+}
+
+ /**
+
+	 * opens the nonc2 orders tab
+	 */ 
+def static "androidOrders.cartScreen.clickOnNonC2OrdersTab"() {
+    (new androidOrders.cartScreen()).clickOnNonC2OrdersTab()
 }
 
  /**
@@ -3207,7 +3449,8 @@ def static "androidCommonKeywords.commonMethods.goOneScreenBack"() {
 }
 
  /**
-	 * installs as well as launches the application
+	 * reads value from the global boolean variable: isAndroidAppInstalled
+	 * and if it is set to true, launches already installed application else installs and launches the application
 	 */ 
 def static "androidCommonKeywords.commonMethods.installingAndlaunchingTheApplication"() {
     (new androidCommonKeywords.commonMethods()).installingAndlaunchingTheApplication()
@@ -3429,6 +3672,15 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
+    	TestObject testObject	
+     , 	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
+        	testObject
+         , 	testName)
+}
+
+
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
     	String testName	) {
     (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
@@ -3436,12 +3688,8 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
-    	TestObject testObject	
-     , 	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
-        	testObject
-         , 	testName)
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
 
 
@@ -3453,19 +3701,6 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
          , 	viewportSize)
 }
 
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	
      , 	String testName	
@@ -3474,4 +3709,11 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
 }

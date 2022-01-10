@@ -30,7 +30,7 @@ CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(ac
 
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnMoreOptions'()
 
-CustomKeywords.'android_more_options.moreOptionsScreen.enableBetaFeatureCSOS'()
+CustomKeywords.'androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS'()
 
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnHomeTab'()
 
@@ -162,3 +162,20 @@ CustomKeywords.'androidOrders.cartScreen.clickOnC2OrdersTab'()
 
 'opens the c2 orders tab'
 CustomKeywords.'androidOrders.cartScreen.verifyC2AnnotationCount'(c2AnnotationCount)
+
+'-------------------------delete orders in all 2 accounts----------------------'
+
+'deletes order'
+CustomKeywords.'androidOrders.cartScreen.deleteOrder'()
+
+'opens the nonc2 orders tab'
+CustomKeywords.'androidOrders.cartScreen.clickOnNonC2OrdersTab'()
+
+'deletes order'
+CustomKeywords.'androidOrders.cartScreen.deleteOrder'()
+
+'change account using account selection icon'
+CustomKeywords.'androidOrders.newOrderScreen.changeAccount'(accountNo_2)
+
+'deletes order'
+CustomKeywords.'androidOrders.cartScreen.deleteOrder'()
