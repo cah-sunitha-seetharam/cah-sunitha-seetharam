@@ -90,7 +90,15 @@ class cartScreen  {
 
 		Mobile.tap(findTestObject('Object Repository/Android/Orders/C2 Order Details Screen/createdOrder_TextView',[('TEXT'):accountNo]), 0)
 	}
+	
+	/**
+	 * opens the c2 order details
+	 */
+	@Keyword
+	def openC2OrderDetails() {
 
+		Mobile.tap(findTestObject('Object Repository/Android/Orders/C2 Order Details Screen/createdOrder_Text'), 0)
+	}
 
 
 	@Keyword

@@ -2273,6 +2273,54 @@ def static "androidOrders.orderDetailsScreen.verifyUploadOrderPopUp"() {
 }
 
  /**
+	 * this function returns the order name of the order/ title of the screen when user is on order details screen
+	 * return orderName (returns order name/ title of order details screen)
+	 */ 
+def static "androidOrders.orderDetailsScreen.returnOrderNameFromOrderDetailScreen"() {
+    (new androidOrders.orderDetailsScreen()).returnOrderNameFromOrderDetailScreen()
+}
+
+ /**
+	 * takes user back to history screen and verifies user is on the history screen or not
+	 */ 
+def static "androidOrders.orderDetailsScreen.clickOnReviewAndSignButton"() {
+    (new androidOrders.orderDetailsScreen()).clickOnReviewAndSignButton()
+}
+
+ /**
+	 * Its check UTN number validation
+	 */ 
+def static "androidOrders.orderDetailsScreen.utnNumberValidation"(
+    	int utnPrefixLength	
+     , 	String expectedErrorMsg	
+     , 	String input1	
+     , 	String input2	) {
+    (new androidOrders.orderDetailsScreen()).utnNumberValidation(
+        	utnPrefixLength
+         , 	expectedErrorMsg
+         , 	input1
+         , 	input2)
+}
+
+ /**
+	 * Its check Duplicate utn number
+	 */ 
+def static "androidOrders.orderDetailsScreen.enterDuplicateUTN"(
+    	String existingUTNno	
+     , 	String duplicateErrorMsg	) {
+    (new androidOrders.orderDetailsScreen()).enterDuplicateUTN(
+        	existingUTNno
+         , 	duplicateErrorMsg)
+}
+
+ /**
+	 * Its save for later
+	 */ 
+def static "androidOrders.orderDetailsScreen.saveForLater"() {
+    (new androidOrders.orderDetailsScreen()).saveForLater()
+}
+
+ /**
 	 * adds costType based on the argument which can be current or last price paid
 	 * @param costType (can be current or last price paid)
 	 */ 
@@ -2428,6 +2476,41 @@ def static "androidOrders.historyScreen.clickOnC2OrderForReviewAndSign"(
 
 def static "androidOrders.historyScreen.verify_History_Screen_Details"() {
     (new androidOrders.historyScreen()).verify_History_Screen_Details()
+}
+
+ /**
+	 * opens the c2 order details, verifies the order status labels and signIns the password required for placing c2 order
+	 * @param password (password-which is required for placing the c2 order)
+	 */ 
+def static "androidOrders.historyScreen.completeReviewSignAndPlaceAnOrderFlow"(
+    	String poNumber	
+     , 	String signingPassword	) {
+    (new androidOrders.historyScreen()).completeReviewSignAndPlaceAnOrderFlow(
+        	poNumber
+         , 	signingPassword)
+}
+
+ /**
+	 * clicks on history tab button to open history tab in order history screen
+	 */ 
+def static "androidOrders.historyScreen.clickOnHistoryTab"() {
+    (new androidOrders.historyScreen()).clickOnHistoryTab()
+}
+
+ /**
+	 * verifies order status changes from held to allocated 30 seconds after successfully placing the signed order
+	 */ 
+def static "androidOrders.historyScreen.verifyOrderStatusInOrderHistoryList"(
+    	String poNumber	) {
+    (new androidOrders.historyScreen()).verifyOrderStatusInOrderHistoryList(
+        	poNumber)
+}
+
+ /**
+	 * get order count from order history badge count
+	 */ 
+def static "androidOrders.historyScreen.getOrderBadgeCount"() {
+    (new androidOrders.historyScreen()).getOrderBadgeCount()
 }
 
  /**
@@ -3179,6 +3262,7 @@ def static "androidOrders.cartScreen.clickOnC2OrdersTab"() {
 }
 
  /**
+
 	 * opens the nonc2 orders tab
 	 */ 
 def static "androidOrders.cartScreen.clickOnNonC2OrdersTab"() {
@@ -3193,6 +3277,13 @@ def static "androidOrders.cartScreen.openC2OrderDetailScreen"(
     	String accountNo	) {
     (new androidOrders.cartScreen()).openC2OrderDetailScreen(
         	accountNo)
+}
+
+ /**
+	 * opens the c2 order details
+	 */ 
+def static "androidOrders.cartScreen.openC2OrderDetails"() {
+    (new androidOrders.cartScreen()).openC2OrderDetails()
 }
 
 

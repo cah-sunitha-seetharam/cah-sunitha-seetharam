@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MobileElementEntity>
    <description></description>
-   <name>Order History_HeaderText</name>
+   <name>OrderConfirmationMsg</name>
    <tag></tag>
-   <elementGuidId>0f5880ef-9173-41cb-9851-19cab1bccd07</elementGuidId>
+   <elementGuidId>b4afc148-7903-4022-b858-0805c2264c2e</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -18,21 +18,21 @@
       <matchCondition>equals</matchCondition>
       <name>index</name>
       <type>Main</type>
-      <value>0</value>
+      <value>1</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Order History</value>
+      <value>View your confirmation in Order History.</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>${GlobalVariable.appPackage}:id/toolbarTitle</value>
+      <value>${GlobalVariable.appPackage}:id/tvSubTextView</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -116,35 +116,35 @@
       <matchCondition>equals</matchCondition>
       <name>x</name>
       <type>Main</type>
-      <value>430</value>
+      <value>32</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>y</name>
       <type>Main</type>
-      <value>124</value>
+      <value>1750</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>width</name>
       <type>Main</type>
-      <value>295</value>
+      <value>1016</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>height</name>
       <type>Main</type>
-      <value>103</value>
+      <value>52</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>bounds</name>
       <type>Main</type>
-      <value>[430,124][725,227]</value>
+      <value>[32,1750][1048,1802]</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -158,8 +158,8 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
+      <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[2]</value>
    </webElementProperties>
-   <locator>${GlobalVariable.appPackage}:id/toolbarTitle</locator>
-   <locatorStrategy>ID</locatorStrategy>
+   <locator>//*[@class = 'android.widget.TextView' and (@text = 'View your confirmation in Order History.' or . = 'View your confirmation in Order History.') and @resource-id = '${GlobalVariable.appPackage}:id/tvSubTextView']</locator>
+   <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

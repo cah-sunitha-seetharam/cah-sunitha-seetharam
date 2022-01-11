@@ -75,4 +75,80 @@ class historyScreen {
 
 		Mobile.verifyElementExist(findTestObject('Android/Orders/History Screen/Order History_TextView'), 0)
 	}
+
+	/**
+	 * opens the c2 order details, verifies the order status labels and signIns the password required for placing c2 order
+	 * @param password (password-which is required for placing the c2 order)
+	 */
+	@Keyword
+	def completeReviewSignAndPlaceAnOrderFlow(String poNumber, String signingPassword) {
+
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Create C2 Order/pONumber_Label',[('TEXT'):poNumber.toUpperCase()]), 0)
+
+		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Create C2 Order/pONumber_Label',[('TEXT'):poNumber.toUpperCase()]), 0)
+
+		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+
+		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/orderStatusHeld_TextView'), 0)
+
+		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/signNow_Button'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/signatureNeeded_TextView'), 0)
+
+		Mobile.sendKeys(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/signingPassword_TextField'), signingPassword)
+
+		Mobile.delay(3)
+
+		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/placeOrder_Btn'),0)
+
+		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+
+		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/OrderConfirmationMsg'), 0)
+
+		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/goToOrderHistory_Button'), 0)
+
+		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+	}
+	
+	/**
+	 * clicks on history tab button to open history tab in order history screen
+	 */
+	@Keyword
+	def clickOnHistoryTab() {
+
+		Mobile.tap(findTestObject('Android/Orders/History Screen/OrderHistoryTab'), 0)
+
+		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+	}
+	
+	
+	/**
+	 * verifies order status changes from held to allocated 30 seconds after successfully placing the signed order
+	 */
+	@Keyword
+	def verifyOrderStatusInOrderHistoryList(String poNumber) {
+
+		Mobile.verifyElementExist(findTestObject('Android/Orders/History Screen/orderStatusAfterPlacingOrder_Label'),  0)
+
+		String orderStatusInHistoryScreen = Mobile.getText(findTestObject('Android/Orders/History Screen/orderStatusAfterPlacingOrder_Label'), 0)
+
+		assert orderStatusInHistoryScreen.contains("Signature Processing")
+
+		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Create C2 Order/pONumber_Label',[('TEXT'):poNumber.toUpperCase()]), 0)
+
+		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Create C2 Order/pONumber_Label',[('TEXT'):poNumber.toUpperCase()]), 0)
+	}
+	
+	/**
+	 * get order count from order history badge count
+	 */
+	@Keyword
+	def getOrderBadgeCount() {
+		
+				int orderCount = Mobile.getText(findTestObject('android/Orders/History Screen/orderHistoryCount_Text'), 0).toInteger()
+				
+				KeywordUtil.logInfo("Count is " + orderCount );
+		
+				return orderCount
+			}
 }

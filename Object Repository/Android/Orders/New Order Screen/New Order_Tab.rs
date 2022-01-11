@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MobileElementEntity>
    <description></description>
-   <name>Order History_HeaderText</name>
+   <name>New Order_Tab</name>
    <tag></tag>
-   <elementGuidId>0f5880ef-9173-41cb-9851-19cab1bccd07</elementGuidId>
+   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -18,21 +18,14 @@
       <matchCondition>equals</matchCondition>
       <name>index</name>
       <type>Main</type>
-      <value>0</value>
+      <value>1</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Order History</value>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>resource-id</name>
-      <type>Main</type>
-      <value>${GlobalVariable.appPackage}:id/toolbarTitle</value>
+      <value>New Order</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -109,42 +102,42 @@
       <matchCondition>equals</matchCondition>
       <name>selected</name>
       <type>Main</type>
-      <value>false</value>
+      <value>true</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>x</name>
       <type>Main</type>
-      <value>430</value>
+      <value>815</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>y</name>
       <type>Main</type>
-      <value>124</value>
+      <value>501</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>width</name>
       <type>Main</type>
-      <value>295</value>
+      <value>154</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>height</name>
       <type>Main</type>
-      <value>103</value>
+      <value>40</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>bounds</name>
       <type>Main</type>
-      <value>[430,124][725,227]</value>
+      <value>[815,501][969,541]</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -158,8 +151,8 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
+      <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.HorizontalScrollView[1]/android.widget.LinearLayout[1]/androidx.appcompat.app.ActionBar.Tab[3]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>${GlobalVariable.appPackage}:id/toolbarTitle</locator>
-   <locatorStrategy>ID</locatorStrategy>
+   <locator>//*[@class = 'android.widget.TextView' and (@text = 'New Order' or . = 'New Order')]</locator>
+   <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>
