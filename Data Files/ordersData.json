@@ -99,6 +99,15 @@
             "productSearchByName": "mir",
         },
         
+        "TC_R_060": {
+            "productSearchByNDC": "00450-0449-09",
+            "productSearchByName": "coca",
+        },
+        
+        "TC_R_061": {
+                "productSearchByNDC": "00406-8003-24",
+                "productSearchByName": "sod",
+            },
     },
     "PMODQa2": {
         "Carts": {

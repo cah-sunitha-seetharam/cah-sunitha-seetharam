@@ -26,12 +26,23 @@ CustomKeywords.'iosLogin.loginScreen.login'(GlobalVariable.Username, GlobalVaria
 'after login, verifies page caption and selects account'
 CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
 
-'-----------------------Pre-requisite(Non C2 order)---------------------------'
+'------------------------enables beta feature CSOS---------------------------'
+
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
+'clicks on more options, takes to beat features and enables it'
+CustomKeywords.'iosCommonKeywords.commonMethods.enableBetaFeatures'()
+
+'takes the application one screen back'
+CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
+
+'--------Pre-requisite(nonC2 order should be available with no products in it )-------'
 
 'opens cart page'
 CustomKeywords.'iosDashboard.dashboardScreen.clickOnOrders'()
 
-'taps on scan icon and takes user to scanning product screen and also verifies ordering and price check'
+'clicks on scan icon and also verifies that the default scan toggle value is at ordering'
 CustomKeywords.'iosOrders.orderDetailsScreen.clickOnScanIcon'()
 
 'waits until the progressBar is visible on the screen'
@@ -40,14 +51,23 @@ CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'
 'reading the module test data file'
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('ordersData.json')
 
-'reading the product name of product to be added (nonC2 product)'
-String productSearch = requestObject[GlobalVariable.Environment].TC_R_058.productSearchByNDC
+'reading the product name of product to be added (C2 product)'
+String productSearch = requestObject[GlobalVariable.Environment].TC_R_060.productSearchByNDC
 
 'takes productSearch which can be productName/Cin/UPC/NDC as the input and adds it to the order by scanning the product'
 CustomKeywords.'iosOrders.orderDetailsScreen.scanInputEvent'(productSearch)
 
-'adds quantity of the product'
-CustomKeywords.'iosOrders.orderDetailsScreen.addQuantityforTheSearchedProduct'(quantity1)
+'takes the application one screen back'
+CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
+
+'returns the order name of the order which is at the top of the order list'
+String orderName=CustomKeywords.'iosOrders.cartScreen.returnTopMostOrderName'()
+
+'opens the order details page'
+CustomKeywords.'iosOrders.cartScreen.openAnOrderDetail'(orderName)
+
+'removes product from orders details'
+CustomKeywords.'iosOrders.orderDetailsScreen.removeProduct'()
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
@@ -82,94 +102,83 @@ CustomKeywords.'iosCommonKeywords.commonMethods.enableBetaFeatures'()
 'opens cart page'
 CustomKeywords.'iosDashboard.dashboardScreen.clickOnOrders'()
 
-'this function returns the order name of the order which is at the top of the order list'
-String orderName = CustomKeywords.'iosOrders.cartScreen.returnTopMostOrderName'()
+'takes totalLineCount count as the argument and verifies the same'
+CustomKeywords.'iosOrders.cartScreen.verifyLinesCount'(lineCount)
 
-'opens order details and takes order name as the argument'
-CustomKeywords.'iosOrders.cartScreen.openAnOrderDetail'(orderName)
+'takes  expected cart value as the argument and verifies the same'
+CustomKeywords.'iosOrders.cartScreen.verifyCartValue'(expectedCartValue)
 
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+'takes expected mobile orders as the argument and verifies the same'
+CustomKeywords.'iosOrders.cartScreen.verifyMobileOrdersCount'(expectedMobileOrdersCount)
 
-'reading the product name of product to be added (C2 product)'
-String productSearchCin = requestObject[GlobalVariable.Environment].TC_R_058.productSearchCin
+'reading the product name of product to be added (c2 product)'
+String productSearchByName = requestObject[GlobalVariable.Environment].TC_R_060.productSearchByName
 
 'searches for a product by setting product name'
-CustomKeywords.'iosOrders.orderDetailsScreen.searchProductInOrderDetailPage'(productSearchCin)
+CustomKeywords.'iosOrders.orderDetailsScreen.searchProductInOrderDetailPage'(productSearchByName)
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
-'verifies the product after search'
-CustomKeywords.'iosOrders.orderDetailsScreen.verifyProductAfterSearch'()
-
-'this function returns the order name of the order which is at the top of the order list'
-String productName = CustomKeywords.'iosOrders.orderDetailsScreen.returnProductNameAfterSearch'()
 
 'opens product tile'
 CustomKeywords.'iosOrders.orderDetailsScreen.clickOnProductTile'()
 
-'verifies the product tile'
-CustomKeywords.'iosOrders.orderDetailsScreen.verifyProductTile'()
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'opens more details of product details'
 CustomKeywords.'iosOrders.orderDetailsScreen.clickOnMoreDetails'()
 
-'verifies the product details page'
-CustomKeywords.'iosOrders.orderDetailsScreen.verifyProductDetailAfterSelectingMoreDetails'(productName)
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'adds quantity of the product'
-CustomKeywords.'iosOrders.orderDetailsScreen.addQuantityInProductDetailsPage'(quantity2)
+'opens alternates page'
+CustomKeywords.'iosOrders.orderDetailsScreen.tapOnAlternatesInProductDetailsPage'()
 
-'adds product in product details page'
-CustomKeywords.'iosOrders.orderDetailsScreen.tapOnAddToOrderInProductDetailsPage'()
+'this function adds the quantity in alternates page'
+CustomKeywords.'iosOrders.orderDetailsScreen.addQuantityInAlternatesPage'(quantity)
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'creates a new C2 order'
-CustomKeywords.'iosOrders.orderDetailsScreen.createNewC2Order'(poName, poMemo)
+'taps on alternate to order in alternates page and opens confirmation pop up'
+CustomKeywords.'iosOrders.orderDetailsScreen.tapOnAddAlternateToOrderInAlternatesPage'()
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'this function verifies the product tile'
-CustomKeywords.'iosOrders.orderDetailsScreen.verifyProductTile'()
+'takes user to the order details'
+CustomKeywords.'iosOrders.orderDetailsScreen.clickOnGoToOrder'()
 
-'takes the application one screen back'
-CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'verifies order name header label'
-CustomKeywords.'iosOrders.orderDetailsScreen.verifyOrderNameHeaderLabel'(orderName)
+'uploads the order'
+CustomKeywords.'iosOrders.orderDetailsScreen.uploadOrder'()
 
-'takes the application one screen back'
-CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'opens the c2 order tab'
-CustomKeywords.'iosOrders.cartScreen.clickOnC2Orders'()
+'opens confirmation pop up'
+CustomKeywords.'iosOrders.orderDetailsScreen.tapContinueOnDesktop'()
 
-'uploads the order by clicking on upload order button'
-CustomKeywords.'iosOrders.orderDetailsScreen.uploadC2Order'()
-
-'opens order has been sent to desktop popup'
-CustomKeywords.'iosOrders.cartScreen.continueOrdersOnTheDesktop'()
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'takes user back to cart screen'
 CustomKeywords.'iosOrders.orderDetailsScreen.clickOnBackToCart'()
 
-'takes expectedAnnotationCount count as the argument and verifies the same'
-CustomKeywords.'iosOrders.cartScreen.verifyLinesCount'(expectedLineCount)
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
+'opens the c2 order tab'
+CustomKeywords.'iosOrders.cartScreen.clickOnC2Orders'()
+
+'verifies that the created order should not be visible on the cart screen'
+CustomKeywords.'iosOrders.cartScreen.verifyC2OrderViewIsNotVisible'()
+
+'opens the nonc2 order tab'
 CustomKeywords.'iosOrders.cartScreen.clickOnNonC2Orders'()
-
-'opens order details and takes order name as the argument'
-CustomKeywords.'iosOrders.cartScreen.openAnOrderDetail'(orderName)
-
-'verifies c2 order is not visible under non c2 order'
-CustomKeywords.'iosOrders.orderDetailsScreen.verifyC2OrderIsNotVisibleUnderNonC2Order'()
-
-'takes the application one screen back'
-CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
 'deletes order'
 CustomKeywords.'iosOrders.cartScreen.deleteOrder'(orderName)
