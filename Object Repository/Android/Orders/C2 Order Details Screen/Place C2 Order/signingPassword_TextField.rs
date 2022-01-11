@@ -3,7 +3,7 @@
    <description></description>
    <name>signingPassword_TextField</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>99eea680-d19d-40fd-8e30-eb5a3afe2c6f</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tilSigningPasswordEditText</value>
+      <value>${GlobalVariable.appPackage}:id/tilSigningPasswordEditText</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.EditText[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.EditText' and (@text = 'Signing Password' or . = 'Signing Password') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/tilSigningPasswordEditText']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/tilSigningPasswordEditText</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>
