@@ -575,4 +575,34 @@ class receivingReusableMethods {
 
 		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/recivedTag_TextView'), 0)
 	}
+	
+	
+	
+	/**
+	 * takes toteID to be searched as the argument and searches the same
+	 */
+	@Keyword
+	def searchTote(toteID) {
+
+		Mobile.tapAndHold(findTestObject('Object Repository/Android/Receiving/searchReceiving_TextField'), 0,2)
+
+		Mobile.setText(findTestObject('Object Repository/Android/Receiving/searchReceiving_TextField'), toteID + '\\n', 0)
+			
+	}
+
+	
+	
+	/**
+	 * this function verifies that the product is visible on the order details screen
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */
+	@Keyword
+	def verifyProductIsVisibleOnTheReceivingScreen(productNdcNumber) {
+		
+		String testObj='Object Repository/Android/Orders/Verification Details/ordersNDCLabel_TextView'
+		
+		androidCommonKeywordsObject.verifyProductIsVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
+
+	}
 }

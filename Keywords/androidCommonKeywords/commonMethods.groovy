@@ -304,4 +304,17 @@ class  commonMethods {
 		waitForProgressBarToBeInvisible()
 	}
 
+	
+	
+	/**
+	 * takes product to be searched as the argument and searches the same
+	 */
+	@Keyword
+	def searchProduct(productToBeSearched) {
+
+		Mobile.tapAndHold(findTestObject('Android/Inventory/Location Details Screen/Add Product to_Location/productSearch_TextField'), 0, 0)
+		
+		Mobile.setText(findTestObject('Android/Inventory/Location Details Screen/Add Product to_Location/productSearch_TextField'), productToBeSearched + '\\n', 0)
+			
+	}
 }
