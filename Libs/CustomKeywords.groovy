@@ -3162,6 +3162,13 @@ def static "iosDashboard.dashboardScreen.verifyDashboardScreen"() {
 }
 
  /**
+	 * opens audits tab where user can perform actions related to audits
+	 */ 
+def static "iosDashboard.dashboardScreen.clickOnAuditsTab"() {
+    (new iosDashboard.dashboardScreen()).clickOnAuditsTab()
+}
+
+ /**
 	 * opens the order details page
 	 * @param poName (purchase order name used to create the order)
 	 */ 
@@ -3646,6 +3653,14 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
          , 	viewportSize)
 }
 
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
+}
+
+
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	
      , 	String testName	
@@ -3654,11 +3669,4 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
 }
