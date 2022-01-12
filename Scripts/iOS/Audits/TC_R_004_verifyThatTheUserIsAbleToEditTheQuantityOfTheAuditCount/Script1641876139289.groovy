@@ -28,3 +28,11 @@ CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(accoun
 
 'clicks on audits tab to navigate to audits screen'
 CustomKeywords.'iosDashboard.dashboardScreen.clickOnAuditsTab'()
+
+'verifies audits screen'
+CustomKeywords.'iosAudits.auditsScreen.verifyAuditsLandingScreen'()
+
+'taps on quantity box'
+CustomKeywords.'iosAudits.auditsScreen.clickOnFirstQuantityBox'()
+
+

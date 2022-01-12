@@ -996,6 +996,18 @@ def static "androidLogin.loginScreen.verifyLoginPageDetails"() {
 }
 
  /**
+	 * this function verifies the audits landing Screen
+	 */ 
+def static "iosAudits.auditsScreen.verifyAuditsLandingScreen"() {
+    (new iosAudits.auditsScreen()).verifyAuditsLandingScreen()
+}
+
+
+def static "iosAudits.auditsScreen.clickOnFirstQuantityBox"() {
+    (new iosAudits.auditsScreen()).clickOnFirstQuantityBox()
+}
+
+ /**
 	 * cancels uploading of orders and keeps orders on the application
 	 */ 
 def static "iosOrders.cartScreen.cancelUploadAndKeepOrdersOnTheApp"() {
@@ -3269,7 +3281,6 @@ def static "androidOrders.cartScreen.clickOnC2OrdersTab"() {
 }
 
  /**
-
 	 * opens the nonc2 orders tab
 	 */ 
 def static "androidOrders.cartScreen.clickOnNonC2OrdersTab"() {

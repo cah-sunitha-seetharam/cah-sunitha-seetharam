@@ -146,7 +146,7 @@ class dashboardScreen {
 
 		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Account Selection/changeAccount_Button'), 0)
 	}
-	
+
 	/**
 	 * opens audits tab where user can perform actions related to audits
 	 */
