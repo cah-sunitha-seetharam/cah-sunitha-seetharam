@@ -33,6 +33,9 @@ CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(Global
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 */
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
 'takes user to the orders tab'
 CustomKeywords.'iosDashboard.dashboardScreen.clickOnOrders'()
 

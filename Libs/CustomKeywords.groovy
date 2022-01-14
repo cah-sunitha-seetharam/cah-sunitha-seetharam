@@ -18,22 +18,6 @@ import com.kms.katalon.core.testobject.TestObject
 import com.applitools.eyes.RectangleSize
 
 
-
-def static "androidDashboard.dashboardDetailsScreen.change_Account"(
-    	String new_Account	) {
-    (new androidDashboard.dashboardDetailsScreen()).change_Account(
-        	new_Account)
-}
-
-
-def static "androidDashboard.dashboardDetailsScreen.Adding_Product_from_Dashboard_To_Cart"(
-    	String Product_Name	
-     , 	String Quantity	) {
-    (new androidDashboard.dashboardDetailsScreen()).Adding_Product_from_Dashboard_To_Cart(
-        	Product_Name
-         , 	Quantity)
-}
-
  /**
 	 * this function verifies the dash-board details Screen
 	 */ 
@@ -3100,16 +3084,18 @@ def static "androidOrders.ordersCommonScreen.clickOnHistoryTab"() {
     (new androidOrders.ordersCommonScreen()).clickOnHistoryTab()
 }
 
-
-def static "androidOrders.ordersCommonScreen.click_On_Cart_Tab"() {
-    (new androidOrders.ordersCommonScreen()).click_On_Cart_Tab()
+ /**
+	 * takes user to cart screen
+	 */ 
+def static "androidOrders.ordersCommonScreen.clickOnCartTab"() {
+    (new androidOrders.ordersCommonScreen()).clickOnCartTab()
 }
 
-
-def static "androidOrders.ordersCommonScreen.change_Account"(
-    	String new_Account	) {
-    (new androidOrders.ordersCommonScreen()).change_Account(
-        	new_Account)
+ /**
+	 * deletes all orders from nonc2 and c2 order tab
+	 */ 
+def static "androidOrders.ordersCommonScreen.clearAllOrders"() {
+    (new androidOrders.ordersCommonScreen()).clearAllOrders()
 }
 
  /**
@@ -3262,7 +3248,6 @@ def static "androidOrders.cartScreen.clickOnC2OrdersTab"() {
 }
 
  /**
-
 	 * opens the nonc2 orders tab
 	 */ 
 def static "androidOrders.cartScreen.clickOnNonC2OrdersTab"() {
@@ -3286,18 +3271,14 @@ def static "androidOrders.cartScreen.openC2OrderDetails"() {
     (new androidOrders.cartScreen()).openC2OrderDetails()
 }
 
-
-def static "androidOrders.cartScreen.delete_Order"(
-    	Object Account_No	) {
-    (new androidOrders.cartScreen()).delete_Order(
-        	Account_No)
-}
-
  /**
-	 * deletes order 
+	 * delete's the order from the cart screen based on the purchase order name
+	 * @param poName (purchase order name of the order)
 	 */ 
-def static "androidOrders.cartScreen.deleteOrder"() {
-    (new androidOrders.cartScreen()).deleteOrder()
+def static "androidOrders.cartScreen.deleteOrder"(
+    	Object poName	) {
+    (new androidOrders.cartScreen()).deleteOrder(
+        	poName)
 }
 
  /**
@@ -3570,6 +3551,23 @@ def static "androidCommonKeywords.commonMethods.waitTimeForObjectToBeVisible"(
 }
 
  /**
+	 * performs login function by selecting the type of testing (automation or manual), environment of testing(taken from the global profile), entering user-name and password
+	 * and then selects the user account from the accounts list and takes user to the dash-board screen
+	 * @param username
+	 * @param password
+	 * @param accountNo
+	 */ 
+def static "androidCommonKeywords.commonMethods.takeUserFromloginToHomeScreen"(
+    	Object username	
+     , 	Object password	
+     , 	Object accountNo	) {
+    (new androidCommonKeywords.commonMethods()).takeUserFromloginToHomeScreen(
+        	username
+         , 	password
+         , 	accountNo)
+}
+
+ /**
 	 * opens the inventory listing screen by firstly clicking on more options from dash-board
 	 * and then clicks on inventory under more options screen which takes user to inventory listing screen
 	 */ 
@@ -3708,19 +3706,19 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
+}
+
+
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
     	TestObject testObject	
      , 	String testName	) {
     (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
         	testObject
          , 	testName)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
 }
 
 
@@ -3736,6 +3734,7 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
         	testName
          , 	viewportSize)
 }
+
 
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	

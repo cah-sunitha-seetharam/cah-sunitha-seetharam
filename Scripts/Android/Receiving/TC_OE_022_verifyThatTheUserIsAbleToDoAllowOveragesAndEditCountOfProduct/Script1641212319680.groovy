@@ -18,7 +18,7 @@ import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
 
-'installs and launches the application'
+/*'installs and launches the application'
 CustomKeywords.'androidCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
 'logins with username password and then opens account selection page'
@@ -29,12 +29,12 @@ CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisi
 
 'after login, verifies page caption and selects account'
 CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
+*/
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'takes user to dashboard screen'
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnReceivingTab'()
-
-'verifies the receiving screen pop-up which comes after user goes to receiving tab details'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyReceivingScreenPopUp'()
 
 'allows over-ages in receiving'
 CustomKeywords.'androidReceiving.receivingReusableMethods.selectAllowOverages'()

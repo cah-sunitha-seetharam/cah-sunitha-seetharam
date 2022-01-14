@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
-   <description>Prerequisite:
+   <description>Verify  New Order is created while adding Alternate C2 product  from Product details page when there is existing Non-C2 order from Home/Cart screen
+Prerequisite:
 1. Valid login credentials with multiple accounts available for the user
-2. Non-C2  order should be available with no products in it</description>
+2. Non-C2  order should be available with no products in it </description>
    <name>TC_R_060_verifyNewOrderIsCreatedWhileAddingAlternateC2ProductFromProductDetailsPageWhenThereIsExistingNonC2OrderFrom HomeCartScreen</name>
    <tag>Order;Regression;Scan</tag>
    <comment></comment>

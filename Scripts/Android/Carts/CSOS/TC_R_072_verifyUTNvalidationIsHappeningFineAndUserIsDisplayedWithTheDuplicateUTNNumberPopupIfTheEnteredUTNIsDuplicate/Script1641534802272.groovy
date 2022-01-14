@@ -17,7 +17,7 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-'starts the application'
+/*'starts the application'
 CustomKeywords.'androidCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
 'login function called which takes user to the accounts selection screen'
@@ -32,11 +32,17 @@ CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(Gl
 'waits for 10(s) before refreshing the page to get the updated historyCount'
 WebUI.delay(10)
 
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
 'clicks on more options tab is dashboard'
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnMoreOptionsTab'()
 
 'enables csos beta feature in the account selected'
 CustomKeywords.'androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS'()
+*/
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'opens the cart page'
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnOrders'()
@@ -63,7 +69,7 @@ CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisi
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('csosData.json')
 
 'reading the product name of product to be added (C2 product)'
-String productSearch = requestObject[GlobalVariable.Environment].TC_R_071.productSearchCin
+String productSearch = requestObject[GlobalVariable.Environment].TC_R_072.productSearchCin
 
 'adds product to the order by taking product and quanity as the argument'
 CustomKeywords.'androidOrders.orderDetailsScreen.addProductToOrder'(productSearch, quantity)
@@ -98,30 +104,32 @@ CustomKeywords.'androidOrders.orderDetailsScreen.confirmPlaceOrder'()
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'clicks on c2 order availability and waits for the response while verifying the availability details for the c2 product\n'
-CustomKeywords.'androidOrders.orderDetailsScreen.checkC2ProductAvailability'()
+// Below steps are blocked due to UTN textbox is not accesible after clearing the value
 
-'takes user back to cart'
-CustomKeywords.'androidOrders.orderDetailsScreen.clickOnReviewAndSignButton'()
+/*
 
-'gets the initials historyCount before review and sign of c2 order and stores value in variable initialCount'
-int initialCount = CustomKeywords.'androidOrders.historyScreen.getOrderBadgeCount'()
+'enter invalid utn numbers and validate the error message'
+CustomKeywords.'androidOrders.orderDetailsScreen.utnNumberValidation'(utnPrefixLength,expectedErrorMsg,input1,input2)
 
-'reviews and signs the c2 order by taking signingPassword as the argument'
-CustomKeywords.'androidOrders.historyScreen.completeReviewSignAndPlaceAnOrderFlow'(poNumber,signingPassword)
+'takes the application one screen back'
+CustomKeywords.'androidCommonKeywords.commonMethods.pressBacknav'()
+
+'clicks on place order'
+CustomKeywords.'androidOrders.orderDetailsScreen.clickOnPlaceOrder'()
+
+'Confirm on place order'
+CustomKeywords.'androidOrders.orderDetailsScreen.confirmPlaceOrder'()
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'clicks on history to refresh history tab - work around if vertical swipe does not work'
-CustomKeywords.'androidOrders.historyScreen.clickOnHistoryTab'()
+'enter duplicate utn numbers and validate the error message'
+CustomKeywords.'androidOrders.orderDetailsScreen.enterDuplicateUTN'(existingUTNno,duplicateErrorMsg)
 
-'gets the final historyCount after review and sign of c2 order which should be one less than the initial count and stores value in the variable finalCount'
-int finalCount = CustomKeywords.'androidOrders.historyScreen.getOrderBadgeCount'()
+'click on save for later button'
+CustomKeywords.'androidOrders.orderDetailsScreen.saveForLater'()
 
-'asserts that the final historyCount should be one less than the initial historyCount after signing the password for c2order'
-assert finalCount == (initialCount - 1)
+*/
 
-'verifies order status after signature is successfully processed'
-CustomKeywords.'androidOrders.historyScreen.verifyOrderStatusInOrderHistoryList'(poNumber)
+
 

@@ -25,6 +25,8 @@ CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplica
 CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen'(GlobalVariable.Username, GlobalVariable.Password, 
     GlobalVariable.Account)
 */
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'takes user from home screen to inventory listing screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromHomeToInventoryListingScreen'()

@@ -81,20 +81,22 @@ class ordersCommonScreen {
 	def clearAllOrders() {
 		int counter=1,waitLimit=20,elementHeight,elementTopPosition,yCoordinateToSwipe//waitLimit of 20s
 		if(Mobile.verifyElementNotVisible(findTestObject('Object Repository/iOS/Dashboard/Verification/homeBottomNavigationTab_Bar'), 2,FailureHandling.OPTIONAL))
-		commonMethodObject.goOneScreenBack()
+			commonMethodObject.goOneScreenBack()
 		while(Mobile.verifyElementNotVisible(findTestObject('iOS/Orders/Orders Common Screen/cartScreen_Tab'), 2,FailureHandling.OPTIONAL))
 		{
 			dashboardObject.clickOnOrders()
-
+			counter+=1
+			if(counter>waitLimit)
+				break
 		}
 		clickOnCartTab()
 		(new iosOrders.cartScreen()).clickOnNonC2Orders()
 		String testObj='Object Repository/iOS/Orders/Cart Screen/orderListCell_View'
 		if(Mobile.verifyElementExist(findTestObject(testObj), 2,FailureHandling.OPTIONAL))
-		{	
-		 elementHeight=Mobile.getElementHeight(findTestObject(testObj), 2,FailureHandling.CONTINUE_ON_FAILURE)
-		 elementTopPosition = Mobile.getElementTopPosition(findTestObject(testObj), 2,FailureHandling.CONTINUE_ON_FAILURE)
-		 yCoordinateToSwipe=(elementHeight/2)+elementTopPosition
+		{
+			elementHeight=Mobile.getElementHeight(findTestObject(testObj), 2,FailureHandling.CONTINUE_ON_FAILURE)
+			elementTopPosition = Mobile.getElementTopPosition(findTestObject(testObj), 2,FailureHandling.CONTINUE_ON_FAILURE)
+			yCoordinateToSwipe=(elementHeight/2)+elementTopPosition
 		}
 		while(Mobile.verifyElementExist(findTestObject(testObj), 2,FailureHandling.OPTIONAL)) //deletes orders under nonc2 orders tab
 		{
@@ -103,7 +105,7 @@ class ordersCommonScreen {
 			commonMethodObject.waitForProgressBarToBeInvisible()
 			counter+=1
 			if(counter>waitLimit)
-			break
+				break
 		}
 		(new iosOrders.cartScreen()).clickOnC2Orders()
 		counter=1
@@ -113,7 +115,7 @@ class ordersCommonScreen {
 			commonMethodObject.waitForProgressBarToBeInvisible()
 			counter+=1
 			if(counter>waitLimit)
-			break
+				break
 		}
 	}
 

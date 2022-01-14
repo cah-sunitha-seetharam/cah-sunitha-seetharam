@@ -160,8 +160,7 @@ class  commonMethods {
 	def installingAndlaunchingTheApplication() {
 
 
-		if (GlobalVariable.isIosAppInstalled)
-		{
+		if (GlobalVariable.isIosAppInstalled) {
 			KeywordUtil.logInfo("application is already installed")
 			Mobile.startExistingApplication(GlobalVariable.bundleID)
 		}
@@ -223,6 +222,9 @@ class  commonMethods {
 	 */
 	@Keyword
 	def takeUserFromloginToHomeScreen(username,password,accountNo) {
+
+		'waits until the progressBar is visible on the screen'
+		waitForProgressBarToBeInvisible()
 
 		'login function called'
 		loginScreenObject.login(username, password)
@@ -423,10 +425,10 @@ class  commonMethods {
 		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Text'), 0)
 
 		String actualAccountNo=Mobile.getText(findTestObject('iOS/Account Selection/selectedAccount_Label'), 0)
-		
+
 		assert expectedAccountNo==actualAccountNo
-		
+
 		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Text'), 0)
-		
+
 	}
 }
