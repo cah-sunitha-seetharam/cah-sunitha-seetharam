@@ -52,8 +52,11 @@ import org.openqa.selenium.OutputType
 import org.openqa.selenium.Point
 
 class commonMethods {
-
-
+	
+	def platformName = MobileDriverFactory.getDevicePlatform()
+	
+	MobileElement element
+	
 	/**
 	 * float value generator
 	 * @param stringToBeConvertedToFloatValue
@@ -142,14 +145,23 @@ class commonMethods {
 	 * @param idOfTheElement
 	 */
 	@Keyword
-	def verifyElementColor(int expectedRedIntensity, int expectedGreenIntensity, int expectedBlueIntensity, String idOfTheElement) {
+	def verifyElementColor(int expectedRedIntensity, int expectedGreenIntensity, int expectedBlueIntensity, String locatorOfTheElement) {
 
 		'mobile driver value of the current session'
 		AppiumDriver<?> driver =  commonMethods.getCurrentSessionMobileDriver()
-
-		'locate the element by passing the locator strategy that can be of users choice'
-		MobileElement element = (MobileElement) driver.findElement(By.id("${idOfTheElement}"));
-
+		
+		if(platformName == 'Android') {
+			
+			'locate the element by passing the locator strategy that can be of users choice'
+			 element = (MobileElement) driver.findElement(By.id("${locatorOfTheElement}"))
+			 
+		} else {
+			
+			'locate the element by passing the locator strategy that can be of users choice'
+			element = (MobileElement) driver.findElement(By.name("${locatorOfTheElement}"))
+			
+		}
+		
 		'gets the center coordinates'
 		Point point = element.getCenter()
 
@@ -181,5 +193,8 @@ class commonMethods {
 		assert actualRedIntensity==expectedRedIntensity
 		assert actualGreenIntensity==expectedGreenIntensity
 		assert actualBlueIntensity==expectedBlueIntensity
+	
+
+		
 	}
 }

@@ -18,6 +18,8 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 
+import com.kms.katalon.core.util.KeywordUtil
+
 import common.commonMethods
 
 import internal.GlobalVariable
@@ -46,13 +48,17 @@ public class auditsScreen {
 	@Keyword
 	def clickOnFirstQuantityBox() {
 		
+		Mobile.verifyElementExist(findTestObject('iOS/Audits/quantityBox_First'), 0)
+		
 		Mobile.tap(findTestObject('iOS/Audits/quantityBox_First'), 0)
 		
-		String idOfTheElement = Mobile.getAttribute(findTestObject('iOS/Audits/quantityBox_First'), 'resource-id', 0)
+		String nameOfTheElement = Mobile.getAttribute(findTestObject('iOS/Audits/quantityBox_First'), 'name', 0)
 		
-		// commonMethodsObject.verifyElementColor(105,170,115,idOfTheElement) //light green with hex code #69aa73 - emulator
+		KeywordUtil.logInfo(nameOfTheElement)
 		
-		commonMethodsObject.verifyElementColor(146,255,161,idOfTheElement) //light green with hex code #92ffa1 - device
+		//commonMethodsObject.verifyElementColor(105,170,115,nameOfTheElement) //light green with hex code #69aa73 - emulator
+		
+		commonMethodsObject.verifyElementColor(241, 1, 40, nameOfTheElement) //light green with hex code #92ffa1 - device
 	}
 	
 }

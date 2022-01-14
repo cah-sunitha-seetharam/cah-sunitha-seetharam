@@ -26,13 +26,21 @@ CustomKeywords.'iosLogin.loginScreen.login'(username,password)
 'after login, verifies page caption and selects account'
 CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(accountNo)
 
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
 'clicks on audits tab to navigate to audits screen'
 CustomKeywords.'iosDashboard.dashboardScreen.clickOnAuditsTab'()
+
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'verifies audits screen'
 CustomKeywords.'iosAudits.auditsScreen.verifyAuditsLandingScreen'()
 
 'taps on quantity box'
 CustomKeywords.'iosAudits.auditsScreen.clickOnFirstQuantityBox'()
+
+
 
 
