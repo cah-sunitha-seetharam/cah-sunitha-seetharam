@@ -1002,16 +1002,6 @@ def static "androidLogin.loginScreen.verifyLoginPageDetails"() {
     (new androidLogin.loginScreen()).verifyLoginPageDetails()
 }
 
-
-def static "iosAudits.auditsScreen.verifyAuditsLandingScreen"() {
-    (new iosAudits.auditsScreen()).verifyAuditsLandingScreen()
-}
-
-
-def static "iosAudits.auditsScreen.clickOnFirstQuantityBox"() {
-    (new iosAudits.auditsScreen()).clickOnFirstQuantityBox()
-}
-
  /**
 	 * cancels uploading of orders and keeps orders on the application
 	 */ 
@@ -3188,6 +3178,27 @@ def static "androidAudits.auditsListingScreen.changeAccount"() {
 }
 
  /**
+	 * Tap on all the boxes
+	 */ 
+def static "androidAudits.auditsListingScreen.tapOnAllBox"() {
+    (new androidAudits.auditsListingScreen()).tapOnAllBox()
+}
+
+ /**
+	 * It verify the group completed icon
+	 */ 
+def static "androidAudits.auditsListingScreen.isGroupAudited"() {
+    (new androidAudits.auditsListingScreen()).isGroupAudited()
+}
+
+ /**
+	 * It verify the submit button and tap on it
+	 */ 
+def static "androidAudits.auditsListingScreen.submitCompletedGroups"() {
+    (new androidAudits.auditsListingScreen()).submitCompletedGroups()
+}
+
+ /**
 	 * float value generator
 	 * @param stringToBeConvertedToFloatValue
 	 * @return float value for a string by removing characters
@@ -3253,12 +3264,12 @@ def static "common.commonMethods.verifyElementColor"(
     	int expectedRedIntensity	
      , 	int expectedGreenIntensity	
      , 	int expectedBlueIntensity	
-     , 	String locatorOfTheElement	) {
+     , 	String idOfTheElement	) {
     (new common.commonMethods()).verifyElementColor(
         	expectedRedIntensity
          , 	expectedGreenIntensity
          , 	expectedBlueIntensity
-         , 	locatorOfTheElement)
+         , 	idOfTheElement)
 }
 
  /**
@@ -3317,13 +3328,6 @@ def static "iosDashboard.dashboardScreen.clickOnScanIcon"() {
 	 */ 
 def static "iosDashboard.dashboardScreen.verifyDashboardScreen"() {
     (new iosDashboard.dashboardScreen()).verifyDashboardScreen()
-}
-
- /**
-	 * opens audits tab where user can perform actions related to audits
-	 */ 
-def static "iosDashboard.dashboardScreen.clickOnAuditsTab"() {
-    (new iosDashboard.dashboardScreen()).clickOnAuditsTab()
 }
 
  /**
@@ -3805,17 +3809,17 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+}
+
+
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
     	String testName	
      , 	RectangleSize viewportSize	) {
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
         	testName
          , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
 
 
