@@ -45,9 +45,9 @@ import io.appium.java_client.MobileElement
 
 
 class auditsListingScreen {
-	
+
 	def commonMethodsObject = new commonMethods()
-	
+
 	/**
 	 * Tap on quantity count box
 	 * Verify its highlighted by green color background
@@ -56,17 +56,18 @@ class auditsListingScreen {
 	def tapOnQuantityBox() {
 
 		Mobile.tap(findTestObject('Android/Audits/quantityLayout'), 0)
-		
-		String idOfTheElement = Mobile.getAttribute(findTestObject('Android/Audits/quantityLayout'), 'resource-id', 0)
-		
-		KeywordUtil.logInfo(idOfTheElement)
-		
-	    commonMethodsObject.verifyElementColor(105,170,115,idOfTheElement) //light green with hex code #69aa73 - emulator
-		
-	//	commonMethodsObject.verifyElementColor(146,255,161,idOfTheElement) //light green with hex code #92ffa1 - real device
+
+//		String idOfTheElement = Mobile.getAttribute(findTestObject('Android/Audits/quantityLayout'), 'resource-id', 0)
+//
+//		KeywordUtil.logInfo(idOfTheElement)
+//
+//		commonMethodsObject.verifyElementColor(105,170,115,idOfTheElement) //light green with hex code #69aa73 - Emulator
+
+	//	commonMethodsObject.verifyElementColor(146,255,161,idOfTheElement) //light green with hex code #92ffa1 - Real Device
+			
 	}
-	
-	
+
+
 	/**
 	 * Long press on quantity count box 
 	 */
@@ -74,9 +75,8 @@ class auditsListingScreen {
 	def longPressOnQuantityBox() {
 
 		Mobile.longPress(findTestObject('Android/Audits/quantityLayout'), 0)
-		
 	}
-	
+
 	/**
 	 * verify initial count value
 	 * tap on + button
@@ -84,24 +84,24 @@ class auditsListingScreen {
 	 */
 	@Keyword
 	def increaseCount() {
-		
+
 		int Count = Mobile.getText(findTestObject('Android/Audits/quantity'),0).toInteger()
-		
+
 		KeywordUtil.logInfo("Initial Count is:" + Count)
-		
+
 		Mobile.tap(findTestObject('Android/Audits/increaseCount'), 0)
-		
+
 		int increasedCount = Mobile.getText(findTestObject('Android/Audits/quantity'),0).toInteger()
-		
+
 		KeywordUtil.logInfo("After tapping" + increasedCount)
-		
+
 		int valueOfeachCount = increasedCount - Count
-		
+
 		KeywordUtil.logInfo("valueOfeachCount is" + valueOfeachCount)
 
 		assert increasedCount == (Count + valueOfeachCount)
 	}
-	
+
 	/**
 	 * verify initial count value
 	 * tap on - button
@@ -109,27 +109,27 @@ class auditsListingScreen {
 	 */
 	@Keyword
 	def decreaseCount() {
-		
+
 		Mobile.tap(findTestObject('Android/Audits/increaseCount'), 0)
-		
-		int Count = Mobile.getText(findTestObject('Android/Audits/quantity'),0).toInteger()   
-		
+
+		int Count = Mobile.getText(findTestObject('Android/Audits/quantity'),0).toInteger()
+
 		KeywordUtil.logInfo("Initial Count is:" + Count)
-		
-		Mobile.tap(findTestObject('Android/Audits/decreaseCount'), 0)  
-		
-		int decreaseCountCount = Mobile.getText(findTestObject('Android/Audits/quantity'),0).toInteger()  
-		
+
+		Mobile.tap(findTestObject('Android/Audits/decreaseCount'), 0)
+
+		int decreaseCountCount = Mobile.getText(findTestObject('Android/Audits/quantity'),0).toInteger()
+
 		KeywordUtil.logInfo("After tapping" + decreaseCountCount)
-		
+
 		int valueOfeachCount = Count - decreaseCountCount
-		
+
 		KeywordUtil.logInfo("valueOfeachCount is" + valueOfeachCount)
 
 		assert decreaseCountCount == (Count - valueOfeachCount)
 	}
-	
-	
+
+
 	/**
 	 * get final count value
 	 * tap on confirmAuditCount button
@@ -137,30 +137,30 @@ class auditsListingScreen {
 	 */
 	@Keyword
 	def confirmAuditCount() {
-		
+
 		int count = Mobile.getText(findTestObject('Android/Audits/quantity'),0).toInteger()
-		
+
 		KeywordUtil.logInfo("Count is: " + count)
-		
+
 		Mobile.tap(findTestObject('Android/Audits/confirmAuditCount'), 0)
-		
+
 		return count
 	}
-	
-	
+
+
 	/**
 	 * verify the final count value with the audit list count
 	 */
 	@Keyword
 	def verifyQuantity(int quantity) {
-		
+
 		int count = Mobile.getText(findTestObject('Android/Audits/quantity'),0).toInteger()
-		
+
 		KeywordUtil.logInfo("Count is: " + count)
-		
+
 		assert count == quantity
 	}
-	
+
 	/**
 	 * Change account
 	 */
@@ -172,7 +172,57 @@ class auditsListingScreen {
 		Mobile.tap(findTestObject('Android/Audits/changeAccountIcon'), 0)
 		Mobile.delay(2)
 	}
-	
-	
-	
+
+	/**
+	 * Tap on all the boxes
+	 */
+	@Keyword
+	def tapOnAllBox() {
+
+		Mobile.tap(findTestObject('Android/Audits/selectBox',[('val') : 1]), 0)
+		Mobile.delay(2)
+		Mobile.longPress(findTestObject('Android/Audits/selectBox',[('val') : 1]), 0)
+		Mobile.tap(findTestObject('Android/Audits/increaseCount'), 0)
+		Mobile.tap(findTestObject('Android/Audits/confirmAuditCount'), 0)
+		Mobile.delay(2)
+
+		String noOfItem = Mobile.getText(findTestObject('Android/Audits/groupAuditStatus'), 0)
+		String noOfItemValue = noOfItem.charAt(2)
+		int itemValue = noOfItemValue.toInteger()
+
+		//		KeywordUtil.logInfo("Count is: " + noOfItem)
+		//		KeywordUtil.logInfo("nth position is: " + itemValue)
+
+		for (int i = 1; i < itemValue; i++) {
+
+			Mobile.tap(findTestObject('Android/Audits/onHand',[('val') : i]), 0)
+			Mobile.delay(2)
+		}
+	}
+
+
+	/**
+	 * It verify the group completed icon
+	 */
+	@Keyword
+	def isGroupAudited() {
+
+		while (Mobile.verifyElementNotVisible(findTestObject('Android/Audits/isGroupCompletelyAudited'), 2, FailureHandling.OPTIONAL)) {
+			Mobile.swipe(600, 800, 600, 300)
+		}
+
+		Mobile.verifyElementExist(findTestObject('Android/Audits/isGroupCompletelyAudited'), 0)
+	}
+
+	/**
+	 * It verify the submit button and tap on it
+	 */
+	@Keyword
+	def submitCompletedGroups() {
+
+		Mobile.verifyElementExist(findTestObject('Android/Audits/submitCompletedGroups'), 0)
+		Mobile.tap(findTestObject('Android/Audits/submitCompletedGroups'), 0)
+		Mobile.delay(2)
+	}
+
 }

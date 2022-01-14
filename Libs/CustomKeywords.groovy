@@ -9,11 +9,11 @@ import java.util.Stack
 
 import java.lang.Float
 
-import com.kms.katalon.core.testobject.TestObject
-
 import com.applitools.eyes.selenium.Eyes
 
 import org.openqa.selenium.WebElement
+
+import com.kms.katalon.core.testobject.TestObject
 
 import com.applitools.eyes.RectangleSize
 
@@ -3178,6 +3178,27 @@ def static "androidAudits.auditsListingScreen.changeAccount"() {
 }
 
  /**
+	 * Tap on all the boxes
+	 */ 
+def static "androidAudits.auditsListingScreen.tapOnAllBox"() {
+    (new androidAudits.auditsListingScreen()).tapOnAllBox()
+}
+
+ /**
+	 * It verify the group completed icon
+	 */ 
+def static "androidAudits.auditsListingScreen.isGroupAudited"() {
+    (new androidAudits.auditsListingScreen()).isGroupAudited()
+}
+
+ /**
+	 * It verify the submit button and tap on it
+	 */ 
+def static "androidAudits.auditsListingScreen.submitCompletedGroups"() {
+    (new androidAudits.auditsListingScreen()).submitCompletedGroups()
+}
+
+ /**
 	 * float value generator
 	 * @param stringToBeConvertedToFloatValue
 	 * @return float value for a string by removing characters
@@ -3763,21 +3784,21 @@ def static "api.apiCommonMethods.tokenGenerator"() {
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
-    	TestObject testObject	
-     , 	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
-        	testObject
-         , 	testName)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
     	Eyes eyes	
      , 	WebElement element	) {
     (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkElement(
         	eyes
          , 	element)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
+    	TestObject testObject	
+     , 	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
+        	testObject
+         , 	testName)
 }
 
 
@@ -3788,21 +3809,8 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
-    	String baselineName	
-     , 	String testName	
-     , 	RectangleSize viewportSize	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpenWithBaseline(
-        	baselineName
-         , 	testName
-         , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
 
 
@@ -3815,6 +3823,19 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
+    	String baselineName	
+     , 	String testName	
+     , 	RectangleSize viewportSize	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpenWithBaseline(
+        	baselineName
+         , 	testName
+         , 	viewportSize)
 }
