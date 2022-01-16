@@ -145,6 +145,23 @@ def static "iosCommonKeywords.commonMethods.closePopUpScreen"(
 }
 
  /**
+	 * opens existing testflight app and installs latest OE App
+	 * @return bundleId of testflight
+	 */ 
+def static "iosCommonKeywords.commonMethods.openTestFlightApp"(
+    	String bundleID	) {
+    (new iosCommonKeywords.commonMethods()).openTestFlightApp(
+        	bundleID)
+}
+
+ /**
+	 * disables touchid while using real device
+	 */ 
+def static "iosCommonKeywords.commonMethods.tapOnSetupLater"() {
+    (new iosCommonKeywords.commonMethods()).tapOnSetupLater()
+}
+
+ /**
 	 * this function returns the cost of added product
 	 * @return productCost_dollarSymbolRemoved_FloatValue (of the product which has been added)
 	 */ 
@@ -495,6 +512,23 @@ def static "iosOrders.orderDetailsScreen.searchProductInOrderDetailPage"(
 }
 
  /**
+	 * searches for a product by setting product name
+	 * @param productName (product to be added)
+	 */ 
+def static "iosOrders.orderDetailsScreen.searchProductInOrderDetailPageOfflineMode"(
+    	String productName	) {
+    (new iosOrders.orderDetailsScreen()).searchProductInOrderDetailPageOfflineMode(
+        	productName)
+}
+
+ /**
+	 * taps on search key of the keyboard
+	 */ 
+def static "iosOrders.orderDetailsScreen.tapOnsearchKeyInOfflineMode"() {
+    (new iosOrders.orderDetailsScreen()).tapOnsearchKeyInOfflineMode()
+}
+
+ /**
 	 * opens product tile
 	 */ 
 def static "iosOrders.orderDetailsScreen.clickOnProductTile"() {
@@ -653,6 +687,13 @@ def static "iosOrders.orderDetailsScreen.clickOnScanIcon"() {
 }
 
  /**
+	 *  taps on scan icon and takes user to scanning product screen 
+	 */ 
+def static "iosOrders.orderDetailsScreen.clickOnScanIconWithoutVerification"() {
+    (new iosOrders.orderDetailsScreen()).clickOnScanIconWithoutVerification()
+}
+
+ /**
 	 * creates a new C2 order 
 	 * @param poName (poName of the order), poMemo (poMemo of the order)
 	 */ 
@@ -729,6 +770,47 @@ def static "iosOrders.orderDetailsScreen.scanInputEvent"(
     	String productToBeSearched	) {
     (new iosOrders.orderDetailsScreen()).scanInputEvent(
         	productToBeSearched)
+}
+
+ /**
+	 * scans the product
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */ 
+def static "iosOrders.orderDetailsScreen.scanInputEventWithoutVerification"(
+    	String productToBeSearched	) {
+    (new iosOrders.orderDetailsScreen()).scanInputEventWithoutVerification(
+        	productToBeSearched)
+}
+
+ /**
+	 * scans the product in offline mode
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */ 
+def static "iosOrders.orderDetailsScreen.scanInputEventInOfflineMode"(
+    	String productToBeSearched	) {
+    (new iosOrders.orderDetailsScreen()).scanInputEventInOfflineMode(
+        	productToBeSearched)
+}
+
+ /**
+	 * retruns NDC number
+	 */ 
+def static "iosOrders.orderDetailsScreen.returnNDCLabelOfScannedProduct"() {
+    (new iosOrders.orderDetailsScreen()).returnNDCLabelOfScannedProduct()
+}
+
+ /**
+	 * allows camera access while using real device
+	 */ 
+def static "iosOrders.orderDetailsScreen.tapOnOkForCameraAcess"() {
+    (new iosOrders.orderDetailsScreen()).tapOnOkForCameraAcess()
+}
+
+ /**
+	 * closes the popup when user switches to offline mode
+	 */ 
+def static "iosOrders.orderDetailsScreen.closeOfflinePopUp"() {
+    (new iosOrders.orderDetailsScreen()).closeOfflinePopUp()
 }
 
  /**
@@ -811,6 +893,13 @@ def static "iosOrders.orderDetailsScreen.verifyOrderDetailsScreenWithoutAnyAdded
 }
 
  /**
+	 * verifies order details screen when user in offline mode
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyOrderDetailsScreenInOfflineMode"() {
+    (new iosOrders.orderDetailsScreen()).verifyOrderDetailsScreenInOfflineMode()
+}
+
+ /**
 	 * verifies the order value after adding a product
 	 * @param quantity (quantity which was added)
 	 */ 
@@ -844,6 +933,13 @@ def static "iosOrders.orderDetailsScreen.verifyUploadOrderPopUp"() {
 	 */ 
 def static "iosOrders.orderDetailsScreen.addToOrder"() {
     (new iosOrders.orderDetailsScreen()).addToOrder()
+}
+
+ /**
+	 * adds product 
+	 */ 
+def static "iosOrders.orderDetailsScreen.addToOrderWithoutVerify"() {
+    (new iosOrders.orderDetailsScreen()).addToOrderWithoutVerify()
 }
 
  /**
@@ -3061,6 +3157,13 @@ def static "iosOrders.historyScreen.verifyHistoryScreenDetails"() {
 }
 
  /**
+	 * returns quantity added
+	 */ 
+def static "iosOrders.historyScreen.returnQuantityForScannedResultInOfflineMode"() {
+    (new iosOrders.historyScreen()).returnQuantityForScannedResultInOfflineMode()
+}
+
+ /**
 	 * opens the c2 order details, verifies the order status labels and signIns the password required for placing c2 order
 	 * @param password (password-which is required for placing the c2 order)
 	 */ 
@@ -3077,6 +3180,29 @@ def static "iosOrders.historyScreen.completeReviewSignAndPlaceAnOrderFlow"(
 	 */ 
 def static "iosOrders.historyScreen.clickOnHistoryTab"() {
     (new iosOrders.historyScreen()).clickOnHistoryTab()
+}
+
+ /**
+	 * clicks on history tab button to open history tab in order history screen
+	 */ 
+def static "iosOrders.historyScreen.clickOnHistoryTabWithoutVerify"() {
+    (new iosOrders.historyScreen()).clickOnHistoryTabWithoutVerify()
+}
+
+ /**
+	 * returns po number of an top most order 
+	 */ 
+def static "iosOrders.historyScreen.returnTopMostPoNumberOfAnOrder"() {
+    (new iosOrders.historyScreen()).returnTopMostPoNumberOfAnOrder()
+}
+
+ /**
+	 * opens top most order in order history
+	 */ 
+def static "iosOrders.historyScreen.tapOnTopMostOrderHistory"(
+    	String poNumber	) {
+    (new iosOrders.historyScreen()).tapOnTopMostOrderHistory(
+        	poNumber)
 }
 
  /**
@@ -3165,6 +3291,16 @@ def static "common.commonMethods.readFileTypeJSON"(
 	 */ 
 def static "common.commonMethods.getCurrentSessionMobileDriver"() {
     (new common.commonMethods()).getCurrentSessionMobileDriver()
+}
+
+ /**
+	 * removes existing app 
+	 * @param bundleId of the App
+	 */ 
+def static "common.commonMethods.removeApp"(
+    	String bundleID	) {
+    (new common.commonMethods()).removeApp(
+        	bundleID)
 }
 
  /**

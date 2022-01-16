@@ -177,6 +177,26 @@ class orderDetailsScreen {
 	}
 
 	/**
+	 * searches for a product by setting product name
+	 * @param productName (product to be added)
+	 */
+	@Keyword
+	def searchProductInOrderDetailPageOfflineMode(String productName) {
+		Mobile.delay(3)
+		Mobile.tap(findTestObject('Object Repository/iOS/Product Search/productSearch_TextField'), 0)
+		Mobile.setText(findTestObject('Object Repository/iOS/Product Search/productSearch_TextField'), productName ,0)
+	}
+	
+	/**
+	 * taps on search key of the keyboard
+	 */
+	@Keyword
+	def tapOnsearchKeyInOfflineMode() {
+		Mobile.tapAndHold(findTestObject('Object Repository/iOS/Orders/Product Info/Product Search/search_keypad'), 0, 0)
+	}
+	
+	
+	/**
 	 * opens product tile
 	 */
 	@Keyword
@@ -412,7 +432,13 @@ class orderDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/Product Search/Scan Flow/priceCheck_Button'), 0)
 	}
 
-
+	/**
+	 *  taps on scan icon and takes user to scanning product screen 
+	 */
+	@Keyword
+	def clickOnScanIconWithoutVerification() {
+		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/scan_Icon'), 0)
+	}
 
 	/**
 	 * creates a new C2 order 
@@ -576,6 +602,58 @@ class orderDetailsScreen {
 	}
 
 	/**
+	 * scans the product
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */
+	@Keyword
+	def scanInputEventWithoutVerification(String productToBeSearched) {
+		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/scanGray_Image'), 0)
+		Mobile.setText(findTestObject('iOS/Product Search/Scan Flow/enterBarcode_TextField'), productToBeSearched, 0)
+		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/done_Button'), 0)
+		Mobile.tap(findTestObject('Object Repository/iOS/Product Search/doneKeypad_Button'), 0)
+	}
+	
+
+	/**
+	 * scans the product in offline mode
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */
+	@Keyword
+	def scanInputEventInOfflineMode(String productToBeSearched) {
+		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/scanGray_Image'), 0)
+		Mobile.setText(findTestObject('iOS/Product Search/Scan Flow/enterBarcode_TextField'), productToBeSearched, 0)
+		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/done_Button'), 0)
+	}
+	
+	/**
+	 * retruns NDC number
+	 */
+	@Keyword
+	def returnNDCLabelOfScannedProduct () {
+	String NDCLabel = Mobile.getText(findTestObject('iOS/Verification/NDCLabel_Text'), 0)
+	return NDCLabel
+	}
+	
+	
+
+	/**
+	 * allows camera access while using real device
+	 */
+	@Keyword
+	def tapOnOkForCameraAcess() {
+		Mobile.delay(1)
+		Mobile.tapAndHold(findTestObject('Object Repository/iOS/Verification/okRealDeviceCameraAccess_Button'), 0, 0)
+	}
+
+	/**
+	 * closes the popup when user switches to offline mode
+	 */
+	@Keyword
+	def closeOfflinePopUp() {
+		Mobile.tap(findTestObject('iOS/Verification/boltTextOfflineMode_Text'), 0)
+	}
+
+	/**
 	 * scans the product, adds it to the order and also verifies some scan input details when 'price check' toggle is selected
 	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
 	 */
@@ -702,7 +780,14 @@ class orderDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Verification Details/product_SearchField'), 0, FailureHandling.STOP_ON_FAILURE)
 	}
 
-
+	/**
+	 * verifies order details screen when user in offline mode
+	 */
+	@Keyword
+	def verifyOrderDetailsScreenInOfflineMode () {
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/Orders/Order Details Screen/Upload Order/uploadOrder_Button'), 'enabled', 'false', 0)
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/Orders/Order Details Screen/Place Order/placeOrder_Button'), 'enabled', 'false', 0)
+	}
 
 	/**
 	 * verifies the order value after adding a product
@@ -779,6 +864,15 @@ class orderDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/priceCheckToggle_Screen/goToOrder_Text'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/priceCheckToggle_Screen/continueBrowsing_Text'), 0)
+	}
+
+
+	/**
+	 * adds product 
+	 */
+	@Keyword
+	def addToOrderWithoutVerify() {
+		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/addToOrder_Text'), 0)
 	}
 
 	/**
