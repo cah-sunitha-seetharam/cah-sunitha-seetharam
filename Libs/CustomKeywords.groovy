@@ -34,51 +34,37 @@ def static "androidDashboard.dashboardDetailsScreen.Adding_Product_from_Dashboar
          , 	Quantity)
 }
 
- /**
-	 * this function verifies the dash-board details Screen
-	 */ 
+
 def static "androidDashboard.dashboardDetailsScreen.verifyDashboardPage"() {
     (new androidDashboard.dashboardDetailsScreen()).verifyDashboardPage()
 }
 
- /**
-	 * opens orders tab where user can perform actions related to orders
-	 */ 
+
 def static "androidDashboard.dashboardDetailsScreen.clickOnOrders"() {
     (new androidDashboard.dashboardDetailsScreen()).clickOnOrders()
 }
 
- /**
-	 * opens home tab where user can perform actions related to home
-	 */ 
+
 def static "androidDashboard.dashboardDetailsScreen.clickOnHomeTab"() {
     (new androidDashboard.dashboardDetailsScreen()).clickOnHomeTab()
 }
 
- /**
-	 * opens more options tab where user can perform actions related to more options
-	 */ 
+
 def static "androidDashboard.dashboardDetailsScreen.clickOnMoreOptions"() {
     (new androidDashboard.dashboardDetailsScreen()).clickOnMoreOptions()
 }
 
- /**
-	 * opens moreOptions tab where user can perform actions like signOut, goToInventoryListing Screen etc
-	 */ 
+
 def static "androidDashboard.dashboardDetailsScreen.clickOnMoreOptionsTab"() {
     (new androidDashboard.dashboardDetailsScreen()).clickOnMoreOptionsTab()
 }
 
- /**
-	 * opens receiving tab
-	 */ 
+
 def static "androidDashboard.dashboardDetailsScreen.clickOnReceivingTab"() {
     (new androidDashboard.dashboardDetailsScreen()).clickOnReceivingTab()
 }
 
- /**
-	 * opens audits tab
-	 */ 
+
 def static "androidDashboard.dashboardDetailsScreen.tapOnAudits"() {
     (new androidDashboard.dashboardDetailsScreen()).tapOnAudits()
 }
@@ -3199,6 +3185,24 @@ def static "androidAudits.auditsListingScreen.submitCompletedGroups"() {
 }
 
  /**
+	 * It verify the Audits list screen
+	 */ 
+def static "androidAudits.auditsListingScreen.verifyAuditsScreen"(
+    	String expectedMessage	) {
+    (new androidAudits.auditsListingScreen()).verifyAuditsScreen(
+        	expectedMessage)
+}
+
+ /**
+	 * It verify the Audits account
+	 */ 
+def static "androidAudits.auditsListingScreen.verifyAccount"(
+    	String first_account	) {
+    (new androidAudits.auditsListingScreen()).verifyAccount(
+        	first_account)
+}
+
+ /**
 	 * float value generator
 	 * @param stringToBeConvertedToFloatValue
 	 * @return float value for a string by removing characters
@@ -3793,19 +3797,19 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
+}
+
+
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
     	TestObject testObject	
      , 	String testName	) {
     (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
         	testObject
          , 	testName)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
 }
 
 
