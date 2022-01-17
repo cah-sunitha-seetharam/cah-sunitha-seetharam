@@ -117,7 +117,7 @@ class BeforeAfterListeners {
 			driver.activateApp(GlobalVariable.appPackage)  //Activates the application if it installed, but not running or if it is running in the background.
 
 
-			if((testCaseID.contains("TC_OE_021") || testCaseID.contains("TC_OE_022")))//if test case if from receiving module and have specific test id
+			if((testCaseID.contains("TC_OE_021") || testCaseID.contains("TC_OE_022")))//if test case if from receiving module and have specific test id (data dependency so again installation is required)
 			{
 				RunConfiguration.setMobileDriverPreferencesProperty("appWaitActivity", GlobalVariable.appWaitActivity)   // relative reference of activity name to wait for while opening the app
 				RunConfiguration.setMobileDriverPreferencesProperty("appPackage", GlobalVariable.appPackage) // this value will get from profile
