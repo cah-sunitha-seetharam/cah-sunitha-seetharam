@@ -224,5 +224,33 @@ class auditsListingScreen {
 		Mobile.tap(findTestObject('Android/Audits/submitCompletedGroups'), 0)
 		Mobile.delay(2)
 	}
+	
+	/**
+	 * It verify the Audits list screen
+	 */
+	@Keyword
+	def verifyAuditsScreen(String expectedMessage) {
 
+		Mobile.verifyElementExist(findTestObject('Android/Audits/welcomeMessage'), 0)
+		String message = Mobile.getText(findTestObject('Android/Audits/welcomeMessage'),0)
+		assert message.contains(expectedMessage)
+		
+		Mobile.verifyElementExist(findTestObject('Android/Audits/ndcNumber'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Audits/groupAuditStatus'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Audits/groupName'), 0)
+		Mobile.delay(2)
+		String buttonStatus = Mobile.getAttribute(findTestObject('Android/Audits/submitCompletedGroups'), 'enabled', 0)
+		assert buttonStatus == "false"
+	}
+	
+	/**
+	 * It verify the Audits account
+	 */
+	@Keyword
+	def verifyAccount(String first_account) {
+
+		Mobile.verifyElementExist(findTestObject('Android/Audits/accountID', [('AccountID') : first_account]), 0)
+		String accountId = Mobile.getText(findTestObject('Android/Audits/accountID', [('AccountID') : first_account]), 0)
+		assert accountId.contains(first_account)
+	}
 }
