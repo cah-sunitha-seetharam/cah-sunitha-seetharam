@@ -120,4 +120,14 @@ class dashboardDetailsScreen {
 
 		Mobile.tap(findTestObject('Object Repository/Android/Dashboard/receiving_Tab'), 0)
 	}
+
+	
+	/**
+	 * opens audits tab
+	 */
+	@Keyword
+	def tapOnAudits() {
+
+		Mobile.tap(findTestObject('Android/Dashboard/audits'), 0)
+	}
 }

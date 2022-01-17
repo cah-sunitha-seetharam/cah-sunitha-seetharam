@@ -108,6 +108,20 @@
                 "productSearchByNDC": "00406-8003-24",
                 "productSearchByName": "sod",
             },
+        
+        "TC_R_079": {
+                "productSearchByNDC1": "50580-0496-60",
+                "productSearchByNDC2": "00904-5769-60",
+                "productSearchByNDC3": "54838-0144-80",
+                "productSearchByNDC4": "50580-0522-24",
+            },
+        
+        "TC_R_080": {
+            "productSearchByNDC1": "50580-0496-60",
+            "productSearchByNDC2": "00904-5769-60",
+            "productSearchByNDC3": "54838-0144-80",
+            "productSearchByNDC4": "50580-0522-24",
+            },
     },
     "PMODQa2": {
         "Carts": {

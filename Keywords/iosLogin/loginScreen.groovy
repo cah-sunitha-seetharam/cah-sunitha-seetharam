@@ -132,7 +132,7 @@ class loginScreen {
 		Mobile.delay(1)
 
 		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/password_Button'), 0)
-
+    
 		Mobile.setText(findTestObject('iOS/LogIn/Login_Details_Screen/passwordSecure_TextField'), password, 0)
 	}
 

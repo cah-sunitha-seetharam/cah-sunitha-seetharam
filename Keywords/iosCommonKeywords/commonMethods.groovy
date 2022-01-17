@@ -87,6 +87,25 @@ class  commonMethods {
 	}
 
 
+	/**
+	 * opens existing testflight app and installs latest OE App
+	 * @return bundleId of testflight
+	 */
+	@Keyword
+	def openTestFlightApp(String bundleID) {
+		Mobile.startExistingApplication(bundleID)
+		Mobile.tap(findTestObject('iOS/TestFlight/install_Button'), 0)
+		Mobile.waitForElementPresent(findTestObject('iOS/TestFlight/open_Button'), 0)
+		Mobile.tap(findTestObject('iOS/TestFlight/open_Button'), 0)
+	}
+
+	/**
+	 * disables touchid while using real device
+	 */
+	@Keyword
+	def tapOnSetupLater() {
+		Mobile.tap(findTestObject('iOS/Verification/disableTouchIDRealDevice_Button'), 0)
+	}
 
 	/**
 	 * this function returns the cost of added product
