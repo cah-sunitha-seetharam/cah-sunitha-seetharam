@@ -81,7 +81,10 @@ class ordersCommonScreen {
 	def clearAllOrders() {
 		int counter=1,waitLimit=20,elementHeight,elementTopPosition,yCoordinateToSwipe//waitLimit of 20s
 		if(Mobile.verifyElementNotVisible(findTestObject('Object Repository/iOS/Dashboard/Verification/homeBottomNavigationTab_Bar'), 2,FailureHandling.OPTIONAL))
+		{
+			Mobile.tap(findTestObject('Object Repository/iOS/Orders/Cart Screen/Delete Order/ok_Button'), 0,FailureHandling.OPTIONAL)
 			commonMethodObject.goOneScreenBack()
+		}
 		while(Mobile.verifyElementNotVisible(findTestObject('iOS/Orders/Orders Common Screen/cartScreen_Tab'), 2,FailureHandling.OPTIONAL))
 		{
 			dashboardObject.clickOnOrders()

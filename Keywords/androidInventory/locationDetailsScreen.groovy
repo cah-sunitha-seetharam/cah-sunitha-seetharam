@@ -210,7 +210,7 @@ class locationDetailsScreen {
 	@Keyword
 	def clickOnScanIcon() {
 
-		Mobile.tap(findTestObject('Object Repository/Android/Product Search/Scan Flow/scan_Icon'), 0)
+		Mobile.tap(findTestObject('Object Repository/Android/Product Search/Scan Flow/scan_Icon'), 0,FailureHandling.OPTIONAL)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 

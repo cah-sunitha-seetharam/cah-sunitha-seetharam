@@ -43,29 +43,6 @@ import io.appium.java_client.MobileElement
 
 class dashboardDetailsScreen {
 
-	/*def commonMethodsObject=new commonMethods();
-	 @Keyword
-	 def addingProductFromDashboardToCart(String productName, String quantity) {
-	 commonMethodsObject.waitForProgressBarToBeInvisible()
-	 Mobile.tap(findTestObject('Android/Product Search/Search Products_SearchView'), 0)
-	 Mobile.setText(findTestObject('Android/Product Search/Search Products_SearchView'), productName + '\\n',0)
-	 commonMethodsObject.waitForProgressBarToBeInvisible()
-	 Mobile.setText(findTestObject('Android/Product Search/Quantity_TextField'), quantity, 0)
-	 Mobile.tap(	findTestObject('Object Repository/Android/Product Search/Add to Order_Button'), 0)
-	 Mobile.tap(findTestObject('iOS/Product_Search/Continue Browsing_Button'), 0)
-	 }*/
-
-
-	/**
-	 * this function verifies the dash-board details Screen
-	 */
-	@Keyword
-	def verifyDashboardPage() {
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Dashboard/home_Tab'), 0)
-	}
-
-
-
 	/**
 	 * opens orders tab where user can perform actions related to orders
 	 */
@@ -121,7 +98,7 @@ class dashboardDetailsScreen {
 		Mobile.tap(findTestObject('Object Repository/Android/Dashboard/receiving_Tab'), 0)
 	}
 
-	
+
 	/**
 	 * opens audits tab
 	 */
@@ -130,4 +107,28 @@ class dashboardDetailsScreen {
 
 		Mobile.tap(findTestObject('Android/Dashboard/audits'), 0)
 	}
+
+
+
+	/**
+	 * this function verifies the dash-board details Screen
+	 */
+	@Keyword
+	def verifyDashboardPage() {
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Dashboard/home_Tab'), 0)
+	}
+	
+	
+	/*	def commonMethodsObject=new commonMethods();
+	 @Keyword
+	 def addingProductFromDashboardToCart(String productName, String quantity) {
+	 commonMethodsObject.waitForProgressBarToBeInvisible()
+	 Mobile.tap(findTestObject('Android/Product Search/Search Products_SearchView'), 0)
+	 Mobile.setText(findTestObject('Android/Product Search/Search Products_SearchView'), productName + '\\n',0)
+	 commonMethodsObject.waitForProgressBarToBeInvisible()
+	 Mobile.setText(findTestObject('Android/Product Search/Quantity_TextField'), quantity, 0)
+	 Mobile.tap(	findTestObject('Object Repository/Android/Product Search/Add to Order_Button'), 0)
+	 Mobile.tap(findTestObject('iOS/Product_Search/Continue Browsing_Button'), 0)
+	 }*/
+
 }

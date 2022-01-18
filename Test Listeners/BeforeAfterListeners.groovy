@@ -50,7 +50,7 @@ class BeforeAfterListeners {
 	 * Executes after every test case ends.
 	 * @param testCaseContext related information of the executed test case.
 	 */
-	@AfterTestCase
+/*	@AfterTestCase
 	def afterTestCase(TestCaseContext testCaseContext) {
 		if(platformName == 'Android')  // check if platform is Android
 		{
@@ -88,7 +88,7 @@ class BeforeAfterListeners {
 		}
 	}
 
-
+*/
 
 	/**
 	 * Executes after every test suite.
@@ -108,7 +108,7 @@ class BeforeAfterListeners {
 	 * Activates the application if it installed, but not running or if it is running in the background
 	 * @param testCaseContext related information of the executed test case.
 	 */
-	@BeforeTestCase
+/*	@BeforeTestCase
 	def beforeTestCase(TestCaseContext testCaseContext) {
 		String testCaseID=testCaseContext.getTestCaseId()
 		if(platformName == 'Android')  // check if platform is Android
@@ -164,7 +164,7 @@ class BeforeAfterListeners {
 		}
 	}
 
-
+*/
 
 	/**
 	 * Executes before every test suite starts.
@@ -208,6 +208,8 @@ class BeforeAfterListeners {
 			}
 		}
 	}
+	
+	
 }
 
 

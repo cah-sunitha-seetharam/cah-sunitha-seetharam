@@ -118,7 +118,10 @@ class  commonMethods {
 
 		KeywordUtil.logInfo(productCost)
 
-		float productCost_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(productCost)//converting productCost string to a float value
+		productCost=productCost.replaceAll("[^0-9.]", "")
+		float productCost_dollarSymbolRemoved_FloatValue=productCost.toFloat()
+		
+		//float productCost_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(productCost)//converting productCost string to a float value
 
 		return productCost_dollarSymbolRemoved_FloatValue
 	}

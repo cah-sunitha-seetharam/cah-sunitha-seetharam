@@ -130,6 +130,12 @@ CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 'clicks on share location button and verifies the pop-up screen and then closes the pop-up screen'
 CustomKeywords.'iosInventory.locationDetailsScreen.verifyShareLocationPopUp'()
 
+'takes the application one screen back'
+CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
+
+'opens the location details and takes the locationName as the argument'
+CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnALocation'(locationName)
+
 'verifies location details Screen elements like linesCount, countype of product added, quantity on location details screen'
 CustomKeywords.'iosInventory.locationDetailsScreen.verifyLocationDetailsScreen'(countTypeStack, quantityStack, ndcNumbersStack, 
     unitOfIssueCostStack)
