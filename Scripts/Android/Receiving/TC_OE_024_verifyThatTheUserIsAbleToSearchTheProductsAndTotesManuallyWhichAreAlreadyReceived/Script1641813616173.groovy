@@ -30,6 +30,9 @@ CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisi
 'after login, verifies page caption and selects account'
 CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
 
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
 'takes user to dashboard screen'
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnReceivingTab'()
 
@@ -66,6 +69,9 @@ CustomKeywords.'androidReceiving.receivingReusableMethods.verifyInstancesOfProdu
 'this function opens invoice details'
 CustomKeywords.'androidCommonKeywords.commonMethods.searchProduct'(productSearch)
 
+'verifies details of the product associated with the account'
+CustomKeywords.'androidReceiving.receivingReusableMethods.verifyProductSearchDetals'(productSearch)
+
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
@@ -90,4 +96,6 @@ CustomKeywords.'androidReceiving.receivingReusableMethods.verifyInstancesOfProdu
 'this function opens invoice details'
 CustomKeywords.'androidCommonKeywords.commonMethods.searchProduct'(productSearch)
 
+'verifies details of the product associated with the account'
+CustomKeywords.'androidReceiving.receivingReusableMethods.verifyProductSearchDetals'(productSearch)
 

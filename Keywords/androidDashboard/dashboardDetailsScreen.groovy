@@ -147,8 +147,7 @@ class dashboardDetailsScreen {
 	 */
 	@Keyword
 	def clickOnReceivingTab() {
-
-		Mobile.tap(findTestObject('Object Repository/Android/Dashboard/receiving_Tab'), 0)
+		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Object Repository/Android/Dashboard/receiving_Tab'), 10)
+		element.click()
 	}
-
 }

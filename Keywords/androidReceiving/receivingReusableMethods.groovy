@@ -575,23 +575,22 @@ class receivingReusableMethods {
 
 		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/recivedTag_TextView'), 0)
 	}
-	
-	
-	
+
+
+
 	/**
 	 * takes toteID to be searched as the argument and searches the same
 	 */
 	@Keyword
 	def searchTote(toteID) {
 
-		Mobile.tapAndHold(findTestObject('Object Repository/Android/Receiving/searchReceiving_TextField'), 0,2)
+		Mobile.tap(findTestObject('Object Repository/Android/Receiving/searchReceiving_TextField'), 0,FailureHandling.OPTIONAL)
 
 		Mobile.setText(findTestObject('Object Repository/Android/Receiving/searchReceiving_TextField'), toteID + '\\n', 0)
-			
 	}
 
-	
-	
+
+
 	/**
 	 * this function verifies that the product is visible on the order details screen
 	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
@@ -599,10 +598,37 @@ class receivingReusableMethods {
 	 */
 	@Keyword
 	def verifyProductIsVisibleOnTheReceivingScreen(productNdcNumber) {
-		
+
 		String testObj='Object Repository/Android/Orders/Verification Details/ordersNDCLabel_TextView'
-		
+
 		androidCommonKeywordsObject.verifyProductIsVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
 
+	}
+	
+	
+	
+	/**
+	 * verifies details of the product associated with the account
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 */
+	@Keyword
+	def verifyProductSearchDetals(productNdcNumber) {
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/toteID_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/shipmentNumber_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/invoiceShipmentNumber_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/ndc_TextView',[('TEXT'):productNdcNumber]), 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/receivedTag_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/issue_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/editableQuantity_TextBox'), 0)
+		
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/receiving_Header'), 0)
+		
 	}
 }
