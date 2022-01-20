@@ -134,7 +134,7 @@ class orderDetailsScreen {
 		String productName=Mobile.getText(findTestObject('Object Repository/iOS/Orders/Order Details Screen/Verification Details/productDescriptionLabel_Text'), 0)
 		return productName
 	}
-	
+
 	/**
 	 * verifies that the added top most product should  be visible on the order details page
 	 * @param productname (top most added product name)
@@ -186,7 +186,7 @@ class orderDetailsScreen {
 		Mobile.tap(findTestObject('Object Repository/iOS/Product Search/productSearch_TextField'), 0)
 		Mobile.setText(findTestObject('Object Repository/iOS/Product Search/productSearch_TextField'), productName ,0)
 	}
-	
+
 	/**
 	 * taps on search key of the keyboard
 	 */
@@ -194,8 +194,8 @@ class orderDetailsScreen {
 	def tapOnsearchKeyInOfflineMode() {
 		Mobile.tapAndHold(findTestObject('Object Repository/iOS/Orders/Product Info/Product Search/search_keypad'), 0, 0)
 	}
-	
-	
+
+
 	/**
 	 * opens product tile
 	 */
@@ -559,8 +559,10 @@ class orderDetailsScreen {
 
 		String orderTotal=Mobile.getText(findTestObject('iOS/Orders/Verification Details/orderTotal_Text'), 0)
 
-		float orderTotal_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(orderTotal)//converting uoiCost string to a float value
-
+		//float orderTotal_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(orderTotal)//converting uoiCost string to a float value
+		orderTotal=orderTotal.replaceAll("[^0-9.]", "")
+		float orderTotal_dollarSymbolRemoved_FloatValue=orderTotal.toFloat()
+		
 		return orderTotal_dollarSymbolRemoved_FloatValue
 	}
 
@@ -612,7 +614,7 @@ class orderDetailsScreen {
 		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/done_Button'), 0)
 		Mobile.tap(findTestObject('Object Repository/iOS/Product Search/doneKeypad_Button'), 0)
 	}
-	
+
 
 	/**
 	 * scans the product in offline mode
@@ -624,17 +626,17 @@ class orderDetailsScreen {
 		Mobile.setText(findTestObject('iOS/Product Search/Scan Flow/enterBarcode_TextField'), productToBeSearched, 0)
 		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/done_Button'), 0)
 	}
-	
+
 	/**
 	 * retruns NDC number
 	 */
 	@Keyword
 	def returnNDCLabelOfScannedProduct () {
-	String NDCLabel = Mobile.getText(findTestObject('iOS/Verification/NDCLabel_Text'), 0)
-	return NDCLabel
+		String NDCLabel = Mobile.getText(findTestObject('iOS/Verification/NDCLabel_Text'), 0)
+		return NDCLabel
 	}
-	
-	
+
+
 
 	/**
 	 * allows camera access while using real device
@@ -799,20 +801,25 @@ class orderDetailsScreen {
 		int quantityIntegralValue=Integer.parseInt(quantity)
 
 		String productCost=Mobile.getText(findTestObject('iOS/Orders/Verification Details/productCost_Text'), 0)
+		productCost=productCost.replaceAll("[^0-9.]", "")
+		float productCost_FloatValue=productCost.toFloat()
+		//float productCost_dollarSymbolRemoved_FloatValue=commonMethodsObject.floatValueGenerator(productCost)//converting uoiCost string to a float value
 
-		float productCost_dollarSymbolRemoved_FloatValue=commonMethodsObject.floatValueGenerator(productCost)//converting uoiCost string to a float value
-
-		float expectedOrderTotal=quantityIntegralValue*productCost_dollarSymbolRemoved_FloatValue
+		float expectedOrderTotal=quantityIntegralValue*productCost_FloatValue
 
 		String formattedExpectedOrderTotal=commonMethodsObject.formatDecimalData(expectedOrderTotal,"0.00") //formatting the data to be rounded off to upper level and to two decimal places
 
-		float formattedExpectedOrderTotal_FloatValue=commonMethodsObject.floatValueGenerator(formattedExpectedOrderTotal)///converting formattedExpectedOrderTotal string to a float value
+		//float formattedExpectedOrderTotal_FloatValue=commonMethodsObject.floatValueGenerator(formattedExpectedOrderTotal)///converting formattedExpectedOrderTotal string to a float value
+		float formattedExpectedOrderTotal_FloatValue=formattedExpectedOrderTotal.toFloat()
 
 		KeywordUtil.logInfo(formattedExpectedOrderTotal)
 
 		String actualOrderTotal=Mobile.getText(findTestObject('iOS/Orders/Verification Details/orderTotal_Text'), 0)
 
-		float actualOrderTotal_dollarSymbolRemoved_FloatValue=commonMethodsObject.floatValueGenerator(actualOrderTotal)//converting actualOrderTotal string to a float value
+		//float actualOrderTotal_dollarSymbolRemoved_FloatValue=commonMethodsObject.floatValueGenerator(actualOrderTotal)//converting actualOrderTotal string to a float value
+
+		actualOrderTotal=actualOrderTotal.replaceAll("[^0-9.]", "")
+		float actualOrderTotal_dollarSymbolRemoved_FloatValue=actualOrderTotal.toFloat()
 
 		KeywordUtil.logInfo(actualOrderTotal)
 

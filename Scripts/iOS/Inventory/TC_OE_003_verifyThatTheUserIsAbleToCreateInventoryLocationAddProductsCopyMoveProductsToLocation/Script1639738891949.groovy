@@ -18,12 +18,15 @@ import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
 /*'starts the application'
- CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
- 
- 'takes user from login to home screen and takes username, password, account no as the arguments'
- CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen'(GlobalVariable.Username, GlobalVariable.Password, 
- GlobalVariable.Account)
- */
+CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
+
+'takes user from login to home screen and takes username, password, account no as the arguments'
+CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen'(GlobalVariable.Username, GlobalVariable.Password,
+		GlobalVariable.Account)
+*/
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
 'takes user from home screen to inventory listing screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromHomeToInventoryListingScreen'()
 

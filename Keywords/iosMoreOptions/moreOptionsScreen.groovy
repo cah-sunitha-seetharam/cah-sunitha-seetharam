@@ -19,7 +19,6 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords
 
 import internal.GlobalVariable
-
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.By
@@ -41,6 +40,7 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 class moreOptionsScreen {
 
+
 	/**
 	 * opens the inventory listing screen from moreOptions Screen
 	 */
@@ -58,25 +58,29 @@ class moreOptionsScreen {
 	@Keyword()
 	def signOut() {
 
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+
 		Mobile.tap(findTestObject('iOS/Dashboard/moreOptions_Tab'), 0)
 
 		Mobile.tap(findTestObject('iOS/More Options Screen/SignOut/Sign_Out_Text'), 0)
 
 		Mobile.tap(findTestObject('iOS/More Options Screen/SignOut/Sign_Out_Button'), 0)
 	}
-	
+
 	/**
 	 * enables beta csos feature toggle from more options
 	 */
 	@Keyword()
 	def enableBetaFeatureCSOS() {
-		Mobile.tap(findTestObject('iOS/More Options Screen/betaFeatures_Tab'), 0)
-		
-		Mobile.tap(findTestObject('iOS/More Options Screen/betaFeatureSwitch_Toggle'), 0)
-		
-		Mobile.tap(findTestObject('iOS/More Options Screen/termsAgree_CheckBox'), 0)
-		
-		Mobile.tap(findTestObject('iOS/More Options Screen/disclaimerConfirm_Button'), 0)
-	}
 
+		Mobile.tap(findTestObject('iOS/More Options Screen/betaFeatures_Tab'), 0)
+
+		Mobile.tap(findTestObject('iOS/More Options Screen/betaFeatureSwitch_Toggle'), 0)
+
+		Mobile.tap(findTestObject('iOS/More Options Screen/termsAgree_CheckBox'), 0)
+
+		Mobile.tap(findTestObject('iOS/More Options Screen/disclaimerConfirm_Button'), 0)
+
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+	}
 }

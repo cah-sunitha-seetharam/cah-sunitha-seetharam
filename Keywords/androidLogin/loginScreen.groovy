@@ -109,13 +109,7 @@ class loginScreen {
 	@Keyword()
 	def clickOnSignInButton() {
 
-		int w = 1
-
 		Mobile.tap(findTestObject('Android/Login/Login Details Screen/signIn_Button'), 0)
-
-		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
 	}
 
 

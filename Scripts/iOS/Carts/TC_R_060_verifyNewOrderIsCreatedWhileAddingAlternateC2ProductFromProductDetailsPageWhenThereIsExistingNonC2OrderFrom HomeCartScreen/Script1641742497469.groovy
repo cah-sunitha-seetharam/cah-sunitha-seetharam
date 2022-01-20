@@ -17,14 +17,18 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-'starts the application'
+/*'starts the application'
 CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
-'logins with username password and then opens account selection page'
+'login function called which takes user to the accounts selection screen'
 CustomKeywords.'iosLogin.loginScreen.login'(GlobalVariable.Username, GlobalVariable.Password)
 
-'after login, verifies page caption and selects account'
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
+'selects the user account from the accounts list'
 CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
+
 
 '------------------------enables beta feature CSOS---------------------------'
 
@@ -38,6 +42,10 @@ CustomKeywords.'iosCommonKeywords.commonMethods.enableBetaFeatures'()
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
 '--------Pre-requisite(nonC2 order should be available with no products in it )-------'
+*/
+
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'opens cart page'
 CustomKeywords.'iosDashboard.dashboardScreen.clickOnOrders'()

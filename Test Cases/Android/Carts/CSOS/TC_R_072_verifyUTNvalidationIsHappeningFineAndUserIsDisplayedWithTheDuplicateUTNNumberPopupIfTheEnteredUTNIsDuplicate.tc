@@ -11,6 +11,20 @@ Prerequisite :
    <comment></comment>
    <testCaseGuid>0d198303-c2df-4f45-951c-807b352a221f</testCaseGuid>
    <variable>
+      <defaultValue>'kavan.mobile.r'</defaultValue>
+      <description></description>
+      <id>ef96487f-5a9f-4805-a6cb-353eb1373d80</id>
+      <masked>false</masked>
+      <name>username</name>
+   </variable>
+   <variable>
+      <defaultValue>'Cardinal1'</defaultValue>
+      <description></description>
+      <id>1a4a6086-27a3-4fad-8877-0ed1783c0eba</id>
+      <masked>false</masked>
+      <name>password</name>
+   </variable>
+   <variable>
       <defaultValue>'29-214315'</defaultValue>
       <description></description>
       <id>5dd05330-b677-4c12-a4bd-12fb8c732cb3</id>

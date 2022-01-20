@@ -17,26 +17,33 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-'starts the application'
+/*'starts the application'
 CustomKeywords.'androidCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
 'logins with username password and then opens account selection page'
 CustomKeywords.'androidLogin.loginScreen.login'(GlobalVariable.Username, GlobalVariable.Password)
 
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
 'after login, verifies page caption and selects account'
 CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
-
-'------------------------enables beta feature CSOS---------------------------'
-
-CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnMoreOptions'()
-CustomKeywords.'androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS'()
-
+*/
+/*'------------------------enables beta feature CSOS---------------------------'
+ 
+ CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnMoreOptions'()
+ 
+ CustomKeywords.'androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS'()
+ */
 '----------------------------------------------------------------------------'
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'opens cart page'
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnOrders'()
 
 '--------------------------c2 order--------------------------'
+
 'takes user to the new order screen'
 CustomKeywords.'androidOrders.ordersCommonScreen.clickOnNewOrder'()
 
@@ -127,11 +134,11 @@ CustomKeywords.'androidOrders.cartScreen.openC2OrderDetailScreen'(accountNo)
 
 '---------------deletes order------------------'
 
-'takes the application one screen back'
-CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
+Mobile.pressBack()
 
 'opens the c2 orders tab'
 CustomKeywords.'androidOrders.cartScreen.clickOnC2OrdersTab'()
 
 'deletes order'
-CustomKeywords.'androidOrders.cartScreen.deleteOrder'()
+CustomKeywords.'androidOrders.cartScreen.deleteOrder'(poName)
+
