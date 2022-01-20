@@ -142,8 +142,8 @@ CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 'searches for a product by setting product name'
 CustomKeywords.'iosOrders.orderDetailsScreen.searchProductInOrderDetailPageOfflineMode'(productSearch1)
 
-'turns off airplane mode'
-Mobile.toggleAirplaneMode(off)
+'turns on airplane mode'
+Mobile.toggleAirplaneMode(Yes)
 
 'closes the popup when user switches to offline mode'
 CustomKeywords.'iosOrders.orderDetailsScreen.closeOfflinePopUp'()
@@ -167,7 +167,7 @@ CustomKeywords.'iosOrders.orderDetailsScreen.addToOrderWithoutVerify'()
 CustomKeywords.'iosOrders.orderDetailsScreen.clickOnGoToOrder'()
 
 'turns off airplane mode'
-Mobile.toggleAirplaneMode(on)
+Mobile.toggleAirplaneMode(No)
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
@@ -175,8 +175,8 @@ CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'
 'searches for a product by setting product name'
 CustomKeywords.'iosOrders.orderDetailsScreen.searchProductInOrderDetailPageOfflineMode'(productSearch1)
 
-'turns off airplane mode'
-Mobile.toggleAirplaneMode(off)
+'turns on airplane mode'
+Mobile.toggleAirplaneMode(Yes)
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
@@ -207,8 +207,8 @@ CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'turns on airplane mode'
-Mobile.toggleAirplaneMode(on)
+'turns off airplane mode'
+Mobile.toggleAirplaneMode(No)
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
@@ -220,7 +220,7 @@ CustomKeywords.'iosDashboard.dashboardScreen.clickOnOrders'()
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'clicks on history tab button to open history tab in order history screen'
-CustomKeywords.'iosOrders.historyScreen.clickOnHistoryTabWithoutVerify'()
+CustomKeywords.'iosOrders.historyScreen.clickOnHistoryTab'()
 
 'returns po number of an top most order '
 String poNumber = CustomKeywords.'iosOrders.historyScreen.returnTopMostPoNumberOfAnOrder'()
@@ -234,8 +234,8 @@ CustomKeywords.'iosOrders.historyScreen.tapOnTopMostOrderHistory'(poNumber)
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'turns off airplane mode'
-Mobile.toggleAirplaneMode(off)
+'turns on airplane mode'
+Mobile.toggleAirplaneMode(Yes)
 
 'closes the popup when user switches to offline mode'
 CustomKeywords.'iosOrders.orderDetailsScreen.closeOfflinePopUp'()
@@ -269,3 +269,12 @@ CustomKeywords.'iosOrders.orderDetailsScreen.scanInputEventInOfflineMode'(produc
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
+
+'opens cart tab'
+CustomKeywords.'iosOrders.ordersCommonScreen.clickOnCartTab'()
+
+'returns the order name of the order which is at the top of the order list'
+String orderName1=CustomKeywords.'iosOrders.cartScreen.returnTopMostOrderName'()
+
+'deletes order'
+CustomKeywords.'iosOrders.cartScreen.deleteOrder'(orderName1)

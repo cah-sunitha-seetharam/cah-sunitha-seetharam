@@ -95,6 +95,7 @@ class  commonMethods {
 	def openTestFlightApp(String bundleID) {
 		Mobile.startExistingApplication(bundleID)
 		Mobile.tap(findTestObject('iOS/TestFlight/install_Button'), 0)
+		Mobile.delay(2)
 		Mobile.waitForElementPresent(findTestObject('iOS/TestFlight/open_Button'), 0)
 		Mobile.tap(findTestObject('iOS/TestFlight/open_Button'), 0)
 	}

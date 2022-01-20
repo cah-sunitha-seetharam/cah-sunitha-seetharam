@@ -6,7 +6,7 @@ Prerequisite:
 2. Offline catalogue download completed with the default account (example : account X).
 3.Valid product NDC,UPC and CIN value of an eligible product available in local db (Offline catalogue).&quot;</description>
    <name>TC_R_080_verifyUserIsAbleToSearchViewProductDetailsFromOfflineCatalogueDBAndAddProductToCartWhileInOfflineMode</name>
-   <tag>Order;Regression;Scan</tag>
+   <tag>Order;Regression;Scan;Offline</tag>
    <comment></comment>
    <testCaseGuid>1a51e689-a8fe-4c9c-aceb-d9d110360916</testCaseGuid>
    <variable>
@@ -17,11 +17,11 @@ Prerequisite:
       <name>bundleID</name>
    </variable>
    <variable>
-      <defaultValue>'yes'</defaultValue>
+      <defaultValue>'true'</defaultValue>
       <description>passing airplane mode toggle value as a string</description>
       <id>d8b54200-fd38-486d-9b88-d34fefa530a5</id>
       <masked>false</masked>
-      <name>off</name>
+      <name>Yes</name>
    </variable>
    <variable>
       <defaultValue>'Ordering'</defaultValue>
@@ -45,10 +45,10 @@ Prerequisite:
       <name>quantity</name>
    </variable>
    <variable>
-      <defaultValue>'no'</defaultValue>
+      <defaultValue>'false'</defaultValue>
       <description>passing airplane mode toggle value as a string</description>
       <id>ffcb3007-cbac-46fd-870d-05c2b4c321d6</id>
       <masked>false</masked>
-      <name>on</name>
+      <name>No</name>
    </variable>
 </TestCaseEntity>
