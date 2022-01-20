@@ -24,6 +24,9 @@ CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplica
 CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen'(GlobalVariable.Username, GlobalVariable.Password, 
     GlobalVariable.Account)
 */
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
 'takes user from home screen to inventory listing screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromHomeToInventoryListingScreen'()
 
@@ -111,11 +114,17 @@ actualQuantity = CustomKeywords.'iosInventory.locationDetailsScreen.returnQuanti
 'assertion to verify actual quanity equals the expected quantity'
 actualQuantity == expectedProductQuantity_2
 
-'calling the function which deletes a product, it takes productName/UPC/Cin/Ndc as the argument'
-CustomKeywords.'iosInventory.locationDetailsScreen.deleteProduct'(productSearch_1)
-
 'this function verifies that the product is visible on the location details screen'
 CustomKeywords.'iosInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen'(productSearch_2)
+
+'calling the function which moves a product to another location, it takes location and productName/UPC/Cin/Ndc as the argument'
+CustomKeywords.'iosInventory.locationDetailsScreen.moveProductToAnotherLocation'(locationName_2, productSearch_2)
+
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
+'calling the function which deletes a product, it takes productName/UPC/Cin/Ndc as the argument'
+CustomKeywords.'iosInventory.locationDetailsScreen.deleteProduct'(productSearch_1)
 
 'this function verifies that the product is visible on the location details screen'
 CustomKeywords.'iosInventory.locationDetailsScreen.verifyProductIsNotVisibleOnTheLocationDetailsScreen'(productSearch_1)

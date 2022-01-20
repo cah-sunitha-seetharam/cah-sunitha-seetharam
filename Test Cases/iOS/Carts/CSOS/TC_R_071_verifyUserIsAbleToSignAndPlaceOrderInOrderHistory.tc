@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
-   <description></description>
+   <description>Verify user is able to Sign &amp; Place the Order in the Order History.
+Prerequisite:
+ 1. Valid login credentials
+ 2. C2 Order which are yet to Sign  should be available in the Order History.</description>
    <name>TC_R_071_verifyUserIsAbleToSignAndPlaceOrderInOrderHistory</name>
    <tag></tag>
    <comment></comment>
    <testCaseGuid>8f2692e1-a258-453e-b77b-4eef7ab2c9e5</testCaseGuid>
+   <variable>
+      <defaultValue>'kavan.mobile.r'</defaultValue>
+      <description></description>
+      <id>b5424c89-8fb0-4458-b33c-bf6b72437121</id>
+      <masked>false</masked>
+      <name>username</name>
+   </variable>
+   <variable>
+      <defaultValue>'Cardinal1'</defaultValue>
+      <description></description>
+      <id>c83b1692-1589-4598-977c-95075d4e86b1</id>
+      <masked>false</masked>
+      <name>password</name>
+   </variable>
    <variable>
       <defaultValue>'29-214315'</defaultValue>
       <description></description>

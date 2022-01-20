@@ -130,7 +130,9 @@ class orderDetailsScreen {
 	@Keyword
 	def clickOnScanIcon() {
 
-		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_Icon'), 0)
+		Mobile.delay(2)
+		
+		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_Icon'), 0,FailureHandling.OPTIONAL)
 
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Scan Order/ordering_Text'), 0)
 

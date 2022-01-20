@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
-   <description>Prerequisite:
+   <description>Verify that user is not able to Add Non-C2 Alternate Product from Product details screen to already created C2 Order 
+Prerequisite:
 1. Valid login credentials with multiple accounts available for the user
 2. C2 order should be available with C2 Product in it</description>
    <name>TC_R_061_verifyThatUserIsNotAbleToAddNonC2AlternateProductFromProductDetailsScreenToAlreadyCreatedC2Order</name>

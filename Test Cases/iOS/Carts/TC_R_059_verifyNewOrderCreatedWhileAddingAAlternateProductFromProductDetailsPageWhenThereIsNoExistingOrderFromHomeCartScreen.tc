@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
-   <description>&quot;Verify New Order created  while adding a Alternate Product from Product details page when there is no existing order from Home/Cart screen
-
+   <description>Verify New Order created  while adding a Alternate Product from Product details page when there is no existing order from Home/Cart screen
 Prerequisite:
 1. Valid login credentials with multiple accounts available for the user&quot;</description>
    <name>TC_R_059_verifyNewOrderCreatedWhileAddingAAlternateProductFromProductDetailsPageWhenThereIsNoExistingOrderFromHomeCartScreen</name>

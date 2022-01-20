@@ -19,7 +19,7 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-'starts the application'
+/*'starts the application'
 CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
 'logins with username password and then opens account selection page'
@@ -33,6 +33,9 @@ CustomKeywords.'iosDashboard.dashboardScreen.clickOnMoreOptionsTab'()
 
 'enables csos beta feature in the account selected'
 CustomKeywords.'iosMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS'()
+*/
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'opens the cart page'
 CustomKeywords.'iosDashboard.dashboardScreen.clickOnOrders'()
