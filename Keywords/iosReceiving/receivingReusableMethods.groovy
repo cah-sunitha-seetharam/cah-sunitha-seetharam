@@ -1,4 +1,4 @@
-package androidReceiving
+package iosReceiving
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
@@ -69,7 +69,7 @@ class receivingReusableMethods {
 	@Keyword
 	def clickOnContinue() {
 
-		Mobile.tap(findTestObject('Object Repository/Android/Receiving/continue_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Receiving/continue_Button'), 0)
 	}
 
 
@@ -82,7 +82,7 @@ class receivingReusableMethods {
 
 		//MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Object Repository/Android/Receiving/scan_TextView'), 0)
 		//element.click()
-		Mobile.tap(findTestObject('Object Repository/Android/Receiving/scan_TextView'), 0,FailureHandling.OPTIONAL)
+		Mobile.tap(findTestObject('iOS/Receiving/scan_Icon'), 0,FailureHandling.OPTIONAL)
 	}
 
 
@@ -93,7 +93,7 @@ class receivingReusableMethods {
 	@Keyword
 	def openShipmentDetails(shipmentNumber) {
 
-		Mobile.tap(findTestObject('Object Repository/Android/Receiving/shipment_Tile',[('TEXT'):shipmentNumber]), 0)
+		Mobile.tap(findTestObject('iOS/Receiving/shipment_Tile',[('TEXT'):shipmentNumber]), 0)
 	}
 
 
@@ -105,7 +105,7 @@ class receivingReusableMethods {
 	@Keyword
 	def openInvoiceDetails(invoiceNumber) {
 
-		Mobile.tap(findTestObject('Android/Receiving/invoice_Tile',[('TEXT'):invoiceNumber]), 0)
+		Mobile.tap(findTestObject('iOS/Receiving/invoice_Tile',[('TEXT'):invoiceNumber]), 0)
 	}
 
 
@@ -118,9 +118,11 @@ class receivingReusableMethods {
 	@Keyword
 	def scanInputEvent(String productToBeSearched) {
 
-		Mobile.setText(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_EditText'), productToBeSearched, 0)
+		Mobile.tap(findTestObject('iOS/Receiving/tapToScan_Text'), 0)
 
-		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_Button'), 0)
+		Mobile.setText(findTestObject('iOS/Receiving/enterBarcode_TextField'), productToBeSearched, 0)
+
+		Mobile.tap(findTestObject('iOS/Receiving/scan_Button'), 0)
 	}
 
 
@@ -131,7 +133,9 @@ class receivingReusableMethods {
 	@Keyword
 	def selectAllowOverages() {
 
-		Mobile.tap(findTestObject('Object Repository/Android/Receiving/allowOverages_CheckBox'), 0)
+		//MobileElement element = MobileElementCommonHelper.findElement(findTestObject('iOS/Receiving/allowOverage_Button'), 0)
+		//element.click()
+		Mobile.tap(findTestObject('iOS/Receiving/allowOverage_Button'), 0)
 	}
 
 
@@ -142,7 +146,7 @@ class receivingReusableMethods {
 	@Keyword
 	def selectInvoices() {
 
-		Mobile.tap(findTestObject('Object Repository/Android/Receiving/invoices_TextView'), 0)
+		Mobile.tap(findTestObject('iOS/Receiving/invoices_Button'), 0)
 	}
 
 
@@ -153,7 +157,9 @@ class receivingReusableMethods {
 	@Keyword
 	def selectShipments() {
 
-		Mobile.tap(findTestObject('Object Repository/Android/Receiving/shipments_TextView'), 0)
+		//MobileElement element = MobileElementCommonHelper.findElement(findTestObject('iOS/Receiving/shipments_Button'), 0)
+		//element.click()
+		Mobile.tap(findTestObject('iOS/Receiving/shipments_Button'), 0)
 	}
 
 
@@ -163,7 +169,7 @@ class receivingReusableMethods {
 	@Keyword
 	def switchToPreviousDay() {
 
-		Mobile.tap(findTestObject('Object Repository/Android/Receiving/switchToPreviousDayShipments_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Receiving/switchToPreviousDay_Button'), 0)
 	}
 
 
@@ -173,7 +179,7 @@ class receivingReusableMethods {
 	@Keyword
 	def switchToToday() {
 
-		Mobile.tap(findTestObject('Object Repository/Android/Receiving/switchToTodayShipments_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Receiving/switchToToday_Button'), 0)
 	}
 
 
@@ -184,7 +190,7 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyAllowedOverages() {
 
-		Mobile.verifyElementAttributeValue(findTestObject('Object Repository/Android/Receiving/allowOverages_CheckBox'),'checked','true', 0)
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/Receiving/receivingAllowOverage_Button'),'enabled','true', 0)
 	}
 
 
@@ -196,19 +202,21 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyInstancesOfProductAssociatedWithAccount(productNdcNumber) {
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/toteID_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/searchResult_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/shipmentNumber_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/toteID_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/invoiceShipmentNumber_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/toteNumber_Label'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/ndc_TextView',[('TEXT'):productNdcNumber]), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/shipment_Label'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/receivedTag_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/shipmentNumber_Label'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/issue_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/parametrizedNdc_Label',[('TEXT'):productNdcNumber]), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/editableQuantity_TextBox'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/productIssue_Button'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/receivedProduct_Label'), 0)
 	}
 
 
@@ -220,7 +228,7 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyInvoiceIsVisible(invoiceNumber) {
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/invoice_Tile',[('TEXT'):invoiceNumber]), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/invoice_Tile',[('TEXT'):invoiceNumber]), 0)
 	}
 
 
@@ -232,13 +240,13 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyInvoicesListScreenDetails() {
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/totesCount_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/receivingTitle_Label'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/totes_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/receivedTote_Label'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/date_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/toteCountLabel'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/toteReceivedStatus_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/totes_Count'), 0)
 	}
 
 
@@ -251,29 +259,25 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyInvoicesDetails(invoiceNumber) {
 
-		Mobile.verifyElementAttributeValue(findTestObject('Android/Receiving/receiveAll_Button'), 'enabled','true',0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/invoice_Label',[('TEXT'):invoiceNumber]), 0)
 
-		Mobile.verifyElementAttributeValue(findTestObject('Android/Receiving/uploadCompletedTotes_Button'),'enabled','false', 0)
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/Receiving/receivingUpload_Button'),'enabled','false', 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/invoice_TextView',[('TEXT'):invoiceNumber]), 0)
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/Receiving/receiveTote_Button'),'enabled','true', 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/totesReceived_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/toteReceivedCount_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/deliveredDate_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/deliveredDate_Label'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/toteID_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/toteId_Label'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/productsReceived_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/productReceivedStatus_Label'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/issue_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/issue_Button'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/itemQuantity_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/ndc_Label'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/receivingUpperLimit_TextView'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/receivedCount_TextField'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/receivedCount_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/productIssue_Button'), 0)
 	}
 
 
@@ -285,7 +289,7 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyNoNewOrdersToReceive() {
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/noNewOrdersToReceive_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/noNewOrdersToReceiveToday_Text'), 0)
 	}
 
 
@@ -296,21 +300,25 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyReceivingScreen() {
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/youHaveIncompleteReceivingItemsTapToView_TextView'),  0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/receivingeader_Label'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/receiving_Header'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/product_SearchField'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/searchReceiving_TextField'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/scan_Icon'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/scan_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/receivingScreenViewBy_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/shipments_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/incompleteRecevingView_Button'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/invoices_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/receivingScreenAllowOverages_Text'), 0)
 
-		Mobile.verifyElementExist(	findTestObject('Object Repository/Android/Receiving/allowOverages_CheckBox'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/receivingAllowOverage_Button'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/todaysDateOrPreviousDate_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/noNewOrdersToReceiveToday_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/today_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/switchToPreviousDay_Button'), 0)
 	}
 
 
@@ -321,15 +329,17 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyReceivingScreenPopUp() {
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/welcomeToReceiving_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/welcomeToReceiving_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/viewBy_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/viewBy_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/shipments_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/allowOverages_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/invoices_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/shipments_Button'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/allowOverages_CheckBox'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/allowOverage_Button'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/invoices_Button'), 0)
 	}
 
 
@@ -341,31 +351,25 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyShipmentDetails(shipmentNumber) {
 
-		Mobile.verifyElementAttributeValue(findTestObject('Android/Receiving/receiveAll_Button'), 'enabled','true',0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/parametrizedShipment_Label',[('TEXT'):shipmentNumber]), 0)
 
-		Mobile.verifyElementAttributeValue(findTestObject('Android/Receiving/uploadCompletedTotes_Button'),'enabled','false', 0)
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/Receiving/receivingUpload_Button'),'enabled','false', 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/shipment_TextView',[('TEXT'):shipmentNumber]), 0)
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/Receiving/receiveTote_Button'),'enabled','true', 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/totesReceived_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/toteReceivedCount_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/collapseView_Image'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/deliveredDate_Label'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/deliveredDate_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/toteId_Label'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/toteID_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/productReceivedStatus_Label'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/productsReceived_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/issue_Button'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/issue_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/ndc_Label'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/itemQuantity_TextView'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/receivingUpperLimit_TextView'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/receivedCount_TextField'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/receivedCount_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/productIssue_Button'), 0)
 	}
 
 
@@ -377,7 +381,7 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyShipmentIsVisible(shipmentNumber) {
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/shipment_Tile',[('TEXT'):shipmentNumber]), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/shipment_Tile',[('TEXT'):shipmentNumber]), 0)
 	}
 
 
@@ -388,13 +392,13 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyShipmentsListScreenDetails() {
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/totesCount_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/receivingTitle_Label'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/totes_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/receivedTote_Label'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/toteReceivedStatus_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/toteCountLabel'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/date_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/totes_Count'), 0)
 	}
 
 
@@ -629,7 +633,6 @@ class receivingReusableMethods {
 		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/editableQuantity_TextBox'), 0)
 
 		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/receiving_Header'), 0)
-
 	}
 
 
@@ -645,7 +648,6 @@ class receivingReusableMethods {
 		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/youAreAboutToInputAnOverageWouldYouLikeToContinue_Text'),0)
 
 		Mobile.tap(findTestObject('Android/Receiving/allowOveragesPopUp_Button'), 0)
-
 	}
 
 
@@ -722,20 +724,16 @@ class receivingReusableMethods {
 	@Keyword
 	def selectReasonForIssue(String reasonForIssue) {
 
-		if (reasonForIssue.equalsIgnoreCase('missing Tote'))
-		{
+		if (reasonForIssue.equalsIgnoreCase('missing Tote')) {
 			Mobile.tap(findTestObject('Android/Receiving/issueSubmission/missingTote_RadioButton'), 0)
 
 			Mobile.verifyElementAttributeValue(findTestObject('Android/Receiving/issueSubmission/missingTote_RadioButton'), 'checked', 'true', 0)
-
 		}
 
-		else
-		{
+		else {
 			Mobile.tap(findTestObject('Android/Receiving/issueSubmission/wrongTote_RadioButton'), 0)
 
 			Mobile.verifyElementAttributeValue(findTestObject('Android/Receiving/issueSubmission/wrongTote_RadioButton'), 'checked', 'true', 0)
-
 		}
 	}
 
@@ -762,7 +760,6 @@ class receivingReusableMethods {
 		Mobile.setText(findTestObject('Android/Receiving/issueSubmission/email_TextField'),expectedID, 0)
 
 		Mobile.setText(findTestObject('Android/Receiving/issueSubmission/enterComments_TextField'), comment, 0)
-
 	}
 
 
@@ -787,8 +784,7 @@ class receivingReusableMethods {
 
 		androidCommonKeywordsObject.waitForProgressBarToBeInvisible()
 
-		if (Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/serviceRequestNotSent_TextView'), 5,FailureHandling.OPTIONAL))
-		{
+		if (Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/serviceRequestNotSent_TextView'), 5,FailureHandling.OPTIONAL)) {
 			Mobile.tap(findTestObject('Android/Receiving/issueSubmission/serviceRequestNotSent_TextView'), 0)
 
 			Mobile.tap(findTestObject('Android/Receiving/issueSubmission/yourServiceRequestWasNotAbleToBeSentPleaseTryAgain_TextView'), 0)
@@ -798,13 +794,11 @@ class receivingReusableMethods {
 			Mobile.pressBack()
 		}
 
-		else
-		{
+		else {
 			Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/serviceRequestSubmitted_TextView'), 0)
 
 			Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/aCardinalHealthRepresentativeWillContactYouWithin24HoursToAssistYouWithYourRequest_TextView'),0)
 		}
-
 	}
 
 	/**
