@@ -87,6 +87,25 @@ class  commonMethods {
 	}
 
 
+	/**
+	 * opens existing testflight app and installs latest OE App
+	 * @return bundleId of testflight
+	 */
+	@Keyword
+	def openTestFlightApp(String bundleID) {
+		Mobile.startExistingApplication(bundleID)
+		Mobile.tap(findTestObject('iOS/TestFlight/install_Button'), 0)
+		Mobile.waitForElementPresent(findTestObject('iOS/TestFlight/open_Button'), 0)
+		Mobile.tap(findTestObject('iOS/TestFlight/open_Button'), 0)
+	}
+
+	/**
+	 * disables touchid while using real device
+	 */
+	@Keyword
+	def tapOnSetupLater() {
+		Mobile.tap(findTestObject('iOS/Verification/disableTouchIDRealDevice_Button'), 0)
+	}
 
 	/**
 	 * this function returns the cost of added product
@@ -99,7 +118,10 @@ class  commonMethods {
 
 		KeywordUtil.logInfo(productCost)
 
-		float productCost_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(productCost)//converting productCost string to a float value
+		productCost=productCost.replaceAll("[^0-9.]", "")
+		float productCost_dollarSymbolRemoved_FloatValue=productCost.toFloat()
+		
+		//float productCost_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(productCost)//converting productCost string to a float value
 
 		return productCost_dollarSymbolRemoved_FloatValue
 	}
@@ -160,8 +182,7 @@ class  commonMethods {
 	def installingAndlaunchingTheApplication() {
 
 
-		if (GlobalVariable.isIosAppInstalled)
-		{
+		if (GlobalVariable.isIosAppInstalled) {
 			KeywordUtil.logInfo("application is already installed")
 			Mobile.startExistingApplication(GlobalVariable.bundleID)
 		}
@@ -223,6 +244,9 @@ class  commonMethods {
 	 */
 	@Keyword
 	def takeUserFromloginToHomeScreen(username,password,accountNo) {
+
+		'waits until the progressBar is visible on the screen'
+		waitForProgressBarToBeInvisible()
 
 		'login function called'
 		loginScreenObject.login(username, password)
@@ -423,10 +447,10 @@ class  commonMethods {
 		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Text'), 0)
 
 		String actualAccountNo=Mobile.getText(findTestObject('iOS/Account Selection/selectedAccount_Label'), 0)
-		
+
 		assert expectedAccountNo==actualAccountNo
-		
+
 		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Text'), 0)
-		
+
 	}
 }

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>&quot;Verify user is able to search , view product details from Offline catalogue DB and add product to Cart while in Offline mode
+Prerequisite:
+1. Valid Login Credentials.
+2. Offline catalogue download completed with the default account (example : account X).
+3.Valid product NDC,UPC and CIN value of an eligible product available in local db (Offline catalogue).&quot;</description>
+   <name>TC_R_080_verifyUserIsAbleToSearchViewProductDetailsFromOfflineCatalogueDBAndAddProductToCartWhileInOfflineMode</name>
+   <tag>Order;Regression;Scan</tag>
+   <comment></comment>
+   <testCaseGuid>1a51e689-a8fe-4c9c-aceb-d9d110360916</testCaseGuid>
+   <variable>
+      <defaultValue>'com.apple.TestFlight'</defaultValue>
+      <description>bundleID of a testflight app</description>
+      <id>6ad13ab1-9a80-480e-af91-91c7fdaf7e7e</id>
+      <masked>false</masked>
+      <name>bundleID</name>
+   </variable>
+   <variable>
+      <defaultValue>'yes'</defaultValue>
+      <description>passing airplane mode toggle value as a string</description>
+      <id>d8b54200-fd38-486d-9b88-d34fefa530a5</id>
+      <masked>false</masked>
+      <name>off</name>
+   </variable>
+   <variable>
+      <defaultValue>'Ordering'</defaultValue>
+      <description>toggle value for the product to be added which can be ordering or price check</description>
+      <id>b8d85a99-6529-419b-9565-bb4361fa90e5</id>
+      <masked>false</masked>
+      <name>toggleValue</name>
+   </variable>
+   <variable>
+      <defaultValue>'Price Check'</defaultValue>
+      <description>toggle value for the product to be added which can be ordering or price check</description>
+      <id>99db2f74-3870-4e05-8f82-79754afaef03</id>
+      <masked>false</masked>
+      <name>toggleValue1</name>
+   </variable>
+   <variable>
+      <defaultValue>'5'</defaultValue>
+      <description>quantity of the product </description>
+      <id>6d80fa89-3c76-4adb-bb16-712018f9c2a8</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+   <variable>
+      <defaultValue>'no'</defaultValue>
+      <description>passing airplane mode toggle value as a string</description>
+      <id>ffcb3007-cbac-46fd-870d-05c2b4c321d6</id>
+      <masked>false</masked>
+      <name>on</name>
+   </variable>
+</TestCaseEntity>

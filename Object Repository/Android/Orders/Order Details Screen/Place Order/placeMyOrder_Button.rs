@@ -3,7 +3,7 @@
    <description></description>
    <name>placeMyOrder_Button</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>7cf27785-27f4-43b5-9c3d-3624aa6b67b9</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/continueOnDesktopButton</value>
+      <value>${GlobalVariable.appPackage}:id/continueOnDesktopButton</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.Button[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.Button' and (@text = 'Place My Order' or . = 'Place My Order') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/continueOnDesktopButton']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/continueOnDesktopButton</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

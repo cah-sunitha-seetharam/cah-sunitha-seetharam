@@ -24,6 +24,8 @@ CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplica
 CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen'(GlobalVariable.Username, GlobalVariable.Password, 
     GlobalVariable.Account)
 */
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'takes user from home screen to inventory listing screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromHomeToInventoryListingScreen'()
@@ -178,6 +180,12 @@ assert actualQuantity == expectedProductQuantity_1
 'this function verifies that the product is visible on the location details screen'
 CustomKeywords.'iosInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen'(productNDC)
 
+'takes the application one screen back'
+CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
+
+'opens the location details and takes the locationName as the argument'
+CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnALocation'(locationName_2)
+
 'calling the function which deletes a product, it takes productName/UPC/Cin/Ndc as the argument'
 CustomKeywords.'iosInventory.locationDetailsScreen.deleteProduct'(productNDC)
 
@@ -198,6 +206,12 @@ CustomKeywords.'iosInventory.locationDetailsScreen.verifyCountTypeOfProduct'(cou
 
 'this function verifies that the product is visible on the location details screen'
 CustomKeywords.'iosInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen'(productNDC)
+
+'takes the application one screen back'
+CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
+
+'opens the location details and takes the locationName as the argument'
+CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnALocation'(locationName_1)
 
 'verifies location details Screen elements like countype of product added, quantity, invenntory cost on location details screen'
 CustomKeywords.'iosInventory.locationDetailsScreen.verifyLocationDetailsScreen'(countTypeStack, quantityStack, ndcNumbersStack, 
