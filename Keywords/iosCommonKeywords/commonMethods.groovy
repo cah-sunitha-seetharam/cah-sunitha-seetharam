@@ -423,10 +423,23 @@ class  commonMethods {
 		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Text'), 0)
 
 		String actualAccountNo=Mobile.getText(findTestObject('iOS/Account Selection/selectedAccount_Label'), 0)
-		
+
 		assert expectedAccountNo==actualAccountNo
-		
+
 		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Text'), 0)
-		
+
+	}
+
+
+
+	/**
+	 * removes characters in string
+	 * @param stringCharcterToBeRemoved (Removes characters in a string)
+	 * @return modifiedString
+	 */
+	@Keyword
+	def removeCharactersInString(String stringCharcterToBeRemoved) {
+		String modifiedString=stringCharcterToBeRemoved.replaceAll("[^0-9.]", "")
+		return modifiedString
 	}
 }

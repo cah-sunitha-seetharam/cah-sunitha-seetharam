@@ -349,6 +349,17 @@ def static "iosCommonKeywords.commonMethods.verifySelectedAccount"(
         	expectedAccountNo)
 }
 
+ /**
+	 * removes characters in string
+	 * @param stringCharcterToBeRemoved (Removes characters in a string)
+	 * @return modifiedString
+	 */ 
+def static "iosCommonKeywords.commonMethods.removeCharactersInString"(
+    	String stringCharcterToBeRemoved	) {
+    (new iosCommonKeywords.commonMethods()).removeCharactersInString(
+        	stringCharcterToBeRemoved)
+}
+
 
 def static "androidOrders.newOrderScreen.change_Account"(
     	String New_Account	) {
@@ -2425,265 +2436,378 @@ def static "androidMoreOptions.moreOptionsScreen.signOut"() {
     (new androidMoreOptions.moreOptionsScreen()).signOut()
 }
 
-
+ /**
+	 * clicks on continue button after selection of shipments or invoice by user
+	 */ 
 def static "androidReceiving.receivingReusableMethods.clickOnContinue"() {
     (new androidReceiving.receivingReusableMethods()).clickOnContinue()
 }
 
-
+ /**
+	 * click on scan icon
+	 */ 
 def static "androidReceiving.receivingReusableMethods.clickOnScanIcon"() {
     (new androidReceiving.receivingReusableMethods()).clickOnScanIcon()
 }
 
-
+ /**
+	 * this function opens shipment details
+	 * @param shipmentNumber (shipment number)
+	 */ 
 def static "androidReceiving.receivingReusableMethods.openShipmentDetails"(
     	Object shipmentNumber	) {
     (new androidReceiving.receivingReusableMethods()).openShipmentDetails(
         	shipmentNumber)
 }
 
-
+ /**
+	 * this function opens invoice details
+	 * @param invoiceNumber (invoice number)
+	 */ 
 def static "androidReceiving.receivingReusableMethods.openInvoiceDetails"(
     	Object invoiceNumber	) {
     (new androidReceiving.receivingReusableMethods()).openInvoiceDetails(
         	invoiceNumber)
 }
 
-
+ /**
+	 * takes product to be searched as the argument and searches for the product
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */ 
 def static "androidReceiving.receivingReusableMethods.scanInputEvent"(
     	String productToBeSearched	) {
     (new androidReceiving.receivingReusableMethods()).scanInputEvent(
         	productToBeSearched)
 }
 
-
+ /**
+	 * allows over-ages in receiving
+	 */ 
 def static "androidReceiving.receivingReusableMethods.selectAllowOverages"() {
     (new androidReceiving.receivingReusableMethods()).selectAllowOverages()
 }
 
-
+ /**
+	 * this function will select invoices on the receiving screen
+	 */ 
 def static "androidReceiving.receivingReusableMethods.selectInvoices"() {
     (new androidReceiving.receivingReusableMethods()).selectInvoices()
 }
 
-
+ /**
+	 * this function will select shipments on the receiving screen
+	 */ 
 def static "androidReceiving.receivingReusableMethods.selectShipments"() {
     (new androidReceiving.receivingReusableMethods()).selectShipments()
 }
 
-
+ /**
+	 * takes user to previous day shipments from today's shipments screen
+	 */ 
 def static "androidReceiving.receivingReusableMethods.switchToPreviousDay"() {
     (new androidReceiving.receivingReusableMethods()).switchToPreviousDay()
 }
 
-
+ /**
+	 * takes user to today's shipments from previous day shipments screen
+	 */ 
 def static "androidReceiving.receivingReusableMethods.switchToToday"() {
     (new androidReceiving.receivingReusableMethods()).switchToToday()
 }
 
-
+ /**
+	 * verifies that over-ages are allowed
+	 */ 
 def static "androidReceiving.receivingReusableMethods.verifyAllowedOverages"() {
     (new androidReceiving.receivingReusableMethods()).verifyAllowedOverages()
 }
 
-
+ /**
+	 * verifies details of the instances of product associated with the account
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 */ 
 def static "androidReceiving.receivingReusableMethods.verifyInstancesOfProductAssociatedWithAccount"(
     	Object productNdcNumber	) {
     (new androidReceiving.receivingReusableMethods()).verifyInstancesOfProductAssociatedWithAccount(
         	productNdcNumber)
 }
 
-
+ /**
+	 * this function verifies the invoice is visible on the screen
+	 * @param invoiceNumber (invoice number)
+	 */ 
 def static "androidReceiving.receivingReusableMethods.verifyInvoiceIsVisible"(
     	Object invoiceNumber	) {
     (new androidReceiving.receivingReusableMethods()).verifyInvoiceIsVisible(
         	invoiceNumber)
 }
 
-
+ /**
+	 * this method verifies the invoices detail
+	 */ 
 def static "androidReceiving.receivingReusableMethods.verifyInvoicesListScreenDetails"() {
     (new androidReceiving.receivingReusableMethods()).verifyInvoicesListScreenDetails()
 }
 
-
+ /**
+	 * this method verifies the invoices detail
+	 * @param invoiceNumber (invoice number)
+	 */ 
 def static "androidReceiving.receivingReusableMethods.verifyInvoicesDetails"(
     	Object invoiceNumber	) {
     (new androidReceiving.receivingReusableMethods()).verifyInvoicesDetails(
         	invoiceNumber)
 }
 
-
+ /**
+	 * verifies if no new orders to be received
+	 */ 
 def static "androidReceiving.receivingReusableMethods.verifyNoNewOrdersToReceive"() {
     (new androidReceiving.receivingReusableMethods()).verifyNoNewOrdersToReceive()
 }
 
-
+ /**
+	 * this function verifies the receiving screen details
+	 */ 
 def static "androidReceiving.receivingReusableMethods.verifyReceivingScreen"() {
     (new androidReceiving.receivingReusableMethods()).verifyReceivingScreen()
 }
 
-
+ /**
+	 * verifies the receiving screen pop-up which comes after user goes to receiving tab details
+	 */ 
 def static "androidReceiving.receivingReusableMethods.verifyReceivingScreenPopUp"() {
     (new androidReceiving.receivingReusableMethods()).verifyReceivingScreenPopUp()
 }
 
-
+ /**
+	 * verifies shipment details
+	 * @param shipmentNumber (shipment number)
+	 */ 
 def static "androidReceiving.receivingReusableMethods.verifyShipmentDetails"(
     	Object shipmentNumber	) {
     (new androidReceiving.receivingReusableMethods()).verifyShipmentDetails(
         	shipmentNumber)
 }
 
-
+ /**
+	 * this function verifies the shipment is visible on the screen
+	 * @param shipmentNumber (shipment number)
+	 */ 
 def static "androidReceiving.receivingReusableMethods.verifyShipmentIsVisible"(
     	Object shipmentNumber	) {
     (new androidReceiving.receivingReusableMethods()).verifyShipmentIsVisible(
         	shipmentNumber)
 }
 
-
+ /**
+	 * this function verifies the shipments detail
+	 */ 
 def static "androidReceiving.receivingReusableMethods.verifyShipmentsListScreenDetails"() {
     (new androidReceiving.receivingReusableMethods()).verifyShipmentsListScreenDetails()
 }
 
-
+ /**
+	 * takes expected received product count as the argument and verifies that it should be same as the actual count visible
+	 * @param expectedReceivedProductCount (expected received product count)
+	 */ 
 def static "androidReceiving.receivingReusableMethods.verifyReceivedProductCount"(
     	Object expectedReceivedProductCount	) {
     (new androidReceiving.receivingReusableMethods()).verifyReceivedProductCount(
         	expectedReceivedProductCount)
 }
 
-
+ /**
+	 * clicks on receive all totes_button
+	 */ 
 def static "androidReceiving.receivingReusableMethods.clickOnReceiveAllTotes"() {
     (new androidReceiving.receivingReusableMethods()).clickOnReceiveAllTotes()
 }
 
-
+ /**
+	 * uploads completed_totes
+	 */ 
 def static "androidReceiving.receivingReusableMethods.uploadCompletedTotes"() {
     (new androidReceiving.receivingReusableMethods()).uploadCompletedTotes()
 }
 
-
+ /**
+	 * verifies the pop up after uploading_totes
+	 */ 
 def static "androidReceiving.receivingReusableMethods.verifyUploadTotesPopUp"() {
     (new androidReceiving.receivingReusableMethods()).verifyUploadTotesPopUp()
 }
 
-
+ /**
+	 * takes user back to receiving after uploading_totes
+	 */ 
 def static "androidReceiving.receivingReusableMethods.clickOnBackToReceiving"() {
     (new androidReceiving.receivingReusableMethods()).clickOnBackToReceiving()
 }
 
-
+ /**
+	 * verifies the invoice is not visible on the screen
+	 * @param invoiceNumber (invoice number)
+	 */ 
 def static "androidReceiving.receivingReusableMethods.verifyInvoiceIsNotVisible"(
     	Object invoiceNumber	) {
     (new androidReceiving.receivingReusableMethods()).verifyInvoiceIsNotVisible(
         	invoiceNumber)
 }
 
-
+ /**
+	 * expands the view to see detailed view of_tote
+	 */ 
 def static "androidReceiving.receivingReusableMethods.expandToSeeDetailedViewOfTotes"() {
     (new androidReceiving.receivingReusableMethods()).expandToSeeDetailedViewOfTotes()
 }
 
-
+ /**
+	 * collapses the detailed view of_tote
+	 */ 
 def static "androidReceiving.receivingReusableMethods.collpaseViewOfTotes"() {
     (new androidReceiving.receivingReusableMethods()).collpaseViewOfTotes()
 }
 
-
+ /**
+	 * creates a test object at run time
+	 * resourceId (resource-id of the object)
+	 */ 
 def static "androidReceiving.receivingReusableMethods.makeTestObject"(
     	String resourceId	) {
     (new androidReceiving.receivingReusableMethods()).makeTestObject(
         	resourceId)
 }
 
-
+ /**
+	 * test method for run time object creation
+	 */ 
 def static "androidReceiving.receivingReusableMethods.testFunction"() {
     (new androidReceiving.receivingReusableMethods()).testFunction()
 }
 
-
+ /**
+	 * takes received product count as the argument and enters count in the text-field
+	 * @param receivedProductCount (received product count)
+	 */ 
 def static "androidReceiving.receivingReusableMethods.editReceivedProductCount"(
     	int receivedProductCount	) {
     (new androidReceiving.receivingReusableMethods()).editReceivedProductCount(
         	receivedProductCount)
 }
 
-
+ /**
+	 * returns max upper value without over-age product count
+	 * @return maxCount (max upper value without over-age product count)
+	 */ 
 def static "androidReceiving.receivingReusableMethods.returnUpperLimitReceivingProductCount"() {
     (new androidReceiving.receivingReusableMethods()).returnUpperLimitReceivingProductCount()
 }
 
-
+ /**
+	 * verifies over-age tag is visible after inputting receiving count which is more than the max upper limit
+	 */ 
 def static "androidReceiving.receivingReusableMethods.verifyOverAgeTag"() {
     (new androidReceiving.receivingReusableMethods()).verifyOverAgeTag()
 }
 
-
+ /**
+	 * verifies received tag is visible after inputting receiving count which is less or equal to the max upper limit
+	 */ 
 def static "androidReceiving.receivingReusableMethods.verifyReceivedTag"() {
     (new androidReceiving.receivingReusableMethods()).verifyReceivedTag()
 }
 
-
+ /**
+	 * takes toteID to be searched as the argument and searches the same
+	 */ 
 def static "androidReceiving.receivingReusableMethods.searchTote"(
     	Object toteID	) {
     (new androidReceiving.receivingReusableMethods()).searchTote(
         	toteID)
 }
 
-
+ /**
+	 * this function verifies that the product is visible on the order details screen
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */ 
 def static "androidReceiving.receivingReusableMethods.verifyProductIsVisibleOnTheReceivingScreen"(
     	Object productNdcNumber	) {
     (new androidReceiving.receivingReusableMethods()).verifyProductIsVisibleOnTheReceivingScreen(
         	productNdcNumber)
 }
 
-
+ /**
+	 * verifies details of the product associated with the account
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 */ 
 def static "androidReceiving.receivingReusableMethods.verifyProductSearchDetals"(
     	Object productNdcNumber	) {
     (new androidReceiving.receivingReusableMethods()).verifyProductSearchDetals(
         	productNdcNumber)
 }
 
-
+ /**
+	 * verifies pop up to allow over-age
+	 */ 
 def static "androidReceiving.receivingReusableMethods.verifyOveragePopUp"() {
     (new androidReceiving.receivingReusableMethods()).verifyOveragePopUp()
 }
 
-
+ /**
+	 * clicks on issue
+	 */ 
 def static "androidReceiving.receivingReusableMethods.clickOnIssue"() {
     (new androidReceiving.receivingReusableMethods()).clickOnIssue()
 }
 
-
+ /**
+	 * verifies details related to submission of issue and takes shipment number, tote id as the arguments
+	 * @param shipmentNumber
+	 * @param toteID
+	 */ 
 def static "androidReceiving.receivingReusableMethods.verifySubmissionDetails"(
     	Object toteID	) {
     (new androidReceiving.receivingReusableMethods()).verifySubmissionDetails(
         	toteID)
 }
 
-
+ /**
+	 * verify shipment number visible while submission of issue
+	 */ 
 def static "androidReceiving.receivingReusableMethods.verifyShipmentNumberInIssue"(
     	Object shipmentNumber	) {
     (new androidReceiving.receivingReusableMethods()).verifyShipmentNumberInIssue(
         	shipmentNumber)
 }
 
-
+ /**
+	 * verify invoice number visible while submission of issue
+	 */ 
 def static "androidReceiving.receivingReusableMethods.verifyInvoiceNumberInIssue"(
     	Object invoiceNumber	) {
     (new androidReceiving.receivingReusableMethods()).verifyInvoiceNumberInIssue(
         	invoiceNumber)
 }
 
-
+ /**
+	 * select reason of issue
+	 * @param reasonForIssue
+	 */ 
 def static "androidReceiving.receivingReusableMethods.selectReasonForIssue"(
     	String reasonForIssue	) {
     (new androidReceiving.receivingReusableMethods()).selectReasonForIssue(
         	reasonForIssue)
 }
 
-
+ /**
+	 * enters detail for contact
+	 * @param name
+	 * @param phoneNumber
+	 * @param emailID
+	 * @param comment
+	 */ 
 def static "androidReceiving.receivingReusableMethods.enterDetailsForContact"(
     	String name	
      , 	String phoneNumber	
@@ -2694,17 +2818,23 @@ def static "androidReceiving.receivingReusableMethods.enterDetailsForContact"(
          , 	comment)
 }
 
-
+ /**
+	 * clicks on submit issue
+	 */ 
 def static "androidReceiving.receivingReusableMethods.clickOnSubmitIssue"() {
     (new androidReceiving.receivingReusableMethods()).clickOnSubmitIssue()
 }
 
-
+ /**
+	 * verify submission of issue pop-up
+	 */ 
 def static "androidReceiving.receivingReusableMethods.verifySubmissionOfIssue"() {
     (new androidReceiving.receivingReusableMethods()).verifySubmissionOfIssue()
 }
 
-
+ /**
+	 * clicks on got it issue
+	 */ 
 def static "androidReceiving.receivingReusableMethods.clickOnGotItbutton"() {
     (new androidReceiving.receivingReusableMethods()).clickOnGotItbutton()
 }
@@ -3042,13 +3172,31 @@ def static "iosReceiving.receivingReusableMethods.verifyShipmentsListScreenDetai
 }
 
  /**
-	 * takes expected received product count as the argument and verifies that it should be same as the actual count visible
+	 * takes expected received product count and maxReceivingProductCountWithoutOverage as the argument
+	 * and verifies that it should be as expected for invoice screen
 	 * @param expectedReceivedProductCount (expected received product count)
+	 * @param maxReceivingProductCountWithoutOverage (maxReceiving product count without over-age)
 	 */ 
-def static "iosReceiving.receivingReusableMethods.verifyReceivedProductCount"(
-    	Object expectedReceivedProductCount	) {
-    (new iosReceiving.receivingReusableMethods()).verifyReceivedProductCount(
-        	expectedReceivedProductCount)
+def static "iosReceiving.receivingReusableMethods.verifyReceivedProductCountUnderInvoice"(
+    	Object expectedReceivedProductCount	
+     , 	Object maxReceivingProductCountWithoutOverage	) {
+    (new iosReceiving.receivingReusableMethods()).verifyReceivedProductCountUnderInvoice(
+        	expectedReceivedProductCount
+         , 	maxReceivingProductCountWithoutOverage)
+}
+
+ /**
+	 * takes expected received product count and maxReceivingProductCountWithoutOverage as the argument
+	 * and verifies that it should be as expected for shipments screen
+	 * @param expectedReceivedProductCount (expected received product count)
+	 * @param maxReceivingProductCountWithoutOverage (maxReceiving product count without over-age)
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyReceivedProductCountUnderShipments"(
+    	Object expectedReceivedProductCount	
+     , 	Object maxReceivingProductCountWithoutOverage	) {
+    (new iosReceiving.receivingReusableMethods()).verifyReceivedProductCountUnderShipments(
+        	expectedReceivedProductCount
+         , 	maxReceivingProductCountWithoutOverage)
 }
 
  /**
@@ -3132,7 +3280,7 @@ def static "iosReceiving.receivingReusableMethods.editReceivedProductCount"(
 
  /**
 	 * returns max upper value without over-age product count
-	 * @return maxCount (max upper value without over-age product count)
+	 * @return maxReceivingProductCountWithoutOverage (max upper value without over-age product count)
 	 */ 
 def static "iosReceiving.receivingReusableMethods.returnUpperLimitReceivingProductCount"() {
     (new iosReceiving.receivingReusableMethods()).returnUpperLimitReceivingProductCount()
@@ -3472,7 +3620,11 @@ def static "common.commonMethods.verifyElementColor"(
          , 	idOfTheElement)
 }
 
-
+ /**
+	 * adds the product from dash-board to inventory
+	 * @param productName
+	 * @param quantity
+	 */ 
 def static "iosDashboard.dashboardScreen.addingProductFromDashboardToCart"(
     	String productName	
      , 	String quantity	) {
@@ -3481,39 +3633,54 @@ def static "iosDashboard.dashboardScreen.addingProductFromDashboardToCart"(
          , 	quantity)
 }
 
-
+ /**
+	 * changes the user account
+	 * @param newAccount
+	 */ 
 def static "iosDashboard.dashboardScreen.changeAccount"(
     	String newAccount	) {
     (new iosDashboard.dashboardScreen()).changeAccount(
         	newAccount)
 }
 
-
+ /**
+	 * opens home tab
+	 */ 
 def static "iosDashboard.dashboardScreen.clickOnHomeTab"() {
     (new iosDashboard.dashboardScreen()).clickOnHomeTab()
 }
 
-
+ /**
+	 * opens moreOptions tab where user can perform actions like signOut, goToInventoryListing Screen etc
+	 */ 
 def static "iosDashboard.dashboardScreen.clickOnMoreOptionsTab"() {
     (new iosDashboard.dashboardScreen()).clickOnMoreOptionsTab()
 }
 
-
+ /**
+	 * opens orders tab where user can perform actions related to orders
+	 */ 
 def static "iosDashboard.dashboardScreen.clickOnOrders"() {
     (new iosDashboard.dashboardScreen()).clickOnOrders()
 }
 
-
+ /**
+	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at ordering
+	 */ 
 def static "iosDashboard.dashboardScreen.clickOnScanIcon"() {
     (new iosDashboard.dashboardScreen()).clickOnScanIcon()
 }
 
-
+ /**
+	 * this function verifies the dash-board details Screen
+	 */ 
 def static "iosDashboard.dashboardScreen.verifyDashboardScreen"() {
     (new iosDashboard.dashboardScreen()).verifyDashboardScreen()
 }
 
-
+ /**
+	 * opens receiving tab
+	 */ 
 def static "iosDashboard.dashboardScreen.clickOnReceivingTab"() {
     (new iosDashboard.dashboardScreen()).clickOnReceivingTab()
 }
@@ -3999,17 +4166,17 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+}
+
+
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
     	String testName	
      , 	RectangleSize viewportSize	) {
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
         	testName
          , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
 
 

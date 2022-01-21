@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the user is Able to Edit the Count Value of the Products in the Tote. 
+Prerequisite: Valid login credentials with multiple accounts available for the user.   </description>
+   <name>TC_OE_023_verifyThatTheUserIsAbleToEditTheCountValueOfTheProductsInTheTote</name>
+   <tag>Receiving;Sanity</tag>
+   <comment></comment>
+   <testCaseGuid>b56d9f1e-25ad-42c5-b70f-d158fa51c368</testCaseGuid>
+   <variable>
+      <defaultValue>'12152609'</defaultValue>
+      <description></description>
+      <id>2f803a15-1a3a-4bbb-aac8-2baeef241e99</id>
+      <masked>false</masked>
+      <name>shipmentNumber</name>
+   </variable>
+   <variable>
+      <defaultValue>'1952733'</defaultValue>
+      <description></description>
+      <id>bbd78dc1-73ce-42e1-9242-9cdc9a8f895c</id>
+      <masked>false</masked>
+      <name>invoiceNumber</name>
+   </variable>
+   <variable>
+      <defaultValue>'0'</defaultValue>
+      <description></description>
+      <id>3735cf42-f597-41c3-9487-1710349d778f</id>
+      <masked>false</masked>
+      <name>expectedReceivedProductCount_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description></description>
+      <id>820c14ee-8332-46d7-a635-83ac22c48de6</id>
+      <masked>false</masked>
+      <name>expectedReceivedProductCount_2</name>
+   </variable>
+   <variable>
+      <defaultValue>0</defaultValue>
+      <description></description>
+      <id>c9fa2083-43f7-4328-a4f7-e4430eb888d7</id>
+      <masked>false</masked>
+      <name>receivingCount</name>
+   </variable>
+</TestCaseEntity>
