@@ -219,6 +219,19 @@
             "productSearchByNDC": "00527-1971-74",
         },
         
+        "TC_R_079": {
+                "productSearchByNDC1": "50580-0496-60",
+                "productSearchByNDC2": "00904-5769-60",
+                "productSearchByNDC3": "54838-0144-80",
+                "productSearchByNDC4": "50580-0522-24",
+            },
+        
+        "TC_R_080": {
+            "productSearchByNDC1": "50580-0496-60",
+            "productSearchByNDC2": "00904-5769-60",
+            "productSearchByNDC3": "54838-0144-80",
+            "productSearchByNDC4": "50580-0522-24",
+
         "TC_R_051": {
             "productSearchByNDC1": "00049-0530-28",
             "productSearchByNDC2": "61570-0131-98",
@@ -306,9 +319,9 @@
             },
         
         "TC_R_060": {
-                "productSearchCin": "4023347",
-                "productSearchByName": "coca",
-            },
+            "productSearchByNDC": "50580-0496-60",
+            "productSearchByName": "coca",
+        },
         
         "TC_R_061": {
                 "productSearchCin": "4023347",

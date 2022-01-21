@@ -50,7 +50,63 @@ class moreOptionsScreen {
 		Mobile.tap(findTestObject('iOS/More Options Screen/Inventory Selection Under MoreOptions_Text'), 0)
 	}
 
-
+	/**
+	 * opens the message center
+	 */
+	@Keyword
+	def tapMessageCentre() {
+		Mobile.tapAndHold(findTestObject('iOS/More Options Screen/Message Centre/messageCentre_Text'), 0, 0)
+	}
+	
+	/**
+	 * verifies alert and message
+	 */
+	@Keyword
+	def verifyMessageCentre () {
+	    Mobile.verifyElementExist(findTestObject('iOS/More Options Screen/Message Centre/alertSubTitle_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/More Options Screen/Message Centre/topMostMessageTitle_Text'), 0)
+	}
+	
+	/**
+	 * verifies alert message description
+	 */
+	@Keyword 
+	def verifyAlertMessageDescription () {
+		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/More Options Screen/Message Centre/alertDescription_Text'), 0)
+	}
+	
+	/**
+	 * verifies message description
+	 */
+	@Keyword
+	def verifyMessageDescription () {
+		Mobile.verifyElementExist(findTestObject('iOS/More Options Screen/Message Centre/descriptionOfMessage_Text'), 0)
+	}
+	
+	/**
+	 * opens alert
+	 */
+	@Keyword
+	def tapOnAlert () {
+		Mobile.tap(findTestObject('Object Repository/iOS/More Options Screen/Message Centre/alertSubTitle_Text'), 0)
+	}
+	
+	/**
+	 * opens top most message
+	 */
+	@Keyword
+	def tapOnTopMostMessage () {
+		Mobile.tap(findTestObject('Object Repository/iOS/More Options Screen/Message Centre/topMostMessageTitle_Text'), 0)
+	}
+	
+	/**
+	 * verifies message center in offline
+	 */
+	@Keyword
+	def verifyMessageCentreInOffline () {
+		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/More Options Screen/Message Centre/noMessageAvailableWhileOffline_Text'), 0)
+	}
+	
 
 	/**
 	 * clicks on moreOptions tab, signsOut the user and takes user to the logInScreen
