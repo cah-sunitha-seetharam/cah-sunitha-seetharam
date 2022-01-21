@@ -138,6 +138,14 @@ class orderDetailsScreen {
 
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Scan Order/priceCheck_Text'), 0)
 	}
+	
+	/**
+	 *  taps on scan icon and takes user to scanning product screen
+	 */
+	@Keyword
+	def clickOnScanIconWithoutVerification() {
+		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_Icon'), 0)
+	}
 
 	/**
 	 * scans the product, adds it to the order and also verifies some scan input details
@@ -833,7 +841,7 @@ class orderDetailsScreen {
 
 		Mobile.verifyElementExist(findTestObject('Android/Orders/History Screen/Order History_HeaderText'),  0)
 	}
-	
+
 	/**
 	 * Its check UTN number validation
 	 */
@@ -842,33 +850,33 @@ class orderDetailsScreen {
 
 		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/POnumberTitle'), 0)
 		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNtextbox'), 0)
-		
+
 		// Clear text -  Last 6 characters should be deleted.
-		Mobile.clearText(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNtextbox'), 0) 
-		
+		Mobile.clearText(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNtextbox'), 0)
+
 		// Check User should not able to remove the first  3 characters in the UTN field
 		String utnNumber=Mobile.getText(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNtextbox'), 0)
 		assert utnPrefixLength == (utnNumber.length())
-		
+
 		// Verify validation error message and error icon
 		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNerrorIcon'), 0)
 		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNerrorMessage'), 0)
 		String actualErrorMsg=Mobile.getText(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNerrorMessage'), 0)
 		assert expectedErrorMsg == actualErrorMsg
-								
+
 		// Enter 6 zeros in the UTN field (Example: 21X000000)
 		Mobile.setText(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNtextbox'), input1, 0)
 		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNerrorIcon'), 0)
 		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNerrorMessage'), 0)
 		Mobile.clearText(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNtextbox'), 0)
-				
+
 		// Enter special character in the UTN field (Example: 21X00000*)
 		Mobile.setText(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNtextbox'), input2, 0)
 		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNerrorIcon'), 0)
 		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNerrorMessage'), 0)
-	}	
-	
-	
+	}
+
+
 	/**
 	 * Its check Duplicate utn number
 	 */
@@ -878,16 +886,16 @@ class orderDetailsScreen {
 		Mobile.setText(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNtextbox'), existingUTNno, 0)
 		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/checkAvailability_Button'), 0)
 		WebUI.delay(10)
-		
+
 		String actualErrorMsg = Mobile.getText(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/duplicateUTN_message'), 0)
 		assert duplicateErrorMsg == actualErrorMsg
-		
+
 		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/DuplicateUTNerror_icon'), 0)
 		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/DuplicateUTNNumber_error'), 0)
 		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/ReEnterUTN_Button'), 0)
 		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/SaveforLater_Button'), 0)
 	}
-	
+
 	/**
 	 * Its save for later
 	 */
@@ -898,5 +906,14 @@ class orderDetailsScreen {
 		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/SaveforLater_Button'), 0)
 	}
 	
+	/**
+	 * this function returns the order name of the order/ title of the screen when user is on order details screen
+	 * return orderName (returns order name/ title of order details screen)
+	 */
+	@Keyword
+	def returnNDCLabelOfScannedProduct() {
 
+		String NDCLabel = Mobile.getText(findTestObject('Android/Orders/Verification Details/ndcTextView'), 0)
+		return NDCLabel
+	}	
 }

@@ -319,6 +319,13 @@
             "productSearchByNDC": "00450-0449-09",
             "productSearchCin": "4023347",
             },
+
+         "TC_R_079": {
+                "productSearchByNDC1": "50580-0496-60",
+                "productSearchByNDC2": "00904-5769-60",
+                "productSearchByNDC3": "54838-0144-80",
+                "productSearchByNDC4": "50580-0522-24",
+            },
         
         },
 

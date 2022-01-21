@@ -34,40 +34,50 @@ def static "androidDashboard.dashboardDetailsScreen.Adding_Product_from_Dashboar
          , 	Quantity)
 }
 
-
-/**
 	 * this function verifies the dash-board details Screen
 	 */ 
 def static "androidDashboard.dashboardDetailsScreen.verifyDashboardPage"() {
     (new androidDashboard.dashboardDetailsScreen()).verifyDashboardPage()
 }
 
-
+ /**
+	 * opens orders tab where user can perform actions related to orders
+	 */ 
 def static "androidDashboard.dashboardDetailsScreen.clickOnOrders"() {
     (new androidDashboard.dashboardDetailsScreen()).clickOnOrders()
 }
 
-
+ /**
+	 * opens home tab where user can perform actions related to home
+	 */ 
 def static "androidDashboard.dashboardDetailsScreen.clickOnHomeTab"() {
     (new androidDashboard.dashboardDetailsScreen()).clickOnHomeTab()
 }
 
-
+ /**
+	 * opens more options tab where user can perform actions related to more options
+	 */ 
 def static "androidDashboard.dashboardDetailsScreen.clickOnMoreOptions"() {
     (new androidDashboard.dashboardDetailsScreen()).clickOnMoreOptions()
 }
 
-
+ /**
+	 * opens moreOptions tab where user can perform actions like signOut, goToInventoryListing Screen etc
+	 */ 
 def static "androidDashboard.dashboardDetailsScreen.clickOnMoreOptionsTab"() {
     (new androidDashboard.dashboardDetailsScreen()).clickOnMoreOptionsTab()
 }
 
-
+ /**
+	 * opens receiving tab
+	 */ 
 def static "androidDashboard.dashboardDetailsScreen.clickOnReceivingTab"() {
     (new androidDashboard.dashboardDetailsScreen()).clickOnReceivingTab()
 }
 
-
+ /**
+	 * opens audits tab
+	 */ 
 def static "androidDashboard.dashboardDetailsScreen.tapOnAudits"() {
     (new androidDashboard.dashboardDetailsScreen()).tapOnAudits()
 }
@@ -1921,6 +1931,13 @@ def static "androidOrders.orderDetailsScreen.clickOnScanIcon"() {
 }
 
  /**
+	 *  taps on scan icon and takes user to scanning product screen
+	 */ 
+def static "androidOrders.orderDetailsScreen.clickOnScanIconWithoutVerification"() {
+    (new androidOrders.orderDetailsScreen()).clickOnScanIconWithoutVerification()
+}
+
+ /**
 	 * scans the product, adds it to the order and also verifies some scan input details
 	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
 	 */ 
@@ -2410,6 +2427,14 @@ def static "androidOrders.orderDetailsScreen.enterDuplicateUTN"(
 	 */ 
 def static "androidOrders.orderDetailsScreen.saveForLater"() {
     (new androidOrders.orderDetailsScreen()).saveForLater()
+}
+
+ /**
+	 * this function returns the order name of the order/ title of the screen when user is on order details screen
+	 * return orderName (returns order name/ title of order details screen)
+	 */ 
+def static "androidOrders.orderDetailsScreen.returnNDCLabelOfScannedProduct"() {
+    (new androidOrders.orderDetailsScreen()).returnNDCLabelOfScannedProduct()
 }
 
  /**
@@ -3951,13 +3976,6 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
     	TestObject testObject	
      , 	String testName	) {
@@ -3967,8 +3985,10 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
 }
 
 
@@ -3978,6 +3998,11 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
         	testName
          , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
 
 
