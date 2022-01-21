@@ -17,7 +17,7 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-'installs and launches the application'
+/*'installs and launches the application'
 CustomKeywords.'androidCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
 'logins with username password and then opens account selection page'
@@ -28,12 +28,12 @@ CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisi
 
 'after login, verifies page caption and selects account'
 CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
+*/
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'takes user to dashboard screen'
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnReceivingTab'()
-
-'verifies the receiving screen pop-up which comes after user goes to receiving tab details'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyReceivingScreenPopUp'()
 
 'this function will select shipments on the receiving screen'
 CustomKeywords.'androidReceiving.receivingReusableMethods.selectShipments'()
@@ -41,9 +41,9 @@ CustomKeywords.'androidReceiving.receivingReusableMethods.selectShipments'()
 'allows over-ages in receiving'
 CustomKeywords.'androidReceiving.receivingReusableMethods.selectAllowOverages'()
 
-'clicks on continue button after selection of shipments or invoice by user'
+/*'clicks on continue button after selection of shipments or invoice by user'
 CustomKeywords.'androidReceiving.receivingReusableMethods.clickOnContinue'()
-
+*/
 'this function verifies the receiving screen details'
 CustomKeywords.'androidReceiving.receivingReusableMethods.verifyReceivingScreen'()
 
@@ -85,3 +85,4 @@ CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisi
 
 ' verifies if no new orders to be received'
 CustomKeywords.'androidReceiving.receivingReusableMethods.verifyNoNewOrdersToReceive'()
+

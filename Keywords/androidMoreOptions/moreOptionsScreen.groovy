@@ -18,7 +18,7 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords
 
 import internal.GlobalVariable
-
+import io.appium.java_client.MobileElement
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.By
@@ -66,6 +66,7 @@ class moreOptionsScreen {
 		Mobile.tap(findTestObject('Android/More Options Screen/Beta Feature/CSOSSubmitAndSignOff_Switch'), 0)
 		Mobile.tap(findTestObject('Android/More Options Screen/Beta Feature/iAgreeToTheTermsOfTheBetaProgram_CheckBox'), 0)
 		Mobile.tap(findTestObject('Android/More Options Screen/Beta Feature/confirm_Button'), 0)
+		Mobile.delay(2)
 	}
 
 	/**
@@ -84,8 +85,11 @@ class moreOptionsScreen {
 	 */
 	@Keyword()
 	def signOut() {
-
-		Mobile.tap(findTestObject('Android/Dashboard/moreOptions_Tab'), 0)
+		
+		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+		
+		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Android/Dashboard/moreOptions_Tab'), 10)
+		element.click()
 
 		Mobile.tap(findTestObject('Android/More Options Screen/SignOut/signOut_TextView'), 0)
 

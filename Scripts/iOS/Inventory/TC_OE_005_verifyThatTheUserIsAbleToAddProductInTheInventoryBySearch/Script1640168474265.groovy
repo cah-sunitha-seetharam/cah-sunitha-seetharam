@@ -17,13 +17,13 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-/*'installs and launches the application'
+/*'starts the application'
 CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
 'takes user from login to home screen and takes username, password, account no as the arguments'
-CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen'(GlobalVariable.Username, GlobalVariable.Password, GlobalVariable.Account)
+CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen'(GlobalVariable.Username, GlobalVariable.Password, 
+    GlobalVariable.Account)
 */
-
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
@@ -52,13 +52,10 @@ CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnALocation'(locationNa
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('inventoryTestData.json')
 
 'reading the ndc of product to be added'
-productSearch = requestObject[GlobalVariable.Environment].TC_OE_005.productSearchCin
+productSearch = requestObject[GlobalVariable.Environment].TC_OE_005.productSearchByNDC
 
 'adds products to a location'
 CustomKeywords.'iosInventory.locationDetailsScreen.addProducttoLocation'(locationName_1, productSearch, quantity)
-
-'reading the ndc of product to be added'
-productSearch = requestObject[GlobalVariable.Environment].TC_OE_005.productSearchByNDC
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()

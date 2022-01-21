@@ -257,7 +257,7 @@ class inventoryDetailsScreen {
 	@Keyword
 	def clickOnScanIconAndAddProductByCreatingNewLocationViaInventoryDetailsScreen(String locationName, String productName,String countType, String quantity, String costType) {
 
-		Mobile.tap(findTestObject('Android/Product Search/Scan Flow/scan_Icon'), 0)
+		Mobile.tap(findTestObject('Android/Product Search/Scan Flow/scan_Icon'), 0,,FailureHandling.OPTIONAL)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
@@ -316,7 +316,7 @@ class inventoryDetailsScreen {
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 	}
-	
+
 	/**
 	 * this function verifies the location count
 	 * @param expectedLocationCount (expected location Count)

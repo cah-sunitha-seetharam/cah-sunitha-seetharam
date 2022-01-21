@@ -73,6 +73,10 @@ class loginScreen {
 
 				Mobile.tap(findTestObject('iOS/LogIn/Environment_Selection_Screen/Environment_Button',[('TEXT'):"PMODSTG"]),0) //HardCoding because of the difference in name PMODSTG/PMODStg in iOS and Android
 
+			else if (GlobalVariable.Environment=="PMODStgMock")
+
+				Mobile.tap(findTestObject('iOS/LogIn/Environment_Selection_Screen/Environment_Button',[('TEXT'):"PMODSTGMOCK"]),0) //HardCoding because of the difference in name PMODSTGMOCK/PMODStgMock in iOS and Android
+
 			else
 
 				Mobile.tap(findTestObject('iOS/LogIn/Environment_Selection_Screen/Environment_Button',[('TEXT'):GlobalVariable.Environment]),0)
@@ -97,7 +101,7 @@ class loginScreen {
 		}
 	}
 
-	
+
 
 	/**
 	 * enters the user-name
@@ -124,8 +128,11 @@ class loginScreen {
 	def enterPassword(String password) {
 
 		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/password_Button'), 0)
+
 		Mobile.delay(1)
+
 		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/password_Button'), 0)
+    
 		Mobile.setText(findTestObject('iOS/LogIn/Login_Details_Screen/passwordSecure_TextField'), password, 0)
 	}
 
@@ -165,22 +172,20 @@ class loginScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/LogIn/Login_Details_Screen/orderExpress_Logo'), 0)
 	}
-	
-	
-	
+
+
+
 	/**
 	 * taps on cancel button for update if popUp is visible
 	 */
 	@Keyword()
 	def cancelUpdatePopUp() {
-		
+
 		if (Mobile.verifyElementExist(findTestObject('iOS/LogIn/Login_Details_Screen/cancelUpdate_Button'),10, FailureHandling.OPTIONAL)) {
 
-		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/cancelUpdate_Button'), 5,FailureHandling.OPTIONAL)
-		
+			Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/cancelUpdate_Button'), 5,FailureHandling.OPTIONAL)
 		}
-		
-		Mobile.delay(3)
 
+		Mobile.delay(3)
 	}
 }

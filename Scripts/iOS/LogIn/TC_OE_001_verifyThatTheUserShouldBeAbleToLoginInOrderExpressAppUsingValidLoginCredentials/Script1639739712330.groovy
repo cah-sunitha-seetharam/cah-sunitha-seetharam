@@ -24,6 +24,8 @@ import org.openqa.selenium.Keys as Keys
  CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen'(GlobalVariable.Username, GlobalVariable.Password, 
  GlobalVariable.Account)
  */
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'verifies the details of login Page'
 CustomKeywords.'iosDashboard.dashboardScreen.verifyDashboardScreen'()

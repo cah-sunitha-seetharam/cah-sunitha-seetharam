@@ -232,7 +232,7 @@ class cartScreen {
 		String actualMobileOrdersCount=Mobile.getText(findTestObject('Object Repository/iOS/Orders/Cart Screen/Verification/mobileOrdersCount_Text'), 0)
 		assert expectedMobileOrdersCount==actualMobileOrdersCount
 	}
-	
+
 	/**
 	 *verifies C2 order view
 	 */
@@ -380,7 +380,10 @@ class cartScreen {
 
 		String actualCartTotal=Mobile.getText(findTestObject('iOS/Orders/Verification Details/cartValue_Text'), 0)
 
-		float actualCartTotal_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(actualCartTotal)//converting actualCartTotal string to a float value
+		actualCartTotal=actualCartTotal.replaceAll("[^0-9.]", "")
+		float actualCartTotal_dollarSymbolRemoved_FloatValue=actualCartTotal.toFloat()
+		
+	//	float actualCartTotal_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(actualCartTotal)//converting actualCartTotal string to a float value
 
 		KeywordUtil.logInfo(actualCartTotal)
 
@@ -477,5 +480,4 @@ class cartScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/cancelAndKeepOrdersOnTheApp_Button'), 0)
 	}
-	
 }

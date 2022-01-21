@@ -3,7 +3,7 @@
    <description></description>
    <name>Back to Cart_Button</name>
    <tag></tag>
-   <elementGuidId>9c869a83-6597-4db5-a4bb-f784240fd51f</elementGuidId>
+   <elementGuidId>9d4b3c94-7e3a-44ac-863e-76e5efd474fe</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.Button[1]</value>
    </webElementProperties>
-   <locator>backToCartButton</locator>
+   <locator>com.cardinalhealth.orderexpress.two.debug:id/backToCartButton</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>
