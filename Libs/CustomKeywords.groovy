@@ -3087,6 +3087,13 @@ def static "iosInventory.inventoryListingScreen.changeAccount"(
 }
 
  /**
+	 * returns top most inventory
+	 */ 
+def static "iosInventory.inventoryListingScreen.returnTopMostInventoryName"() {
+    (new iosInventory.inventoryListingScreen()).returnTopMostInventoryName()
+}
+
+ /**
 	 * opens the particular inventory details
 	 * @param inventoryName (name which was given to the inventory)
 	 */ 
