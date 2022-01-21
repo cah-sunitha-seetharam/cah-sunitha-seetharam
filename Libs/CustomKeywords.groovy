@@ -2944,6 +2944,36 @@ def static "androidReceiving.receivingReusableMethods.verifyReceivedTag"() {
 }
 
  /**
+	 * takes toteID to be searched as the argument and searches the same
+	 */ 
+def static "androidReceiving.receivingReusableMethods.searchTote"(
+    	Object toteID	) {
+    (new androidReceiving.receivingReusableMethods()).searchTote(
+        	toteID)
+}
+
+ /**
+	 * this function verifies that the product is visible on the order details screen
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyProductIsVisibleOnTheReceivingScreen"(
+    	Object productNdcNumber	) {
+    (new androidReceiving.receivingReusableMethods()).verifyProductIsVisibleOnTheReceivingScreen(
+        	productNdcNumber)
+}
+
+ /**
+	 * verifies details of the product associated with the account
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyProductSearchDetals"(
+    	Object productNdcNumber	) {
+    (new androidReceiving.receivingReusableMethods()).verifyProductSearchDetals(
+        	productNdcNumber)
+}
+
+ /**
 	 * adds costType based on the argument which can be current or last price paid
 	 * @param costType (can be current or last price paid)
 	 */ 
@@ -3933,6 +3963,15 @@ def static "androidCommonKeywords.commonMethods.performBasicTextManagementOperat
 }
 
  /**
+	 * takes product to be searched as the argument and searches the same
+	 */ 
+def static "androidCommonKeywords.commonMethods.searchProduct"(
+    	Object productToBeSearched	) {
+    (new androidCommonKeywords.commonMethods()).searchProduct(
+        	productToBeSearched)
+}
+
+ /**
 	 * Create an order using Carts Post method , the input is fetched from the (module) ordersDatajson file set on Data Files 
 	 * @return an object with orderId and purchaseOrderNumber 
 	 */ 
@@ -3976,19 +4015,19 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
+}
+
+
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
     	TestObject testObject	
      , 	String testName	) {
     (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
         	testObject
          , 	testName)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
 }
 
 
@@ -4004,6 +4043,7 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
+
 
 
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
