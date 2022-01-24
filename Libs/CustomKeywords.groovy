@@ -360,6 +360,16 @@ def static "iosCommonKeywords.commonMethods.removeCharactersInString"(
         	stringCharcterToBeRemoved)
 }
 
+ /**
+	 * takes product to be searched as the argument and searches the same
+	 * @param productToBeSearched (product to be searched)
+	 */ 
+def static "iosCommonKeywords.commonMethods.searchProduct"(
+    	Object productToBeSearched	) {
+    (new iosCommonKeywords.commonMethods()).searchProduct(
+        	productToBeSearched)
+}
+
 
 def static "androidOrders.newOrderScreen.change_Account"(
     	String New_Account	) {
@@ -3324,9 +3334,9 @@ def static "iosReceiving.receivingReusableMethods.verifyProductIsVisibleOnTheRec
 	 * verifies details of the product associated with the account
 	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
 	 */ 
-def static "iosReceiving.receivingReusableMethods.verifyProductSearchDetals"(
+def static "iosReceiving.receivingReusableMethods.verifyProductSearchDetails"(
     	Object productNdcNumber	) {
-    (new iosReceiving.receivingReusableMethods()).verifyProductSearchDetals(
+    (new iosReceiving.receivingReusableMethods()).verifyProductSearchDetails(
         	productNdcNumber)
 }
 
@@ -4150,13 +4160,6 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
     	TestObject testObject	
      , 	String testName	) {
@@ -4166,8 +4169,10 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
 }
 
 
@@ -4177,6 +4182,11 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
         	testName
          , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
 
 
