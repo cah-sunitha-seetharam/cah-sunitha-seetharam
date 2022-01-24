@@ -36,7 +36,7 @@ CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisi
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnReceivingTab'()
 
 'this function will select invoices on the receiving screen'
-CustomKeywords.'androidReceiving.receivingReusableMethods.selectInvoices'()
+CustomKeywords.'androidReceiving.receivingReusableMethods.selectShipments'()
 
 'clicks on continue button after selection of shipments or invoice by user'
 CustomKeywords.'androidReceiving.receivingReusableMethods.clickOnContinue'()

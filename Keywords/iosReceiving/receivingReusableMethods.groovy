@@ -273,7 +273,7 @@ class receivingReusableMethods {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Receiving/productReceivedStatus_Label'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/issue_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/issue_Button'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Receiving/ndc_Label'), 0)
 
@@ -365,7 +365,7 @@ class receivingReusableMethods {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Receiving/productReceivedStatus_Label'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/issue_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/issue_Button'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Receiving/ndc_Label'), 0)
 
@@ -620,7 +620,6 @@ class receivingReusableMethods {
 		Mobile.setText(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), toteID, 0)
 
 		Mobile.tapAndHold(findTestObject('iOS/Product Search/search_Keypad'), 0, 0)
-
 	}
 
 
@@ -690,34 +689,32 @@ class receivingReusableMethods {
 	@Keyword
 	def clickOnIssue() {
 
-		Mobile.tap(findTestObject('Android/Receiving/issueSubmission/issue_Text'), 0)
+		Mobile.tapAndHold(findTestObject('iOS/Receiving/Issue Submission/issue_Button'), 0,0)
 	}
 
 
 
 	/**
 	 * verifies details related to submission of issue and takes shipment number, tote id as the arguments
-	 * @param shipmentNumber
 	 * @param toteID
 	 */
 	@Keyword
-	def verifySubmissionDetails(toteID) {
+	def verifyIssueSubmissionDetails(toteID) {
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/serviceRequest_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/serviceRequest_Header'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/toteIssue_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/toteIssue_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/toteDate_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/toteID_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/toteID_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/parametrizedToteID_Text',[('TEXT'):toteID]), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/parametrizedToteID_TextView',[('TEXT'):toteID]), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/account_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/account_TextView'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/account_Label'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/reasonForIssue_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/reasonForIssue_Text'), 0)
+		
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/cancelIssueSubmission_Text'), 0)
+		
 	}
 
 
@@ -727,10 +724,10 @@ class receivingReusableMethods {
 	 */
 	@Keyword
 	def verifyShipmentNumberInIssue(shipmentNumber) {
+		
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/shipmentNumber_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/shipmentNumber_TextView'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/parametrizedShipmentNumber_TextView',[('TEXT'):shipmentNumber]), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/parametrizedshipmentNumber_Text',[('TEXT'):shipmentNumber]), 0)
 	}
 
 
@@ -742,9 +739,9 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyInvoiceNumberInIssue(invoiceNumber) {
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/invoiceNumber_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/invoiceNumber_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/parametrizedInvoiceNumber_TextView',[('TEXT'):invoiceNumber]), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/parametrizedInvoiceNumber_Text',[('TEXT'):invoiceNumber]), 0)
 	}
 
 
@@ -757,15 +754,17 @@ class receivingReusableMethods {
 	def selectReasonForIssue(String reasonForIssue) {
 
 		if (reasonForIssue.equalsIgnoreCase('missing Tote')) {
-			Mobile.tap(findTestObject('Android/Receiving/issueSubmission/missingTote_RadioButton'), 0)
 
-			Mobile.verifyElementAttributeValue(findTestObject('Android/Receiving/issueSubmission/missingTote_RadioButton'), 'checked', 'true', 0)
+			Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/missingTote_Text'), 0)
+
+			Mobile.tap(findTestObject('iOS/Receiving/Issue Submission/missingTote_RadioButton'), 0)
 		}
 
 		else {
-			Mobile.tap(findTestObject('Android/Receiving/issueSubmission/wrongTote_RadioButton'), 0)
 
-			Mobile.verifyElementAttributeValue(findTestObject('Android/Receiving/issueSubmission/wrongTote_RadioButton'), 'checked', 'true', 0)
+			Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/wrongTote_Text'), 0)
+
+			Mobile.tap(findTestObject('iOS/Receiving/Issue Submission/wrongTote_RadioButton'), 0)
 		}
 	}
 
@@ -783,15 +782,31 @@ class receivingReusableMethods {
 
 		Mobile.scrollToText("Enter Comments")
 		iosCommonKeywordsObject.waitForProgressBarToBeInvisible()
-		Mobile.setText(findTestObject('Android/Receiving/issueSubmission/name_TextField'), name, 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/contactDetails_Text'), 0)
 
-		Mobile.setText(findTestObject('Android/Receiving/issueSubmission/phoneNumber_TextField'), phoneNumber, 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/name_Text'), 0)
+		Mobile.tap(findTestObject('iOS/Receiving/Issue Submission/name_TextField'), 0)
+		Mobile.setText(findTestObject('iOS/Receiving/Issue Submission/name_TextField'), name, 0)
+		Mobile.tapAndHold(findTestObject('iOS/Receiving/Issue Submission/doneKeypad_Button'), 0,2,FailureHandling.OPTIONAL)
 
-		String expectedID=Mobile.getText(findTestObject('Android/Receiving/issueSubmission/email_TextField'), 0)
-		expectedID.contains("@cardinalhealth.com")
-		Mobile.setText(findTestObject('Android/Receiving/issueSubmission/email_TextField'),expectedID, 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/enterPhoneNumber_Text'), 0)
+		Mobile.tap(findTestObject('iOS/Receiving/Issue Submission/phoneNumber_TextField'), 0)
+		Mobile.setText(findTestObject('iOS/Receiving/Issue Submission/phoneNumber_TextField'), phoneNumber, 0)
+		Mobile.tapAndHold(findTestObject('iOS/Receiving/Issue Submission/doneKeypad_Button'), 0,2,FailureHandling.OPTIONAL)
 
-		Mobile.setText(findTestObject('Android/Receiving/issueSubmission/enterComments_TextField'), comment, 0)
+		String expectedID=Mobile.getText(findTestObject('iOS/Receiving/Issue Submission/email_TextField'), 0)
+		(expectedID.contains("@cardinalhealth.com"))
+		assert true
+
+		Mobile.tap(findTestObject('iOS/Receiving/Issue Submission/email_TextField'), 0)
+		Mobile.setText(findTestObject('iOS/Receiving/Issue Submission/email_TextField'),expectedID, 0)
+		Mobile.tapAndHold(findTestObject('iOS/Receiving/Issue Submission/doneKeypad_Button'), 0,2,FailureHandling.OPTIONAL)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/enterComments_Text'), 0)
+		Mobile.tap(findTestObject('iOS/Receiving/Issue Submission/enterComments_TextField'), 0)
+		Mobile.setText(findTestObject('iOS/Receiving/Issue Submission/enterComments_TextField'), comment, 0)
+		Mobile.tapAndHold(findTestObject('iOS/Receiving/Issue Submission/doneKeypad_Button'), 0,2,FailureHandling.OPTIONAL)
+
 	}
 
 
@@ -804,7 +819,7 @@ class receivingReusableMethods {
 
 		iosCommonKeywordsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.tap(findTestObject('Android/Receiving/issueSubmission/submitIssue_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Receiving/Issue Submission/submitIssue_Button'), 0)
 	}
 
 
@@ -816,21 +831,25 @@ class receivingReusableMethods {
 
 		iosCommonKeywordsObject.waitForProgressBarToBeInvisible()
 
-		if (Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/serviceRequestNotSent_TextView'), 5,FailureHandling.OPTIONAL)) {
+		if (Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/serviceRequestSubmitted_Text'), 5,FailureHandling.OPTIONAL)) {
 
-			Mobile.tap(findTestObject('Android/Receiving/issueSubmission/serviceRequestNotSent_TextView'), 0)
+			Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/serviceRequestSubmitted_Text'), 0)
 
-			Mobile.tap(findTestObject('Android/Receiving/issueSubmission/yourServiceRequestWasNotAbleToBeSentPleaseTryAgain_TextView'), 0)
-
-			Mobile.tap(findTestObject('Android/Receiving/issueSubmission/okay_Button'), 0)
-
-			Mobile.pressBack()
+			Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/aCardinalHealthRepresentativeWillContactYouWithin24HoursToAssistYouWithYourRequest_Text'),0)
+			
+			clickOnGotItbutton()
 		}
 
 		else {
-			Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/serviceRequestSubmitted_TextView'), 0)
 
-			Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/aCardinalHealthRepresentativeWillContactYouWithin24HoursToAssistYouWithYourRequest_TextView'),0)
+			Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/yourServiceRequestWasNotAbleToBeSentPleaseTryAgain_Text'),0)
+
+			Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/serviceRequestNotSent_Text'), 0)
+
+			Mobile.tap(findTestObject('iOS/Receiving/Issue Submission/ok_Button'), 0)
+
+			Mobile.tap(findTestObject('iOS/Receiving/Issue Submission/cancelIssueSubmission_Text'), 0)
+
 		}
 	}
 
@@ -843,6 +862,6 @@ class receivingReusableMethods {
 
 		iosCommonKeywordsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.tap(findTestObject('Android/Receiving/issueSubmission/gotIt_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Receiving/Issue Submission/gotIt_Button'), 0)
 	}
 }
