@@ -19,54 +19,62 @@ import org.openqa.selenium.Keys as Keys
 import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
 
 'installs and launches the application'
-CustomKeywords.'androidCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
+CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
 'logins with username password and then opens account selection page'
-CustomKeywords.'androidLogin.loginScreen.login'(GlobalVariable.Username, GlobalVariable.Password)
+CustomKeywords.'iosLogin.loginScreen.login'(GlobalVariable.Username, GlobalVariable.Password)
 
 'waits until the progressBar is visible on the screen'
-CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'after login, verifies page caption and selects account'
-CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
-
-'takes user to dashboard screen'
-CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnReceivingTab'()
-
-'this function will select invoices on the receiving screen'
-CustomKeywords.'androidReceiving.receivingReusableMethods.selectInvoices'()
-
-'clicks on continue button after selection of shipments or invoice by user'
-CustomKeywords.'androidReceiving.receivingReusableMethods.clickOnContinue'()
-
-'takes user to today from previous day screen'
-CustomKeywords.'androidReceiving.receivingReusableMethods.switchToPreviousDay'()
-
-'this method verifies the invoices detail'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyInvoicesListScreenDetails'()
-
-'this function opens invoice details'
-CustomKeywords.'androidReceiving.receivingReusableMethods.openInvoiceDetails'(invoiceNumber)
+CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
 
 'waits until the progressBar is visible on the screen'
-CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
+'takes user to dashboard screen'
+CustomKeywords.'iosDashboard.dashboardScreen.clickOnReceivingTab'()
+
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
+'clicks on continue button after selection of shipments or invoice by user'
+CustomKeywords.'iosReceiving.receivingReusableMethods.clickOnContinue'()
+
+'this function will select invoices on the receiving screen'
+CustomKeywords.'iosReceiving.receivingReusableMethods.selectInvoices'()
+
+'takes user to today from previous day screen'
+CustomKeywords.'iosReceiving.receivingReusableMethods.switchToPreviousDay'()
+
+'this method verifies the invoices detail'
+CustomKeywords.'iosReceiving.receivingReusableMethods.verifyInvoicesListScreenDetails'()
+
+'this function opens invoice details'
+CustomKeywords.'iosReceiving.receivingReusableMethods.openInvoiceDetails'(invoiceNumber)
+
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'returns max upper value without over-age product count'
-String maxUpperLimitWithoutOverage = CustomKeywords.'androidReceiving.receivingReusableMethods.returnUpperLimitReceivingProductCount'()
-
-KeywordUtil.logInfo(maxUpperLimitWithoutOverage)
+int maxReceivingProductCountWithoutOverage = CustomKeywords.'iosReceiving.receivingReusableMethods.returnUpperLimitReceivingProductCount'()
 
 'clicks on receive all totes button'
-CustomKeywords.'androidReceiving.receivingReusableMethods.clickOnReceiveAllTotes'()
+CustomKeywords.'iosReceiving.receivingReusableMethods.clickOnReceiveAllTotes'()
 
 'verifies received tag is visible after inputting receiving count which is less or equal to the max upper limit'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyReceivedTag'()
+CustomKeywords.'iosReceiving.receivingReusableMethods.verifyReceivedTag'()
 
 'takes received product count as the argument and enters count in the text-field'
-CustomKeywords.'androidReceiving.receivingReusableMethods.editReceivedProductCount'(++(maxUpperLimitWithoutOverage.toInteger()))
+CustomKeywords.'iosReceiving.receivingReusableMethods.editReceivedProductCount'(++maxReceivingProductCountWithoutOverage)
 
-'Simulate pressing back button on a mobile device'
-Mobile.pressBack()
+' verifies pop up to allow over-age'
+CustomKeywords.'iosReceiving.receivingReusableMethods.verifyOveragePopUp'()
+
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'verifies over-age tag is visible after inputting receiving count which is more than the max upper limit'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyOverAgeTag'()
+CustomKeywords.'iosReceiving.receivingReusableMethods.verifyOverAgeTag'()
+

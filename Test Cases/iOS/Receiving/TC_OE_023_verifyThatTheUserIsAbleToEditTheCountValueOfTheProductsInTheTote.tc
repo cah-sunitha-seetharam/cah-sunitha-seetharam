@@ -20,25 +20,4 @@ Prerequisite: Valid login credentials with multiple accounts available for the u
       <masked>false</masked>
       <name>invoiceNumber</name>
    </variable>
-   <variable>
-      <defaultValue>'0'</defaultValue>
-      <description></description>
-      <id>3735cf42-f597-41c3-9487-1710349d778f</id>
-      <masked>false</masked>
-      <name>expectedReceivedProductCount_1</name>
-   </variable>
-   <variable>
-      <defaultValue>'1'</defaultValue>
-      <description></description>
-      <id>820c14ee-8332-46d7-a635-83ac22c48de6</id>
-      <masked>false</masked>
-      <name>expectedReceivedProductCount_2</name>
-   </variable>
-   <variable>
-      <defaultValue>0</defaultValue>
-      <description></description>
-      <id>c9fa2083-43f7-4328-a4f7-e4430eb888d7</id>
-      <masked>false</masked>
-      <name>receivingCount</name>
-   </variable>
 </TestCaseEntity>

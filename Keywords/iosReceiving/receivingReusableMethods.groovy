@@ -559,9 +559,9 @@ class receivingReusableMethods {
 	def editReceivedProductCount(int receivedProductCount) {
 
 		Mobile.tapAndHold(findTestObject('Object Repository/iOS/Receiving/receivingProduct_TextField'),0,0)
-		
+
 		Mobile.tapAndHold(findTestObject('iOS/Receiving/deleteKeypad_Button'),0,0)
-		
+
 		Mobile.setText(findTestObject('Object Repository/iOS/Receiving/receivingProduct_TextField'), receivedProductCount.toString(),0)
 
 		Mobile.tap(findTestObject('Object Repository/iOS/Receiving/doneKeypad_Button'), 0)
@@ -615,9 +615,12 @@ class receivingReusableMethods {
 	@Keyword
 	def searchTote(toteID) {
 
-		Mobile.tap(findTestObject('Object Repository/Android/Receiving/searchReceiving_TextField'), 0,FailureHandling.OPTIONAL)
+		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), 0, 0)
 
-		Mobile.setText(findTestObject('Object Repository/Android/Receiving/searchReceiving_TextField'), toteID + '\\n', 0)
+		Mobile.setText(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), toteID, 0)
+
+		Mobile.tapAndHold(findTestObject('iOS/Product Search/search_Keypad'), 0, 0)
+
 	}
 
 
@@ -643,23 +646,25 @@ class receivingReusableMethods {
 	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
 	 */
 	@Keyword
-	def verifyProductSearchDetals(productNdcNumber) {
+	def verifyProductSearchDetails(productNdcNumber) {
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/toteID_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/parametrizedNdc_Label',[('TEXT'):productNdcNumber]), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/shipmentNumber_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/searchResult_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/invoiceShipmentNumber_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/toteID_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/ndc_TextView',[('TEXT'):productNdcNumber]), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/toteNumber_Label'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/receivedTag_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/shipment_Label'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/issue_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/shipmentNumber_Label'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/editableQuantity_TextBox'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/productIssue_Button'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/receiving_Header'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/receivedProduct_Label'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/receivingeader_Label'), 0)
 	}
 
 
@@ -670,11 +675,11 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyOveragePopUp() {
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/allowOveragesPopUp_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/allowOveragePopUp_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/youAreAboutToInputAnOverageWouldYouLikeToContinue_Text'),0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/youAreAboutToInputAnOverageWouldYouLikeToContinue_Text'), 0)
 
-		Mobile.tap(findTestObject('Android/Receiving/allowOveragesPopUp_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Receiving/allowOveragePopUp_Button'), 0)
 	}
 
 
