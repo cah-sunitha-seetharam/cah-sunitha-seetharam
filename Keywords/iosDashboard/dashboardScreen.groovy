@@ -94,7 +94,7 @@ class dashboardScreen {
 	@Keyword
 	def clickOnHomeTab() {
 
-		Mobile.tap(findTestObject('iOS/Dashboard/home_Tab'), 0)
+		Mobile.tapAndHold(findTestObject('iOS/Dashboard/home_Tab'), 0, 0)
 	}
 
 

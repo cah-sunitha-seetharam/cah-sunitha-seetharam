@@ -17,24 +17,29 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-'starts the application'
+/*'starts the application'
 CustomKeywords.'androidCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
 'logins with username password and then opens account selection page'
 CustomKeywords.'androidLogin.loginScreen.login'(GlobalVariable.Username, GlobalVariable.Password)
 
-'after login, verifies page caption and selects account'
-CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(accountNo_1)
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'------------------------enables beta feature CSOS---------------------------'
+'after login, verifies page caption and selects account'
+CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
+*/
+/*'------------------------enables beta feature CSOS---------------------------'
 
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnMoreOptions'()
 
 CustomKeywords.'androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS'()
-
-CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnHomeTab'()
+*/
+//CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnHomeTab'()
 
 '------------------------accountNo_1(Non C2)---------------------------'
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'clicks on scan icon and also verifies that the default scan toggle value is at ordering'
 CustomKeywords.'androidOrders.orderDetailsScreen.clickOnScanIcon'()
@@ -119,7 +124,7 @@ CustomKeywords.'androidDashboard.dashboardDetailsScreen.verifyDashboardPage'()
 '--------------------------switch back to accountNo_1-------------------------'
 
 'change account using account selection icon'
-CustomKeywords.'androidOrders.newOrderScreen.changeAccount'(accountNo_1)
+CustomKeywords.'androidOrders.newOrderScreen.changeAccount'(GlobalVariable.Account)
 
 'opens cart page'
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnOrders'()
@@ -164,18 +169,26 @@ CustomKeywords.'androidOrders.cartScreen.clickOnC2OrdersTab'()
 CustomKeywords.'androidOrders.cartScreen.verifyC2AnnotationCount'(c2AnnotationCount)
 
 '-------------------------delete orders in all 2 accounts----------------------'
+'this function returns the order name of the order which is at the top of the order list'
+orderName = CustomKeywords.'androidOrders.cartScreen.returnTopMostOrderName'()
 
 'deletes order'
-CustomKeywords.'androidOrders.cartScreen.deleteOrder'()
+CustomKeywords.'androidOrders.cartScreen.deleteOrder'(orderName)
 
 'opens the nonc2 orders tab'
 CustomKeywords.'androidOrders.cartScreen.clickOnNonC2OrdersTab'()
 
+'this function returns the order name of the order which is at the top of the order list'
+orderName = CustomKeywords.'androidOrders.cartScreen.returnTopMostOrderName'()
+
 'deletes order'
-CustomKeywords.'androidOrders.cartScreen.deleteOrder'()
+CustomKeywords.'androidOrders.cartScreen.deleteOrder'(orderName)
 
 'change account using account selection icon'
 CustomKeywords.'androidOrders.newOrderScreen.changeAccount'(accountNo_2)
 
+'this function returns the order name of the order which is at the top of the order list'
+orderName = CustomKeywords.'androidOrders.cartScreen.returnTopMostOrderName'()
+
 'deletes order'
-CustomKeywords.'androidOrders.cartScreen.deleteOrder'()
+CustomKeywords.'androidOrders.cartScreen.deleteOrder'(orderName)

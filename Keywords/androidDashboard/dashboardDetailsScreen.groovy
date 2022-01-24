@@ -38,67 +38,10 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.webui.exception.WebElementNotFoundException
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
-import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
-import com.kms.katalon.core.mobile.helper.MobileElementCommonHelper
 import io.appium.java_client.MobileElement
 
 
 class dashboardDetailsScreen {
-
-	@Keyword
-	def change_Account(String new_Account) {
-
-
-		Mobile.tap(findTestObject('Android/Dashboard/changeAccount_Button'), 0)
-
-		Mobile.tap(findTestObject('Android/Account Selection/ChangeAccount_TextView'), 0)
-
-		while (Mobile.verifyElementNotVisible(findTestObject('Android/Account Selection/AccountNo_TextView',[('val') : new_Account]), 2, FailureHandling.OPTIONAL)) {
-			Mobile.swipe(600, 800, 600, 200)
-		}
-		Mobile.tap(findTestObject('Android/Account Selection/AccountNo_TextView',[('val') : new_Account]), 0)
-
-		int w = 1
-
-		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
-	}
-
-
-
-	@Keyword
-	def Adding_Product_from_Dashboard_To_Cart(String Product_Name, String Quantity) {
-		int w = 1
-
-		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
-
-		Mobile.tap(findTestObject('Android/Product Search/Search Products_SearchView'), 0)
-
-		Mobile.setText(findTestObject('Android/Product Search/Search Products_SearchView'), Product_Name + '\\n',
-				0)
-
-		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
-
-		Mobile.setText(findTestObject('Android/Product Search/Quantity_TextField'), Quantity, 0)
-
-
-		Mobile.tap(	findTestObject('Object Repository/Android/Product Search/Add to Order_Button'), 0)
-
-		Mobile.tap(findTestObject('iOS/Product_Search/Continue Browsing_Button'), 0)
-	}
-
-	/**
-	 * this function verifies the dash-board details Screen
-	 */
-	@Keyword
-	def verifyDashboardPage() {
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Dashboard/home_Tab'), 0)
-	}
 
 	/**
 	 * opens orders tab where user can perform actions related to orders
@@ -111,6 +54,7 @@ class dashboardDetailsScreen {
 	}
 
 
+
 	/**
 	 * opens home tab where user can perform actions related to home
 	 */
@@ -120,6 +64,7 @@ class dashboardDetailsScreen {
 		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Android/Dashboard/home_TextView'), 10)
 		element.click()
 	}
+
 
 	/**
 	 * opens more options tab where user can perform actions related to more options
@@ -132,6 +77,7 @@ class dashboardDetailsScreen {
 	}
 
 
+
 	/**
 	 * opens moreOptions tab where user can perform actions like signOut, goToInventoryListing Screen etc
 	 */
@@ -142,15 +88,17 @@ class dashboardDetailsScreen {
 	}
 
 
+
 	/**
 	 * opens receiving tab
 	 */
 	@Keyword
 	def clickOnReceivingTab() {
-
-		Mobile.tap(findTestObject('Object Repository/Android/Dashboard/receiving_Tab'), 0)
+		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Object Repository/Android/Dashboard/receiving_Tab'), 10)
+		element.click()
 	}
-	
+
+
 	/**
 	 * opens audits tab
 	 */
@@ -159,4 +107,28 @@ class dashboardDetailsScreen {
 
 		Mobile.tap(findTestObject('Android/Dashboard/audits'), 0)
 	}
+
+
+
+	/**
+	 * this function verifies the dash-board details Screen
+	 */
+	@Keyword
+	def verifyDashboardPage() {
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Dashboard/home_Tab'), 0)
+	}
+	
+	
+	/*	def commonMethodsObject=new commonMethods();
+	 @Keyword
+	 def addingProductFromDashboardToCart(String productName, String quantity) {
+	 commonMethodsObject.waitForProgressBarToBeInvisible()
+	 Mobile.tap(findTestObject('Android/Product Search/Search Products_SearchView'), 0)
+	 Mobile.setText(findTestObject('Android/Product Search/Search Products_SearchView'), productName + '\\n',0)
+	 commonMethodsObject.waitForProgressBarToBeInvisible()
+	 Mobile.setText(findTestObject('Android/Product Search/Quantity_TextField'), quantity, 0)
+	 Mobile.tap(	findTestObject('Object Repository/Android/Product Search/Add to Order_Button'), 0)
+	 Mobile.tap(findTestObject('iOS/Product_Search/Continue Browsing_Button'), 0)
+	 }*/
+
 }

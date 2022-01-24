@@ -57,7 +57,14 @@ class historyScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/History Screen/scan_Icon'),0)
 	}
 
-
+	/**
+	 * returns quantity added
+	 */
+	@Keyword
+	def returnQuantityForScannedResultInOfflineMode() {
+		String quantityAdded = Mobile.getText(findTestObject('iOS/Orders/History Screen/quantity_Text'), 0)
+	    return quantityAdded
+	}
 
 	/**
 	 * opens the c2 order details, verifies the order status labels and signIns the password required for placing c2 order
@@ -105,13 +112,30 @@ class historyScreen {
 	@Keyword
 	def clickOnHistoryTab() {
 
-		Mobile.tap(findTestObject('iOS/Orders/History Screen/historyTab_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Orders/History Screen/history_Text'), 0)
 
 		commonIosMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/History Screen/historyScreen_Header'),  0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/History Screen/scan_Icon'),0)
+	}
+
+	/**
+	 * returns po number of an top most order 
+	 */
+	@Keyword
+	def returnTopMostPoNumberOfAnOrder () {
+		String PoNumberOfAnOrder = Mobile.getText(findTestObject('Object Repository/iOS/Orders/History Screen/poNumber_Text'), 0)
+		return PoNumberOfAnOrder
+	}
+
+	/**
+	 * opens top most order in order history
+	 */
+	@Keyword
+	def tapOnTopMostOrderHistory(String poNumber) {
+		Mobile.tap(findTestObject('iOS/Orders/History Screen/PONumberLabel_Text', [('TEXT'):poNumber]), 0)
 	}
 
 	/**

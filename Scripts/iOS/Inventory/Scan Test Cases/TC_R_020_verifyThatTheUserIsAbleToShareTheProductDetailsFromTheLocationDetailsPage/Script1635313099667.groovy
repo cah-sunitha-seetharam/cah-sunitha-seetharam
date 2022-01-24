@@ -25,6 +25,8 @@ CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplica
 CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen'(GlobalVariable.Username, GlobalVariable.Password, 
     GlobalVariable.Account)
 */
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'takes user from home screen to inventory listing screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromHomeToInventoryListingScreen'()
@@ -127,6 +129,12 @@ CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
 'clicks on share location button and verifies the pop-up screen and then closes the pop-up screen'
 CustomKeywords.'iosInventory.locationDetailsScreen.verifyShareLocationPopUp'()
+
+'takes the application one screen back'
+CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
+
+'opens the location details and takes the locationName as the argument'
+CustomKeywords.'iosInventory.inventoryDetailsScreen.clickOnALocation'(locationName)
 
 'verifies location details Screen elements like linesCount, countype of product added, quantity on location details screen'
 CustomKeywords.'iosInventory.locationDetailsScreen.verifyLocationDetailsScreen'(countTypeStack, quantityStack, ndcNumbersStack, 

@@ -18,16 +18,22 @@ import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 import static com.kms.katalon.core.testobject.ObjectRepository.findWindowsObject
 import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
 
-'starts the application'
+/*'starts the application'
 CustomKeywords.'androidCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
 'logins with username password and then opens account selection page'
 CustomKeywords.'androidLogin.loginScreen.login'(GlobalVariable.Username, GlobalVariable.Password)
 
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
 'after login, verifies page caption and selects account'
 CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
-
+*/
 '-----------------------Pre-requisite(Non C2 order)---------------------------'
+
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'opens cart page'
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnOrders'()
@@ -52,6 +58,9 @@ CustomKeywords.'androidOrders.orderDetailsScreen.addQuantityforTheSearchedProduc
 
 'takes the application one screen back'
 CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
+
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'takes the application back to login page'
 CustomKeywords.'androidMoreOptions.moreOptionsScreen.signOut'()
@@ -181,4 +190,4 @@ CustomKeywords.'androidOrders.orderDetailsScreen.verifyC2OrderIsNotVisibleUnderN
 CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
 
 'deletes order'
-CustomKeywords.'androidOrders.cartScreen.deleteOrder'()
+CustomKeywords.'androidOrders.cartScreen.deleteOrder'(orderName)

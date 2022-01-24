@@ -50,6 +50,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import org.openqa.selenium.OutputType
 import org.openqa.selenium.Point
+import io.appium.java_client.InteractsWithApps
 
 class commonMethods {
 	
@@ -135,8 +136,19 @@ class commonMethods {
 		return MobileDriverFactory.getDriver();
 	}
 
+	
+	/**
+	 * removes existing app 
+	 * @param bundleId of the App
+	 */
+	@Keyword
+	def removeApp(String bundleID) {
+		InteractsWithApps driver = MobileDriverFactory.getDriver()
+		driver.removeApp(bundleID)
+	}
+	
 
-
+	
 	/**
 	 * verifies element colour by taking a screenshot and comparing with colour of specific pixels
 	 * @param expectedRedIntensity
