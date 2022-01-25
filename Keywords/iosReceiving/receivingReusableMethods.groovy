@@ -61,7 +61,7 @@ import io.appium.java_client.android.nativekey.KeyEvent;
 class receivingReusableMethods {
 
 
-	def androidCommonKeywordsObject=new androidCommonKeywords.commonMethods()
+	def iosCommonKeywordsObject=new iosCommonKeywords.commonMethods()
 	def commonMethodsObject=new commonMethods()
 	/**
 	 * clicks on continue button after selection of shipments or invoice by user
@@ -404,15 +404,33 @@ class receivingReusableMethods {
 
 
 	/**
-	 * takes expected received product count as the argument and verifies that it should be same as the actual count visible
+	 * takes expected received product count and maxReceivingProductCountWithoutOverage as the argument
+	 * and verifies that it should be as expected for invoice screen
 	 * @param expectedReceivedProductCount (expected received product count)
+	 * @param maxReceivingProductCountWithoutOverage (maxReceiving product count without over-age)
 	 */
 	@Keyword
-	def verifyReceivedProductCount(expectedReceivedProductCount) {
+	def verifyReceivedProductCountUnderInvoice(expectedReceivedProductCount,maxReceivingProductCountWithoutOverage) {
 
-		String actualProductCountString = Mobile.getText(findTestObject('Android/Receiving/productReceivedCount_TextView'), 0)
+		maxReceivingProductCountWithoutOverage.toString()
 
-		expectedReceivedProductCount= actualProductCountString[0]
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/parametrizedInvoiceItemReceivedStatus_Label',[('TEXT_1'):expectedReceivedProductCount, ,('TEXT_2'):maxReceivingProductCountWithoutOverage]), 0)
+	}
+
+
+
+	/**
+	 * takes expected received product count and maxReceivingProductCountWithoutOverage as the argument
+	 * and verifies that it should be as expected for shipments screen
+	 * @param expectedReceivedProductCount (expected received product count)
+	 * @param maxReceivingProductCountWithoutOverage (maxReceiving product count without over-age)
+	 */
+	@Keyword
+	def verifyReceivedProductCountUnderShipments(expectedReceivedProductCount,maxReceivingProductCountWithoutOverage) {
+
+		maxReceivingProductCountWithoutOverage.toString()
+
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/parametrizedShipmentItemReceivedStatus_Label',[('TEXT_1'):expectedReceivedProductCount, ,('TEXT_2'):maxReceivingProductCountWithoutOverage]), 0)
 	}
 
 
@@ -423,15 +441,13 @@ class receivingReusableMethods {
 	@Keyword
 	def clickOnReceiveAllTotes() {
 
-		Mobile.tap(findTestObject('Android/Receiving/receiveAll_Button'),0)
+		Mobile.tap(findTestObject('Object Repository/iOS/Receiving/receiveTote_Button'),0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/toteReceivingStatus_View'), 0)
-
-		String idOfTheElement=Mobile.getAttribute(findTestObject('Android/Receiving/toteReceivingStatus_View'), 'resource-id', 0)
-
-		KeywordUtil.logInfo(idOfTheElement)
-
-		commonMethodsObject.verifyElementColor(146,255,161,idOfTheElement) //light green with hex code #92ffa1
+		/*	Mobile.verifyElementExist(findTestObject('Android/Receiving/toteReceivingStatus_View'), 0)
+		 String idOfTheElement=Mobile.getAttribute(findTestObject('Android/Receiving/toteReceivingStatus_View'), 'resource-id', 0)
+		 KeywordUtil.logInfo(idOfTheElement)
+		 commonMethodsObject.verifyElementColor(146,255,161,idOfTheElement) //light green with hex code #92ffa1
+		 */
 	}
 
 
@@ -441,7 +457,7 @@ class receivingReusableMethods {
 	@Keyword
 	def uploadCompletedTotes() {
 
-		Mobile.tap(findTestObject('Object Repository/Android/Receiving/uploadCompletedTotes_Button'),0)
+		Mobile.tap(findTestObject('Object Repository/iOS/Receiving/receivingUpload_Button'),0)
 	}
 
 
@@ -451,9 +467,9 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyUploadTotesPopUp() {
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/invoiceUploadCompleted_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Receiving/uploadingToteComplete_Label'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/allTotesUploaded_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Receiving/allTotesUploaded_Text'), 0)
 	}
 
 
@@ -463,7 +479,7 @@ class receivingReusableMethods {
 	@Keyword
 	def clickOnBackToReceiving() {
 
-		Mobile.tap(findTestObject('Android/Receiving/backToReceiving_Button'), 0)
+		Mobile.tap(findTestObject('Object Repository/iOS/Receiving/backToReceiving_Text'), 0)
 	}
 
 
@@ -474,7 +490,7 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyInvoiceIsNotVisible(invoiceNumber) {
 
-		Mobile.verifyElementNotVisible(findTestObject('Android/Receiving/invoice_Tile',[('TEXT'):invoiceNumber]), 0)
+		Mobile.verifyElementNotVisible(findTestObject('iOS/Receiving/invoice_Tile',[('TEXT'):invoiceNumber]), 0)
 	}
 
 
@@ -542,21 +558,32 @@ class receivingReusableMethods {
 	@Keyword
 	def editReceivedProductCount(int receivedProductCount) {
 
-		Mobile.setText(findTestObject('Object Repository/Android/Receiving/receivedCount_TextField'), receivedProductCount.toString(),0)
+		Mobile.tapAndHold(findTestObject('Object Repository/iOS/Receiving/receivingProduct_TextField'),0,0)
+
+		Mobile.tapAndHold(findTestObject('iOS/Receiving/deleteKeypad_Button'),0,0)
+
+		Mobile.setText(findTestObject('Object Repository/iOS/Receiving/receivingProduct_TextField'), receivedProductCount.toString(),0)
+
+		Mobile.tap(findTestObject('Object Repository/iOS/Receiving/doneKeypad_Button'), 0)
 	}
 
 
 
 	/**
 	 * returns max upper value without over-age product count
-	 * @return maxCount (max upper value without over-age product count)
+	 * @return maxReceivingProductCountWithoutOverage (max upper value without over-age product count)
 	 */
 	@Keyword
 	def returnUpperLimitReceivingProductCount() {
 
-		String maxCount=Mobile.getText(findTestObject('Android/Receiving/maxReceivingProductCount_TextView'), 0)
+		String maxReceivingProductCountWithoutOverage=Mobile.getText(findTestObject('Object Repository/iOS/Receiving/productReceivedStatus_Label'), 0)
 
-		return androidCommonKeywordsObject.removeCharctersInString(maxCount)
+		maxReceivingProductCountWithoutOverage = iosCommonKeywordsObject.removeCharactersInString(maxReceivingProductCountWithoutOverage)
+		int beginIndex=1
+		maxReceivingProductCountWithoutOverage=maxReceivingProductCountWithoutOverage.substring(beginIndex)
+		KeywordUtil.logInfo(maxReceivingProductCountWithoutOverage)
+
+		return (maxReceivingProductCountWithoutOverage.toInteger())
 	}
 
 
@@ -566,7 +593,7 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyOverAgeTag() {
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/overageTag_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/overage_Tag'), 0)
 	}
 
 
@@ -577,7 +604,7 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyReceivedTag() {
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/recivedTag_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/received_Tag'), 0)
 	}
 
 
@@ -588,9 +615,12 @@ class receivingReusableMethods {
 	@Keyword
 	def searchTote(toteID) {
 
-		Mobile.tap(findTestObject('Object Repository/Android/Receiving/searchReceiving_TextField'), 0,FailureHandling.OPTIONAL)
+		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), 0, 0)
 
-		Mobile.setText(findTestObject('Object Repository/Android/Receiving/searchReceiving_TextField'), toteID + '\\n', 0)
+		Mobile.setText(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), toteID, 0)
+
+		Mobile.tapAndHold(findTestObject('iOS/Product Search/search_Keypad'), 0, 0)
+
 	}
 
 
@@ -605,7 +635,7 @@ class receivingReusableMethods {
 
 		String testObj='Object Repository/Android/Orders/Verification Details/ordersNDCLabel_TextView'
 
-		androidCommonKeywordsObject.verifyProductIsVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
+		iosCommonKeywordsObject.verifyProductIsVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
 
 	}
 
@@ -616,23 +646,25 @@ class receivingReusableMethods {
 	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
 	 */
 	@Keyword
-	def verifyProductSearchDetals(productNdcNumber) {
+	def verifyProductSearchDetails(productNdcNumber) {
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/toteID_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/parametrizedNdc_Label',[('TEXT'):productNdcNumber]), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/shipmentNumber_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/searchResult_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/invoiceShipmentNumber_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/toteID_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/ndc_TextView',[('TEXT'):productNdcNumber]), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/toteNumber_Label'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Receiving/receivedTag_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/shipment_Label'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/issue_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/shipmentNumber_Label'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/editableQuantity_TextBox'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/productIssue_Button'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/receiving_Header'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/receivedProduct_Label'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/receivingeader_Label'), 0)
 	}
 
 
@@ -643,11 +675,11 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyOveragePopUp() {
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/allowOveragesPopUp_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/allowOveragePopUp_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/youAreAboutToInputAnOverageWouldYouLikeToContinue_Text'),0)
+		Mobile.verifyElementExist(findTestObject('iOS/Receiving/youAreAboutToInputAnOverageWouldYouLikeToContinue_Text'), 0)
 
-		Mobile.tap(findTestObject('Android/Receiving/allowOveragesPopUp_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Receiving/allowOveragePopUp_Button'), 0)
 	}
 
 
@@ -750,7 +782,7 @@ class receivingReusableMethods {
 	def enterDetailsForContact(String name, String phoneNumber, String comment) {
 
 		Mobile.scrollToText("Enter Comments")
-		androidCommonKeywordsObject.waitForProgressBarToBeInvisible()
+		iosCommonKeywordsObject.waitForProgressBarToBeInvisible()
 		Mobile.setText(findTestObject('Android/Receiving/issueSubmission/name_TextField'), name, 0)
 
 		Mobile.setText(findTestObject('Android/Receiving/issueSubmission/phoneNumber_TextField'), phoneNumber, 0)
@@ -770,7 +802,7 @@ class receivingReusableMethods {
 	@Keyword
 	def clickOnSubmitIssue() {
 
-		androidCommonKeywordsObject.waitForProgressBarToBeInvisible()
+		iosCommonKeywordsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.tap(findTestObject('Android/Receiving/issueSubmission/submitIssue_Button'), 0)
 	}
@@ -782,9 +814,10 @@ class receivingReusableMethods {
 	@Keyword
 	def verifySubmissionOfIssue() {
 
-		androidCommonKeywordsObject.waitForProgressBarToBeInvisible()
+		iosCommonKeywordsObject.waitForProgressBarToBeInvisible()
 
 		if (Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/serviceRequestNotSent_TextView'), 5,FailureHandling.OPTIONAL)) {
+
 			Mobile.tap(findTestObject('Android/Receiving/issueSubmission/serviceRequestNotSent_TextView'), 0)
 
 			Mobile.tap(findTestObject('Android/Receiving/issueSubmission/yourServiceRequestWasNotAbleToBeSentPleaseTryAgain_TextView'), 0)
@@ -801,13 +834,14 @@ class receivingReusableMethods {
 		}
 	}
 
+
 	/**
 	 * clicks on got it issue
 	 */
 	@Keyword
 	def clickOnGotItbutton() {
 
-		androidCommonKeywordsObject.waitForProgressBarToBeInvisible()
+		iosCommonKeywordsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.tap(findTestObject('Android/Receiving/issueSubmission/gotIt_Button'), 0)
 	}

@@ -19,37 +19,43 @@ import org.openqa.selenium.Keys as Keys
 import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
 
 'installs and launches the application'
-CustomKeywords.'androidCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
+CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
 'logins with username password and then opens account selection page'
-CustomKeywords.'androidLogin.loginScreen.login'(GlobalVariable.Username, GlobalVariable.Password)
+CustomKeywords.'iosLogin.loginScreen.login'(GlobalVariable.Username, GlobalVariable.Password)
 
 'waits until the progressBar is visible on the screen'
-CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'after login, verifies page caption and selects account'
-CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
+CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
 
 'waits until the progressBar is visible on the screen'
-CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'takes user to dashboard screen'
-CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnReceivingTab'()
+CustomKeywords.'iosDashboard.dashboardScreen.clickOnReceivingTab'()
 
-'allows over-ages in receiving'
-CustomKeywords.'androidReceiving.receivingReusableMethods.selectAllowOverages'()
-
-'this function will select invoices on the receiving screen'
-CustomKeywords.'androidReceiving.receivingReusableMethods.selectInvoices'()
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'clicks on continue button after selection of shipments or invoice by user'
-CustomKeywords.'androidReceiving.receivingReusableMethods.clickOnContinue'()
+CustomKeywords.'iosReceiving.receivingReusableMethods.clickOnContinue'()
+
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
+'this function will select invoices on the receiving screen'
+CustomKeywords.'iosReceiving.receivingReusableMethods.selectInvoices'()
+
+'allows over-ages in receiving'
+CustomKeywords.'iosReceiving.receivingReusableMethods.selectAllowOverages'()
 
 'takes user to today from previous day screen'
-CustomKeywords.'androidReceiving.receivingReusableMethods.switchToPreviousDay'()
+CustomKeywords.'iosReceiving.receivingReusableMethods.switchToPreviousDay'()
 
 'this method verifies the invoices detail'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyInvoicesListScreenDetails'()
+CustomKeywords.'iosReceiving.receivingReusableMethods.verifyInvoicesListScreenDetails'()
 
 'reading the module test data file'
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('receivingTestData.json')
@@ -58,44 +64,41 @@ def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('rece
 String productSearch = requestObject[GlobalVariable.Environment].TC_OE_024.productSearchByNDC
 
 'waits until the progressBar is visible on the screen'
-CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'takes toteID to be searched as the argument and searches the same'
-CustomKeywords.'androidReceiving.receivingReusableMethods.searchTote'(toteID)
+CustomKeywords.'iosReceiving.receivingReusableMethods.searchTote'(toteID)
 
 'verifies details of the instances of product associated with the account'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyInstancesOfProductAssociatedWithAccount'(productSearch)
+CustomKeywords.'iosReceiving.receivingReusableMethods.verifyInstancesOfProductAssociatedWithAccount'(productSearch)
 
 'this function opens invoice details'
-CustomKeywords.'androidCommonKeywords.commonMethods.searchProduct'(productSearch)
+CustomKeywords.'iosCommonKeywords.commonMethods.searchProduct'(productSearch)
 
 'verifies details of the product associated with the account'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyProductSearchDetals'(productSearch)
+CustomKeywords.'iosReceiving.receivingReusableMethods.verifyProductSearchDetails'(productSearch)
 
 'waits until the progressBar is visible on the screen'
-CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'verifies details of the instances of product associated with the account'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyInstancesOfProductAssociatedWithAccount'(productSearch)
-
-'Simulate pressing back button on a mobile device'
-Mobile.pressBack()
+'takes the application one screen back'
+CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
 'this function will select shipments on the receiving screen'
-CustomKeywords.'androidReceiving.receivingReusableMethods.selectShipments'()
+CustomKeywords.'iosReceiving.receivingReusableMethods.selectShipments'()
 
 'waits until the progressBar is visible on the screen'
-CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'takes toteID to be searched as the argument and searches the same'
-CustomKeywords.'androidReceiving.receivingReusableMethods.searchTote'(toteID)
+CustomKeywords.'iosReceiving.receivingReusableMethods.searchTote'(toteID)
 
 'verifies details of the instances of product associated with the account'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyInstancesOfProductAssociatedWithAccount'(productSearch)
+CustomKeywords.'iosReceiving.receivingReusableMethods.verifyInstancesOfProductAssociatedWithAccount'(productSearch)
 
 'this function opens invoice details'
-CustomKeywords.'androidCommonKeywords.commonMethods.searchProduct'(productSearch)
+CustomKeywords.'iosCommonKeywords.commonMethods.searchProduct'(productSearch)
 
 'verifies details of the product associated with the account'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyProductSearchDetals'(productSearch)
+CustomKeywords.'iosReceiving.receivingReusableMethods.verifyProductSearchDetails'(productSearch)
 
