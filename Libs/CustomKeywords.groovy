@@ -3226,6 +3226,409 @@ def static "iosOrders.newOrderScreen.verifyNewOrderScreenDetails"() {
 }
 
  /**
+	 * clicks on continue button after selection of shipments or invoice by user
+	 */ 
+def static "iosReceiving.receivingReusableMethods.clickOnContinue"() {
+    (new iosReceiving.receivingReusableMethods()).clickOnContinue()
+}
+
+ /**
+	 * click on scan icon
+	 */ 
+def static "iosReceiving.receivingReusableMethods.clickOnScanIcon"() {
+    (new iosReceiving.receivingReusableMethods()).clickOnScanIcon()
+}
+
+ /**
+	 * this function opens shipment details
+	 * @param shipmentNumber (shipment number)
+	 */ 
+def static "iosReceiving.receivingReusableMethods.openShipmentDetails"(
+    	Object shipmentNumber	) {
+    (new iosReceiving.receivingReusableMethods()).openShipmentDetails(
+        	shipmentNumber)
+}
+
+ /**
+	 * this function opens invoice details
+	 * @param invoiceNumber (invoice number)
+	 */ 
+def static "iosReceiving.receivingReusableMethods.openInvoiceDetails"(
+    	Object invoiceNumber	) {
+    (new iosReceiving.receivingReusableMethods()).openInvoiceDetails(
+        	invoiceNumber)
+}
+
+ /**
+	 * takes product to be searched as the argument and searches for the product
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */ 
+def static "iosReceiving.receivingReusableMethods.scanInputEvent"(
+    	String productToBeSearched	) {
+    (new iosReceiving.receivingReusableMethods()).scanInputEvent(
+        	productToBeSearched)
+}
+
+ /**
+	 * allows over-ages in receiving
+	 */ 
+def static "iosReceiving.receivingReusableMethods.selectAllowOverages"() {
+    (new iosReceiving.receivingReusableMethods()).selectAllowOverages()
+}
+
+ /**
+	 * this function will select invoices on the receiving screen
+	 */ 
+def static "iosReceiving.receivingReusableMethods.selectInvoices"() {
+    (new iosReceiving.receivingReusableMethods()).selectInvoices()
+}
+
+ /**
+	 * this function will select shipments on the receiving screen
+	 */ 
+def static "iosReceiving.receivingReusableMethods.selectShipments"() {
+    (new iosReceiving.receivingReusableMethods()).selectShipments()
+}
+
+ /**
+	 * takes user to previous day shipments from today's shipments screen
+	 */ 
+def static "iosReceiving.receivingReusableMethods.switchToPreviousDay"() {
+    (new iosReceiving.receivingReusableMethods()).switchToPreviousDay()
+}
+
+ /**
+	 * takes user to today's shipments from previous day shipments screen
+	 */ 
+def static "iosReceiving.receivingReusableMethods.switchToToday"() {
+    (new iosReceiving.receivingReusableMethods()).switchToToday()
+}
+
+ /**
+	 * verifies that over-ages are allowed
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyAllowedOverages"() {
+    (new iosReceiving.receivingReusableMethods()).verifyAllowedOverages()
+}
+
+ /**
+	 * verifies details of the instances of product associated with the account
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyInstancesOfProductAssociatedWithAccount"(
+    	Object productNdcNumber	) {
+    (new iosReceiving.receivingReusableMethods()).verifyInstancesOfProductAssociatedWithAccount(
+        	productNdcNumber)
+}
+
+ /**
+	 * this function verifies the invoice is visible on the screen
+	 * @param invoiceNumber (invoice number)
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyInvoiceIsVisible"(
+    	Object invoiceNumber	) {
+    (new iosReceiving.receivingReusableMethods()).verifyInvoiceIsVisible(
+        	invoiceNumber)
+}
+
+ /**
+	 * this method verifies the invoices detail
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyInvoicesListScreenDetails"() {
+    (new iosReceiving.receivingReusableMethods()).verifyInvoicesListScreenDetails()
+}
+
+ /**
+	 * this method verifies the invoices detail
+	 * @param invoiceNumber (invoice number)
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyInvoicesDetails"(
+    	Object invoiceNumber	) {
+    (new iosReceiving.receivingReusableMethods()).verifyInvoicesDetails(
+        	invoiceNumber)
+}
+
+ /**
+	 * verifies if no new orders to be received
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyNoNewOrdersToReceive"() {
+    (new iosReceiving.receivingReusableMethods()).verifyNoNewOrdersToReceive()
+}
+
+ /**
+	 * this function verifies the receiving screen details
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyReceivingScreen"() {
+    (new iosReceiving.receivingReusableMethods()).verifyReceivingScreen()
+}
+
+ /**
+	 * verifies the receiving screen pop-up which comes after user goes to receiving tab details
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyReceivingScreenPopUp"() {
+    (new iosReceiving.receivingReusableMethods()).verifyReceivingScreenPopUp()
+}
+
+ /**
+	 * verifies shipment details
+	 * @param shipmentNumber (shipment number)
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyShipmentDetails"(
+    	Object shipmentNumber	) {
+    (new iosReceiving.receivingReusableMethods()).verifyShipmentDetails(
+        	shipmentNumber)
+}
+
+ /**
+	 * this function verifies the shipment is visible on the screen
+	 * @param shipmentNumber (shipment number)
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyShipmentIsVisible"(
+    	Object shipmentNumber	) {
+    (new iosReceiving.receivingReusableMethods()).verifyShipmentIsVisible(
+        	shipmentNumber)
+}
+
+ /**
+	 * this function verifies the shipments detail
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyShipmentsListScreenDetails"() {
+    (new iosReceiving.receivingReusableMethods()).verifyShipmentsListScreenDetails()
+}
+
+ /**
+	 * takes expected received product count as the argument and verifies that it should be same as the actual count visible
+	 * @param expectedReceivedProductCount (expected received product count)
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyReceivedProductCount"(
+    	Object expectedReceivedProductCount	) {
+    (new iosReceiving.receivingReusableMethods()).verifyReceivedProductCount(
+        	expectedReceivedProductCount)
+}
+
+ /**
+	 * clicks on receive all totes_button
+	 */ 
+def static "iosReceiving.receivingReusableMethods.clickOnReceiveAllTotes"() {
+    (new iosReceiving.receivingReusableMethods()).clickOnReceiveAllTotes()
+}
+
+ /**
+	 * uploads completed_totes
+	 */ 
+def static "iosReceiving.receivingReusableMethods.uploadCompletedTotes"() {
+    (new iosReceiving.receivingReusableMethods()).uploadCompletedTotes()
+}
+
+ /**
+	 * verifies the pop up after uploading_totes
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyUploadTotesPopUp"() {
+    (new iosReceiving.receivingReusableMethods()).verifyUploadTotesPopUp()
+}
+
+ /**
+	 * takes user back to receiving after uploading_totes
+	 */ 
+def static "iosReceiving.receivingReusableMethods.clickOnBackToReceiving"() {
+    (new iosReceiving.receivingReusableMethods()).clickOnBackToReceiving()
+}
+
+ /**
+	 * verifies the invoice is not visible on the screen
+	 * @param invoiceNumber (invoice number)
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyInvoiceIsNotVisible"(
+    	Object invoiceNumber	) {
+    (new iosReceiving.receivingReusableMethods()).verifyInvoiceIsNotVisible(
+        	invoiceNumber)
+}
+
+ /**
+	 * expands the view to see detailed view of_tote
+	 */ 
+def static "iosReceiving.receivingReusableMethods.expandToSeeDetailedViewOfTotes"() {
+    (new iosReceiving.receivingReusableMethods()).expandToSeeDetailedViewOfTotes()
+}
+
+ /**
+	 * collapses the detailed view of_tote
+	 */ 
+def static "iosReceiving.receivingReusableMethods.collpaseViewOfTotes"() {
+    (new iosReceiving.receivingReusableMethods()).collpaseViewOfTotes()
+}
+
+ /**
+	 * creates a test object at run time
+	 * resourceId (resource-id of the object)
+	 */ 
+def static "iosReceiving.receivingReusableMethods.makeTestObject"(
+    	String resourceId	) {
+    (new iosReceiving.receivingReusableMethods()).makeTestObject(
+        	resourceId)
+}
+
+ /**
+	 * test method for run time object creation
+	 */ 
+def static "iosReceiving.receivingReusableMethods.testFunction"() {
+    (new iosReceiving.receivingReusableMethods()).testFunction()
+}
+
+ /**
+	 * takes received product count as the argument and enters count in the text-field
+	 * @param receivedProductCount (received product count)
+	 */ 
+def static "iosReceiving.receivingReusableMethods.editReceivedProductCount"(
+    	int receivedProductCount	) {
+    (new iosReceiving.receivingReusableMethods()).editReceivedProductCount(
+        	receivedProductCount)
+}
+
+ /**
+	 * returns max upper value without over-age product count
+	 * @return maxCount (max upper value without over-age product count)
+	 */ 
+def static "iosReceiving.receivingReusableMethods.returnUpperLimitReceivingProductCount"() {
+    (new iosReceiving.receivingReusableMethods()).returnUpperLimitReceivingProductCount()
+}
+
+ /**
+	 * verifies over-age tag is visible after inputting receiving count which is more than the max upper limit
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyOverAgeTag"() {
+    (new iosReceiving.receivingReusableMethods()).verifyOverAgeTag()
+}
+
+ /**
+	 * verifies received tag is visible after inputting receiving count which is less or equal to the max upper limit
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyReceivedTag"() {
+    (new iosReceiving.receivingReusableMethods()).verifyReceivedTag()
+}
+
+ /**
+	 * takes toteID to be searched as the argument and searches the same
+	 */ 
+def static "iosReceiving.receivingReusableMethods.searchTote"(
+    	Object toteID	) {
+    (new iosReceiving.receivingReusableMethods()).searchTote(
+        	toteID)
+}
+
+ /**
+	 * this function verifies that the product is visible on the order details screen
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyProductIsVisibleOnTheReceivingScreen"(
+    	Object productNdcNumber	) {
+    (new iosReceiving.receivingReusableMethods()).verifyProductIsVisibleOnTheReceivingScreen(
+        	productNdcNumber)
+}
+
+ /**
+	 * verifies details of the product associated with the account
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyProductSearchDetals"(
+    	Object productNdcNumber	) {
+    (new iosReceiving.receivingReusableMethods()).verifyProductSearchDetals(
+        	productNdcNumber)
+}
+
+ /**
+	 * verifies pop up to allow over-age
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyOveragePopUp"() {
+    (new iosReceiving.receivingReusableMethods()).verifyOveragePopUp()
+}
+
+ /**
+	 * clicks on issue
+	 */ 
+def static "iosReceiving.receivingReusableMethods.clickOnIssue"() {
+    (new iosReceiving.receivingReusableMethods()).clickOnIssue()
+}
+
+ /**
+	 * verifies details related to submission of issue and takes shipment number, tote id as the arguments
+	 * @param shipmentNumber
+	 * @param toteID
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifySubmissionDetails"(
+    	Object toteID	) {
+    (new iosReceiving.receivingReusableMethods()).verifySubmissionDetails(
+        	toteID)
+}
+
+ /**
+	 * verify shipment number visible while submission of issue
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyShipmentNumberInIssue"(
+    	Object shipmentNumber	) {
+    (new iosReceiving.receivingReusableMethods()).verifyShipmentNumberInIssue(
+        	shipmentNumber)
+}
+
+ /**
+	 * verify invoice number visible while submission of issue
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyInvoiceNumberInIssue"(
+    	Object invoiceNumber	) {
+    (new iosReceiving.receivingReusableMethods()).verifyInvoiceNumberInIssue(
+        	invoiceNumber)
+}
+
+ /**
+	 * select reason of issue
+	 * @param reasonForIssue
+	 */ 
+def static "iosReceiving.receivingReusableMethods.selectReasonForIssue"(
+    	String reasonForIssue	) {
+    (new iosReceiving.receivingReusableMethods()).selectReasonForIssue(
+        	reasonForIssue)
+}
+
+ /**
+	 * enters detail for contact
+	 * @param name
+	 * @param phoneNumber
+	 * @param emailID
+	 * @param comment
+	 */ 
+def static "iosReceiving.receivingReusableMethods.enterDetailsForContact"(
+    	String name	
+     , 	String phoneNumber	
+     , 	String comment	) {
+    (new iosReceiving.receivingReusableMethods()).enterDetailsForContact(
+        	name
+         , 	phoneNumber
+         , 	comment)
+}
+
+ /**
+	 * clicks on submit issue
+	 */ 
+def static "iosReceiving.receivingReusableMethods.clickOnSubmitIssue"() {
+    (new iosReceiving.receivingReusableMethods()).clickOnSubmitIssue()
+}
+
+ /**
+	 * verify submission of issue pop-up
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifySubmissionOfIssue"() {
+    (new iosReceiving.receivingReusableMethods()).verifySubmissionOfIssue()
+}
+
+ /**
+	 * clicks on got it issue
+	 */ 
+def static "iosReceiving.receivingReusableMethods.clickOnGotItbutton"() {
+    (new iosReceiving.receivingReusableMethods()).clickOnGotItbutton()
+}
+
+ /**
 	 * switches to another user account
 	 * @param newAccount (account no to which the user should switch)
 	 */ 
@@ -3626,6 +4029,13 @@ def static "iosDashboard.dashboardScreen.clickOnScanIcon"() {
 	 */ 
 def static "iosDashboard.dashboardScreen.verifyDashboardScreen"() {
     (new iosDashboard.dashboardScreen()).verifyDashboardScreen()
+}
+
+ /**
+	 * opens receiving tab
+	 */ 
+def static "iosDashboard.dashboardScreen.clickOnReceivingTab"() {
+    (new iosDashboard.dashboardScreen()).clickOnReceivingTab()
 }
 
  /**
@@ -4113,19 +4523,19 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
     	TestObject testObject	
      , 	String testName	) {
     (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
         	testObject
          , 	testName)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
 }
 
 
