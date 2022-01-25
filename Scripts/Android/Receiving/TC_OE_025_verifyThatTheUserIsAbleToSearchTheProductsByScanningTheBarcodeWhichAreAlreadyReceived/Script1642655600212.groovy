@@ -16,7 +16,6 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
-import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
 
 'installs and launches the application'
 CustomKeywords.'androidCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
@@ -36,65 +35,56 @@ CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisi
 'takes user to dashboard screen'
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnReceivingTab'()
 
-'allows over-ages in receiving'
-CustomKeywords.'androidReceiving.receivingReusableMethods.selectAllowOverages'()
-
 'this function will select invoices on the receiving screen'
 CustomKeywords.'androidReceiving.receivingReusableMethods.selectInvoices'()
 
 'clicks on continue button after selection of shipments or invoice by user'
 CustomKeywords.'androidReceiving.receivingReusableMethods.clickOnContinue'()
 
-'takes user to today from previous day screen'
+'this function verifies the receiving screen details'
+CustomKeywords.'androidReceiving.receivingReusableMethods.verifyReceivingScreen'()
+
+'takes user to previous day from today screen'
 CustomKeywords.'androidReceiving.receivingReusableMethods.switchToPreviousDay'()
 
-'this method verifies the invoices detail'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyInvoicesListScreenDetails'()
+'this function verifies the shipments detail'
+CustomKeywords.'androidReceiving.receivingReusableMethods.verifyShipmentsListScreenDetails'()
 
 'reading the module test data file'
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('receivingTestData.json')
 
 'reading the product name of product to be added (nonC2 product)'
-String productSearch = requestObject[GlobalVariable.Environment].TC_OE_024.productSearchByNDC
+String productSearch = requestObject[GlobalVariable.Environment].TC_OE_025.productSearchByNDC
 
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+'this function will select invoices on the receiving screen'
+CustomKeywords.'androidReceiving.receivingReusableMethods.selectInvoices'()
 
-'takes toteID to be searched as the argument and searches the same'
-CustomKeywords.'androidReceiving.receivingReusableMethods.searchTote'(toteID)
-
-'verifies details of the instances of product associated with the account'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyInstancesOfProductAssociatedWithAccount'(productSearch)
+'this method verifies the invoices detail'
+CustomKeywords.'androidReceiving.receivingReusableMethods.verifyInvoicesListScreenDetails'()
 
 'this function opens invoice details'
-CustomKeywords.'androidCommonKeywords.commonMethods.searchProduct'(productSearch)
+CustomKeywords.'androidReceiving.receivingReusableMethods.openInvoiceDetails'(invoiceNumber)
 
-'verifies details of the product associated with the account'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyProductSearchDetals'(productSearch)
+'clicks on receive all totes button'
+CustomKeywords.'androidReceiving.receivingReusableMethods.clickOnReceiveAllTotes'()
 
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
-'verifies details of the instances of product associated with the account'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyInstancesOfProductAssociatedWithAccount'(productSearch)
-
-'Simulate pressing back button on a mobile device'
-Mobile.pressBack()
-
-'this function will select shipments on the receiving screen'
-CustomKeywords.'androidReceiving.receivingReusableMethods.selectShipments'()
+'click on scan icon'
+CustomKeywords.'androidReceiving.receivingReusableMethods.clickOnScanIcon'()
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'takes toteID to be searched as the argument and searches the same'
-CustomKeywords.'androidReceiving.receivingReusableMethods.searchTote'(toteID)
+'takes product to be searched as the argument and searches for the product'
+CustomKeywords.'androidReceiving.receivingReusableMethods.scanInputEvent'(productSearch)
 
-'verifies details of the instances of product associated with the account'
-CustomKeywords.'androidReceiving.receivingReusableMethods.verifyInstancesOfProductAssociatedWithAccount'(productSearch)
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'this function opens invoice details'
-CustomKeywords.'androidCommonKeywords.commonMethods.searchProduct'(productSearch)
+'verifies pop up to allow over-age'
+CustomKeywords.'androidReceiving.receivingReusableMethods.verifyOveragePopUp'()
+
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'verifies details of the product associated with the account'
 CustomKeywords.'androidReceiving.receivingReusableMethods.verifyProductSearchDetals'(productSearch)

@@ -7,11 +7,11 @@
    <name>TC_OE_024_verifyThatTheUserIsAbleToSearchTheProductsAndTotesManuallyWhichAreAlreadyReceived</name>
    <tag>Receiving;Sanity</tag>
    <comment></comment>
-   <testCaseGuid>c3bfd16e-da79-446d-afaa-56eac2e8e11c</testCaseGuid>
+   <testCaseGuid>b13c59b9-1b29-4980-bc1d-87cadc1a2a79</testCaseGuid>
    <variable>
       <defaultValue>'60268685'</defaultValue>
       <description></description>
-      <id>3d4a9d34-687a-4e71-b931-975781addb75</id>
+      <id>b4b158c1-1518-4f3a-80cf-1f65d04521d6</id>
       <masked>false</masked>
       <name>toteID</name>
    </variable>

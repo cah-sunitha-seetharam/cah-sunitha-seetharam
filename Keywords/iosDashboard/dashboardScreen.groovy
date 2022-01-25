@@ -147,6 +147,7 @@ class dashboardScreen {
 		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Account Selection/changeAccount_Button'), 0)
 	}
 
+
 	/**
 	 * opens audits tab where user can perform actions related to audits
 	 */
@@ -154,7 +155,17 @@ class dashboardScreen {
 	def clickOnAuditsTab() {
 
 		Mobile.tap(findTestObject('iOS/Dashboard/audits_Tab'), 0)
+
+	}
+	
+	
+	/**
+	 * opens receiving tab
+	 */
+	@Keyword
+	def clickOnReceivingTab() {
 		
-		
+		Mobile.tap(findTestObject('iOS/Receiving/receiving_Tab'), 0)
+
 	}
 }
