@@ -2974,6 +2974,97 @@ def static "androidReceiving.receivingReusableMethods.verifyProductSearchDetals"
 }
 
  /**
+	 * verifies pop up to allow over-age
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyOveragePopUp"() {
+    (new androidReceiving.receivingReusableMethods()).verifyOveragePopUp()
+}
+
+ /**
+	 * clicks on issue
+	 */ 
+def static "androidReceiving.receivingReusableMethods.clickOnIssue"() {
+    (new androidReceiving.receivingReusableMethods()).clickOnIssue()
+}
+
+ /**
+	 * verifies details related to submission of issue and takes shipment number, tote id as the arguments
+	 * @param shipmentNumber
+	 * @param toteID
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifySubmissionDetails"(
+    	Object toteID	) {
+    (new androidReceiving.receivingReusableMethods()).verifySubmissionDetails(
+        	toteID)
+}
+
+ /**
+	 * verify shipment number visible while submission of issue
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyShipmentNumberInIssue"(
+    	Object shipmentNumber	) {
+    (new androidReceiving.receivingReusableMethods()).verifyShipmentNumberInIssue(
+        	shipmentNumber)
+}
+
+ /**
+	 * verify invoice number visible while submission of issue
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyInvoiceNumberInIssue"(
+    	Object invoiceNumber	) {
+    (new androidReceiving.receivingReusableMethods()).verifyInvoiceNumberInIssue(
+        	invoiceNumber)
+}
+
+ /**
+	 * select reason of issue
+	 * @param reasonForIssue
+	 */ 
+def static "androidReceiving.receivingReusableMethods.selectReasonForIssue"(
+    	String reasonForIssue	) {
+    (new androidReceiving.receivingReusableMethods()).selectReasonForIssue(
+        	reasonForIssue)
+}
+
+ /**
+	 * enters detail for contact
+	 * @param name
+	 * @param phoneNumber
+	 * @param emailID
+	 * @param comment
+	 */ 
+def static "androidReceiving.receivingReusableMethods.enterDetailsForContact"(
+    	String name	
+     , 	String phoneNumber	
+     , 	String comment	) {
+    (new androidReceiving.receivingReusableMethods()).enterDetailsForContact(
+        	name
+         , 	phoneNumber
+         , 	comment)
+}
+
+ /**
+	 * clicks on submit issue
+	 */ 
+def static "androidReceiving.receivingReusableMethods.clickOnSubmitIssue"() {
+    (new androidReceiving.receivingReusableMethods()).clickOnSubmitIssue()
+}
+
+ /**
+	 * verify submission of issue pop-up
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifySubmissionOfIssue"() {
+    (new androidReceiving.receivingReusableMethods()).verifySubmissionOfIssue()
+}
+
+ /**
+	 * clicks on got it issue
+	 */ 
+def static "androidReceiving.receivingReusableMethods.clickOnGotItbutton"() {
+    (new androidReceiving.receivingReusableMethods()).clickOnGotItbutton()
+}
+
+ /**
 	 * adds costType based on the argument which can be current or last price paid
 	 * @param costType (can be current or last price paid)
 	 */ 
