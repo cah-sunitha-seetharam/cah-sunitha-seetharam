@@ -18,28 +18,6 @@ import com.kms.katalon.core.testobject.TestObject
 import com.applitools.eyes.RectangleSize
 
 
-
-def static "androidDashboard.dashboardDetailsScreen.change_Account"(
-    	String new_Account	) {
-    (new androidDashboard.dashboardDetailsScreen()).change_Account(
-        	new_Account)
-}
-
-
-def static "androidDashboard.dashboardDetailsScreen.Adding_Product_from_Dashboard_To_Cart"(
-    	String Product_Name	
-     , 	String Quantity	) {
-    (new androidDashboard.dashboardDetailsScreen()).Adding_Product_from_Dashboard_To_Cart(
-        	Product_Name
-         , 	Quantity)
-}
-
-	 * this function verifies the dash-board details Screen
-	 */ 
-def static "androidDashboard.dashboardDetailsScreen.verifyDashboardPage"() {
-    (new androidDashboard.dashboardDetailsScreen()).verifyDashboardPage()
-}
-
  /**
 	 * opens orders tab where user can perform actions related to orders
 	 */ 
@@ -80,6 +58,13 @@ def static "androidDashboard.dashboardDetailsScreen.clickOnReceivingTab"() {
 	 */ 
 def static "androidDashboard.dashboardDetailsScreen.tapOnAudits"() {
     (new androidDashboard.dashboardDetailsScreen()).tapOnAudits()
+}
+
+ /**
+	 * this function verifies the dash-board details Screen
+	 */ 
+def static "androidDashboard.dashboardDetailsScreen.verifyDashboardPage"() {
+    (new androidDashboard.dashboardDetailsScreen()).verifyDashboardPage()
 }
 
  /**
@@ -3729,6 +3714,55 @@ def static "iosMoreOptions.moreOptionsScreen.goToInventoryListingScreen"() {
 }
 
  /**
+	 * opens the message center
+	 */ 
+def static "iosMoreOptions.moreOptionsScreen.tapMessageCentre"() {
+    (new iosMoreOptions.moreOptionsScreen()).tapMessageCentre()
+}
+
+ /**
+	 * verifies alert and message
+	 */ 
+def static "iosMoreOptions.moreOptionsScreen.verifyMessageCentre"() {
+    (new iosMoreOptions.moreOptionsScreen()).verifyMessageCentre()
+}
+
+ /**
+	 * verifies alert message description
+	 */ 
+def static "iosMoreOptions.moreOptionsScreen.verifyAlertMessageDescription"() {
+    (new iosMoreOptions.moreOptionsScreen()).verifyAlertMessageDescription()
+}
+
+ /**
+	 * verifies message description
+	 */ 
+def static "iosMoreOptions.moreOptionsScreen.verifyMessageDescription"() {
+    (new iosMoreOptions.moreOptionsScreen()).verifyMessageDescription()
+}
+
+ /**
+	 * opens alert
+	 */ 
+def static "iosMoreOptions.moreOptionsScreen.tapOnAlert"() {
+    (new iosMoreOptions.moreOptionsScreen()).tapOnAlert()
+}
+
+ /**
+	 * opens top most message
+	 */ 
+def static "iosMoreOptions.moreOptionsScreen.tapOnTopMostMessage"() {
+    (new iosMoreOptions.moreOptionsScreen()).tapOnTopMostMessage()
+}
+
+ /**
+	 * verifies message center in offline
+	 */ 
+def static "iosMoreOptions.moreOptionsScreen.verifyMessageCentreInOffline"() {
+    (new iosMoreOptions.moreOptionsScreen()).verifyMessageCentreInOffline()
+}
+
+ /**
 	 * clicks on moreOptions tab, signsOut the user and takes user to the logInScreen
 	 */ 
 def static "iosMoreOptions.moreOptionsScreen.signOut"() {
@@ -3771,13 +3805,6 @@ def static "iosOrders.historyScreen.completeReviewSignAndPlaceAnOrderFlow"(
 	 */ 
 def static "iosOrders.historyScreen.clickOnHistoryTab"() {
     (new iosOrders.historyScreen()).clickOnHistoryTab()
-}
-
- /**
-	 * clicks on history tab button to open history tab in order history screen
-	 */ 
-def static "iosOrders.historyScreen.clickOnHistoryTabWithoutVerify"() {
-    (new iosOrders.historyScreen()).clickOnHistoryTabWithoutVerify()
 }
 
  /**
@@ -4592,14 +4619,6 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
 }
 
 
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	
      , 	String testName	
@@ -4608,4 +4627,11 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
 }
