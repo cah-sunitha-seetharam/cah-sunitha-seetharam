@@ -17,14 +17,21 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-'starts the application'
+/*'starts the application'
 CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
-'logins with username password and then opens account selection page'
+'login function called which takes user to the accounts selection screen'
 CustomKeywords.'iosLogin.loginScreen.login'(GlobalVariable.Username, GlobalVariable.Password)
 
-'after login, verifies page caption and selects account'
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
+'selects the user account from the accounts list'
 CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
+
+*/
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 '-----------------------Pre-requisite(Non C2 order)---------------------------'
 
@@ -57,8 +64,17 @@ CustomKeywords.'iosMoreOptions.moreOptionsScreen.signOut'()
 
 '-----------------------------------signIn---------------------------------------'
 
-'performs re-login with username and password'
-CustomKeywords.'iosLogin.loginScreen.reLogin'(GlobalVariable.Username, GlobalVariable.Password)
+'taps on cancel button for update if popUp is visible'
+CustomKeywords.'iosLogin.loginScreen.cancelUpdatePopUp'()
+
+'logins with username then opens account selection page'
+CustomKeywords.'iosLogin.loginScreen.enterUsername'(GlobalVariable.Username)
+
+'enters the password'
+CustomKeywords.'iosLogin.loginScreen.enterPassword'(GlobalVariable.Password)
+
+'clicks on signIn button and takes to the dash-board of the application'
+CustomKeywords.'iosLogin.loginScreen.clickOnSignInButton'()
 
 '------------------------enables beta feature CSOS---------------------------'
 

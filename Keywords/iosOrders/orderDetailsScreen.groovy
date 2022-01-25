@@ -126,7 +126,23 @@ class orderDetailsScreen {
 		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/done_Button'), 0)
 	}
 
+	/**
+	 * this function returns the top most product name in order details page
+	 */
+	@Keyword
+	def returnTopMostProductNameInOrderDetails(){
+		String productName=Mobile.getText(findTestObject('Object Repository/iOS/Orders/Order Details Screen/Verification Details/productDescriptionLabel_Text'), 0)
+		return productName
+	}
 
+	/**
+	 * verifies that the added top most product should  be visible on the order details page
+	 * @param productname (top most added product name)
+	 */
+	@Keyword
+	def verifyProductNameIsVisibleUnderOrderDetails(String productname) {
+		Mobile.verifyElementVisible(findTestObject('Object Repository/iOS/Orders/Order Details Screen/Verification Details/productDescriptionLabel_Text',[('TEXT'): productname]) ,0)
+	}
 
 	/**
 	 * clicks on c2 order availability and waits for the response while verifying the availability details for the c2 product
@@ -161,6 +177,26 @@ class orderDetailsScreen {
 	}
 
 	/**
+	 * searches for a product by setting product name
+	 * @param productName (product to be added)
+	 */
+	@Keyword
+	def searchProductInOrderDetailPageOfflineMode(String productName) {
+		Mobile.delay(3)
+		Mobile.tap(findTestObject('Object Repository/iOS/Product Search/productSearch_TextField'), 0)
+		Mobile.setText(findTestObject('Object Repository/iOS/Product Search/productSearch_TextField'), productName ,0)
+	}
+
+	/**
+	 * taps on search key of the keyboard
+	 */
+	@Keyword
+	def tapOnsearchKeyInOfflineMode() {
+		Mobile.tapAndHold(findTestObject('Object Repository/iOS/Orders/Product Info/Product Search/search_keypad'), 0, 0)
+	}
+
+
+	/**
 	 * opens product tile
 	 */
 	@Keyword
@@ -175,7 +211,7 @@ class orderDetailsScreen {
 	def clickOnMoreDetails() {
 		Mobile.tap(findTestObject('Object Repository/iOS/Orders/Product Info/Product Search/moreDetailsView_Text'), 0)
 	}
-	
+
 	/**
 	 * opens alternates page
 	 */
@@ -183,7 +219,7 @@ class orderDetailsScreen {
 	def tapOnAlternatesInProductDetailsPage() {
 		Mobile.tap(findTestObject('iOS/Orders/Product Info/Product Details/alternates_Text'), 0)
 	}
-	
+
 	/**
 	 * verifies filterByOptions
 	 */
@@ -241,6 +277,15 @@ class orderDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Search/UPC_Text'), 0)
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Product Info/Product Search/retailPrice_Text'), 0)
 		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Orders/Product Info/Product Search/moreDetailsView_Text'), 0)
+	}
+
+
+	/**
+	 * removes product from orders details
+	 */
+	@Keyword
+	def removeProduct() {
+		Mobile.tap(findTestObject('Object Repository/iOS/Orders/Order Details Screen/Verification Details/Remove Item_Button'), 0)
 	}
 
 	/**
@@ -366,7 +411,13 @@ class orderDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/goToDashboard_Button'), 0)
 	}
 
-
+	/**
+	 * takes user back to the search product results to continue browsing
+	 */
+	@Keyword
+	def tapContinueOnDesktop() {
+		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Upload Order/continueOnDesktop_Button'), 0)
+	}
 
 	/**
 	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at ordering
@@ -381,7 +432,13 @@ class orderDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/Product Search/Scan Flow/priceCheck_Button'), 0)
 	}
 
-
+	/**
+	 *  taps on scan icon and takes user to scanning product screen 
+	 */
+	@Keyword
+	def clickOnScanIconWithoutVerification() {
+		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/scan_Icon'), 0)
+	}
 
 	/**
 	 * creates a new C2 order 
@@ -490,7 +547,7 @@ class orderDetailsScreen {
 	def confirmPlaceOrder() {
 		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Place All Orders/placeMyOrder(s)_Text'), 0)
 	}
-	
+
 
 
 	/**
@@ -502,8 +559,10 @@ class orderDetailsScreen {
 
 		String orderTotal=Mobile.getText(findTestObject('iOS/Orders/Verification Details/orderTotal_Text'), 0)
 
-		float orderTotal_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(orderTotal)//converting uoiCost string to a float value
-
+		//float orderTotal_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(orderTotal)//converting uoiCost string to a float value
+		orderTotal=orderTotal.replaceAll("[^0-9.]", "")
+		float orderTotal_dollarSymbolRemoved_FloatValue=orderTotal.toFloat()
+		
 		return orderTotal_dollarSymbolRemoved_FloatValue
 	}
 
@@ -542,6 +601,58 @@ class orderDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Verification Details/thisItemHaBeenAddedToYourOrder_Text'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Verification Details/alternates_Text'), 0)
+	}
+
+	/**
+	 * scans the product
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */
+	@Keyword
+	def scanInputEventWithoutVerification(String productToBeSearched) {
+		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/scanGray_Image'), 0)
+		Mobile.setText(findTestObject('iOS/Product Search/Scan Flow/enterBarcode_TextField'), productToBeSearched, 0)
+		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/done_Button'), 0)
+		Mobile.tap(findTestObject('Object Repository/iOS/Product Search/doneKeypad_Button'), 0)
+	}
+
+
+	/**
+	 * scans the product in offline mode
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */
+	@Keyword
+	def scanInputEventInOfflineMode(String productToBeSearched) {
+		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/scanGray_Image'), 0)
+		Mobile.setText(findTestObject('iOS/Product Search/Scan Flow/enterBarcode_TextField'), productToBeSearched, 0)
+		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/done_Button'), 0)
+	}
+
+	/**
+	 * retruns NDC number
+	 */
+	@Keyword
+	def returnNDCLabelOfScannedProduct () {
+		String NDCLabel = Mobile.getText(findTestObject('iOS/Verification/NDCLabel_Text'), 0)
+		return NDCLabel
+	}
+
+
+
+	/**
+	 * allows camera access while using real device
+	 */
+	@Keyword
+	def tapOnOkForCameraAcess() {
+		Mobile.delay(1)
+		Mobile.tapAndHold(findTestObject('Object Repository/iOS/Verification/okRealDeviceCameraAccess_Button'), 0, 0)
+	}
+
+	/**
+	 * closes the popup when user switches to offline mode
+	 */
+	@Keyword
+	def closeOfflinePopUp() {
+		Mobile.tap(findTestObject('iOS/Verification/boltTextOfflineMode_Text'), 0)
 	}
 
 	/**
@@ -671,7 +782,14 @@ class orderDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Verification Details/product_SearchField'), 0, FailureHandling.STOP_ON_FAILURE)
 	}
 
-
+	/**
+	 * verifies order details screen when user in offline mode
+	 */
+	@Keyword
+	def verifyOrderDetailsScreenInOfflineMode () {
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/Orders/Order Details Screen/Upload Order/uploadOrder_Button'), 'enabled', 'false', 0)
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/Orders/Order Details Screen/Place Order/placeOrder_Button'), 'enabled', 'false', 0)
+	}
 
 	/**
 	 * verifies the order value after adding a product
@@ -683,20 +801,25 @@ class orderDetailsScreen {
 		int quantityIntegralValue=Integer.parseInt(quantity)
 
 		String productCost=Mobile.getText(findTestObject('iOS/Orders/Verification Details/productCost_Text'), 0)
+		productCost=productCost.replaceAll("[^0-9.]", "")
+		float productCost_FloatValue=productCost.toFloat()
+		//float productCost_dollarSymbolRemoved_FloatValue=commonMethodsObject.floatValueGenerator(productCost)//converting uoiCost string to a float value
 
-		float productCost_dollarSymbolRemoved_FloatValue=commonMethodsObject.floatValueGenerator(productCost)//converting uoiCost string to a float value
-
-		float expectedOrderTotal=quantityIntegralValue*productCost_dollarSymbolRemoved_FloatValue
+		float expectedOrderTotal=quantityIntegralValue*productCost_FloatValue
 
 		String formattedExpectedOrderTotal=commonMethodsObject.formatDecimalData(expectedOrderTotal,"0.00") //formatting the data to be rounded off to upper level and to two decimal places
 
-		float formattedExpectedOrderTotal_FloatValue=commonMethodsObject.floatValueGenerator(formattedExpectedOrderTotal)///converting formattedExpectedOrderTotal string to a float value
+		//float formattedExpectedOrderTotal_FloatValue=commonMethodsObject.floatValueGenerator(formattedExpectedOrderTotal)///converting formattedExpectedOrderTotal string to a float value
+		float formattedExpectedOrderTotal_FloatValue=formattedExpectedOrderTotal.toFloat()
 
 		KeywordUtil.logInfo(formattedExpectedOrderTotal)
 
 		String actualOrderTotal=Mobile.getText(findTestObject('iOS/Orders/Verification Details/orderTotal_Text'), 0)
 
-		float actualOrderTotal_dollarSymbolRemoved_FloatValue=commonMethodsObject.floatValueGenerator(actualOrderTotal)//converting actualOrderTotal string to a float value
+		//float actualOrderTotal_dollarSymbolRemoved_FloatValue=commonMethodsObject.floatValueGenerator(actualOrderTotal)//converting actualOrderTotal string to a float value
+
+		actualOrderTotal=actualOrderTotal.replaceAll("[^0-9.]", "")
+		float actualOrderTotal_dollarSymbolRemoved_FloatValue=actualOrderTotal.toFloat()
 
 		KeywordUtil.logInfo(actualOrderTotal)
 
@@ -750,6 +873,15 @@ class orderDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/priceCheckToggle_Screen/continueBrowsing_Text'), 0)
 	}
 
+
+	/**
+	 * adds product 
+	 */
+	@Keyword
+	def addToOrderWithoutVerify() {
+		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/addToOrder_Text'), 0)
+	}
+
 	/**
 	 * taps on go to order button on order confirmation screen and takes user to order details screen
 	 */
@@ -787,7 +919,7 @@ class orderDetailsScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Product Search/Scan Flow/productDescription_Label'), 0)
 	}
-	
+
 
 	/**
 	 * this function returns the order name of the order/ title of the screen when user is on order details screen
@@ -800,7 +932,7 @@ class orderDetailsScreen {
 
 		return orderName
 	}
-	
+
 
 	/**
 	 * taps on continue ordering button on order details screen after user has added a product to order
@@ -813,7 +945,7 @@ class orderDetailsScreen {
 
 		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Create C2 Order/continueOrdering_Button'), 0)
 	}
-	
+
 
 	/**
 	 * takes user back to history screen and verifies user is on the history screen or not
@@ -831,46 +963,43 @@ class orderDetailsScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/History Screen/scan_Icon'),0)
 	}
-	
-	
+
+
 	/**
 	 * try removing all characters in UTN field
 	 */
 	@Keyword
 	def removeCharactersInUTNField() {
-		
+
 		Mobile.clearText(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/uniqueTrackingNumber_TextField'), 0)
-			
+
 		Mobile.delay(1)
-		
+
 		Mobile.sendKeys(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/uniqueTrackingNumber_TextField'), Keys.chord(Keys.RETURN))
-		
 	}
-	
+
 	/**
 	 * fetch UTN number and store it in a string
 	 */
 	@Keyword
 	def getUTNFromUTNTextField() {
-		
+
 		String beforeUTN = Mobile.getText(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/uniqueTrackingNumber_TextField'), 0)
-		
+
 		return beforeUTN;
-		
 	}
-	
-	
+
+
 	/**
 	 * verifies only last 6 digit got deleted, first 3 characters could not be removed & validation error displayed after removing characters
 	 */
 	@Keyword
 	def verifyValidationErrorAfterRemovingCharactesInUTNField() {
-		
+
 		String actualErrorMsg = Mobile.getText(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/uniqueTrackingNumberError_Label_2'), 0)
-		
+
 		String expectedErrorMsg = 'Please provide a Unique Tracking Number in the following format: AANNNN (two alphabetic characters followed by four numeric digits).'
-		
+
 		assert expectedErrorMsg.equalsIgnoreCase(actualErrorMsg)
 	}
-	
 }

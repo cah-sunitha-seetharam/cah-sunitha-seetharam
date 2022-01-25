@@ -62,7 +62,14 @@ class inventoryListingScreen {
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 	}
 
-
+	/**
+	 * returns top most inventory
+	 */
+	@Keyword
+	def returnTopMostInventoryName () {
+		String topMostInventoryName = Mobile.getText(findTestObject('iOS/Inventory/Inventory Details Screen/Open Inventory Details/topMostInventoryName_Text'), 0)
+		return topMostInventoryName
+	}
 
 	/**
 	 * opens the particular inventory details

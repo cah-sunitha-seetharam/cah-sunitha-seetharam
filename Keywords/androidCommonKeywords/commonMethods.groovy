@@ -6,6 +6,7 @@ import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 import static com.kms.katalon.core.testobject.ObjectRepository.findWindowsObject
 
+import androidAccountSelection.selectAnAccount
 import com.kms.katalon.core.annotation.Keyword
 import com.kms.katalon.core.checkpoint.Checkpoint
 import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
@@ -22,6 +23,7 @@ import internal.GlobalVariable
 import io.appium.java_client.AppiumDriver
 import io.appium.java_client.android.AndroidDriver
 import androidDashboard.dashboardDetailsScreen
+import androidLogin.loginScreen
 import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.mobile.keyword.internal.MobileDriverFactory
 import androidMoreOptions.moreOptionsScreen
@@ -31,7 +33,8 @@ class  commonMethods {
 	def dashboardObject=new dashboardDetailsScreen();
 	def moreOptionsScreenObject=new moreOptionsScreen();
 	def commonMethodsObject=new common.commonMethods()
-
+	def loginScreenObject=new loginScreen();
+	def selectAnAccountObject=new selectAnAccount();
 
 	/**
 	 * this method will take the application one screen back
@@ -52,11 +55,9 @@ class  commonMethods {
 	def installingAndlaunchingTheApplication() {
 
 
-		if (GlobalVariable.isAndroidAppInstalled)
-		{
+		if (GlobalVariable.isAndroidAppInstalled) {
 			KeywordUtil.logInfo("application is already installed")
 			Mobile.startExistingApplication(GlobalVariable.appPackage)
-			
 		}
 		else {
 			KeywordUtil.logInfo("need to install the application")
@@ -65,7 +66,7 @@ class  commonMethods {
 			Mobile.startApplication(GlobalVariable.AndroidAppPath, true)
 		}
 	}
-	
+
 
 	/**
 	 * @param stringCharcterToBeRemoved (Removes characters in a string)
@@ -178,6 +179,32 @@ class  commonMethods {
 
 
 	/**
+	 * performs login function by selecting the type of testing (automation or manual), environment of testing(taken from the global profile), entering user-name and password
+	 * and then selects the user account from the accounts list and takes user to the dash-board screen
+	 * @param username
+	 * @param password
+	 * @param accountNo
+	 */
+	@Keyword
+	def takeUserFromloginToHomeScreen(username,password,accountNo) {
+
+		'login function called'
+		loginScreenObject.login(username, password)
+
+		'waits until the progressBar is visible on the screen'
+		waitForProgressBarToBeInvisible()
+
+		'selects the user account from the accounts list'
+		selectAnAccountObject.selectTheUserAccount(accountNo)
+
+		'waits until the progressBar is visible on the screen'
+		waitForProgressBarToBeInvisible()
+	}
+
+
+
+
+	/**
 	 * opens the inventory listing screen by firstly clicking on more options from dash-board
 	 * and then clicks on inventory under more options screen which takes user to inventory listing screen
 	 */
@@ -266,8 +293,8 @@ class  commonMethods {
 
 		Mobile.verifyElementNotVisible(findTestObject(testObj,[('TEXT'):productIdentificationNumber]),0)
 	}
-	
-	
+
+
 	/**
 	 * clicks on product search field
 	 */
@@ -276,7 +303,7 @@ class  commonMethods {
 
 		Mobile.tapAndHold(findTestObject('Android/Inventory/Location Details Screen/Add Product to_Location/productSearch_TextField'), 0, 0)
 	}
-	
+
 	/**
 	 * inputs the product search which can be name/Cin/UPC/NDC in the product search-field
 	 * @param productSearch (which can be name/Cin/UPC/NDC in the product search-field)
@@ -286,8 +313,8 @@ class  commonMethods {
 
 		Mobile.setText(findTestObject('Android/Inventory/Location Details Screen/Add Product to_Location/productSearch_TextField'), productSearch, 0)
 	}
-	
-	
+
+
 	/**
 	 * performs basic text management operations:Copy,Cut,Paste,Share
 	 * @param operationToBePerformed (in operationToBePerformed argument all alphabets should be lower-case except the first one for e.g Copy, Cut)

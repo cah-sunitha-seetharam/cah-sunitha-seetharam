@@ -223,7 +223,24 @@ class cartScreen {
 		Mobile.tap(findTestObject('Object Repository/iOS/Orders/Orders Common Screen/orderListOrderName_Label',[('TEXT'):poName]), 0)
 	}
 
+	/**
+	 * takes expected mobile orders count as the argument and verifies the same
+	 * @param expected mobile orders count (expected mobile orders count after adding products to the cart)
+	 */
+	@Keyword
+	def verifyMobileOrdersCount(String expectedMobileOrdersCount) {
+		String actualMobileOrdersCount=Mobile.getText(findTestObject('Object Repository/iOS/Orders/Cart Screen/Verification/mobileOrdersCount_Text'), 0)
+		assert expectedMobileOrdersCount==actualMobileOrdersCount
+	}
 
+	/**
+	 *verifies C2 order view
+	 */
+
+	@Keyword
+	def verifyC2OrderViewIsNotVisible() {
+		Mobile.verifyElementNotVisible(findTestObject('iOS/Orders/Cart Screen/c2Order_View'), 0)
+	}
 
 	/**
 	 * this function returns the order name of the order which is at the top of the order list
@@ -363,7 +380,10 @@ class cartScreen {
 
 		String actualCartTotal=Mobile.getText(findTestObject('iOS/Orders/Verification Details/cartValue_Text'), 0)
 
-		float actualCartTotal_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(actualCartTotal)//converting actualCartTotal string to a float value
+		actualCartTotal=actualCartTotal.replaceAll("[^0-9.]", "")
+		float actualCartTotal_dollarSymbolRemoved_FloatValue=actualCartTotal.toFloat()
+		
+	//	float actualCartTotal_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(actualCartTotal)//converting actualCartTotal string to a float value
 
 		KeywordUtil.logInfo(actualCartTotal)
 
@@ -460,5 +480,4 @@ class cartScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/cancelAndKeepOrdersOnTheApp_Button'), 0)
 	}
-	
 }

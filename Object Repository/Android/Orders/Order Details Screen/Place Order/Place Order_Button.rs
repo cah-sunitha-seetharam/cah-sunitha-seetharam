@@ -3,7 +3,7 @@
    <description></description>
    <name>Place Order_Button</name>
    <tag></tag>
-   <elementGuidId>54136a7f-5765-4cd5-bffd-562863958e19</elementGuidId>
+   <elementGuidId>f929e3d7-4941-4887-91c6-f8fa177c8afc</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/btnPlaceOrder</value>
+      <value>${GlobalVariable.appPackage}:id/btnPlaceOrder</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.widget.Button[1]</value>
    </webElementProperties>
-   <locator>com.cardinalhealth.orderexpress.two.debug:id/btnPlaceOrder</locator>
+   <locator>${GlobalVariable.appPackage}:id/btnPlaceOrder</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

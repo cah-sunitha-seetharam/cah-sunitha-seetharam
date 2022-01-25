@@ -109,6 +109,8 @@ class locationDetailsScreen {
 	@Keyword
 	def clickOnScanIcon() {
 
+		commonMethodsObject.waitForProgressBarToBeInvisible()
+
 		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/scan_Icon'), 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
@@ -166,6 +168,8 @@ class locationDetailsScreen {
 	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object	 */
 	@Keyword
 	def deleteProduct(String productNdcNumber) {
+
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 
 		String testObj='Object Repository/iOS/Inventory/Location Details Screen/Verification Details/slidePopUp_Button'
 
@@ -370,7 +374,8 @@ class locationDetailsScreen {
 	 */
 	@Keyword
 	def verifyLocationDetailsScreen(Stack countTypeStack, Stack quantityStack, Stack productNdcStack, Stack unitOfIssueCostStack) {
-
+		commonMethodsObject.waitForProgressBarToBeInvisible()
+		
 		String topProductCountType,topProductNdc,topProductQuantity,countType,quantity,costOfOneFullCountProduct
 		float totalCostOfAddedProduct=0.00, costOfOneFullCountProduct_dollarSymbolRemoved_FloatValue, topProductUnitOfIssueCost_FloatValue, topProductQuantity_FloatValue
 		String inventoryTotal=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/inventoryTotal_Text'), 0)// inventory value with location added
@@ -431,6 +436,8 @@ class locationDetailsScreen {
 	 */
 	@Keyword
 	def verifyProductIsVisibleOnTheLocationDetailsScreen(productNdcNumber) {
+
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 
 		String testObj='Object Repository/iOS/Inventory/Location Details Screen/Delete Product/ndcNumber_Text'
 
