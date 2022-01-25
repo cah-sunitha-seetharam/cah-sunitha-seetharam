@@ -29,6 +29,13 @@ Prerequisite:
       <description></description>
       <id>24b4a848-6be9-44a1-aa14-49b556057787</id>
       <masked>false</masked>
-      <name>accountNo</name>
+      <name>accountNo_CIM_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'10-302132'</defaultValue>
+      <description></description>
+      <id>79081965-196c-4c08-90bd-736b536b90a7</id>
+      <masked>false</masked>
+      <name>accountNo_CIM_2</name>
    </variable>
 </TestCaseEntity>

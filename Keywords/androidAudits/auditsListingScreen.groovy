@@ -57,14 +57,14 @@ class auditsListingScreen {
 
 		Mobile.tap(findTestObject('Android/Audits/quantityLayout'), 0)
 
-//		String idOfTheElement = Mobile.getAttribute(findTestObject('Android/Audits/quantityLayout'), 'resource-id', 0)
-//
-//		KeywordUtil.logInfo(idOfTheElement)
-//
-//		commonMethodsObject.verifyElementColor(105,170,115,idOfTheElement) //light green with hex code #69aa73 - Emulator
+		//		String idOfTheElement = Mobile.getAttribute(findTestObject('Android/Audits/quantityLayout'), 'resource-id', 0)
+		//
+		//		KeywordUtil.logInfo(idOfTheElement)
+		//
+		//		commonMethodsObject.verifyElementColor(105,170,115,idOfTheElement) //light green with hex code #69aa73 - Emulator
 
-	//	commonMethodsObject.verifyElementColor(146,255,161,idOfTheElement) //light green with hex code #92ffa1 - Real Device
-			
+		//	commonMethodsObject.verifyElementColor(146,255,161,idOfTheElement) //light green with hex code #92ffa1 - Real Device
+
 	}
 
 
@@ -224,7 +224,7 @@ class auditsListingScreen {
 		Mobile.tap(findTestObject('Android/Audits/submitCompletedGroups'), 0)
 		Mobile.delay(2)
 	}
-	
+
 	/**
 	 * It verify the Audits list screen
 	 */
@@ -234,7 +234,7 @@ class auditsListingScreen {
 		Mobile.verifyElementExist(findTestObject('Android/Audits/welcomeMessage'), 0)
 		String message = Mobile.getText(findTestObject('Android/Audits/welcomeMessage'),0)
 		assert message.contains(expectedMessage)
-		
+
 		Mobile.verifyElementExist(findTestObject('Android/Audits/ndcNumber'), 0)
 		Mobile.verifyElementExist(findTestObject('Android/Audits/groupAuditStatus'), 0)
 		Mobile.verifyElementExist(findTestObject('Android/Audits/groupName'), 0)
@@ -242,7 +242,7 @@ class auditsListingScreen {
 		String buttonStatus = Mobile.getAttribute(findTestObject('Android/Audits/submitCompletedGroups'), 'enabled', 0)
 		assert buttonStatus == "false"
 	}
-	
+
 	/**
 	 * It verify the Audits account
 	 */

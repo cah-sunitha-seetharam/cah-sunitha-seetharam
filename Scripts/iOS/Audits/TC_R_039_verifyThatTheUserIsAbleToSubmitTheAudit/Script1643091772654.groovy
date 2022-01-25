@@ -27,7 +27,7 @@ CustomKeywords.'iosLogin.loginScreen.login'(username,password)
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'after login, verifies page caption and selects account'
-CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(accountNo_CIM_1)
+CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(accountNo_CIM)
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
@@ -44,51 +44,12 @@ CustomKeywords.'iosAudits.auditsScreen.closeChangeAccountPrompt'()
 'verifies audits screen'
 CustomKeywords.'iosAudits.auditsScreen.verifyAuditsLandingScreen'()
 
-'taps on quantity box'
-CustomKeywords.'iosAudits.auditsScreen.clickOnQuantityBox'()
+'tap on all quantity box and add quantity and confirm it'
+CustomKeywords.'iosAudits.auditsScreen.clickAllQuantityBoxes'()
 
-'long press on the selected Count box of the product'
-CustomKeywords.'iosAudits.auditsScreen.longPressOnQuantityBox'()
+// Commenting this step -
+//'verify is group completely audited'
+//CustomKeywords.'androidAudits.auditsListingScreen.isGroupAudited'()
 
-'tap on increment button to increase the count'
-CustomKeywords.'iosAudits.auditsScreen.increaseCount'()
-
-'tap on decrement button to decrease the count'
-CustomKeywords.'iosAudits.auditsScreen.decreaseCount'()
-
-'tap on confirm count button and returns the count which has been added for the product'
-actualQuantityAdded = CustomKeywords.'iosAudits.auditsScreen.confirmAuditCount'()
-
-'verify the added count in the Audit list screen'
-CustomKeywords.'iosAudits.auditsScreen.verifyQuantity'(actualQuantityAdded)
-
-
-'change account using account selection icon'
-CustomKeywords.'iosAudits.auditsScreen.change_Account'(accountNo_CIM_2)
-
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
-'verifies audits screen'
-CustomKeywords.'iosAudits.auditsScreen.verifyAuditsLandingScreen'()
-
-'taps on quantity box'
-CustomKeywords.'iosAudits.auditsScreen.clickOnQuantityBox'()
-
-'long press on the selected Count box of the product'
-CustomKeywords.'iosAudits.auditsScreen.longPressOnQuantityBox'()
-
-'tap on increment button to increase the count'
-CustomKeywords.'iosAudits.auditsScreen.increaseCount'()
-
-'tap on decrement button to decrease the count'
-CustomKeywords.'iosAudits.auditsScreen.decreaseCount'()
-
-'tap on confirm count button and returns the count which has been added for the product'
-actualQuantityAdded = CustomKeywords.'iosAudits.auditsScreen.confirmAuditCount'()
-
-'verify the added count in the Audit list screen'
-CustomKeywords.'iosAudits.auditsScreen.verifyQuantity'(actualQuantityAdded)
-
-
-
+//'verify submit button and tap on submit'
+//CustomKeywords.'androidAudits.auditsListingScreen.submitCompletedGroups'()

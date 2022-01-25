@@ -154,5 +154,7 @@ class dashboardScreen {
 	def clickOnAuditsTab() {
 
 		Mobile.tap(findTestObject('iOS/Dashboard/audits_Tab'), 0)
+		
+		
 	}
 }
