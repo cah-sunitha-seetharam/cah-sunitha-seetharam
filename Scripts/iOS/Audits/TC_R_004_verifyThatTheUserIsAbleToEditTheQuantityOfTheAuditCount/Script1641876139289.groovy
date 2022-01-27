@@ -62,6 +62,7 @@ actualQuantityAdded = CustomKeywords.'iosAudits.auditsScreen.confirmAuditCount'(
 'verify the added count in the Audit list screen'
 CustomKeywords.'iosAudits.auditsScreen.verifyQuantity'(actualQuantityAdded)
 
+'------------changing account selection and performing same actions in audits-----------------'
 
 'change account using account selection icon'
 CustomKeywords.'iosAudits.auditsScreen.change_Account'(accountNo_CIM_2)

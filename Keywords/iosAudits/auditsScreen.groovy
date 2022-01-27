@@ -10,6 +10,7 @@ import com.kms.katalon.core.annotation.Keyword
 import com.kms.katalon.core.checkpoint.Checkpoint
 import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
+import com.kms.katalon.core.mobile.keyword.internal.MobileAbstractKeyword
 import com.kms.katalon.core.model.FailureHandling
 import com.kms.katalon.core.testcase.TestCase
 import com.kms.katalon.core.testdata.TestData
@@ -28,6 +29,7 @@ public class auditsScreen {
 
 	def commonMethodsObject=new commonMethods();
 	def commonIosMethodsObject=new iosCommonKeywords.commonMethods();
+	
 
 	/**
 	 * this function changes account from change account navigation in the audits landing Screen
@@ -201,24 +203,43 @@ public class auditsScreen {
 	}
 	
 	/**
-	 * Tap on all the boxes
+	 * taps on all the quantity boxes for a product
 	 */
 	@Keyword
-	def clickAllQuantityBoxes() {
-
+	def selectAllQuantityBoxes() {
+		
 		String noOfItem = Mobile.getText(findTestObject('iOS/Audits/auditProductCount_Text'), 0)
+		
 		String noOfItemValue = noOfItem.charAt(2)
+		
 		int itemValue = noOfItemValue.toInteger()
-
-		KeywordUtil.logInfo("Count is: " + noOfItem)
-		KeywordUtil.logInfo("nth position is: " + itemValue)
-
+		
+	   'Swipe Vertical from top to bottom'
+		Mobile.swipe(187, 300, 187, 200)
+		
 		for (int i = 1; i <= itemValue; i++) {
-
-			Mobile.tap(findTestObject('iOS/Audits/auditOnHand_Label', ['+ @index= +': i]), 0)
+			
+			Mobile.longPress(findTestObject('iOS/Audits/auditOnHand_Label', ['val': i] ), 0)
+		
+			increaseCount()
+			
+			confirmAuditCount()
+			
 			Mobile.delay(2)
 		}
 	}
+	
+	/**
+	 * verifies the submit completed groups button and taps on it
+	 */
+	@Keyword
+	def submitCompletedGroups() {
 
+		Mobile.verifyElementExist(findTestObject('iOS/Audits/submitCompletedGroups_Button'), 0)
+		
+		Mobile.tap(findTestObject('iOS/Audits/submitCompletedGroups_Button'), 0)
+		
+		Mobile.delay(2)
+	}
 
 }

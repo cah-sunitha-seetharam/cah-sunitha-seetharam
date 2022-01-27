@@ -1103,19 +1103,25 @@ def static "androidLogin.loginScreen.verifyLoginPageDetails"() {
     (new androidLogin.loginScreen()).verifyLoginPageDetails()
 }
 
-
+ /**
+	 * this function changes account from change account navigation in the audits landing Screen
+	 */ 
 def static "iosAudits.auditsScreen.change_Account"(
     	String new_Account	) {
     (new iosAudits.auditsScreen()).change_Account(
         	new_Account)
 }
 
-
+ /**
+	 * this function verifies the audits landing Screen
+	 */ 
 def static "iosAudits.auditsScreen.verifyAuditsLandingScreen"() {
     (new iosAudits.auditsScreen()).verifyAuditsLandingScreen()
 }
 
-
+ /**
+	 * this function verifies the audits landing Screen
+	 */ 
 def static "iosAudits.auditsScreen.closeChangeAccountPrompt"() {
     (new iosAudits.auditsScreen()).closeChangeAccountPrompt()
 }
@@ -1125,36 +1131,61 @@ def static "iosAudits.auditsScreen.clickOnQuantityBox"() {
     (new iosAudits.auditsScreen()).clickOnQuantityBox()
 }
 
-
+ /**
+	 * this function performs long press on quantity count box
+	 */ 
 def static "iosAudits.auditsScreen.longPressOnQuantityBox"() {
     (new iosAudits.auditsScreen()).longPressOnQuantityBox()
 }
 
-
+ /**
+	 * verifies initial count value
+	 * taps on + button
+	 * verifies the count is increased
+	 */ 
 def static "iosAudits.auditsScreen.increaseCount"() {
     (new iosAudits.auditsScreen()).increaseCount()
 }
 
-
+ /**
+	 * verifies initial count value
+	 * taps on - button
+	 * verifies the count is decreased
+	 */ 
 def static "iosAudits.auditsScreen.decreaseCount"() {
     (new iosAudits.auditsScreen()).decreaseCount()
 }
 
-
+ /**
+	 * gets final count value
+	 * taps on confirmAuditCount button
+	 * returns the final count value
+	 */ 
 def static "iosAudits.auditsScreen.confirmAuditCount"() {
     (new iosAudits.auditsScreen()).confirmAuditCount()
 }
 
-
+ /**
+	 * verifies the final count value with the audit list count
+	 */ 
 def static "iosAudits.auditsScreen.verifyQuantity"(
     	int quantity	) {
     (new iosAudits.auditsScreen()).verifyQuantity(
         	quantity)
 }
 
+ /**
+	 * taps on all the quantity boxes for a product
+	 */ 
+def static "iosAudits.auditsScreen.selectAllQuantityBoxes"() {
+    (new iosAudits.auditsScreen()).selectAllQuantityBoxes()
+}
 
-def static "iosAudits.auditsScreen.clickAllQuantityBoxes"() {
-    (new iosAudits.auditsScreen()).clickAllQuantityBoxes()
+ /**
+	 * verifies the submit completed groups button and taps on it
+	 */ 
+def static "iosAudits.auditsScreen.submitCompletedGroups"() {
+    (new iosAudits.auditsScreen()).submitCompletedGroups()
 }
 
  /**
@@ -4155,15 +4186,14 @@ def static "iosDashboard.dashboardScreen.verifyDashboardScreen"() {
 	 * opens audits tab where user can perform actions related to audits
 	 */ 
 def static "iosDashboard.dashboardScreen.clickOnAuditsTab"() {
-	(new iosDashboard.dashboardScreen()).clickOnAuditsTab()
+    (new iosDashboard.dashboardScreen()).clickOnAuditsTab()
 }
 
-/**
+ /**
 	 * opens receiving tab
 	 */ 
 def static "iosDashboard.dashboardScreen.clickOnReceivingTab"() {
     (new iosDashboard.dashboardScreen()).clickOnReceivingTab()
-
 }
 
  /**
@@ -4651,24 +4681,19 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
+}
+
+
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
     	TestObject testObject	
      , 	String testName	) {
     (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
         	testObject
          , 	testName)
-}
-
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
-
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
-
 }
 
 
@@ -4681,11 +4706,9 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
 }
 
 
-
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
-
 
 
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(

@@ -45,11 +45,11 @@ CustomKeywords.'iosAudits.auditsScreen.closeChangeAccountPrompt'()
 CustomKeywords.'iosAudits.auditsScreen.verifyAuditsLandingScreen'()
 
 'tap on all quantity box and add quantity and confirm it'
-CustomKeywords.'iosAudits.auditsScreen.clickAllQuantityBoxes'()
+CustomKeywords.'iosAudits.auditsScreen.selectAllQuantityBoxes'()
 
 // Commenting this step -
 //'verify is group completely audited'
-//CustomKeywords.'androidAudits.auditsListingScreen.isGroupAudited'()
+//CustomKeywords.'iosAudits.auditsScreen.isGroupAudited'()
 
-//'verify submit button and tap on submit'
-//CustomKeywords.'androidAudits.auditsListingScreen.submitCompletedGroups'()
+'verify submit button and tap on submit'
+CustomKeywords.'iosAudits.auditsScreen.submitCompletedGroups'()
