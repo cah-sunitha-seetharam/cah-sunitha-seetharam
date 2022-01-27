@@ -3662,12 +3662,11 @@ def static "iosReceiving.receivingReusableMethods.clickOnIssue"() {
 
  /**
 	 * verifies details related to submission of issue and takes shipment number, tote id as the arguments
-	 * @param shipmentNumber
 	 * @param toteID
 	 */ 
-def static "iosReceiving.receivingReusableMethods.verifySubmissionDetails"(
+def static "iosReceiving.receivingReusableMethods.verifyIssueSubmissionDetails"(
     	Object toteID	) {
-    (new iosReceiving.receivingReusableMethods()).verifySubmissionDetails(
+    (new iosReceiving.receivingReusableMethods()).verifyIssueSubmissionDetails(
         	toteID)
 }
 
