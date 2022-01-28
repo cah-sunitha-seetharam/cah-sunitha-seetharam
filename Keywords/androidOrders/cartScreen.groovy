@@ -112,7 +112,7 @@ class cartScreen  {
 
 		int yCoordinateToSwipe=(ElementHeight/2)+ElementTopPosition
 
-		Mobile.swipe(500, yCoordinateToSwipe, 0, yCoordinateToSwipe)
+		Mobile.swipe(300, yCoordinateToSwipe, 0, yCoordinateToSwipe)
 
 		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Delete Order/yes_Button'), 0)
 	}
