@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify UTN validation is happening fine and user is displayed with the Duplicate UTN number pop up if the entered UTN is duplicate.
+
+Prerequisite :
+1. Valid log in credentials.
+2. Duplicate UTN should be available.
+3. DEA License should be available.</description>
+   <name>TC_R_072_verifyUTNvalidationIsHappeningFineAndUserIsDisplayedWithTheDuplicateUTNNumberPopupIfTheEnteredUTNIsDuplicate</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>0d198303-c2df-4f45-951c-807b352a221f</testCaseGuid>
+   <variable>
+      <defaultValue>'kavan.mobile.r'</defaultValue>
+      <description></description>
+      <id>ef96487f-5a9f-4805-a6cb-353eb1373d80</id>
+      <masked>false</masked>
+      <name>username</name>
+   </variable>
+   <variable>
+      <defaultValue>'Cardinal1'</defaultValue>
+      <description></description>
+      <id>1a4a6086-27a3-4fad-8877-0ed1783c0eba</id>
+      <masked>false</masked>
+      <name>password</name>
+   </variable>
+   <variable>
+      <defaultValue>'29-214315'</defaultValue>
+      <description></description>
+      <id>5dd05330-b677-4c12-a4bd-12fb8c732cb3</id>
+      <masked>false</masked>
+      <name>accountNo</name>
+   </variable>
+   <variable>
+      <defaultValue>'2'</defaultValue>
+      <description></description>
+      <id>945c5f43-45a7-46e6-a1e8-3e979bb35488</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+   <variable>
+      <defaultValue>'csos'</defaultValue>
+      <description></description>
+      <id>ea48d9cf-be64-4c02-b0e0-596bfc8a843b</id>
+      <masked>false</masked>
+      <name>signingPassword</name>
+   </variable>
+   <variable>
+      <defaultValue>'CO0026'</defaultValue>
+      <description>existing UTN number</description>
+      <id>9dc74450-8a2d-4c8b-b41a-e08a54528f01</id>
+      <masked>false</masked>
+      <name>existingUTNno</name>
+   </variable>
+   <variable>
+      <defaultValue>3</defaultValue>
+      <description>UTN Prefix length</description>
+      <id>8aba244f-be9b-43a2-af35-7afd93ae960e</id>
+      <masked>false</masked>
+      <name>utnPrefixLength</name>
+   </variable>
+   <variable>
+      <defaultValue>'Please provide a Unique Tracking Number in the following format: AANNNN (two alphabetic characters followed by four numeric digits).'</defaultValue>
+      <description></description>
+      <id>6fb793c4-b190-42d7-be42-f1d74a1ebb12</id>
+      <masked>false</masked>
+      <name>expectedErrorMsg</name>
+   </variable>
+   <variable>
+      <defaultValue>'000000'</defaultValue>
+      <description></description>
+      <id>40cf78cb-91fa-42aa-8b30-151644675173</id>
+      <masked>false</masked>
+      <name>input1</name>
+   </variable>
+   <variable>
+      <defaultValue>'00000*'</defaultValue>
+      <description></description>
+      <id>2f614129-7173-4f2f-9a13-052a231ccf20</id>
+      <masked>false</masked>
+      <name>input2</name>
+   </variable>
+   <variable>
+      <defaultValue>'You\'ve entered a duplicate UTN, please confirm information and enter it again'</defaultValue>
+      <description></description>
+      <id>17e8f8d8-b2d8-4e69-b1de-c4be2aaa2dd0</id>
+      <masked>false</masked>
+      <name>duplicateErrorMsg</name>
+   </variable>
+</TestCaseEntity>

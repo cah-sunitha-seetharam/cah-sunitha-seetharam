@@ -210,7 +210,7 @@ class locationDetailsScreen {
 	@Keyword
 	def clickOnScanIcon() {
 
-		Mobile.tap(findTestObject('Object Repository/Android/Product Search/Scan Flow/scan_Icon'), 0)
+		Mobile.tap(findTestObject('Object Repository/Android/Product Search/Scan Flow/scan_Icon'), 0,FailureHandling.OPTIONAL)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
@@ -516,7 +516,15 @@ class locationDetailsScreen {
 		KeywordUtil.logInfo("locationName is " + locationName );
 		KeywordUtil.logInfo("productNdcNumber is " + productNdcNumber );
 
-		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Verification Details/slidePopUp_Button'), 0)
+		String testObj='Android/Inventory/Location Details Screen/Verification Details/slidePopUp_Button'
+
+		int x_Coordinate=(new androidCommonKeywords.commonMethods()).tapXCoordinateGenerator(testObj)
+
+		testObj='Android/Inventory/Location Details Screen/Delete Product/ndcNumber_Text'
+
+		int y_Coordinate=(new androidCommonKeywords.commonMethods()).tapYCoordinateGenerator(testObj,productNdcNumber)
+
+		Mobile.tapAtPosition(x_Coordinate, y_Coordinate)
 
 		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Copy Product from Location/move_Button'), 0)
 
@@ -534,7 +542,7 @@ class locationDetailsScreen {
 
 		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Move Product To Another Location/goToLocationAfterMovingProduct_Text', [('Location') : locationName]),0)
 	}
-	
+
 	/**
 	 * this function verifies the lines count
 	 * @param expectedLinesCount (expected lines Count)
@@ -546,6 +554,6 @@ class locationDetailsScreen {
 
 		assert actualLinesCount==expectedLinesCount //actual lines count has to be equal to expected lines count
 	}
-	
-	
+
+
 }

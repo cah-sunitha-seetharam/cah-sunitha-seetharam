@@ -110,7 +110,6 @@ class loginScreen {
 	def clickOnSignInButton() {
 
 		Mobile.tap(findTestObject('Android/Login/Login Details Screen/signIn_Button'), 0)
-
 	}
 
 

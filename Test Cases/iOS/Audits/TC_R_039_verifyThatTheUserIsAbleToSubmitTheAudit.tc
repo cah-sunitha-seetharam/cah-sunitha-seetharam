@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the user is able to Submit the Audit.           
+
+Prerequisite: 
+
+1.Valid login credentials with multiple accounts available for the user.
+2. Valid CIM account</description>
+   <name>TC_R_039_verifyThatTheUserIsAbleToSubmitTheAudit</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>486b5f2d-0c87-402b-b777-c1fe3fcdc5f6</testCaseGuid>
+   <variable>
+      <defaultValue>'auto_sanity_ri'</defaultValue>
+      <description></description>
+      <id>f879fa7d-afcc-4f28-ae0d-55b2a35db5fe</id>
+      <masked>false</masked>
+      <name>username</name>
+   </variable>
+   <variable>
+      <defaultValue>'Cardinal1'</defaultValue>
+      <description></description>
+      <id>361d8b25-81f3-4ea6-81e0-abbc5d7d8c66</id>
+      <masked>false</masked>
+      <name>password</name>
+   </variable>
+   <variable>
+      <defaultValue>'10-302132'</defaultValue>
+      <description></description>
+      <id>d29a35d2-71e8-4bb1-b77f-379227621f6a</id>
+      <masked>false</masked>
+      <name>accountNo_CIM</name>
+   </variable>
+</TestCaseEntity>

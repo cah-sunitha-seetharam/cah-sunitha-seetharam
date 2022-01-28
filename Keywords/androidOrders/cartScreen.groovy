@@ -41,16 +41,6 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 class cartScreen  {
 
-	//	/**
-	//	 * opens the order details page
-	//	 * @param accountNo (accountNo used to create the order)
-	//	 */
-	//	@Keyword
-	//	def openAnOrderDetails(String accountNo) {
-	//
-	//		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/orderDetails_button',[('Order_Name') : accountNo]),  0)
-	//	}
-
 
 	/**
 	 * opens the order details page
@@ -63,6 +53,7 @@ class cartScreen  {
 	}
 
 
+
 	/**
 	 * opens the c2 orders tab
 	 */
@@ -72,6 +63,8 @@ class cartScreen  {
 		Mobile.tap(findTestObject('Android/Orders/Cart Screen/C2 Order/c2Orders_Tab'), 0)
 	}
 
+
+
 	/**
 	 * opens the nonc2 orders tab
 	 */
@@ -80,6 +73,8 @@ class cartScreen  {
 
 		Mobile.tap(findTestObject('Object Repository/Android/Orders/Cart Screen/Non C2 Order/nonC2OrdersTab_TextView'), 0)
 	}
+
+
 
 	/**
 	 * opens the c2 order details
@@ -93,65 +88,36 @@ class cartScreen  {
 
 
 
-	@Keyword
-	def delete_Order(Account_No) {
-
-		int w = 6
-
-		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
-
-		int ElementTopPosition = Mobile.getElementTopPosition(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/orderDetails_button',[('Order_Name') : GlobalVariable.Account]), 0)
-
-		int ElementHeight=Mobile.getElementHeight(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/orderDetails_button',[('Order_Name') : GlobalVariable.Account]), 0)
-
-		int y_Coordinate_To_Swipe=(ElementHeight/2)+ElementTopPosition
-
-		Mobile.swipe(500, y_Coordinate_To_Swipe, 0, y_Coordinate_To_Swipe)
-
-		//Mobile.swipe(500, 1100, 0, 1100)
-
-		println(y_Coordinate_To_Swipe)
-
-		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Delete Order/YES_Button'), 0)
-
-		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
-	}
-
 	/**
-	 * deletes order 
+	 * opens the c2 order details
 	 */
 	@Keyword
-	def deleteOrder() {
-		int ElementTopPosition = Mobile.getElementTopPosition(findTestObject('Android/Orders/Cart Screen/lineCountC2OrNonC2Product_TextView'),  0)
-		int ElementHeight=Mobile.getElementHeight(findTestObject('Android/Orders/Cart Screen/lineCountC2OrNonC2Product_TextView'),  0)
-		int y_Coordinate_To_Swipe=(ElementHeight/2)+ElementTopPosition
-		Mobile.swipe(200, y_Coordinate_To_Swipe, 0, y_Coordinate_To_Swipe)
-		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Delete Order/YES_Button'), 0)
+	def openC2OrderDetails() {
+
+		Mobile.tap(findTestObject('Object Repository/Android/Orders/C2 Order Details Screen/createdOrder_Text'), 0)
 	}
 
 
 
+	/**
+	 * delete's the order from the cart screen based on the purchase order name
+	 * @param poName (purchase order name of the order)
+	 */
+	@Keyword
+	def deleteOrder(poName) {
 
-	//	@Keyword
-	//	def upload_All_Orders() {
-	//
-	//		int w = 1
-	//
-	//		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-	//			WebUI.delay(w)
-	//		}
-	//		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/uploadAllOrders_Button'), 0)
-	//
-	//		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Upload Order/Continue On Desktop_button'), 0)
-	//
-	//		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-	//			WebUI.delay(w)
-	//		}
-	//	}
+		int ElementTopPosition=Mobile.getElementTopPosition(findTestObject('Object Repository/Android/Orders/Orders Common Screen/parametrizedOrderName_TextView',[('TEXT'):poName]),  0)
+
+		int ElementHeight=Mobile.getElementHeight(findTestObject('Object Repository/Android/Orders/Orders Common Screen/parametrizedOrderName_TextView',[('TEXT'):poName]),  0)
+
+		int yCoordinateToSwipe=(ElementHeight/2)+ElementTopPosition
+
+		Mobile.swipe(300, yCoordinateToSwipe, 0, yCoordinateToSwipe)
+
+		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Delete Order/yes_Button'), 0)
+	}
+
+
 
 	/**
 	 * clicks on upload all orders button on cart screen
@@ -162,6 +128,8 @@ class cartScreen  {
 		Mobile.tap(findTestObject('Object Repository/Android/Orders/Cart Screen/Upload All_Orders/uploadAllOrders_Button'), 0)
 	}
 
+
+
 	/**
 	 * verifies cart screen without non c2 orders
 	 */
@@ -169,6 +137,8 @@ class cartScreen  {
 	def verifyCartScreenWithOutNonC2Orders() {
 		Mobile.verifyElementNotVisible(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/uploadAllOrders_Button'), 0)
 	}
+
+
 
 	/**
 	 * verifies pop up screen which comes after clicking on upload all orders button on cart screen
@@ -181,6 +151,8 @@ class cartScreen  {
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Screen/Upload All_Orders/cancelAndKeepOrdersOnTheApp_Button'), 0)
 	}
 
+
+
 	/**
 	 * clicks on continue on desktop button on cart screen
 	 */
@@ -190,23 +162,7 @@ class cartScreen  {
 		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Upload All_Orders/continueOnDesktop_Button'), 0)
 	}
 
-	//	@Keyword
-	//	def place_All_Orders() {
-	//
-	//		int w = 1
-	//
-	//		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-	//			WebUI.delay(w)
-	//		}
-	//		Mobile.tap(	findTestObject('Android/Orders/Cart Screen/Place All_Orders/placeAllOrders_Button'), 0)
-	//
-	//		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-	//			WebUI.delay(w)
-	//		}
-	//
-	//
-	//		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Place All_Orders/placeMyOrders_Button'),0)
-	//	}
+
 
 	/**
 	 * clicks on place all orders button on cart screen
@@ -216,6 +172,8 @@ class cartScreen  {
 
 		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Place All_Orders/placeAllOrders_Button'), 0)
 	}
+
+
 
 
 	/**
@@ -229,6 +187,9 @@ class cartScreen  {
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Screen/Place All_Orders/yourOrdersWillBePlaced_TextView'), 0)
 	}
 
+
+
+
 	/**
 	 * clicks on place my orders button on cart screen
 	 */
@@ -237,6 +198,9 @@ class cartScreen  {
 
 		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Place All_Orders/placeMyOrders_Button'),0)
 	}
+
+
+
 
 	/**
 	 * verifies cart screen with added product
@@ -260,6 +224,8 @@ class cartScreen  {
 	}
 
 
+
+
 	/**
 	 * verifies that the created order should not be visible on the cart screen
 	 * @param poName (purchase order name used to create the order)
@@ -269,6 +235,8 @@ class cartScreen  {
 
 		Mobile.verifyElementNotVisible(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/orderName_TextView',[('TEXT'):poName]),0)
 	}
+
+
 
 
 	/**
@@ -281,6 +249,9 @@ class cartScreen  {
 		assert expectedAnnotationCount == actualAnnotationCount
 	}
 
+
+
+
 	/**
 	 * verifies C2 annotation count
 	 */
@@ -290,6 +261,9 @@ class cartScreen  {
 		String actualAnnotationCount = Mobile.getText(findTestObject('Object Repository/Android/Orders/Cart Screen/c2AnnotationCount_TextView'), 0)
 		assert expectedAnnotationCount == actualAnnotationCount
 	}
+
+
+
 
 	/**
 	 * takes expected lines count as the argument and verifies the same
@@ -304,6 +278,8 @@ class cartScreen  {
 	}
 
 
+
+
 	/**
 	 * verifies that the created order should be visible on the cart screen
 	 * @param poName (purchase order name used to create the order)
@@ -313,6 +289,8 @@ class cartScreen  {
 
 		Mobile.verifyElementVisible(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/orderName_TextView',[('TEXT'):poName]),0)
 	}
+
+
 
 
 
@@ -327,6 +305,9 @@ class cartScreen  {
 		assert expectedlineCount==actualLineCount
 	}
 
+
+
+
 	/**
 	 * this function returns the order name of the order which is at the top of the order list
 	 * return orderName (returns topmost order name)
@@ -337,6 +318,9 @@ class cartScreen  {
 		return orderName
 	}
 
+
+
+
 	/**
 	 * this function returns the order name from confirmation pop up of upload order
 	 * return orderName (returns order name)
@@ -346,6 +330,9 @@ class cartScreen  {
 		String orderName=Mobile.getText(findTestObject('Object Repository/Android/Orders/Order Details Screen/Upload Order/orderNameInConfirmtionPopUp_TextView'), 0)
 		return orderName
 	}
+
+
+
 
 	/**
 	 * this function verifies the pattern required for the order which was created without giving any purchase order name
@@ -359,6 +346,9 @@ class cartScreen  {
 	}
 
 
+
+
+
 	/**
 	 * takes expected lines count as the argument and verifies the same
 	 * @param expectedLinesCount (expected total line count after adding products to the cart)
@@ -370,6 +360,9 @@ class cartScreen  {
 		assert expectedLineCount==actualLineCount
 	}
 
+
+
+
 	/**
 	 * takes expected mobile orders count as the argument and verifies the same
 	 * @param expected mobile orders count (expected mobile orders count after adding products to the cart)
@@ -380,6 +373,9 @@ class cartScreen  {
 		String actualMobileOrdersCount = (new androidCommonKeywords.commonMethods()).removeCharctersInString(MobileOrdersCount)
 		assert expectedMobileOrdersCount==actualMobileOrdersCount
 	}
+
+
+
 	/**
 	 * verifies the cart value after adding products
 	 * @param expectedCartValue (expected cart value which should be equal to actual cart total)
@@ -390,6 +386,8 @@ class cartScreen  {
 		String actualCartTotal=(new androidCommonKeywords.commonMethods()).removeCharctersInString(cartTotal)
 		assert expectedCartValue==actualCartTotal
 	}
+
+
 
 
 	/**
@@ -407,9 +405,6 @@ class cartScreen  {
 
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/mobileOrdersCount_TextView'), 0)
 
-		//	Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/Lines_TextView'), 0)
-
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/cartTotal_TextView'), 0)
-
 	}
 }
