@@ -18,6 +18,57 @@ import com.kms.katalon.core.testobject.TestObject
 import com.applitools.eyes.RectangleSize
 
 
+ /**
+	 * verifies bcs notification on the cart screen
+	 */ 
+def static "androidOrders.bcsOrders.verifyBcsNotification"() {
+    (new androidOrders.bcsOrders()).verifyBcsNotification()
+}
+
+ /**
+	 * opens the saved orders by tapping on the bcs notification
+	 */ 
+def static "androidOrders.bcsOrders.openSavedOrdersList"() {
+    (new androidOrders.bcsOrders()).openSavedOrdersList()
+}
+
+ /**
+	 * verifies details related to saved orders listing screen
+	 */ 
+def static "androidOrders.bcsOrders.verifySavedOrdersListDetails"() {
+    (new androidOrders.bcsOrders()).verifySavedOrdersListDetails()
+}
+
+ /**
+	 * verifies details related to saved orders listing screen
+	 */ 
+def static "androidOrders.bcsOrders.lookforC2Orders"() {
+    (new androidOrders.bcsOrders()).lookforC2Orders()
+}
+
+ /**
+	 * verifies details related to c2 orders tile under orders listing screen
+	 */ 
+def static "androidOrders.bcsOrders.verifyC2RelatedDetailsForBCS"() {
+    (new androidOrders.bcsOrders()).verifyC2RelatedDetailsForBCS()
+}
+
+ /**
+	 * copies a non c2 order from saved orders to the cart screen and verifies details related to copy button
+	 */ 
+def static "androidOrders.bcsOrders.copyNonC2ProductFromSavedOrders"() {
+    (new androidOrders.bcsOrders()).copyNonC2ProductFromSavedOrders()
+}
+
+ /**
+	 * copies topmost non c2 order to cart screen
+	 * verifies details related to order name, account name, lines count 
+	 * of the order which is at the top of the order list under saved orders
+	 */ 
+def static "androidOrders.bcsOrders.copyAndVerifyTopMostOrderDetailsUnderSavedOrdersToCartScreen"() {
+    (new androidOrders.bcsOrders()).copyAndVerifyTopMostOrderDetailsUnderSavedOrdersToCartScreen()
+}
+
 
 def static "androidDashboard.dashboardDetailsScreen.change_Account"(
     	String new_Account	) {
@@ -4175,6 +4226,11 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+}
+
+
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
     	String testName	
      , 	RectangleSize viewportSize	) {
@@ -4184,8 +4240,10 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
 }
 
 
@@ -4197,11 +4255,4 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
 }
