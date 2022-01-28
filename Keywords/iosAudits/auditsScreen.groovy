@@ -47,11 +47,7 @@ public class auditsScreen {
 
 		Mobile.tap(findTestObject('iOS/Account Selection/accountNo_Text', [('val') : new_Account]), 0)
 
-		int w = 1
-
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
+		commonIosMethodsObject.waitForProgressBarToBeInvisible()
 	}
 
 
