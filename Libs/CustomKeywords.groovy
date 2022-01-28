@@ -2807,6 +2807,34 @@ def static "androidMoreOptions.moreOptionsScreen.changeAccount"(
 }
 
  /**
+	 * opens the message center
+	 */ 
+def static "androidMoreOptions.moreOptionsScreen.tapMessageCentre"() {
+    (new androidMoreOptions.moreOptionsScreen()).tapMessageCentre()
+}
+
+ /**
+	 * verifies message
+	 */ 
+def static "androidMoreOptions.moreOptionsScreen.verifyMessageCentre"() {
+    (new androidMoreOptions.moreOptionsScreen()).verifyMessageCentre()
+}
+
+ /**
+	 * verifies message description
+	 */ 
+def static "androidMoreOptions.moreOptionsScreen.verifyMessageDescription"() {
+    (new androidMoreOptions.moreOptionsScreen()).verifyMessageDescription()
+}
+
+ /**
+	 * opens top most message
+	 */ 
+def static "androidMoreOptions.moreOptionsScreen.tapOnTopMostMessage"() {
+    (new androidMoreOptions.moreOptionsScreen()).tapOnTopMostMessage()
+}
+
+ /**
 	 * enables beta csos feature
 	 */ 
 def static "androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS"() {
