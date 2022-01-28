@@ -38,8 +38,10 @@ public class auditsScreen {
 	def change_Account(String new_Account) {
 
 		//Mobile.tap(findTestObject('iOS/Account_Selection/changeAccount_Text'), 0)
-
-		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Button'), 0)
+		
+		commonIosMethodsObject.waitForProgressBarToBeInvisible()
+		
+		Mobile.tapAndHold(findTestObject('iOS/Account Selection/changeAccount_Button'), 0,0)
 
 		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Navigation'), 0)
 
