@@ -3,7 +3,7 @@
    <description></description>
    <name>c2OrdersAreUnavailableToCopyToMobile_TextView</name>
    <tag></tag>
-   <elementGuidId>315f4538-0de0-4f8f-a38d-63f517e28c0f</elementGuidId>
+   <elementGuidId>261959af-8696-49a4-b350-dda3371e6740</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvOrderStatusLabel</value>
+      <value>${GlobalVariable.appPackage}:id/tvOrderStatusLabel</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>com.cardinalhealth.orderexpress.two.debug:id/tvOrderStatusLabel</locator>
+   <locator>${GlobalVariable.appPackage}:id/tvOrderStatusLabel</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

@@ -3,7 +3,7 @@
    <description></description>
    <name>orderName_TextView</name>
    <tag></tag>
-   <elementGuidId>d3244b06-e8a3-4239-9440-db215bf6f454</elementGuidId>
+   <elementGuidId>b6a143b6-df2f-4fb7-b9f2-10ae11944fd4</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvOrderValue</value>
+      <value>${GlobalVariable.appPackage}:id/tvOrderValue</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/tvOrderValue' and @bounds = '[1180,${TEXT_2}][1370,${TEXT_4}]']</locator>
+   <locator>//*[@resource-id = '${GlobalVariable.appPackage}:id/tvOrderValue' and @bounds = '[1180,${TEXT_2}][1370,${TEXT_4}]']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

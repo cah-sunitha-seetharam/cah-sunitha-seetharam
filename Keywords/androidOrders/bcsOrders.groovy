@@ -142,10 +142,8 @@ class bcsOrders {
 	 */
 	@Keyword
 	def copyAndVerifyTopMostOrderDetailsUnderSavedOrdersToCartScreen() {
-
-		Mobile.verifyElementAttributeValue(findTestObject('Android/Orders/BCS/checkBoxToCopyOrder'), 'checked', 'false', 0)
-
-		String orderName1=Mobile.getText(findTestObject('BCS/SavedOrdersOrderName_TextView'), 0)
+				
+		String orderName1=Mobile.getText(findTestObject('Object Repository/Android/Orders/BCS/savedOrdersOrderName_TextView'), 0)
 		String accountName1=Mobile.getText(findTestObject('Android/Orders/BCS/savedOrdersAccountLabel_TextView'), 0)
 		String linesCount1=Mobile.getText(findTestObject('Android/Orders/BCS/linesOnSavedOrders_TextView'), 0)
 

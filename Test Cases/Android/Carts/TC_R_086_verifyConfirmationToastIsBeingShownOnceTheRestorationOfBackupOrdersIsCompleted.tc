@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
-   <description>Verify the C2 order is displayed in disabled state all the times in saved order express orders screen.
+   <description>Verify confirmation toast is being shown once the restoration of backup orders is completed
 Prerequisite :
 1.Login with valid credentials in OE mobile application
-2.User should be in EO/Online mode  
-3.User should have C2 order in backup cart.&quot;</description>
+2.User should be in EO mode  
+3.User should have created orders such as C2, Non C2, Empty orders from OE Web application.</description>
    <name>TC_R_086_verifyConfirmationToastIsBeingShownOnceTheRestorationOfBackupOrdersIsCompleted</name>
    <tag>Order;Regression;BCS</tag>
    <comment></comment>
