@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_OE_027_VerifyThatTheUserIsAbleToViewTheAuditsPageAndChangeDifferentCIMaccountUsingAccountSelctionIcon</name>
+   <tag>Audits;Smoke</tag>
+   <comment></comment>
+   <testCaseGuid>64309948-1c42-4b73-ba8d-a33685c32e4d</testCaseGuid>
+   <variable>
+      <defaultValue>'auto_sanity_ri'</defaultValue>
+      <description></description>
+      <id>52080859-3884-4aeb-9f07-f5edb481baf6</id>
+      <masked>false</masked>
+      <name>username</name>
+   </variable>
+   <variable>
+      <defaultValue>'Cardinal1'</defaultValue>
+      <description></description>
+      <id>836c2e97-31c8-4f09-b34d-7f9d732be9c5</id>
+      <masked>false</masked>
+      <name>password</name>
+   </variable>
+   <variable>
+      <defaultValue>'10-302132'</defaultValue>
+      <description></description>
+      <id>9b4ffa55-6844-4c74-9028-e0380fa1bb86</id>
+      <masked>false</masked>
+      <name>accountNo</name>
+   </variable>
+   <variable>
+      <defaultValue>'10-302132'</defaultValue>
+      <description></description>
+      <id>fd058327-640a-4ce0-9af6-4a09c63730fd</id>
+      <masked>false</masked>
+      <name>switchToAccount_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'10-302132'</defaultValue>
+      <description></description>
+      <id>75f204a2-3abd-46c1-ac8a-60de9da3bc0e</id>
+      <masked>false</masked>
+      <name>switchToAccount_2</name>
+   </variable>
+</TestCaseEntity>
