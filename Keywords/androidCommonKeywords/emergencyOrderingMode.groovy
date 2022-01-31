@@ -40,7 +40,7 @@ class emergencyOrderingMode {
 	def enableEOmodeAndCloseFlyout(){
 		try {
 			this.enableOrDisableEOmode()
-			Mobile.tap(findTestObject('Android/Flyout Page/flyoutClose_Icon'), 15)
+			Mobile.tap(findTestObject('Android/Flyout Page/flyoutClose_Button'), 15)
 		}
 		catch (Exception e) {
 			KeywordUtil.markFailed("enableEOmodeAndCloseFlyout method failed")
@@ -59,5 +59,15 @@ class emergencyOrderingMode {
 		catch (Exception e) {
 			KeywordUtil.markFailed("enableOrDisableEOmode method failed")
 		}
+	}
+	
+	/**
+	 * Closes the opened fly-out
+	 */
+	@Keyword
+
+	def CloseFlyout(){
+		
+			Mobile.tap(findTestObject('Android/Flyout Page/flyoutClose_Button'), 15)
 	}
 }
