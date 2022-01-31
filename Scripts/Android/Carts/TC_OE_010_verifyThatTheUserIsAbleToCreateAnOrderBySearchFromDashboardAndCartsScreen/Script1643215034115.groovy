@@ -17,24 +17,24 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-'starts the application'
+/*'starts the application'
 CustomKeywords.'androidCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
-'logins with username password and then opens account selection page'
+'login function called which takes user to the accounts selection screen'
 CustomKeywords.'androidLogin.loginScreen.login'(GlobalVariable.Username, GlobalVariable.Password)
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'after login, verifies page caption and selects account'
+'selects the user account from the accounts list'
 CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
-
+*/
 '-------------enables beta feature CSOS-------------'
 
-CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnMoreOptions'()
+/*CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnMoreOptions'()
 
 CustomKeywords.'androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS'()
-
+*/
 '---------------------------------------------------'
 
 'waits until the progressBar is visible on the screen'

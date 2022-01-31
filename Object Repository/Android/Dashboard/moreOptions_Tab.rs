@@ -3,7 +3,7 @@
    <description></description>
    <name>moreOptions_Tab</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>25395ca7-6d6b-449b-9a81-b56f96266064</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
@@ -166,6 +166,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[2]/android.view.ViewGroup[1]/android.widget.FrameLayout[5]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'More' or . = 'More') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/smallLabel']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/navigation_more</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

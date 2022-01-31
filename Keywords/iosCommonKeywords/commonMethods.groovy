@@ -32,7 +32,6 @@ class  commonMethods {
 	def dashboardObject=new dashboardScreen();
 	def moreOptionsScreenObject=new moreOptionsScreen();
 	def loginScreenObject=new loginScreen();
-	def selectAnAccountObject=new selectAnAccount();
 
 
 	/**
@@ -256,7 +255,7 @@ class  commonMethods {
 		waitForProgressBarToBeInvisible()
 
 		'selects the user account from the accounts list'
-		selectAnAccountObject.selectTheUserAccount(accountNo)
+		(new iosAccountSelection.selectAnAccount()).selectTheUserAccount(accountNo)
 
 		'waits until the progressBar is visible on the screen'
 		waitForProgressBarToBeInvisible()

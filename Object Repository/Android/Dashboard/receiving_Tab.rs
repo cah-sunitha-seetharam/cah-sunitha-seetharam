@@ -3,7 +3,7 @@
    <description></description>
    <name>receiving_Tab</name>
    <tag></tag>
-   <elementGuidId>6bbed417-e7da-45ce-bf46-f2217f4e828a</elementGuidId>
+   <elementGuidId>37fab6a2-27f7-444a-af63-ab3b3c85b775</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[2]/android.view.ViewGroup[1]/android.widget.FrameLayout[4]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[(@text = 'Receiving' or . = 'Receiving') and @resource-id = '${GlobalVariable.appPackage}:id/smallLabel']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/navigation_receiving</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

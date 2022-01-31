@@ -3,7 +3,7 @@
    <description></description>
    <name>goToLocationAfterAddingProduct_TextView</name>
    <tag></tag>
-   <elementGuidId>6c8d1022-03a7-4e2b-9630-1dbf3a5dae0a</elementGuidId>
+   <elementGuidId>d2b4523a-2c87-4b90-b6aa-976ed83e5644</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
@@ -13,7 +13,7 @@
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
-      <isSelected>true</isSelected>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
@@ -27,7 +27,7 @@
       <value>1</value>
    </webElementProperties>
    <webElementProperties>
-      <isSelected>true</isSelected>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
@@ -38,7 +38,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/goToOrderText</value>
+      <value>${GlobalVariable.appPackage}:id/goToOrderText</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -166,6 +166,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Go to ${Location}' or . = 'Go to ${Location}') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/goToOrderText']</locator>
+   <locator>//*[@resource-id = '${GlobalVariable.appPackage}:id/goToOrderText']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

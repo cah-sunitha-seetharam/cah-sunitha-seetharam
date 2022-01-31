@@ -69,30 +69,6 @@ def static "androidOrders.bcsOrders.copyAndVerifyTopMostOrderDetailsUnderSavedOr
     (new androidOrders.bcsOrders()).copyAndVerifyTopMostOrderDetailsUnderSavedOrdersToCartScreen()
 }
 
-
-def static "androidDashboard.dashboardDetailsScreen.change_Account"(
-    	String new_Account	) {
-    (new androidDashboard.dashboardDetailsScreen()).change_Account(
-        	new_Account)
-}
-
-
-def static "androidDashboard.dashboardDetailsScreen.Adding_Product_from_Dashboard_To_Cart"(
-    	String Product_Name	
-     , 	String Quantity	) {
-    (new androidDashboard.dashboardDetailsScreen()).Adding_Product_from_Dashboard_To_Cart(
-        	Product_Name
-         , 	Quantity)
-}
-
- /**
-	 * this function verifies the dash-board details Screen
-	 */ 
-def static "androidDashboard.dashboardDetailsScreen.verifyDashboardPage"() {
-    (new androidDashboard.dashboardDetailsScreen()).verifyDashboardPage()
-}
-
-
  /**
 	 * opens orders tab where user can perform actions related to orders
 	 */ 
@@ -1796,23 +1772,25 @@ def static "iosLogin.loginScreen.selectTypeOfTesting"() {
 }
 
 
-def static "androidInventory.locationDetailsScreen.edit_LocationName"(
-    	String New_Location_Name	
-     , 	String CostType	
-     , 	String Previous_Name	) {
-    (new androidInventory.locationDetailsScreen()).edit_LocationName(
-        	New_Location_Name
-         , 	CostType
-         , 	Previous_Name)
+def static "androidInventory.locationDetailsScreen.editLocationName"(
+    	String newLocationName	
+     , 	String costType	
+     , 	String previousName	) {
+    (new androidInventory.locationDetailsScreen()).editLocationName(
+        	newLocationName
+         , 	costType
+         , 	previousName)
 }
 
 
-def static "androidInventory.locationDetailsScreen.add_Product_To_Location"(
-    	String Location_Name	
-     , 	String Product_Name	) {
-    (new androidInventory.locationDetailsScreen()).add_Product_To_Location(
-        	Location_Name
-         , 	Product_Name)
+def static "androidInventory.locationDetailsScreen.addProductToLocation"(
+    	String locationName	
+     , 	String productName	
+     , 	String quantity	) {
+    (new androidInventory.locationDetailsScreen()).addProductToLocation(
+        	locationName
+         , 	productName
+         , 	quantity)
 }
 
 
@@ -2505,16 +2483,16 @@ def static "androidOrders.orderDetailsScreen.tapOnGoToOrder"() {
 }
 
 
-def static "androidOrders.orderDetailsScreen.edit_PO_Name_and_Memo"(
-    	String PO_Name	
-     , 	String PO_Memo	
-     , 	String New_po_Name	
-     , 	String New_po_Memo	) {
-    (new androidOrders.orderDetailsScreen()).edit_PO_Name_and_Memo(
-        	PO_Name
-         , 	PO_Memo
-         , 	New_po_Name
-         , 	New_po_Memo)
+def static "androidOrders.orderDetailsScreen.editPONameAndMemo"(
+    	String poName	
+     , 	String poMemo	
+     , 	String newPoName	
+     , 	String newPoMemo	) {
+    (new androidOrders.orderDetailsScreen()).editPONameAndMemo(
+        	poName
+         , 	poMemo
+         , 	newPoName
+         , 	newPoMemo)
 }
 
 
@@ -3282,12 +3260,12 @@ def static "androidInventory.inventoryDetailsScreen.addLocation"(
 }
 
 
-def static "androidInventory.inventoryDetailsScreen.edit_InventoryName"(
-    	String New_Inventory_Name	
-     , 	String Previous_Name	) {
-    (new androidInventory.inventoryDetailsScreen()).edit_InventoryName(
-        	New_Inventory_Name
-         , 	Previous_Name)
+def static "androidInventory.inventoryDetailsScreen.editInventoryName"(
+    	String newInventoryName	
+     , 	String previousName	) {
+    (new androidInventory.inventoryDetailsScreen()).editInventoryName(
+        	newInventoryName
+         , 	previousName)
 }
 
 
@@ -3298,21 +3276,23 @@ def static "androidInventory.inventoryDetailsScreen.clickOnLocation"(
 }
 
 
-def static "androidInventory.inventoryDetailsScreen.search_And_Add_Product_By_Creating_New_Location"(
-    	String Location_Name	
-     , 	String Product_Name	
-     , 	String CostType	) {
-    (new androidInventory.inventoryDetailsScreen()).search_And_Add_Product_By_Creating_New_Location(
-        	Location_Name
-         , 	Product_Name
-         , 	CostType)
+def static "androidInventory.inventoryDetailsScreen.searchAndAddProductByCreatingNewLocation"(
+    	String locationName	
+     , 	String productName	
+     , 	String costType	
+     , 	String quantity	) {
+    (new androidInventory.inventoryDetailsScreen()).searchAndAddProductByCreatingNewLocation(
+        	locationName
+         , 	productName
+         , 	costType
+         , 	quantity)
 }
 
 
-def static "androidInventory.inventoryDetailsScreen.verify_Inventory_Details_Screen"(
-    	String Inventory_Name	) {
-    (new androidInventory.inventoryDetailsScreen()).verify_Inventory_Details_Screen(
-        	Inventory_Name)
+def static "androidInventory.inventoryDetailsScreen.verifyInventoryDetailsScreen"(
+    	String inventoryName	) {
+    (new androidInventory.inventoryDetailsScreen()).verifyInventoryDetailsScreen(
+        	inventoryName)
 }
 
  /**
@@ -4740,6 +4720,22 @@ def static "androidCommonKeywords.commonMethods.searchProduct"(
 }
 
  /**
+	 * Change account
+	 */ 
+def static "androidCommonKeywords.commonMethods.changeAccount"() {
+    (new androidCommonKeywords.commonMethods()).changeAccount()
+}
+
+ /**
+	 * It verify the Audits account
+	 */ 
+def static "androidCommonKeywords.commonMethods.verifyAccount"(
+    	String firstAccount	) {
+    (new androidCommonKeywords.commonMethods()).verifyAccount(
+        	firstAccount)
+}
+
+ /**
 	 * Create an order using Carts Post method , the input is fetched from the (module) ordersDatajson file set on Data Files 
 	 * @return an object with orderId and purchaseOrderNumber 
 	 */ 
@@ -4799,24 +4795,17 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
-}
-
-
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
     	String testName	
      , 	RectangleSize viewportSize	) {
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
         	testName
          , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
 
 

@@ -3,7 +3,7 @@
    <description></description>
    <name>home_Tab</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>e855823f-620b-474d-9dcd-babc4d9cdf22</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[2]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Home' or . = 'Home') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/largeLabel']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/navigation_home</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>
