@@ -131,14 +131,14 @@ class orderDetailsScreen {
 	def clickOnScanIcon() {
 
 		Mobile.delay(2)
-		
+
 		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_Icon'), 0,FailureHandling.OPTIONAL)
 
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Scan Order/ordering_Text'), 0)
 
 		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Scan Order/priceCheck_Text'), 0)
 	}
-	
+
 	/**
 	 *  taps on scan icon and takes user to scanning product screen
 	 */
@@ -905,7 +905,7 @@ class orderDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/SaveforLater_Button'), 0)
 		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/SaveforLater_Button'), 0)
 	}
-	
+
 	/**
 	 * this function returns the order name of the order/ title of the screen when user is on order details screen
 	 * return orderName (returns order name/ title of order details screen)
@@ -915,5 +915,45 @@ class orderDetailsScreen {
 
 		String NDCLabel = Mobile.getText(findTestObject('Android/Orders/Verification Details/ndcTextView'), 0)
 		return NDCLabel
-	}	
+	}
+
+	/**
+	 * verifies order details screen when user in offline mode
+	 */
+	@Keyword
+	def verifyOrderDetailsScreenInOfflineMode () {
+		Mobile.verifyElementAttributeValue(findTestObject('Android/Orders/Order Details Screen/Upload Order/Upload Order_Button'), 'enabled', 'false', 0)
+		Mobile.verifyElementAttributeValue(findTestObject('Android/Orders/Order Details Screen/Place Order/Place Order_Button'), 'enabled', 'false', 0)
+	}
+
+	/**
+	 * scans the product in offline mode
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */
+	@Keyword
+	def scanInputEventInOfflineMode(String productToBeSearched) {
+		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_Icon'), 0)
+		Mobile.setText(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_EditText'), productToBeSearched, 0)
+		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_Button'), 0)
+	}
+	
+	/**
+	 * searches for a product by setting product name
+	 * @param productName (product to be added)
+	 */
+	@Keyword
+	def searchProductInOrderDetailPageOfflineMode(String productName) {
+		Mobile.delay(3)
+		Mobile.tap(findTestObject('Android/Product Search/SearchProductsTextBox'), 0)
+		Mobile.setText(findTestObject('Android/Product Search/SearchProductsTextBox'), productName + '\\n',0)
+	}
+	
+	/**
+	 * adds product
+	 */
+	@Keyword
+	def addToOrderWithoutVerify() {
+		Mobile.tap(findTestObject('Android/Orders/Product Info/Product Search/addToOrder_Button'), 0)
+	}
+	
 }

@@ -9,13 +9,14 @@ import java.util.Stack
 
 import java.lang.Float
 
+import com.kms.katalon.core.testobject.TestObject
+
 import com.applitools.eyes.selenium.Eyes
 
 import org.openqa.selenium.WebElement
 
-import com.kms.katalon.core.testobject.TestObject
-
 import com.applitools.eyes.RectangleSize
+
 
 
  /**
@@ -91,6 +92,7 @@ def static "androidDashboard.dashboardDetailsScreen.Adding_Product_from_Dashboar
 def static "androidDashboard.dashboardDetailsScreen.verifyDashboardPage"() {
     (new androidDashboard.dashboardDetailsScreen()).verifyDashboardPage()
 }
+
 
 
  /**
@@ -1106,6 +1108,13 @@ def static "androidCommonKeywords.emergencyOrderingMode.enableEOmodeAndCloseFlyo
 	 */ 
 def static "androidCommonKeywords.emergencyOrderingMode.enableOrDisableEOmode"() {
     (new androidCommonKeywords.emergencyOrderingMode()).enableOrDisableEOmode()
+}
+
+ /**
+	 * Closes the opened fly-out
+	 */ 
+def static "androidCommonKeywords.emergencyOrderingMode.CloseFlyout"() {
+    (new androidCommonKeywords.emergencyOrderingMode()).CloseFlyout()
 }
 
  /**
@@ -2604,6 +2613,40 @@ def static "androidOrders.orderDetailsScreen.returnNDCLabelOfScannedProduct"() {
 }
 
  /**
+	 * verifies order details screen when user in offline mode
+	 */ 
+def static "androidOrders.orderDetailsScreen.verifyOrderDetailsScreenInOfflineMode"() {
+    (new androidOrders.orderDetailsScreen()).verifyOrderDetailsScreenInOfflineMode()
+}
+
+ /**
+	 * scans the product in offline mode
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */ 
+def static "androidOrders.orderDetailsScreen.scanInputEventInOfflineMode"(
+    	String productToBeSearched	) {
+    (new androidOrders.orderDetailsScreen()).scanInputEventInOfflineMode(
+        	productToBeSearched)
+}
+
+ /**
+	 * searches for a product by setting product name
+	 * @param productName (product to be added)
+	 */ 
+def static "androidOrders.orderDetailsScreen.searchProductInOrderDetailPageOfflineMode"(
+    	String productName	) {
+    (new androidOrders.orderDetailsScreen()).searchProductInOrderDetailPageOfflineMode(
+        	productName)
+}
+
+ /**
+	 * adds product
+	 */ 
+def static "androidOrders.orderDetailsScreen.addToOrderWithoutVerify"() {
+    (new androidOrders.orderDetailsScreen()).addToOrderWithoutVerify()
+}
+
+ /**
 	 * adds costType based on the argument which can be current or last price paid
 	 * @param costType (can be current or last price paid)
 	 */ 
@@ -2794,6 +2837,29 @@ def static "androidOrders.historyScreen.verifyOrderStatusInOrderHistoryList"(
 	 */ 
 def static "androidOrders.historyScreen.getOrderBadgeCount"() {
     (new androidOrders.historyScreen()).getOrderBadgeCount()
+}
+
+ /**
+	 * returns po number of an top most order
+	 */ 
+def static "androidOrders.historyScreen.returnTopMostPoNumberOfAnOrder"() {
+    (new androidOrders.historyScreen()).returnTopMostPoNumberOfAnOrder()
+}
+
+ /**
+	 * opens top most order in order history
+	 */ 
+def static "androidOrders.historyScreen.tapOnTopMostOrderHistory"(
+    	String poNumber	) {
+    (new androidOrders.historyScreen()).tapOnTopMostOrderHistory(
+        	poNumber)
+}
+
+ /**
+	 * returns quantity added
+	 */ 
+def static "androidOrders.historyScreen.returnQuantityForScannedResultInOfflineMode"() {
+    (new androidOrders.historyScreen()).returnQuantityForScannedResultInOfflineMode()
 }
 
  /**
@@ -4774,12 +4840,10 @@ def static "api.apiCommonMethods.tokenGenerator"() {
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
-    	Eyes eyes	
-     , 	WebElement element	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkElement(
-        	eyes
-         , 	element)
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
 }
 
 
@@ -4799,10 +4863,12 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
+    	Eyes eyes	
+     , 	WebElement element	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkElement(
+        	eyes
+         , 	element)
 }
 
 
