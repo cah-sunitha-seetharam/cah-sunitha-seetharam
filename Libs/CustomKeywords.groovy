@@ -9,14 +9,13 @@ import java.util.Stack
 
 import java.lang.Float
 
-import com.kms.katalon.core.testobject.TestObject
-
 import com.applitools.eyes.selenium.Eyes
 
 import org.openqa.selenium.WebElement
 
-import com.applitools.eyes.RectangleSize
+import com.kms.katalon.core.testobject.TestObject
 
+import com.applitools.eyes.RectangleSize
 
 
  /**
@@ -69,31 +68,6 @@ def static "androidOrders.bcsOrders.copyNonC2ProductFromSavedOrders"() {
 def static "androidOrders.bcsOrders.copyAndVerifyTopMostOrderDetailsUnderSavedOrdersToCartScreen"() {
     (new androidOrders.bcsOrders()).copyAndVerifyTopMostOrderDetailsUnderSavedOrdersToCartScreen()
 }
-
-
-
-def static "androidDashboard.dashboardDetailsScreen.change_Account"(
-    	String new_Account	) {
-    (new androidDashboard.dashboardDetailsScreen()).change_Account(
-        	new_Account)
-}
-
-
-def static "androidDashboard.dashboardDetailsScreen.Adding_Product_from_Dashboard_To_Cart"(
-    	String Product_Name	
-     , 	String Quantity	) {
-    (new androidDashboard.dashboardDetailsScreen()).Adding_Product_from_Dashboard_To_Cart(
-        	Product_Name
-         , 	Quantity)
-}
-
- /**
-	 * this function verifies the dash-board details Screen
-	 */ 
-def static "androidDashboard.dashboardDetailsScreen.verifyDashboardPage"() {
-    (new androidDashboard.dashboardDetailsScreen()).verifyDashboardPage()
-}
-
 
  /**
 	 * opens orders tab where user can perform actions related to orders
@@ -4810,22 +4784,6 @@ def static "androidCommonKeywords.commonMethods.searchProduct"(
 }
 
  /**
-	 * Change account
-	 */ 
-def static "androidCommonKeywords.commonMethods.changeAccount"() {
-    (new androidCommonKeywords.commonMethods()).changeAccount()
-}
-
- /**
-	 * It verify the Audits account
-	 */ 
-def static "androidCommonKeywords.commonMethods.verifyAccount"(
-    	String firstAccount	) {
-    (new androidCommonKeywords.commonMethods()).verifyAccount(
-        	firstAccount)
-}
-
- /**
 	 * Create an order using Carts Post method , the input is fetched from the (module) ordersDatajson file set on Data Files 
 	 * @return an object with orderId and purchaseOrderNumber 
 	 */ 
@@ -4860,10 +4818,12 @@ def static "api.apiCommonMethods.tokenGenerator"() {
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
+    	Eyes eyes	
+     , 	WebElement element	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkElement(
+        	eyes
+         , 	element)
 }
 
 
@@ -4880,21 +4840,6 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
     (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
         	testObject
          , 	testName)
-}
-
-
-
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
-    	Eyes eyes	
-     , 	WebElement element	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkElement(
-        	eyes
-         , 	element)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
 
 

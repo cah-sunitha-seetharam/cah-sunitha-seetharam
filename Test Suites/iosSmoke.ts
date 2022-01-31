@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestSuiteEntity>
    <description></description>
-   <name>iosSanitySuite</name>
+   <name>iosSmoke</name>
    <tag></tag>
    <isRerun>false</isRerun>
    <mailRecipient></mailRecipient>
@@ -12,25 +12,43 @@
    <rerunImmediately>false</rerunImmediately>
    <testSuiteGuid>76d79b93-2a60-4640-8fc4-cea8784389b3</testSuiteGuid>
    <testCaseLink>
-      <guid>7ab73dbb-951a-49e5-9583-71c935efb187</guid>
+      <guid>781d70f0-39c0-49cf-8a30-bf348737c45c</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Account Selection/TC_OE_002_verifyThatTheUserIsAbleToPerformAnAccountSelectionUsingTheAccountOptionAvailableFromDashboadCartAndInventoryPages</testCaseId>
+      <testCaseId>Test Cases/iOS/Carts/TC_OE_014_verifyThatTheUserIsAbleToSubmitTheOrderAfterEditingTheOrder</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>fb0d0e60-c03b-4615-8443-734ef797afe3</variableId>
+         <variableId>9c3f082c-3b61-4282-a800-e3f9a38b6c38</variableId>
       </variableLink>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>a47a4c56-67c2-4cda-bd67-5c333a349e65</variableId>
+         <variableId>d9405a11-43f0-4c92-8c30-c2d52250f30b</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>50c406d3-af6f-4292-a9c3-9b1f1e594d24</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>d94f1677-ea04-4546-ae36-de2c47122cd1</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>e76bbe20-b9e0-4dee-8c73-c46d6c9a2520</variableId>
       </variableLink>
    </testCaseLink>
    <testCaseLink>
-      <guid>892e2730-90b1-4d34-8ced-526089a8c5e8</guid>
+      <guid>b0891e33-a1cc-49ee-9f40-860545645eaa</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
       <testCaseId>Test Cases/iOS/Carts/TC_OE_010_verifyThatTheUserIsAbleToCreateAnOrderBySearchFromDashboardAndCartsScreen</testCaseId>
@@ -60,37 +78,7 @@
       </variableLink>
    </testCaseLink>
    <testCaseLink>
-      <guid>29853dc8-78de-4895-bf73-9485b37380d2</guid>
-      <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Carts/TC_OE_012_verifyThatTheUserIsAbleToUploadAndPlaceOrder</testCaseId>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>ca0b90f7-1e41-4b2b-8a54-4844bc3990aa</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>75a0f99d-b6dc-49ce-8f8b-d8394e99d52b</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>f4fa8ec4-c23d-42fc-b880-504d4a83a742</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>14481009-fea4-4d96-83b9-5456125716cc</variableId>
-      </variableLink>
-   </testCaseLink>
-   <testCaseLink>
-      <guid>e8dedbd7-f707-4672-b2e1-1a76193e9ef7</guid>
+      <guid>07ae33e7-d38f-405c-a8fa-97c58c4f4a0f</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
       <testCaseId>Test Cases/iOS/Carts/TC_OE_013-verifyThatTheUsersAbleToPlaceAllOrdersnAdUploadAllOrders</testCaseId>
@@ -144,43 +132,37 @@
       </variableLink>
    </testCaseLink>
    <testCaseLink>
-      <guid>5c50fb41-5183-4327-81da-5a75e1d88107</guid>
+      <guid>7ad66fc9-0ff8-4b62-ba19-8c31f0b5b341</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Carts/TC_OE_014_verifyThatTheUserIsAbleToSubmitTheOrderAfterEditingTheOrder</testCaseId>
+      <testCaseId>Test Cases/iOS/Carts/TC_OE_012_verifyThatTheUserIsAbleToUploadAndPlaceOrder</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>9c3f082c-3b61-4282-a800-e3f9a38b6c38</variableId>
+         <variableId>ca0b90f7-1e41-4b2b-8a54-4844bc3990aa</variableId>
       </variableLink>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>d9405a11-43f0-4c92-8c30-c2d52250f30b</variableId>
+         <variableId>75a0f99d-b6dc-49ce-8f8b-d8394e99d52b</variableId>
       </variableLink>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>50c406d3-af6f-4292-a9c3-9b1f1e594d24</variableId>
+         <variableId>f4fa8ec4-c23d-42fc-b880-504d4a83a742</variableId>
       </variableLink>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>d94f1677-ea04-4546-ae36-de2c47122cd1</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>e76bbe20-b9e0-4dee-8c73-c46d6c9a2520</variableId>
+         <variableId>14481009-fea4-4d96-83b9-5456125716cc</variableId>
       </variableLink>
    </testCaseLink>
    <testCaseLink>
-      <guid>ec4bfe6e-c7bc-43a9-8218-984647daefbe</guid>
+      <guid>e4cdca96-6671-48c7-9c1d-2ebd30d21b42</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
       <testCaseId>Test Cases/iOS/Carts/TC_OE_015_verifyThatTheUserIsAbleToDeleteTheOrder</testCaseId>
@@ -210,7 +192,25 @@
       </variableLink>
    </testCaseLink>
    <testCaseLink>
-      <guid>aa549416-0850-4961-9e9c-0223ca8cdcd6</guid>
+      <guid>e55d489c-4189-4075-be2f-a5c990189b3a</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/iOS/Account Selection/TC_OE_002_verifyThatTheUserIsAbleToPerformAnAccountSelectionUsingTheAccountOptionAvailableFromDashboadCartAndInventoryPages</testCaseId>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>fb0d0e60-c03b-4615-8443-734ef797afe3</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>a47a4c56-67c2-4cda-bd67-5c333a349e65</variableId>
+      </variableLink>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>476207fd-8b17-47aa-aea9-6fea22eede62</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
       <testCaseId>Test Cases/iOS/Inventory/TC_OE_003_verifyThatTheUserIsAbleToCreateInventoryLocationAddProductsCopyMoveProductsToLocation</testCaseId>
@@ -264,7 +264,7 @@
       </variableLink>
    </testCaseLink>
    <testCaseLink>
-      <guid>ca85e131-fb3f-4c10-8d58-498ea3539d73</guid>
+      <guid>6ac704a7-806d-45b1-9503-d29675e78c1c</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
       <testCaseId>Test Cases/iOS/Inventory/TC_OE_008_verifyThatTheUserIsAbleToDeleteInventoryAndInventoryLocation</testCaseId>
@@ -300,7 +300,7 @@
       </variableLink>
    </testCaseLink>
    <testCaseLink>
-      <guid>6d97df77-22d5-43f2-ae4b-a8f8ecbadfa0</guid>
+      <guid>466c660a-36b4-47ba-a01d-2012ea26f7bb</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
       <testCaseId>Test Cases/iOS/Inventory/TC_OE_009_verifyThatTheUserIsAbleToDoDeleteCopyAndMoveOperationsOfTheProductInTheInventory</testCaseId>
@@ -360,7 +360,7 @@
       </variableLink>
    </testCaseLink>
    <testCaseLink>
-      <guid>2ed83f8e-8d5d-4a9f-9a52-f537b6965adc</guid>
+      <guid>a236b255-77f4-4f52-8dca-1d6b137521c4</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
       <testCaseId>Test Cases/iOS/Inventory/TC_OE_004_verifyThatTheUserIsAbleToEditAndUpdateInventoryAndInventoryLocationName</testCaseId>
@@ -396,7 +396,7 @@
       </variableLink>
    </testCaseLink>
    <testCaseLink>
-      <guid>02894dbd-42b0-4c03-a539-6ec46a6d3c6a</guid>
+      <guid>653626df-4e41-43af-bbb0-14591815637c</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
       <testCaseId>Test Cases/iOS/Inventory/TC_OE_007_verifyThatTheUserIsAbleToUploadAndShareProductDetailsInTheInventory</testCaseId>
@@ -432,7 +432,7 @@
       </variableLink>
    </testCaseLink>
    <testCaseLink>
-      <guid>3e4a5c1d-46aa-4845-ac71-1cdf8f1dcdb4</guid>
+      <guid>b9072858-b0cb-435f-865d-74268070ee1a</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
       <testCaseId>Test Cases/iOS/Inventory/TC_OE_005_verifyThatTheUserIsAbleToAddProductInTheInventoryBySearch</testCaseId>
@@ -468,567 +468,249 @@
       </variableLink>
    </testCaseLink>
    <testCaseLink>
-      <guid>041a1faf-349b-49f6-84e3-b3ce491404c2</guid>
+      <guid>d7dc221e-aaef-40a8-b6ee-41e521cd6810</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
       <testCaseId>Test Cases/iOS/LogIn/TC_OE_001_verifyThatTheUserShouldBeAbleToLoginInOrderExpressAppUsingValidLoginCredentials</testCaseId>
    </testCaseLink>
    <testCaseLink>
-      <guid>950a2569-d32e-42a0-82de-2e2539253b94</guid>
+      <guid>429797af-a19a-4737-9a3c-7160b578f614</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Carts/TC_R_045_verifyThatWhileUserScanNonC2ProductFromTheDashboardAndAddingItForTheFirstTimeNewOrderOrderIsGettingCreatedAndUserIsAbleToUploadTheOrder</testCaseId>
+      <testCaseId>Test Cases/iOS/Receiving/TC_OE_023_verifyThatTheUserIsAbleToEditTheCountValueOfTheProductsInTheTote</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>32bcfaf3-9c44-4f07-b7dd-fe88efb7c3b2</variableId>
+         <variableId>2f803a15-1a3a-4bbb-aac8-2baeef241e99</variableId>
       </variableLink>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>0bddfd70-543d-4a2c-b79e-a87485d2712f</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>2cc12acf-7885-45e6-98f0-15905cee1a21</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>ba72f768-8c20-4f2c-b2bf-02285363987c</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>0a3d93aa-07cb-4c15-a3f5-0e0764cef73b</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>d7d3b7bb-bc9c-4db4-971b-da22f4e18219</variableId>
+         <variableId>bbd78dc1-73ce-42e1-9242-9cdc9a8f895c</variableId>
       </variableLink>
    </testCaseLink>
    <testCaseLink>
-      <guid>4e390d4d-5d07-4954-9108-3f67328d3e0b</guid>
+      <guid>ae58e2fe-5be7-4b0d-94fa-a44f510777de</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Carts/TC_R_058_verifyThatUserIsNotAbleToAddC2ProductFromProductDetailsScreenToAlreadyCreatedNonC2Order</testCaseId>
+      <testCaseId>Test Cases/iOS/Receiving/TC_OE_021_verifyThatTheUserIsAbleToSelectReceiveToteButtonAndUploadSelectedTotes</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>90449111-23e5-4ac2-9652-7c4ef6c176ff</variableId>
+         <variableId>84537d08-a0ee-4be0-a0f4-67da9a38435d</variableId>
       </variableLink>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>54a5fded-b90c-436b-9ebc-1b2b4412af85</variableId>
+         <variableId>6a56e9be-70f9-4738-bb67-9d86a81bf816</variableId>
       </variableLink>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>70eb9b66-20f5-4d01-8c7d-8f8990e2b432</variableId>
+         <variableId>3f080220-0d59-442e-aabd-d94d33884a76</variableId>
       </variableLink>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>9ab33f8e-8709-4a11-9c0c-dea0357bb12b</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>7162de16-0bb5-4c51-a5cd-403598ffca67</variableId>
+         <variableId>3811c501-31c0-440f-91b3-31072af0c4a1</variableId>
       </variableLink>
    </testCaseLink>
    <testCaseLink>
-      <guid>7eff8250-f582-4889-a78d-82620826c7d9</guid>
+      <guid>0be87968-3d30-4716-bec9-65e28fbd8b89</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Carts/TC_R_043_verifyThatWhileUserScanAC2ProductFromDashboardAndAddingItTheForFirstTimeNewOrderIsGettingCreatedAndUserIsAbleToUploadTheOrder</testCaseId>
+      <testCaseId>Test Cases/iOS/Receiving/TC_OE_020_verifyThatTheUserIsAbleToSwapBetweenShipmentsAndInvoices</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>9c3f082c-3b61-4282-a800-e3f9a38b6c38</variableId>
+         <variableId>ab1311fd-8a38-410d-8083-bf4a28e00892</variableId>
       </variableLink>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>1169aee0-4f50-483c-b9d4-250bdd80b8e3</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>d9405a11-43f0-4c92-8c30-c2d52250f30b</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>50c406d3-af6f-4292-a9c3-9b1f1e594d24</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>3f631e62-dec0-4f39-9a1e-918dbfb866fa</variableId>
+         <variableId>52ed210b-2227-4369-9eb7-c8df140896f1</variableId>
       </variableLink>
    </testCaseLink>
    <testCaseLink>
-      <guid>44b351e8-5159-4342-a5a8-c80400bcfbee</guid>
+      <guid>ed35deca-12f1-4c66-96b4-865134c60bb7</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Carts/TC_R_051_verifyThatAfterChangingAccountUserIsAbleToCreateNewOrderByScanInCartPageOnCurrentlySelectedAccount</testCaseId>
+      <testCaseId>Test Cases/iOS/Receiving/TC_OE_038_verifyThatTheUserIsAbleToGetTheScanResultByDoingTheToteLevelScanning</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>0552df7a-5366-4fc8-94a7-5f421bb7b49a</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>17aad8d6-ec52-418e-a6be-4b4fa128e8be</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>6f04f5b7-68e1-475b-8aef-d2cd2b0049a9</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>1f2393cb-09db-4857-9e73-3b7a742b8c70</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>3b1a620b-99fb-4251-a6be-194c4dc73461</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>629c2533-f51c-4489-9a2e-dadb7f5394e9</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>43433d13-7261-4eab-b9de-594629ac950b</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>aa853063-e843-44c3-b979-2fd024dce66d</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>5b39032c-64b5-4acd-abda-4801521bad6d</variableId>
+         <variableId>e739b874-e879-49f9-8645-fbffdb9f6d2d</variableId>
       </variableLink>
    </testCaseLink>
    <testCaseLink>
-      <guid>f4d1238d-84d2-4dc2-a85c-f4ab192d6d69</guid>
+      <guid>39bbc2f4-299b-4c38-893b-5f637a372b1e</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Carts/TC_R_005_verifyThatTheUserIsAbleToUploadTheOrder</testCaseId>
+      <testCaseId>Test Cases/iOS/Receiving/TC_OE_018_verifyThatTheUserIsAbleToViewReceivingPageAndReceivingData</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>9c3f082c-3b61-4282-a800-e3f9a38b6c38</variableId>
+         <variableId>ab1311fd-8a38-410d-8083-bf4a28e00892</variableId>
       </variableLink>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>1169aee0-4f50-483c-b9d4-250bdd80b8e3</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>d9405a11-43f0-4c92-8c30-c2d52250f30b</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>50c406d3-af6f-4292-a9c3-9b1f1e594d24</variableId>
+         <variableId>52ed210b-2227-4369-9eb7-c8df140896f1</variableId>
       </variableLink>
    </testCaseLink>
    <testCaseLink>
-      <guid>e9dfd295-2d12-4406-9a5e-cc1192cf3795</guid>
+      <guid>0babb231-908b-4633-a307-2e47c8b8474c</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Carts/TC_R_044_verifyThatWhenTheUserScanAC2ProductsFromDashboardAndAddingItMeansThoseProductsAreGettingAddedToTheAlreadyExistingC2Order</testCaseId>
+      <testCaseId>Test Cases/iOS/Receiving/TC_OE_022_verifyThatTheUserIsAbleToDoAllowOveragesAndEditCountOfProduct</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>9c3f082c-3b61-4282-a800-e3f9a38b6c38</variableId>
+         <variableId>896867d4-bdd3-48a4-b3c1-0543463d1370</variableId>
       </variableLink>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>093cf72c-f5ee-4495-8f05-790b42767cf9</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>1169aee0-4f50-483c-b9d4-250bdd80b8e3</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>d9405a11-43f0-4c92-8c30-c2d52250f30b</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>50c406d3-af6f-4292-a9c3-9b1f1e594d24</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>3f631e62-dec0-4f39-9a1e-918dbfb866fa</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>c8ea854b-8c32-460c-b401-b93c3ccb47d5</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>fc9670b4-ec2f-4fd1-bd2d-080f8e481ca9</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>28abbb6c-646a-4467-9504-5dd20fbc1415</variableId>
+         <variableId>c5161bef-a512-4ca1-9de4-fa34381adba7</variableId>
       </variableLink>
    </testCaseLink>
    <testCaseLink>
-      <guid>16df28a1-2d5a-4820-ad9e-6e3ab0d83f10</guid>
+      <guid>f6c47f3f-a1bf-4e3f-98cd-e0abd474750e</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Carts/TC_R_059_verifyNewOrderCreatedWhileAddingAAlternateProductFromProductDetailsPageWhenThereIsNoExistingOrderFromHomeCartScreen</testCaseId>
+      <testCaseId>Test Cases/iOS/Receiving/TC_OE_026_verifyThatTheUserIsAbleToSubmitTheIssue</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>a93e96eb-e8c1-4392-a41a-4f57e27eefc3</variableId>
+         <variableId>6f3094bf-d90f-4e81-a65e-394944675d1a</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>86a979a2-3ad5-49c4-9e8e-d7871972c8df</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>af72f5c2-8521-4029-a73e-91fd8bfdb21b</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>c09cbb4c-8e56-4a66-b7ef-5e805276c652</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>2f6a91ea-3724-43e0-9f87-a5f5dc42fccd</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>0c024cf7-7703-4c80-a518-9dec0221a18d</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>92a5d36d-87c4-4300-8827-5d6ca5f6fb63</variableId>
       </variableLink>
    </testCaseLink>
    <testCaseLink>
-      <guid>825130b8-f21f-47f2-be2c-43fec22dfaae</guid>
+      <guid>06ca8b0a-6b4e-4058-9294-46bc0038d2d3</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Carts/TC_R_060_verifyNewOrderIsCreatedWhileAddingAlternateC2ProductFromProductDetailsPageWhenThereIsExistingNonC2OrderFrom HomeCartScreen</testCaseId>
+      <testCaseId>Test Cases/iOS/Receiving/TC_OE_025_verifyThatTheUserIsAbleToSearchTheProductsByScanningTheBarcodeWhichAreAlreadyReceived</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>6b0fbb98-2072-44a3-8d68-268bff3a1512</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>afcf48d5-bc28-49c1-a683-4ce18163987e</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>dbe765e0-91dd-4a27-8dbb-554e6d25d34b</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>a62c2212-8835-4d67-a4b0-b759e0ec5e5f</variableId>
+         <variableId>525b8abf-461b-451e-a43c-266b5a743a21</variableId>
       </variableLink>
    </testCaseLink>
    <testCaseLink>
-      <guid>7cd8940e-619e-471c-9bb1-5a79fae69802</guid>
+      <guid>4e7299df-be95-469b-b458-630867d82447</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Carts/TC_R_061_verifyThatUserIsNotAbleToAddNonC2AlternateProductFromProductDetailsScreenToAlreadyCreatedC2Order</testCaseId>
+      <testCaseId>Test Cases/iOS/Receiving/TC_OE_024_verifyThatTheUserIsAbleToSearchTheProductsAndTotesManuallyWhichAreAlreadyReceived</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>9f2c3daf-30ed-4017-8158-c64a4bc5bcc8</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>7bbab3f4-44b4-4b9f-8aeb-7a20aa6be872</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>1dfc264c-9c27-4439-94e6-29dba87d1667</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>c3d0edd6-ba0c-4609-8732-f8de4a86980c</variableId>
+         <variableId>b4b158c1-1518-4f3a-80cf-1f65d04521d6</variableId>
       </variableLink>
    </testCaseLink>
    <testCaseLink>
-      <guid>fd20f739-ac67-487d-9a6a-b81d30c3c930</guid>
+      <guid>762d5130-ef58-4573-acb3-620a94a1ab7f</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Carts/TC_R_053_verifyThatAfterChangingAccountUserIsAbleToCreateAnNewOrderByScanInDashboardScreenOnCurrentlySelectedAccount</testCaseId>
+      <testCaseId>Test Cases/iOS/Receiving/TC_OE_019_verifyThatTheUserIsAbleToViewTheReceivingDataOfThePreviousDay</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>5295a78f-c42b-4868-a6c0-c68a277c2c14</variableId>
+         <variableId>ab1311fd-8a38-410d-8083-bf4a28e00892</variableId>
       </variableLink>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>acfca5ef-55a0-49f5-91cc-918ddef2009e</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>d39885b5-0e4f-4427-a672-67fd01887fe2</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>ad1d8e9a-cf69-4596-b5cd-37260cdfbd9f</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>1c5c0863-acf4-4fc6-ab62-ea44e939f990</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>96c72e49-4114-4283-9336-25a7ecdf3186</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>b9a8288f-85d8-45f8-98c1-c3eb0a35ae24</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>6ba352c3-ea1a-4f2f-84b9-3a7f532aed60</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>bd80ced9-8bd4-477f-bcf3-350f90e85f83</variableId>
+         <variableId>52ed210b-2227-4369-9eb7-c8df140896f1</variableId>
       </variableLink>
    </testCaseLink>
    <testCaseLink>
-      <guid>66f67d0b-bf6a-4cac-894f-1307695ce7ce</guid>
+      <guid>9ab36b4b-87c8-4ed9-8add-9ee671ea31cb</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Carts/TC_R_049_verifyNewOrderIsGettingCreatedWhileAddingC2ProductByScanFromCartWhenThereIsNoProductsInExistingAvailableOrder</testCaseId>
+      <testCaseId>Test Cases/iOS/Audits/TC_OE_027_VerifyThatTheUserIsAbleToViewTheAuditsPageAndChangeDifferentCIMaccountUsingAccountSelctionIcon</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>1e6bc8d3-f5d9-4362-bce6-1bad2543da02</variableId>
+         <variableId>52080859-3884-4aeb-9f07-f5edb481baf6</variableId>
       </variableLink>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>627d162f-d398-40c9-9d6f-39d2a1952bc4</variableId>
+         <variableId>836c2e97-31c8-4f09-b34d-7f9d732be9c5</variableId>
       </variableLink>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>f6203692-3b8f-4aa3-b876-6037491ce1fe</variableId>
+         <variableId>9b4ffa55-6844-4c74-9028-e0380fa1bb86</variableId>
       </variableLink>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>13429b21-5397-4703-a449-b8228c25ff17</variableId>
+         <variableId>fd058327-640a-4ce0-9af6-4a09c63730fd</variableId>
       </variableLink>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
          <value></value>
-         <variableId>5b82d10c-cb24-4023-93f0-564f0b03d49a</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>8fd7d447-35a8-4576-bf75-7f9daa193860</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>ec1f1dac-50b7-4533-a33a-e382451d00b4</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>aa18390e-ed9b-4107-a65c-7d776f08e3a0</variableId>
-      </variableLink>
-   </testCaseLink>
-   <testCaseLink>
-      <guid>f0ce797f-17a6-4d33-ad86-c78cf1b8bcae</guid>
-      <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Carts/TC_R_035_verifyThatTheUserIsAbleToPlaceAllOrdersAndUploadAllOrders</testCaseId>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>f1cc4607-36e0-4162-bde6-71675ffe6810</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>7a524225-be7a-4997-888c-01306d7e783e</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>453f05a4-04ca-4466-b2c9-cd54b0a4433b</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>50990783-d8a6-4107-928e-ec7101563306</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>74cb2936-4d88-489b-9474-45807acc5a50</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>fafa22fc-840d-45cf-8b80-80b003626db8</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>665f2d57-275a-4773-b66c-aaf051cd3d14</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>46b11b28-933f-4588-91ed-c9798a5a8347</variableId>
-      </variableLink>
-   </testCaseLink>
-   <testCaseLink>
-      <guid>a53f7377-938c-41f7-9b80-403d1237c693</guid>
-      <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Carts/TC_OE_011_verifyThatTheUserIsAbleToCreateOrderByScanTheBarcode</testCaseId>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>9c3f082c-3b61-4282-a800-e3f9a38b6c38</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>12c0c743-a11c-4039-a4bd-f973ec9c8cf5</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>1169aee0-4f50-483c-b9d4-250bdd80b8e3</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>d8e6e65a-ad40-499e-a55f-952b8fd7bc93</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>d9405a11-43f0-4c92-8c30-c2d52250f30b</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>50c406d3-af6f-4292-a9c3-9b1f1e594d24</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>1d0cb805-9afe-4032-934d-41f1521362e4</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>26478d34-27b5-4556-82f3-a8f75df9b073</variableId>
+         <variableId>75f204a2-3abd-46c1-ac8a-60de9da3bc0e</variableId>
       </variableLink>
    </testCaseLink>
 </TestSuiteEntity>
