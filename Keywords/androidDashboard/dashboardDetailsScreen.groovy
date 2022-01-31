@@ -83,10 +83,9 @@ class dashboardDetailsScreen {
 	 */
 	@Keyword
 	def clickOnMoreOptionsTab() {
-
-		Mobile.tap(findTestObject('Android/Dashboard/moreOptions_Tab'), 0)
+		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Android/Dashboard/moreOptions_Tab'), 10)
+		element.click()
 	}
-
 
 
 	/**
@@ -115,10 +114,23 @@ class dashboardDetailsScreen {
 	 */
 	@Keyword
 	def verifyDashboardPage() {
+
 		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Dashboard/home_Tab'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Dashboard/receiving_Tab'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Dashboard/audits'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Dashboard/moreOptions_Tab'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Dashboard/Orders_Tab'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Dashboard/homeHeader_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Dashboard/ChangeAccount_Button'), 0)
 	}
-	
-	
+
+
 	/*	def commonMethodsObject=new commonMethods();
 	 @Keyword
 	 def addingProductFromDashboardToCart(String productName, String quantity) {

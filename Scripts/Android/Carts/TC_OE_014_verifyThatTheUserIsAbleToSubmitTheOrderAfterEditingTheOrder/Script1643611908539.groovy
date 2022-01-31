@@ -40,30 +40,34 @@ CustomKeywords.'androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS'()
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'opens cart page'
+'takes user to the orders tab'
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnOrders'()
 
-'takes user to the new order screen'
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
+'take user to new order screen to enter order details'
 CustomKeywords.'androidOrders.ordersCommonScreen.clickOnNewOrder'()
 
 'take user to new order screen to enter order details'
-CustomKeywords.'androidOrders.newOrderScreen.enterPurchaseOrderDetails'(poName, poMemo)
+CustomKeywords.'androidOrders.newOrderScreen.enterPurchaseOrderDetails'(poName_1, poMemo_1)
 
 'clicks on create order to create an order'
 CustomKeywords.'androidOrders.newOrderScreen.createOrder'()
 
-'verifies order screen details without any added product'
+'clicks on create order to create an order'
 CustomKeywords.'androidOrders.orderDetailsScreen.verifyOrderScreenDetailsWithoutAnyAddedProduct'()
 
-'-----------------upload order------------------'
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'reading the module test data file'
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('ordersData.json')
 
 'reading the product name of product to be added (nonC2 product)'
-String productSearch = requestObject[GlobalVariable.Environment].TC_OE_012.productSearchByUPC
+String productSearch = requestObject[GlobalVariable.Environment].TC_OE_014.productSearchCin
 
-'searches for a product by setting product name and quantity as the input'
+'clicks on scan icon and also verifies that the default scan toggle value is at ordering'
 CustomKeywords.'androidOrders.orderDetailsScreen.addProductToOrder'(productSearch, quantity)
 
 'takes user back to the search product results to continue ordering'
@@ -72,50 +76,15 @@ CustomKeywords.'androidOrders.orderDetailsScreen.clickOnContinueOrdering'()
 'takes the application one screen back'
 Mobile.pressBack()
 
-'uploads the order'
-CustomKeywords.'androidOrders.orderDetailsScreen.uploadOrder'()
-
-'verifies the pop up which appears after user clicks on upload order'
-CustomKeywords.'androidOrders.orderDetailsScreen.verifyUploadOrderPopUp'()
-
-'opens confirmation pop up'
-CustomKeywords.'androidOrders.orderDetailsScreen.continueOnDesktop'()
-
-'takes user back to cart'
-CustomKeywords.'androidOrders.orderDetailsScreen.clickOnBackToCart'()
-
-'takes user to the new order screen'
-CustomKeywords.'androidOrders.ordersCommonScreen.clickOnNewOrder'()
-
-'take user to new order screen to enter order details'
-CustomKeywords.'androidOrders.newOrderScreen.enterPurchaseOrderDetails'(poName1, poMemo1)
-
-'clicks on create order to create an order'
-CustomKeywords.'androidOrders.newOrderScreen.createOrder'()
-
-'-----------------place order------------------'
-
-'searches for a product by setting product name and quantity as the input'
-CustomKeywords.'androidOrders.orderDetailsScreen.addProductToOrder'(productSearch, quantity)
-
-'takes user back to the search product results to continue ordering'
-CustomKeywords.'androidOrders.orderDetailsScreen.clickOnContinueOrdering'()
+'returns the quantity which has been added for the product searched'
+CustomKeywords.'androidOrders.orderDetailsScreen.editPONameAndMemo'(poName_1,poMemo_1,poName_2, poMemo_2)
 
 'takes the application one screen back'
 Mobile.pressBack()
 
-'places the order '
-CustomKeywords.'androidOrders.orderDetailsScreen.clickOnPlaceOrder'()
-
-'verifies place order confirmation pop up'
-CustomKeywords.'androidOrders.orderDetailsScreen.verifyPlaceOrderPopUp'()
-
-'confirms place order by clicking on place my order button'
-CustomKeywords.'androidOrders.orderDetailsScreen.confirmPlaceOrder'()
-
-'takes user back to cart'
-CustomKeywords.'androidOrders.orderDetailsScreen.clickOnBackToCart'()
+'deletes the order and takes order name as the input'
+CustomKeywords.'androidOrders.cartScreen.deleteOrder'(poName_2)
 
 'verifies that the order should not be visible on the screen and takes purchase order name as the argument'
-CustomKeywords.'androidOrders.cartScreen.verifyOrderNotVisibleOnTheCartScreen'(poName1)
+CustomKeywords.'androidOrders.cartScreen.verifyOrderNotVisibleOnTheCartScreen'(poName_2)
 

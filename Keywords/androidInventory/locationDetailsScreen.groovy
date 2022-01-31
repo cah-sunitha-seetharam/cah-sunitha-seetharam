@@ -47,30 +47,29 @@ class locationDetailsScreen {
 
 
 	@Keyword
-	def edit_LocationName(String New_Location_Name, String CostType,String Previous_Name) {
+	def editLocationName(String newLocationName, String costType, String previousName) {
 
-		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Edit_Location/Edit_TextView'), 0)
+		commonMethodsObject.waitForProgressBarToBeInvisible()
+
+		Mobile.tapAndHold(findTestObject('Android/Inventory/Location Details Screen/Edit_Location/Edit_TextView'), 0,0)
 
 		Mobile.verifyElementExist(findTestObject('Android/Inventory/Location Details Screen/Edit_Location/editLocation_TextView'), 0)
 
-		Mobile.clearText(findTestObject('Android/Inventory/Location Details Screen/Edit_Location/locationToBeEdited_TextField', [('LName') : Previous_Name]), 0)
+		Mobile.clearText(findTestObject('Android/Inventory/Location Details Screen/Edit_Location/locationToBeEdited_TextField', [('LName') : previousName]), 0)
 
 		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/locationName_TextField'), 0)
 
-		Mobile.setText(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/locationName_TextField'), New_Location_Name,  0)
+		Mobile.setText(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/locationName_TextField'), newLocationName,  0)
 
-		if (CostType == 'Last Cost Paid') {
+		if (costType == 'Last Cost Paid') {
 			Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/lastCostPaid_RadioButton'), 0)
 		} else {
 			Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/currentPrice_RadioButton'), 0)
 		}
 
 		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Edit_Location/saveChanges_Button'), 0)
-		int w = 1
 
-		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 	}
 
 
@@ -79,20 +78,23 @@ class locationDetailsScreen {
 
 
 	@Keyword
-	def add_Product_To_Location(String Location_Name, String Product_Name) {
-		int w = 1
+	def addProductToLocation(String locationName, String productName,String quantity) {
 
-		Mobile.tap(findTestObject('Android/Product Search/Search Products_SearchView'), 0)
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		WebUI.delay(2)
+		Mobile.tap(findTestObject('Android/Product Search/Search Products_SearchView'), 0,FailureHandling.OPTIONAL)
 
-		Mobile.setText(findTestObject('Android/Product Search/Search Products_SearchView'), Product_Name + '\\n',
-				0)
-		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
+		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Add Product to_Location/addProductToLocation_Button', [('Location') : Location_Name]),0)
+		Mobile.setText(findTestObject('Android/Product Search/Search Products_SearchView'), productName + '\\n',0)
+
+		commonMethodsObject.waitForProgressBarToBeInvisible()
+
+		addQuantityforTheSearchedProduct(quantity)
+
+		commonMethodsObject.waitForProgressBarToBeInvisible()
+
+		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Add Product to_Location/addProductToLocation_Button', [('Location') : locationName]),0)
 
 		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Add Product to_Location/continueBrowsingAfterAddingProduct_Button'), 0)
 	}
@@ -170,6 +172,8 @@ class locationDetailsScreen {
 		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Upload Location/gotIt_Button'), 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
+
+		Mobile.verifyElementAttributeValue(findTestObject('Android/Inventory/Location Details Screen/Upload Location/enabledUpload_Button'), 'enabled','false',0)
 	}
 
 

@@ -57,7 +57,7 @@ CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('ordersData.json')
 
 'reading the product name of product to be added (nonC2 product)'
-String productSearch = requestObject[GlobalVariable.Environment].TC_R_005.productSearchByName
+String productSearch = requestObject[GlobalVariable.Environment].TC_OE_015.productSearchByName
 
 'clicks on scan icon and also verifies that the default scan toggle value is at ordering'
 CustomKeywords.'iosOrders.orderDetailsScreen.addProductToOrder'(productSearch, quantity)

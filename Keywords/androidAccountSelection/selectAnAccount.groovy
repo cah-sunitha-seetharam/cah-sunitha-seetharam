@@ -49,7 +49,7 @@ class selectAnAccount {
 	@Keyword
 	def selectTheUserAccount(String accountNo) {
 
-		if (Mobile.waitForElementPresent(findTestObject('Android/Account Selection/youMustSelectAnAccountToContinue_TextView'), 10, FailureHandling.OPTIONAL)) {
+		if (Mobile.waitForElementPresent(findTestObject('Android/Account Selection/youMustSelectAnAccountToContinue_TextView'), 0, FailureHandling.OPTIONAL)) {
 			Mobile.scrollToText(accountNo, FailureHandling.STOP_ON_FAILURE)
 
 			Mobile.tap(findTestObject('Android/Account Selection/AccountNo_TextView',[('val') : accountNo]), 0)

@@ -713,20 +713,23 @@ class orderDetailsScreen {
 		Mobile.tap(findTestObject('Object Repository/Android/Orders/Alternates Screen/goToOrder_TextView') ,0)
 	}
 
+	
+	
+	
 	@Keyword
-	def edit_PO_Name_and_Memo(String PO_Name,String PO_Memo, String New_po_Name, String New_po_Memo ) {
+	def editPONameAndMemo(String poName,String poMemo, String newPoName, String newPoMemo ) {
 
 		Mobile.scrollToText('Edit')
 
 		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Edit PO Name and Memo/Edit P.O. Name and memo_TextView'), 0)
 
-		Mobile.clearText(findTestObject('Android/Orders/Order Details Screen/Edit PO Name and Memo/po name_to_be_edited_TextField', [('po_name') : PO_Name]), 0)
+		Mobile.clearText(findTestObject('Android/Orders/Order Details Screen/Edit PO Name and Memo/po name_to_be_edited_TextField', [('po_name') : poName]), 0)
 
-		Mobile.setText(findTestObject('Android/Orders/New Order Screen/P.O. Name (Optional)_TextField'), New_po_Name, 0)
+		Mobile.setText(findTestObject('Android/Orders/New Order Screen/P.O. Name (Optional)_TextField'), newPoName, 0)
 
-		Mobile.clearText(findTestObject('Android/Orders/Order Details Screen/Edit PO Name and Memo/po memo_to_be_edited_TextField', [('po_memo') : PO_Memo]), 0)
+		Mobile.clearText(findTestObject('Android/Orders/Order Details Screen/Edit PO Name and Memo/po memo_to_be_edited_TextField', [('po_memo') : poMemo]), 0)
 
-		Mobile.setText(findTestObject('Android/Orders/New Order Screen/P.O. Memo (Optional)_TextField'), New_po_Memo,	0)
+		Mobile.setText(findTestObject('Android/Orders/New Order Screen/P.O. Memo (Optional)_TextField'), newPoMemo,	0)
 
 		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Edit PO Name and Memo/Update Order_Button'), 0)
 	}
@@ -916,6 +919,7 @@ class orderDetailsScreen {
 		String NDCLabel = Mobile.getText(findTestObject('Android/Orders/Verification Details/ndcTextView'), 0)
 		return NDCLabel
 	}
+
 
 	/**
 	 * verifies order details screen when user in offline mode
