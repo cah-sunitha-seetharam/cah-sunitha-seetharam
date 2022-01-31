@@ -3,7 +3,7 @@
    <description></description>
    <name>youMustSelectAnAccountToContinue_Text</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>6d78ced0-b9d0-4dc5-b633-4d2639a0aae1</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -83,6 +83,6 @@
       <type>Main</type>
       <value>//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther[4]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeStaticText[1]</value>
    </webElementProperties>
-   <locator>//*[@type = 'XCUIElementTypeStaticText' and @label = 'You must select an account to continue.' and @name = 'accountLabelMessage']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>accountLabelMessage</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

@@ -95,6 +95,7 @@ class  commonMethods {
 	def openTestFlightApp(String bundleID) {
 		Mobile.startExistingApplication(bundleID)
 		Mobile.tap(findTestObject('iOS/TestFlight/install_Button'), 0)
+		Mobile.delay(2)
 		Mobile.waitForElementPresent(findTestObject('iOS/TestFlight/open_Button'), 0)
 		Mobile.tap(findTestObject('iOS/TestFlight/open_Button'), 0)
 	}
@@ -452,5 +453,34 @@ class  commonMethods {
 
 		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Text'), 0)
 
+	}
+
+
+
+	/**
+	 * removes characters in string
+	 * @param stringCharcterToBeRemoved (Removes characters in a string)
+	 * @return modifiedString
+	 */
+	@Keyword
+	def removeCharactersInString(String stringCharcterToBeRemoved) {
+		String modifiedString=stringCharcterToBeRemoved.replaceAll("[^0-9.]", "")
+		return modifiedString
+	}
+
+
+
+	/**
+	 * takes product to be searched as the argument and searches the same
+	 * @param productToBeSearched (product to be searched)
+	 */
+	@Keyword
+	def searchProduct(productToBeSearched) {
+
+		clickOnProductSearchTextField()
+
+		enterProductInSearchField(productToBeSearched)
+
+		clickOnSearchKey()
 	}
 }

@@ -1,7 +1,19 @@
 {
-    "PMODStgMock": {  
+    "PMODStgMock": {
 
         "TC_R_001": {
+            "productSearchByNDC": "50580-0496-60"
+        },
+        
+        "TC_OE_024": {
+            "productSearchByNDC": "50580-0496-60"
+        },
+        
+        "TC_OE_025": {
+            "productSearchByNDC": "50580-0496-60"
+        },
+        
+        "TC_OE_038": {
             "productSearchByNDC": "50580-0496-60"
         }
  }

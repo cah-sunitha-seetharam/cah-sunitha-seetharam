@@ -58,6 +58,38 @@ class moreOptionsScreen {
 	}
 
 	/**
+	 * opens the message center
+	 */
+	@Keyword
+	def tapMessageCentre() {
+		Mobile.tapAndHold(findTestObject('Object Repository/Android/More Options Screen/Message Centre/messageCentre_Text'), 0, 0)
+	}
+
+	/**
+	 * verifies message
+	 */
+	@Keyword
+	def verifyMessageCentre () {
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/More Options Screen/Message Centre/topMostMessageTitle_Text'), 0)
+	}
+	
+	/**
+	 * verifies message description
+	 */
+	@Keyword
+	def verifyMessageDescription () {
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/More Options Screen/Message Centre/descriptionOfMessage_Text'), 0)
+	}
+	
+	/**
+	 * opens top most message
+	 */
+	@Keyword
+	def tapOnTopMostMessage () {
+		Mobile.tapAndHold(findTestObject('Object Repository/Android/More Options Screen/Message Centre/topMostMessageTitle_Text'), 0, 0)
+	}
+	
+	/**
 	 * enables beta csos feature
 	 */
 	@Keyword()

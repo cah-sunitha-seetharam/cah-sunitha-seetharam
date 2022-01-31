@@ -112,7 +112,7 @@ class historyScreen {
 	@Keyword
 	def clickOnHistoryTab() {
 
-		Mobile.tap(findTestObject('iOS/Orders/History Screen/historyTab_Button'), 0)
+		Mobile.tap(findTestObject('iOS/Orders/History Screen/history_Text'), 0)
 
 		commonIosMethodsObject.waitForProgressBarToBeInvisible()
 
@@ -122,19 +122,11 @@ class historyScreen {
 	}
 
 	/**
-	 * clicks on history tab button to open history tab in order history screen
-	 */
-	@Keyword
-	def clickOnHistoryTabWithoutVerify() {
-		Mobile.tap(findTestObject('iOS/Orders/History Screen/history_Text'), 0)
-	}
-
-	/**
 	 * returns po number of an top most order 
 	 */
 	@Keyword
 	def returnTopMostPoNumberOfAnOrder () {
-		String PoNumberOfAnOrder = Mobile.getText(findTestObject('iOS/Orders/History Screen/PONumberLabel_Text'), 0)
+		String PoNumberOfAnOrder = Mobile.getText(findTestObject('Object Repository/iOS/Orders/History Screen/poNumber_Text'), 0)
 		return PoNumberOfAnOrder
 	}
 
@@ -143,7 +135,7 @@ class historyScreen {
 	 */
 	@Keyword
 	def tapOnTopMostOrderHistory(String poNumber) {
-		Mobile.tap(findTestObject('iOS/Orders/History Screen/PONumberLabel_Text'), 0)
+		Mobile.tap(findTestObject('iOS/Orders/History Screen/PONumberLabel_Text', [('TEXT'):poNumber]), 0)
 	}
 
 	/**

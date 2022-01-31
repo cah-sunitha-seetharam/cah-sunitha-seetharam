@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the user is Able to Edit the Count Value of the Products in the Tote. 
+Prerequisite: Valid login credentials with multiple accounts available for the user.   </description>
+   <name>TC_OE_023_verifyThatTheUserIsAbleToEditTheCountValueOfTheProductsInTheTote</name>
+   <tag>Receiving;Sanity</tag>
+   <comment></comment>
+   <testCaseGuid>b56d9f1e-25ad-42c5-b70f-d158fa51c368</testCaseGuid>
+   <variable>
+      <defaultValue>'12152609'</defaultValue>
+      <description></description>
+      <id>2f803a15-1a3a-4bbb-aac8-2baeef241e99</id>
+      <masked>false</masked>
+      <name>shipmentNumber</name>
+   </variable>
+   <variable>
+      <defaultValue>'1952733'</defaultValue>
+      <description></description>
+      <id>bbd78dc1-73ce-42e1-9242-9cdc9a8f895c</id>
+      <masked>false</masked>
+      <name>invoiceNumber</name>
+   </variable>
+</TestCaseEntity>

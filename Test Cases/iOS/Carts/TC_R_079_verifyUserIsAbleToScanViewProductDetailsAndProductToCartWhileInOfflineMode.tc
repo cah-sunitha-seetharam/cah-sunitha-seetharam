@@ -6,7 +6,7 @@ Prerequisite:
 1. User should be Online
 2. User should have an order in Order History with multiple products in it and user  should have visited the order once while in Online.</description>
    <name>TC_R_079_verifyUserIsAbleToScanViewProductDetailsAndProductToCartWhileInOfflineMode</name>
-   <tag>Order;Regression;Scan</tag>
+   <tag>Order;Regression;Scan;Offline</tag>
    <comment></comment>
    <testCaseGuid>dbe4907d-8d5c-467f-85c6-b6638e9fb298</testCaseGuid>
    <variable>
@@ -17,11 +17,11 @@ Prerequisite:
       <name>bundleID</name>
    </variable>
    <variable>
-      <defaultValue>'yes'</defaultValue>
+      <defaultValue>'true'</defaultValue>
       <description>passing airplane mode toggle value as a string</description>
       <id>18c37ff1-8100-44c2-987f-3253f3d28367</id>
       <masked>false</masked>
-      <name>off</name>
+      <name>Yes</name>
    </variable>
    <variable>
       <defaultValue>'Ordering'</defaultValue>
@@ -45,11 +45,11 @@ Prerequisite:
       <name>quantity</name>
    </variable>
    <variable>
-      <defaultValue>'no'</defaultValue>
+      <defaultValue>'false'</defaultValue>
       <description>passing airplane mode toggle value as a string</description>
       <id>bb1e1277-47d7-4d75-b168-76379abe233c</id>
       <masked>false</masked>
-      <name>on</name>
+      <name>No</name>
    </variable>
    <variable>
       <defaultValue>'5'</defaultValue>

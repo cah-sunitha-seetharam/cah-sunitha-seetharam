@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the User is able to get the details of Received product by Scanning it's Barcode in Receiving Page.                                                                                                                                                                                                         Prerequisite: 1. Valid login credentials  2.Multiple Accounts Available, Valid Barcode of a Product.                                                                   </description>
+   <name>TC_R_001_verifyThatTheUserIsAbleToGetTheDetailsOfReceivedProductByScanningitsBarcodeInReceivingPage</name>
+   <tag>Receiving;Regression;Scan</tag>
+   <comment></comment>
+   <testCaseGuid>cc91c81d-bd49-4e8c-88c3-7d92ebcb441b</testCaseGuid>
+</TestCaseEntity>

@@ -285,7 +285,7 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyNoNewOrdersToReceive() {
 
-		Mobile.getText(findTestObject('Android/Receiving/noNewOrdersToReceive_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/noNewOrdersToReceive_TextView'), 0)
 	}
 
 
@@ -574,5 +574,247 @@ class receivingReusableMethods {
 	def verifyReceivedTag() {
 
 		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/recivedTag_TextView'), 0)
+	}
+
+
+
+	/**
+	 * takes toteID to be searched as the argument and searches the same
+	 */
+	@Keyword
+	def searchTote(toteID) {
+
+		Mobile.tap(findTestObject('Object Repository/Android/Receiving/searchReceiving_TextField'), 0,FailureHandling.OPTIONAL)
+
+		Mobile.setText(findTestObject('Object Repository/Android/Receiving/searchReceiving_TextField'), toteID + '\\n', 0)
+	}
+
+
+
+	/**
+	 * this function verifies that the product is visible on the order details screen
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */
+	@Keyword
+	def verifyProductIsVisibleOnTheReceivingScreen(productNdcNumber) {
+
+		String testObj='Object Repository/Android/Orders/Verification Details/ordersNDCLabel_TextView'
+
+		androidCommonKeywordsObject.verifyProductIsVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
+
+	}
+
+
+
+	/**
+	 * verifies details of the product associated with the account
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 */
+	@Keyword
+	def verifyProductSearchDetals(productNdcNumber) {
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/toteID_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/shipmentNumber_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/invoiceShipmentNumber_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/ndc_TextView',[('TEXT'):productNdcNumber]), 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/receivedTag_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/issue_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/editableQuantity_TextBox'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/receiving_Header'), 0)
+
+	}
+
+
+
+	/**
+	 * verifies pop up to allow over-age
+	 */
+	@Keyword
+	def verifyOveragePopUp() {
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/allowOveragesPopUp_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Receiving/youAreAboutToInputAnOverageWouldYouLikeToContinue_Text'),0)
+
+		Mobile.tap(findTestObject('Android/Receiving/allowOveragesPopUp_Button'), 0)
+
+	}
+
+
+
+	/**
+	 * clicks on issue
+	 */
+	@Keyword
+	def clickOnIssue() {
+
+		Mobile.tap(findTestObject('Android/Receiving/issueSubmission/issue_Text'), 0)
+	}
+
+
+
+	/**
+	 * verifies details related to submission of issue and takes shipment number, tote id as the arguments
+	 * @param shipmentNumber
+	 * @param toteID
+	 */
+	@Keyword
+	def verifySubmissionDetails(toteID) {
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/serviceRequest_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/toteIssue_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/toteDate_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/toteID_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/parametrizedToteID_TextView',[('TEXT'):toteID]), 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/account_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/account_Label'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/reasonForIssue_TextView'), 0)
+	}
+
+
+
+	/**
+	 * verify shipment number visible while submission of issue
+	 */
+	@Keyword
+	def verifyShipmentNumberInIssue(shipmentNumber) {
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/shipmentNumber_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/parametrizedShipmentNumber_TextView',[('TEXT'):shipmentNumber]), 0)
+	}
+
+
+
+
+	/**
+	 * verify invoice number visible while submission of issue
+	 */
+	@Keyword
+	def verifyInvoiceNumberInIssue(invoiceNumber) {
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/invoiceNumber_TextView'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/parametrizedInvoiceNumber_TextView',[('TEXT'):invoiceNumber]), 0)
+	}
+
+
+
+	/**
+	 * select reason of issue
+	 * @param reasonForIssue
+	 */
+	@Keyword
+	def selectReasonForIssue(String reasonForIssue) {
+
+		if (reasonForIssue.equalsIgnoreCase('missing Tote'))
+		{
+			Mobile.tap(findTestObject('Android/Receiving/issueSubmission/missingTote_RadioButton'), 0)
+
+			Mobile.verifyElementAttributeValue(findTestObject('Android/Receiving/issueSubmission/missingTote_RadioButton'), 'checked', 'true', 0)
+
+		}
+
+		else
+		{
+			Mobile.tap(findTestObject('Android/Receiving/issueSubmission/wrongTote_RadioButton'), 0)
+
+			Mobile.verifyElementAttributeValue(findTestObject('Android/Receiving/issueSubmission/wrongTote_RadioButton'), 'checked', 'true', 0)
+
+		}
+	}
+
+
+
+	/**
+	 * enters detail for contact
+	 * @param name
+	 * @param phoneNumber
+	 * @param emailID
+	 * @param comment
+	 */
+	@Keyword
+	def enterDetailsForContact(String name, String phoneNumber, String comment) {
+
+		Mobile.scrollToText("Enter Comments")
+		androidCommonKeywordsObject.waitForProgressBarToBeInvisible()
+		Mobile.setText(findTestObject('Android/Receiving/issueSubmission/name_TextField'), name, 0)
+
+		Mobile.setText(findTestObject('Android/Receiving/issueSubmission/phoneNumber_TextField'), phoneNumber, 0)
+
+		String expectedID=Mobile.getText(findTestObject('Android/Receiving/issueSubmission/email_TextField'), 0)
+		expectedID.contains("@cardinalhealth.com")
+		Mobile.setText(findTestObject('Android/Receiving/issueSubmission/email_TextField'),expectedID, 0)
+
+		Mobile.setText(findTestObject('Android/Receiving/issueSubmission/enterComments_TextField'), comment, 0)
+
+	}
+
+
+
+	/**
+	 * clicks on submit issue
+	 */
+	@Keyword
+	def clickOnSubmitIssue() {
+
+		androidCommonKeywordsObject.waitForProgressBarToBeInvisible()
+
+		Mobile.tap(findTestObject('Android/Receiving/issueSubmission/submitIssue_Button'), 0)
+	}
+
+
+	/**
+	 * verify submission of issue pop-up
+	 */
+	@Keyword
+	def verifySubmissionOfIssue() {
+
+		androidCommonKeywordsObject.waitForProgressBarToBeInvisible()
+
+		if (Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/serviceRequestNotSent_TextView'), 5,FailureHandling.OPTIONAL))
+		{
+			Mobile.tap(findTestObject('Android/Receiving/issueSubmission/serviceRequestNotSent_TextView'), 0)
+
+			Mobile.tap(findTestObject('Android/Receiving/issueSubmission/yourServiceRequestWasNotAbleToBeSentPleaseTryAgain_TextView'), 0)
+
+			Mobile.tap(findTestObject('Android/Receiving/issueSubmission/okay_Button'), 0)
+
+			Mobile.pressBack()
+		}
+
+		else
+		{
+			Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/serviceRequestSubmitted_TextView'), 0)
+
+			Mobile.verifyElementExist(findTestObject('Android/Receiving/issueSubmission/aCardinalHealthRepresentativeWillContactYouWithin24HoursToAssistYouWithYourRequest_TextView'),0)
+		}
+
+	}
+
+	/**
+	 * clicks on got it issue
+	 */
+	@Keyword
+	def clickOnGotItbutton() {
+
+		androidCommonKeywordsObject.waitForProgressBarToBeInvisible()
+
+		Mobile.tap(findTestObject('Android/Receiving/issueSubmission/gotIt_Button'), 0)
 	}
 }
