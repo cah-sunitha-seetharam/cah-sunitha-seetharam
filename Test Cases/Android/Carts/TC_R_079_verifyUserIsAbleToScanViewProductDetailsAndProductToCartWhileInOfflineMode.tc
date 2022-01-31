@@ -10,20 +10,6 @@ Prerequisite:
    <comment></comment>
    <testCaseGuid>a157bf9f-75e4-4be7-bc80-c1f635f9d96e</testCaseGuid>
    <variable>
-      <defaultValue>'com.apple.TestFlight'</defaultValue>
-      <description>bundleID of a testflight app</description>
-      <id>d82df611-bd2a-495b-ad96-01b6b2395dc0</id>
-      <masked>false</masked>
-      <name>bundleID</name>
-   </variable>
-   <variable>
-      <defaultValue>'on'</defaultValue>
-      <description>passing airplane mode toggle value as a string</description>
-      <id>4f21a7fe-9e40-458e-9af7-4a56b233824b</id>
-      <masked>false</masked>
-      <name>yes</name>
-   </variable>
-   <variable>
       <defaultValue>'Ordering'</defaultValue>
       <description>toggle value for the product to be added which can be ordering or price check</description>
       <id>0c5f38a7-ff2e-4f8d-876c-a45326dd8a18</id>
@@ -45,14 +31,7 @@ Prerequisite:
       <name>quantity</name>
    </variable>
    <variable>
-      <defaultValue>'false'</defaultValue>
-      <description>passing airplane mode toggle value as a string</description>
-      <id>245d6af0-3af6-47fd-806e-1fc57ac377cc</id>
-      <masked>false</masked>
-      <name>no</name>
-   </variable>
-   <variable>
-      <defaultValue>'5'</defaultValue>
+      <defaultValue>'1'</defaultValue>
       <description>expected quantity added</description>
       <id>d9b17c62-8448-4e67-82c4-5d1bc9fc1c13</id>
       <masked>false</masked>

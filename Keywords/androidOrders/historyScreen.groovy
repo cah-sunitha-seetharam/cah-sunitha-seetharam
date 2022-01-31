@@ -109,7 +109,7 @@ class historyScreen {
 
 		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 	}
-	
+
 	/**
 	 * clicks on history tab button to open history tab in order history screen
 	 */
@@ -120,8 +120,8 @@ class historyScreen {
 
 		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 	}
-	
-	
+
+
 	/**
 	 * verifies order status changes from held to allocated 30 seconds after successfully placing the signed order
 	 */
@@ -138,17 +138,44 @@ class historyScreen {
 
 		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Create C2 Order/pONumber_Label',[('TEXT'):poNumber.toUpperCase()]), 0)
 	}
-	
+
 	/**
 	 * get order count from order history badge count
 	 */
 	@Keyword
 	def getOrderBadgeCount() {
-		
-				int orderCount = Mobile.getText(findTestObject('android/Orders/History Screen/orderHistoryCount_Text'), 0).toInteger()
-				
-				KeywordUtil.logInfo("Count is " + orderCount );
-		
-				return orderCount
-			}
+
+		int orderCount = Mobile.getText(findTestObject('android/Orders/History Screen/orderHistoryCount_Text'), 0).toInteger()
+
+		KeywordUtil.logInfo("Count is " + orderCount );
+
+		return orderCount
+	}
+	
+	/**
+	 * returns po number of an top most order
+	 */
+	@Keyword
+	def returnTopMostPoNumberOfAnOrder () {
+		String PoNumberOfAnOrder = Mobile.getText(findTestObject('Android/Orders/History Screen/pONumber_Label'), 0)
+		return PoNumberOfAnOrder
+	}
+	
+	/**
+	 * opens top most order in order history
+	 */
+	@Keyword
+	def tapOnTopMostOrderHistory(String poNumber) {
+		KeywordUtil.logInfo("PO number is " + poNumber );
+		Mobile.tap(findTestObject('Android/Orders/History Screen/poNumber_PassText',[('TEXT'):poNumber]), 0)
+	}
+	
+	/**
+	 * returns quantity added
+	 */
+	@Keyword
+	def returnQuantityForScannedResultInOfflineMode() {
+		String quantityAdded = Mobile.getText(findTestObject('Android/Orders/History Screen/quantity_Text'), 0)
+		return quantityAdded
+	}
 }
