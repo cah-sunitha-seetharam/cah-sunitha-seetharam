@@ -2765,7 +2765,10 @@ def static "iosAccountSelection.selectAnAccount.selectTheUserAccount"(
         	accountNo)
 }
 
-
+ /**
+	 * opens the c2 order details, verifies the order status labels and signIns the password required for placing c2 order
+	 * @param password (password-which is required for placing the c2 order)
+	 */ 
 def static "androidOrders.historyScreen.clickOnC2OrderForReviewAndSign"(
     	String signingPassword	) {
     (new androidOrders.historyScreen()).clickOnC2OrderForReviewAndSign(
@@ -2777,7 +2780,10 @@ def static "androidOrders.historyScreen.verify_History_Screen_Details"() {
     (new androidOrders.historyScreen()).verify_History_Screen_Details()
 }
 
-
+ /**
+	 * opens the c2 order details, verifies the order status labels and signIns the password required for placing c2 order
+	 * @param password (password-which is required for placing the c2 order)
+	 */ 
 def static "androidOrders.historyScreen.completeReviewSignAndPlaceAnOrderFlow"(
     	String poNumber	
      , 	String signingPassword	) {
@@ -2786,41 +2792,55 @@ def static "androidOrders.historyScreen.completeReviewSignAndPlaceAnOrderFlow"(
          , 	signingPassword)
 }
 
-
+ /**
+	 * clicks on history tab button to open history tab in order history screen
+	 */ 
 def static "androidOrders.historyScreen.clickOnHistoryTab"() {
     (new androidOrders.historyScreen()).clickOnHistoryTab()
 }
 
-
+ /**
+	 * verifies order status changes from held to allocated 30 seconds after successfully placing the signed order
+	 */ 
 def static "androidOrders.historyScreen.verifyOrderStatusInOrderHistoryList"(
     	String poNumber	) {
     (new androidOrders.historyScreen()).verifyOrderStatusInOrderHistoryList(
         	poNumber)
 }
 
-
+ /**
+	 * get order count from order history badge count
+	 */ 
 def static "androidOrders.historyScreen.getOrderBadgeCount"() {
     (new androidOrders.historyScreen()).getOrderBadgeCount()
 }
 
-
+ /**
+	 * returns po number of an top most order
+	 */ 
 def static "androidOrders.historyScreen.returnTopMostPoNumberOfAnOrder"() {
     (new androidOrders.historyScreen()).returnTopMostPoNumberOfAnOrder()
 }
 
-
+ /**
+	 * opens top most order in order history
+	 */ 
 def static "androidOrders.historyScreen.tapOnTopMostOrderHistory"(
     	String poNumber	) {
     (new androidOrders.historyScreen()).tapOnTopMostOrderHistory(
         	poNumber)
 }
 
-
+ /**
+	 * returns quantity added
+	 */ 
 def static "androidOrders.historyScreen.returnQuantityForScannedResultInOfflineMode"() {
     (new androidOrders.historyScreen()).returnQuantityForScannedResultInOfflineMode()
 }
 
-
+ /**
+	 * verifies PO Number in order history screen
+	 */ 
 def static "androidOrders.historyScreen.verifyPoNumberInOrderHistoryList"(
     	String poNumber	) {
     (new androidOrders.historyScreen()).verifyPoNumberInOrderHistoryList(
@@ -4053,6 +4073,15 @@ def static "iosOrders.historyScreen.verifyOrderStatusInOrderHistoryList"(
 }
 
  /**
+	 * verifies PO Number in order history screen
+	 */ 
+def static "iosOrders.historyScreen.verifyPoNumberInOrderHistoryList"(
+    	String poNumber	) {
+    (new iosOrders.historyScreen()).verifyPoNumberInOrderHistoryList(
+        	poNumber)
+}
+
+ /**
 	 * takes user to the new order screen
 	 */ 
 def static "androidOrders.ordersCommonScreen.clickOnNewOrder"() {
@@ -4806,37 +4835,53 @@ def static "api.apiCommonMethods.tokenGenerator"() {
     (new api.apiCommonMethods()).tokenGenerator()
 }
 
-
+ /**
+	 * verifies bcs notification on the cart screen
+	 */ 
 def static "iosOrders.bcsOrders.verifyBcsNotification"() {
     (new iosOrders.bcsOrders()).verifyBcsNotification()
 }
 
-
+ /**
+	 * opens the saved orders by tapping on the bcs notification
+	 */ 
 def static "iosOrders.bcsOrders.openSavedOrdersList"() {
     (new iosOrders.bcsOrders()).openSavedOrdersList()
 }
 
-
+ /**
+	 * verifies details related to saved orders listing screen
+	 */ 
 def static "iosOrders.bcsOrders.verifySavedOrdersListDetails"() {
     (new iosOrders.bcsOrders()).verifySavedOrdersListDetails()
 }
 
-
+ /**
+	 * verifies details related to saved orders listing screen
+	 */ 
 def static "iosOrders.bcsOrders.lookforC2Orders"() {
     (new iosOrders.bcsOrders()).lookforC2Orders()
 }
 
-
+ /**
+	 * verifies details related to c2 orders tile under orders listing screen
+	 */ 
 def static "iosOrders.bcsOrders.verifyC2RelatedDetailsForBCS"() {
     (new iosOrders.bcsOrders()).verifyC2RelatedDetailsForBCS()
 }
 
-
+ /**
+	 * copies a non c2 order from saved orders to the cart screen and verifies details related to copy button
+	 */ 
 def static "iosOrders.bcsOrders.copyNonC2ProductFromSavedOrders"() {
     (new iosOrders.bcsOrders()).copyNonC2ProductFromSavedOrders()
 }
 
-
+ /**
+	 * copies topmost non c2 order to cart screen
+	 * verifies details related to order name, account name, lines count 
+	 * of the order which is at the top of the order list under saved orders
+	 */ 
 def static "iosOrders.bcsOrders.copyAndVerifyTopMostOrderDetailsUnderSavedOrdersToCartScreen"() {
     (new iosOrders.bcsOrders()).copyAndVerifyTopMostOrderDetailsUnderSavedOrdersToCartScreen()
 }

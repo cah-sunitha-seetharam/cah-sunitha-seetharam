@@ -160,4 +160,17 @@ class historyScreen {
 
 		assert orderStatusInOrderDetailsScreen.contains("Allocated")
 	}
+	
+	
+	/**
+	 * verifies PO Number in order history screen
+	 */
+	@Keyword
+	def verifyPoNumberInOrderHistoryList(String poNumber) {
+
+		String PoNumberOfAnOrder = Mobile.getText(findTestObject('iOS/Orders/History Screen/poNumber_Text'), 0)
+		KeywordUtil.logInfo("Actual PO number is " + poNumber );
+		KeywordUtil.logInfo("Expected PO number is " + PoNumberOfAnOrder );
+		assert PoNumberOfAnOrder == ("PO #: "+poNumber)
+	}
 }
