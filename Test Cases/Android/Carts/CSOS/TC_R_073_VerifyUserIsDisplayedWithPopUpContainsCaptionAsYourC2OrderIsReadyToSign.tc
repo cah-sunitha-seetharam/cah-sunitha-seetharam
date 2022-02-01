@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify User is displayed with Pop up contains caption as &quot;Your C2 order is ready to sign&quot; once the order status api is success and the order gets added in to Order history.
+
+Prerequisite :
+1. Valid credentials.
+2. DEA license should be available.</description>
+   <name>TC_R_073_VerifyUserIsDisplayedWithPopUpContainsCaptionAsYourC2OrderIsReadyToSign</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>bc6107ae-0df1-4385-9693-c694607e19d9</testCaseGuid>
+   <variable>
+      <defaultValue>'2'</defaultValue>
+      <description></description>
+      <id>005cfa5b-b773-41e2-940c-ebc91f800a7d</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+</TestCaseEntity>
