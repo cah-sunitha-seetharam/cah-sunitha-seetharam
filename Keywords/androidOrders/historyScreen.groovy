@@ -178,4 +178,16 @@ class historyScreen {
 		String quantityAdded = Mobile.getText(findTestObject('Android/Orders/History Screen/quantity_Text'), 0)
 		return quantityAdded
 	}
+	
+	/**
+	 * verifies PO Number in order history screen
+	 */
+	@Keyword
+	def verifyPoNumberInOrderHistoryList(String poNumber) {
+
+		String PoNumberOfAnOrder = Mobile.getText(findTestObject('Android/Orders/History Screen/pONumber_Label'), 0)
+		KeywordUtil.logInfo("Actual PO number is " + poNumber );	
+		KeywordUtil.logInfo("Expected PO number is " + PoNumberOfAnOrder );
+		assert PoNumberOfAnOrder == ("PO #: "+poNumber)
+	}
 }
