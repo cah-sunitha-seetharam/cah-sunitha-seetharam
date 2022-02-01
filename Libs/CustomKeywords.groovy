@@ -4818,6 +4818,41 @@ def static "api.apiCommonMethods.tokenGenerator"() {
 }
 
 
+def static "iosOrders.bcsOrders.verifyBcsNotification"() {
+    (new iosOrders.bcsOrders()).verifyBcsNotification()
+}
+
+
+def static "iosOrders.bcsOrders.openSavedOrdersList"() {
+    (new iosOrders.bcsOrders()).openSavedOrdersList()
+}
+
+
+def static "iosOrders.bcsOrders.verifySavedOrdersListDetails"() {
+    (new iosOrders.bcsOrders()).verifySavedOrdersListDetails()
+}
+
+
+def static "iosOrders.bcsOrders.lookforC2Orders"() {
+    (new iosOrders.bcsOrders()).lookforC2Orders()
+}
+
+
+def static "iosOrders.bcsOrders.verifyC2RelatedDetailsForBCS"() {
+    (new iosOrders.bcsOrders()).verifyC2RelatedDetailsForBCS()
+}
+
+
+def static "iosOrders.bcsOrders.copyNonC2ProductFromSavedOrders"() {
+    (new iosOrders.bcsOrders()).copyNonC2ProductFromSavedOrders()
+}
+
+
+def static "iosOrders.bcsOrders.copyAndVerifyTopMostOrderDetailsUnderSavedOrdersToCartScreen"() {
+    (new iosOrders.bcsOrders()).copyAndVerifyTopMostOrderDetailsUnderSavedOrdersToCartScreen()
+}
+
+
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
     	Eyes eyes	
      , 	WebElement element	) {

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify confirmation toast is being shown once the restoration of backup orders is completed
+Prerequisite :
+1.Login with valid credentials in OE mobile application
+2.User should be in EO mode  
+3.User should have created orders such as C2, Non C2, Empty orders from OE Web application.</description>
+   <name>TC_R_086_verifyConfirmationToastIsBeingShownOnceTheRestorationOfBackupOrdersIsCompleted</name>
+   <tag>Order;Regression;BCS</tag>
+   <comment></comment>
+   <testCaseGuid>54a92883-353c-4533-9d9a-4f126f198ca2</testCaseGuid>
+   <variable>
+      <defaultValue>'rbcoe1'</defaultValue>
+      <description></description>
+      <id>4c9b5e47-79c5-4253-b253-89b00bed10ef</id>
+      <masked>false</masked>
+      <name>username</name>
+   </variable>
+   <variable>
+      <defaultValue>'rbcoe1'</defaultValue>
+      <description></description>
+      <id>0307e7af-8a82-459f-91af-346adc0b7175</id>
+      <masked>false</masked>
+      <name>password</name>
+   </variable>
+   <variable>
+      <defaultValue>'8-2052038162'</defaultValue>
+      <description></description>
+      <id>98303d77-576b-496b-bce3-d8610177f837</id>
+      <masked>false</masked>
+      <name>accountNo</name>
+   </variable>
+</TestCaseEntity>
