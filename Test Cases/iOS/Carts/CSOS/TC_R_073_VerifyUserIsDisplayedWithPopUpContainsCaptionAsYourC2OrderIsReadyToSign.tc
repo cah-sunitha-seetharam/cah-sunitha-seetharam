@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_R_073_VerifyUserIsDisplayedWithPopUpContainsCaptionAsYourC2OrderIsReadyToSign</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>c12ecbcb-de87-4ed8-a925-b6becde7425a</testCaseGuid>
+   <variable>
+      <defaultValue>'2'</defaultValue>
+      <description></description>
+      <id>fe4134a4-96a0-4c5f-b823-dccb1076a6a4</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+   <variable>
+      <defaultValue>'rbcoe9'</defaultValue>
+      <description></description>
+      <id>ff1592af-8779-49ef-bfc2-4071c17b7d3d</id>
+      <masked>false</masked>
+      <name>username</name>
+   </variable>
+   <variable>
+      <defaultValue>'rbcoe9'</defaultValue>
+      <description></description>
+      <id>075b6562-39db-4328-b112-8b832fb494c7</id>
+      <masked>false</masked>
+      <name>password</name>
+   </variable>
+   <variable>
+      <defaultValue>'8-2052038159'</defaultValue>
+      <description></description>
+      <id>976d9102-d86b-442d-981c-2e92c4f99926</id>
+      <masked>false</masked>
+      <name>accountNo</name>
+   </variable>
+</TestCaseEntity>
