@@ -15,7 +15,7 @@
       <guid>1d943020-8796-45a6-af24-38ece2294ec7</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Inventory/TC_OE_003_verifyThatTheUserIsAbleToCreateInventoryLocationAddProductsCopyMoveProductsToLocation</testCaseId>
+      <testCaseId>Test Cases/regression/android/Inventory/TC_OE_003_verifyThatTheUserIsAbleToCreateInventoryLocationAddProductsCopyMoveProductsToLocation</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -69,7 +69,7 @@
       <guid>0af75a3b-6697-444f-9c33-d01e96d4ace4</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Inventory/TC_OE_008_verifyThatTheUserIsAbleToDeleteInventoryAndInventoryLocation</testCaseId>
+      <testCaseId>Test Cases/regression/android/Inventory/TC_OE_008_verifyThatTheUserIsAbleToDeleteInventoryAndInventoryLocation</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -105,7 +105,7 @@
       <guid>e59c5424-157f-4bb7-baef-b4b1b35ff234</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Inventory/TC_OE_009_verifyThatTheUserIsAbleToDoDeleteCopyAndMoveOperationsOfTheProductInTheInventory</testCaseId>
+      <testCaseId>Test Cases/regression/android/Inventory/TC_OE_009_verifyThatTheUserIsAbleToDoDeleteCopyAndMoveOperationsOfTheProductInTheInventory</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -165,7 +165,7 @@
       <guid>8230f5b9-a9e7-447b-9b2c-cbd1e0536f56</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Inventory/TC_OE_004_verifyThatTheUserIsAbleToEditAndUpdateInventoryAndInventoryLocationName</testCaseId>
+      <testCaseId>Test Cases/regression/android/Inventory/TC_OE_004_verifyThatTheUserIsAbleToEditAndUpdateInventoryAndInventoryLocationName</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -201,7 +201,7 @@
       <guid>9c0f05d9-3d35-464b-a603-fcf1aec635bd</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Inventory/TC_OE_007_verifyThatTheUserIsAbleToUploadAndShareProductDetailsInTheInventory</testCaseId>
+      <testCaseId>Test Cases/regression/android/Inventory/TC_OE_007_verifyThatTheUserIsAbleToUploadAndShareProductDetailsInTheInventory</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -237,7 +237,7 @@
       <guid>3949a36a-23f8-43ec-a08e-493abf96bf7f</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Inventory/TC_OE_005_verifyThatTheUserIsAbleToAddProductInTheInventoryBySearch</testCaseId>
+      <testCaseId>Test Cases/regression/android/Inventory/TC_OE_005_verifyThatTheUserIsAbleToAddProductInTheInventoryBySearch</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -273,13 +273,13 @@
       <guid>64707025-01d2-4f96-8eee-52ca29ad1ffc</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Login/TC_OE_001_verifyThatTheUserShouldBeAbleToLoginInOrderExpressAppUsingValidLoginCredentials</testCaseId>
+      <testCaseId>Test Cases/regression/android/Login/TC_OE_001_verifyThatTheUserShouldBeAbleToLoginInOrderExpressAppUsingValidLoginCredentials</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>ffa0ae8a-5bc2-4ff7-9a1b-f4f2360f9bf8</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Carts/TC_OE_010_verifyThatTheUserIsAbleToCreateAnOrderBySearchFromDashboardAndCartsScreen</testCaseId>
+      <testCaseId>Test Cases/regression/android/Carts/TC_OE_010_verifyThatTheUserIsAbleToCreateAnOrderBySearchFromDashboardAndCartsScreen</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -327,7 +327,7 @@
       <guid>93b0dcfa-2fe7-42a1-aef8-5baf5bea9421</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Carts/TC_OE_012_verifyThatTheUserIsAbleToUploadAndPlaceOrder</testCaseId>
+      <testCaseId>Test Cases/regression/android/Carts/TC_OE_012_verifyThatTheUserIsAbleToUploadAndPlaceOrder</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -363,7 +363,7 @@
       <guid>76e3e371-0859-49fb-bc94-997b294059d6</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Carts/TC_OE_013-verifyThatTheUsersAbleToPlaceAllOrdersnAdUploadAllOrders</testCaseId>
+      <testCaseId>Test Cases/regression/android/Carts/TC_OE_013-verifyThatTheUsersAbleToPlaceAllOrdersnAdUploadAllOrders</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -417,7 +417,7 @@
       <guid>405fe802-1567-41d5-b0fb-86364d4ac329</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Carts/TC_OE_014_verifyThatTheUserIsAbleToSubmitTheOrderAfterEditingTheOrder</testCaseId>
+      <testCaseId>Test Cases/regression/android/Carts/TC_OE_014_verifyThatTheUserIsAbleToSubmitTheOrderAfterEditingTheOrder</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -453,7 +453,7 @@
       <guid>95daeba9-0fb6-48a6-a39f-31399f82bf8b</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Carts/TC_OE_015_verifyThatTheUserIsAbleToDeleteTheOrder</testCaseId>
+      <testCaseId>Test Cases/regression/android/Carts/TC_OE_015_verifyThatTheUserIsAbleToDeleteTheOrder</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -483,7 +483,7 @@
       <guid>6719084f-3ef6-4d58-be88-09dd0d000ab3</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Receiving/TC_OE_023_verifyThatTheUserIsAbleToEditTheCountValueOfTheProductsInTheTote</testCaseId>
+      <testCaseId>Test Cases/regression/android/Receiving/TC_OE_023_verifyThatTheUserIsAbleToEditTheCountValueOfTheProductsInTheTote</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -519,7 +519,7 @@
       <guid>4bbb748f-2a0e-44ff-b6cf-da4199d47fff</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Receiving/TC_OE_021_verifyThatTheUserIsAbleToSelectReceiveToteButtonAndUploadSelectedTotes</testCaseId>
+      <testCaseId>Test Cases/regression/android/Receiving/TC_OE_021_verifyThatTheUserIsAbleToSelectReceiveToteButtonAndUploadSelectedTotes</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -549,7 +549,7 @@
       <guid>b6d0d047-e0d6-4806-9b04-21175e34f2a3</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Receiving/TC_OE_020_verifyThatTheUserIsAbleToSwapBetweenShipmentsAndInvoices</testCaseId>
+      <testCaseId>Test Cases/regression/android/Receiving/TC_OE_020_verifyThatTheUserIsAbleToSwapBetweenShipmentsAndInvoices</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -567,7 +567,7 @@
       <guid>6606458a-836a-4850-bfcf-cd89d329134f</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Receiving/TC_OE_038_verifyThatTheUserIsAbleToGetTheScanResultByDoingTheToteLevelScanning</testCaseId>
+      <testCaseId>Test Cases/regression/android/Receiving/TC_OE_038_verifyThatTheUserIsAbleToGetTheScanResultByDoingTheToteLevelScanning</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -579,7 +579,7 @@
       <guid>8ef698b0-daf1-42b5-9169-ff4930accc2a</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Receiving/TC_OE_018_verifyThatTheUserIsAbleToViewReceivingPageAndReceivingData</testCaseId>
+      <testCaseId>Test Cases/regression/android/Receiving/TC_OE_018_verifyThatTheUserIsAbleToViewReceivingPageAndReceivingData</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -597,7 +597,7 @@
       <guid>b657365e-c355-4f1f-b441-7e33abc2660a</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Receiving/TC_OE_022_verifyThatTheUserIsAbleToDoAllowOveragesAndEditCountOfProduct</testCaseId>
+      <testCaseId>Test Cases/regression/android/Receiving/TC_OE_022_verifyThatTheUserIsAbleToDoAllowOveragesAndEditCountOfProduct</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -633,7 +633,7 @@
       <guid>f8aeb577-0d44-459f-9ef8-6d7d6108cdc7</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Receiving/TC_OE_026_verifyThatTheUserIsAbleToSubmitTheIssue</testCaseId>
+      <testCaseId>Test Cases/regression/android/Receiving/TC_OE_026_verifyThatTheUserIsAbleToSubmitTheIssue</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -681,7 +681,7 @@
       <guid>75e3eda0-887d-4062-98e8-e5c464ed794f</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Receiving/TC_OE_025_verifyThatTheUserIsAbleToSearchTheProductsByScanningTheBarcodeWhichAreAlreadyReceived</testCaseId>
+      <testCaseId>Test Cases/regression/android/Receiving/TC_OE_025_verifyThatTheUserIsAbleToSearchTheProductsByScanningTheBarcodeWhichAreAlreadyReceived</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -693,7 +693,7 @@
       <guid>24a5376a-e7ed-48f4-84fe-448860cf3228</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Receiving/TC_OE_024_verifyThatTheUserIsAbleToSearchTheProductsAndTotesManuallyWhichAreAlreadyReceived</testCaseId>
+      <testCaseId>Test Cases/regression/android/Receiving/TC_OE_024_verifyThatTheUserIsAbleToSearchTheProductsAndTotesManuallyWhichAreAlreadyReceived</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -705,7 +705,7 @@
       <guid>89a2fa82-273f-439b-a645-a9b3de13f95c</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Receiving/TC_OE_019_verifyThatTheUserIsAbleToViewTheReceivingDataOfThePreviousDay</testCaseId>
+      <testCaseId>Test Cases/regression/android/Receiving/TC_OE_019_verifyThatTheUserIsAbleToViewTheReceivingDataOfThePreviousDay</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -723,7 +723,7 @@
       <guid>691f6105-c419-4140-a8eb-c65017cda603</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Audit/TC_OE_027_VerifyThatTheUserIsAbleToViewTheAuditsPageAndChangeDifferentCIMaccountUsingAccountSelctionIcon</testCaseId>
+      <testCaseId>Test Cases/regression/android/Audit/TC_OE_027_VerifyThatTheUserIsAbleToViewTheAuditsPageAndChangeDifferentCIMaccountUsingAccountSelctionIcon</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -747,7 +747,7 @@
       <guid>f404300f-08a7-45db-9b6a-4debf43be32d</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Account Selection/TC_OE_002_verifyThatTheUserIsAbleToPerformAnAccountSelectionUsingTheAccountOptionAvailableFromDashboadCartAndInventoryPages</testCaseId>
+      <testCaseId>Test Cases/regression/android/Account Selection/TC_OE_002_verifyThatTheUserIsAbleToPerformAnAccountSelectionUsingTheAccountOptionAvailableFromDashboadCartAndInventoryPages</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the user is Able to get the Scan result by doing the Tote Level Scanning.                                                                                      Prerequisite: 
+1.User Account which has Tote ID in the form of 9 digit and User Account which has Tote ID in the form of 8 digit should be available.  
+ 2. Valid Barcode of Tote ID should be available in the format as follow:
+ > For 9 Digit Tote Id = 0030096295&lt;9 Digit Tote ID>5,
+>  For 8 Digit Tote Id = 00300962950&lt;8 Digit Tote ID>5.</description>
+   <name>TC_OE_038_verifyThatTheUserIsAbleToGetTheScanResultByDoingTheToteLevelScanning</name>
+   <tag>Receiving;Smoke</tag>
+   <comment></comment>
+   <testCaseGuid>9734b5fb-6ead-4d9f-b362-57110909afa9</testCaseGuid>
+   <variable>
+      <defaultValue>'00300962950602686855'</defaultValue>
+      <description>00300962950 &lt;8 DIGIT TOTEID> 5</description>
+      <id>e739b874-e879-49f9-8645-fbffdb9f6d2d</id>
+      <masked>false</masked>
+      <name>eightDigitToteID</name>
+   </variable>
+</TestCaseEntity>

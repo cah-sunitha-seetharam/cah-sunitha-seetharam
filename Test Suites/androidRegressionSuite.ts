@@ -15,7 +15,7 @@
       <guid>4897f23b-0a24-4df3-b429-37ea3d66ce5d</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Receiving/TC_OE_020_verifyThatTheUserIsAbleToSwapBetweenShipmentsAndInvoices</testCaseId>
+      <testCaseId>Test Cases/regression/android/Receiving/TC_OE_020_verifyThatTheUserIsAbleToSwapBetweenShipmentsAndInvoices</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -33,7 +33,7 @@
       <guid>70e5f5c5-ded6-49f5-b8c5-bf3331a05d60</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Receiving/TC_OE_018_verifyThatTheUserIsAbleToViewReceivingPageAndReceivingData</testCaseId>
+      <testCaseId>Test Cases/regression/android/Receiving/TC_OE_018_verifyThatTheUserIsAbleToViewReceivingPageAndReceivingData</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -51,13 +51,13 @@
       <guid>0d4fe449-72fa-4f1a-b9e3-e0eb502dcff6</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Receiving/TC_R_001_verifyThatTheUserIsAbleToGetTheDetailsOfReceivedProductByScanningitsBarcodeInReceivingPage</testCaseId>
+      <testCaseId>Test Cases/regression/android/Receiving/TC_R_001_verifyThatTheUserIsAbleToGetTheDetailsOfReceivedProductByScanningitsBarcodeInReceivingPage</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>1336d1bf-f61f-4298-8b58-8e5d4bc60c6e</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Receiving/TC_OE_019_verifyThatTheUserIsAbleToViewTheReceivingDataOfThePreviousDay</testCaseId>
+      <testCaseId>Test Cases/regression/android/Receiving/TC_OE_019_verifyThatTheUserIsAbleToViewTheReceivingDataOfThePreviousDay</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -75,7 +75,7 @@
       <guid>895cf50f-e805-4fc6-ace8-8e7e85ad1f65</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Receiving/TC_OE_022_verifyThatTheUserIsAbleToDoAllowOveragesAndEditCountOfProduct</testCaseId>
+      <testCaseId>Test Cases/regression/android/Receiving/TC_OE_022_verifyThatTheUserIsAbleToDoAllowOveragesAndEditCountOfProduct</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -111,7 +111,7 @@
       <guid>4ee3be27-430a-4854-b53d-de9cf80c93ff</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Receiving/TC_OE_021_verifyThatTheUserIsAbleToSelectReceiveToteButtonAndUploadSelectedTotes</testCaseId>
+      <testCaseId>Test Cases/regression/android/Receiving/TC_OE_021_verifyThatTheUserIsAbleToSelectReceiveToteButtonAndUploadSelectedTotes</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -141,7 +141,7 @@
       <guid>9988c98e-7181-4eea-bfb0-68b386d16e20</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Inventory/Scan Test Cases/TC_R_023_verifyThatTheUserIsAbleToUploadTheLocationFromLocationDetailsPage</testCaseId>
+      <testCaseId>Test Cases/regression/android/Inventory/Scan Test Cases/TC_R_023_verifyThatTheUserIsAbleToUploadTheLocationFromLocationDetailsPage</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -177,7 +177,7 @@
       <guid>836b043e-15f4-47e0-a37d-e3f2d3d676de</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Inventory/Scan Test Cases/TC_R_015_verifyThatTheUserIsAbleToDeleteInventoryAndLocation</testCaseId>
+      <testCaseId>Test Cases/regression/android/Inventory/Scan Test Cases/TC_R_015_verifyThatTheUserIsAbleToDeleteInventoryAndLocation</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -213,7 +213,7 @@
       <guid>b1cc6dc6-0718-4887-9da6-dd5b88001d39</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Inventory/Scan Test Cases/TC_R_010_verifyThatInTheLocationDetailsPageTheAddedProductsAreListedInReverseChronologicalOrder </testCaseId>
+      <testCaseId>Test Cases/regression/android/Inventory/Scan Test Cases/TC_R_010_verifyThatInTheLocationDetailsPageTheAddedProductsAreListedInReverseChronologicalOrder </testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -261,7 +261,7 @@
       <guid>8b4b20f9-2dcd-4189-989d-87dd5e50aa8c</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Inventory/Scan Test Cases/TC_R_046_verifyThatTheUserIsAbleToDoCopyAndMoveActionsOnSameProductsInTheInventoryLocations</testCaseId>
+      <testCaseId>Test Cases/regression/android/Inventory/Scan Test Cases/TC_R_046_verifyThatTheUserIsAbleToDoCopyAndMoveActionsOnSameProductsInTheInventoryLocations</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -333,7 +333,7 @@
       <guid>02547037-6608-4efa-9007-06d2dc2e0b9e</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Inventory/Scan Test Cases/TC_R_020_verifyThatTheUserIsAbleToShareTheProductDetailsFromTheLocationDetailsPage</testCaseId>
+      <testCaseId>Test Cases/regression/android/Inventory/Scan Test Cases/TC_R_020_verifyThatTheUserIsAbleToShareTheProductDetailsFromTheLocationDetailsPage</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -375,7 +375,7 @@
       <guid>fc249002-b6a9-4a3c-99a3-f0e149612388</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Inventory/Scan Test Cases/TC_R_021_verifyThatTheUserIsAbleToDeleteTheProductFromLocationDetailsPage</testCaseId>
+      <testCaseId>Test Cases/regression/android/Inventory/Scan Test Cases/TC_R_021_verifyThatTheUserIsAbleToDeleteTheProductFromLocationDetailsPage</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -411,7 +411,7 @@
       <guid>f50a6c1f-efd5-4223-a84b-4a684a47aa45</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Inventory/Scan Test Cases/TC_R_003_verifyThatDetailsSuchAsLocationCountInventoryValueUpdatesAfterLocationDeletion</testCaseId>
+      <testCaseId>Test Cases/regression/android/Inventory/Scan Test Cases/TC_R_003_verifyThatDetailsSuchAsLocationCountInventoryValueUpdatesAfterLocationDeletion</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -447,7 +447,7 @@
       <guid>c0158195-9939-454c-8599-81156e532dc7</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Inventory/Scan Test Cases/TC_R_034_verifyThatTheUserIsAbleToDoDeleteCopyAndMoveActionsOnDifferentProductsInTheInventoryLocations</testCaseId>
+      <testCaseId>Test Cases/regression/android/Inventory/Scan Test Cases/TC_R_034_verifyThatTheUserIsAbleToDoDeleteCopyAndMoveActionsOnDifferentProductsInTheInventoryLocations</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -525,7 +525,7 @@
       <guid>8b1393f7-4a55-4a67-873e-faf79ccb0194</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Inventory/Scan Test Cases/TC_R_019_VerifyThatUserIsAbleToIncreaseTheProductQuantityByScanningTheSameBarcodeAgain</testCaseId>
+      <testCaseId>Test Cases/regression/android/Inventory/Scan Test Cases/TC_R_019_VerifyThatUserIsAbleToIncreaseTheProductQuantityByScanningTheSameBarcodeAgain</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -561,7 +561,7 @@
       <guid>1b42d843-09c3-4279-91f3-abaff2cc7a0a</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Inventory/Scan Test Cases/TC_R_007_verifyThatTheUserIsAbleToUploadTheLocationFromLocationDetailsPage</testCaseId>
+      <testCaseId>Test Cases/regression/android/Inventory/Scan Test Cases/TC_R_007_verifyThatTheUserIsAbleToUploadTheLocationFromLocationDetailsPage</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -597,7 +597,7 @@
       <guid>c424a1b0-373a-4b0a-9dc7-b544e603c7b0</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Inventory/Scan Test Cases/TC_R_017_verifyThatContinueBrowsingButtonInInventoryScanWorkingFineWhileDoingScanFromTheLocationLandingPage</testCaseId>
+      <testCaseId>Test Cases/regression/android/Inventory/Scan Test Cases/TC_R_017_verifyThatContinueBrowsingButtonInInventoryScanWorkingFineWhileDoingScanFromTheLocationLandingPage</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -633,7 +633,7 @@
       <guid>81fbf6cd-e47d-4759-8d8d-ec5d2b55d84a</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Inventory/Scan Test Cases/TC_R_018_verifyThatWhenUserTapsOnRemoveButtonInTheInventoryScanResultPageOfAnAlreadyScannedProductItGetsRemoved</testCaseId>
+      <testCaseId>Test Cases/regression/android/Inventory/Scan Test Cases/TC_R_018_verifyThatWhenUserTapsOnRemoveButtonInTheInventoryScanResultPageOfAnAlreadyScannedProductItGetsRemoved</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -669,7 +669,7 @@
       <guid>0650edb3-de80-4434-8959-039d740139fb</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Carts/CSOS/TC_R_072_verifyUTNvalidationIsHappeningFineAndUserIsDisplayedWithTheDuplicateUTNNumberPopupIfTheEnteredUTNIsDuplicate</testCaseId>
+      <testCaseId>Test Cases/regression/android/Carts/CSOS/TC_R_072_verifyUTNvalidationIsHappeningFineAndUserIsDisplayedWithTheDuplicateUTNNumberPopupIfTheEnteredUTNIsDuplicate</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -741,7 +741,7 @@
       <guid>982f4740-381f-4947-aa93-de5b9a90da43</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Carts/CSOS/TC_R_071_verifyUserIsAbleToSignAndPlaceOrderInOrderHistory</testCaseId>
+      <testCaseId>Test Cases/regression/android/Carts/CSOS/TC_R_071_verifyUserIsAbleToSignAndPlaceOrderInOrderHistory</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -765,7 +765,7 @@
       <guid>206fb97f-da39-46d2-a4f9-fe520127a61c</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Carts/TC_R_058_verifyThatUserIsNotAbleToAddC2ProductFromProductDetailsScreenToAlreadyCreatedNonC2Order</testCaseId>
+      <testCaseId>Test Cases/regression/android/Carts/TC_R_058_verifyThatUserIsNotAbleToAddC2ProductFromProductDetailsScreenToAlreadyCreatedNonC2Order</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -801,7 +801,7 @@
       <guid>bab95f46-2052-41e2-a98f-824e05b9d7c7</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Carts/TC_R_005_verifyThatTheUserIsAbleToUploadTheOrder</testCaseId>
+      <testCaseId>Test Cases/regression/android/Carts/TC_R_005_verifyThatTheUserIsAbleToUploadTheOrder</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -831,7 +831,7 @@
       <guid>c2a4d00b-5f27-4a53-b5c4-4ad6300c8df9</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Carts/TC_R_045_verifyThatWhileUserScanNonC2ProductFromTheDashboardAndAddingItForTheFirstTimeNewOrderOrderIsGettingCreatedAndUserIsAbleToUploadTheOrder</testCaseId>
+      <testCaseId>Test Cases/regression/android/Carts/TC_R_045_verifyThatWhileUserScanNonC2ProductFromTheDashboardAndAddingItForTheFirstTimeNewOrderOrderIsGettingCreatedAndUserIsAbleToUploadTheOrder</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -897,7 +897,7 @@
       <guid>ec435d80-48f1-4ebc-a004-88a8da9703db</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Carts/TC_R_043_verifyThatWhileUserScanAC2ProductFromDashboardAndAddingItTheForFirstTimeNewOrderIsGettingCreatedAndUserIsAbleToUploadTheOrder</testCaseId>
+      <testCaseId>Test Cases/regression/android/Carts/TC_R_043_verifyThatWhileUserScanAC2ProductFromDashboardAndAddingItTheForFirstTimeNewOrderIsGettingCreatedAndUserIsAbleToUploadTheOrder</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -951,7 +951,7 @@
       <guid>ad5e5e64-a1fb-406c-88dd-db714815cf27</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Carts/TC_R_044_verifyThatWhenTheUserScanAC2ProductsFromDashboardAndAddingItMeansThoseProductsAreGettingAddedToTheAlreadyExistingC2Order</testCaseId>
+      <testCaseId>Test Cases/regression/android/Carts/TC_R_044_verifyThatWhenTheUserScanAC2ProductsFromDashboardAndAddingItMeansThoseProductsAreGettingAddedToTheAlreadyExistingC2Order</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -993,7 +993,7 @@
       <guid>2a38c4a8-3a12-4819-ac1c-24ffee2fd2d2</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Carts/TC_R_059_verifyNewOrderCreatedWhileAddingAAlternateProductFromProductDetailsPageWhenThereIsNoExistingOrderFromHomeCartScreen</testCaseId>
+      <testCaseId>Test Cases/regression/android/Carts/TC_R_059_verifyNewOrderCreatedWhileAddingAAlternateProductFromProductDetailsPageWhenThereIsNoExistingOrderFromHomeCartScreen</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -1011,7 +1011,7 @@
       <guid>34149f75-2405-4cce-a0e5-4512ac2f5f79</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Carts/TC_R_060_verifyNewOrderIsCreatedWhileAddingAlternateC2ProductFromProductDetailsPageWhenThereIsExistingNonC2OrderFrom HomeCartScreen</testCaseId>
+      <testCaseId>Test Cases/regression/android/Carts/TC_R_060_verifyNewOrderIsCreatedWhileAddingAlternateC2ProductFromProductDetailsPageWhenThereIsExistingNonC2OrderFrom HomeCartScreen</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -1047,7 +1047,7 @@
       <guid>7be6dd0e-6944-4ccf-9079-5ceeb65a2e64</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Carts/TC_R_051_verifyThatAfterChangingAccountUserIsAbleToCreateAnNewOrderByScanInCartPageOnCurrentlySelectedAccount</testCaseId>
+      <testCaseId>Test Cases/regression/android/Carts/TC_R_051_verifyThatAfterChangingAccountUserIsAbleToCreateAnNewOrderByScanInCartPageOnCurrentlySelectedAccount</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -1119,7 +1119,7 @@
       <guid>ea8d6c2c-f105-4636-8721-6b0e9a97bdef</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Carts/TC_R_061_verifyThatUserIsNotAbleToAddNonC2AlternateProductFromProductDetailsScreenToAlreadyCreatedC2Order</testCaseId>
+      <testCaseId>Test Cases/regression/android/Carts/TC_R_061_verifyThatUserIsNotAbleToAddNonC2AlternateProductFromProductDetailsScreenToAlreadyCreatedC2Order</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -1155,7 +1155,7 @@
       <guid>1dde6160-b372-43f7-b0af-f18099f5fea3</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Carts/TC_R_053_verifyThatAfterChangingAccountUserIsAbleToCreateAnNewOrderByScanInDashboardScreenOnCurrentlySelectedAccount</testCaseId>
+      <testCaseId>Test Cases/regression/android/Carts/TC_R_053_verifyThatAfterChangingAccountUserIsAbleToCreateAnNewOrderByScanInDashboardScreenOnCurrentlySelectedAccount</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -1203,7 +1203,7 @@
       <guid>d72c0e35-3d19-4352-ad52-f3a3c8521475</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Carts/TC_R_049_verifyNewOrderIsGettingCreatedWhileAddingC2ProductByScanFromCartWhenThereIsNoProductsInExistingAvailableOrder</testCaseId>
+      <testCaseId>Test Cases/regression/android/Carts/TC_R_049_verifyNewOrderIsGettingCreatedWhileAddingC2ProductByScanFromCartWhenThereIsNoProductsInExistingAvailableOrder</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -1275,7 +1275,7 @@
       <guid>58c142ff-1422-4bdf-90bb-c266941f4f36</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Carts/TC_OE_011_verifyThatTheUserIsAbleToCreateOrderByScanTheBarcode</testCaseId>
+      <testCaseId>Test Cases/regression/android/Carts/TC_OE_011_verifyThatTheUserIsAbleToCreateOrderByScanTheBarcode</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -1311,7 +1311,7 @@
       <guid>66fa5340-6013-4856-9e83-5fc2adc78737</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Android/Carts/TC_R_035_verifyThatTheUserIsAbleToPlaceAllOrdersAndUploadAllOrders</testCaseId>
+      <testCaseId>Test Cases/regression/android/Carts/TC_R_035_verifyThatTheUserIsAbleToPlaceAllOrdersAndUploadAllOrders</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>

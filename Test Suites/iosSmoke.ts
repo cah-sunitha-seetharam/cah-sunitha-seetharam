@@ -15,7 +15,7 @@
       <guid>781d70f0-39c0-49cf-8a30-bf348737c45c</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Carts/TC_OE_014_verifyThatTheUserIsAbleToSubmitTheOrderAfterEditingTheOrder</testCaseId>
+      <testCaseId>Test Cases/regression/iOS/Carts/TC_OE_014_verifyThatTheUserIsAbleToSubmitTheOrderAfterEditingTheOrder</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -51,7 +51,7 @@
       <guid>b0891e33-a1cc-49ee-9f40-860545645eaa</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Carts/TC_OE_010_verifyThatTheUserIsAbleToCreateAnOrderBySearchFromDashboardAndCartsScreen</testCaseId>
+      <testCaseId>Test Cases/regression/iOS/Carts/TC_OE_010_verifyThatTheUserIsAbleToCreateAnOrderBySearchFromDashboardAndCartsScreen</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -81,7 +81,7 @@
       <guid>07ae33e7-d38f-405c-a8fa-97c58c4f4a0f</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Carts/TC_OE_013-verifyThatTheUsersAbleToPlaceAllOrdersnAdUploadAllOrders</testCaseId>
+      <testCaseId>Test Cases/regression/iOS/Carts/TC_OE_013-verifyThatTheUsersAbleToPlaceAllOrdersnAdUploadAllOrders</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -135,7 +135,7 @@
       <guid>7ad66fc9-0ff8-4b62-ba19-8c31f0b5b341</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Carts/TC_OE_012_verifyThatTheUserIsAbleToUploadAndPlaceOrder</testCaseId>
+      <testCaseId>Test Cases/regression/iOS/Carts/TC_OE_012_verifyThatTheUserIsAbleToUploadAndPlaceOrder</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -165,7 +165,7 @@
       <guid>e4cdca96-6671-48c7-9c1d-2ebd30d21b42</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Carts/TC_OE_015_verifyThatTheUserIsAbleToDeleteTheOrder</testCaseId>
+      <testCaseId>Test Cases/regression/iOS/Carts/TC_OE_015_verifyThatTheUserIsAbleToDeleteTheOrder</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -195,7 +195,7 @@
       <guid>e55d489c-4189-4075-be2f-a5c990189b3a</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Account Selection/TC_OE_002_verifyThatTheUserIsAbleToPerformAnAccountSelectionUsingTheAccountOptionAvailableFromDashboadCartAndInventoryPages</testCaseId>
+      <testCaseId>Test Cases/regression/iOS/Account Selection/TC_OE_002_verifyThatTheUserIsAbleToPerformAnAccountSelectionUsingTheAccountOptionAvailableFromDashboadCartAndInventoryPages</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -213,7 +213,7 @@
       <guid>476207fd-8b17-47aa-aea9-6fea22eede62</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Inventory/TC_OE_003_verifyThatTheUserIsAbleToCreateInventoryLocationAddProductsCopyMoveProductsToLocation</testCaseId>
+      <testCaseId>Test Cases/regression/iOS/Inventory/TC_OE_003_verifyThatTheUserIsAbleToCreateInventoryLocationAddProductsCopyMoveProductsToLocation</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -267,7 +267,7 @@
       <guid>6ac704a7-806d-45b1-9503-d29675e78c1c</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Inventory/TC_OE_008_verifyThatTheUserIsAbleToDeleteInventoryAndInventoryLocation</testCaseId>
+      <testCaseId>Test Cases/regression/iOS/Inventory/TC_OE_008_verifyThatTheUserIsAbleToDeleteInventoryAndInventoryLocation</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -303,7 +303,7 @@
       <guid>466c660a-36b4-47ba-a01d-2012ea26f7bb</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Inventory/TC_OE_009_verifyThatTheUserIsAbleToDoDeleteCopyAndMoveOperationsOfTheProductInTheInventory</testCaseId>
+      <testCaseId>Test Cases/regression/iOS/Inventory/TC_OE_009_verifyThatTheUserIsAbleToDoDeleteCopyAndMoveOperationsOfTheProductInTheInventory</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -363,7 +363,7 @@
       <guid>a236b255-77f4-4f52-8dca-1d6b137521c4</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Inventory/TC_OE_004_verifyThatTheUserIsAbleToEditAndUpdateInventoryAndInventoryLocationName</testCaseId>
+      <testCaseId>Test Cases/regression/iOS/Inventory/TC_OE_004_verifyThatTheUserIsAbleToEditAndUpdateInventoryAndInventoryLocationName</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -399,7 +399,7 @@
       <guid>653626df-4e41-43af-bbb0-14591815637c</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Inventory/TC_OE_007_verifyThatTheUserIsAbleToUploadAndShareProductDetailsInTheInventory</testCaseId>
+      <testCaseId>Test Cases/regression/iOS/Inventory/TC_OE_007_verifyThatTheUserIsAbleToUploadAndShareProductDetailsInTheInventory</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -435,7 +435,7 @@
       <guid>b9072858-b0cb-435f-865d-74268070ee1a</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Inventory/TC_OE_005_verifyThatTheUserIsAbleToAddProductInTheInventoryBySearch</testCaseId>
+      <testCaseId>Test Cases/regression/iOS/Inventory/TC_OE_005_verifyThatTheUserIsAbleToAddProductInTheInventoryBySearch</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -471,13 +471,13 @@
       <guid>d7dc221e-aaef-40a8-b6ee-41e521cd6810</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/LogIn/TC_OE_001_verifyThatTheUserShouldBeAbleToLoginInOrderExpressAppUsingValidLoginCredentials</testCaseId>
+      <testCaseId>Test Cases/regression/iOS/LogIn/TC_OE_001_verifyThatTheUserShouldBeAbleToLoginInOrderExpressAppUsingValidLoginCredentials</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>429797af-a19a-4737-9a3c-7160b578f614</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Receiving/TC_OE_023_verifyThatTheUserIsAbleToEditTheCountValueOfTheProductsInTheTote</testCaseId>
+      <testCaseId>Test Cases/regression/iOS/Receiving/TC_OE_023_verifyThatTheUserIsAbleToEditTheCountValueOfTheProductsInTheTote</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -495,7 +495,7 @@
       <guid>ae58e2fe-5be7-4b0d-94fa-a44f510777de</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Receiving/TC_OE_021_verifyThatTheUserIsAbleToSelectReceiveToteButtonAndUploadSelectedTotes</testCaseId>
+      <testCaseId>Test Cases/regression/iOS/Receiving/TC_OE_021_verifyThatTheUserIsAbleToSelectReceiveToteButtonAndUploadSelectedTotes</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -525,7 +525,7 @@
       <guid>0be87968-3d30-4716-bec9-65e28fbd8b89</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Receiving/TC_OE_020_verifyThatTheUserIsAbleToSwapBetweenShipmentsAndInvoices</testCaseId>
+      <testCaseId>Test Cases/regression/iOS/Receiving/TC_OE_020_verifyThatTheUserIsAbleToSwapBetweenShipmentsAndInvoices</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -543,7 +543,7 @@
       <guid>ed35deca-12f1-4c66-96b4-865134c60bb7</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Receiving/TC_OE_038_verifyThatTheUserIsAbleToGetTheScanResultByDoingTheToteLevelScanning</testCaseId>
+      <testCaseId>Test Cases/regression/iOS/Receiving/TC_OE_038_verifyThatTheUserIsAbleToGetTheScanResultByDoingTheToteLevelScanning</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -555,7 +555,7 @@
       <guid>39bbc2f4-299b-4c38-893b-5f637a372b1e</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Receiving/TC_OE_018_verifyThatTheUserIsAbleToViewReceivingPageAndReceivingData</testCaseId>
+      <testCaseId>Test Cases/regression/iOS/Receiving/TC_OE_018_verifyThatTheUserIsAbleToViewReceivingPageAndReceivingData</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -573,7 +573,7 @@
       <guid>0babb231-908b-4633-a307-2e47c8b8474c</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Receiving/TC_OE_022_verifyThatTheUserIsAbleToDoAllowOveragesAndEditCountOfProduct</testCaseId>
+      <testCaseId>Test Cases/regression/iOS/Receiving/TC_OE_022_verifyThatTheUserIsAbleToDoAllowOveragesAndEditCountOfProduct</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -591,7 +591,7 @@
       <guid>f6c47f3f-a1bf-4e3f-98cd-e0abd474750e</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Receiving/TC_OE_026_verifyThatTheUserIsAbleToSubmitTheIssue</testCaseId>
+      <testCaseId>Test Cases/regression/iOS/Receiving/TC_OE_026_verifyThatTheUserIsAbleToSubmitTheIssue</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -639,7 +639,7 @@
       <guid>06ca8b0a-6b4e-4058-9294-46bc0038d2d3</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Receiving/TC_OE_025_verifyThatTheUserIsAbleToSearchTheProductsByScanningTheBarcodeWhichAreAlreadyReceived</testCaseId>
+      <testCaseId>Test Cases/regression/iOS/Receiving/TC_OE_025_verifyThatTheUserIsAbleToSearchTheProductsByScanningTheBarcodeWhichAreAlreadyReceived</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -651,7 +651,7 @@
       <guid>4e7299df-be95-469b-b458-630867d82447</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Receiving/TC_OE_024_verifyThatTheUserIsAbleToSearchTheProductsAndTotesManuallyWhichAreAlreadyReceived</testCaseId>
+      <testCaseId>Test Cases/regression/iOS/Receiving/TC_OE_024_verifyThatTheUserIsAbleToSearchTheProductsAndTotesManuallyWhichAreAlreadyReceived</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -663,7 +663,7 @@
       <guid>762d5130-ef58-4573-acb3-620a94a1ab7f</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Receiving/TC_OE_019_verifyThatTheUserIsAbleToViewTheReceivingDataOfThePreviousDay</testCaseId>
+      <testCaseId>Test Cases/regression/iOS/Receiving/TC_OE_019_verifyThatTheUserIsAbleToViewTheReceivingDataOfThePreviousDay</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
@@ -681,7 +681,7 @@
       <guid>9ab36b4b-87c8-4ed9-8add-9ee671ea31cb</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/iOS/Audits/TC_OE_027_VerifyThatTheUserIsAbleToViewTheAuditsPageAndChangeDifferentCIMaccountUsingAccountSelctionIcon</testCaseId>
+      <testCaseId>Test Cases/regression/iOS/Audits/TC_OE_027_VerifyThatTheUserIsAbleToViewTheAuditsPageAndChangeDifferentCIMaccountUsingAccountSelctionIcon</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
          <type>DEFAULT</type>
