@@ -3,7 +3,7 @@
    <description></description>
    <name>CIN_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>00f12480-135b-4bb8-9c8d-ffcade1e30b9</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/cinTextView</value>
+      <value>${GlobalVariable.appPackage}:id/cinTextView</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[6]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'CIN: 4023347' or . = 'CIN: 4023347') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/cinTextView']</locator>
+   <locator>//*[@class = 'android.widget.TextView' and (@text = 'CIN: 4023347' or . = 'CIN: 4023347') and @resource-id = '${GlobalVariable.appPackage}:id/cinTextView']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

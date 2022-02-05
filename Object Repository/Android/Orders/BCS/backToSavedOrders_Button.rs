@@ -3,7 +3,7 @@
    <description></description>
    <name>backToSavedOrders_Button</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>b9ffa17b-01af-4c04-8f15-56adaaedb0c3</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/BtnBackSavedOrders</value>
+      <value>${GlobalVariable.appPackage}:id/BtnBackSavedOrders</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>

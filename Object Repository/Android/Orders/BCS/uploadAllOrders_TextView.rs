@@ -3,7 +3,7 @@
    <description></description>
    <name>uploadAllOrders_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>fcce4aa5-ab7e-4130-9631-14169d629766</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/continueAllOnDesktopButton</value>
+      <value>${GlobalVariable.appPackage}:id/continueAllOnDesktopButton</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>

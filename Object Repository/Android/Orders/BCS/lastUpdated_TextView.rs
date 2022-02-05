@@ -3,7 +3,7 @@
    <description></description>
    <name>lastUpdated_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>e0458d38-7dfb-4ea2-81b1-11c16e6ae95d</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvLastUpdatedDate</value>
+      <value>${GlobalVariable.appPackage}:id/tvLastUpdatedDate</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>

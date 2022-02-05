@@ -3,7 +3,7 @@
    <description></description>
    <name>orderName_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>ba9b21f6-f98d-4a02-a1ad-3b204f7583be</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/productName</value>
+      <value>${GlobalVariable.appPackage}:id/productName</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[5]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'MORPHINE CN20MG/ML 240ML RASP  C2' or . = 'MORPHINE CN20MG/ML 240ML RASP  C2') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/productName']</locator>
+   <locator>//*[@class = 'android.widget.TextView' and (@text = 'MORPHINE CN20MG/ML 240ML RASP  C2' or . = 'MORPHINE CN20MG/ML 240ML RASP  C2') and @resource-id = '${GlobalVariable.appPackage}:id/productName']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

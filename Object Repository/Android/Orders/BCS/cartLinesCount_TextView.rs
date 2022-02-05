@@ -3,7 +3,7 @@
    <description></description>
    <name>cartLinesCount_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>eb5fe88e-f57b-417c-a6ac-1bb5c275e9c2</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -33,7 +33,7 @@ Lines</value>
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/ordersLinesCount</value>
+      <value>${GlobalVariable.appPackage}:id/ordersLinesCount</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>

@@ -3,7 +3,7 @@
    <description></description>
    <name>Order Total_TextView</name>
    <tag></tag>
-   <elementGuidId>77ec2426-9fda-4d6c-9a04-663e88e57fa2</elementGuidId>
+   <elementGuidId>9be12db9-6a5a-4618-b44e-8a862d9e3fce</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -33,7 +33,7 @@ Order Total</value>
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/ordersMoneyCount</value>
+      <value>${GlobalVariable.appPackage}:id/ordersMoneyCount</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -161,6 +161,6 @@ Order Total</value>
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView[2]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/ordersMoneyCount']</locator>
+   <locator>//*[@class = 'android.widget.TextView' and @resource-id = '${GlobalVariable.appPackage}:id/ordersMoneyCount']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

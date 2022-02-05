@@ -3,7 +3,7 @@
    <description></description>
    <name>Upload Order_Button</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>4bb53369-e17b-496c-a445-bbb4090fb06c</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/btnSendToOrderExpress</value>
+      <value>${GlobalVariable.appPackage}:id/btnSendToOrderExpress</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.Button[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.Button' and (@text = 'Upload Order' or . = 'Upload Order') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/btnSendToOrderExpress']</locator>
+   <locator>//*[@class = 'android.widget.Button' and (@text = 'Upload Order' or . = 'Upload Order') and @resource-id = '${GlobalVariable.appPackage}:id/btnSendToOrderExpress']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

@@ -3,7 +3,7 @@
    <description></description>
    <name>UOI_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>0c3bc1d3-7494-4a48-8524-324ac2f2ccb2</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/UOICostTextView</value>
+      <value>${GlobalVariable.appPackage}:id/UOICostTextView</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView[7]</value>
    </webElementProperties>
-   <locator>com.cardinalhealth.orderexpress.two.debug:id/UOICostTextView</locator>
+   <locator>${GlobalVariable.appPackage}:id/UOICostTextView</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

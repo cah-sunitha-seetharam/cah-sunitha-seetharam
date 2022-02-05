@@ -3,7 +3,7 @@
    <description></description>
    <name>increaseCount_TextView</name>
    <tag></tag>
-   <elementGuidId>cf61f2fe-dd67-49b8-9953-066567d7976e</elementGuidId>
+   <elementGuidId>0a563cd8-1a48-43c9-a7d0-59343e20a3dd</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -25,7 +25,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/increaseCount</value>
+      <value>${GlobalVariable.appPackage}:id/increaseCount</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.ImageView[2]</value>
    </webElementProperties>
-   <locator>com.cardinalhealth.orderexpress.two.debug:id/increaseCount</locator>
+   <locator>${GlobalVariable.appPackage}:id/increaseCount</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

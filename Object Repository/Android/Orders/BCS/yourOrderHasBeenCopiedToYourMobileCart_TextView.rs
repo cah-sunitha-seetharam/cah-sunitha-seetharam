@@ -3,7 +3,7 @@
    <description></description>
    <name>yourOrderHasBeenCopiedToYourMobileCart_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>5ff6f686-e881-4164-ae0d-82917eddbdf6</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/titleTextView</value>
+      <value>${GlobalVariable.appPackage}:id/titleTextView</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>

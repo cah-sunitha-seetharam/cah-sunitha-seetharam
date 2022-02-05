@@ -3,7 +3,7 @@
    <description></description>
    <name>Go to Order_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>5b0546ef-51d8-4cba-a925-72645aa80c80</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/goToOrderText</value>
+      <value>${GlobalVariable.appPackage}:id/goToOrderText</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Go to Order' or . = 'Go to Order') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/goToOrderText']</locator>
+   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Go to Order' or . = 'Go to Order') and @resource-id = '${GlobalVariable.appPackage}:id/goToOrderText']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

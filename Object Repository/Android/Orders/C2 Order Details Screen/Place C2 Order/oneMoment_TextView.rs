@@ -3,7 +3,7 @@
    <description></description>
    <name>oneMoment_TextView</name>
    <tag></tag>
-   <elementGuidId>0929127a-82e9-48d8-9677-583359e24a88</elementGuidId>
+   <elementGuidId>024e5706-2624-4674-ae46-191ff67f0522</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/dialogTitle</value>
+      <value>${GlobalVariable.appPackage}:id/dialogTitle</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>dialogTitle</locator>
+   <locator>${GlobalVariable.appPackage}:id/dialogTitle</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

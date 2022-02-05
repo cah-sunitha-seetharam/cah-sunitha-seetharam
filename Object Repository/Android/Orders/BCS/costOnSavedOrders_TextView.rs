@@ -3,7 +3,7 @@
    <description></description>
    <name>costOnSavedOrders_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>6dd317ef-0407-4e0e-89cc-cb8109800522</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvOrderValue</value>
+      <value>${GlobalVariable.appPackage}:id/tvOrderValue</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>

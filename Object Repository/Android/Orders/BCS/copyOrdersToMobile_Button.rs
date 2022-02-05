@@ -3,7 +3,7 @@
    <description></description>
    <name>copyOrdersToMobile_Button</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>b653b3ec-94db-4429-8663-5f811c46f076</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/btnDownloadOrders</value>
+      <value>${GlobalVariable.appPackage}:id/btnDownloadOrders</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>

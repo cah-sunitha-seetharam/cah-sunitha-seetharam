@@ -3,7 +3,7 @@
    <description></description>
    <name>orderTileC2Label_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>4b1215cb-34b1-48f7-8a87-f162cb1da1b6</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/c2TextView</value>
+      <value>${GlobalVariable.appPackage}:id/c2TextView</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>

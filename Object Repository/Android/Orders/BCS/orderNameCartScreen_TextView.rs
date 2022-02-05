@@ -3,7 +3,7 @@
    <description></description>
    <name>orderNameCartScreen_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>38fbaea6-7331-4a4d-a850-21f40621a16e</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/poNameTextView</value>
+      <value>${GlobalVariable.appPackage}:id/poNameTextView</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>

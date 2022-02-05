@@ -3,7 +3,7 @@
    <description></description>
    <name>logout_Button</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>1107bf5b-09e6-4c80-8169-c6b5c0021638</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/dialogTitle</value>
+      <value>${GlobalVariable.appPackage}:id/dialogTitle</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Attention' or . = 'Attention') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/dialogTitle']</locator>
+   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Attention' or . = 'Attention') and @resource-id = '${GlobalVariable.appPackage}:id/dialogTitle']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

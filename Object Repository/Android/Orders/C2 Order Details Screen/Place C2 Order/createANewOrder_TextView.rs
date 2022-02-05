@@ -3,7 +3,7 @@
    <description></description>
    <name>createANewOrder_TextView</name>
    <tag></tag>
-   <elementGuidId>0f6c2d2e-83e6-4bcb-8351-4c6e37ebea66</elementGuidId>
+   <elementGuidId>23317aca-d0df-43ff-b2db-80f8dee06de9</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvCreateOrder</value>
+      <value>${GlobalVariable.appPackage}:id/tvCreateOrder</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>tvCreateOrder</locator>
+   <locator>${GlobalVariable.appPackage}:id/tvCreateOrder</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

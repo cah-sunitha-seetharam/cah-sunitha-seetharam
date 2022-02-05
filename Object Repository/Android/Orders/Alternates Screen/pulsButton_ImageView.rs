@@ -3,7 +3,7 @@
    <description></description>
    <name>pulsButton_ImageView</name>
    <tag></tag>
-   <elementGuidId>3ce661e7-7d19-4ffe-93b7-e6108e6ab5fa</elementGuidId>
+   <elementGuidId>b6563c79-da4b-47d2-930d-0fbf8b335f2b</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -25,7 +25,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/ivPlusButton</value>
+      <value>${GlobalVariable.appPackage}:id/ivPlusButton</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -167,6 +167,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/androidx.recyclerview.widget.RecyclerView[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.ImageView[4]</value>
    </webElementProperties>
-   <locator>com.cardinalhealth.orderexpress.two.debug:id/ivPlusButton</locator>
+   <locator>${GlobalVariable.appPackage}:id/ivPlusButton</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

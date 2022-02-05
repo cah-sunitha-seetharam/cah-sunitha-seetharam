@@ -3,7 +3,7 @@
    <description></description>
    <name>cartTotal_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>6f3dfd05-6f26-4502-bdad-ed6e89a2105c</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -33,7 +33,7 @@ Cart Total</value>
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/ordersMoneyCount</value>
+      <value>${GlobalVariable.appPackage}:id/ordersMoneyCount</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>

@@ -3,7 +3,7 @@
    <description></description>
    <name>Update Order_Button</name>
    <tag></tag>
-   <elementGuidId>7b77a0b8-7a25-4415-9d9d-83487854d7fb</elementGuidId>
+   <elementGuidId>42b79c02-f9a3-48f5-9216-8dceab541820</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/updateOrderButton</value>
+      <value>${GlobalVariable.appPackage}:id/updateOrderButton</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.Button[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.Button' and (@text = 'Update Order' or . = 'Update Order') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/updateOrderButton']</locator>
+   <locator>//*[@class = 'android.widget.Button' and (@text = 'Update Order' or . = 'Update Order') and @resource-id = '${GlobalVariable.appPackage}:id/updateOrderButton']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

@@ -3,7 +3,7 @@
    <description></description>
    <name>Cancel and keep order on the app_Button</name>
    <tag></tag>
-   <elementGuidId>532db6c2-a30a-486e-82d7-c99c0175e87e</elementGuidId>
+   <elementGuidId>2595145d-07ac-4313-9d80-8375d7a40117</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/cancelButton</value>
+      <value>${GlobalVariable.appPackage}:id/cancelButton</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.Button[2]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.Button' and (@text = 'Cancel and keep order on the app' or . = 'Cancel and keep order on the app') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/cancelButton']</locator>
+   <locator>//*[@class = 'android.widget.Button' and (@text = 'Cancel and keep order on the app' or . = 'Cancel and keep order on the app') and @resource-id = '${GlobalVariable.appPackage}:id/cancelButton']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

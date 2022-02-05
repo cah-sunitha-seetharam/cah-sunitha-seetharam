@@ -3,7 +3,7 @@
    <description></description>
    <name>wouldYouLiketoDeleteOrder_TextView</name>
    <tag></tag>
-   <elementGuidId>04bf5a0d-e340-45d5-98d3-68a666d17f4c</elementGuidId>
+   <elementGuidId>55128383-1af3-46b5-b4f3-fd933539648e</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
@@ -38,7 +38,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/alertTitle</value>
+      <value>${GlobalVariable.appPackage}:id/alertTitle</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -166,6 +166,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.appcompat.widget.LinearLayoutCompat[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/alertTitle']</locator>
+   <locator>//*[@class = 'android.widget.TextView' and @resource-id = '${GlobalVariable.appPackage}:id/alertTitle']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

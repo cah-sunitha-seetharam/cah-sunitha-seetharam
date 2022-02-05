@@ -3,7 +3,7 @@
    <description></description>
    <name>moreDetails__TextView</name>
    <tag></tag>
-   <elementGuidId>43ffe7b3-a634-4b69-81df-8af33a6062eb</elementGuidId>
+   <elementGuidId>948aa0df-3d0b-43b3-b111-e73d62258358</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/MoreDetailsTextView</value>
+      <value>${GlobalVariable.appPackage}:id/MoreDetailsTextView</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.TextView[7]</value>
    </webElementProperties>
-   <locator>com.cardinalhealth.orderexpress.two.debug:id/MoreDetailsTextView</locator>
+   <locator>${GlobalVariable.appPackage}:id/MoreDetailsTextView</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

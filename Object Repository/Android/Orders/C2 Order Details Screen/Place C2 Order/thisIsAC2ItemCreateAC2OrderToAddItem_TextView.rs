@@ -3,7 +3,7 @@
    <description></description>
    <name>thisIsAC2ItemCreateAC2OrderToAddItem_TextView</name>
    <tag></tag>
-   <elementGuidId>bfd0cd69-a4b1-4570-987b-4dc01532e562</elementGuidId>
+   <elementGuidId>9dfbc988-3777-4f1a-a654-e2fdd4ba7fc2</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvWarningTitle</value>
+      <value>${GlobalVariable.appPackage}:id/tvWarningTitle</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>tvWarningTitle</locator>
+   <locator>${GlobalVariable.appPackage}:id/tvWarningTitle</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

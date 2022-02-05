@@ -3,7 +3,7 @@
    <description></description>
    <name>continueBrowsing_Button</name>
    <tag></tag>
-   <elementGuidId>55e708fd-efbe-4572-b70f-2b723dda8e79</elementGuidId>
+   <elementGuidId>bd7f9379-ba9d-4b6c-9301-639ce53d42fe</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/continueBrowsingButton</value>
+      <value>${GlobalVariable.appPackage}:id/continueBrowsingButton</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.Button[1]</value>
    </webElementProperties>
-   <locator>com.cardinalhealth.orderexpress.two.debug:id/continueBrowsingButton</locator>
+   <locator>${GlobalVariable.appPackage}:id/continueBrowsingButton</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

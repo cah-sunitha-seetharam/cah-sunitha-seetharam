@@ -3,7 +3,7 @@
    <description></description>
    <name>problemWithYourOrder_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>824a1242-2f1c-42f4-b659-bef765ae620f</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvProblemWithYourOrder</value>
+      <value>${GlobalVariable.appPackage}:id/tvProblemWithYourOrder</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Problem with your order?' or . = 'Problem with your order?') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/tvProblemWithYourOrder']</locator>
+   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Problem with your order?' or . = 'Problem with your order?') and @resource-id = '${GlobalVariable.appPackage}:id/tvProblemWithYourOrder']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

@@ -3,7 +3,7 @@
    <description></description>
    <name>totalLineCount_TextView</name>
    <tag></tag>
-   <elementGuidId>2425d9e6-dca1-47cf-a59e-43e98821c2d4</elementGuidId>
+   <elementGuidId>f1d2f0fa-b1ac-4d09-a127-802a7269389b</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -33,7 +33,7 @@ Line</value>
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/ordersLinesCount</value>
+      <value>${GlobalVariable.appPackage}:id/ordersLinesCount</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -161,6 +161,6 @@ Line</value>
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.viewpager.widget.ViewPager[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView[2]</value>
    </webElementProperties>
-   <locator>com.cardinalhealth.orderexpress.two.debug:id/ordersLinesCount</locator>
+   <locator>${GlobalVariable.appPackage}:id/ordersLinesCount</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

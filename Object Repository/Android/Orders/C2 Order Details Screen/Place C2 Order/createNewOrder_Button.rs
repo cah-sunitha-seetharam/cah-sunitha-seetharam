@@ -3,7 +3,7 @@
    <description></description>
    <name>createNewOrder_Button</name>
    <tag></tag>
-   <elementGuidId>f6fcabb4-2451-4768-9f78-33461615ebbb</elementGuidId>
+   <elementGuidId>a724080c-715b-4b28-aff9-367b629cb5d3</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/btnCreateNewOrder</value>
+      <value>${GlobalVariable.appPackage}:id/btnCreateNewOrder</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.Button[1]</value>
    </webElementProperties>
-   <locator>btnCreateNewOrder</locator>
+   <locator>${GlobalVariable.appPackage}:id/btnCreateNewOrder</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

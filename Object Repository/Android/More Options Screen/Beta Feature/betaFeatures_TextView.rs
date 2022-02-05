@@ -3,7 +3,7 @@
    <description></description>
    <name>betaFeatures_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>cbbded1b-35eb-4d94-a995-89395310cf15</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvBetaFeature</value>
+      <value>${GlobalVariable.appPackage}:id/tvBetaFeature</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[6]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Beta Features' or . = 'Beta Features') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/tvBetaFeature']</locator>
+   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Beta Features' or . = 'Beta Features') and @resource-id = '${GlobalVariable.appPackage}:id/tvBetaFeature']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

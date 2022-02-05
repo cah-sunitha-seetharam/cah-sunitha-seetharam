@@ -3,7 +3,7 @@
    <description></description>
    <name>order_Tile</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>ccffaf40-59cf-4cc9-b157-951e6be5279c</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -25,7 +25,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/orderDetailsLayout</value>
+      <value>${GlobalVariable.appPackage}:id/orderDetailsLayout</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>

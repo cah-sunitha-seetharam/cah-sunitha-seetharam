@@ -3,7 +3,7 @@
    <description></description>
    <name>Add to Inventory_Button</name>
    <tag></tag>
-   <elementGuidId>64f40b7f-9202-4337-8f7f-8eec8d06d510</elementGuidId>
+   <elementGuidId>367485de-4a98-4f57-98b1-80a594759ab8</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/addToInventoryButton</value>
+      <value>${GlobalVariable.appPackage}:id/addToInventoryButton</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.widget.Button[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.Button' and (@text = 'Add to Inventory' or . = 'Add to Inventory') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/addToInventoryButton']</locator>
+   <locator>//*[@class = 'android.widget.Button' and (@text = 'Add to Inventory' or . = 'Add to Inventory') and @resource-id = '${GlobalVariable.appPackage}:id/addToInventoryButton']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

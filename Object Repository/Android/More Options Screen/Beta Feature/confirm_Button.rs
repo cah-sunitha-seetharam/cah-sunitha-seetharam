@@ -3,7 +3,7 @@
    <description></description>
    <name>confirm_Button</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>7a218d8a-7f31-46db-a653-04fa07ceed21</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/mbBetaBottomSheetDialogConfirmButton</value>
+      <value>${GlobalVariable.appPackage}:id/mbBetaBottomSheetDialogConfirmButton</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.Button[2]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.Button' and (@text = 'Confirm' or . = 'Confirm') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/mbBetaBottomSheetDialogConfirmButton']</locator>
+   <locator>//*[@class = 'android.widget.Button' and (@text = 'Confirm' or . = 'Confirm') and @resource-id = '${GlobalVariable.appPackage}:id/mbBetaBottomSheetDialogConfirmButton']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

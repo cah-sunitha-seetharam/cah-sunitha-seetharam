@@ -3,7 +3,7 @@
    <description></description>
    <name>linesOnOrderTile_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>39d3b02d-61d3-496e-ab12-cbcf3cecec57</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/linesTextView</value>
+      <value>${GlobalVariable.appPackage}:id/linesTextView</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>

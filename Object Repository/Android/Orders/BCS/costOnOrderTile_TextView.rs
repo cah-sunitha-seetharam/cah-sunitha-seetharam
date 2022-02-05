@@ -3,7 +3,7 @@
    <description></description>
    <name>costOnOrderTile_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>fb033e3b-a196-4cc3-aa1a-c3591d6da8ed</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/orderValueTextView</value>
+      <value>${GlobalVariable.appPackage}:id/orderValueTextView</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
