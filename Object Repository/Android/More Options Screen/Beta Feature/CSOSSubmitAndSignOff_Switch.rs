@@ -3,7 +3,7 @@
    <description></description>
    <name>CSOSSubmitAndSignOff_Switch</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>699bb9da-6ebd-404b-bc6d-ab46d2428837</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/switchCsosBeta</value>
+      <value>${GlobalVariable.appPackage}:id/switchCsosBeta</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.Switch[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.Switch' and (@text = 'CSOS Submit and Sign OFF' or . = 'CSOS Submit and Sign OFF') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/switchCsosBeta']</locator>
+   <locator>//*[@class = 'android.widget.Switch' and (@text = 'CSOS Submit and Sign OFF' or . = 'CSOS Submit and Sign OFF') and @resource-id = '${GlobalVariable.appPackage}:id/switchCsosBeta']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

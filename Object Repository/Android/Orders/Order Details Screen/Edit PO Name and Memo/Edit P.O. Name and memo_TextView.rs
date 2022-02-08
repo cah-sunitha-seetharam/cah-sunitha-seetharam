@@ -3,7 +3,7 @@
    <description></description>
    <name>Edit P.O. Name and memo_TextView</name>
    <tag></tag>
-   <elementGuidId>0947a969-f063-4b1f-a00c-93eb634cfb4a</elementGuidId>
+   <elementGuidId>3eb47e71-92ac-4635-bafd-11a60fce3a05</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/editOrderTextView</value>
+      <value>${GlobalVariable.appPackage}:id/editOrderTextView</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[2]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Edit P.O. Name and memo' or . = 'Edit P.O. Name and memo') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/editOrderTextView']</locator>
+   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Edit P.O. Name and memo' or . = 'Edit P.O. Name and memo') and @resource-id = '${GlobalVariable.appPackage}:id/editOrderTextView']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

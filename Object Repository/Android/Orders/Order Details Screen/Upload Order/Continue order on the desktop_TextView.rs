@@ -3,7 +3,7 @@
    <description></description>
    <name>Continue order on the desktop_TextView</name>
    <tag></tag>
-   <elementGuidId>6852e2b2-d002-485d-95fd-3ae2461ff473</elementGuidId>
+   <elementGuidId>b4de2782-ac72-477d-a540-f6b40d67e4a7</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/titleTextView</value>
+      <value>${GlobalVariable.appPackage}:id/titleTextView</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Continue order on the desktop?' or . = 'Continue order on the desktop?') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/titleTextView']</locator>
+   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Continue order on the desktop?' or . = 'Continue order on the desktop?') and @resource-id = '${GlobalVariable.appPackage}:id/titleTextView']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

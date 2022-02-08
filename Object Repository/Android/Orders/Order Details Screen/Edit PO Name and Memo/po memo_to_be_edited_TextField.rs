@@ -3,7 +3,7 @@
    <description></description>
    <name>po memo_to_be_edited_TextField</name>
    <tag></tag>
-   <elementGuidId>a4450582-a54d-4c34-9acb-c7e1e66314ce</elementGuidId>
+   <elementGuidId>bcc0df6b-e5f4-42c3-9329-07f95e39e6ea</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/poMemoEditText</value>
+      <value>${GlobalVariable.appPackage}:id/poMemoEditText</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.widget.LinearLayout[3]/android.widget.FrameLayout[1]/android.widget.EditText[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.EditText' and (@text = '${po_memo}' or . = '${po_memo}') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/poMemoEditText']</locator>
+   <locator>//*[@class = 'android.widget.EditText' and (@text = '${po_memo}' or . = '${po_memo}') and @resource-id = '${GlobalVariable.appPackage}:id/poMemoEditText']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

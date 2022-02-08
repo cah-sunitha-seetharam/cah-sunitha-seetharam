@@ -3,7 +3,7 @@
    <description></description>
    <name>Go to Dashboard_Button</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>a42592b5-e3cb-43dc-ac8d-b53c5de6bd95</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/goToDashboardButton</value>
+      <value>${GlobalVariable.appPackage}:id/goToDashboardButton</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.Button[2]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.Button' and (@text = 'Go to Dashboard' or . = 'Go to Dashboard') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/goToDashboardButton']</locator>
+   <locator>//*[@class = 'android.widget.Button' and (@text = 'Go to Dashboard' or . = 'Go to Dashboard') and @resource-id = '${GlobalVariable.appPackage}:id/goToDashboardButton']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

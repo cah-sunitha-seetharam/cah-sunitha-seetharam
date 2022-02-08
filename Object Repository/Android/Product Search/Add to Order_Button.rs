@@ -3,7 +3,7 @@
    <description></description>
    <name>Add to Order_Button</name>
    <tag></tag>
-   <elementGuidId>33fcf940-9e77-43cc-9f2e-6d249293992d</elementGuidId>
+   <elementGuidId>7ae4e280-c43b-41e7-b5c6-f9b45a0a854b</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/addToOrderButton</value>
+      <value>${GlobalVariable.appPackage}:id/addToOrderButton</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.view.ViewGroup[2]/android.widget.Button[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.Button' and (@text = 'Add to Order' or . = 'Add to Order') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/addToOrderButton']</locator>
+   <locator>//*[@class = 'android.widget.Button' and (@text = 'Add to Order' or . = 'Add to Order') and @resource-id = '${GlobalVariable.appPackage}:id/addToOrderButton']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

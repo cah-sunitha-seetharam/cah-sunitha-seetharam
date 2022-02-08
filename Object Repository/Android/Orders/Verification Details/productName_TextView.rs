@@ -3,7 +3,7 @@
    <description></description>
    <name>productName_TextView</name>
    <tag></tag>
-   <elementGuidId>d5226011-1601-4a07-9c89-61de0f2ee5bd</elementGuidId>
+   <elementGuidId>e1b41293-7fb2-4e76-9111-efa4672ca715</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/productName</value>
+      <value>${GlobalVariable.appPackage}:id/productName</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView[4]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = '${TEXT}' or . = '${TEXT}') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/productName']</locator>
+   <locator>//*[@class = 'android.widget.TextView' and (@text = '${TEXT}' or . = '${TEXT}') and @resource-id = '${GlobalVariable.appPackage}:id/productName']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

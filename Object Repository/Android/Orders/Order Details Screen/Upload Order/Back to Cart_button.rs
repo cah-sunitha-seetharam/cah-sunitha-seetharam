@@ -3,7 +3,7 @@
    <description></description>
    <name>Back to Cart_Button</name>
    <tag></tag>
-   <elementGuidId>9d4b3c94-7e3a-44ac-863e-76e5efd474fe</elementGuidId>
+   <elementGuidId>081014b3-9f34-4c2a-a06f-d62e2c4bee0f</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/backToCartButton</value>
+      <value>${GlobalVariable.appPackage}:id/backToCartButton</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.Button[1]</value>
    </webElementProperties>
-   <locator>com.cardinalhealth.orderexpress.two.debug:id/backToCartButton</locator>
+   <locator>${GlobalVariable.appPackage}:id/backToCartButton</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

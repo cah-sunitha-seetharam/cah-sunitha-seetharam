@@ -3,7 +3,7 @@
    <description></description>
    <name>uploadAllOrders_Button</name>
    <tag></tag>
-   <elementGuidId>1c2b94c1-9809-4c92-a3a3-727a2c9da657</elementGuidId>
+   <elementGuidId>2803273e-f5f8-40c3-8ada-a8f9a66c0c93</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/continueAllOnDesktopButton</value>
+      <value>${GlobalVariable.appPackage}:id/continueAllOnDesktopButton</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.viewpager.widget.ViewPager[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.Button[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.Button' and (@text = '${TEXT}' or . = '${TEXT}') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/continueAllOnDesktopButton']</locator>
+   <locator>//*[@class = 'android.widget.Button' and (@text = '${TEXT}' or . = '${TEXT}') and @resource-id = '${GlobalVariable.appPackage}:id/continueAllOnDesktopButton']</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

@@ -3,7 +3,7 @@
    <description></description>
    <name>iAgreeToTheTermsOfTheBetaProgram_CheckBox</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>58cc40eb-4d2e-4a8c-9d55-a0d26ead77dd</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/cbAgreeToTermsAndConditions</value>
+      <value>${GlobalVariable.appPackage}:id/cbAgreeToTermsAndConditions</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.CheckBox[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.CheckBox' and (@text = 'I agree to the terms of the beta program.' or . = 'I agree to the terms of the beta program.') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/cbAgreeToTermsAndConditions']</locator>
+   <locator>//*[@class = 'android.widget.CheckBox' and (@text = 'I agree to the terms of the beta program.' or . = 'I agree to the terms of the beta program.') and @resource-id = '${GlobalVariable.appPackage}:id/cbAgreeToTermsAndConditions']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

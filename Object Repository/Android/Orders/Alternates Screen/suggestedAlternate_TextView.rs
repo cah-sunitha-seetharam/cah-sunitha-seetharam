@@ -3,7 +3,7 @@
    <description></description>
    <name>suggestedAlternate_TextView</name>
    <tag></tag>
-   <elementGuidId>627ce9c5-0a5a-48a5-893b-e38b7e406509</elementGuidId>
+   <elementGuidId>7fd80365-2c70-4fdf-aaa4-cfa7e31119e7</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvSuggestedAlternateLabel</value>
+      <value>${GlobalVariable.appPackage}:id/tvSuggestedAlternateLabel</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/androidx.recyclerview.widget.RecyclerView[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>com.cardinalhealth.orderexpress.two.debug:id/tvSuggestedAlternateLabel</locator>
+   <locator>${GlobalVariable.appPackage}:id/tvSuggestedAlternateLabel</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

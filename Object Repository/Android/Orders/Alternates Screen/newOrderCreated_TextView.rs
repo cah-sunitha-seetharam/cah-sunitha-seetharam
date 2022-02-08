@@ -3,7 +3,7 @@
    <description></description>
    <name>newOrderCreated_TextView</name>
    <tag></tag>
-   <elementGuidId>c1cb0bd9-2b99-42f3-a684-4fb059e5b5dc</elementGuidId>
+   <elementGuidId>8df6870b-5fe1-40ab-b5e5-9334de47ca91</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/new_order</value>
+      <value>${GlobalVariable.appPackage}:id/new_order</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>com.cardinalhealth.orderexpress.two.debug:id/new_order</locator>
+   <locator>${GlobalVariable.appPackage}:id/new_order</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

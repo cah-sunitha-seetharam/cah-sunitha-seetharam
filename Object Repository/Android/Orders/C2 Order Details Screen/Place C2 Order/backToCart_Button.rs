@@ -3,7 +3,7 @@
    <description></description>
    <name>backToCart_Button</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>b79f548a-ae71-4713-89d9-0df3dffde50a</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/mbNegativeButton</value>
+      <value>${GlobalVariable.appPackage}:id/mbNegativeButton</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.Button[2]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.Button' and (@text = 'Back to Cart' or . = 'Back to Cart') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/mbNegativeButton']</locator>
+   <locator>//*[@class = 'android.widget.Button' and (@text = 'Back to Cart' or . = 'Back to Cart') and @resource-id = '${GlobalVariable.appPackage}:id/mbNegativeButton']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

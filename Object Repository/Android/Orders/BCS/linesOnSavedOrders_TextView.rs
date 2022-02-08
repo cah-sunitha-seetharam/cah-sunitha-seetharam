@@ -3,7 +3,7 @@
    <description></description>
    <name>linesOnSavedOrders_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>97a782e6-5b54-4350-baf4-7503f285bb66</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvNoOfLines</value>
+      <value>${GlobalVariable.appPackage}:id/tvNoOfLines</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>

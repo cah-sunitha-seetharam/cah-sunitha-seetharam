@@ -3,7 +3,7 @@
    <description></description>
    <name>weNeedJustAMinuteToEnsureThatWeHaveEverythingInStock_TextView</name>
    <tag></tag>
-   <elementGuidId>58989031-1b0e-48ec-87bf-1f3cd68ff4ec</elementGuidId>
+   <elementGuidId>33192a43-40ea-4024-91f5-8e0c51c4bda5</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/dialogMsg</value>
+      <value>${GlobalVariable.appPackage}:id/dialogMsg</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[2]</value>
    </webElementProperties>
-   <locator>dialogMsg</locator>
+   <locator>${GlobalVariable.appPackage}:id/dialogMsg</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

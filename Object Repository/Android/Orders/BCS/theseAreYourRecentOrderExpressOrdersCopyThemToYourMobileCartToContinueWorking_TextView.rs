@@ -3,7 +3,7 @@
    <description></description>
    <name>theseAreYourRecentOrderExpressOrdersCopyThemToYourMobileCartToContinueWorking_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>9d4e56e2-ef85-4a87-92c1-d5aaed4c68d4</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -34,7 +34,7 @@ continue working.</value>
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvDescription</value>
+      <value>${GlobalVariable.appPackage}:id/tvDescription</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>

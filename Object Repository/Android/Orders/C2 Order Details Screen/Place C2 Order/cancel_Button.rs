@@ -3,7 +3,7 @@
    <description></description>
    <name>cancel_Button</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>9df9f7ef-2e1f-4cb3-99a0-b25ab9b58bfd</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/btnCancel</value>
+      <value>${GlobalVariable.appPackage}:id/btnCancel</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.Button[2]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.Button' and (@text = 'Cancel' or . = 'Cancel') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/btnCancel']</locator>
+   <locator>//*[@class = 'android.widget.Button' and (@text = 'Cancel' or . = 'Cancel') and @resource-id = '${GlobalVariable.appPackage}:id/btnCancel']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

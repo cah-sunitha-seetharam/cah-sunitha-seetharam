@@ -3,7 +3,7 @@
    <description></description>
    <name>contractAlias_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>d74caf07-45c5-447d-b491-12aad5ed5fe3</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/ContractTextView</value>
+      <value>${GlobalVariable.appPackage}:id/ContractTextView</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView[19]</value>
    </webElementProperties>
-   <locator>com.cardinalhealth.orderexpress.two.debug:id/ContractTextView</locator>
+   <locator>${GlobalVariable.appPackage}:id/ContractTextView</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

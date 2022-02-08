@@ -3,7 +3,7 @@
    <description></description>
    <name>c2Label_Text</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>8d1e44b8-742a-4016-b22e-05f6418a4e98</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvC2Text</value>
+      <value>${GlobalVariable.appPackage}:id/tvC2Text</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>

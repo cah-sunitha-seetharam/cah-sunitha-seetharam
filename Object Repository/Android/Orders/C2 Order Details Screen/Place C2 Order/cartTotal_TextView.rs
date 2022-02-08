@@ -3,7 +3,7 @@
    <description></description>
    <name>cartTotal_TextView</name>
    <tag></tag>
-   <elementGuidId>8f4a81e8-0873-45e8-a288-6f9d7eda9634</elementGuidId>
+   <elementGuidId>1b9aa392-ce55-4307-8f5f-ff4471b14aeb</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvInvoiceCost</value>
+      <value>${GlobalVariable.appPackage}:id/tvInvoiceCost</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[1]/android.widget.TextView[2]</value>
    </webElementProperties>
-   <locator>invoiceCost</locator>
+   <locator>${GlobalVariable.appPackage}:id/tvInvoiceCost</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

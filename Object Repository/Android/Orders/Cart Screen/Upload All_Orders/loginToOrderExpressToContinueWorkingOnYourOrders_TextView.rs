@@ -3,7 +3,7 @@
    <description></description>
    <name>loginToOrderExpressToContinueWorkingOnYourOrders_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>16ba6bed-de94-4eed-9771-dcca01f912ca</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/subTextView</value>
+      <value>${GlobalVariable.appPackage}:id/subTextView</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[2]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Login to Order Express to continue working on your orders' or . = 'Login to Order Express to continue working on your orders') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/subTextView']</locator>
+   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Login to Order Express to continue working on your orders' or . = 'Login to Order Express to continue working on your orders') and @resource-id = '${GlobalVariable.appPackage}:id/subTextView']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

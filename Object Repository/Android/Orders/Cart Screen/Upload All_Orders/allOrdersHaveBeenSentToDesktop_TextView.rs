@@ -3,7 +3,7 @@
    <description></description>
    <name>allOrdersHaveBeenSentToDesktop_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>d1bf2844-6ad6-4b04-ac9f-f0f3b4bb6326</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/titleTextView</value>
+      <value>${GlobalVariable.appPackage}:id/titleTextView</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'All orders have been sent to desktop.' or . = 'All orders have been sent to desktop.') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/titleTextView']</locator>
+   <locator>//*[@class = 'android.widget.TextView' and (@text = 'All orders have been sent to desktop.' or . = 'All orders have been sent to desktop.') and @resource-id = '${GlobalVariable.appPackage}:id/titleTextView']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

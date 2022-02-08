@@ -3,7 +3,7 @@
    <description></description>
    <name>form_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>af155841-dd9d-4123-87fa-6b4fb3b75d52</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/FormTextView</value>
+      <value>${GlobalVariable.appPackage}:id/FormTextView</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView[12]</value>
    </webElementProperties>
-   <locator>com.cardinalhealth.orderexpress.two.debug:id/FormTextView</locator>
+   <locator>${GlobalVariable.appPackage}:id/FormTextView</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

@@ -3,7 +3,7 @@
    <description></description>
    <name>savedOrderExpressOrders_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>abe2b701-e1c2-40e4-885a-666178bd1520</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/toolbarTitle</value>
+      <value>${GlobalVariable.appPackage}:id/toolbarTitle</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>

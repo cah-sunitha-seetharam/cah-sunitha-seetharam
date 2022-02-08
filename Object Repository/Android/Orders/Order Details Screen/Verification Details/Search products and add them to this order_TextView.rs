@@ -3,7 +3,7 @@
    <description></description>
    <name>Search products and add them to this order_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>4b7fbd52-5e7f-4554-ae85-f00260a95180</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/searchStartSubTextView</value>
+      <value>${GlobalVariable.appPackage}:id/searchStartSubTextView</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.TextView[3]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Search products and add them to this order.' or . = 'Search products and add them to this order.') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/searchStartSubTextView']</locator>
+   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Search products and add them to this order.' or . = 'Search products and add them to this order.') and @resource-id = '${GlobalVariable.appPackage}:id/searchStartSubTextView']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

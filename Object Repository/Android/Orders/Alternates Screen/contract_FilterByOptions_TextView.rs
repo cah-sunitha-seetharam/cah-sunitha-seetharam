@@ -3,7 +3,7 @@
    <description></description>
    <name>contract_FilterByOptions_TextView</name>
    <tag></tag>
-   <elementGuidId>c4cfd09e-a076-494e-bb8b-e4b6b39dc870</elementGuidId>
+   <elementGuidId>d2e5cdc1-2514-4ec4-a6bf-6b84f5d626b5</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvFilterProductButtonText</value>
+      <value>${GlobalVariable.appPackage}:id/tvFilterProductButtonText</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.HorizontalScrollView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>com.cardinalhealth.orderexpress.two.debug:id/tvFilterProductButtonText</locator>
+   <locator>${GlobalVariable.appPackage}:id/tvFilterProductButtonText</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

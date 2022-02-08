@@ -3,7 +3,7 @@
    <description></description>
    <name>yourC2OrderIsReadyToSign_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>838adecb-f467-46f6-b104-de087e20186b</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvTitleTextView</value>
+      <value>${GlobalVariable.appPackage}:id/tvTitleTextView</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Your C2 order is ready to sign.' or . = 'Your C2 order is ready to sign.') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/tvTitleTextView']</locator>
+   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Your C2 order is ready to sign.' or . = 'Your C2 order is ready to sign.') and @resource-id = '${GlobalVariable.appPackage}:id/tvTitleTextView']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

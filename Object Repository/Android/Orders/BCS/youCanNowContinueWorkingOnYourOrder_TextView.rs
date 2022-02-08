@@ -3,7 +3,7 @@
    <description></description>
    <name>youCanNowContinueWorkingOnYourOrder_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>0b864a51-6013-46f1-b598-5a1180027af2</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/placeSubTextView</value>
+      <value>${GlobalVariable.appPackage}:id/placeSubTextView</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>

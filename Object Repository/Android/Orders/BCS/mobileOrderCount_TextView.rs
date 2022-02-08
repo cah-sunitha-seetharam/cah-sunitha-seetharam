@@ -3,7 +3,7 @@
    <description></description>
    <name>mobileOrderCount_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>8a50e964-610d-4ed4-b7d1-40815fd31ab2</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -33,7 +33,7 @@ Mobile Order</value>
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/ordersCount</value>
+      <value>${GlobalVariable.appPackage}:id/ordersCount</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>

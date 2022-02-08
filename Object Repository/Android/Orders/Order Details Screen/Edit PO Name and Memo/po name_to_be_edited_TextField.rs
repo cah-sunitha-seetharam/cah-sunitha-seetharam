@@ -3,7 +3,7 @@
    <description></description>
    <name>po name_to_be_edited_TextField</name>
    <tag></tag>
-   <elementGuidId>9ef3ae5e-f004-4886-b1e4-158c362391af</elementGuidId>
+   <elementGuidId>547de6b3-88a6-4ff1-be12-722ce60fd92e</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/poNameEditText</value>
+      <value>${GlobalVariable.appPackage}:id/poNameEditText</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.widget.LinearLayout[2]/android.widget.FrameLayout[1]/android.widget.EditText[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.EditText' and (@text = '${po_name}' or . = '${po_name}') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/poNameEditText']</locator>
+   <locator>//*[@class = 'android.widget.EditText' and (@text = '${po_name}' or . = '${po_name}') and @resource-id = '${GlobalVariable.appPackage}:id/poNameEditText']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

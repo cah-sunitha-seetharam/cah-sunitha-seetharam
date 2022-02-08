@@ -3,7 +3,7 @@
    <description></description>
    <name>cancelAndKeepOrdersOnTheApp_Button</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>46ef3d63-ef4b-491c-bcb9-fd9511f63d61</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/cancelButton</value>
+      <value>${GlobalVariable.appPackage}:id/cancelButton</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.Button[2]</value>
    </webElementProperties>
-   <locator>com.cardinalhealth.orderexpress.two.debug:id/cancelButton</locator>
+   <locator>${GlobalVariable.appPackage}:id/cancelButton</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

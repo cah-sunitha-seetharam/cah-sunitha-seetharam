@@ -3,7 +3,7 @@
    <description></description>
    <name>goToCart_Button</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>8ff42d39-5085-4e7a-b132-65e83ac8a8b1</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/BtnGoToCart</value>
+      <value>${GlobalVariable.appPackage}:id/BtnGoToCart</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>

@@ -3,7 +3,7 @@
    <description></description>
    <name>anyWorkNotUploadeOrSubmittedWillBeLostIfADifferentUserSignsInToThisDevice_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>db9325a9-a53e-4ad2-8c58-dafa5b8e7984</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/dialogMsg</value>
+      <value>${GlobalVariable.appPackage}:id/dialogMsg</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[2]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Any work not uploaded or submitted will be lost if a different user signs in to this device.' or . = 'Any work not uploaded or submitted will be lost if a different user signs in to this device.') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/dialogMsg']</locator>
+   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Any work not uploaded or submitted will be lost if a different user signs in to this device.' or . = 'Any work not uploaded or submitted will be lost if a different user signs in to this device.') and @resource-id = '${GlobalVariable.appPackage}:id/dialogMsg']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

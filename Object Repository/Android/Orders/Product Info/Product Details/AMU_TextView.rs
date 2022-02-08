@@ -3,7 +3,7 @@
    <description></description>
    <name>AMU_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>0b2d7b8c-7641-4634-b11c-1bfbe375a674</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/AMUTextView</value>
+      <value>${GlobalVariable.appPackage}:id/AMUTextView</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView[9]</value>
    </webElementProperties>
-   <locator>com.cardinalhealth.orderexpress.two.debug:id/AMUTextView</locator>
+   <locator>${GlobalVariable.appPackage}:id/AMUTextView</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

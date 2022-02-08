@@ -3,7 +3,7 @@
    <description></description>
    <name>viewYourConfirmationInOrderHistory_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>197becd4-1739-47c8-a6e2-db5c6b48e5f5</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvSubTextView</value>
+      <value>${GlobalVariable.appPackage}:id/tvSubTextView</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[2]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'View your confirmation in Order History.' or . = 'View your confirmation in Order History.') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/tvSubTextView']</locator>
+   <locator>//*[@class = 'android.widget.TextView' and (@text = 'View your confirmation in Order History.' or . = 'View your confirmation in Order History.') and @resource-id = '${GlobalVariable.appPackage}:id/tvSubTextView']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

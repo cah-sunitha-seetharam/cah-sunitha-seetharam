@@ -3,7 +3,7 @@
    <description></description>
    <name>allMobileOrders_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>a8543da7-deeb-4486-a778-924e1a682cca</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/allMobileOrdersLabel</value>
+      <value>${GlobalVariable.appPackage}:id/allMobileOrdersLabel</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.viewpager.widget.ViewPager[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'All Mobile Orders' or . = 'All Mobile Orders') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/allMobileOrdersLabel']</locator>
+   <locator>//*[@class = 'android.widget.TextView' and (@text = 'All Mobile Orders' or . = 'All Mobile Orders') and @resource-id = '${GlobalVariable.appPackage}:id/allMobileOrdersLabel']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

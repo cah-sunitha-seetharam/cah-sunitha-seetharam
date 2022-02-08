@@ -3,7 +3,7 @@
    <description></description>
    <name>CIN_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>8ba1655c-6e4e-41fb-b895-fcc906714cdd</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/CINText</value>
+      <value>${GlobalVariable.appPackage}:id/CINText</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView[15]</value>
    </webElementProperties>
-   <locator>com.cardinalhealth.orderexpress.two.debug:id/CINText</locator>
+   <locator>${GlobalVariable.appPackage}:id/CINText</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

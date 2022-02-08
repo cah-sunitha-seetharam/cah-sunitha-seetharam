@@ -3,7 +3,7 @@
    <description></description>
    <name>continueOnDesktop_Button</name>
    <tag></tag>
-   <elementGuidId>695c5175-bb95-4c7d-a8ac-6b64810c6535</elementGuidId>
+   <elementGuidId>9c7d1ea3-27ad-451b-904d-27c9a5e6c730</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/continueOnDesktopButton</value>
+      <value>${GlobalVariable.appPackage}:id/continueOnDesktopButton</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.Button[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.Button' and (@text = 'Continue On Desktop' or . = 'Continue On Desktop') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/continueOnDesktopButton']</locator>
+   <locator>//*[@class = 'android.widget.Button' and (@text = 'Continue On Desktop' or . = 'Continue On Desktop') and @resource-id = '${GlobalVariable.appPackage}:id/continueOnDesktopButton']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

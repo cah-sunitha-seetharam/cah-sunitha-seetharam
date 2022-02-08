@@ -3,7 +3,7 @@
    <description></description>
    <name>sizeFilterByOptions_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>d7173484-970e-44a0-9717-c4f3b4cbaad0</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/tvFilterProductButtonText</value>
+      <value>${GlobalVariable.appPackage}:id/tvFilterProductButtonText</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.HorizontalScrollView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Size' or . = 'Size') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/tvFilterProductButtonText']</locator>
+   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Size' or . = 'Size') and @resource-id = '${GlobalVariable.appPackage}:id/tvFilterProductButtonText']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

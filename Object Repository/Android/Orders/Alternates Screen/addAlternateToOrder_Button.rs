@@ -3,7 +3,7 @@
    <description></description>
    <name>addAlternateToOrder_Button</name>
    <tag></tag>
-   <elementGuidId>74bb1ca9-d98e-4a4e-81d2-5f67674aef87</elementGuidId>
+   <elementGuidId>d5bfb361-b978-41b5-99bf-3097e07ac7cb</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/addAlternateAndReplaceButton</value>
+      <value>${GlobalVariable.appPackage}:id/addAlternateAndReplaceButton</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/androidx.recyclerview.widget.RecyclerView[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.widget.Button[1]</value>
    </webElementProperties>
-   <locator>com.cardinalhealth.orderexpress.two.debug:id/addAlternateAndReplaceButton</locator>
+   <locator>${GlobalVariable.appPackage}:id/addAlternateAndReplaceButton</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

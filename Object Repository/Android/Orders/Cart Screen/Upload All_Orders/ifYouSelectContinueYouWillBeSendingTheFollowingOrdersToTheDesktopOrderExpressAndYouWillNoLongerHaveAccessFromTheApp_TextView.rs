@@ -3,7 +3,7 @@
    <description></description>
    <name>ifYouSelectContinueYouWillBeSendingTheFollowingOrdersToTheDesktopOrderExpressAndYouWillNoLongerHaveAccessFromTheApp_TextView</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>61b75fa8-5019-44ef-82d1-cbc6dd98f483</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/continueSubTextView</value>
+      <value>${GlobalVariable.appPackage}:id/continueSubTextView</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[2]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'If you select “Continue” you will be sending the following orders to the desktop Order Express and you will no longer have access from the app' or . = 'If you select “Continue” you will be sending the following orders to the desktop Order Express and you will no longer have access from the app') and @resource-id = 'com.cardinalhealth.orderexpress.two.debug:id/continueSubTextView']</locator>
+   <locator>//*[@class = 'android.widget.TextView' and (@text = 'If you select “Continue” you will be sending the following orders to the desktop Order Express and you will no longer have access from the app' or . = 'If you select “Continue” you will be sending the following orders to the desktop Order Express and you will no longer have access from the app') and @resource-id = '${GlobalVariable.appPackage}:id/continueSubTextView']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>
