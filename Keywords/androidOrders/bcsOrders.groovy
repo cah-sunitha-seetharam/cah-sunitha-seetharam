@@ -49,7 +49,7 @@ class bcsOrders {
 	@Keyword
 	def verifyBcsNotification() {
 
-		Mobile.verifyElementExist(findTestObject('Android/Orders/BCS/bcsNotification_View'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/BCS/bcsNotification_View'), 0)
 	}
 
 
@@ -59,7 +59,7 @@ class bcsOrders {
 	@Keyword
 	def openSavedOrdersList() {
 
-		Mobile.tap(findTestObject('Android/Orders/BCS/bcsNotification_View'), 0)
+		Mobile.tap(findTestObject('Android/orders/BCS/bcsNotification_View'), 0)
 	}
 
 
@@ -69,11 +69,11 @@ class bcsOrders {
 	@Keyword
 	def verifySavedOrdersListDetails() {
 
-		Mobile.verifyElementExist(findTestObject('Android/Orders/BCS/theseAreYourRecentOrderExpressOrdersCopyThemToYourMobileCartToContinueWorking_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/BCS/theseAreYourRecentOrderExpressOrdersCopyThemToYourMobileCartToContinueWorking_TextView'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Orders/BCS/savedOrderExpressOrders_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/BCS/savedOrderExpressOrders_TextView'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Orders/BCS/lastUpdated_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/BCS/lastUpdated_TextView'), 0)
 	}
 
 
@@ -95,10 +95,10 @@ class bcsOrders {
 
 		Mobile.scrollToText("C2 orders are unavailable to copy to mobile")
 
-		String yCoordinate=Mobile.getAttribute(findTestObject('Android/Orders/BCS/c2OrdersAreUnavailableToCopyToMobile_TextView'), 'y',0)
-		String elementHeight =Mobile.getElementHeight(findTestObject('Android/Orders/BCS/orderTile_View'), 0)
-		String elementLeftPosition =Mobile.getElementLeftPosition(findTestObject('Android/Orders/BCS/orderTile_View'), 0)
-		String elementWidth =Mobile.getElementWidth(findTestObject('Android/Orders/BCS/orderTile_View'), 0)
+		String yCoordinate=Mobile.getAttribute(findTestObject('Android/orders/BCS/c2OrdersAreUnavailableToCopyToMobile_TextView'), 'y',0)
+		String elementHeight =Mobile.getElementHeight(findTestObject('Android/orders/BCS/orderTile_View'), 0)
+		String elementLeftPosition =Mobile.getElementLeftPosition(findTestObject('Android/orders/BCS/orderTile_View'), 0)
+		String elementWidth =Mobile.getElementWidth(findTestObject('Android/orders/BCS/orderTile_View'), 0)
 
 		KeywordUtil.logInfo(yCoordinate)
 		KeywordUtil.logInfo(elementWidth)
@@ -110,9 +110,9 @@ class bcsOrders {
 		int xmaxBoundaryCoordinate=xminBoundaryCoordinate+elementWidth.toInteger()
 		int ymaxBoundaryCoordinate=yminBoundaryCoordinate+elementHeight.toInteger()
 
-		Mobile.verifyElementNotVisible(findTestObject('Android/Orders/BCS/cost_TextView',[('TEXT_1'):xminBoundaryCoordinate,('TEXT_2'):yminBoundaryCoordinate,('TEXT_3'):xmaxBoundaryCoordinate,('TEXT_4'):ymaxBoundaryCoordinate]), 5)
-		Mobile.verifyElementNotVisible(findTestObject('Android/Orders/BCS/check_Box',[('TEXT_1'):xminBoundaryCoordinate,('TEXT_2'):yminBoundaryCoordinate,('TEXT_3'):xmaxBoundaryCoordinate,('TEXT_4'):ymaxBoundaryCoordinate]), 5)
-		Mobile.verifyElementAttributeValue(findTestObject('Android/Orders/BCS/copyOrdersToMobile_Button'), 'enabled','false',0)
+		Mobile.verifyElementNotVisible(findTestObject('Android/orders/BCS/cost_TextView',[('TEXT_1'):xminBoundaryCoordinate,('TEXT_2'):yminBoundaryCoordinate,('TEXT_3'):xmaxBoundaryCoordinate,('TEXT_4'):ymaxBoundaryCoordinate]), 5)
+		Mobile.verifyElementNotVisible(findTestObject('Android/orders/BCS/checkBox',[('TEXT_1'):xminBoundaryCoordinate,('TEXT_2'):yminBoundaryCoordinate,('TEXT_3'):xmaxBoundaryCoordinate,('TEXT_4'):ymaxBoundaryCoordinate]), 5)
+		Mobile.verifyElementAttributeValue(findTestObject('Android/orders/BCS/copyOrdersToMobile_Button'), 'enabled','false',0)
 	}
 
 
@@ -122,15 +122,15 @@ class bcsOrders {
 	@Keyword
 	def copyNonC2ProductFromSavedOrders() {
 
-		Mobile.verifyElementAttributeValue(findTestObject('Android/Orders/BCS/copyOrdersToMobile_Button'), 'enabled','false',0)
+		Mobile.verifyElementAttributeValue(findTestObject('Android/orders/BCS/copyOrdersToMobile_Button'), 'enabled','false',0)
 
-		Mobile.tap(findTestObject('Android/Orders/BCS/checkBoxToCopyOrder'), 0)
+		Mobile.tap(findTestObject('Android/orders/BCS/checkBoxToCopyOrder'), 0)
 
-		Mobile.verifyElementAttributeValue(findTestObject('Android/Orders/BCS/copyOrdersToMobile_Button'), 'enabled','true',0)
+		Mobile.verifyElementAttributeValue(findTestObject('Android/orders/BCS/copyOrdersToMobile_Button'), 'enabled','true',0)
 
-		Mobile.tap(findTestObject('Android/Orders/BCS/copyOrdersToMobile_Button'),0)
+		Mobile.tap(findTestObject('Android/orders/BCS/copyOrdersToMobile_Button'),0)
 
-		Mobile.tap(findTestObject('Android/Orders/BCS/goToCart_Button'), 0)
+		Mobile.tap(findTestObject('Android/orders/BCS/goToCart_Button'), 0)
 	}
 
 
@@ -142,18 +142,18 @@ class bcsOrders {
 	 */
 	@Keyword
 	def copyAndVerifyTopMostOrderDetailsUnderSavedOrdersToCartScreen() {
-				
-		String orderName1=Mobile.getText(findTestObject('Object Repository/Android/Orders/BCS/savedOrdersOrderName_TextView'), 0)
-		String accountName1=Mobile.getText(findTestObject('Android/Orders/BCS/savedOrdersAccountLabel_TextView'), 0)
-		String linesCount1=Mobile.getText(findTestObject('Android/Orders/BCS/linesOnSavedOrders_TextView'), 0)
+
+		String orderName1=Mobile.getText(findTestObject('Android/orders/BCS/savedOrdersOrderName_TextView'), 0)
+		String accountName1=Mobile.getText(findTestObject('Android/orders/BCS/savedOrdersAccountLabel_TextView'), 0)
+		String linesCount1=Mobile.getText(findTestObject('Android/orders/BCS/linesOnSavedOrders_TextView'), 0)
 
 		copyNonC2ProductFromSavedOrders()
 		androidCommonKeywordsObject.waitForProgressBarToBeInvisible()
 		emergencyOrderingModeObject.enableOrDisableEOmode()
 
-		String orderName2=Mobile.getText(findTestObject('Android/Orders/BCS/orderNameCartScreen_TextView'), 0)
-		String accountName2=Mobile.getText(findTestObject('Android/Orders/BCS/orderTileAccountNo_TextView'), 0)
-		String linesCount2=Mobile.getText(findTestObject('Android/Orders/BCS/linesOnOrderTile_TextView'), 0)
+		String orderName2=Mobile.getText(findTestObject('Android/orders/BCS/orderNameCartScreen_TextView'), 0)
+		String accountName2=Mobile.getText(findTestObject('Android/orders/BCS/orderTileAccountNo_TextView'), 0)
+		String linesCount2=Mobile.getText(findTestObject('Android/orders/BCS/linesOnOrderTile_TextView'), 0)
 
 		Float.parseFloat(linesCount1.replaceAll("[^0-9.]", ""))
 		Float.parseFloat(linesCount2.replaceAll("[^0-9.]", ""))

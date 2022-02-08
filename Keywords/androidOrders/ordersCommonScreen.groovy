@@ -53,7 +53,7 @@ class ordersCommonScreen {
 	@Keyword
 	def clickOnNewOrder() {
 
-		Mobile.tap(findTestObject('Object Repository/Android/Orders/Orders Common Screen/New Order_Tab'), 0)
+		Mobile.tap(findTestObject('Android/orders/ordersCommonScreen/newOrder_Tab'), 0)
 	}
 
 
@@ -61,7 +61,7 @@ class ordersCommonScreen {
 	@Keyword
 	def clickOnHistoryTab() {
 
-		Mobile.tap(	findTestObject('Object Repository/Android/Orders/Orders Common Screen/History_Tab'), 0)
+		Mobile.tap(	findTestObject('Android/orders/ordersCommonScreen/History_Tab'), 0)
 	}
 
 
@@ -72,7 +72,7 @@ class ordersCommonScreen {
 	@Keyword
 	def clickOnCartTab() {
 
-		Mobile.tap(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/cart_Tab'), 0)
+		Mobile.tap(findTestObject('Android/orders/cartScreen/verificationDetails/cart_Tab'), 0)
 	}
 
 
@@ -82,13 +82,13 @@ class ordersCommonScreen {
 	@Keyword
 	def clearAllOrders() {
 		int counter=1,waitLimit=20,elementHeight,elementTopPosition,yCoordinateToSwipe//waitLimit of 20s
-		while(Mobile.verifyElementNotVisible(findTestObject('Android/Dashboard/moreOptions_Tab'), 2,FailureHandling.OPTIONAL))
+		while(Mobile.verifyElementNotVisible(findTestObject('Android/dashboard/moreOptions_Tab'), 2,FailureHandling.OPTIONAL))
 		{	Mobile.pressBack()
 			counter+=1
 			if(counter>waitLimit)
 				break
 		}
-		while(Mobile.verifyElementNotVisible(findTestObject('Object Repository/Android/Orders/Orders Common Screen/cart_Tab'), 2,FailureHandling.OPTIONAL))
+		while(Mobile.verifyElementNotVisible(findTestObject('Android/orders/ordersCommonScreen/cart_Tab'), 2,FailureHandling.OPTIONAL))
 		{
 			dashboardObject.clickOnOrders()
 			counter+=1
@@ -110,7 +110,7 @@ class ordersCommonScreen {
 		while(Mobile.verifyElementExist(findTestObject(testObj), 2,FailureHandling.OPTIONAL)) //deletes orders under nonc2 orders tab
 		{
 			Mobile.swipe(500, yCoordinateToSwipe, 0, yCoordinateToSwipe)
-			Mobile.tapAndHold(findTestObject('Android/Orders/Cart Screen/Delete Order/YES_Button'), 0, 0)
+			Mobile.tapAndHold(findTestObject('Android/orders/cartScreen/deleteOrder/YES_Button'), 0, 0)
 			commonMethodObject.waitForProgressBarToBeInvisible()
 			counter+=1
 			if(counter>waitLimit)
@@ -124,10 +124,10 @@ class ordersCommonScreen {
 			elementTopPosition = Mobile.getElementTopPosition(findTestObject(testObj), 2,FailureHandling.CONTINUE_ON_FAILURE)
 			yCoordinateToSwipe=(elementHeight/2)+elementTopPosition
 		}
-		while(Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Orders Common Screen/orderName_TextView'), 2,FailureHandling.OPTIONAL)) //deletes orders under c2 orders tab
+		while(Mobile.verifyElementExist(findTestObject('Android/orders/ordersCommonScreen/orderName_TextView'), 2,FailureHandling.OPTIONAL)) //deletes orders under c2 orders tab
 		{
 			Mobile.swipe(500, yCoordinateToSwipe, 0, yCoordinateToSwipe)
-			Mobile.tapAndHold(findTestObject('Android/Orders/Cart Screen/Delete Order/YES_Button'), 0, 0)
+			Mobile.tapAndHold(findTestObject('Android/orders/cartScreen/deleteOrder/YES_Button'), 0, 0)
 			commonMethodObject.waitForProgressBarToBeInvisible()
 			counter+=1
 			if(counter>waitLimit)

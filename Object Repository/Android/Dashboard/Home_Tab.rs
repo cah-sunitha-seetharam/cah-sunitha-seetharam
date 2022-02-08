@@ -3,7 +3,7 @@
    <description></description>
    <name>home_Tab</name>
    <tag></tag>
-   <elementGuidId>e855823f-620b-474d-9dcd-babc4d9cdf22</elementGuidId>
+   <elementGuidId>68fe4d3a-d0cb-4143-98af-95da5780cdcb</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/largeLabel</value>
+      <value>${GlobalVariable.appPackage}:id/largeLabel</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[2]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>${GlobalVariable.appPackage}:id/navigation_home</locator>
+   <locator>${GlobalVariable.appPackage}:id/largeLabel</locator>
    <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

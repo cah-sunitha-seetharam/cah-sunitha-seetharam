@@ -115,19 +115,19 @@ class dashboardDetailsScreen {
 	@Keyword
 	def verifyDashboardPage() {
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Dashboard/home_Tab'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/dashboard/home_Tab'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Dashboard/receiving_Tab'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/dashboard/receiving_Tab'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Dashboard/audits'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/dashboard/audits'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Dashboard/moreOptions_Tab'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/dashboard/moreOptions_Tab'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Dashboard/Orders_Tab'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/dashboard/Orders_Tab'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Dashboard/homeHeader_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/dashboard/homeHeader_TextView'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Dashboard/ChangeAccount_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/dashboard/ChangeAccount_Button'), 0)
 	}
 
 
@@ -135,11 +135,11 @@ class dashboardDetailsScreen {
 	 @Keyword
 	 def addingProductFromDashboardToCart(String productName, String quantity) {
 	 commonMethodsObject.waitForProgressBarToBeInvisible()
-	 Mobile.tap(findTestObject('Android/Product Search/Search Products_SearchView'), 0)
-	 Mobile.setText(findTestObject('Android/Product Search/Search Products_SearchView'), productName + '\\n',0)
+	 Mobile.tap(findTestObject('Android/productSearch/searchProductsSearchView_EditText'), 0)
+	 Mobile.setText(findTestObject('Android/productSearch/searchProductsSearchView_EditText'), productName + '\\n',0)
 	 commonMethodsObject.waitForProgressBarToBeInvisible()
-	 Mobile.setText(findTestObject('Android/Product Search/Quantity_TextField'), quantity, 0)
-	 Mobile.tap(	findTestObject('Object Repository/Android/Product Search/Add to Order_Button'), 0)
+	 Mobile.setText(findTestObject('Android/productSearch/Quantity_TextField'), quantity, 0)
+	 Mobile.tap(	findTestObject('Android/productSearch/addToOrder_Button'), 0)
 	 Mobile.tap(findTestObject('iOS/Product_Search/Continue Browsing_Button'), 0)
 	 }*/
 

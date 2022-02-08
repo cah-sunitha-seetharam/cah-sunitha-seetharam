@@ -48,7 +48,7 @@ class moreOptionsScreen {
 	@Keyword()
 	def changeAccount(accountNo) {
 
-		Mobile.tap(findTestObject('Android/Dashboard/changeAccount_Button'), 0)
+		Mobile.tap(findTestObject('Android/dashboard/changeAccount_Button'), 0)
 
 		Mobile.tap(findTestObject('Android/Account Selection/ChangeAccount_TextView'), 0)
 
@@ -62,7 +62,7 @@ class moreOptionsScreen {
 	 */
 	@Keyword
 	def tapMessageCentre() {
-		Mobile.tapAndHold(findTestObject('Object Repository/Android/More Options Screen/Message Centre/messageCentre_Text'), 0, 0)
+		Mobile.tapAndHold(findTestObject('Android/moreOptionsScreen/messageCentre/messageCentre_Text'), 0, 0)
 	}
 
 	/**
@@ -70,7 +70,7 @@ class moreOptionsScreen {
 	 */
 	@Keyword
 	def verifyMessageCentre () {
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/More Options Screen/Message Centre/topMostMessageTitle_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/moreOptionsScreen/messageCentre/topMostMessageTitle_Text'), 0)
 	}
 	
 	/**
@@ -78,7 +78,7 @@ class moreOptionsScreen {
 	 */
 	@Keyword
 	def verifyMessageDescription () {
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/More Options Screen/Message Centre/descriptionOfMessage_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/moreOptionsScreen/messageCentre/descriptionOfMessage_Text'), 0)
 	}
 	
 	/**
@@ -86,7 +86,7 @@ class moreOptionsScreen {
 	 */
 	@Keyword
 	def tapOnTopMostMessage () {
-		Mobile.tapAndHold(findTestObject('Object Repository/Android/More Options Screen/Message Centre/topMostMessageTitle_Text'), 0, 0)
+		Mobile.tapAndHold(findTestObject('Android/moreOptionsScreen/messageCentre/topMostMessageTitle_Text'), 0, 0)
 	}
 	
 	/**
@@ -94,10 +94,10 @@ class moreOptionsScreen {
 	 */
 	@Keyword()
 	def enableBetaFeatureCSOS() {
-		Mobile.tap(findTestObject('Android/More Options Screen/Beta Feature/betaFeatures_TextView'), 0)
-		Mobile.tap(findTestObject('Android/More Options Screen/Beta Feature/CSOSSubmitAndSignOff_Switch'), 0)
-		Mobile.tap(findTestObject('Android/More Options Screen/Beta Feature/iAgreeToTheTermsOfTheBetaProgram_CheckBox'), 0)
-		Mobile.tap(findTestObject('Android/More Options Screen/Beta Feature/confirm_Button'), 0)
+		Mobile.tap(findTestObject('Android/moreOptionsScreen/betaFeature/betaFeatures_TextView'), 0)
+		Mobile.tap(findTestObject('Android/moreOptionsScreen/betaFeature/CSOSSubmitAndSignOff_Switch'), 0)
+		Mobile.tap(findTestObject('Android/moreOptionsScreen/betaFeature/iAgreeToTheTermsOfTheBetaProgram_CheckBox'), 0)
+		Mobile.tap(findTestObject('Android/moreOptionsScreen/betaFeature/confirm_Button'), 0)
 		Mobile.delay(2)
 	}
 
@@ -120,11 +120,11 @@ class moreOptionsScreen {
 		
 		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 		
-		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Android/Dashboard/moreOptions_Tab'), 10)
+		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Android/dashboard/moreOptions_Tab'), 10)
 		element.click()
 
-		Mobile.tap(findTestObject('Android/More Options Screen/SignOut/signOut_TextView'), 0)
+		Mobile.tap(findTestObject('Android/moreOptionsScreen/signOut/signOut_TextView'), 0)
 
-		Mobile.tap(findTestObject('Android/More Options Screen/SignOut/signOut_Button'), 0)
+		Mobile.tap(findTestObject('Android/moreOptionsScreen/signOut/signOut_Button'), 0)
 	}
 }
