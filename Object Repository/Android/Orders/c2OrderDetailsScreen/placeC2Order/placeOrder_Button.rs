@@ -3,7 +3,7 @@
    <description></description>
    <name>placeOrder_Button</name>
    <tag></tag>
-   <elementGuidId>e2fa0ba3-9cb2-4bf7-b23a-be7ce6f2e78d</elementGuidId>
+   <elementGuidId>1116a244-13f7-485b-a64e-752c2c083ce5</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.viewpager.widget.ViewPager[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.Button[2]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.Button' and (@text = 'Place Order' or . = 'Place Order') and @resource-id = '${GlobalVariable.appPackage}:id/btnPlaceOrder']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/btnPlaceOrder</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

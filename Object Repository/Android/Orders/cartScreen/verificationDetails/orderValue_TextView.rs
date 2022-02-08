@@ -3,7 +3,7 @@
    <description></description>
    <name>orderValue_TextView</name>
    <tag></tag>
-   <elementGuidId>6b7d5a48-2930-4b1b-bdaa-be932a6226df</elementGuidId>
+   <elementGuidId>322bae9d-4b02-4f30-944d-15c1392fb268</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.viewpager.widget.ViewPager[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[4]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and @resource-id = '${GlobalVariable.appPackage}:id/orderValueTextView']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/orderValueTextView</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

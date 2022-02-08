@@ -3,7 +3,7 @@
    <description></description>
    <name>UOIcost_Text</name>
    <tag></tag>
-   <elementGuidId>7ff46433-d2b0-401e-b1c2-2d3f537a1cd4</elementGuidId>
+   <elementGuidId>0836c867-4138-4530-8d5a-371106c970f8</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView[4]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and @resource-id = '${GlobalVariable.appPackage}:id/uoiCost']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/uoiCost</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

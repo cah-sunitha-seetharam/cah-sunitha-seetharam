@@ -3,7 +3,7 @@
    <description></description>
    <name>popUpProductMenu_TextView</name>
    <tag></tag>
-   <elementGuidId>851c1c6c-8e10-4b02-a672-fc015e8dc73a</elementGuidId>
+   <elementGuidId>14cb8fb3-ad08-4213-8ff4-f00640d4d067</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[2]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and @resource-id = '${GlobalVariable.appPackage}:id/tvMore' and (@text = '' or . = '')]</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/tvMore</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

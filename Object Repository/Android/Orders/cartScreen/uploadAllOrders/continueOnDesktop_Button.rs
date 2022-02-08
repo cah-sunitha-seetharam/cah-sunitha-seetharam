@@ -3,7 +3,7 @@
    <description></description>
    <name>continueOnDesktop_Button</name>
    <tag></tag>
-   <elementGuidId>9c7d1ea3-27ad-451b-904d-27c9a5e6c730</elementGuidId>
+   <elementGuidId>22d7308f-80d5-41ee-a3c0-4bf141450dab</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.Button[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.Button' and (@text = 'Continue On Desktop' or . = 'Continue On Desktop') and @resource-id = '${GlobalVariable.appPackage}:id/continueOnDesktopButton']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/continueOnDesktopButton</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

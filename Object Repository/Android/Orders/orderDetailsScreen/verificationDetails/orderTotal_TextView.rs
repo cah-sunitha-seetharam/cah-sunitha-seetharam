@@ -3,7 +3,7 @@
    <description></description>
    <name>orderTotal_TextView</name>
    <tag></tag>
-   <elementGuidId>9be12db9-6a5a-4618-b44e-8a862d9e3fce</elementGuidId>
+   <elementGuidId>591841e7-bf82-46b7-a0f3-cc008c3d2372</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -161,6 +161,6 @@ Order Total</value>
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView[2]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and @resource-id = '${GlobalVariable.appPackage}:id/ordersMoneyCount']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/ordersMoneyCount</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

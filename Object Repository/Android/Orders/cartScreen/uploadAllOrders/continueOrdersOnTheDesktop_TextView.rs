@@ -3,7 +3,7 @@
    <description></description>
    <name>continueOrdersOnTheDesktop_TextView</name>
    <tag></tag>
-   <elementGuidId>805e37b0-2af0-4074-b113-7a99df717c5b</elementGuidId>
+   <elementGuidId>9992de42-6649-4770-a00e-13665d9edf60</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Continue orders on the desktop?' or . = 'Continue orders on the desktop?') and @resource-id = '${GlobalVariable.appPackage}:id/titleTextView']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/titleTextView</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

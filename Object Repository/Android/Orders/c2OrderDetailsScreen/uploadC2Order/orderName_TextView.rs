@@ -3,7 +3,7 @@
    <description></description>
    <name>orderName_TextView</name>
    <tag></tag>
-   <elementGuidId>ba9b21f6-f98d-4a02-a1ad-3b204f7583be</elementGuidId>
+   <elementGuidId>3245d562-135c-486e-af8e-7fee93200bec</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[5]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'MORPHINE CN20MG/ML 240ML RASP  C2' or . = 'MORPHINE CN20MG/ML 240ML RASP  C2') and @resource-id = '${GlobalVariable.appPackage}:id/productName']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/productName</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

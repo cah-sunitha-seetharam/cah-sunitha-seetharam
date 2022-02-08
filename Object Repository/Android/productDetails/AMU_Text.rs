@@ -3,7 +3,7 @@
    <description></description>
    <name>AMU_Text</name>
    <tag></tag>
-   <elementGuidId>d5aea949-63cd-4d38-8f35-9baba1b37236</elementGuidId>
+   <elementGuidId>da8b57a6-0383-4b0e-83f1-6564fc888334</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView[6]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and @resource-id = '${GlobalVariable.appPackage}:id/amuText']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/amuText</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

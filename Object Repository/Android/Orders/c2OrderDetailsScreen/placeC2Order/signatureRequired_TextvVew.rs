@@ -3,7 +3,7 @@
    <description></description>
    <name>signatureRequired_TextvVew</name>
    <tag></tag>
-   <elementGuidId>16ef8270-a734-4311-8d9d-74a61ba987e7</elementGuidId>
+   <elementGuidId>0dfd0d00-b3ad-4bf0-81db-84742d07dd0a</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.viewpager.widget.ViewPager[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[2]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[2]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Signature Required' or . = 'Signature Required') and @resource-id = '${GlobalVariable.appPackage}:id/tvSignatureRequired']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/tvSignatureRequired</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

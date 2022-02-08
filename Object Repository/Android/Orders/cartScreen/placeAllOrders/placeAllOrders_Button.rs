@@ -3,7 +3,7 @@
    <description></description>
    <name>placeAllOrders_Button</name>
    <tag></tag>
-   <elementGuidId>328a8312-7bee-430c-8c2d-def8bba889e4</elementGuidId>
+   <elementGuidId>045a6946-d7c8-4855-9148-8cd6e1c0e122</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.viewpager.widget.ViewPager[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.Button[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.Button' and (@text = 'Place All Orders' or . = 'Place All Orders') and @resource-id = '${GlobalVariable.appPackage}:id/submitAllOrderButton']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/submitAllOrderButton</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

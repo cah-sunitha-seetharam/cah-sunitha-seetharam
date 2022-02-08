@@ -3,7 +3,7 @@
    <description></description>
    <name>alternatesList_TextView</name>
    <tag></tag>
-   <elementGuidId>4db1b639-5cb1-4d80-9e73-08091d3253ae</elementGuidId>
+   <elementGuidId>5bd1c644-ee2f-4b23-a5e1-e44404999d56</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Alternates' or . = 'Alternates') and @resource-id = '${GlobalVariable.appPackage}:id/alternativeButton']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/alternativeButton</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

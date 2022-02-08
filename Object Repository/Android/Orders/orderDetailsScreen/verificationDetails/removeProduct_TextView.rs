@@ -3,7 +3,7 @@
    <description></description>
    <name>removeProduct_TextView</name>
    <tag></tag>
-   <elementGuidId>7d7a04b3-700c-4d9e-85c0-2dfca6545c41</elementGuidId>
+   <elementGuidId>9525524d-62da-4c4d-bba5-db1cb4d06903</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Remove' or . = 'Remove') and @resource-id = '${GlobalVariable.appPackage}:id/removeButton']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/removeButton</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

@@ -3,7 +3,7 @@
    <description></description>
    <name>sizeFilterByOptions_TextView</name>
    <tag></tag>
-   <elementGuidId>d7173484-970e-44a0-9717-c4f3b4cbaad0</elementGuidId>
+   <elementGuidId>a0a4f088-99fa-4982-9655-f76d0f9e0326</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.HorizontalScrollView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Size' or . = 'Size') and @resource-id = '${GlobalVariable.appPackage}:id/tvFilterProductButtonText']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/tvFilterProductButtonText</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

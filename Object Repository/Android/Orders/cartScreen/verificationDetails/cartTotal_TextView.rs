@@ -3,7 +3,7 @@
    <description></description>
    <name>cartTotal_TextView</name>
    <tag></tag>
-   <elementGuidId>031f3089-f5f8-4409-9978-e709c4c75c83</elementGuidId>
+   <elementGuidId>c3259816-54a5-407c-82f9-eeeb1c87ced0</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -161,6 +161,6 @@ Cart Total</value>
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.viewpager.widget.ViewPager[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView[3]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and @resource-id = '${GlobalVariable.appPackage}:id/ordersMoneyCount']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/ordersMoneyCount</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

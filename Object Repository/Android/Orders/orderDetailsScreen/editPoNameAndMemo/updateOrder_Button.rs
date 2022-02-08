@@ -3,7 +3,7 @@
    <description></description>
    <name>updateOrder_Button</name>
    <tag></tag>
-   <elementGuidId>42b79c02-f9a3-48f5-9216-8dceab541820</elementGuidId>
+   <elementGuidId>913038c8-36e7-45b0-861f-95f90843746d</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.Button[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.Button' and (@text = 'Update Order' or . = 'Update Order') and @resource-id = '${GlobalVariable.appPackage}:id/updateOrderButton']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/updateOrderButton</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

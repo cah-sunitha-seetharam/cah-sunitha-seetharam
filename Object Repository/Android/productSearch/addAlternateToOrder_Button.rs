@@ -3,7 +3,7 @@
    <description></description>
    <name>addAlternateToOrder_Button</name>
    <tag></tag>
-   <elementGuidId>fee83dee-1a81-4711-b480-a566756a2fc9</elementGuidId>
+   <elementGuidId>f7db205f-71cd-4923-beb1-2d6e6cb782c2</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/androidx.recyclerview.widget.RecyclerView[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.widget.Button[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.Button' and (@text = 'Add Alternate to Order' or . = 'Add Alternate to Order') and @resource-id = '${GlobalVariable.appPackage}:id/addAlternateAndReplaceButton']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/addAlternateAndReplaceButton</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

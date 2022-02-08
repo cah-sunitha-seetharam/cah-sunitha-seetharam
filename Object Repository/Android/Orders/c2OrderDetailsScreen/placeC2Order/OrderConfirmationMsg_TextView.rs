@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MobileElementEntity>
    <description></description>
-   <name>OrderConfirmationMsg_TextView</name>
+   <name>orderConfirmationMsg_TextView</name>
    <tag></tag>
-   <elementGuidId>b4afc148-7903-4022-b858-0805c2264c2e</elementGuidId>
+   <elementGuidId>a8afc126-b4b3-4ed5-b7f9-4f4f491fb3eb</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[2]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'View your confirmation in Order History.' or . = 'View your confirmation in Order History.') and @resource-id = '${GlobalVariable.appPackage}:id/tvSubTextView']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/tvSubTextView</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

@@ -3,7 +3,7 @@
    <description></description>
    <name>editPOnameAndMemo_TextView</name>
    <tag></tag>
-   <elementGuidId>3eb47e71-92ac-4635-bafd-11a60fce3a05</elementGuidId>
+   <elementGuidId>e5e8b3f3-462a-4593-ae40-cd8bb1351f55</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[2]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Edit P.O. Name and memo' or . = 'Edit P.O. Name and memo') and @resource-id = '${GlobalVariable.appPackage}:id/editOrderTextView']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/editOrderTextView</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

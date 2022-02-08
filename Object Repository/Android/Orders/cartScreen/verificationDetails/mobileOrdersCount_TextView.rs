@@ -3,7 +3,7 @@
    <description></description>
    <name>mobileOrdersCount_TextView</name>
    <tag></tag>
-   <elementGuidId>216e9210-4530-4c78-84bf-b0ab21efadf5</elementGuidId>
+   <elementGuidId>32627be0-3af9-4e47-b006-b7f2f6252d3d</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -161,6 +161,6 @@ Mobile Orders</value>
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.viewpager.widget.ViewPager[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and @resource-id = '${GlobalVariable.appPackage}:id/ordersCount']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/ordersCount</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

@@ -3,7 +3,7 @@
    <description></description>
    <name>CIN_TextView</name>
    <tag></tag>
-   <elementGuidId>00f12480-135b-4bb8-9c8d-ffcade1e30b9</elementGuidId>
+   <elementGuidId>2993450d-9bb5-4d94-87ae-1fbc857e97af</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[6]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'CIN: 4023347' or . = 'CIN: 4023347') and @resource-id = '${GlobalVariable.appPackage}:id/cinTextView']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/cinTextView</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

@@ -3,7 +3,7 @@
    <description></description>
    <name>orderNameInHeader_TextView</name>
    <tag></tag>
-   <elementGuidId>13a8b45e-b374-449f-b926-43dcb5d74eb0</elementGuidId>
+   <elementGuidId>0c5f55df-f778-41c9-a7b9-c4d630c74f2d</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/android.widget.LinearLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and @resource-id = '${GlobalVariable.appPackage}:id/toolbarTitle']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/toolbarTitle</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>
