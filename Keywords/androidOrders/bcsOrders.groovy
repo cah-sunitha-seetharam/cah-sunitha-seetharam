@@ -41,58 +41,69 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 class bcsOrders {
 
-	def emergencyOrderingModeObject =new androidCommonKeywords.emergencyOrderingMode()
 	def androidCommonKeywordsObject=new androidCommonKeywords.commonMethods()
+	def emergencyOrderingModeObject =new androidCommonKeywords.emergencyOrderingMode()
+
 	/**
-	 * verifies bcs notification on the cart screen
+	 * copies topmost non c2 order to cart screen
+	 * verifies details related to order name, account name, lines count 
+	 * of the order which is at the top of the order list under saved orders
 	 */
 	@Keyword
-	def verifyBcsNotification() {
+	def copyAndVerifyTopMostOrderDetailsUnderSavedOrdersToCartScreen() {
+		String orderName1=Mobile.getText(findTestObject('Android/orders/BCS/savedOrdersOrderName_TextView'), 0)
+		String accountName1=Mobile.getText(findTestObject('Android/orders/BCS/savedOrdersAccountLabel_TextView'), 0)
+		String linesCount1=Mobile.getText(findTestObject('Android/orders/BCS/linesOnSavedOrders_TextView'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/orders/BCS/bcsNotification_View'), 0)
+		copyNonC2ProductFromSavedOrders()
+		androidCommonKeywordsObject.waitForProgressBarToBeInvisible()
+		emergencyOrderingModeObject.enableOrDisableEOmode()
+
+		String orderName2=Mobile.getText(findTestObject('Android/orders/BCS/orderNameCartScreen_TextView'), 0)
+		String accountName2=Mobile.getText(findTestObject('Android/orders/BCS/orderTileAccountNo_TextView'), 0)
+		String linesCount2=Mobile.getText(findTestObject('Android/orders/BCS/linesOnOrderTile_TextView'), 0)
+
+		Float.parseFloat(linesCount1.replaceAll("[^0-9.]", ""))
+		Float.parseFloat(linesCount2.replaceAll("[^0-9.]", ""))
+
+		assert orderName1==orderName2
+		assert accountName1==accountName2
+		assert linesCount1==linesCount2
 	}
 
+	/**
+	 * copies a non c2 order from saved orders to the cart screen and verifies details related to copy button
+	 */
+	@Keyword
+	def copyNonC2ProductFromSavedOrders() {
+		Mobile.verifyElementAttributeValue(findTestObject('Android/orders/BCS/copyOrdersToMobile_Button'), 'enabled','false',0)
+		Mobile.tap(findTestObject('Android/orders/BCS/checkBoxToCopyOrder'), 0)
+		Mobile.verifyElementAttributeValue(findTestObject('Android/orders/BCS/copyOrdersToMobile_Button'), 'enabled','true',0)
+		Mobile.tap(findTestObject('Android/orders/BCS/copyOrdersToMobile_Button'),0)
+		Mobile.tap(findTestObject('Android/orders/BCS/goToCart_Button'), 0)
+	}
 
 	/**
 	 * opens the saved orders by tapping on the bcs notification
 	 */
 	@Keyword
 	def openSavedOrdersList() {
-
 		Mobile.tap(findTestObject('Android/orders/BCS/bcsNotification_View'), 0)
 	}
 
-
 	/**
-	 * verifies details related to saved orders listing screen
+	 * verifies bcs notification on the cart screen
 	 */
 	@Keyword
-	def verifySavedOrdersListDetails() {
-
-		Mobile.verifyElementExist(findTestObject('Android/orders/BCS/theseAreYourRecentOrderExpressOrdersCopyThemToYourMobileCartToContinueWorking_TextView'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/orders/BCS/savedOrderExpressOrders_TextView'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/orders/BCS/lastUpdated_TextView'), 0)
+	def verifyBcsNotification() {
+		Mobile.verifyElementExist(findTestObject('Android/orders/BCS/bcsNotification_View'), 0)
 	}
-
-
-	/**
-	 * verifies details related to saved orders listing screen
-	 */
-	@Keyword
-	def lookforC2Orders() {
-
-		Mobile.scrollToText("C2 orders are unavailable to copy to mobile")
-	}
-
 
 	/**
 	 * verifies details related to c2 orders tile under orders listing screen
 	 */
 	@Keyword
 	def verifyC2RelatedDetailsForBCS() {
-
 		Mobile.scrollToText("C2 orders are unavailable to copy to mobile")
 
 		String yCoordinate=Mobile.getAttribute(findTestObject('Android/orders/BCS/c2OrdersAreUnavailableToCopyToMobile_TextView'), 'y',0)
@@ -115,52 +126,13 @@ class bcsOrders {
 		Mobile.verifyElementAttributeValue(findTestObject('Android/orders/BCS/copyOrdersToMobile_Button'), 'enabled','false',0)
 	}
 
-
 	/**
-	 * copies a non c2 order from saved orders to the cart screen and verifies details related to copy button
+	 * verifies details related to saved orders listing screen
 	 */
 	@Keyword
-	def copyNonC2ProductFromSavedOrders() {
-
-		Mobile.verifyElementAttributeValue(findTestObject('Android/orders/BCS/copyOrdersToMobile_Button'), 'enabled','false',0)
-
-		Mobile.tap(findTestObject('Android/orders/BCS/checkBoxToCopyOrder'), 0)
-
-		Mobile.verifyElementAttributeValue(findTestObject('Android/orders/BCS/copyOrdersToMobile_Button'), 'enabled','true',0)
-
-		Mobile.tap(findTestObject('Android/orders/BCS/copyOrdersToMobile_Button'),0)
-
-		Mobile.tap(findTestObject('Android/orders/BCS/goToCart_Button'), 0)
-	}
-
-
-
-	/**
-	 * copies topmost non c2 order to cart screen
-	 * verifies details related to order name, account name, lines count 
-	 * of the order which is at the top of the order list under saved orders
-	 */
-	@Keyword
-	def copyAndVerifyTopMostOrderDetailsUnderSavedOrdersToCartScreen() {
-
-		String orderName1=Mobile.getText(findTestObject('Android/orders/BCS/savedOrdersOrderName_TextView'), 0)
-		String accountName1=Mobile.getText(findTestObject('Android/orders/BCS/savedOrdersAccountLabel_TextView'), 0)
-		String linesCount1=Mobile.getText(findTestObject('Android/orders/BCS/linesOnSavedOrders_TextView'), 0)
-
-		copyNonC2ProductFromSavedOrders()
-		androidCommonKeywordsObject.waitForProgressBarToBeInvisible()
-		emergencyOrderingModeObject.enableOrDisableEOmode()
-
-		String orderName2=Mobile.getText(findTestObject('Android/orders/BCS/orderNameCartScreen_TextView'), 0)
-		String accountName2=Mobile.getText(findTestObject('Android/orders/BCS/orderTileAccountNo_TextView'), 0)
-		String linesCount2=Mobile.getText(findTestObject('Android/orders/BCS/linesOnOrderTile_TextView'), 0)
-
-		Float.parseFloat(linesCount1.replaceAll("[^0-9.]", ""))
-		Float.parseFloat(linesCount2.replaceAll("[^0-9.]", ""))
-
-
-		assert orderName1==orderName2
-		assert accountName1==accountName2
-		assert linesCount1==linesCount2
+	def verifySavedOrdersListDetails() {
+		Mobile.verifyElementExist(findTestObject('Android/orders/BCS/theseAreYourRecentOrderExpressOrdersCopyThemToYourMobileCartToContinueWorking_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/BCS/savedOrderExpressOrders_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/BCS/lastUpdated_TextView'), 0)
 	}
 }

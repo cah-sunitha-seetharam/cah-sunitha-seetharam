@@ -44,37 +44,8 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 class ordersCommonScreen {
 
-	def dashboardObject=new dashboardDetailsScreen();
 	def commonMethodObject=new commonMethods();
-
-	/**
-	 * takes user to the new order screen
-	 */
-	@Keyword
-	def clickOnNewOrder() {
-
-		Mobile.tap(findTestObject('Android/orders/ordersCommonScreen/newOrder_Tab'), 0)
-	}
-
-
-
-	@Keyword
-	def clickOnHistoryTab() {
-
-		Mobile.tap(	findTestObject('Android/orders/ordersCommonScreen/History_Tab'), 0)
-	}
-
-
-
-	/**
-	 * takes user to cart screen
-	 */
-	@Keyword
-	def clickOnCartTab() {
-
-		Mobile.tap(findTestObject('Android/orders/cartScreen/verificationDetails/cart_Tab'), 0)
-	}
-
+	def dashboardObject=new dashboardDetailsScreen();
 
 	/**
 	 * deletes all orders from nonc2 and c2 order tab
@@ -106,7 +77,6 @@ class ordersCommonScreen {
 			yCoordinateToSwipe=(elementHeight/2)+elementTopPosition
 
 		}
-
 		while(Mobile.verifyElementExist(findTestObject(testObj), 2,FailureHandling.OPTIONAL)) //deletes orders under nonc2 orders tab
 		{
 			Mobile.swipe(500, yCoordinateToSwipe, 0, yCoordinateToSwipe)
@@ -133,5 +103,29 @@ class ordersCommonScreen {
 			if(counter>waitLimit)
 				break
 		}
+	}
+
+	/**
+	 * takes user to cart screen
+	 */
+	@Keyword
+	def clickOnCartTab() {
+		Mobile.tap(findTestObject('Android/orders/cartScreen/verificationDetails/cart_Tab'), 0)
+	}
+
+	/**
+	 * opens History page
+	 */
+	@Keyword
+	def clickOnHistoryTab() {
+		Mobile.tap(	findTestObject('Android/orders/ordersCommonScreen/History_Tab'), 0)
+	}
+
+	/**
+	 * takes user to the new order screen
+	 */
+	@Keyword
+	def clickOnNewOrder() {
+		Mobile.tap(findTestObject('Android/orders/ordersCommonScreen/newOrder_Tab'), 0)
 	}
 }

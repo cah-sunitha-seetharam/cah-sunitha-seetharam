@@ -47,48 +47,12 @@ class moreOptionsScreen {
 	 */
 	@Keyword()
 	def changeAccount(accountNo) {
-
 		Mobile.tap(findTestObject('Android/dashboard/changeAccount_Button'), 0)
-
 		Mobile.tap(findTestObject('Android/Account Selection/ChangeAccount_TextView'), 0)
-
 		Mobile.scrollToText(accountNo, FailureHandling.STOP_ON_FAILURE)
-
 		Mobile.tap(findTestObject('Android/Account Selection/Accounts Listing Screen/Account_No', [('val') : accountNo]), 0)
 	}
 
-	/**
-	 * opens the message center
-	 */
-	@Keyword
-	def tapMessageCentre() {
-		Mobile.tapAndHold(findTestObject('Android/moreOptionsScreen/messageCentre/messageCentre_Text'), 0, 0)
-	}
-
-	/**
-	 * verifies message
-	 */
-	@Keyword
-	def verifyMessageCentre () {
-		Mobile.verifyElementExist(findTestObject('Android/moreOptionsScreen/messageCentre/topMostMessageTitle_Text'), 0)
-	}
-	
-	/**
-	 * verifies message description
-	 */
-	@Keyword
-	def verifyMessageDescription () {
-		Mobile.verifyElementExist(findTestObject('Android/moreOptionsScreen/messageCentre/descriptionOfMessage_Text'), 0)
-	}
-	
-	/**
-	 * opens top most message
-	 */
-	@Keyword
-	def tapOnTopMostMessage () {
-		Mobile.tapAndHold(findTestObject('Android/moreOptionsScreen/messageCentre/topMostMessageTitle_Text'), 0, 0)
-	}
-	
 	/**
 	 * enables beta csos feature
 	 */
@@ -106,25 +70,50 @@ class moreOptionsScreen {
 	 */
 	@Keyword()
 	def goToInventoryListingScreen() {
-
 		Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Verification Details/openInventory_TextView'), 0)
 	}
-
-
 
 	/**
 	 * clicks on moreOptions tab, signsOut the user and takes user to the logInScreen
 	 */
 	@Keyword()
 	def signOut() {
-		
 		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
-		
 		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Android/dashboard/moreOptions_Tab'), 10)
 		element.click()
-
 		Mobile.tap(findTestObject('Android/moreOptionsScreen/signOut/signOut_TextView'), 0)
-
 		Mobile.tap(findTestObject('Android/moreOptionsScreen/signOut/signOut_Button'), 0)
+	}
+
+	/**
+	 * opens the message center
+	 */
+	@Keyword
+	def tapMessageCentre() {
+		Mobile.tapAndHold(findTestObject('Android/moreOptionsScreen/messageCentre/messageCentre_Text'), 0, 0)
+	}
+
+	/**
+	 * opens top most message
+	 */
+	@Keyword
+	def tapOnTopMostMessage() {
+		Mobile.tapAndHold(findTestObject('Android/moreOptionsScreen/messageCentre/topMostMessageTitle_Text'), 0, 0)
+	}
+
+	/**
+	 * verifies message
+	 */
+	@Keyword
+	def verifyMessageCentre() {
+		Mobile.verifyElementExist(findTestObject('Android/moreOptionsScreen/messageCentre/topMostMessageTitle_Text'), 0)
+	}
+
+	/**
+	 * verifies message description
+	 */
+	@Keyword
+	def verifyMessageDescription() {
+		Mobile.verifyElementExist(findTestObject('Android/moreOptionsScreen/messageCentre/descriptionOfMessage_Text'), 0)
 	}
 }
