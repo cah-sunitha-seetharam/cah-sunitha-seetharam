@@ -148,81 +148,117 @@ def static "androidInventory.inventoryListingScreen.verify_Inventory_Listing_Scr
     (new androidInventory.inventoryListingScreen()).verify_Inventory_Listing_Screen()
 }
 
-
+ /**
+	 * changes the user account
+	 * @param newAccount
+	 */ 
 def static "iosCommonKeywords.commonMethods.changeAccount"(
     	String newAccount	) {
     (new iosCommonKeywords.commonMethods()).changeAccount(
         	newAccount)
 }
 
-
+ /**
+	 * clicks on product search field
+	 */ 
 def static "iosCommonKeywords.commonMethods.clickOnProductSearchTextField"() {
     (new iosCommonKeywords.commonMethods()).clickOnProductSearchTextField()
 }
 
-
+ /**
+	 * clicks on Search Key of the keypad
+	 */ 
 def static "iosCommonKeywords.commonMethods.clickOnSearchKey"() {
     (new iosCommonKeywords.commonMethods()).clickOnSearchKey()
 }
 
-
+ /**
+	 * this method closes the popUp screen by tapping on close, cancel button
+	 * @param testobj (reference of the close, cancel button)
+	 */ 
 def static "iosCommonKeywords.commonMethods.closePopUpScreen"(
     	Object testobj	) {
     (new iosCommonKeywords.commonMethods()).closePopUpScreen(
         	testobj)
 }
 
-
+ /**
+	 * clicks on more options, takes to beat features and enables it
+	 */ 
 def static "iosCommonKeywords.commonMethods.enableBetaFeatures"() {
     (new iosCommonKeywords.commonMethods()).enableBetaFeatures()
 }
 
-
+ /**
+	 * inputs the product search which can be name/Cin/UPC/NDC in the product search-field
+	 * @param productSearch (which can be name/Cin/UPC/NDC in the product search-field)
+	 */ 
 def static "iosCommonKeywords.commonMethods.enterProductInSearchField"(
     	Object productSearch	) {
     (new iosCommonKeywords.commonMethods()).enterProductInSearchField(
         	productSearch)
 }
 
-
+ /**
+	 * this method will take the application one screen back
+	 */ 
 def static "iosCommonKeywords.commonMethods.goOneScreenBack"() {
     (new iosCommonKeywords.commonMethods()).goOneScreenBack()
 }
 
-
+ /**
+	 * reads value from the global boolean variable: isIosAppInstalled
+	 * and if it is set to true, launches already installed application else installs and launches the application
+	 */ 
 def static "iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication"() {
     (new iosCommonKeywords.commonMethods()).installingAndlaunchingTheApplication()
 }
 
-
+ /**
+	 * opens existing testflight app and installs latest OE App
+	 * @return bundleId of testflight
+	 */ 
 def static "iosCommonKeywords.commonMethods.openTestFlightApp"(
     	String bundleID	) {
     (new iosCommonKeywords.commonMethods()).openTestFlightApp(
         	bundleID)
 }
 
-
+ /**
+	 * performs basic text management operations:Copy,Cut,Paste,Share
+	 * @param operationToBePerformed (in operationToBePerformed argument all alphabets should be lower-case except the first one for e.g Copy, Cut)
+	 */ 
 def static "iosCommonKeywords.commonMethods.performBasicTextManagementOperation"(
     	String operationToBePerformed	) {
     (new iosCommonKeywords.commonMethods()).performBasicTextManagementOperation(
         	operationToBePerformed)
 }
 
-
+ /**
+	 * removes characters in string
+	 * @param stringCharcterToBeRemoved (Removes characters in a string)
+	 * @return modifiedString
+	 */ 
 def static "iosCommonKeywords.commonMethods.removeCharactersInString"(
     	String stringCharcterToBeRemoved	) {
     (new iosCommonKeywords.commonMethods()).removeCharactersInString(
         	stringCharcterToBeRemoved)
 }
 
-
+ /**
+	 * this function returns the cost of added product
+	 * @return productCost_dollarSymbolRemoved_FloatValue (of the product which has been added)
+	 */ 
 def static "iosCommonKeywords.commonMethods.returnCostOfTheAddedProduct"(
     	String testObj	) {
     (new iosCommonKeywords.commonMethods()).returnCostOfTheAddedProduct(
         	testObj)
 }
 
-
+ /**
+	 * this function returns the total expected value of the added product
+	 * @return productCost_dollarSymbolRemoved_FloatValue (of the product which has been added)
+	 */ 
 def static "iosCommonKeywords.commonMethods.returnExpectedTotalValueForAddedProduct"(
     	Object quantity	
      , 	Object costOfProduct	) {
@@ -231,19 +267,31 @@ def static "iosCommonKeywords.commonMethods.returnExpectedTotalValueForAddedProd
          , 	costOfProduct)
 }
 
-
+ /**
+	 * takes product to be searched as the argument and searches the same
+	 * @param productToBeSearched (product to be searched)
+	 */ 
 def static "iosCommonKeywords.commonMethods.searchProduct"(
     	Object productToBeSearched	) {
     (new iosCommonKeywords.commonMethods()).searchProduct(
         	productToBeSearched)
 }
 
-
+ /**
+	 * opens the inventory listing screen by firstly clicking on more options from dash-board 
+	 * and then clicks on inventory under more options screen which takes user to inventory listing screen
+	 */ 
 def static "iosCommonKeywords.commonMethods.takeUserFromHomeToInventoryListingScreen"() {
     (new iosCommonKeywords.commonMethods()).takeUserFromHomeToInventoryListingScreen()
 }
 
-
+ /**
+	 * performs login function by selecting the type of testing (automation or manual), environment of testing(taken from the global profile), entering user-name and password
+	 * and then selects the user account from the accounts list and takes user to the dash-board screen
+	 * @param username
+	 * @param password
+	 * @param accountNo
+	 */ 
 def static "iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen"(
     	Object username	
      , 	Object password	
@@ -254,19 +302,31 @@ def static "iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen"(
          , 	accountNo)
 }
 
-
+ /**
+	 * disables touchid while using real device
+	 */ 
 def static "iosCommonKeywords.commonMethods.tapOnSetupLater"() {
     (new iosCommonKeywords.commonMethods()).tapOnSetupLater()
 }
 
-
+ /**
+	 * generates the coordinate x for a test object by considering ElementLeftPosition and ElementWidth
+	 * @param testObj (reference of the testObject passed as a parameter)
+	 * @param text (name of the element)
+	 * @return int value for the xCoordinate
+	 */ 
 def static "iosCommonKeywords.commonMethods.tapXCoordinateGenerator"(
     	String testObj	) {
     (new iosCommonKeywords.commonMethods()).tapXCoordinateGenerator(
         	testObj)
 }
 
-
+ /**
+	 * generates the coordinate y for a test object by considering ElementTopPosition and ElementHeight
+	 * @param testObj (reference of the testObject passed as a parameter)
+	 * @param text (name of the element)
+	 * @return int value for the yCoordinate
+	 */ 
 def static "iosCommonKeywords.commonMethods.tapYCoordinateGenerator"(
     	String testObj	
      , 	String text	) {
@@ -275,14 +335,21 @@ def static "iosCommonKeywords.commonMethods.tapYCoordinateGenerator"(
          , 	text)
 }
 
-
+ /**
+	 * this method verifies the popUp screen is visible
+	 * @param testobj (reference of the popUp screen object under verification)
+	 */ 
 def static "iosCommonKeywords.commonMethods.verifyPopUpScreenExist"(
     	Object testobj	) {
     (new iosCommonKeywords.commonMethods()).verifyPopUpScreenExist(
         	testobj)
 }
 
-
+ /**
+	 * this function verifies that the product is not visible on the screen
+	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
+	 * @param testObj (test object of the element under verification)
+	 */ 
 def static "iosCommonKeywords.commonMethods.verifyProductIsNotVisibleOnTheScreen"(
     	Object testObj	
      , 	Object productIdentificationNumber	) {
@@ -291,14 +358,22 @@ def static "iosCommonKeywords.commonMethods.verifyProductIsNotVisibleOnTheScreen
          , 	productIdentificationNumber)
 }
 
-
+ /**
+	 * this function verifies that the product is visible on the product search screen after search
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */ 
 def static "iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheProductSearchScreen"(
     	Object productNdcNumber	) {
     (new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheProductSearchScreen(
         	productNdcNumber)
 }
 
-
+ /**
+	 * this function verifies that the product is visible on the screen
+	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
+	 * @param testObj (test object of the element under verification)
+	 */ 
 def static "iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScreen"(
     	Object testObj	
      , 	Object productIdentificationNumber	) {
@@ -307,24 +382,36 @@ def static "iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScreen"(
          , 	productIdentificationNumber)
 }
 
-
+ /**
+	 * verifies whether the selected user account is same as the account required
+	 * @param expectedAccountNo (expected user account no)
+	 */ 
 def static "iosCommonKeywords.commonMethods.verifySelectedAccount"(
     	String expectedAccountNo	) {
     (new iosCommonKeywords.commonMethods()).verifySelectedAccount(
         	expectedAccountNo)
 }
 
-
+ /**
+	 * refreshes the screen by doing a vertical swipe by considering the deviceHeight and deviceWidth
+	 */ 
 def static "iosCommonKeywords.commonMethods.verticalSwipeForRefresh"() {
     (new iosCommonKeywords.commonMethods()).verticalSwipeForRefresh()
 }
 
-
+ /**
+	 * waits until the progressBar is visible on the screen, which will have a maximum waitLimit to be visible on the screen
+	 */ 
 def static "iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible"() {
     (new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 }
 
-
+ /**
+	 * waits until the object is visible on the screen, which will have a maximum waitLimit to be visible on the screen
+	 * @param testObj (reference of the test Object)
+	 * @param waitTime (time by which delay will be added in(s))
+	 * @param waitLimit (maximum limit of time for which delay can be added)
+	 */ 
 def static "iosCommonKeywords.commonMethods.waitTimeForObjectToBeVisible"(
     	Object testObj	
      , 	int waitTime	
