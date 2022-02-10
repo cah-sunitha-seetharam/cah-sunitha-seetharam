@@ -50,23 +50,23 @@ class dashboardScreen {
 	@Keyword
 	def addingProductFromDashboardToCart(String productName, String quantity) {
 
-		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), 0, 0)
 
 		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
-		Mobile.setText(findTestObject('iOS/Product Search/productSearch_TextField'), productName, 0)
+		Mobile.setText(findTestObject('iOS/productSearch/globalSearch/productSearch_TextField'), productName, 0)
 
-		Mobile.tapAndHold(findTestObject('iOS/Product Search/search_Keypad'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/productSearch/globalSearch/search_Keypad'), 0, 0)
 
-		Mobile.setText(findTestObject('iOS/Product Search/quantity_TextField'), quantity, 0)
+		Mobile.setText(findTestObject('iOS/productSearch/globalSearch/quantity_TextField'), quantity, 0)
 
-		Mobile.tapAndHold(findTestObject('iOS/Product Search/doneKeypad_Button'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/productSearch/globalSearch/doneKeypad_Button'), 0, 0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/addToOrder_Text'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/addToOrder_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Product Search/confirmation_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/productSearch/globalSearch/confirmation_Text'), 0)
 
-		Mobile.tapAndHold(findTestObject('Object Repository/iOS/Product Search/afterAddingProductContinue_Button'), 0,0)
+		Mobile.tapAndHold(findTestObject('iOS/productSearch/globalSearch/afterAddingProductContinue_Button'), 0,0)
 	}
 
 
@@ -78,13 +78,13 @@ class dashboardScreen {
 	@Keyword
 	def changeAccount(String newAccount) {
 
-		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Text'), 0)
+		Mobile.tap(findTestObject('iOS/accountSelection/changeAccount_Text'), 0)
 
-		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Navigation'), 0)
+		Mobile.tap(findTestObject('iOS/accountSelection/changeAccount_Navigation'), 0)
 
 		Mobile.scrollToText(newAccount, FailureHandling.STOP_ON_FAILURE)
 
-		Mobile.tap(findTestObject('iOS/Account Selection/AccountNo_Text', [('val') : newAccount]), 0)
+		Mobile.tap(findTestObject('iOS/accountSelection/AccountNo_Text', [('val') : newAccount]), 0)
 	}
 
 
@@ -94,7 +94,7 @@ class dashboardScreen {
 	@Keyword
 	def clickOnHomeTab() {
 
-		Mobile.tapAndHold(findTestObject('iOS/Dashboard/home_Tab'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/dashboard/tabs/home_Tab'), 0, 0)
 	}
 
 
@@ -105,7 +105,7 @@ class dashboardScreen {
 	@Keyword
 	def clickOnMoreOptionsTab() {
 
-		Mobile.tap(findTestObject('iOS/Dashboard/moreOptions_Tab'), 0)
+		Mobile.tap(findTestObject('iOS/dashboard/tabs/moreOptions_Tab'), 0)
 	}
 
 
@@ -116,7 +116,7 @@ class dashboardScreen {
 	@Keyword
 	def clickOnOrders() {
 
-		Mobile.tap(findTestObject('iOS/Dashboard/orders_Tab'), 0)
+		Mobile.tap(findTestObject('iOS/dashboard/tabs/orders_Tab'), 0)
 	}
 
 
@@ -126,11 +126,11 @@ class dashboardScreen {
 	@Keyword
 	def clickOnScanIcon() {
 
-		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/scan_Icon'), 0)
+		Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scan_Icon'), 0)
 
-		Mobile.verifyElementAttributeValue(findTestObject('iOS/Product Search/Scan Flow/priceCheck_Button'), 'value', '1', 0)
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/productSearch/scanFlow/priceCheck_Button'), 'value', '1', 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Product Search/Scan Flow/ordering_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/productSearch/scanFlow/ordering_Button'), 0)
 	}
 
 
@@ -140,11 +140,11 @@ class dashboardScreen {
 	@Keyword
 	def verifyDashboardScreen() {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Dashboard/Verification/homeHeader_Label'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/dashboard/verification/homeHeader_Label'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Dashboard/Verification/homeBottomNavigationTab_Bar'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/dashboard/verification/homeBottomNavigationTab_Bar'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Account Selection/changeAccount_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/accountSelection/changeAccount_Button'), 0)
 	}
 
 
@@ -154,18 +154,16 @@ class dashboardScreen {
 	@Keyword
 	def clickOnAuditsTab() {
 
-		Mobile.tap(findTestObject('iOS/Dashboard/audits_Tab'), 0)
-
+		Mobile.tap(findTestObject('iOS/dashboard/tabs/audits_Tab'), 0)
 	}
-	
-	
+
+
 	/**
 	 * opens receiving tab
 	 */
 	@Keyword
 	def clickOnReceivingTab() {
-		
-		Mobile.tap(findTestObject('iOS/Receiving/receiving_Tab'), 0)
 
+		Mobile.tap(findTestObject('iOS/dashboard/tabs/receiving_Tab'), 0)
 	}
 }

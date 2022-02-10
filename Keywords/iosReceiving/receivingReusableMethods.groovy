@@ -60,16 +60,18 @@ import io.appium.java_client.android.nativekey.KeyEvent;
 
 class receivingReusableMethods {
 
-
 	def iosCommonKeywordsObject=new iosCommonKeywords.commonMethods()
 	def commonMethodsObject=new commonMethods()
+
+
+
 	/**
 	 * clicks on continue button after selection of shipments or invoice by user
 	 */
 	@Keyword
 	def clickOnContinue() {
 
-		Mobile.tap(findTestObject('iOS/Receiving/continue_Button'), 0)
+		Mobile.tap(findTestObject('iOS/receiving/verification/continue_Button'), 0)
 	}
 
 
@@ -82,8 +84,9 @@ class receivingReusableMethods {
 
 		//MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Object Repository/Android/Receiving/scan_TextView'), 0)
 		//element.click()
-		Mobile.tap(findTestObject('iOS/Receiving/scan_Icon'), 0,FailureHandling.OPTIONAL)
+		Mobile.tap(findTestObject('iOS/receiving/verification/scan_Icon'), 0,FailureHandling.OPTIONAL)
 	}
+
 
 
 	/**
@@ -93,7 +96,7 @@ class receivingReusableMethods {
 	@Keyword
 	def openShipmentDetails(shipmentNumber) {
 
-		Mobile.tap(findTestObject('iOS/Receiving/shipment_Tile',[('TEXT'):shipmentNumber]), 0)
+		Mobile.tap(findTestObject('iOS/receiving/verification/shipment_Tile',[('TEXT'):shipmentNumber]), 0)
 	}
 
 
@@ -105,7 +108,7 @@ class receivingReusableMethods {
 	@Keyword
 	def openInvoiceDetails(invoiceNumber) {
 
-		Mobile.tap(findTestObject('iOS/Receiving/invoice_Tile',[('TEXT'):invoiceNumber]), 0)
+		Mobile.tap(findTestObject('iOS/receiving/verification/invoice_Tile',[('TEXT'):invoiceNumber]), 0)
 	}
 
 
@@ -118,11 +121,9 @@ class receivingReusableMethods {
 	@Keyword
 	def scanInputEvent(String productToBeSearched) {
 
-		Mobile.tap(findTestObject('iOS/Receiving/tapToScan_Text'), 0)
-
-		Mobile.setText(findTestObject('iOS/Receiving/enterBarcode_TextField'), productToBeSearched, 0)
-
-		Mobile.tap(findTestObject('iOS/Receiving/scan_Button'), 0)
+		Mobile.tap(findTestObject('iOS/receiving/verification/tapToScan_Text'), 0)
+		Mobile.setText(findTestObject('iOS/receiving/verification/enterBarcode_TextField'), productToBeSearched, 0)
+		Mobile.tap(findTestObject('iOS/receiving/verification/scan_Button'), 0)
 	}
 
 
@@ -133,9 +134,9 @@ class receivingReusableMethods {
 	@Keyword
 	def selectAllowOverages() {
 
-		//MobileElement element = MobileElementCommonHelper.findElement(findTestObject('iOS/Receiving/allowOverage_Button'), 0)
+		//MobileElement element = MobileElementCommonHelper.findElement(findTestObject('iOS/receiving/verification/allowOverage_Button'), 0)
 		//element.click()
-		Mobile.tap(findTestObject('iOS/Receiving/allowOverage_Button'), 0)
+		Mobile.tap(findTestObject('iOS/receiving/verification/allowOverage_Button'), 0)
 	}
 
 
@@ -146,7 +147,7 @@ class receivingReusableMethods {
 	@Keyword
 	def selectInvoices() {
 
-		Mobile.tap(findTestObject('iOS/Receiving/invoices_Button'), 0)
+		Mobile.tap(findTestObject('iOS/receiving/verification/invoices_Button'), 0)
 	}
 
 
@@ -157,9 +158,9 @@ class receivingReusableMethods {
 	@Keyword
 	def selectShipments() {
 
-		//MobileElement element = MobileElementCommonHelper.findElement(findTestObject('iOS/Receiving/shipments_Button'), 0)
+		//MobileElement element = MobileElementCommonHelper.findElement(findTestObject('iOS/receiving/verification/shipments_Button'), 0)
 		//element.click()
-		Mobile.tap(findTestObject('iOS/Receiving/shipments_Button'), 0)
+		Mobile.tap(findTestObject('iOS/receiving/verification/shipments_Button'), 0)
 	}
 
 
@@ -169,7 +170,7 @@ class receivingReusableMethods {
 	@Keyword
 	def switchToPreviousDay() {
 
-		Mobile.tap(findTestObject('iOS/Receiving/switchToPreviousDay_Button'), 0)
+		Mobile.tap(findTestObject('iOS/receiving/verification/switchToPreviousDay_Button'), 0)
 	}
 
 
@@ -179,7 +180,7 @@ class receivingReusableMethods {
 	@Keyword
 	def switchToToday() {
 
-		Mobile.tap(findTestObject('iOS/Receiving/switchToToday_Button'), 0)
+		Mobile.tap(findTestObject('iOS/receiving/verification/switchToToday_Button'), 0)
 	}
 
 
@@ -190,7 +191,7 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyAllowedOverages() {
 
-		Mobile.verifyElementAttributeValue(findTestObject('iOS/Receiving/receivingAllowOverage_Button'),'enabled','true', 0)
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/receiving/verification/receivingAllowOverage_Button'),'enabled','true', 0)
 	}
 
 
@@ -202,21 +203,14 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyInstancesOfProductAssociatedWithAccount(productNdcNumber) {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/searchResult_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/toteID_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/toteNumber_Label'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/shipment_Label'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/shipmentNumber_Label'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/parametrizedNdc_Label',[('TEXT'):productNdcNumber]), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/productIssue_Button'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/receivedProduct_Label'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/searchResult_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/toteID_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/toteNumber_Label'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/shipment_Label'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/shipmentNumber_Label'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/parametrizedNdc_Label',[('TEXT'):productNdcNumber]), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/productIssue_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/receivedProduct_Label'), 0)
 	}
 
 
@@ -228,7 +222,7 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyInvoiceIsVisible(invoiceNumber) {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/invoice_Tile',[('TEXT'):invoiceNumber]), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/invoice_Tile',[('TEXT'):invoiceNumber]), 0)
 	}
 
 
@@ -240,13 +234,10 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyInvoicesListScreenDetails() {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/receivingTitle_Label'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/receivedTote_Label'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/toteCountLabel'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/totes_Count'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/receivingTitle_Label'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/receivedTote_Label'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/toteCountLabel'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/totes_Count'), 0)
 	}
 
 
@@ -259,25 +250,16 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyInvoicesDetails(invoiceNumber) {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/invoice_Label',[('TEXT'):invoiceNumber]), 0)
-
-		Mobile.verifyElementAttributeValue(findTestObject('iOS/Receiving/receivingUpload_Button'),'enabled','false', 0)
-
-		Mobile.verifyElementAttributeValue(findTestObject('iOS/Receiving/receiveTote_Button'),'enabled','true', 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/toteReceivedCount_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/deliveredDate_Label'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/toteId_Label'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/productReceivedStatus_Label'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/issue_Button'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/ndc_Label'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/productIssue_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/invoice_Label',[('TEXT'):invoiceNumber]), 0)
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/receiving/verification/receivingUpload_Button'),'enabled','false', 0)
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/receiving/verification/receiveTote_Button'),'enabled','true', 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/toteReceivedCount_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/deliveredDate_Label'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/toteId_Label'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/productReceivedStatus_Label'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/issueSubmission/issue_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/ndc_Label'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/productIssue_Button'), 0)
 	}
 
 
@@ -289,7 +271,7 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyNoNewOrdersToReceive() {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/noNewOrdersToReceiveToday_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/noNewOrdersToReceiveToday_Text'), 0)
 	}
 
 
@@ -300,25 +282,16 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyReceivingScreen() {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/receivingeader_Label'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/product_SearchField'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/scan_Icon'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/receivingScreenViewBy_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/incompleteRecevingView_Button'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/receivingScreenAllowOverages_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/receivingAllowOverage_Button'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/noNewOrdersToReceiveToday_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/today_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/switchToPreviousDay_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/receivingeader_Label'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/product_SearchField'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/scan_Icon'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/receivingScreenViewBy_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/incompleteRecevingView_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/receivingScreenAllowOverages_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/receivingAllowOverage_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/noNewOrdersToReceiveToday_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/today_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/switchToPreviousDay_Button'), 0)
 	}
 
 
@@ -329,17 +302,12 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyReceivingScreenPopUp() {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/welcomeToReceiving_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/viewBy_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/allowOverages_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/shipments_Button'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/allowOverage_Button'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/invoices_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/welcomeToReceiving_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/viewBy_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/allowOverages_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/shipments_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/allowOverage_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/invoices_Button'), 0)
 	}
 
 
@@ -351,25 +319,16 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyShipmentDetails(shipmentNumber) {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/parametrizedShipment_Label',[('TEXT'):shipmentNumber]), 0)
-
-		Mobile.verifyElementAttributeValue(findTestObject('iOS/Receiving/receivingUpload_Button'),'enabled','false', 0)
-
-		Mobile.verifyElementAttributeValue(findTestObject('iOS/Receiving/receiveTote_Button'),'enabled','true', 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/toteReceivedCount_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/deliveredDate_Label'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/toteId_Label'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/productReceivedStatus_Label'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/issue_Button'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/ndc_Label'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/productIssue_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/parametrizedShipment_Label',[('TEXT'):shipmentNumber]), 0)
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/receiving/verification/receivingUpload_Button'),'enabled','false', 0)
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/receiving/verification/receiveTote_Button'),'enabled','true', 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/toteReceivedCount_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/deliveredDate_Label'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/toteId_Label'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/productReceivedStatus_Label'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/issueSubmission/issue_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/ndc_Label'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/productIssue_Button'), 0)
 	}
 
 
@@ -381,7 +340,7 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyShipmentIsVisible(shipmentNumber) {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/shipment_Tile',[('TEXT'):shipmentNumber]), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/shipment_Tile',[('TEXT'):shipmentNumber]), 0)
 	}
 
 
@@ -392,13 +351,10 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyShipmentsListScreenDetails() {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/receivingTitle_Label'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/receivedTote_Label'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/toteCountLabel'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/totes_Count'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/receivingTitle_Label'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/receivedTote_Label'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/toteCountLabel'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/totes_Count'), 0)
 	}
 
 
@@ -413,8 +369,7 @@ class receivingReusableMethods {
 	def verifyReceivedProductCountUnderInvoice(expectedReceivedProductCount,maxReceivingProductCountWithoutOverage) {
 
 		maxReceivingProductCountWithoutOverage.toString()
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/parametrizedInvoiceItemReceivedStatus_Label',[('TEXT_1'):expectedReceivedProductCount, ,('TEXT_2'):maxReceivingProductCountWithoutOverage]), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/parametrizedInvoiceItemReceivedStatus_Label',[('TEXT_1'):expectedReceivedProductCount, ,('TEXT_2'):maxReceivingProductCountWithoutOverage]), 0)
 	}
 
 
@@ -429,8 +384,7 @@ class receivingReusableMethods {
 	def verifyReceivedProductCountUnderShipments(expectedReceivedProductCount,maxReceivingProductCountWithoutOverage) {
 
 		maxReceivingProductCountWithoutOverage.toString()
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/parametrizedShipmentItemReceivedStatus_Label',[('TEXT_1'):expectedReceivedProductCount, ,('TEXT_2'):maxReceivingProductCountWithoutOverage]), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/parametrizedShipmentItemReceivedStatus_Label',[('TEXT_1'):expectedReceivedProductCount, ,('TEXT_2'):maxReceivingProductCountWithoutOverage]), 0)
 	}
 
 
@@ -441,7 +395,7 @@ class receivingReusableMethods {
 	@Keyword
 	def clickOnReceiveAllTotes() {
 
-		Mobile.tap(findTestObject('Object Repository/iOS/Receiving/receiveTote_Button'),0)
+		Mobile.tap(findTestObject('iOS/receiving/verification/receiveTote_Button'),0)
 
 		/*	Mobile.verifyElementExist(findTestObject('Android/Receiving/toteReceivingStatus_View'), 0)
 		 String idOfTheElement=Mobile.getAttribute(findTestObject('Android/Receiving/toteReceivingStatus_View'), 'resource-id', 0)
@@ -457,7 +411,7 @@ class receivingReusableMethods {
 	@Keyword
 	def uploadCompletedTotes() {
 
-		Mobile.tap(findTestObject('Object Repository/iOS/Receiving/receivingUpload_Button'),0)
+		Mobile.tap(findTestObject('iOS/receiving/verification/receivingUpload_Button'),0)
 	}
 
 
@@ -467,9 +421,8 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyUploadTotesPopUp() {
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Receiving/uploadingToteComplete_Label'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Receiving/allTotesUploaded_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/uploadingToteComplete_Label'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/allTotesUploaded_Text'), 0)
 	}
 
 
@@ -479,7 +432,7 @@ class receivingReusableMethods {
 	@Keyword
 	def clickOnBackToReceiving() {
 
-		Mobile.tap(findTestObject('Object Repository/iOS/Receiving/backToReceiving_Text'), 0)
+		Mobile.tap(findTestObject('iOS/receiving/verification/backToReceiving_Text'), 0)
 	}
 
 
@@ -490,7 +443,7 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyInvoiceIsNotVisible(invoiceNumber) {
 
-		Mobile.verifyElementNotVisible(findTestObject('iOS/Receiving/invoice_Tile',[('TEXT'):invoiceNumber]), 0)
+		Mobile.verifyElementNotVisible(findTestObject('iOS/receiving/verification/invoice_Tile',[('TEXT'):invoiceNumber]), 0)
 	}
 
 
@@ -533,20 +486,16 @@ class receivingReusableMethods {
 	 */
 	@Keyword
 	def testFunction() {
+
 		//Mobile.tap(findTestObject('Android/Login/Environment Selection Screen/Environment_Spinner'), 0)
 		//Mobile.tap((makeTOwithXPath("com.cardinalhealth.orderexpress.two.debug:id/serverLocationSpinner")), 0)
 		// DriverFactory.getWebDriver().findElements(By.id("com.cardinalhealth.orderexpress.two.debug:id/serverLocationSpinner"));
-
 		'com.cardinalhealth.orderexpress.two.debug:id/serverLocationSpinner'
-
 		MobileElement element = MobileElementCommonHelper.findElement(makeTestObject("${GlobalVariable.appPackage}:id/serverLocationSpinner"), 0)
 		element.click()
-
 		String testProfile=RunConfiguration.getExecutionProfile()
 		KeywordUtil.logInfo(testProfile)
-
 		Mobile.tap(findTestObject('Android/Login/Environment Selecttion Screen/environment_Spinner',[('appPackage'):GlobalVariable.appPackage]), 0)
-
 	}
 
 
@@ -558,13 +507,10 @@ class receivingReusableMethods {
 	@Keyword
 	def editReceivedProductCount(int receivedProductCount) {
 
-		Mobile.tapAndHold(findTestObject('Object Repository/iOS/Receiving/receivingProduct_TextField'),0,0)
-
-		Mobile.tapAndHold(findTestObject('iOS/Receiving/deleteKeypad_Button'),0,0)
-
-		Mobile.setText(findTestObject('Object Repository/iOS/Receiving/receivingProduct_TextField'), receivedProductCount.toString(),0)
-
-		Mobile.tap(findTestObject('Object Repository/iOS/Receiving/doneKeypad_Button'), 0)
+		Mobile.tapAndHold(findTestObject('iOS/receiving/verification/receivingProduct_TextField'),0,0)
+		Mobile.tapAndHold(findTestObject('iOS/receiving/verification/deleteKeypad_Button'),0,0)
+		Mobile.setText(findTestObject('iOS/receiving/verification/receivingProduct_TextField'), receivedProductCount.toString(),0)
+		Mobile.tap(findTestObject('iOS/receiving/verification/doneKeypad_Button'), 0)
 	}
 
 
@@ -576,7 +522,7 @@ class receivingReusableMethods {
 	@Keyword
 	def returnUpperLimitReceivingProductCount() {
 
-		String maxReceivingProductCountWithoutOverage=Mobile.getText(findTestObject('Object Repository/iOS/Receiving/productReceivedStatus_Label'), 0)
+		String maxReceivingProductCountWithoutOverage=Mobile.getText(findTestObject('iOS/receiving/verification/productReceivedStatus_Label'), 0)
 
 		maxReceivingProductCountWithoutOverage = iosCommonKeywordsObject.removeCharactersInString(maxReceivingProductCountWithoutOverage)
 		int beginIndex=1
@@ -593,7 +539,7 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyOverAgeTag() {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/overage_Tag'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/overage_Tag'), 0)
 	}
 
 
@@ -604,7 +550,7 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyReceivedTag() {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/received_Tag'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/received_Tag'), 0)
 	}
 
 
@@ -615,11 +561,9 @@ class receivingReusableMethods {
 	@Keyword
 	def searchTote(toteID) {
 
-		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), 0, 0)
-
-		Mobile.setText(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), toteID, 0)
-
-		Mobile.tapAndHold(findTestObject('iOS/Product Search/search_Keypad'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), 0, 0)
+		Mobile.setText(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), toteID, 0)
+		Mobile.tapAndHold(findTestObject('iOS/productSearch/globalSearch/search_Keypad'), 0, 0)
 	}
 
 
@@ -632,8 +576,7 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyProductIsVisibleOnTheReceivingScreen(productNdcNumber) {
 
-		String testObj='Object Repository/Android/Orders/Verification Details/ordersNDCLabel_TextView'
-
+		String testObj='Object Repository/iOS/receiving/verification/parametrizedNdc_Label'
 		iosCommonKeywordsObject.verifyProductIsVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
 
 	}
@@ -647,23 +590,15 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyProductSearchDetails(productNdcNumber) {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/parametrizedNdc_Label',[('TEXT'):productNdcNumber]), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/searchResult_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/toteID_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/toteNumber_Label'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/shipment_Label'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/shipmentNumber_Label'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/productIssue_Button'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/receivedProduct_Label'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/receivingeader_Label'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/parametrizedNdc_Label',[('TEXT'):productNdcNumber]), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/searchResult_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/toteID_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/toteNumber_Label'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/shipment_Label'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/shipmentNumber_Label'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/productIssue_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/receivedProduct_Label'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/receivingeader_Label'), 0)
 	}
 
 
@@ -674,11 +609,9 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyOveragePopUp() {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/allowOveragePopUp_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/youAreAboutToInputAnOverageWouldYouLikeToContinue_Text'), 0)
-
-		Mobile.tap(findTestObject('iOS/Receiving/allowOveragePopUp_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/allowOveragePopUp_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/verification/youAreAboutToInputAnOverageWouldYouLikeToContinue_Text'), 0)
+		Mobile.tap(findTestObject('iOS/receiving/verification/allowOveragePopUp_Button'), 0)
 	}
 
 
@@ -689,7 +622,7 @@ class receivingReusableMethods {
 	@Keyword
 	def clickOnIssue() {
 
-		Mobile.tapAndHold(findTestObject('iOS/Receiving/Issue Submission/issue_Button'), 0,0)
+		Mobile.tapAndHold(findTestObject('iOS/receiving/issueSubmission/issue_Button'), 0,0)
 	}
 
 
@@ -701,20 +634,13 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyIssueSubmissionDetails(toteID) {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/serviceRequest_Header'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/toteIssue_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/toteID_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/parametrizedToteID_Text',[('TEXT'):toteID]), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/account_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/reasonForIssue_Text'), 0)
-		
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/cancelIssueSubmission_Text'), 0)
-		
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/issueSubmission/serviceRequest_Header'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/issueSubmission/toteIssue_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/issueSubmission/toteID_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/issueSubmission/parametrizedToteID_Text',[('TEXT'):toteID]), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/issueSubmission/account_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/issueSubmission/reasonForIssue_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/issueSubmission/cancelIssueSubmission_Text'), 0)
 	}
 
 
@@ -724,10 +650,9 @@ class receivingReusableMethods {
 	 */
 	@Keyword
 	def verifyShipmentNumberInIssue(shipmentNumber) {
-		
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/shipmentNumber_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/parametrizedshipmentNumber_Text',[('TEXT'):shipmentNumber]), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/issueSubmission/shipmentNumber_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/issueSubmission/parametrizedshipmentNumber_Text',[('TEXT'):shipmentNumber]), 0)
 	}
 
 
@@ -739,9 +664,8 @@ class receivingReusableMethods {
 	@Keyword
 	def verifyInvoiceNumberInIssue(invoiceNumber) {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/invoiceNumber_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/parametrizedInvoiceNumber_Text',[('TEXT'):invoiceNumber]), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/issueSubmission/invoiceNumber_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/issueSubmission/parametrizedInvoiceNumber_Text',[('TEXT'):invoiceNumber]), 0)
 	}
 
 
@@ -755,16 +679,14 @@ class receivingReusableMethods {
 
 		if (reasonForIssue.equalsIgnoreCase('missing Tote')) {
 
-			Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/missingTote_Text'), 0)
-
-			Mobile.tap(findTestObject('iOS/Receiving/Issue Submission/missingTote_RadioButton'), 0)
+			Mobile.verifyElementExist(findTestObject('iOS/receiving/issueSubmission/missingTote_Text'), 0)
+			Mobile.tap(findTestObject('iOS/receiving/issueSubmission/missingTote_RadioButton'), 0)
 		}
 
 		else {
 
-			Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/wrongTote_Text'), 0)
-
-			Mobile.tap(findTestObject('iOS/Receiving/Issue Submission/wrongTote_RadioButton'), 0)
+			Mobile.verifyElementExist(findTestObject('iOS/receiving/issueSubmission/wrongTote_Text'), 0)
+			Mobile.tap(findTestObject('iOS/receiving/issueSubmission/wrongTote_RadioButton'), 0)
 		}
 	}
 
@@ -782,31 +704,30 @@ class receivingReusableMethods {
 
 		Mobile.scrollToText("Enter Comments")
 		iosCommonKeywordsObject.waitForProgressBarToBeInvisible()
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/contactDetails_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/issueSubmission/contactDetails_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/name_Text'), 0)
-		Mobile.tap(findTestObject('iOS/Receiving/Issue Submission/name_TextField'), 0)
-		Mobile.setText(findTestObject('iOS/Receiving/Issue Submission/name_TextField'), name, 0)
-		Mobile.tapAndHold(findTestObject('iOS/Receiving/Issue Submission/doneKeypad_Button'), 0,2,FailureHandling.OPTIONAL)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/issueSubmission/name_Text'), 0)
+		Mobile.tap(findTestObject('iOS/receiving/issueSubmission/name_TextField'), 0)
+		Mobile.setText(findTestObject('iOS/receiving/issueSubmission/name_TextField'), name, 0)
+		Mobile.tapAndHold(findTestObject('iOS/receiving/issueSubmission/doneKeypad_Button'), 0,2,FailureHandling.OPTIONAL)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/enterPhoneNumber_Text'), 0)
-		Mobile.tap(findTestObject('iOS/Receiving/Issue Submission/phoneNumber_TextField'), 0)
-		Mobile.setText(findTestObject('iOS/Receiving/Issue Submission/phoneNumber_TextField'), phoneNumber, 0)
-		Mobile.tapAndHold(findTestObject('iOS/Receiving/Issue Submission/doneKeypad_Button'), 0,2,FailureHandling.OPTIONAL)
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/issueSubmission/enterPhoneNumber_Text'), 0)
+		Mobile.tap(findTestObject('iOS/receiving/issueSubmission/phoneNumber_TextField'), 0)
+		Mobile.setText(findTestObject('iOS/receiving/issueSubmission/phoneNumber_TextField'), phoneNumber, 0)
+		Mobile.tapAndHold(findTestObject('iOS/receiving/issueSubmission/doneKeypad_Button'), 0,2,FailureHandling.OPTIONAL)
 
-		String expectedID=Mobile.getText(findTestObject('iOS/Receiving/Issue Submission/email_TextField'), 0)
+		String expectedID=Mobile.getText(findTestObject('iOS/receiving/issueSubmission/email_TextField'), 0)
 		(expectedID.contains("@cardinalhealth.com"))
 		assert true
 
-		Mobile.tap(findTestObject('iOS/Receiving/Issue Submission/email_TextField'), 0)
-		Mobile.setText(findTestObject('iOS/Receiving/Issue Submission/email_TextField'),expectedID, 0)
-		Mobile.tapAndHold(findTestObject('iOS/Receiving/Issue Submission/doneKeypad_Button'), 0,2,FailureHandling.OPTIONAL)
+		Mobile.tap(findTestObject('iOS/receiving/issueSubmission/email_TextField'), 0)
+		Mobile.setText(findTestObject('iOS/receiving/issueSubmission/email_TextField'),expectedID, 0)
+		Mobile.tapAndHold(findTestObject('iOS/receiving/issueSubmission/doneKeypad_Button'), 0,2,FailureHandling.OPTIONAL)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/enterComments_Text'), 0)
-		Mobile.tap(findTestObject('iOS/Receiving/Issue Submission/enterComments_TextField'), 0)
-		Mobile.setText(findTestObject('iOS/Receiving/Issue Submission/enterComments_TextField'), comment, 0)
-		Mobile.tapAndHold(findTestObject('iOS/Receiving/Issue Submission/doneKeypad_Button'), 0,2,FailureHandling.OPTIONAL)
-
+		Mobile.verifyElementExist(findTestObject('iOS/receiving/issueSubmission/enterComments_Text'), 0)
+		Mobile.tap(findTestObject('iOS/receiving/issueSubmission/enterComments_TextField'), 0)
+		Mobile.setText(findTestObject('iOS/receiving/issueSubmission/enterComments_TextField'), comment, 0)
+		Mobile.tapAndHold(findTestObject('iOS/receiving/issueSubmission/doneKeypad_Button'), 0,2,FailureHandling.OPTIONAL)
 	}
 
 
@@ -818,8 +739,7 @@ class receivingReusableMethods {
 	def clickOnSubmitIssue() {
 
 		iosCommonKeywordsObject.waitForProgressBarToBeInvisible()
-
-		Mobile.tap(findTestObject('iOS/Receiving/Issue Submission/submitIssue_Button'), 0)
+		Mobile.tap(findTestObject('iOS/receiving/issueSubmission/submitIssue_Button'), 0)
 	}
 
 
@@ -831,25 +751,18 @@ class receivingReusableMethods {
 
 		iosCommonKeywordsObject.waitForProgressBarToBeInvisible()
 
-		if (Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/serviceRequestSubmitted_Text'), 5,FailureHandling.OPTIONAL)) {
-
-			Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/serviceRequestSubmitted_Text'), 0)
-
-			Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/aCardinalHealthRepresentativeWillContactYouWithin24HoursToAssistYouWithYourRequest_Text'),0)
-			
+		if (Mobile.verifyElementExist(findTestObject('iOS/receiving/issueSubmission/serviceRequestSubmitted_Text'), 5,FailureHandling.OPTIONAL)) {
+			Mobile.verifyElementExist(findTestObject('iOS/receiving/issueSubmission/serviceRequestSubmitted_Text'), 0)
+			Mobile.verifyElementExist(findTestObject('iOS/receiving/issueSubmission/aCardinalHealthRepresentativeWillContactYouWithin24HoursToAssistYouWithYourRequest_Text'),0)
 			clickOnGotItbutton()
 		}
 
 		else {
 
-			Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/yourServiceRequestWasNotAbleToBeSentPleaseTryAgain_Text'),0)
-
-			Mobile.verifyElementExist(findTestObject('iOS/Receiving/Issue Submission/serviceRequestNotSent_Text'), 0)
-
-			Mobile.tap(findTestObject('iOS/Receiving/Issue Submission/ok_Button'), 0)
-
-			Mobile.tap(findTestObject('iOS/Receiving/Issue Submission/cancelIssueSubmission_Text'), 0)
-
+			Mobile.verifyElementExist(findTestObject('iOS/receiving/issueSubmission/yourServiceRequestWasNotAbleToBeSentPleaseTryAgain_Text'),0)
+			Mobile.verifyElementExist(findTestObject('iOS/receiving/issueSubmission/serviceRequestNotSent_Text'), 0)
+			Mobile.tap(findTestObject('iOS/receiving/issueSubmission/ok_Button'), 0)
+			Mobile.tap(findTestObject('iOS/receiving/issueSubmission/cancelIssueSubmission_Text'), 0)
 		}
 	}
 
@@ -861,7 +774,6 @@ class receivingReusableMethods {
 	def clickOnGotItbutton() {
 
 		iosCommonKeywordsObject.waitForProgressBarToBeInvisible()
-
-		Mobile.tap(findTestObject('iOS/Receiving/Issue Submission/gotIt_Button'), 0)
+		Mobile.tap(findTestObject('iOS/receiving/issueSubmission/gotIt_Button'), 0)
 	}
 }

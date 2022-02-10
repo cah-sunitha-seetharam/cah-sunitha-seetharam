@@ -41,29 +41,6 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 class newOrderScreen {
 
-	@Keyword
-	def change_Account(String new_Account) {
-
-
-		//Mobile.tap(findTestObject('iOS/Account_Selection/changeAccount_Text'), 0)
-
-		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Button'), 0)
-
-		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Navigation'), 0)
-
-		Mobile.scrollToText(new_Account, FailureHandling.STOP_ON_FAILURE)
-
-		Mobile.tap(findTestObject('iOS/Account Selection/accountNo_Text', [('val') : new_Account]), 0)
-
-		int w = 1
-
-		while (Mobile.verifyElementExist(findTestObject('iOS/Product Search/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
-	}
-
-
-
 	/**
 	 * enters purchase order details for the order to be created
 	 * @param poName (purchase order name for the order created)
@@ -72,15 +49,15 @@ class newOrderScreen {
 	@Keyword
 	def enterPurchaseOrderDetails(String poName,String poMemo) {
 
-		Mobile.tap(findTestObject('iOS/Orders/New Order Screen/editPOName_Button'), 0)
+		Mobile.tap(findTestObject('iOS/orders/newOrderScreen/editPOName_Button'), 0)
 
-		Mobile.setText(findTestObject('iOS/Orders/New Order Screen/poName_TextField'), poName, 0)
+		Mobile.setText(findTestObject('iOS/orders/newOrderScreen/poName_TextField'), poName, 0)
 
-		Mobile.tapAndHold(findTestObject('iOS/Product Search/returnKeypad_Button'),0,0)
+		Mobile.tapAndHold(findTestObject('iOS/productSearch/globalSearch/returnKeypad_Button'),0,0)
 
-		Mobile.tap(findTestObject('iOS/Orders/New Order Screen/editPOMemo_Button'), 0)
+		Mobile.tap(findTestObject('iOS/orders/newOrderScreen/editPOMemo_Button'), 0)
 
-		Mobile.setText(findTestObject('iOS/Orders/New Order Screen/poMemo_TextField'), poMemo,0)
+		Mobile.setText(findTestObject('iOS/orders/newOrderScreen/poMemo_TextField'), poMemo,0)
 	}
 
 
@@ -91,21 +68,24 @@ class newOrderScreen {
 	@Keyword
 	def createOrder() {
 
-		Mobile.tap(findTestObject('iOS/Orders/New Order Screen/Create Order_Button'), 0)
+		Mobile.tap(findTestObject('iOS/orders/newOrderScreen/createOrder_Button'), 0)
 	}
 
 
-
-
+	/**
+	 * verifies new order screen when user creates an order
+	 */
 	@Keyword
 	def verifyNewOrderScreenDetails() {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/New Order Screen/Create a new order_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/newOrderScreen/createANewOrder_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/New Order Screen/Account_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/newOrderScreen/account_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/New Order Screen/Purchase Order Details_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/newOrderScreen/purchaseOrderDetails_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/New Order Screen/Change Account_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/newOrderScreen/changeAccount_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/orders/newOrderScreen/newOrderScreen_Header'), 0)
 	}
 }

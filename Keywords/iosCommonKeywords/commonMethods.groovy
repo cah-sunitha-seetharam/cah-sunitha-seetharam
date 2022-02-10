@@ -42,13 +42,13 @@ class  commonMethods {
 
 		dashboardObject.clickOnMoreOptionsTab() //takes user from dash-board to the moreOptions screen'
 
-		Mobile.tap(findTestObject('iOS/More Options Screen/betaFeatures_Tab'), 0)
+		Mobile.tap(findTestObject('iOS/moreOptionsScreen/betaFeature/betaFeatures_Tab'), 0)
 
-		Mobile.tap(findTestObject('iOS/More Options Screen/betaFeatureSwitch_Toggle'), 0)
+		Mobile.tap(findTestObject('iOS/moreOptionsScreen/betaFeature/betaFeatureSwitch_Toggle'), 0)
 
-		Mobile.tap(findTestObject('iOS/More Options Screen/termsAgree_CheckBox'), 0)
+		Mobile.tap(findTestObject('iOS/moreOptionsScreen/betaFeature/termsAgree_CheckBox'), 0)
 
-		Mobile.tap(findTestObject('iOS/More Options Screen/disclaimerConfirm_Button'), 0)
+		Mobile.tap(findTestObject('iOS/moreOptionsScreen/betaFeature/disclaimerConfirm_Button'), 0)
 
 		waitForProgressBarToBeInvisible()
 	}
@@ -60,7 +60,7 @@ class  commonMethods {
 	@Keyword
 	def clickOnProductSearchTextField() {
 
-		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), 0, 0)
 	}
 
 
@@ -70,7 +70,7 @@ class  commonMethods {
 	@Keyword
 	def clickOnSearchKey() {
 
-		Mobile.tapAndHold(findTestObject('iOS/Product Search/search_Keypad'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/productSearch/globalSearch/search_Keypad'), 0, 0)
 	}
 
 
@@ -93,10 +93,10 @@ class  commonMethods {
 	@Keyword
 	def openTestFlightApp(String bundleID) {
 		Mobile.startExistingApplication(bundleID)
-		Mobile.tap(findTestObject('iOS/TestFlight/install_Button'), 0)
+		Mobile.tap(findTestObject('iOS/testFlight/install_Button'), 0)
 		Mobile.delay(2)
-		Mobile.waitForElementPresent(findTestObject('iOS/TestFlight/open_Button'), 0)
-		Mobile.tap(findTestObject('iOS/TestFlight/open_Button'), 0)
+		Mobile.waitForElementPresent(findTestObject('iOS/testFlight/open_Button'), 0)
+		Mobile.tap(findTestObject('iOS/testFlight/open_Button'), 0)
 	}
 
 	/**
@@ -104,7 +104,7 @@ class  commonMethods {
 	 */
 	@Keyword
 	def tapOnSetupLater() {
-		Mobile.tap(findTestObject('iOS/Verification/disableTouchIDRealDevice_Button'), 0)
+		Mobile.tap(findTestObject('iOS/verification/disableTouchIDRealDevice_Button'), 0)
 	}
 
 	/**
@@ -120,7 +120,7 @@ class  commonMethods {
 
 		productCost=productCost.replaceAll("[^0-9.]", "")
 		float productCost_dollarSymbolRemoved_FloatValue=productCost.toFloat()
-		
+
 		//float productCost_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(productCost)//converting productCost string to a float value
 
 		return productCost_dollarSymbolRemoved_FloatValue
@@ -150,7 +150,7 @@ class  commonMethods {
 	@Keyword
 	def enterProductInSearchField(productSearch) {
 
-		Mobile.setText(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), productSearch, 0)
+		Mobile.setText(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), productSearch, 0)
 	}
 
 
@@ -163,12 +163,12 @@ class  commonMethods {
 
 		waitForProgressBarToBeInvisible()
 
-		if (Mobile.verifyElementExist(findTestObject('iOS/Product Search/Back_Text'), 4,FailureHandling.OPTIONAL)) {
+		if (Mobile.verifyElementExist(findTestObject('iOS/productSearch/globalSearch/back_Text'), 4,FailureHandling.OPTIONAL)) {
 
-			Mobile.tap(findTestObject('iOS/Product Search/Back_Text'), 4,FailureHandling.OPTIONAL)
+			Mobile.tap(findTestObject('iOS/productSearch/globalSearch/back_Text'), 4,FailureHandling.OPTIONAL)
 		}
 		else {
-			Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/backButton_Text'), 4)
+			Mobile.tap(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/backButton_Text'), 4)
 		}
 		waitForProgressBarToBeInvisible()
 	}
@@ -184,7 +184,7 @@ class  commonMethods {
 
 		if (GlobalVariable.isIosAppInstalled) {
 			KeywordUtil.logInfo("application is already installed")
-			Mobile.startExistingApplication(GlobalVariable.bundleID)
+			Mobile.startExistingApplication(GlobalVariable.bundleID,FailureHandling.OPTIONAL)
 		}
 		else {
 			KeywordUtil.logInfo("need to install the application")
@@ -201,11 +201,11 @@ class  commonMethods {
 	@Keyword
 	def performBasicTextManagementOperation(String operationToBePerformed) {
 
-		Mobile.tapAndHold(findTestObject('Object Repository/iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), 0, 0)
 
-		Mobile.tap(findTestObject('Object Repository/iOS/Verification/selectAll_MenuItem'), 5,FailureHandling.OPTIONAL)
+		Mobile.tap(findTestObject('iOS/verification/selectAll_MenuItem'), 5,FailureHandling.OPTIONAL)
 
-		Mobile.tap(findTestObject('Object Repository/iOS/Verification/textOperation_MenuItem',[('TEXT'):operationToBePerformed]), 0)
+		Mobile.tap(findTestObject('iOS/verification/textOperation_MenuItem',[('TEXT'):operationToBePerformed]), 0)
 
 		waitForProgressBarToBeInvisible()
 	}
@@ -375,7 +375,7 @@ class  commonMethods {
 	@Keyword
 	def verifyProductIsVisibleOnTheProductSearchScreen(productNdcNumber) {
 
-		String testObj='Object Repository/iOS/Product Search/ndcNumber_Text'
+		String testObj='Object Repository/iOS/productSearch/globalSearch/ndcNumber_Text'
 
 		(new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, productNdcNumber as the arguments
 	}
@@ -388,7 +388,7 @@ class  commonMethods {
 	@Keyword
 	def waitForProgressBarToBeInvisible() {
 
-		String testObject='iOS/Product Search/Progress_Bar'
+		String testObject='Object Repository/iOS/productSearch/globalSearch/progress_Bar'
 
 		waitTimeForObjectToBeVisible(testObject,1,20) //waitTime of 1(s), waitLimit of 20(s)
 	}
@@ -426,13 +426,13 @@ class  commonMethods {
 	@Keyword
 	def changeAccount(String newAccount) {
 
-		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Text'), 0)
+		Mobile.tap(findTestObject('iOS/accountSelection/changeAccount_Text'), 0)
 
-		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Navigation'), 0)
+		Mobile.tap(findTestObject('iOS/accountSelection/changeAccount_Navigation'), 0)
 
 		Mobile.scrollToText(newAccount, FailureHandling.STOP_ON_FAILURE)
 
-		Mobile.tap(findTestObject('iOS/Account Selection/AccountNo_Text', [('val') : newAccount]), 0)
+		Mobile.tap(findTestObject('iOS/accountSelection/AccountNo_Text', [('val') : newAccount]), 0)
 	}
 
 
@@ -444,13 +444,13 @@ class  commonMethods {
 	@Keyword
 	def verifySelectedAccount(String expectedAccountNo) {
 
-		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Text'), 0)
+		Mobile.tap(findTestObject('iOS/accountSelection/changeAccount_Text'), 0)
 
-		String actualAccountNo=Mobile.getText(findTestObject('iOS/Account Selection/selectedAccount_Label'), 0)
+		String actualAccountNo=Mobile.getText(findTestObject('iOS/accountSelection/selectedAccount_Label'), 0)
 
 		assert expectedAccountNo==actualAccountNo
 
-		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Text'), 0)
+		Mobile.tap(findTestObject('iOS/accountSelection/changeAccount_Text'), 0)
 
 	}
 

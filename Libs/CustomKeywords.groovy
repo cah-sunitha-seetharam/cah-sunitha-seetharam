@@ -492,12 +492,16 @@ def static "iosOrders.ordersCommonScreen.clickOnNewOrder"() {
     (new iosOrders.ordersCommonScreen()).clickOnNewOrder()
 }
 
-
+ /**
+	 * takes user to history screen where user can input purchase order details and can create an order
+	 */ 
 def static "iosOrders.ordersCommonScreen.clickOnHistoryTab"() {
     (new iosOrders.ordersCommonScreen()).clickOnHistoryTab()
 }
 
-
+ /**
+	 * takes user to order screen where user can input purchase order details and can create an order
+	 */ 
 def static "iosOrders.ordersCommonScreen.clickOnCartTab"() {
     (new iosOrders.ordersCommonScreen()).clickOnCartTab()
 }
@@ -509,12 +513,15 @@ def static "iosOrders.ordersCommonScreen.clearAllOrders"() {
     (new iosOrders.ordersCommonScreen()).clearAllOrders()
 }
 
-
-def static "iosOrders.orderDetailsScreen.add_Alternate_Product"(
-    	String product_Name	
+ /**
+	 * searches for a product by setting product name and quantity as the input
+	 * @param productName (product to be added), quantity (total quantity required to be added)
+	 */ 
+def static "iosOrders.orderDetailsScreen.addAlternateProduct"(
+    	String productName	
      , 	String quantity	) {
-    (new iosOrders.orderDetailsScreen()).add_Alternate_Product(
-        	product_Name
+    (new iosOrders.orderDetailsScreen()).addAlternateProduct(
+        	productName
          , 	quantity)
 }
 
@@ -1386,12 +1393,16 @@ def static "iosOrders.cartScreen.uploadAllOrders"() {
     (new iosOrders.cartScreen()).uploadAllOrders()
 }
 
-
+ /**
+	 * verifies cart screen with any product being added
+	 */ 
 def static "iosOrders.cartScreen.verifyCartScreenWithAddedProduct"() {
     (new iosOrders.cartScreen()).verifyCartScreenWithAddedProduct()
 }
 
-
+ /**
+	 * verifies cart screen without any product being added
+	 */ 
 def static "iosOrders.cartScreen.verifyCartScreenWithoutAnyOrderPresent"() {
     (new iosOrders.cartScreen()).verifyCartScreenWithoutAnyOrderPresent()
 }
@@ -3440,13 +3451,6 @@ def static "androidInventory.inventoryDetailsScreen.verifyLocationCount"(
         	expectedLocationCount)
 }
 
-
-def static "iosOrders.newOrderScreen.change_Account"(
-    	String new_Account	) {
-    (new iosOrders.newOrderScreen()).change_Account(
-        	new_Account)
-}
-
  /**
 	 * enters purchase order details for the order to be created
 	 * @param poName (purchase order name for the order created)
@@ -3467,7 +3471,9 @@ def static "iosOrders.newOrderScreen.createOrder"() {
     (new iosOrders.newOrderScreen()).createOrder()
 }
 
-
+ /**
+	 * verifies new order screen when user creates an order
+	 */ 
 def static "iosOrders.newOrderScreen.verifyNewOrderScreenDetails"() {
     (new iosOrders.newOrderScreen()).verifyNewOrderScreenDetails()
 }
@@ -4016,7 +4022,9 @@ def static "iosMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS"() {
     (new iosMoreOptions.moreOptionsScreen()).enableBetaFeatureCSOS()
 }
 
-
+ /**
+	 * verifies history screen when user creates an order
+	 */ 
 def static "iosOrders.historyScreen.verifyHistoryScreenDetails"() {
     (new iosOrders.historyScreen()).verifyHistoryScreenDetails()
 }
@@ -4912,24 +4920,17 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
+}
+
+
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
     	String testName	
      , 	RectangleSize viewportSize	) {
     (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
         	testName
          , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
 }
 
 
@@ -4941,4 +4942,11 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
 }
