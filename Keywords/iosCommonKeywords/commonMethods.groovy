@@ -478,7 +478,7 @@ class  commonMethods {
 			}
 		}
 		catch(AssertionError e){
-			KeywordUtil.logInfo("waitLimit of " + waitLimit + "(s) croosed and object is still visible on the screen!!!!! " +e.toString()); //logInfo if assertion fails
+			KeywordUtil.markFailedAndStop("waitLimit of " + waitLimit + "(s) croosed and object is still visible on the screen!!!!! " +e.toString()); //logInfo if assertion fails
 		}
 
 	}
