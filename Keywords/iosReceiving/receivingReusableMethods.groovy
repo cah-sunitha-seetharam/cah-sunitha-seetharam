@@ -132,8 +132,8 @@ class receivingReusableMethods {
 
 		Mobile.tap(findTestObject('iOS/receiving/verification/receiveTote_Button'),0)
 
-		/*	Mobile.verifyElementExist(findTestObject('Android/Receiving/toteReceivingStatus_View'), 0)
-		 String idOfTheElement=Mobile.getAttribute(findTestObject('Android/Receiving/toteReceivingStatus_View'), 'resource-id', 0)
+		/*	Mobile.verifyElementExist(findTestObject('Android/receiving/verification/toteReceivingStatus_View'), 0)
+		 String idOfTheElement=Mobile.getAttribute(findTestObject('Android/receiving/verification/toteReceivingStatus_View'), 'resource-id', 0)
 		 KeywordUtil.logInfo(idOfTheElement)
 		 commonMethodsObject.verifyElementColor(146,255,161,idOfTheElement) //light green with hex code #92ffa1
 		 */
@@ -147,7 +147,7 @@ class receivingReusableMethods {
 	@Keyword
 	def clickOnScanIcon() {
 
-		//MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Object Repository/Android/Receiving/scan_TextView'), 0)
+		//MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Android/receiving/verification/scan_TextView'), 0)
 		//element.click()
 		Mobile.tap(findTestObject('iOS/receiving/verification/scan_Icon'), 0,FailureHandling.OPTIONAL)
 	}
@@ -171,7 +171,7 @@ class receivingReusableMethods {
 	@Keyword
 	def collpaseViewOfTotes() {
 
-		Mobile.tap(findTestObject('Object Repository/Android/Receiving/collapseView_Image'), 0)
+		Mobile.tap(findTestObject('Android/receiving/verification/collapseView_Image'), 0)
 	}
 
 
@@ -236,7 +236,7 @@ class receivingReusableMethods {
 	@Keyword
 	def expandToSeeDetailedViewOfTotes() {
 
-		Mobile.tap(findTestObject('Object Repository/Android/Receiving/expandView_Image'), 0)
+		Mobile.tap(findTestObject('Android/receiving/verification/expandView_Image'), 0)
 	}
 
 
