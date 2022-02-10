@@ -118,9 +118,9 @@ class receivingReusableMethods {
 	@Keyword
 	def scanInputEvent(String productToBeSearched) {
 
-		Mobile.setText(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_EditText'), productToBeSearched, 0)
+		Mobile.setText(findTestObject('Android/orders/orderDetailsScreen/scanOrder/scan_EditText'), productToBeSearched, 0)
 
-		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_Button'), 0)
+		Mobile.tap(findTestObject('Android/orders/orderDetailsScreen/scanOrder/scan_Button'), 0)
 	}
 
 

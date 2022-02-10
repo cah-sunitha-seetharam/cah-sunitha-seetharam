@@ -82,11 +82,11 @@ class locationDetailsScreen {
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.tap(findTestObject('Android/Product Search/Search Products_SearchView'), 0,FailureHandling.OPTIONAL)
+		Mobile.tap(findTestObject('Android/productSearch/searchProductsSearchView_EditText'), 0,FailureHandling.OPTIONAL)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.setText(findTestObject('Android/Product Search/Search Products_SearchView'), productName + '\\n',0)
+		Mobile.setText(findTestObject('Android/productSearch/searchProductsSearchView_EditText'), productName + '\\n',0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
@@ -111,7 +111,7 @@ class locationDetailsScreen {
 		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
 			WebUI.delay(w)
 		}
-		Mobile.tap(findTestObject('Android/Product Details/popUP_product_menu_TextView'), 0)
+		Mobile.tap(findTestObject('Android/productDetails/popUpProductMenu_TextView'), 0)
 
 		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Move Product to Another Location/Move_TextView'), 0)
 
@@ -134,7 +134,7 @@ class locationDetailsScreen {
 		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
 			WebUI.delay(w)
 		}
-		Mobile.tap(findTestObject('Android/Product Details/popUP_product_menu_TextView'), 0)
+		Mobile.tap(findTestObject('Android/productDetails/popUpProductMenu_TextView'), 0)
 
 		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Copy Product to Another Location/Copy_TextView'), 0)
 
@@ -214,13 +214,13 @@ class locationDetailsScreen {
 	@Keyword
 	def clickOnScanIcon() {
 
-		Mobile.tap(findTestObject('Object Repository/Android/Product Search/Scan Flow/scan_Icon'), 0,FailureHandling.OPTIONAL)
+		Mobile.tap(findTestObject('Android/productSearch/scanFlow/scanIcon_EditText'), 0,FailureHandling.OPTIONAL)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Product Search/Scan Flow/fullCount_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/productSearch/scanFlow/fullCount_Button'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Product Search/Scan Flow/partialCount_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/productSearch/scanFlow/partialCount_Button'), 0)
 	}
 
 
@@ -232,10 +232,10 @@ class locationDetailsScreen {
 	@Keyword
 	def selectCountTypeForTheProductToBeAdded(String countType) {
 		if(countType=="Full Count") {
-			Mobile.tap(findTestObject('Object Repository/Android/Product Search/Scan Flow/fullCount_Button'), 0)
+			Mobile.tap(findTestObject('Android/productSearch/scanFlow/fullCount_Button'), 0)
 		}
 		else {
-			Mobile.tap(findTestObject('Object Repository/Android/Product Search/Scan Flow/partialCount_Button'), 0)
+			Mobile.tap(findTestObject('Android/productSearch/scanFlow/partialCount_Button'), 0)
 		}
 	}
 
@@ -248,13 +248,13 @@ class locationDetailsScreen {
 	@Keyword
 	def scanInputEvent(String productToBeSearched) {
 
-		Mobile.tap(findTestObject('Android/Product Search/Scan Flow/enterBarcode_TextField'), 0)
+		Mobile.tap(findTestObject('Android/productSearch/scanFlow/enterBarcode_TextField'), 0)
 
-		Mobile.setText(findTestObject('Object Repository/Android/Product Search/Scan Flow/enterBarcode_TextField'), productToBeSearched, 0)
+		Mobile.setText(findTestObject('Android/productSearch/scanFlow/enterBarcode_TextField'), productToBeSearched, 0)
 
 		WebUI.delay(1) // added 1 sec delay since there is no progress loader
 
-		Mobile.tap(findTestObject('Object Repository/Android/Product Search/Scan Flow/scan_Done_Button'), 0)
+		Mobile.tap(findTestObject('Android/productSearch/scanFlow/scanDone_Button'), 0)
 	}
 
 
@@ -283,7 +283,7 @@ class locationDetailsScreen {
 	@Keyword
 	def addQuantityforTheSearchedProduct(String quantity) {
 
-		Mobile.setText(findTestObject('Object Repository/Android/Product Search/Scan Flow/quantity_TextField'), quantity, 0)
+		Mobile.setText(findTestObject('Android/productSearch/scanFlow/quantity_TextField'), quantity, 0)
 	}
 
 
@@ -294,7 +294,7 @@ class locationDetailsScreen {
 	@Keyword
 	def returnUOIOfTheAddedProduct() {
 
-		String uoiCost=Mobile.getText(findTestObject('Android/Product Search/Scan Flow/unitOfIssueCost_Text'), 0)
+		String uoiCost=Mobile.getText(findTestObject('Android/productSearch/scanFlow/unitOfIssueCost_Text'), 0)
 
 		float uoiCost_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(uoiCost)//converting uoiCost string to a float value
 
@@ -442,7 +442,7 @@ class locationDetailsScreen {
 
 		Mobile.scrollToText(testObj, FailureHandling.STOP_ON_FAILURE)
 
-		Mobile.tap(findTestObject('Android/Product Search/removeItem_Button'), 0)
+		Mobile.tap(findTestObject('Android/productSearch/removeItem_Button'), 0)
 	}
 
 	/**

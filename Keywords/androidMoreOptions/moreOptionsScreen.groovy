@@ -47,57 +47,21 @@ class moreOptionsScreen {
 	 */
 	@Keyword()
 	def changeAccount(accountNo) {
-
-		Mobile.tap(findTestObject('Android/Dashboard/changeAccount_Button'), 0)
-
+		Mobile.tap(findTestObject('Android/dashboard/changeAccount_Button'), 0)
 		Mobile.tap(findTestObject('Android/Account Selection/ChangeAccount_TextView'), 0)
-
 		Mobile.scrollToText(accountNo, FailureHandling.STOP_ON_FAILURE)
-
 		Mobile.tap(findTestObject('Android/Account Selection/Accounts Listing Screen/Account_No', [('val') : accountNo]), 0)
 	}
 
-	/**
-	 * opens the message center
-	 */
-	@Keyword
-	def tapMessageCentre() {
-		Mobile.tapAndHold(findTestObject('Object Repository/Android/More Options Screen/Message Centre/messageCentre_Text'), 0, 0)
-	}
-
-	/**
-	 * verifies message
-	 */
-	@Keyword
-	def verifyMessageCentre () {
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/More Options Screen/Message Centre/topMostMessageTitle_Text'), 0)
-	}
-	
-	/**
-	 * verifies message description
-	 */
-	@Keyword
-	def verifyMessageDescription () {
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/More Options Screen/Message Centre/descriptionOfMessage_Text'), 0)
-	}
-	
-	/**
-	 * opens top most message
-	 */
-	@Keyword
-	def tapOnTopMostMessage () {
-		Mobile.tapAndHold(findTestObject('Object Repository/Android/More Options Screen/Message Centre/topMostMessageTitle_Text'), 0, 0)
-	}
-	
 	/**
 	 * enables beta csos feature
 	 */
 	@Keyword()
 	def enableBetaFeatureCSOS() {
-		Mobile.tap(findTestObject('Android/More Options Screen/Beta Feature/betaFeatures_TextView'), 0)
-		Mobile.tap(findTestObject('Android/More Options Screen/Beta Feature/CSOSSubmitAndSignOff_Switch'), 0)
-		Mobile.tap(findTestObject('Android/More Options Screen/Beta Feature/iAgreeToTheTermsOfTheBetaProgram_CheckBox'), 0)
-		Mobile.tap(findTestObject('Android/More Options Screen/Beta Feature/confirm_Button'), 0)
+		Mobile.tap(findTestObject('Android/moreOptionsScreen/betaFeature/betaFeatures_TextView'), 0)
+		Mobile.tap(findTestObject('Android/moreOptionsScreen/betaFeature/CSOSSubmitAndSignOff_Switch'), 0)
+		Mobile.tap(findTestObject('Android/moreOptionsScreen/betaFeature/iAgreeToTheTermsOfTheBetaProgram_CheckBox'), 0)
+		Mobile.tap(findTestObject('Android/moreOptionsScreen/betaFeature/confirm_Button'), 0)
 		Mobile.delay(2)
 	}
 
@@ -106,25 +70,50 @@ class moreOptionsScreen {
 	 */
 	@Keyword()
 	def goToInventoryListingScreen() {
-
 		Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Verification Details/openInventory_TextView'), 0)
 	}
-
-
 
 	/**
 	 * clicks on moreOptions tab, signsOut the user and takes user to the logInScreen
 	 */
 	@Keyword()
 	def signOut() {
-		
 		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
-		
-		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Android/Dashboard/moreOptions_Tab'), 10)
+		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Android/dashboard/moreOptions_Tab'), 10)
 		element.click()
+		Mobile.tap(findTestObject('Android/moreOptionsScreen/signOut/signOut_TextView'), 0)
+		Mobile.tap(findTestObject('Android/moreOptionsScreen/signOut/signOut_Button'), 0)
+	}
 
-		Mobile.tap(findTestObject('Android/More Options Screen/SignOut/signOut_TextView'), 0)
+	/**
+	 * opens the message center
+	 */
+	@Keyword
+	def tapMessageCentre() {
+		Mobile.tapAndHold(findTestObject('Android/moreOptionsScreen/messageCentre/messageCentre_Text'), 0, 0)
+	}
 
-		Mobile.tap(findTestObject('Android/More Options Screen/SignOut/signOut_Button'), 0)
+	/**
+	 * opens top most message
+	 */
+	@Keyword
+	def tapOnTopMostMessage() {
+		Mobile.tapAndHold(findTestObject('Android/moreOptionsScreen/messageCentre/topMostMessageTitle_Text'), 0, 0)
+	}
+
+	/**
+	 * verifies message
+	 */
+	@Keyword
+	def verifyMessageCentre() {
+		Mobile.verifyElementExist(findTestObject('Android/moreOptionsScreen/messageCentre/topMostMessageTitle_Text'), 0)
+	}
+
+	/**
+	 * verifies message description
+	 */
+	@Keyword
+	def verifyMessageDescription() {
+		Mobile.verifyElementExist(findTestObject('Android/moreOptionsScreen/messageCentre/descriptionOfMessage_Text'), 0)
 	}
 }

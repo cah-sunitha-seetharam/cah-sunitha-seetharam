@@ -41,88 +41,59 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 class newOrderScreen {
 
-	@Keyword
-	def change_Account(String New_Account) {
-
-		Mobile.tap(findTestObject('Android/Dashboard/changeAccount_Button'), 0)
-
-		Mobile.tap(findTestObject('Android/Account Selection/ChangeAccount_TextView'), 0)
-
-		Mobile.scrollToText(New_Account, FailureHandling.STOP_ON_FAILURE)
-
-		Mobile.tap(findTestObject('Android/Account Selection/Accounts Listing Screen/Account_No', [('val') : New_Account]), 0)
-
-		int w = 1
-
-		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
-	}
-	
 	/**
 	 * selects different account
 	 * @param accountNo (account number used for selection)
 	 */
 	@Keyword
 	def changeAccount(String accountNo) {
-		Mobile.tap(findTestObject('Android/Dashboard/changeAccount_Button'), 0)
+		Mobile.tap(findTestObject('Android/dashboard/changeAccount_Button'), 0)
 		Mobile.tap(findTestObject('Android/Account Selection/ChangeAccount_TextView'), 0)
 		Mobile.scrollToText(accountNo, FailureHandling.STOP_ON_FAILURE)
 		Mobile.tap(findTestObject('Android/Account Selection/AccountNo_TextView',[('val') : accountNo]), 0)
 	}
-	
-	
+
 	/**
-	 * adds poname pomemo to textfield
-	 * @param PO_Name (purchase order name for the order created)
-	 * @param PO_Memo (purchase order Memo for the order created)
+	 * opens new order page
 	 */
-
 	@Keyword
-	def enterPurchaseOrderDetails(String PO_Name,String PO_Memo) {
-
-		Mobile.tap(findTestObject('Android/Orders/New Order Screen/P.O. Name (Optional)_TextField'), 0)
-
-		Mobile.setText(findTestObject('Android/Orders/New Order Screen/P.O. Name (Optional)_TextField'), PO_Name, 0)
-
-		Mobile.pressBack()
-
-		Mobile.tap(findTestObject('Android/Orders/New Order Screen/P.O. Memo (Optional)_TextField'), 0)
-
-		Mobile.setText(findTestObject('Android/Orders/New Order Screen/P.O. Memo (Optional)_TextField'), PO_Memo, 0)
-
-		Mobile.pressBack()
+	def clickOnNewOrder() {
+		Mobile.tap(findTestObject('Android/orders/newOrderScreen/newOrder_Tab'), 0)
 	}
-
 
 	/**
 	 * taps on create order button to create an order
 	 */
 	@Keyword
 	def createOrder() {
-
-		Mobile.tap(findTestObject('Android/Orders/New Order Screen/Create Order_button'), 0)
+		Mobile.tap(findTestObject('Android/orders/newOrderScreen/createOrder_Button'), 0)
 	}
 
-
-
+	/**
+	 * adds poname pomemo to textfield
+	 * @param poName(purchase order name for the order created)
+	 * @param poMwmo(purchase order Memo for the order created)
+	 */
 	@Keyword
-	def click_On_NewOrder() {
-
-		Mobile.tap(findTestObject('Android/Orders/New Order Screen/New Order_Tab'), 0)
+	def enterPurchaseOrderDetails(String poName,String poMemo) {
+		Mobile.tap(findTestObject('Android/orders/newOrderScreen/P.O. Name (Optional)_TextField'), 0)
+		Mobile.setText(findTestObject('Android/orders/newOrderScreen/P.O. Name (Optional)_TextField'), poName, 0)
+		Mobile.pressBack()
+		Mobile.tap(findTestObject('Android/orders/newOrderScreen/poMemo_EditText'), 0)
+		Mobile.setText(findTestObject('Android/orders/newOrderScreen/poMemo_EditText'), poMemo, 0)
+		Mobile.pressBack()
 	}
-
 
 	/**
 	 * verifies new order screen
 	 */
 	@Keyword
 	def verifyNewOrderScreenAccount() {
-		String actualAccountNumber = Mobile.getText(findTestObject('Android/Orders/New Order Screen/accountID_Textview'), 0)
+		String actualAccountNumber = Mobile.getText(findTestObject('Android/orders/newOrderScreen/accountID_Textview'), 0)
 		assert actualAccountNumber == GlobalVariable.Account
-		Mobile.verifyElementExist(findTestObject('Android/Orders/New Order Screen/P.O. Name (Optional)_TextField'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/New Order Screen/P.O. Memo (Optional)_TextField'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/New Order Screen/Change Account_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/newOrderScreen/P.O. Name (Optional)_TextField'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/newOrderScreen/poMemo_EditText'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/newOrderScreen/changeAccount_TextView'), 0)
 	}
 
 	/**
@@ -130,17 +101,11 @@ class newOrderScreen {
 	 */
 	@Keyword
 	def verifyNewOrderScreenDetails() {
-
-		Mobile.verifyElementExist(findTestObject('Android/Orders/New Order Screen/Cart Header_TextView'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Orders/New Order Screen/Create a new order_TextView'),	0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Orders/New Order Screen/New Order_Tab'),0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Verification Details/Scan_Icon'),0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Orders/New Order Screen/Account_TextView'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Orders/New Order Screen/Change Account_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/newOrderScreen/cartHeader_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/newOrderScreen/createAnewOrder_TextView'),	0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/newOrderScreen/newOrder_Tab'),0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/verificationDetails/Scan_Icon'),0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/newOrderScreen/Account_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/newOrderScreen/changeAccount_TextView'), 0)
 	}
 }
