@@ -89,6 +89,17 @@ class dashboardScreen {
 
 
 	/**
+	 * opens audits tab where user can perform actions related to audits
+	 */
+	@Keyword
+	def clickOnAuditsTab() {
+
+		Mobile.tap(findTestObject('iOS/dashboard/tabs/audits_Tab'), 0)
+	}
+
+
+
+	/**
 	 * opens home tab
 	 */
 	@Keyword
@@ -109,7 +120,6 @@ class dashboardScreen {
 	}
 
 
-
 	/**
 	 * opens orders tab where user can perform actions related to orders
 	 */
@@ -117,6 +127,16 @@ class dashboardScreen {
 	def clickOnOrders() {
 
 		Mobile.tap(findTestObject('iOS/dashboard/tabs/orders_Tab'), 0)
+	}
+
+
+	/**
+	 * opens receiving tab
+	 */
+	@Keyword
+	def clickOnReceivingTab() {
+
+		Mobile.tap(findTestObject('iOS/dashboard/tabs/receiving_Tab'), 0)
 	}
 
 
@@ -145,25 +165,5 @@ class dashboardScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/dashboard/verification/homeBottomNavigationTab_Bar'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/accountSelection/changeAccount_Button'), 0)
-	}
-
-
-	/**
-	 * opens audits tab where user can perform actions related to audits
-	 */
-	@Keyword
-	def clickOnAuditsTab() {
-
-		Mobile.tap(findTestObject('iOS/dashboard/tabs/audits_Tab'), 0)
-	}
-
-
-	/**
-	 * opens receiving tab
-	 */
-	@Keyword
-	def clickOnReceivingTab() {
-
-		Mobile.tap(findTestObject('iOS/dashboard/tabs/receiving_Tab'), 0)
 	}
 }

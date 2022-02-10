@@ -35,22 +35,19 @@ class  commonMethods {
 
 
 	/**
-	 * clicks on more options, takes to beat features and enables it
+	 * changes the user account
+	 * @param newAccount
 	 */
 	@Keyword
-	def enableBetaFeatures() {
+	def changeAccount(String newAccount) {
 
-		dashboardObject.clickOnMoreOptionsTab() //takes user from dash-board to the moreOptions screen'
+		Mobile.tap(findTestObject('iOS/accountSelection/changeAccount_Text'), 0)
 
-		Mobile.tap(findTestObject('iOS/moreOptionsScreen/betaFeature/betaFeatures_Tab'), 0)
+		Mobile.tap(findTestObject('iOS/accountSelection/changeAccount_Navigation'), 0)
 
-		Mobile.tap(findTestObject('iOS/moreOptionsScreen/betaFeature/betaFeatureSwitch_Toggle'), 0)
+		Mobile.scrollToText(newAccount, FailureHandling.STOP_ON_FAILURE)
 
-		Mobile.tap(findTestObject('iOS/moreOptionsScreen/betaFeature/termsAgree_CheckBox'), 0)
-
-		Mobile.tap(findTestObject('iOS/moreOptionsScreen/betaFeature/disclaimerConfirm_Button'), 0)
-
-		waitForProgressBarToBeInvisible()
+		Mobile.tap(findTestObject('iOS/accountSelection/AccountNo_Text', [('val') : newAccount]), 0)
 	}
 
 
@@ -87,6 +84,74 @@ class  commonMethods {
 
 
 	/**
+	 * clicks on more options, takes to beat features and enables it
+	 */
+	@Keyword
+	def enableBetaFeatures() {
+
+		dashboardObject.clickOnMoreOptionsTab() //takes user from dash-board to the moreOptions screen'
+
+		Mobile.tap(findTestObject('iOS/moreOptionsScreen/betaFeature/betaFeatures_Tab'), 0)
+
+		Mobile.tap(findTestObject('iOS/moreOptionsScreen/betaFeature/betaFeatureSwitch_Toggle'), 0)
+
+		Mobile.tap(findTestObject('iOS/moreOptionsScreen/betaFeature/termsAgree_CheckBox'), 0)
+
+		Mobile.tap(findTestObject('iOS/moreOptionsScreen/betaFeature/disclaimerConfirm_Button'), 0)
+
+		waitForProgressBarToBeInvisible()
+	}
+
+	/**
+	 * inputs the product search which can be name/Cin/UPC/NDC in the product search-field
+	 * @param productSearch (which can be name/Cin/UPC/NDC in the product search-field)
+	 */
+	@Keyword
+	def enterProductInSearchField(productSearch) {
+
+		Mobile.setText(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), productSearch, 0)
+	}
+
+	/**
+	 * this method will take the application one screen back
+	 */
+	@Keyword
+	def goOneScreenBack() {
+
+		waitForProgressBarToBeInvisible()
+
+		if (Mobile.verifyElementExist(findTestObject('iOS/productSearch/globalSearch/back_Text'), 4,FailureHandling.OPTIONAL)) {
+
+			Mobile.tap(findTestObject('iOS/productSearch/globalSearch/back_Text'), 4,FailureHandling.OPTIONAL)
+		}
+		else {
+			Mobile.tap(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/backButton_Text'), 4)
+		}
+		waitForProgressBarToBeInvisible()
+	}
+
+
+
+	/**
+	 * reads value from the global boolean variable: isIosAppInstalled
+	 * and if it is set to true, launches already installed application else installs and launches the application
+	 */
+	@Keyword
+	def installingAndlaunchingTheApplication() {
+
+
+		if (GlobalVariable.isIosAppInstalled) {
+			KeywordUtil.logInfo("application is already installed")
+			Mobile.startExistingApplication(GlobalVariable.bundleID,FailureHandling.OPTIONAL)
+		}
+		else {
+			KeywordUtil.logInfo("need to install the application")
+			Mobile.startApplication(GlobalVariable.iOSAppPath, true)
+		}
+	}
+
+
+	/**
 	 * opens existing testflight app and installs latest OE App
 	 * @return bundleId of testflight
 	 */
@@ -99,13 +164,37 @@ class  commonMethods {
 		Mobile.tap(findTestObject('iOS/testFlight/open_Button'), 0)
 	}
 
+
+
 	/**
-	 * disables touchid while using real device
+	 * performs basic text management operations:Copy,Cut,Paste,Share
+	 * @param operationToBePerformed (in operationToBePerformed argument all alphabets should be lower-case except the first one for e.g Copy, Cut)
 	 */
 	@Keyword
-	def tapOnSetupLater() {
-		Mobile.tap(findTestObject('iOS/verification/disableTouchIDRealDevice_Button'), 0)
+	def performBasicTextManagementOperation(String operationToBePerformed) {
+
+		Mobile.tapAndHold(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), 0, 0)
+
+		Mobile.tap(findTestObject('iOS/verification/selectAll_MenuItem'), 5,FailureHandling.OPTIONAL)
+
+		Mobile.tap(findTestObject('iOS/verification/textOperation_MenuItem',[('TEXT'):operationToBePerformed]), 0)
+
+		waitForProgressBarToBeInvisible()
 	}
+
+
+	/**
+	 * removes characters in string
+	 * @param stringCharcterToBeRemoved (Removes characters in a string)
+	 * @return modifiedString
+	 */
+	@Keyword
+	def removeCharactersInString(String stringCharcterToBeRemoved) {
+		String modifiedString=stringCharcterToBeRemoved.replaceAll("[^0-9.]", "")
+		return modifiedString
+	}
+
+
 
 	/**
 	 * this function returns the cost of added product
@@ -143,72 +232,23 @@ class  commonMethods {
 	}
 
 
-	/**
-	 * inputs the product search which can be name/Cin/UPC/NDC in the product search-field
-	 * @param productSearch (which can be name/Cin/UPC/NDC in the product search-field)
-	 */
-	@Keyword
-	def enterProductInSearchField(productSearch) {
-
-		Mobile.setText(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), productSearch, 0)
-	}
-
 
 
 	/**
-	 * this method will take the application one screen back
+	 * takes product to be searched as the argument and searches the same
+	 * @param productToBeSearched (product to be searched)
 	 */
 	@Keyword
-	def goOneScreenBack() {
+	def searchProduct(productToBeSearched) {
 
-		waitForProgressBarToBeInvisible()
+		clickOnProductSearchTextField()
 
-		if (Mobile.verifyElementExist(findTestObject('iOS/productSearch/globalSearch/back_Text'), 4,FailureHandling.OPTIONAL)) {
+		enterProductInSearchField(productToBeSearched)
 
-			Mobile.tap(findTestObject('iOS/productSearch/globalSearch/back_Text'), 4,FailureHandling.OPTIONAL)
-		}
-		else {
-			Mobile.tap(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/backButton_Text'), 4)
-		}
-		waitForProgressBarToBeInvisible()
+		clickOnSearchKey()
 	}
 
 
-	/**
-	 * reads value from the global boolean variable: isIosAppInstalled
-	 * and if it is set to true, launches already installed application else installs and launches the application
-	 */
-	@Keyword
-	def installingAndlaunchingTheApplication() {
-
-
-		if (GlobalVariable.isIosAppInstalled) {
-			KeywordUtil.logInfo("application is already installed")
-			Mobile.startExistingApplication(GlobalVariable.bundleID,FailureHandling.OPTIONAL)
-		}
-		else {
-			KeywordUtil.logInfo("need to install the application")
-			Mobile.startApplication(GlobalVariable.iOSAppPath, true)
-		}
-	}
-
-
-
-	/**
-	 * performs basic text management operations:Copy,Cut,Paste,Share
-	 * @param operationToBePerformed (in operationToBePerformed argument all alphabets should be lower-case except the first one for e.g Copy, Cut)
-	 */
-	@Keyword
-	def performBasicTextManagementOperation(String operationToBePerformed) {
-
-		Mobile.tapAndHold(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), 0, 0)
-
-		Mobile.tap(findTestObject('iOS/verification/selectAll_MenuItem'), 5,FailureHandling.OPTIONAL)
-
-		Mobile.tap(findTestObject('iOS/verification/textOperation_MenuItem',[('TEXT'):operationToBePerformed]), 0)
-
-		waitForProgressBarToBeInvisible()
-	}
 
 
 
@@ -263,6 +303,16 @@ class  commonMethods {
 
 
 
+	/**
+	 * disables touchid while using real device
+	 */
+	@Keyword
+	def tapOnSetupLater() {
+		Mobile.tap(findTestObject('iOS/verification/disableTouchIDRealDevice_Button'), 0)
+	}
+
+
+
 
 
 	/**
@@ -284,8 +334,6 @@ class  commonMethods {
 	}
 
 
-
-
 	/**
 	 * generates the coordinate y for a test object by considering ElementTopPosition and ElementHeight
 	 * @param testObj (reference of the testObject passed as a parameter)
@@ -305,7 +353,6 @@ class  commonMethods {
 	}
 
 
-
 	/**
 	 * this method verifies the popUp screen is visible
 	 * @param testobj (reference of the popUp screen object under verification)
@@ -315,8 +362,6 @@ class  commonMethods {
 
 		Mobile.verifyElementExist(findTestObject(testobj), 0)
 	}
-
-
 
 
 
@@ -332,6 +377,22 @@ class  commonMethods {
 	}
 
 
+
+	/**
+	 * this function verifies that the product is visible on the product search screen after search
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */
+	@Keyword
+	def verifyProductIsVisibleOnTheProductSearchScreen(productNdcNumber) {
+
+		String testObj='Object Repository/iOS/productSearch/globalSearch/ndcNumber_Text'
+
+		(new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, productNdcNumber as the arguments
+	}
+
+
+
 	/**
 	 * this function verifies that the product is visible on the screen
 	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
@@ -342,6 +403,26 @@ class  commonMethods {
 
 		Mobile.verifyElementExist(findTestObject(testObj,[('TEXT'):productIdentificationNumber]),0)
 	}
+
+
+
+	/**
+	 * verifies whether the selected user account is same as the account required
+	 * @param expectedAccountNo (expected user account no)
+	 */
+	@Keyword
+	def verifySelectedAccount(String expectedAccountNo) {
+
+		Mobile.tap(findTestObject('iOS/accountSelection/changeAccount_Text'), 0)
+
+		String actualAccountNo=Mobile.getText(findTestObject('iOS/accountSelection/selectedAccount_Label'), 0)
+
+		assert expectedAccountNo==actualAccountNo
+
+		Mobile.tap(findTestObject('iOS/accountSelection/changeAccount_Text'), 0)
+
+	}
+
 
 
 	/**
@@ -363,21 +444,6 @@ class  commonMethods {
 		int endY = device_Height * 0.80
 
 		Mobile.swipe(startX, endY, endX, startY)
-	}
-
-
-
-	/**
-	 * this function verifies that the product is visible on the product search screen after search
-	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
-	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
-	 */
-	@Keyword
-	def verifyProductIsVisibleOnTheProductSearchScreen(productNdcNumber) {
-
-		String testObj='Object Repository/iOS/productSearch/globalSearch/ndcNumber_Text'
-
-		(new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, productNdcNumber as the arguments
 	}
 
 
@@ -415,71 +481,5 @@ class  commonMethods {
 			KeywordUtil.logInfo("waitLimit of " + waitLimit + "(s) croosed and object is still visible on the screen!!!!! " +e.toString()); //logInfo if assertion fails
 		}
 
-	}
-
-
-
-	/**
-	 * changes the user account
-	 * @param newAccount
-	 */
-	@Keyword
-	def changeAccount(String newAccount) {
-
-		Mobile.tap(findTestObject('iOS/accountSelection/changeAccount_Text'), 0)
-
-		Mobile.tap(findTestObject('iOS/accountSelection/changeAccount_Navigation'), 0)
-
-		Mobile.scrollToText(newAccount, FailureHandling.STOP_ON_FAILURE)
-
-		Mobile.tap(findTestObject('iOS/accountSelection/AccountNo_Text', [('val') : newAccount]), 0)
-	}
-
-
-
-	/**
-	 * verifies whether the selected user account is same as the account required
-	 * @param expectedAccountNo (expected user account no)
-	 */
-	@Keyword
-	def verifySelectedAccount(String expectedAccountNo) {
-
-		Mobile.tap(findTestObject('iOS/accountSelection/changeAccount_Text'), 0)
-
-		String actualAccountNo=Mobile.getText(findTestObject('iOS/accountSelection/selectedAccount_Label'), 0)
-
-		assert expectedAccountNo==actualAccountNo
-
-		Mobile.tap(findTestObject('iOS/accountSelection/changeAccount_Text'), 0)
-
-	}
-
-
-
-	/**
-	 * removes characters in string
-	 * @param stringCharcterToBeRemoved (Removes characters in a string)
-	 * @return modifiedString
-	 */
-	@Keyword
-	def removeCharactersInString(String stringCharcterToBeRemoved) {
-		String modifiedString=stringCharcterToBeRemoved.replaceAll("[^0-9.]", "")
-		return modifiedString
-	}
-
-
-
-	/**
-	 * takes product to be searched as the argument and searches the same
-	 * @param productToBeSearched (product to be searched)
-	 */
-	@Keyword
-	def searchProduct(productToBeSearched) {
-
-		clickOnProductSearchTextField()
-
-		enterProductInSearchField(productToBeSearched)
-
-		clickOnSearchKey()
 	}
 }

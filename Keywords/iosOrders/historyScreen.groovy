@@ -48,28 +48,19 @@ class historyScreen {
 	def commonIosMethodsObject=new iosCommonKeywords.commonMethods();
 
 	/**
-	 * verifies history screen when user creates an order
+	 * clicks on history tab button to open history tab in order history screen
 	 */
 	@Keyword
-	def verifyHistoryScreenDetails() {
+	def clickOnHistoryTab() {
 
-		Mobile.verifyElementExist(findTestObject('iOS/orders/historyScreen/orderHistory_Text'), 0)
+		Mobile.tap(findTestObject('iOS/orders/historyScreen/history_Text'), 0)
+
+		commonIosMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.verifyElementExist(findTestObject('iOS/orders/historyScreen/historyScreen_Header'),  0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/orders/historyScreen/scan_Icon'),0)
 	}
-
-
-	/**
-	 * returns quantity added
-	 */
-	@Keyword
-	def returnQuantityForScannedResultInOfflineMode() {
-		String quantityAdded = Mobile.getText(findTestObject('iOS/orders/historyScreen/quantity_Text'), 0)
-		return quantityAdded
-	}
-
 
 
 	/**
@@ -113,18 +104,12 @@ class historyScreen {
 
 
 	/**
-	 * clicks on history tab button to open history tab in order history screen
+	 * returns quantity added
 	 */
 	@Keyword
-	def clickOnHistoryTab() {
-
-		Mobile.tap(findTestObject('iOS/orders/historyScreen/history_Text'), 0)
-
-		commonIosMethodsObject.waitForProgressBarToBeInvisible()
-
-		Mobile.verifyElementExist(findTestObject('iOS/orders/historyScreen/historyScreen_Header'),  0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/orders/historyScreen/scan_Icon'),0)
+	def returnQuantityForScannedResultInOfflineMode() {
+		String quantityAdded = Mobile.getText(findTestObject('iOS/orders/historyScreen/quantity_Text'), 0)
+		return quantityAdded
 	}
 
 
@@ -146,6 +131,21 @@ class historyScreen {
 	@Keyword
 	def tapOnTopMostOrderHistory(String poNumber) {
 		Mobile.tap(findTestObject('iOS/orders/historyScreen/PONumberLabel_Text', [('TEXT'):poNumber]), 0)
+	}
+
+
+
+	/**
+	 * verifies history screen when user creates an order
+	 */
+	@Keyword
+	def verifyHistoryScreenDetails() {
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/historyScreen/orderHistory_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/historyScreen/historyScreen_Header'),  0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/historyScreen/scan_Icon'),0)
 	}
 
 

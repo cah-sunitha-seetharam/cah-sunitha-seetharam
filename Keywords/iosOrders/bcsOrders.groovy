@@ -43,12 +43,62 @@ class bcsOrders {
 
 	def iosCommonKeywordsObject=new iosCommonKeywords.commonMethods()
 	/**
-	 * verifies bcs notification on the cart screen
+	 * copies topmost non c2 order to cart screen
+	 * verifies details related to order name, account name, lines count 
+	 * of the order which is at the top of the order list under saved orders
 	 */
 	@Keyword
-	def verifyBcsNotification() {
+	def copyAndVerifyTopMostOrderDetailsUnderSavedOrdersToCartScreen() {
 
-		Mobile.verifyElementExist(findTestObject('iOS/orders/backupCartSync/youHaveSavedOrderExpressOrdersTapToView_Text'), 0, 0)
+		String orderName1=Mobile.getText(findTestObject('iOS/orders/backupCartSync/savedOrdersOrderNameLabel_Text'), 0)
+		String linesCount1=Mobile.getText(findTestObject('iOS/orders/backupCartSync/savedOrdersLinesLabel_Text'), 0)
+		String cost1=Mobile.getText(findTestObject('iOS/orders/backupCartSync/savedOrdersAmountLabel_Text'), 0)
+
+
+		copyNonC2ProductFromSavedOrders()
+		iosCommonKeywordsObject.waitForProgressBarToBeInvisible()
+
+		String orderName2=Mobile.getText(findTestObject('iOS/orders/backupCartSync/cartScreenOrderNameLabel_Text'), 0)
+		String cost2=Mobile.getText(findTestObject('iOS/orders/backupCartSync/cartScreenAmountLabel_Text'), 0)
+		String linesCount2=Mobile.getText(findTestObject('iOS/orders/backupCartSync/cartScreenLinesLabel_Text'), 0)
+
+		Float.parseFloat(linesCount1.replaceAll("[^0-9.]", ""))
+		Float.parseFloat(linesCount2.replaceAll("[^0-9.]", ""))
+
+
+		assert orderName1==orderName2
+		assert cost1==cost2
+		assert linesCount1==linesCount2
+	}
+
+
+	/**
+	 * copies a non c2 order from saved orders to the cart screen and verifies details related to copy button
+	 */
+	@Keyword
+	def copyNonC2ProductFromSavedOrders() {
+
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/orders/backupCartSync/copyOrdersToMobile_Button'), 'enabled','false',0)
+
+		Mobile.tap(findTestObject('iOS/orders/backupCartSync/check_Button'), 0)
+
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/orders/backupCartSync/copyOrdersToMobile_Button'), 'enabled','true',0)
+
+		Mobile.tapAndHold(findTestObject('iOS/orders/backupCartSync/copyOrdersToMobile_Button'),0,0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/backupCartSync/backToSavedOrders_Text'), 0)
+
+		Mobile.tap(findTestObject('iOS/orders/backupCartSync/goToCart_Text'), 0)
+	}
+
+
+	/**
+	 * verifies details related to saved orders listing screen
+	 */
+	@Keyword
+	def lookforC2Orders() {
+
+		Mobile.scrollToText("C2 orders are unavailable to copy to mobile")
 	}
 
 
@@ -63,24 +113,12 @@ class bcsOrders {
 
 
 	/**
-	 * verifies details related to saved orders listing screen
+	 * verifies bcs notification on the cart screen
 	 */
 	@Keyword
-	def verifySavedOrdersListDetails() {
+	def verifyBcsNotification() {
 
-		Mobile.verifyElementExist(findTestObject('iOS/orders/backupCartSync/headerLabel_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/orders/backupCartSync/lastUpdateLabel_Text'), 0)
-	}
-
-
-	/**
-	 * verifies details related to saved orders listing screen
-	 */
-	@Keyword
-	def lookforC2Orders() {
-
-		Mobile.scrollToText("C2 orders are unavailable to copy to mobile")
+		Mobile.verifyElementExist(findTestObject('iOS/orders/backupCartSync/youHaveSavedOrderExpressOrdersTapToView_Text'), 0, 0)
 	}
 
 
@@ -113,53 +151,15 @@ class bcsOrders {
 	}
 
 
-	/**
-	 * copies a non c2 order from saved orders to the cart screen and verifies details related to copy button
-	 */
-	@Keyword
-	def copyNonC2ProductFromSavedOrders() {
-
-		Mobile.verifyElementAttributeValue(findTestObject('iOS/orders/backupCartSync/copyOrdersToMobile_Button'), 'enabled','false',0)
-
-		Mobile.tap(findTestObject('iOS/orders/backupCartSync/check_Button'), 0)
-
-		Mobile.verifyElementAttributeValue(findTestObject('iOS/orders/backupCartSync/copyOrdersToMobile_Button'), 'enabled','true',0)
-
-		Mobile.tapAndHold(findTestObject('iOS/orders/backupCartSync/copyOrdersToMobile_Button'),0,0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/orders/backupCartSync/backToSavedOrders_Text'), 0)
-
-		Mobile.tap(findTestObject('iOS/orders/backupCartSync/goToCart_Text'), 0)
-	}
-
-
 
 	/**
-	 * copies topmost non c2 order to cart screen
-	 * verifies details related to order name, account name, lines count 
-	 * of the order which is at the top of the order list under saved orders
+	 * verifies details related to saved orders listing screen
 	 */
 	@Keyword
-	def copyAndVerifyTopMostOrderDetailsUnderSavedOrdersToCartScreen() {
+	def verifySavedOrdersListDetails() {
 
-		String orderName1=Mobile.getText(findTestObject('iOS/orders/backupCartSync/savedOrdersOrderNameLabel_Text'), 0)
-		String linesCount1=Mobile.getText(findTestObject('iOS/orders/backupCartSync/savedOrdersLinesLabel_Text'), 0)
-		String cost1=Mobile.getText(findTestObject('iOS/orders/backupCartSync/savedOrdersAmountLabel_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/backupCartSync/headerLabel_Text'), 0)
 
-
-		copyNonC2ProductFromSavedOrders()
-		iosCommonKeywordsObject.waitForProgressBarToBeInvisible()
-
-		String orderName2=Mobile.getText(findTestObject('iOS/orders/backupCartSync/cartScreenOrderNameLabel_Text'), 0)
-		String cost2=Mobile.getText(findTestObject('iOS/orders/backupCartSync/cartScreenAmountLabel_Text'), 0)
-		String linesCount2=Mobile.getText(findTestObject('iOS/orders/backupCartSync/cartScreenLinesLabel_Text'), 0)
-
-		Float.parseFloat(linesCount1.replaceAll("[^0-9.]", ""))
-		Float.parseFloat(linesCount2.replaceAll("[^0-9.]", ""))
-
-
-		assert orderName1==orderName2
-		assert cost1==cost2
-		assert linesCount1==linesCount2
+		Mobile.verifyElementExist(findTestObject('iOS/orders/backupCartSync/lastUpdateLabel_Text'), 0)
 	}
 }

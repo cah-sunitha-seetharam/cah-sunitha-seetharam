@@ -63,15 +63,6 @@ class inventoryListingScreen {
 	}
 
 	/**
-	 * returns top most inventory
-	 */
-	@Keyword
-	def returnTopMostInventoryName () {
-		String topMostInventoryName = Mobile.getText(findTestObject('iOS/inventory/inventoryDetailsScreen/openInventoryDetails/topMostInventoryName_Text'), 0)
-		return topMostInventoryName
-	}
-
-	/**
 	 * opens the particular inventory details
 	 * @param inventoryName (name which was given to the inventory)
 	 */
@@ -79,8 +70,6 @@ class inventoryListingScreen {
 	def clickOnInventory(String inventoryName) {
 		Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/openInventoryDetails/openInventory_Text', [('TEXT') : inventoryName]), 0)
 	}
-
-
 
 	/**
 	 * creates a new inventory from inventory listing screen
@@ -136,6 +125,17 @@ class inventoryListingScreen {
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.verifyElementNotVisible(findTestObject('iOS/inventory/inventoryDetailsScreen/openInventoryDetails/openInventory_Text', [('TEXT') : inventoryName]),0)
+	}
+
+
+
+	/**
+	 * returns top most inventory
+	 */
+	@Keyword
+	def returnTopMostInventoryName () {
+		String topMostInventoryName = Mobile.getText(findTestObject('iOS/inventory/inventoryDetailsScreen/openInventoryDetails/topMostInventoryName_Text'), 0)
+		return topMostInventoryName
 	}
 
 

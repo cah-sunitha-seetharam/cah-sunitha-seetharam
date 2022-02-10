@@ -42,6 +42,24 @@ class moreOptionsScreen {
 
 
 	/**
+	 * enables beta csos feature toggle from more options
+	 */
+	@Keyword()
+	def enableBetaFeatureCSOS() {
+
+		Mobile.tap(findTestObject('iOS/moreOptionsScreen/betaFeature/betaFeatures_Tab'), 0)
+
+		Mobile.tap(findTestObject('iOS/moreOptionsScreen/betaFeature/betaFeatureSwitch_Toggle'), 0)
+
+		Mobile.tap(findTestObject('iOS/moreOptionsScreen/betaFeature/termsAgree_CheckBox'), 0)
+
+		Mobile.tap(findTestObject('iOS/moreOptionsScreen/betaFeature/disclaimerConfirm_Button'), 0)
+
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+	}
+
+
+	/**
 	 * opens the inventory listing screen from moreOptions Screen
 	 */
 	@Keyword()
@@ -51,43 +69,30 @@ class moreOptionsScreen {
 	}
 
 
+
+	/**
+	 * clicks on moreOptions tab, signsOut the user and takes user to the logInScreen
+	 */
+	@Keyword()
+	def signOut() {
+
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+
+		Mobile.tap(findTestObject('iOS/dashboard/tabs/moreOptions_Tab'), 0)
+
+		Mobile.tap(findTestObject('iOS/moreOptionsScreen/signOut/signOut_Text'), 0)
+
+		Mobile.tap(findTestObject('iOS/moreOptionsScreen/signOut/signOut_Button'), 0)
+	}
+
+
+
 	/**
 	 * opens the message center
 	 */
 	@Keyword
 	def tapMessageCentre() {
 		Mobile.tapAndHold(findTestObject('iOS/moreOptionsScreen/messageCentre/messageCentre_Text'), 0, 0)
-	}
-
-
-
-	/**
-	 * verifies alert and message
-	 */
-	@Keyword
-	def verifyMessageCentre () {
-		Mobile.verifyElementExist(findTestObject('iOS/moreOptionsScreen/messageCentre/alertSubTitle_Text'), 0)
-		Mobile.verifyElementExist(findTestObject('iOS/moreOptionsScreen/messageCentre/topMostMessageTitle_Text'), 0)
-	}
-
-
-
-	/**
-	 * verifies alert message description
-	 */
-	@Keyword
-	def verifyAlertMessageDescription () {
-		Mobile.verifyElementExist(findTestObject('iOS/moreOptionsScreen/messageCentre/alertDescription_Text'), 0)
-	}
-
-
-
-	/**
-	 * verifies message description
-	 */
-	@Keyword
-	def verifyMessageDescription () {
-		Mobile.verifyElementExist(findTestObject('iOS/moreOptionsScreen/messageCentre/descriptionOfMessage_Text'), 0)
 	}
 
 
@@ -113,6 +118,26 @@ class moreOptionsScreen {
 
 
 	/**
+	 * verifies alert message description
+	 */
+	@Keyword
+	def verifyAlertMessageDescription () {
+		Mobile.verifyElementExist(findTestObject('iOS/moreOptionsScreen/messageCentre/alertDescription_Text'), 0)
+	}
+
+
+
+	/**
+	 * verifies alert and message
+	 */
+	@Keyword
+	def verifyMessageCentre () {
+		Mobile.verifyElementExist(findTestObject('iOS/moreOptionsScreen/messageCentre/alertSubTitle_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/moreOptionsScreen/messageCentre/topMostMessageTitle_Text'), 0)
+	}
+
+
+	/**
 	 * verifies message center in offline
 	 */
 	@Keyword
@@ -122,35 +147,10 @@ class moreOptionsScreen {
 
 
 	/**
-	 * clicks on moreOptions tab, signsOut the user and takes user to the logInScreen
+	 * verifies message description
 	 */
-	@Keyword()
-	def signOut() {
-
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
-
-		Mobile.tap(findTestObject('iOS/dashboard/tabs/moreOptions_Tab'), 0)
-
-		Mobile.tap(findTestObject('iOS/moreOptionsScreen/signOut/signOut_Text'), 0)
-
-		Mobile.tap(findTestObject('iOS/moreOptionsScreen/signOut/signOut_Button'), 0)
-	}
-
-
-	/**
-	 * enables beta csos feature toggle from more options
-	 */
-	@Keyword()
-	def enableBetaFeatureCSOS() {
-
-		Mobile.tap(findTestObject('iOS/moreOptionsScreen/betaFeature/betaFeatures_Tab'), 0)
-
-		Mobile.tap(findTestObject('iOS/moreOptionsScreen/betaFeature/betaFeatureSwitch_Toggle'), 0)
-
-		Mobile.tap(findTestObject('iOS/moreOptionsScreen/betaFeature/termsAgree_CheckBox'), 0)
-
-		Mobile.tap(findTestObject('iOS/moreOptionsScreen/betaFeature/disclaimerConfirm_Button'), 0)
-
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+	@Keyword
+	def verifyMessageDescription () {
+		Mobile.verifyElementExist(findTestObject('iOS/moreOptionsScreen/messageCentre/descriptionOfMessage_Text'), 0)
 	}
 }

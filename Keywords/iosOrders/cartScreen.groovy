@@ -104,6 +104,21 @@ class cartScreen {
 
 
 	/**
+	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at ordering
+	 */
+	@Keyword
+	def clickOnScanIcon() {
+
+		Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scan_Icon'), 0)
+
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/productSearch/scanFlow/ordering_Button'), 'value', '1', 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/productSearch/scanFlow/priceCheck_Button'), 0)
+	}
+
+
+
+	/**
 	 * confirms placing all order by clicking on place all orders confirmation button and verifies details related to placed order
 	 */
 	@Keyword
@@ -121,7 +136,6 @@ class cartScreen {
 	}
 
 
-
 	/**
 	 * clicks on continue orders on the desktop and verifies popUp which appears after tapping on continue on desktop
 	 */
@@ -135,29 +149,6 @@ class cartScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/uploadAllOrders/backToCart_Button'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/uploadAllOrders/goToDashboard_Button'), 0)
-	}
-
-
-	/**
-	 * delete's the order from the cart screen based on the purchase order name
-	 * @param poName (purchase order name of the order)
-	 */
-	@Keyword
-	def deleteOrder(String poName) {
-
-		commonMethodsObject.waitForProgressBarToBeInvisible()
-
-		String testObj='Object Repository/iOS/orders/ordersCommonScreen/orderListOrderName_Label'
-
-		int yCoordinateToSwipe=commonMethodsObject.tapYCoordinateGenerator(testObj,poName)
-
-		Mobile.swipe(1300, yCoordinateToSwipe, 0, yCoordinateToSwipe)
-
-		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/deleteOrder/success_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/deleteOrder/orderDeletedSuccessfully_Text'),0)
-
-		Mobile.tapAndHold(findTestObject('iOS/orders/cartScreen/deleteOrder/ok_Button'), 0, 0)
 	}
 
 
@@ -178,6 +169,30 @@ class cartScreen {
 		int elementTopPosition = Mobile.getElementTopPosition(findTestObject(testObj), 0)
 
 		int yCoordinateToSwipe=(elementHeight/2)+elementTopPosition
+
+		Mobile.swipe(1300, yCoordinateToSwipe, 0, yCoordinateToSwipe)
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/deleteOrder/success_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/deleteOrder/orderDeletedSuccessfully_Text'),0)
+
+		Mobile.tapAndHold(findTestObject('iOS/orders/cartScreen/deleteOrder/ok_Button'), 0, 0)
+	}
+
+
+
+	/**
+	 * delete's the order from the cart screen based on the purchase order name
+	 * @param poName (purchase order name of the order)
+	 */
+	@Keyword
+	def deleteOrder(String poName) {
+
+		commonMethodsObject.waitForProgressBarToBeInvisible()
+
+		String testObj='Object Repository/iOS/orders/ordersCommonScreen/orderListOrderName_Label'
+
+		int yCoordinateToSwipe=commonMethodsObject.tapYCoordinateGenerator(testObj,poName)
 
 		Mobile.swipe(1300, yCoordinateToSwipe, 0, yCoordinateToSwipe)
 
@@ -225,23 +240,18 @@ class cartScreen {
 
 
 	/**
-	 * takes expected mobile orders count as the argument and verifies the same
-	 * @param expected mobile orders count (expected mobile orders count after adding products to the cart)
+	 * opens the c2 order details
 	 */
 	@Keyword
-	def verifyMobileOrdersCount(String expectedMobileOrdersCount) {
-		String actualMobileOrdersCount=Mobile.getText(findTestObject('iOS/orders/cartScreen/verification/mobileOrdersCount_Text'), 0)
-		assert expectedMobileOrdersCount==actualMobileOrdersCount
-	}
+	def openC2OrderDetails() {
 
+		Mobile.tap(findTestObject('iOS/orders/cartScreen/c2OrderDetails/c2Order_View'), 0)
 
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 
-	/**
-	 *verifies C2 order view
-	 */
-	@Keyword
-	def verifyC2OrderViewIsNotVisible() {
-		Mobile.verifyElementNotVisible(findTestObject('iOS/orders/cartScreen/c2OrderDetails/c2Order_View'), 0)
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/orders/cartScreen/c2OrderDetails/uploadC2Order_Button'), 'enabled', 'true', 0)
+
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/orders/c2OrderDetailsScreen/placeC2Order/placeC2Order_Button'), 'enabled', 'true', 0)
 	}
 
 
@@ -261,34 +271,38 @@ class cartScreen {
 
 
 	/**
-	 * this function verifies the pattern required for the order which was created without giving any purchase order name
-	 * @param orderName (order name which is under verification)
+	 * scans the product, adds it to the order and also verifies some scan input details
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
 	 */
 	@Keyword
-	def verifyOrderNamePattern(final String orderName) {
+	def scanInputEvent(String productToBeSearched) {
 
-		final String regex = "(Mobile)(-)([0-9]{6})(-)([0-9]{6})"
+		Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scanGray_Image'), 0)
 
-		Mobile.verifyMatch(orderName, regex, true)
+		Mobile.setText(findTestObject('iOS/productSearch/scanFlow/enterBarcode_TextField'), productToBeSearched, 0)
 
-		KeywordUtil.logInfo("pattern matches"); //logInfo if pattern matches
+		Mobile.tap(findTestObject('iOS/productSearch/scanFlow/done_Button'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/orderDetailsScreen/verificationDetails/thisItemHaBeenAddedToYourOrder_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/orderDetailsScreen/verificationDetails/alternates_Text'), 0)
 	}
 
 
 
 	/**
-	 * opens the c2 order details
+	 * this function selects toggle value for the product to be added which can be ordering or price check)
+	 * @param toggleValue (toggleValue required to be selected for the product to be added which can be ordering or price check)
 	 */
 	@Keyword
-	def openC2OrderDetails() {
+	def selectToggleValueForTheProductToBeSearched(String toggleValue) {
 
-		Mobile.tap(findTestObject('iOS/orders/cartScreen/c2OrderDetails/c2Order_View'), 0)
-
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
-
-		Mobile.verifyElementAttributeValue(findTestObject('iOS/orders/cartScreen/c2OrderDetails/uploadC2Order_Button'), 'enabled', 'true', 0)
-
-		Mobile.verifyElementAttributeValue(findTestObject('iOS/orders/c2OrderDetailsScreen/placeC2Order/placeC2Order_Button'), 'enabled', 'true', 0)
+		if(toggleValue=="Ordering") {
+			Mobile.tap(findTestObject('iOS/productSearch/scanFlow/ordering_Button'), 0)
+		}
+		else {
+			Mobile.tap(findTestObject('iOS/productSearch/scanFlow/priceCheck_Button'), 0)
+		}
 	}
 
 
@@ -300,6 +314,28 @@ class cartScreen {
 	def uploadAllOrders() {
 
 		Mobile.tap(findTestObject('iOS/orders/cartScreen/uploadAllOrders/uploadAllOrders_Button'), 0)
+	}
+
+
+
+	/**
+	 * verifies c2 orders annotation count
+	 * @param expectedCount (expected annotation count)
+	 */
+	@Keyword
+	def verifyC2OrdersTabAnnotationCount(int expectedAnnotationCount) {
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/c2OrderDetails/c2OrdersAnnotationCount_Text',[('TEXT'):expectedAnnotationCount]), 0)
+	}
+
+
+
+	/**
+	 *verifies C2 order view
+	 */
+	@Keyword
+	def verifyC2OrderViewIsNotVisible() {
+		Mobile.verifyElementNotVisible(findTestObject('iOS/orders/cartScreen/c2OrderDetails/c2Order_View'), 0)
 	}
 
 
@@ -345,45 +381,6 @@ class cartScreen {
 
 
 	/**
-	 * verifies that the created order should be visible on the cart screen
-	 * @param poName (purchase order name used to create the order)
-	 */
-	@Keyword
-	def verifyOrderIsVisibleOnTheCartScreen(String poName) {
-
-		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/nonC2OrderDetails/orderName_Label',[('TEXT'):poName]),0)
-	}
-
-
-
-	/**
-	 * verifies that the created order should not be visible on the cart screen
-	 * @param poName (purchase order name used to create the order)
-	 */
-
-	@Keyword
-	def verifyOrderNotVisibleOnTheCartScreen(String poName) {
-
-		Mobile.verifyElementNotVisible(findTestObject('iOS/orders/cartScreen/nonC2OrderDetails/orderName_Label',[('TEXT'):poName]),0)
-	}
-
-
-
-	/**
-	 * takes expected lines count as the argument and verifies the same
-	 * @param expectedLinesCount (expected lines count after adding products to the cart)
-	 */
-	@Keyword
-	def verifyLinesCount(String expectedLinesCount) {
-
-		String actualLinesCount=Mobile.getText(findTestObject('iOS/orders/cartScreen/verification/linesCount_Text'), 0)
-
-		assert actualLinesCount==expectedLinesCount
-	}
-
-
-
-	/**
 	 * verifies the cart value after adding products
 	 * @param expectedCartValue (expected cart value which should be equal to actual cart total)
 	 */
@@ -405,65 +402,68 @@ class cartScreen {
 
 
 	/**
-	 * verifies c2 orders annotation count
-	 * @param expectedCount (expected annotation count)
+	 * takes expected lines count as the argument and verifies the same
+	 * @param expectedLinesCount (expected lines count after adding products to the cart)
 	 */
 	@Keyword
-	def verifyC2OrdersTabAnnotationCount(int expectedAnnotationCount) {
+	def verifyLinesCount(String expectedLinesCount) {
 
-		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/c2OrderDetails/c2OrdersAnnotationCount_Text',[('TEXT'):expectedAnnotationCount]), 0)
+		String actualLinesCount=Mobile.getText(findTestObject('iOS/orders/cartScreen/verification/linesCount_Text'), 0)
+
+		assert actualLinesCount==expectedLinesCount
 	}
 
 
 
 	/**
-	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at ordering
+	 * takes expected mobile orders count as the argument and verifies the same
+	 * @param expected mobile orders count (expected mobile orders count after adding products to the cart)
 	 */
 	@Keyword
-	def clickOnScanIcon() {
-
-		Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scan_Icon'), 0)
-
-		Mobile.verifyElementAttributeValue(findTestObject('iOS/productSearch/scanFlow/ordering_Button'), 'value', '1', 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/productSearch/scanFlow/priceCheck_Button'), 0)
+	def verifyMobileOrdersCount(String expectedMobileOrdersCount) {
+		String actualMobileOrdersCount=Mobile.getText(findTestObject('iOS/orders/cartScreen/verification/mobileOrdersCount_Text'), 0)
+		assert expectedMobileOrdersCount==actualMobileOrdersCount
 	}
 
 
 
 	/**
-	 * scans the product, adds it to the order and also verifies some scan input details
-	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 * verifies that the created order should be visible on the cart screen
+	 * @param poName (purchase order name used to create the order)
 	 */
 	@Keyword
-	def scanInputEvent(String productToBeSearched) {
+	def verifyOrderIsVisibleOnTheCartScreen(String poName) {
 
-		Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scanGray_Image'), 0)
-
-		Mobile.setText(findTestObject('iOS/productSearch/scanFlow/enterBarcode_TextField'), productToBeSearched, 0)
-
-		Mobile.tap(findTestObject('iOS/productSearch/scanFlow/done_Button'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/orders/orderDetailsScreen/verificationDetails/thisItemHaBeenAddedToYourOrder_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/orders/orderDetailsScreen/verificationDetails/alternates_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/nonC2OrderDetails/orderName_Label',[('TEXT'):poName]),0)
 	}
 
 
 
 	/**
-	 * this function selects toggle value for the product to be added which can be ordering or price check)
-	 * @param toggleValue (toggleValue required to be selected for the product to be added which can be ordering or price check)
+	 * this function verifies the pattern required for the order which was created without giving any purchase order name
+	 * @param orderName (order name which is under verification)
 	 */
 	@Keyword
-	def selectToggleValueForTheProductToBeSearched(String toggleValue) {
+	def verifyOrderNamePattern(final String orderName) {
 
-		if(toggleValue=="Ordering") {
-			Mobile.tap(findTestObject('iOS/productSearch/scanFlow/ordering_Button'), 0)
-		}
-		else {
-			Mobile.tap(findTestObject('iOS/productSearch/scanFlow/priceCheck_Button'), 0)
-		}
+		final String regex = "(Mobile)(-)([0-9]{6})(-)([0-9]{6})"
+
+		Mobile.verifyMatch(orderName, regex, true)
+
+		KeywordUtil.logInfo("pattern matches"); //logInfo if pattern matches
+	}
+
+
+
+	/**
+	 * verifies that the created order should not be visible on the cart screen
+	 * @param poName (purchase order name used to create the order)
+	 */
+
+	@Keyword
+	def verifyOrderNotVisibleOnTheCartScreen(String poName) {
+
+		Mobile.verifyElementNotVisible(findTestObject('iOS/orders/cartScreen/nonC2OrderDetails/orderName_Label',[('TEXT'):poName]),0)
 	}
 
 

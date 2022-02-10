@@ -47,38 +47,6 @@ class ordersCommonScreen {
 
 
 	/**
-	 * takes user to new order screen where user can input purchase order details and can create an order
-	 */
-	@Keyword
-	def clickOnNewOrder() {
-
-		Mobile.tap(findTestObject('iOS/orders/ordersCommonScreen/newOrder_Tab'), 0)
-	}
-
-
-
-	/**
-	 * takes user to history screen where user can input purchase order details and can create an order
-	 */
-	@Keyword
-	def clickOnHistoryTab() {
-
-		Mobile.tap(	findTestObject('iOS/orders/ordersCommonScreen/historyScreen_Tab'), 0)
-	}
-
-
-	/**
-	 * takes user to order screen where user can input purchase order details and can create an order
-	 */
-	@Keyword
-	def clickOnCartTab() {
-
-		Mobile.tap(findTestObject('iOS/orders/ordersCommonScreen/cartScreen_Tab'), 0)
-	}
-
-
-
-	/**
 	 * deletes all orders from nonc2 and c2 order tab
 	 */
 	@Keyword
@@ -124,6 +92,38 @@ class ordersCommonScreen {
 			if(counter>waitLimit)
 				break
 		}
+	}
+
+
+
+	/**
+	 * takes user to order screen where user can input purchase order details and can create an order
+	 */
+	@Keyword
+	def clickOnCartTab() {
+
+		Mobile.tap(findTestObject('iOS/orders/ordersCommonScreen/cartScreen_Tab'), 0)
+	}
+
+
+	/**
+	 * takes user to history screen where user can input purchase order details and can create an order
+	 */
+	@Keyword
+	def clickOnHistoryTab() {
+
+		Mobile.tap(	findTestObject('iOS/orders/ordersCommonScreen/historyScreen_Tab'), 0)
+	}
+
+
+
+	/**
+	 * takes user to new order screen where user can input purchase order details and can create an order
+	 */
+	@Keyword
+	def clickOnNewOrder() {
+
+		Mobile.tap(findTestObject('iOS/orders/ordersCommonScreen/newOrder_Tab'), 0)
 	}
 
 }

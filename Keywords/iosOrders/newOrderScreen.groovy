@@ -42,6 +42,17 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 class newOrderScreen {
 
 	/**
+	 * taps on create order button to create an order and takes user to the order details screen
+	 */
+	@Keyword
+	def createOrder() {
+
+		Mobile.tap(findTestObject('iOS/orders/newOrderScreen/createOrder_Button'), 0)
+	}
+
+
+
+	/**
 	 * enters purchase order details for the order to be created
 	 * @param poName (purchase order name for the order created)
 	 * @param poMemo (purchase order memo for the order created)
@@ -58,17 +69,6 @@ class newOrderScreen {
 		Mobile.tap(findTestObject('iOS/orders/newOrderScreen/editPOMemo_Button'), 0)
 
 		Mobile.setText(findTestObject('iOS/orders/newOrderScreen/poMemo_TextField'), poMemo,0)
-	}
-
-
-
-	/**
-	 * taps on create order button to create an order and takes user to the order details screen
-	 */
-	@Keyword
-	def createOrder() {
-
-		Mobile.tap(findTestObject('iOS/orders/newOrderScreen/createOrder_Button'), 0)
 	}
 
 
