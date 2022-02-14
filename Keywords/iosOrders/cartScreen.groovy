@@ -51,7 +51,7 @@ class cartScreen {
 	@Keyword
 	def cancelUploadAndKeepOrdersOnTheApp() {
 
-		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/cancelAndKeepOrdersOnTheApp_Button'), 0)
+		Mobile.tap(findTestObject('iOS/orders/cartScreen/uploadAllOrders/cancelAndKeepOrdersOnTheApp_Button'), 0)
 	}
 
 
@@ -62,11 +62,11 @@ class cartScreen {
 	@Keyword
 	def clickOnBackToCart() {
 
-		Mobile.tap(findTestObject('iOS/Product Search/backToCart_Text'), 0)
+		Mobile.tap(findTestObject('iOS/productSearch/globalSearch/backToCart_Text'), 0)
 
-		Mobile.verifyElementAttributeValue(findTestObject('Object Repository/iOS/Dashboard/orders_Tab'), 'value', '1',0)
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/dashboard/tabs/orders_Tab'), 'value', '1',0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Verification Details/cartHeader_Label'),0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/verificationDetails/cartHeader_Label'),0)
 	}
 
 
@@ -77,7 +77,7 @@ class cartScreen {
 	@Keyword
 	def clickOnC2Orders() {
 
-		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/c2Orders_Tab'), 0)
+		Mobile.tap(findTestObject('iOS/orders/cartScreen/c2OrderDetails/c2Orders_Tab'), 0)
 	}
 
 
@@ -88,7 +88,7 @@ class cartScreen {
 	@Keyword
 	def clickOnNonC2Orders() {
 
-		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/nonc2Orders_Tab'), 0)
+		Mobile.tap(findTestObject('iOS/orders/cartScreen/nonc2Orders_Tab'), 0)
 	}
 
 
@@ -99,8 +99,23 @@ class cartScreen {
 	@Keyword
 	def clickOnPlaceAllOrders() {
 
-		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Place All Orders/placeAllOrders_Button'), 0)
+		Mobile.tap(findTestObject('iOS/orders/cartScreen/placeAllOrders/placeAllOrders_Button'), 0)
 	}
+
+
+	/**
+	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at ordering
+	 */
+	@Keyword
+	def clickOnScanIcon() {
+
+		Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scan_Icon'), 0)
+
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/productSearch/scanFlow/ordering_Button'), 'value', '1', 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/productSearch/scanFlow/priceCheck_Button'), 0)
+	}
+
 
 
 	/**
@@ -109,17 +124,16 @@ class cartScreen {
 	@Keyword
 	def confirmPlacingAllOrders() {
 
-		Mobile.tap(findTestObject('Object Repository/iOS/Orders/Cart Screen/Place All Orders/confirmPlaceOrder_Button'), 0)
+		Mobile.tap(findTestObject('iOS/orders/cartScreen/placeAllOrders/confirmPlaceOrder_Button'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Place All Orders/allOrdersInThisAccountSubmitted_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/placeAllOrders/allOrdersInThisAccountSubmitted_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Place All Orders/allNonC2OrdersHaveBeenSubmitted_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/placeAllOrders/allNonC2OrdersHaveBeenSubmitted_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Place All Orders/c2OrdersWereSentToDesktop_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/placeAllOrders/c2OrdersWereSentToDesktop_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Place All Orders/checkTheDesktopForOrderConfirmation_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/placeAllOrders/checkTheDesktopForOrderConfirmation_Text'), 0)
 	}
-
 
 
 	/**
@@ -128,36 +142,13 @@ class cartScreen {
 	@Keyword
 	def continueOrdersOnTheDesktop() {
 
-		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/continueOnDesktop_Button'), 0)
+		Mobile.tap(findTestObject('iOS/orders/cartScreen/uploadAllOrders/continueOnDesktop_Button'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/yourOrder(s)HasBeenSentToDesktop_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/uploadAllOrders/yourOrder(s)HasBeenSentToDesktop_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/backToCart_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/uploadAllOrders/backToCart_Button'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/goToDashboard_Button'), 0)
-	}
-
-
-	/**
-	 * delete's the order from the cart screen based on the purchase order name
-	 * @param poName (purchase order name of the order)
-	 */
-	@Keyword
-	def deleteOrder(String poName) {
-
-		commonMethodsObject.waitForProgressBarToBeInvisible()
-
-		String testObj='Object Repository/iOS/Orders/Orders Common Screen/orderListOrderName_Label'
-
-		int yCoordinateToSwipe=commonMethodsObject.tapYCoordinateGenerator(testObj,poName)
-
-		Mobile.swipe(1300, yCoordinateToSwipe, 0, yCoordinateToSwipe)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Delete Order/success_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Delete Order/orderDeletedSuccessfully_Text'),0)
-
-		Mobile.tapAndHold(findTestObject('iOS/Orders/Cart Screen/Delete Order/ok_Button'), 0, 0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/uploadAllOrders/goToDashboard_Button'), 0)
 	}
 
 
@@ -171,7 +162,7 @@ class cartScreen {
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		String testObj='iOS/Orders/Cart Screen/c2Order_View'
+		String testObj='Object Repository/iOS/orders/cartScreen/c2OrderDetails/c2Order_View'
 
 		int elementHeight=Mobile.getElementHeight(findTestObject(testObj), 2)
 
@@ -181,11 +172,35 @@ class cartScreen {
 
 		Mobile.swipe(1300, yCoordinateToSwipe, 0, yCoordinateToSwipe)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Delete Order/success_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/deleteOrder/success_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Delete Order/orderDeletedSuccessfully_Text'),0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/deleteOrder/orderDeletedSuccessfully_Text'),0)
 
-		Mobile.tapAndHold(findTestObject('iOS/Orders/Cart Screen/Delete Order/ok_Button'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/orders/cartScreen/deleteOrder/ok_Button'), 0, 0)
+	}
+
+
+
+	/**
+	 * delete's the order from the cart screen based on the purchase order name
+	 * @param poName (purchase order name of the order)
+	 */
+	@Keyword
+	def deleteOrder(String poName) {
+
+		commonMethodsObject.waitForProgressBarToBeInvisible()
+
+		String testObj='Object Repository/iOS/orders/ordersCommonScreen/orderListOrderName_Label'
+
+		int yCoordinateToSwipe=commonMethodsObject.tapYCoordinateGenerator(testObj,poName)
+
+		Mobile.swipe(1300, yCoordinateToSwipe, 0, yCoordinateToSwipe)
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/deleteOrder/success_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/deleteOrder/orderDeletedSuccessfully_Text'),0)
+
+		Mobile.tapAndHold(findTestObject('iOS/orders/cartScreen/deleteOrder/ok_Button'), 0, 0)
 	}
 
 
@@ -196,7 +211,7 @@ class cartScreen {
 	@Keyword
 	def goBackToReviewAllOrders() {
 
-		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Place All Orders/goBackAndReviewMyOrder(s)_Button'), 0)
+		Mobile.tap(findTestObject('iOS/orders/cartScreen/placeAllOrders/goBackAndReviewMyOrder(s)_Button'), 0)
 	}
 
 
@@ -207,9 +222,8 @@ class cartScreen {
 	@Keyword
 	def goToDashboard() {
 
-		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/goToDashboard_Button'), 0)
+		Mobile.tap(findTestObject('iOS/orders/cartScreen/uploadAllOrders/goToDashboard_Button'), 0)
 	}
-
 
 
 
@@ -220,27 +234,27 @@ class cartScreen {
 	@Keyword
 	def openAnOrderDetail(String poName) {
 
-		Mobile.tap(findTestObject('Object Repository/iOS/Orders/Orders Common Screen/orderListOrderName_Label',[('TEXT'):poName]), 0)
+		Mobile.tap(findTestObject('iOS/orders/ordersCommonScreen/orderListOrderName_Label',[('TEXT'):poName]), 0)
 	}
+
+
 
 	/**
-	 * takes expected mobile orders count as the argument and verifies the same
-	 * @param expected mobile orders count (expected mobile orders count after adding products to the cart)
+	 * opens the c2 order details
 	 */
 	@Keyword
-	def verifyMobileOrdersCount(String expectedMobileOrdersCount) {
-		String actualMobileOrdersCount=Mobile.getText(findTestObject('Object Repository/iOS/Orders/Cart Screen/Verification/mobileOrdersCount_Text'), 0)
-		assert expectedMobileOrdersCount==actualMobileOrdersCount
+	def openC2OrderDetails() {
+
+		Mobile.tap(findTestObject('iOS/orders/cartScreen/c2OrderDetails/c2Order_View'), 0)
+
+		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/orders/cartScreen/c2OrderDetails/uploadC2Order_Button'), 'enabled', 'true', 0)
+
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/orders/c2OrderDetailsScreen/placeC2Order/placeC2Order_Button'), 'enabled', 'true', 0)
 	}
 
-	/**
-	 *verifies C2 order view
-	 */
 
-	@Keyword
-	def verifyC2OrderViewIsNotVisible() {
-		Mobile.verifyElementNotVisible(findTestObject('iOS/Orders/Cart Screen/c2Order_View'), 0)
-	}
 
 	/**
 	 * this function returns the order name of the order which is at the top of the order list
@@ -249,9 +263,178 @@ class cartScreen {
 	@Keyword
 	def returnTopMostOrderName() {
 
-		String orderName=Mobile.getText(findTestObject('Object Repository/iOS/Orders/Cart Screen/orderListOrderName_Label'), 0)
+		String orderName=Mobile.getText(findTestObject('iOS/orders/cartScreen/nonC2OrderDetails/orderListOrderName_Label'), 0)
 
 		return orderName
+	}
+
+
+
+	/**
+	 * scans the product, adds it to the order and also verifies some scan input details
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */
+	@Keyword
+	def scanInputEvent(String productToBeSearched) {
+
+		Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scanGray_Image'), 0)
+
+		Mobile.setText(findTestObject('iOS/productSearch/scanFlow/enterBarcode_TextField'), productToBeSearched, 0)
+
+		Mobile.tap(findTestObject('iOS/productSearch/scanFlow/done_Button'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/orderDetailsScreen/verificationDetails/thisItemHaBeenAddedToYourOrder_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/orderDetailsScreen/verificationDetails/alternates_Text'), 0)
+	}
+
+
+
+	/**
+	 * this function selects toggle value for the product to be added which can be ordering or price check)
+	 * @param toggleValue (toggleValue required to be selected for the product to be added which can be ordering or price check)
+	 */
+	@Keyword
+	def selectToggleValueForTheProductToBeSearched(String toggleValue) {
+
+		if(toggleValue=="Ordering") {
+			Mobile.tap(findTestObject('iOS/productSearch/scanFlow/ordering_Button'), 0)
+		}
+		else {
+			Mobile.tap(findTestObject('iOS/productSearch/scanFlow/priceCheck_Button'), 0)
+		}
+	}
+
+
+
+	/**
+	 * uploads all order by clicking on upload all orders button on cart screen
+	 */
+	@Keyword
+	def uploadAllOrders() {
+
+		Mobile.tap(findTestObject('iOS/orders/cartScreen/uploadAllOrders/uploadAllOrders_Button'), 0)
+	}
+
+
+
+	/**
+	 * verifies c2 orders annotation count
+	 * @param expectedCount (expected annotation count)
+	 */
+	@Keyword
+	def verifyC2OrdersTabAnnotationCount(int expectedAnnotationCount) {
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/c2OrderDetails/c2OrdersAnnotationCount_Text',[('TEXT'):expectedAnnotationCount]), 0)
+	}
+
+
+
+	/**
+	 *verifies C2 order view
+	 */
+	@Keyword
+	def verifyC2OrderViewIsNotVisible() {
+		Mobile.verifyElementNotVisible(findTestObject('iOS/orders/cartScreen/c2OrderDetails/c2Order_View'), 0)
+	}
+
+
+
+	/**
+	 * verifies cart screen with any product being added
+	 */
+	@Keyword
+	def verifyCartScreenWithAddedProduct() {
+
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/dashboard/tabs/orders_Tab'), 'value', '1',0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/ordersCommonScreen/cartScreen_Tab'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/uploadAllOrders/enabledUploadAllOrders_Button'),0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/verificationDetails/cartHeader_Label'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/verificationDetails/allMobileOrders_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/verificationDetails/OrderList_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/verificationDetails/cartTotal_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/verificationDetails/orderListAmount_Text'), 0)
+	}
+
+
+
+	/**
+	 * verifies cart screen without any product being added
+	 */
+	@Keyword
+	def verifyCartScreenWithoutAnyOrderPresent() {
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/verificationDetails/Lines_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/uploadAllOrders/disabledUploadAllOrders_Button'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/verificationDetails/cartHeader_Label'), 0)
+	}
+
+
+
+	/**
+	 * verifies the cart value after adding products
+	 * @param expectedCartValue (expected cart value which should be equal to actual cart total)
+	 */
+	@Keyword
+	def verifyCartValue(float expectedCartValue) {
+
+		String actualCartTotal=Mobile.getText(findTestObject('iOS/orders/verificationDetails/cartValue_Text'), 0)
+
+		actualCartTotal=actualCartTotal.replaceAll("[^0-9.]", "")
+		float actualCartTotal_dollarSymbolRemoved_FloatValue=actualCartTotal.toFloat()
+
+		//	float actualCartTotal_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(actualCartTotal)//converting actualCartTotal string to a float value
+
+		KeywordUtil.logInfo(actualCartTotal)
+
+		assert expectedCartValue==actualCartTotal_dollarSymbolRemoved_FloatValue
+	}
+
+
+
+	/**
+	 * takes expected lines count as the argument and verifies the same
+	 * @param expectedLinesCount (expected lines count after adding products to the cart)
+	 */
+	@Keyword
+	def verifyLinesCount(String expectedLinesCount) {
+
+		String actualLinesCount=Mobile.getText(findTestObject('iOS/orders/cartScreen/verification/linesCount_Text'), 0)
+
+		assert actualLinesCount==expectedLinesCount
+	}
+
+
+
+	/**
+	 * takes expected mobile orders count as the argument and verifies the same
+	 * @param expected mobile orders count (expected mobile orders count after adding products to the cart)
+	 */
+	@Keyword
+	def verifyMobileOrdersCount(String expectedMobileOrdersCount) {
+		String actualMobileOrdersCount=Mobile.getText(findTestObject('iOS/orders/cartScreen/verification/mobileOrdersCount_Text'), 0)
+		assert expectedMobileOrdersCount==actualMobileOrdersCount
+	}
+
+
+
+	/**
+	 * verifies that the created order should be visible on the cart screen
+	 * @param poName (purchase order name used to create the order)
+	 */
+	@Keyword
+	def verifyOrderIsVisibleOnTheCartScreen(String poName) {
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/nonC2OrderDetails/orderName_Label',[('TEXT'):poName]),0)
 	}
 
 
@@ -272,79 +455,6 @@ class cartScreen {
 
 
 
-
-	/**
-	 * opens the c2 order details
-	 */
-	@Keyword
-	def openC2OrderDetails() {
-
-		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/c2Order_View'), 0)
-
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
-
-		Mobile.verifyElementAttributeValue(findTestObject('Object Repository/iOS/Orders/Cart Screen/uploadC2Order_Button'), 'enabled', 'true', 0)
-
-		Mobile.verifyElementAttributeValue(findTestObject('Object Repository/iOS/Orders/C2 Order Details Screen/Place C2 Order/placeC2Order_Button'), 'enabled', 'true', 0)
-	}
-
-
-
-	/**
-	 * uploads all order by clicking on upload all orders button on cart screen
-	 */
-	@Keyword
-	def uploadAllOrders() {
-
-		Mobile.tap(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/uploadAllOrders_Button'), 0)
-	}
-
-
-
-	@Keyword
-	def verifyCartScreenWithAddedProduct() {
-
-		Mobile.verifyElementAttributeValue(findTestObject('Object Repository/iOS/Dashboard/orders_Tab'), 'value', '1',0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Orders Common Screen/cartScreen_Tab'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/Enabled_Upload All Orders_Button'),0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Verification Details/cartHeader_Label'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Verification Details/All Mobile Orders_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Verification Details/OrderList_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Verification Details/Cart Total_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Verification Details/OrderList_Amount_Text'), 0)
-	}
-
-
-	@Keyword
-	def verifyCartScreenWithoutAnyOrderPresent() {
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Verification Details/Lines_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/Disabled_Upload All Orders_Button'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Verification Details/cartHeader_Label'), 0)
-	}
-
-
-
-	/**
-	 * verifies that the created order should be visible on the cart screen
-	 * @param poName (purchase order name used to create the order)
-	 */
-	@Keyword
-	def verifyOrderIsVisibleOnTheCartScreen(String poName) {
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/orderName_Label',[('TEXT'):poName]),0)
-	}
-
-
 	/**
 	 * verifies that the created order should not be visible on the cart screen
 	 * @param poName (purchase order name used to create the order)
@@ -353,108 +463,8 @@ class cartScreen {
 	@Keyword
 	def verifyOrderNotVisibleOnTheCartScreen(String poName) {
 
-		Mobile.verifyElementNotVisible(findTestObject('iOS/Orders/Cart Screen/orderName_Label',[('TEXT'):poName]),0)
+		Mobile.verifyElementNotVisible(findTestObject('iOS/orders/cartScreen/nonC2OrderDetails/orderName_Label',[('TEXT'):poName]),0)
 	}
-
-
-	/**
-	 * takes expected lines count as the argument and verifies the same
-	 * @param expectedLinesCount (expected lines count after adding products to the cart)
-	 */
-	@Keyword
-	def verifyLinesCount(String expectedLinesCount) {
-
-		String actualLinesCount=Mobile.getText(findTestObject('iOS/Orders/Cart Screen/Verification/linesCount_Text'), 0)
-
-		assert actualLinesCount==expectedLinesCount
-	}
-
-
-
-	/**
-	 * verifies the cart value after adding products
-	 * @param expectedCartValue (expected cart value which should be equal to actual cart total)
-	 */
-	@Keyword
-	def verifyCartValue(float expectedCartValue) {
-
-		String actualCartTotal=Mobile.getText(findTestObject('iOS/Orders/Verification Details/cartValue_Text'), 0)
-
-		actualCartTotal=actualCartTotal.replaceAll("[^0-9.]", "")
-		float actualCartTotal_dollarSymbolRemoved_FloatValue=actualCartTotal.toFloat()
-		
-	//	float actualCartTotal_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(actualCartTotal)//converting actualCartTotal string to a float value
-
-		KeywordUtil.logInfo(actualCartTotal)
-
-		assert expectedCartValue==actualCartTotal_dollarSymbolRemoved_FloatValue
-	}
-
-
-
-	/**
-	 * verifies c2 orders annotation count
-	 * @param expectedCount (expected annotation count)
-	 */
-	@Keyword
-	def verifyC2OrdersTabAnnotationCount(int expectedAnnotationCount) {
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/c2OrdersAnnotationCount_Text',[('TEXT'):expectedAnnotationCount]), 0)
-	}
-
-
-
-	/**
-	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at ordering
-	 */
-	@Keyword
-	def clickOnScanIcon() {
-
-		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/scan_Icon'), 0)
-
-		Mobile.verifyElementAttributeValue(findTestObject('iOS/Product Search/Scan Flow/ordering_Button'), 'value', '1', 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Product Search/Scan Flow/priceCheck_Button'), 0)
-	}
-
-
-
-	/**
-	 * scans the product, adds it to the order and also verifies some scan input details
-	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
-	 */
-	@Keyword
-	def scanInputEvent(String productToBeSearched) {
-
-		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/scanGray_Image'), 0)
-
-		Mobile.setText(findTestObject('iOS/Product Search/Scan Flow/enterBarcode_TextField'), productToBeSearched, 0)
-
-		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/done_Button'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Verification Details/thisItemHaBeenAddedToYourOrder_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Verification Details/alternates_Text'), 0)
-	}
-
-
-
-
-	/**
-	 * this function selects toggle value for the product to be added which can be ordering or price check)
-	 * @param toggleValue (toggleValue required to be selected for the product to be added which can be ordering or price check)
-	 */
-	@Keyword
-	def selectToggleValueForTheProductToBeSearched(String toggleValue) {
-
-		if(toggleValue=="Ordering") {
-			Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/ordering_Button'), 0)
-		}
-		else {
-			Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/priceCheck_Button'), 0)
-		}
-	}
-
 
 
 
@@ -464,10 +474,11 @@ class cartScreen {
 	@Keyword
 	def verifyPlaceAllOrdersPopUp() {
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Orders/Cart Screen/Place All Orders/goBackAndReviewMyOrder(s)_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/placeAllOrders/goBackAndReviewMyOrder(s)_Button'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/iOS/Orders/Cart Screen/Place All Orders/yourOrder(s)WillBePlaced_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/placeAllOrders/yourOrder(s)WillBePlaced_Text'), 0)
 	}
+
 
 
 	/**
@@ -476,8 +487,8 @@ class cartScreen {
 	@Keyword
 	def verifyUploadAllOrdersPopUp() {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/continueOnDesktop_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/uploadAllOrders/continueOnDesktop_Button'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/Upload All Orders/cancelAndKeepOrdersOnTheApp_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/uploadAllOrders/cancelAndKeepOrdersOnTheApp_Button'), 0)
 	}
 }

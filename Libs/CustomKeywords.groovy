@@ -9,11 +9,11 @@ import java.util.Stack
 
 import java.lang.Float
 
-import com.kms.katalon.core.testobject.TestObject
-
 import com.applitools.eyes.selenium.Eyes
 
 import org.openqa.selenium.WebElement
+
+import com.kms.katalon.core.testobject.TestObject
 
 import com.applitools.eyes.RectangleSize
 
@@ -149,10 +149,13 @@ def static "androidInventory.inventoryListingScreen.verify_Inventory_Listing_Scr
 }
 
  /**
-	 * clicks on more options, takes to beat features and enables it
+	 * changes the user account
+	 * @param newAccount
 	 */ 
-def static "iosCommonKeywords.commonMethods.enableBetaFeatures"() {
-    (new iosCommonKeywords.commonMethods()).enableBetaFeatures()
+def static "iosCommonKeywords.commonMethods.changeAccount"(
+    	String newAccount	) {
+    (new iosCommonKeywords.commonMethods()).changeAccount(
+        	newAccount)
 }
 
  /**
@@ -180,42 +183,10 @@ def static "iosCommonKeywords.commonMethods.closePopUpScreen"(
 }
 
  /**
-	 * opens existing testflight app and installs latest OE App
-	 * @return bundleId of testflight
+	 * clicks on more options, takes to beat features and enables it
 	 */ 
-def static "iosCommonKeywords.commonMethods.openTestFlightApp"(
-    	String bundleID	) {
-    (new iosCommonKeywords.commonMethods()).openTestFlightApp(
-        	bundleID)
-}
-
- /**
-	 * disables touchid while using real device
-	 */ 
-def static "iosCommonKeywords.commonMethods.tapOnSetupLater"() {
-    (new iosCommonKeywords.commonMethods()).tapOnSetupLater()
-}
-
- /**
-	 * this function returns the cost of added product
-	 * @return productCost_dollarSymbolRemoved_FloatValue (of the product which has been added)
-	 */ 
-def static "iosCommonKeywords.commonMethods.returnCostOfTheAddedProduct"(
-    	String testObj	) {
-    (new iosCommonKeywords.commonMethods()).returnCostOfTheAddedProduct(
-        	testObj)
-}
-
- /**
-	 * this function returns the total expected value of the added product
-	 * @return productCost_dollarSymbolRemoved_FloatValue (of the product which has been added)
-	 */ 
-def static "iosCommonKeywords.commonMethods.returnExpectedTotalValueForAddedProduct"(
-    	Object quantity	
-     , 	Object costOfProduct	) {
-    (new iosCommonKeywords.commonMethods()).returnExpectedTotalValueForAddedProduct(
-        	quantity
-         , 	costOfProduct)
+def static "iosCommonKeywords.commonMethods.enableBetaFeatures"() {
+    (new iosCommonKeywords.commonMethods()).enableBetaFeatures()
 }
 
  /**
@@ -244,6 +215,16 @@ def static "iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication
 }
 
  /**
+	 * opens existing testflight app and installs latest OE App
+	 * @return bundleId of testflight
+	 */ 
+def static "iosCommonKeywords.commonMethods.openTestFlightApp"(
+    	String bundleID	) {
+    (new iosCommonKeywords.commonMethods()).openTestFlightApp(
+        	bundleID)
+}
+
+ /**
 	 * performs basic text management operations:Copy,Cut,Paste,Share
 	 * @param operationToBePerformed (in operationToBePerformed argument all alphabets should be lower-case except the first one for e.g Copy, Cut)
 	 */ 
@@ -251,6 +232,49 @@ def static "iosCommonKeywords.commonMethods.performBasicTextManagementOperation"
     	String operationToBePerformed	) {
     (new iosCommonKeywords.commonMethods()).performBasicTextManagementOperation(
         	operationToBePerformed)
+}
+
+ /**
+	 * removes characters in string
+	 * @param stringCharcterToBeRemoved (Removes characters in a string)
+	 * @return modifiedString
+	 */ 
+def static "iosCommonKeywords.commonMethods.removeCharactersInString"(
+    	String stringCharcterToBeRemoved	) {
+    (new iosCommonKeywords.commonMethods()).removeCharactersInString(
+        	stringCharcterToBeRemoved)
+}
+
+ /**
+	 * this function returns the cost of added product
+	 * @return productCost_dollarSymbolRemoved_FloatValue (of the product which has been added)
+	 */ 
+def static "iosCommonKeywords.commonMethods.returnCostOfTheAddedProduct"(
+    	String testObj	) {
+    (new iosCommonKeywords.commonMethods()).returnCostOfTheAddedProduct(
+        	testObj)
+}
+
+ /**
+	 * this function returns the total expected value of the added product
+	 * @return productCost_dollarSymbolRemoved_FloatValue (of the product which has been added)
+	 */ 
+def static "iosCommonKeywords.commonMethods.returnExpectedTotalValueForAddedProduct"(
+    	Object quantity	
+     , 	Object costOfProduct	) {
+    (new iosCommonKeywords.commonMethods()).returnExpectedTotalValueForAddedProduct(
+        	quantity
+         , 	costOfProduct)
+}
+
+ /**
+	 * takes product to be searched as the argument and searches the same
+	 * @param productToBeSearched (product to be searched)
+	 */ 
+def static "iosCommonKeywords.commonMethods.searchProduct"(
+    	Object productToBeSearched	) {
+    (new iosCommonKeywords.commonMethods()).searchProduct(
+        	productToBeSearched)
 }
 
  /**
@@ -276,6 +300,13 @@ def static "iosCommonKeywords.commonMethods.takeUserFromloginToHomeScreen"(
         	username
          , 	password
          , 	accountNo)
+}
+
+ /**
+	 * disables touchid while using real device
+	 */ 
+def static "iosCommonKeywords.commonMethods.tapOnSetupLater"() {
+    (new iosCommonKeywords.commonMethods()).tapOnSetupLater()
 }
 
  /**
@@ -328,6 +359,17 @@ def static "iosCommonKeywords.commonMethods.verifyProductIsNotVisibleOnTheScreen
 }
 
  /**
+	 * this function verifies that the product is visible on the product search screen after search
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */ 
+def static "iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheProductSearchScreen"(
+    	Object productNdcNumber	) {
+    (new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheProductSearchScreen(
+        	productNdcNumber)
+}
+
+ /**
 	 * this function verifies that the product is visible on the screen
 	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
 	 * @param testObj (test object of the element under verification)
@@ -341,21 +383,20 @@ def static "iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScreen"(
 }
 
  /**
+	 * verifies whether the selected user account is same as the account required
+	 * @param expectedAccountNo (expected user account no)
+	 */ 
+def static "iosCommonKeywords.commonMethods.verifySelectedAccount"(
+    	String expectedAccountNo	) {
+    (new iosCommonKeywords.commonMethods()).verifySelectedAccount(
+        	expectedAccountNo)
+}
+
+ /**
 	 * refreshes the screen by doing a vertical swipe by considering the deviceHeight and deviceWidth
 	 */ 
 def static "iosCommonKeywords.commonMethods.verticalSwipeForRefresh"() {
     (new iosCommonKeywords.commonMethods()).verticalSwipeForRefresh()
-}
-
- /**
-	 * this function verifies that the product is visible on the product search screen after search
-	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
-	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
-	 */ 
-def static "iosCommonKeywords.commonMethods.verifyProductIsVisibleOnTheProductSearchScreen"(
-    	Object productNdcNumber	) {
-    (new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheProductSearchScreen(
-        	productNdcNumber)
 }
 
  /**
@@ -379,47 +420,6 @@ def static "iosCommonKeywords.commonMethods.waitTimeForObjectToBeVisible"(
         	testObj
          , 	waitTime
          , 	waitLimit)
-}
-
- /**
-	 * changes the user account
-	 * @param newAccount
-	 */ 
-def static "iosCommonKeywords.commonMethods.changeAccount"(
-    	String newAccount	) {
-    (new iosCommonKeywords.commonMethods()).changeAccount(
-        	newAccount)
-}
-
- /**
-	 * verifies whether the selected user account is same as the account required
-	 * @param expectedAccountNo (expected user account no)
-	 */ 
-def static "iosCommonKeywords.commonMethods.verifySelectedAccount"(
-    	String expectedAccountNo	) {
-    (new iosCommonKeywords.commonMethods()).verifySelectedAccount(
-        	expectedAccountNo)
-}
-
- /**
-	 * removes characters in string
-	 * @param stringCharcterToBeRemoved (Removes characters in a string)
-	 * @return modifiedString
-	 */ 
-def static "iosCommonKeywords.commonMethods.removeCharactersInString"(
-    	String stringCharcterToBeRemoved	) {
-    (new iosCommonKeywords.commonMethods()).removeCharactersInString(
-        	stringCharcterToBeRemoved)
-}
-
- /**
-	 * takes product to be searched as the argument and searches the same
-	 * @param productToBeSearched (product to be searched)
-	 */ 
-def static "iosCommonKeywords.commonMethods.searchProduct"(
-    	Object productToBeSearched	) {
-    (new iosCommonKeywords.commonMethods()).searchProduct(
-        	productToBeSearched)
 }
 
  /**
@@ -474,35 +474,42 @@ def static "androidOrders.newOrderScreen.verifyNewOrderScreenDetails"() {
 }
 
  /**
-	 * takes user to new order screen where user can input purchase order details and can create an order
-	 */ 
-def static "iosOrders.ordersCommonScreen.clickOnNewOrder"() {
-    (new iosOrders.ordersCommonScreen()).clickOnNewOrder()
-}
-
-
-def static "iosOrders.ordersCommonScreen.clickOnHistoryTab"() {
-    (new iosOrders.ordersCommonScreen()).clickOnHistoryTab()
-}
-
-
-def static "iosOrders.ordersCommonScreen.clickOnCartTab"() {
-    (new iosOrders.ordersCommonScreen()).clickOnCartTab()
-}
-
- /**
 	 * deletes all orders from nonc2 and c2 order tab
 	 */ 
 def static "iosOrders.ordersCommonScreen.clearAllOrders"() {
     (new iosOrders.ordersCommonScreen()).clearAllOrders()
 }
 
+ /**
+	 * takes user to order screen where user can input purchase order details and can create an order
+	 */ 
+def static "iosOrders.ordersCommonScreen.clickOnCartTab"() {
+    (new iosOrders.ordersCommonScreen()).clickOnCartTab()
+}
 
-def static "iosOrders.orderDetailsScreen.add_Alternate_Product"(
-    	String product_Name	
+ /**
+	 * takes user to history screen where user can input purchase order details and can create an order
+	 */ 
+def static "iosOrders.ordersCommonScreen.clickOnHistoryTab"() {
+    (new iosOrders.ordersCommonScreen()).clickOnHistoryTab()
+}
+
+ /**
+	 * takes user to new order screen where user can input purchase order details and can create an order
+	 */ 
+def static "iosOrders.ordersCommonScreen.clickOnNewOrder"() {
+    (new iosOrders.ordersCommonScreen()).clickOnNewOrder()
+}
+
+ /**
+	 * searches for a product by setting product name and quantity as the input
+	 * @param productName (product to be added), quantity (total quantity required to be added)
+	 */ 
+def static "iosOrders.orderDetailsScreen.addAlternateProduct"(
+    	String productName	
      , 	String quantity	) {
-    (new iosOrders.orderDetailsScreen()).add_Alternate_Product(
-        	product_Name
+    (new iosOrders.orderDetailsScreen()).addAlternateProduct(
+        	productName
          , 	quantity)
 }
 
@@ -529,139 +536,6 @@ def static "iosOrders.orderDetailsScreen.addQuantityforTheSearchedProduct"(
 }
 
  /**
-	 * this function returns the top most product name in order details page
-	 */ 
-def static "iosOrders.orderDetailsScreen.returnTopMostProductNameInOrderDetails"() {
-    (new iosOrders.orderDetailsScreen()).returnTopMostProductNameInOrderDetails()
-}
-
- /**
-	 * verifies that the added top most product should  be visible on the order details page
-	 * @param productname (top most added product name)
-	 */ 
-def static "iosOrders.orderDetailsScreen.verifyProductNameIsVisibleUnderOrderDetails"(
-    	String productname	) {
-    (new iosOrders.orderDetailsScreen()).verifyProductNameIsVisibleUnderOrderDetails(
-        	productname)
-}
-
- /**
-	 * clicks on c2 order availability and waits for the response while verifying the availability details for the c2 product
-	 */ 
-def static "iosOrders.orderDetailsScreen.checkC2OrderAvailability"() {
-    (new iosOrders.orderDetailsScreen()).checkC2OrderAvailability()
-}
-
- /**
-	 * searches for a product by setting product name
-	 * @param productName (product to be added)
-	 */ 
-def static "iosOrders.orderDetailsScreen.searchProductInOrderDetailPage"(
-    	String productName	) {
-    (new iosOrders.orderDetailsScreen()).searchProductInOrderDetailPage(
-        	productName)
-}
-
- /**
-	 * searches for a product by setting product name
-	 * @param productName (product to be added)
-	 */ 
-def static "iosOrders.orderDetailsScreen.searchProductInOrderDetailPageOfflineMode"(
-    	String productName	) {
-    (new iosOrders.orderDetailsScreen()).searchProductInOrderDetailPageOfflineMode(
-        	productName)
-}
-
- /**
-	 * taps on search key of the keyboard
-	 */ 
-def static "iosOrders.orderDetailsScreen.tapOnsearchKeyInOfflineMode"() {
-    (new iosOrders.orderDetailsScreen()).tapOnsearchKeyInOfflineMode()
-}
-
- /**
-	 * opens product tile
-	 */ 
-def static "iosOrders.orderDetailsScreen.clickOnProductTile"() {
-    (new iosOrders.orderDetailsScreen()).clickOnProductTile()
-}
-
- /**
-	 * opens more details of product details
-	 */ 
-def static "iosOrders.orderDetailsScreen.clickOnMoreDetails"() {
-    (new iosOrders.orderDetailsScreen()).clickOnMoreDetails()
-}
-
- /**
-	 * opens alternates page
-	 */ 
-def static "iosOrders.orderDetailsScreen.tapOnAlternatesInProductDetailsPage"() {
-    (new iosOrders.orderDetailsScreen()).tapOnAlternatesInProductDetailsPage()
-}
-
- /**
-	 * verifies filterByOptions
-	 */ 
-def static "iosOrders.orderDetailsScreen.verifyFilterByOptions"() {
-    (new iosOrders.orderDetailsScreen()).verifyFilterByOptions()
-}
-
- /**
-	 * this function verifies the product after search
-	 */ 
-def static "iosOrders.orderDetailsScreen.verifyProductAfterSearch"() {
-    (new iosOrders.orderDetailsScreen()).verifyProductAfterSearch()
-}
-
- /**
-	 * verifies c2 order is not visible under non c2 order
-	 */ 
-def static "iosOrders.orderDetailsScreen.verifyC2OrderIsNotVisibleUnderNonC2Order"() {
-    (new iosOrders.orderDetailsScreen()).verifyC2OrderIsNotVisibleUnderNonC2Order()
-}
-
- /**
-	 * this function returns the order name in search page
-	 */ 
-def static "iosOrders.orderDetailsScreen.returnProductNameAfterSearch"() {
-    (new iosOrders.orderDetailsScreen()).returnProductNameAfterSearch()
-}
-
- /**
-	 * this function verifies the product tile
-	 */ 
-def static "iosOrders.orderDetailsScreen.verifyProductTile"() {
-    (new iosOrders.orderDetailsScreen()).verifyProductTile()
-}
-
- /**
-	 * removes product from orders details
-	 */ 
-def static "iosOrders.orderDetailsScreen.removeProduct"() {
-    (new iosOrders.orderDetailsScreen()).removeProduct()
-}
-
- /**
-	 * this function verifies the product details page
-	 */ 
-def static "iosOrders.orderDetailsScreen.verifyProductDetailAfterSelectingMoreDetails"(
-    	String orderNameInSearchPage	) {
-    (new iosOrders.orderDetailsScreen()).verifyProductDetailAfterSelectingMoreDetails(
-        	orderNameInSearchPage)
-}
-
- /**
-	 * verifies order name header label
-	 * @param poName (poName is the order name)
-	 */ 
-def static "iosOrders.orderDetailsScreen.verifyOrderNameHeaderLabel"(
-    	String poName	) {
-    (new iosOrders.orderDetailsScreen()).verifyOrderNameHeaderLabel(
-        	poName)
-}
-
- /**
 	 * this function adds the quantity in alternates page
 	 * @param quantity (quantity required to add in product detail page)
 	 */ 
@@ -682,31 +556,25 @@ def static "iosOrders.orderDetailsScreen.addQuantityInProductDetailsPage"(
 }
 
  /**
-	 * adds product in product details page
+	 * this function adds the product to be ordered - when price check toggle is selected
+	 * @param quantity (quantity required to be added for the product to be searched)
 	 */ 
-def static "iosOrders.orderDetailsScreen.tapOnAddToOrderInProductDetailsPage"() {
-    (new iosOrders.orderDetailsScreen()).tapOnAddToOrderInProductDetailsPage()
+def static "iosOrders.orderDetailsScreen.addToOrder"() {
+    (new iosOrders.orderDetailsScreen()).addToOrder()
 }
 
  /**
-	 * taps on alternate to order in alternates page and opens confirmation pop up
+	 * adds product 
 	 */ 
-def static "iosOrders.orderDetailsScreen.tapOnAddAlternateToOrderInAlternatesPage"() {
-    (new iosOrders.orderDetailsScreen()).tapOnAddAlternateToOrderInAlternatesPage()
+def static "iosOrders.orderDetailsScreen.addToOrderWithoutVerify"() {
+    (new iosOrders.orderDetailsScreen()).addToOrderWithoutVerify()
 }
 
  /**
-	 * verifies confirmation pop up in alternates page
+	 * clicks on c2 order availability and waits for the response while verifying the availability details for the c2 product
 	 */ 
-def static "iosOrders.orderDetailsScreen.verifyConfirmationPopUpInALternatesPage"() {
-    (new iosOrders.orderDetailsScreen()).verifyConfirmationPopUpInALternatesPage()
-}
-
- /**
-	 * takes user back to the search product results to continue browsing
-	 */ 
-def static "iosOrders.orderDetailsScreen.tapOnContinueBrowsing"() {
-    (new iosOrders.orderDetailsScreen()).tapOnContinueBrowsing()
+def static "iosOrders.orderDetailsScreen.checkC2OrderAvailability"() {
+    (new iosOrders.orderDetailsScreen()).checkC2OrderAvailability()
 }
 
  /**
@@ -717,6 +585,21 @@ def static "iosOrders.orderDetailsScreen.clickOnBackToCart"() {
 }
 
  /**
+	 * taps on continue browsing button on order confirmation screen and takes user to scan result screen
+	 */ 
+def static "iosOrders.orderDetailsScreen.clickOnContinueBrowsing"() {
+    (new iosOrders.orderDetailsScreen()).clickOnContinueBrowsing()
+}
+
+ /**
+	 * taps on continue ordering button on order details screen after user has added a product to order
+	 * and takes user to scan result screen
+	 */ 
+def static "iosOrders.orderDetailsScreen.clickOnContinueOrdering"() {
+    (new iosOrders.orderDetailsScreen()).clickOnContinueOrdering()
+}
+
+ /**
 	 * takes user back to the search product results to continue browsing
 	 */ 
 def static "iosOrders.orderDetailsScreen.clickOnContinueOrderingOnDesktop"() {
@@ -724,10 +607,38 @@ def static "iosOrders.orderDetailsScreen.clickOnContinueOrderingOnDesktop"() {
 }
 
  /**
-	 * takes user back to the search product results to continue browsing
+	 * taps on go to order button on order confirmation screen and takes user to order details screen
 	 */ 
-def static "iosOrders.orderDetailsScreen.tapContinueOnDesktop"() {
-    (new iosOrders.orderDetailsScreen()).tapContinueOnDesktop()
+def static "iosOrders.orderDetailsScreen.clickOnGoToOrder"() {
+    (new iosOrders.orderDetailsScreen()).clickOnGoToOrder()
+}
+
+ /**
+	 * opens more details of product details
+	 */ 
+def static "iosOrders.orderDetailsScreen.clickOnMoreDetails"() {
+    (new iosOrders.orderDetailsScreen()).clickOnMoreDetails()
+}
+
+ /**
+	 * places the order
+	 */ 
+def static "iosOrders.orderDetailsScreen.clickOnPlaceOrder"() {
+    (new iosOrders.orderDetailsScreen()).clickOnPlaceOrder()
+}
+
+ /**
+	 * opens product tile
+	 */ 
+def static "iosOrders.orderDetailsScreen.clickOnProductTile"() {
+    (new iosOrders.orderDetailsScreen()).clickOnProductTile()
+}
+
+ /**
+	 * takes user back to history screen and verifies user is on the history screen or not
+	 */ 
+def static "iosOrders.orderDetailsScreen.clickOnReviewAndSignButton"() {
+    (new iosOrders.orderDetailsScreen()).clickOnReviewAndSignButton()
 }
 
  /**
@@ -742,6 +653,20 @@ def static "iosOrders.orderDetailsScreen.clickOnScanIcon"() {
 	 */ 
 def static "iosOrders.orderDetailsScreen.clickOnScanIconWithoutVerification"() {
     (new iosOrders.orderDetailsScreen()).clickOnScanIconWithoutVerification()
+}
+
+ /**
+	 * closes the popup when user switches to offline mode
+	 */ 
+def static "iosOrders.orderDetailsScreen.closeOfflinePopUp"() {
+    (new iosOrders.orderDetailsScreen()).closeOfflinePopUp()
+}
+
+ /**
+	 * confirms place order by clicking on place my order button
+	 */ 
+def static "iosOrders.orderDetailsScreen.confirmPlaceOrder"() {
+    (new iosOrders.orderDetailsScreen()).confirmPlaceOrder()
 }
 
  /**
@@ -770,6 +695,20 @@ def static "iosOrders.orderDetailsScreen.editPONameAndMemo"(
 }
 
  /**
+	 * fetch UTN number and store it in a string
+	 */ 
+def static "iosOrders.orderDetailsScreen.getUTNFromUTNTextField"() {
+    (new iosOrders.orderDetailsScreen()).getUTNFromUTNTextField()
+}
+
+ /**
+	 * takes user to dash-board
+	 */ 
+def static "iosOrders.orderDetailsScreen.goToDashboard"() {
+    (new iosOrders.orderDetailsScreen()).goToDashboard()
+}
+
+ /**
 	 * clicks on place order button
 	 */ 
 def static "iosOrders.orderDetailsScreen.placeOrder"() {
@@ -777,24 +716,40 @@ def static "iosOrders.orderDetailsScreen.placeOrder"() {
 }
 
  /**
-	 * places the order
+	 * try removing all characters in UTN field
 	 */ 
-def static "iosOrders.orderDetailsScreen.clickOnPlaceOrder"() {
-    (new iosOrders.orderDetailsScreen()).clickOnPlaceOrder()
+def static "iosOrders.orderDetailsScreen.removeCharactersInUTNField"() {
+    (new iosOrders.orderDetailsScreen()).removeCharactersInUTNField()
 }
 
  /**
-	 * verifies place order confirmation pop up
+	 * removes product from orders details
 	 */ 
-def static "iosOrders.orderDetailsScreen.verifyPlaceOrderPopUp"() {
-    (new iosOrders.orderDetailsScreen()).verifyPlaceOrderPopUp()
+def static "iosOrders.orderDetailsScreen.removeProduct"() {
+    (new iosOrders.orderDetailsScreen()).removeProduct()
 }
 
  /**
-	 * confirms place order by clicking on place my order button
+	 * this function returns the cost of added product
+	 * @return productCost (of the product which has been added)
 	 */ 
-def static "iosOrders.orderDetailsScreen.confirmPlaceOrder"() {
-    (new iosOrders.orderDetailsScreen()).confirmPlaceOrder()
+def static "iosOrders.orderDetailsScreen.returnCostOfTheAddedProduct"() {
+    (new iosOrders.orderDetailsScreen()).returnCostOfTheAddedProduct()
+}
+
+ /**
+	 * retruns NDC number
+	 */ 
+def static "iosOrders.orderDetailsScreen.returnNDCLabelOfScannedProduct"() {
+    (new iosOrders.orderDetailsScreen()).returnNDCLabelOfScannedProduct()
+}
+
+ /**
+	 * this function returns the order name of the order/ title of the screen when user is on order details screen
+	 * return orderName (returns order name/ title of order details screen)
+	 */ 
+def static "iosOrders.orderDetailsScreen.returnOrderNameFromOrderDetailScreen"() {
+    (new iosOrders.orderDetailsScreen()).returnOrderNameFromOrderDetailScreen()
 }
 
  /**
@@ -806,11 +761,25 @@ def static "iosOrders.orderDetailsScreen.returnOrderValue"() {
 }
 
  /**
+	 * this function returns the order name in search page
+	 */ 
+def static "iosOrders.orderDetailsScreen.returnProductNameAfterSearch"() {
+    (new iosOrders.orderDetailsScreen()).returnProductNameAfterSearch()
+}
+
+ /**
 	 * this function gets the total added quantity of the product
 	 * @return quantityNumericalValue (of the product which has been added)
 	 */ 
 def static "iosOrders.orderDetailsScreen.returnQuantityOfTheAddedProduct"() {
     (new iosOrders.orderDetailsScreen()).returnQuantityOfTheAddedProduct()
+}
+
+ /**
+	 * this function returns the top most product name in order details page
+	 */ 
+def static "iosOrders.orderDetailsScreen.returnTopMostProductNameInOrderDetails"() {
+    (new iosOrders.orderDetailsScreen()).returnTopMostProductNameInOrderDetails()
 }
 
  /**
@@ -820,16 +789,6 @@ def static "iosOrders.orderDetailsScreen.returnQuantityOfTheAddedProduct"() {
 def static "iosOrders.orderDetailsScreen.scanInputEvent"(
     	String productToBeSearched	) {
     (new iosOrders.orderDetailsScreen()).scanInputEvent(
-        	productToBeSearched)
-}
-
- /**
-	 * scans the product
-	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
-	 */ 
-def static "iosOrders.orderDetailsScreen.scanInputEventWithoutVerification"(
-    	String productToBeSearched	) {
-    (new iosOrders.orderDetailsScreen()).scanInputEventWithoutVerification(
         	productToBeSearched)
 }
 
@@ -844,27 +803,6 @@ def static "iosOrders.orderDetailsScreen.scanInputEventInOfflineMode"(
 }
 
  /**
-	 * retruns NDC number
-	 */ 
-def static "iosOrders.orderDetailsScreen.returnNDCLabelOfScannedProduct"() {
-    (new iosOrders.orderDetailsScreen()).returnNDCLabelOfScannedProduct()
-}
-
- /**
-	 * allows camera access while using real device
-	 */ 
-def static "iosOrders.orderDetailsScreen.tapOnOkForCameraAcess"() {
-    (new iosOrders.orderDetailsScreen()).tapOnOkForCameraAcess()
-}
-
- /**
-	 * closes the popup when user switches to offline mode
-	 */ 
-def static "iosOrders.orderDetailsScreen.closeOfflinePopUp"() {
-    (new iosOrders.orderDetailsScreen()).closeOfflinePopUp()
-}
-
- /**
 	 * scans the product, adds it to the order and also verifies some scan input details when 'price check' toggle is selected
 	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
 	 */ 
@@ -875,6 +813,36 @@ def static "iosOrders.orderDetailsScreen.scanInputEventWhileOnPriceCheck"(
 }
 
  /**
+	 * scans the product
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */ 
+def static "iosOrders.orderDetailsScreen.scanInputEventWithoutVerification"(
+    	String productToBeSearched	) {
+    (new iosOrders.orderDetailsScreen()).scanInputEventWithoutVerification(
+        	productToBeSearched)
+}
+
+ /**
+	 * searches for a product by setting product name
+	 * @param productName (product to be added)
+	 */ 
+def static "iosOrders.orderDetailsScreen.searchProductInOrderDetailPage"(
+    	String productName	) {
+    (new iosOrders.orderDetailsScreen()).searchProductInOrderDetailPage(
+        	productName)
+}
+
+ /**
+	 * searches for a product by setting product name
+	 * @param productName (product to be added)
+	 */ 
+def static "iosOrders.orderDetailsScreen.searchProductInOrderDetailPageOfflineMode"(
+    	String productName	) {
+    (new iosOrders.orderDetailsScreen()).searchProductInOrderDetailPageOfflineMode(
+        	productName)
+}
+
+ /**
 	 * this function selects toggle value for the product to be added which can be ordering or price check)
 	 * @param toggleValue (toggleValue required to be selected for the product to be added which can be ordering or price check)
 	 */ 
@@ -882,6 +850,55 @@ def static "iosOrders.orderDetailsScreen.selectToggleValueForTheProductToBeSearc
     	String toggleValue	) {
     (new iosOrders.orderDetailsScreen()).selectToggleValueForTheProductToBeSearched(
         	toggleValue)
+}
+
+ /**
+	 * takes user back to the search product results to continue browsing
+	 */ 
+def static "iosOrders.orderDetailsScreen.tapContinueOnDesktop"() {
+    (new iosOrders.orderDetailsScreen()).tapContinueOnDesktop()
+}
+
+ /**
+	 * taps on alternate to order in alternates page and opens confirmation pop up
+	 */ 
+def static "iosOrders.orderDetailsScreen.tapOnAddAlternateToOrderInAlternatesPage"() {
+    (new iosOrders.orderDetailsScreen()).tapOnAddAlternateToOrderInAlternatesPage()
+}
+
+ /**
+	 * adds product in product details page
+	 */ 
+def static "iosOrders.orderDetailsScreen.tapOnAddToOrderInProductDetailsPage"() {
+    (new iosOrders.orderDetailsScreen()).tapOnAddToOrderInProductDetailsPage()
+}
+
+ /**
+	 * opens alternates page
+	 */ 
+def static "iosOrders.orderDetailsScreen.tapOnAlternatesInProductDetailsPage"() {
+    (new iosOrders.orderDetailsScreen()).tapOnAlternatesInProductDetailsPage()
+}
+
+ /**
+	 * takes user back to the search product results to continue browsing
+	 */ 
+def static "iosOrders.orderDetailsScreen.tapOnContinueBrowsing"() {
+    (new iosOrders.orderDetailsScreen()).tapOnContinueBrowsing()
+}
+
+ /**
+	 * allows camera access while using real device
+	 */ 
+def static "iosOrders.orderDetailsScreen.tapOnOkForCameraAcess"() {
+    (new iosOrders.orderDetailsScreen()).tapOnOkForCameraAcess()
+}
+
+ /**
+	 * taps on search key of the keyboard
+	 */ 
+def static "iosOrders.orderDetailsScreen.tapOnsearchKeyInOfflineMode"() {
+    (new iosOrders.orderDetailsScreen()).tapOnsearchKeyInOfflineMode()
 }
 
  /**
@@ -906,6 +923,27 @@ def static "iosOrders.orderDetailsScreen.verifyC2Label"() {
 }
 
  /**
+	 * verifies c2 order is not visible under non c2 order
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyC2OrderIsNotVisibleUnderNonC2Order"() {
+    (new iosOrders.orderDetailsScreen()).verifyC2OrderIsNotVisibleUnderNonC2Order()
+}
+
+ /**
+	 * verifies confirmation pop up in alternates page
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyConfirmationPopUpInALternatesPage"() {
+    (new iosOrders.orderDetailsScreen()).verifyConfirmationPopUpInALternatesPage()
+}
+
+ /**
+	 * verifies filterByOptions
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyFilterByOptions"() {
+    (new iosOrders.orderDetailsScreen()).verifyFilterByOptions()
+}
+
+ /**
 	 * takes productSearch and expected lines count as the arguments and verifies the same
 	 * @param expectedLinesCount (expected lines count after adding product to an order)
 	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
@@ -919,18 +957,10 @@ def static "iosOrders.orderDetailsScreen.verifyOrderDetailsScreenAfterAddingAPro
 }
 
  /**
-	 * takes user to dash-board
+	 * verifies order details screen when user in offline mode
 	 */ 
-def static "iosOrders.orderDetailsScreen.goToDashboard"() {
-    (new iosOrders.orderDetailsScreen()).goToDashboard()
-}
-
- /**
-	 * this function returns the cost of added product
-	 * @return productCost (of the product which has been added)
-	 */ 
-def static "iosOrders.orderDetailsScreen.returnCostOfTheAddedProduct"() {
-    (new iosOrders.orderDetailsScreen()).returnCostOfTheAddedProduct()
+def static "iosOrders.orderDetailsScreen.verifyOrderDetailsScreenInOfflineMode"() {
+    (new iosOrders.orderDetailsScreen()).verifyOrderDetailsScreenInOfflineMode()
 }
 
  /**
@@ -944,10 +974,13 @@ def static "iosOrders.orderDetailsScreen.verifyOrderDetailsScreenWithoutAnyAdded
 }
 
  /**
-	 * verifies order details screen when user in offline mode
+	 * verifies order name header label
+	 * @param poName (poName is the order name)
 	 */ 
-def static "iosOrders.orderDetailsScreen.verifyOrderDetailsScreenInOfflineMode"() {
-    (new iosOrders.orderDetailsScreen()).verifyOrderDetailsScreenInOfflineMode()
+def static "iosOrders.orderDetailsScreen.verifyOrderNameHeaderLabel"(
+    	String poName	) {
+    (new iosOrders.orderDetailsScreen()).verifyOrderNameHeaderLabel(
+        	poName)
 }
 
  /**
@@ -958,6 +991,29 @@ def static "iosOrders.orderDetailsScreen.verifyOrderValue"(
     	Object quantity	) {
     (new iosOrders.orderDetailsScreen()).verifyOrderValue(
         	quantity)
+}
+
+ /**
+	 * verifies place order confirmation pop up
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyPlaceOrderPopUp"() {
+    (new iosOrders.orderDetailsScreen()).verifyPlaceOrderPopUp()
+}
+
+ /**
+	 * this function verifies the product after search
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyProductAfterSearch"() {
+    (new iosOrders.orderDetailsScreen()).verifyProductAfterSearch()
+}
+
+ /**
+	 * this function verifies the product details page
+	 */ 
+def static "iosOrders.orderDetailsScreen.verifyProductDetailAfterSelectingMoreDetails"(
+    	String orderNameInSearchPage	) {
+    (new iosOrders.orderDetailsScreen()).verifyProductDetailAfterSelectingMoreDetails(
+        	orderNameInSearchPage)
 }
 
  /**
@@ -972,39 +1028,20 @@ def static "iosOrders.orderDetailsScreen.verifyProductIsVisibleOnTheOrderDetails
 }
 
  /**
-	 * verifies the pop up which appears after user clicks on upload order
+	 * verifies that the added top most product should  be visible on the order details page
+	 * @param productname (top most added product name)
 	 */ 
-def static "iosOrders.orderDetailsScreen.verifyUploadOrderPopUp"() {
-    (new iosOrders.orderDetailsScreen()).verifyUploadOrderPopUp()
+def static "iosOrders.orderDetailsScreen.verifyProductNameIsVisibleUnderOrderDetails"(
+    	String productname	) {
+    (new iosOrders.orderDetailsScreen()).verifyProductNameIsVisibleUnderOrderDetails(
+        	productname)
 }
 
  /**
-	 * this function adds the product to be ordered - when price check toggle is selected
-	 * @param quantity (quantity required to be added for the product to be searched)
+	 * this function verifies the product tile
 	 */ 
-def static "iosOrders.orderDetailsScreen.addToOrder"() {
-    (new iosOrders.orderDetailsScreen()).addToOrder()
-}
-
- /**
-	 * adds product 
-	 */ 
-def static "iosOrders.orderDetailsScreen.addToOrderWithoutVerify"() {
-    (new iosOrders.orderDetailsScreen()).addToOrderWithoutVerify()
-}
-
- /**
-	 * taps on go to order button on order confirmation screen and takes user to order details screen
-	 */ 
-def static "iosOrders.orderDetailsScreen.clickOnGoToOrder"() {
-    (new iosOrders.orderDetailsScreen()).clickOnGoToOrder()
-}
-
- /**
-	 * taps on continue browsing button on order confirmation screen and takes user to scan result screen
-	 */ 
-def static "iosOrders.orderDetailsScreen.clickOnContinueBrowsing"() {
-    (new iosOrders.orderDetailsScreen()).clickOnContinueBrowsing()
+def static "iosOrders.orderDetailsScreen.verifyProductTile"() {
+    (new iosOrders.orderDetailsScreen()).verifyProductTile()
 }
 
  /**
@@ -1015,40 +1052,10 @@ def static "iosOrders.orderDetailsScreen.verifyScanResultScreenWithProduct"() {
 }
 
  /**
-	 * this function returns the order name of the order/ title of the screen when user is on order details screen
-	 * return orderName (returns order name/ title of order details screen)
+	 * verifies the pop up which appears after user clicks on upload order
 	 */ 
-def static "iosOrders.orderDetailsScreen.returnOrderNameFromOrderDetailScreen"() {
-    (new iosOrders.orderDetailsScreen()).returnOrderNameFromOrderDetailScreen()
-}
-
- /**
-	 * taps on continue ordering button on order details screen after user has added a product to order
-	 * and takes user to scan result screen
-	 */ 
-def static "iosOrders.orderDetailsScreen.clickOnContinueOrdering"() {
-    (new iosOrders.orderDetailsScreen()).clickOnContinueOrdering()
-}
-
- /**
-	 * takes user back to history screen and verifies user is on the history screen or not
-	 */ 
-def static "iosOrders.orderDetailsScreen.clickOnReviewAndSignButton"() {
-    (new iosOrders.orderDetailsScreen()).clickOnReviewAndSignButton()
-}
-
- /**
-	 * try removing all characters in UTN field
-	 */ 
-def static "iosOrders.orderDetailsScreen.removeCharactersInUTNField"() {
-    (new iosOrders.orderDetailsScreen()).removeCharactersInUTNField()
-}
-
- /**
-	 * fetch UTN number and store it in a string
-	 */ 
-def static "iosOrders.orderDetailsScreen.getUTNFromUTNTextField"() {
-    (new iosOrders.orderDetailsScreen()).getUTNFromUTNTextField()
+def static "iosOrders.orderDetailsScreen.verifyUploadOrderPopUp"() {
+    (new iosOrders.orderDetailsScreen()).verifyUploadOrderPopUp()
 }
 
  /**
@@ -1158,11 +1165,9 @@ def static "iosAudits.auditsScreen.change_Account"(
         	new_Account)
 }
 
- /**
-	 * this function verifies the audits landing Screen
-	 */ 
-def static "iosAudits.auditsScreen.verifyAuditsLandingScreen"() {
-    (new iosAudits.auditsScreen()).verifyAuditsLandingScreen()
+
+def static "iosAudits.auditsScreen.clickOnQuantityBox"() {
+    (new iosAudits.auditsScreen()).clickOnQuantityBox()
 }
 
  /**
@@ -1170,36 +1175,6 @@ def static "iosAudits.auditsScreen.verifyAuditsLandingScreen"() {
 	 */ 
 def static "iosAudits.auditsScreen.closeChangeAccountPrompt"() {
     (new iosAudits.auditsScreen()).closeChangeAccountPrompt()
-}
-
-
-def static "iosAudits.auditsScreen.clickOnQuantityBox"() {
-    (new iosAudits.auditsScreen()).clickOnQuantityBox()
-}
-
- /**
-	 * this function performs long press on quantity count box
-	 */ 
-def static "iosAudits.auditsScreen.longPressOnQuantityBox"() {
-    (new iosAudits.auditsScreen()).longPressOnQuantityBox()
-}
-
- /**
-	 * verifies initial count value
-	 * taps on + button
-	 * verifies the count is increased
-	 */ 
-def static "iosAudits.auditsScreen.increaseCount"() {
-    (new iosAudits.auditsScreen()).increaseCount()
-}
-
- /**
-	 * verifies initial count value
-	 * taps on - button
-	 * verifies the count is decreased
-	 */ 
-def static "iosAudits.auditsScreen.decreaseCount"() {
-    (new iosAudits.auditsScreen()).decreaseCount()
 }
 
  /**
@@ -1212,12 +1187,28 @@ def static "iosAudits.auditsScreen.confirmAuditCount"() {
 }
 
  /**
-	 * verifies the final count value with the audit list count
+	 * verifies initial count value
+	 * taps on - button
+	 * verifies the count is decreased
 	 */ 
-def static "iosAudits.auditsScreen.verifyQuantity"(
-    	int quantity	) {
-    (new iosAudits.auditsScreen()).verifyQuantity(
-        	quantity)
+def static "iosAudits.auditsScreen.decreaseCount"() {
+    (new iosAudits.auditsScreen()).decreaseCount()
+}
+
+ /**
+	 * verifies initial count value
+	 * taps on + button
+	 * verifies the count is increased
+	 */ 
+def static "iosAudits.auditsScreen.increaseCount"() {
+    (new iosAudits.auditsScreen()).increaseCount()
+}
+
+ /**
+	 * this function performs long press on quantity count box
+	 */ 
+def static "iosAudits.auditsScreen.longPressOnQuantityBox"() {
+    (new iosAudits.auditsScreen()).longPressOnQuantityBox()
 }
 
  /**
@@ -1232,6 +1223,22 @@ def static "iosAudits.auditsScreen.selectAllQuantityBoxes"() {
 	 */ 
 def static "iosAudits.auditsScreen.submitCompletedGroups"() {
     (new iosAudits.auditsScreen()).submitCompletedGroups()
+}
+
+ /**
+	 * this function verifies the audits landing Screen
+	 */ 
+def static "iosAudits.auditsScreen.verifyAuditsLandingScreen"() {
+    (new iosAudits.auditsScreen()).verifyAuditsLandingScreen()
+}
+
+ /**
+	 * verifies the final count value with the audit list count
+	 */ 
+def static "iosAudits.auditsScreen.verifyQuantity"(
+    	int quantity	) {
+    (new iosAudits.auditsScreen()).verifyQuantity(
+        	quantity)
 }
 
  /**
@@ -1270,6 +1277,13 @@ def static "iosOrders.cartScreen.clickOnPlaceAllOrders"() {
 }
 
  /**
+	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at ordering
+	 */ 
+def static "iosOrders.cartScreen.clickOnScanIcon"() {
+    (new iosOrders.cartScreen()).clickOnScanIcon()
+}
+
+ /**
 	 * confirms placing all order by clicking on place all orders confirmation button and verifies details related to placed order
 	 */ 
 def static "iosOrders.cartScreen.confirmPlacingAllOrders"() {
@@ -1284,6 +1298,14 @@ def static "iosOrders.cartScreen.continueOrdersOnTheDesktop"() {
 }
 
  /**
+	 * delete's the C2 order from the cart screen based on the purchase order name
+	 * seperate delete method for c2 as locators for c2 order tile not available...when done remove this method
+	 */ 
+def static "iosOrders.cartScreen.deleteC2Order"() {
+    (new iosOrders.cartScreen()).deleteC2Order()
+}
+
+ /**
 	 * delete's the order from the cart screen based on the purchase order name
 	 * @param poName (purchase order name of the order)
 	 */ 
@@ -1291,14 +1313,6 @@ def static "iosOrders.cartScreen.deleteOrder"(
     	String poName	) {
     (new iosOrders.cartScreen()).deleteOrder(
         	poName)
-}
-
- /**
-	 * delete's the C2 order from the cart screen based on the purchase order name
-	 * seperate delete method for c2 as locators for c2 order tile not available...when done remove this method
-	 */ 
-def static "iosOrders.cartScreen.deleteC2Order"() {
-    (new iosOrders.cartScreen()).deleteC2Order()
 }
 
  /**
@@ -1326,20 +1340,10 @@ def static "iosOrders.cartScreen.openAnOrderDetail"(
 }
 
  /**
-	 * takes expected mobile orders count as the argument and verifies the same
-	 * @param expected mobile orders count (expected mobile orders count after adding products to the cart)
+	 * opens the c2 order details
 	 */ 
-def static "iosOrders.cartScreen.verifyMobileOrdersCount"(
-    	String expectedMobileOrdersCount	) {
-    (new iosOrders.cartScreen()).verifyMobileOrdersCount(
-        	expectedMobileOrdersCount)
-}
-
- /**
-	 *verifies C2 order view
-	 */ 
-def static "iosOrders.cartScreen.verifyC2OrderViewIsNotVisible"() {
-    (new iosOrders.cartScreen()).verifyC2OrderViewIsNotVisible()
+def static "iosOrders.cartScreen.openC2OrderDetails"() {
+    (new iosOrders.cartScreen()).openC2OrderDetails()
 }
 
  /**
@@ -1348,97 +1352,6 @@ def static "iosOrders.cartScreen.verifyC2OrderViewIsNotVisible"() {
 	 */ 
 def static "iosOrders.cartScreen.returnTopMostOrderName"() {
     (new iosOrders.cartScreen()).returnTopMostOrderName()
-}
-
- /**
-	 * this function verifies the pattern required for the order which was created without giving any purchase order name
-	 * @param orderName (order name which is under verification)
-	 */ 
-def static "iosOrders.cartScreen.verifyOrderNamePattern"(
-    	String orderName	) {
-    (new iosOrders.cartScreen()).verifyOrderNamePattern(
-        	orderName)
-}
-
- /**
-	 * opens the c2 order details
-	 */ 
-def static "iosOrders.cartScreen.openC2OrderDetails"() {
-    (new iosOrders.cartScreen()).openC2OrderDetails()
-}
-
- /**
-	 * uploads all order by clicking on upload all orders button on cart screen
-	 */ 
-def static "iosOrders.cartScreen.uploadAllOrders"() {
-    (new iosOrders.cartScreen()).uploadAllOrders()
-}
-
-
-def static "iosOrders.cartScreen.verifyCartScreenWithAddedProduct"() {
-    (new iosOrders.cartScreen()).verifyCartScreenWithAddedProduct()
-}
-
-
-def static "iosOrders.cartScreen.verifyCartScreenWithoutAnyOrderPresent"() {
-    (new iosOrders.cartScreen()).verifyCartScreenWithoutAnyOrderPresent()
-}
-
- /**
-	 * verifies that the created order should be visible on the cart screen
-	 * @param poName (purchase order name used to create the order)
-	 */ 
-def static "iosOrders.cartScreen.verifyOrderIsVisibleOnTheCartScreen"(
-    	String poName	) {
-    (new iosOrders.cartScreen()).verifyOrderIsVisibleOnTheCartScreen(
-        	poName)
-}
-
- /**
-	 * verifies that the created order should not be visible on the cart screen
-	 * @param poName (purchase order name used to create the order)
-	 */ 
-def static "iosOrders.cartScreen.verifyOrderNotVisibleOnTheCartScreen"(
-    	String poName	) {
-    (new iosOrders.cartScreen()).verifyOrderNotVisibleOnTheCartScreen(
-        	poName)
-}
-
- /**
-	 * takes expected lines count as the argument and verifies the same
-	 * @param expectedLinesCount (expected lines count after adding products to the cart)
-	 */ 
-def static "iosOrders.cartScreen.verifyLinesCount"(
-    	String expectedLinesCount	) {
-    (new iosOrders.cartScreen()).verifyLinesCount(
-        	expectedLinesCount)
-}
-
- /**
-	 * verifies the cart value after adding products
-	 * @param expectedCartValue (expected cart value which should be equal to actual cart total)
-	 */ 
-def static "iosOrders.cartScreen.verifyCartValue"(
-    	float expectedCartValue	) {
-    (new iosOrders.cartScreen()).verifyCartValue(
-        	expectedCartValue)
-}
-
- /**
-	 * verifies c2 orders annotation count
-	 * @param expectedCount (expected annotation count)
-	 */ 
-def static "iosOrders.cartScreen.verifyC2OrdersTabAnnotationCount"(
-    	int expectedAnnotationCount	) {
-    (new iosOrders.cartScreen()).verifyC2OrdersTabAnnotationCount(
-        	expectedAnnotationCount)
-}
-
- /**
-	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at ordering
-	 */ 
-def static "iosOrders.cartScreen.clickOnScanIcon"() {
-    (new iosOrders.cartScreen()).clickOnScanIcon()
 }
 
  /**
@@ -1459,6 +1372,104 @@ def static "iosOrders.cartScreen.selectToggleValueForTheProductToBeSearched"(
     	String toggleValue	) {
     (new iosOrders.cartScreen()).selectToggleValueForTheProductToBeSearched(
         	toggleValue)
+}
+
+ /**
+	 * uploads all order by clicking on upload all orders button on cart screen
+	 */ 
+def static "iosOrders.cartScreen.uploadAllOrders"() {
+    (new iosOrders.cartScreen()).uploadAllOrders()
+}
+
+ /**
+	 * verifies c2 orders annotation count
+	 * @param expectedCount (expected annotation count)
+	 */ 
+def static "iosOrders.cartScreen.verifyC2OrdersTabAnnotationCount"(
+    	int expectedAnnotationCount	) {
+    (new iosOrders.cartScreen()).verifyC2OrdersTabAnnotationCount(
+        	expectedAnnotationCount)
+}
+
+ /**
+	 *verifies C2 order view
+	 */ 
+def static "iosOrders.cartScreen.verifyC2OrderViewIsNotVisible"() {
+    (new iosOrders.cartScreen()).verifyC2OrderViewIsNotVisible()
+}
+
+ /**
+	 * verifies cart screen with any product being added
+	 */ 
+def static "iosOrders.cartScreen.verifyCartScreenWithAddedProduct"() {
+    (new iosOrders.cartScreen()).verifyCartScreenWithAddedProduct()
+}
+
+ /**
+	 * verifies cart screen without any product being added
+	 */ 
+def static "iosOrders.cartScreen.verifyCartScreenWithoutAnyOrderPresent"() {
+    (new iosOrders.cartScreen()).verifyCartScreenWithoutAnyOrderPresent()
+}
+
+ /**
+	 * verifies the cart value after adding products
+	 * @param expectedCartValue (expected cart value which should be equal to actual cart total)
+	 */ 
+def static "iosOrders.cartScreen.verifyCartValue"(
+    	float expectedCartValue	) {
+    (new iosOrders.cartScreen()).verifyCartValue(
+        	expectedCartValue)
+}
+
+ /**
+	 * takes expected lines count as the argument and verifies the same
+	 * @param expectedLinesCount (expected lines count after adding products to the cart)
+	 */ 
+def static "iosOrders.cartScreen.verifyLinesCount"(
+    	String expectedLinesCount	) {
+    (new iosOrders.cartScreen()).verifyLinesCount(
+        	expectedLinesCount)
+}
+
+ /**
+	 * takes expected mobile orders count as the argument and verifies the same
+	 * @param expected mobile orders count (expected mobile orders count after adding products to the cart)
+	 */ 
+def static "iosOrders.cartScreen.verifyMobileOrdersCount"(
+    	String expectedMobileOrdersCount	) {
+    (new iosOrders.cartScreen()).verifyMobileOrdersCount(
+        	expectedMobileOrdersCount)
+}
+
+ /**
+	 * verifies that the created order should be visible on the cart screen
+	 * @param poName (purchase order name used to create the order)
+	 */ 
+def static "iosOrders.cartScreen.verifyOrderIsVisibleOnTheCartScreen"(
+    	String poName	) {
+    (new iosOrders.cartScreen()).verifyOrderIsVisibleOnTheCartScreen(
+        	poName)
+}
+
+ /**
+	 * this function verifies the pattern required for the order which was created without giving any purchase order name
+	 * @param orderName (order name which is under verification)
+	 */ 
+def static "iosOrders.cartScreen.verifyOrderNamePattern"(
+    	String orderName	) {
+    (new iosOrders.cartScreen()).verifyOrderNamePattern(
+        	orderName)
+}
+
+ /**
+	 * verifies that the created order should not be visible on the cart screen
+	 * @param poName (purchase order name used to create the order)
+	 */ 
+def static "iosOrders.cartScreen.verifyOrderNotVisibleOnTheCartScreen"(
+    	String poName	) {
+    (new iosOrders.cartScreen()).verifyOrderNotVisibleOnTheCartScreen(
+        	poName)
 }
 
  /**
@@ -2898,10 +2909,48 @@ def static "androidMoreOptions.moreOptionsScreen.verifyMessageDescription"() {
 }
 
  /**
+	 * creates a test object at run time
+	 * resourceId (resource-id of the object)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.makeTestObject"(
+    	String resourceId	) {
+    (new androidReceiving.receivingReusableMethods()).makeTestObject(
+        	resourceId)
+}
+
+ /**
+	 * takes user back to receiving after uploading_totes
+	 */ 
+def static "androidReceiving.receivingReusableMethods.clickOnBackToReceiving"() {
+    (new androidReceiving.receivingReusableMethods()).clickOnBackToReceiving()
+}
+
+ /**
 	 * clicks on continue button after selection of shipments or invoice by user
 	 */ 
 def static "androidReceiving.receivingReusableMethods.clickOnContinue"() {
     (new androidReceiving.receivingReusableMethods()).clickOnContinue()
+}
+
+ /**
+	 * clicks on got it issue
+	 */ 
+def static "androidReceiving.receivingReusableMethods.clickOnGotItbutton"() {
+    (new androidReceiving.receivingReusableMethods()).clickOnGotItbutton()
+}
+
+ /**
+	 * clicks on issue
+	 */ 
+def static "androidReceiving.receivingReusableMethods.clickOnIssue"() {
+    (new androidReceiving.receivingReusableMethods()).clickOnIssue()
+}
+
+ /**
+	 * clicks on receive all totes_button
+	 */ 
+def static "androidReceiving.receivingReusableMethods.clickOnReceiveAllTotes"() {
+    (new androidReceiving.receivingReusableMethods()).clickOnReceiveAllTotes()
 }
 
  /**
@@ -2912,13 +2961,51 @@ def static "androidReceiving.receivingReusableMethods.clickOnScanIcon"() {
 }
 
  /**
-	 * this function opens shipment details
-	 * @param shipmentNumber (shipment number)
+	 * clicks on submit issue
 	 */ 
-def static "androidReceiving.receivingReusableMethods.openShipmentDetails"(
-    	Object shipmentNumber	) {
-    (new androidReceiving.receivingReusableMethods()).openShipmentDetails(
-        	shipmentNumber)
+def static "androidReceiving.receivingReusableMethods.clickOnSubmitIssue"() {
+    (new androidReceiving.receivingReusableMethods()).clickOnSubmitIssue()
+}
+
+ /**
+	 * collapses the detailed view of_tote
+	 */ 
+def static "androidReceiving.receivingReusableMethods.collpaseViewOfTotes"() {
+    (new androidReceiving.receivingReusableMethods()).collpaseViewOfTotes()
+}
+
+ /**
+	 * takes received product count as the argument and enters count in the text-field
+	 * @param receivedProductCount (received product count)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.editReceivedProductCount"(
+    	int receivedProductCount	) {
+    (new androidReceiving.receivingReusableMethods()).editReceivedProductCount(
+        	receivedProductCount)
+}
+
+ /**
+	 * enters detail for contact
+	 * @param name
+	 * @param phoneNumber
+	 * @param emailID
+	 * @param comment
+	 */ 
+def static "androidReceiving.receivingReusableMethods.enterDetailsForContact"(
+    	String name	
+     , 	String phoneNumber	
+     , 	String comment	) {
+    (new androidReceiving.receivingReusableMethods()).enterDetailsForContact(
+        	name
+         , 	phoneNumber
+         , 	comment)
+}
+
+ /**
+	 * expands the view to see detailed view of_tote
+	 */ 
+def static "androidReceiving.receivingReusableMethods.expandToSeeDetailedViewOfTotes"() {
+    (new androidReceiving.receivingReusableMethods()).expandToSeeDetailedViewOfTotes()
 }
 
  /**
@@ -2932,6 +3019,24 @@ def static "androidReceiving.receivingReusableMethods.openInvoiceDetails"(
 }
 
  /**
+	 * this function opens shipment details
+	 * @param shipmentNumber (shipment number)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.openShipmentDetails"(
+    	Object shipmentNumber	) {
+    (new androidReceiving.receivingReusableMethods()).openShipmentDetails(
+        	shipmentNumber)
+}
+
+ /**
+	 * returns max upper value without over-age product count
+	 * @return maxCount (max upper value without over-age product count)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.returnUpperLimitReceivingProductCount"() {
+    (new androidReceiving.receivingReusableMethods()).returnUpperLimitReceivingProductCount()
+}
+
+ /**
 	 * takes product to be searched as the argument and searches for the product
 	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
 	 */ 
@@ -2939,6 +3044,15 @@ def static "androidReceiving.receivingReusableMethods.scanInputEvent"(
     	String productToBeSearched	) {
     (new androidReceiving.receivingReusableMethods()).scanInputEvent(
         	productToBeSearched)
+}
+
+ /**
+	 * takes toteID to be searched as the argument and searches the same
+	 */ 
+def static "androidReceiving.receivingReusableMethods.searchTote"(
+    	Object toteID	) {
+    (new androidReceiving.receivingReusableMethods()).searchTote(
+        	toteID)
 }
 
  /**
@@ -2953,6 +3067,16 @@ def static "androidReceiving.receivingReusableMethods.selectAllowOverages"() {
 	 */ 
 def static "androidReceiving.receivingReusableMethods.selectInvoices"() {
     (new androidReceiving.receivingReusableMethods()).selectInvoices()
+}
+
+ /**
+	 * select reason of issue
+	 * @param reasonForIssue
+	 */ 
+def static "androidReceiving.receivingReusableMethods.selectReasonForIssue"(
+    	String reasonForIssue	) {
+    (new androidReceiving.receivingReusableMethods()).selectReasonForIssue(
+        	reasonForIssue)
 }
 
  /**
@@ -2977,6 +3101,20 @@ def static "androidReceiving.receivingReusableMethods.switchToToday"() {
 }
 
  /**
+	 * test method for run time object creation
+	 */ 
+def static "androidReceiving.receivingReusableMethods.testFunction"() {
+    (new androidReceiving.receivingReusableMethods()).testFunction()
+}
+
+ /**
+	 * uploads completed_totes
+	 */ 
+def static "androidReceiving.receivingReusableMethods.uploadCompletedTotes"() {
+    (new androidReceiving.receivingReusableMethods()).uploadCompletedTotes()
+}
+
+ /**
 	 * verifies that over-ages are allowed
 	 */ 
 def static "androidReceiving.receivingReusableMethods.verifyAllowedOverages"() {
@@ -2994,6 +3132,16 @@ def static "androidReceiving.receivingReusableMethods.verifyInstancesOfProductAs
 }
 
  /**
+	 * verifies the invoice is not visible on the screen
+	 * @param invoiceNumber (invoice number)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyInvoiceIsNotVisible"(
+    	Object invoiceNumber	) {
+    (new androidReceiving.receivingReusableMethods()).verifyInvoiceIsNotVisible(
+        	invoiceNumber)
+}
+
+ /**
 	 * this function verifies the invoice is visible on the screen
 	 * @param invoiceNumber (invoice number)
 	 */ 
@@ -3004,10 +3152,12 @@ def static "androidReceiving.receivingReusableMethods.verifyInvoiceIsVisible"(
 }
 
  /**
-	 * this method verifies the invoices detail
+	 * verify invoice number visible while submission of issue
 	 */ 
-def static "androidReceiving.receivingReusableMethods.verifyInvoicesListScreenDetails"() {
-    (new androidReceiving.receivingReusableMethods()).verifyInvoicesListScreenDetails()
+def static "androidReceiving.receivingReusableMethods.verifyInvoiceNumberInIssue"(
+    	Object invoiceNumber	) {
+    (new androidReceiving.receivingReusableMethods()).verifyInvoiceNumberInIssue(
+        	invoiceNumber)
 }
 
  /**
@@ -3021,10 +3171,69 @@ def static "androidReceiving.receivingReusableMethods.verifyInvoicesDetails"(
 }
 
  /**
+	 * this method verifies the invoices detail
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyInvoicesListScreenDetails"() {
+    (new androidReceiving.receivingReusableMethods()).verifyInvoicesListScreenDetails()
+}
+
+ /**
 	 * verifies if no new orders to be received
 	 */ 
 def static "androidReceiving.receivingReusableMethods.verifyNoNewOrdersToReceive"() {
     (new androidReceiving.receivingReusableMethods()).verifyNoNewOrdersToReceive()
+}
+
+ /**
+	 * verifies pop up to allow over-age
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyOveragePopUp"() {
+    (new androidReceiving.receivingReusableMethods()).verifyOveragePopUp()
+}
+
+ /**
+	 * verifies over-age tag is visible after inputting receiving count which is more than the max upper limit
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyOverAgeTag"() {
+    (new androidReceiving.receivingReusableMethods()).verifyOverAgeTag()
+}
+
+ /**
+	 * this function verifies that the product is visible on the order details screen
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyProductIsVisibleOnTheReceivingScreen"(
+    	Object productNdcNumber	) {
+    (new androidReceiving.receivingReusableMethods()).verifyProductIsVisibleOnTheReceivingScreen(
+        	productNdcNumber)
+}
+
+ /**
+	 * verifies details of the product associated with the account
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyProductSearchDetals"(
+    	Object productNdcNumber	) {
+    (new androidReceiving.receivingReusableMethods()).verifyProductSearchDetals(
+        	productNdcNumber)
+}
+
+ /**
+	 * takes expected received product count as the argument and verifies that it should be same as the actual count visible
+	 * @param expectedReceivedProductCount (expected received product count)
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyReceivedProductCount"(
+    	Object expectedReceivedProductCount	) {
+    (new androidReceiving.receivingReusableMethods()).verifyReceivedProductCount(
+        	expectedReceivedProductCount)
+}
+
+ /**
+	 * verifies received tag is visible after inputting receiving count which is less or equal to the max upper limit
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyReceivedTag"() {
+    (new androidReceiving.receivingReusableMethods()).verifyReceivedTag()
 }
 
  /**
@@ -3062,165 +3271,19 @@ def static "androidReceiving.receivingReusableMethods.verifyShipmentIsVisible"(
 }
 
  /**
+	 * verify shipment number visible while submission of issue
+	 */ 
+def static "androidReceiving.receivingReusableMethods.verifyShipmentNumberInIssue"(
+    	Object shipmentNumber	) {
+    (new androidReceiving.receivingReusableMethods()).verifyShipmentNumberInIssue(
+        	shipmentNumber)
+}
+
+ /**
 	 * this function verifies the shipments detail
 	 */ 
 def static "androidReceiving.receivingReusableMethods.verifyShipmentsListScreenDetails"() {
     (new androidReceiving.receivingReusableMethods()).verifyShipmentsListScreenDetails()
-}
-
- /**
-	 * takes expected received product count as the argument and verifies that it should be same as the actual count visible
-	 * @param expectedReceivedProductCount (expected received product count)
-	 */ 
-def static "androidReceiving.receivingReusableMethods.verifyReceivedProductCount"(
-    	Object expectedReceivedProductCount	) {
-    (new androidReceiving.receivingReusableMethods()).verifyReceivedProductCount(
-        	expectedReceivedProductCount)
-}
-
- /**
-	 * clicks on receive all totes_button
-	 */ 
-def static "androidReceiving.receivingReusableMethods.clickOnReceiveAllTotes"() {
-    (new androidReceiving.receivingReusableMethods()).clickOnReceiveAllTotes()
-}
-
- /**
-	 * uploads completed_totes
-	 */ 
-def static "androidReceiving.receivingReusableMethods.uploadCompletedTotes"() {
-    (new androidReceiving.receivingReusableMethods()).uploadCompletedTotes()
-}
-
- /**
-	 * verifies the pop up after uploading_totes
-	 */ 
-def static "androidReceiving.receivingReusableMethods.verifyUploadTotesPopUp"() {
-    (new androidReceiving.receivingReusableMethods()).verifyUploadTotesPopUp()
-}
-
- /**
-	 * takes user back to receiving after uploading_totes
-	 */ 
-def static "androidReceiving.receivingReusableMethods.clickOnBackToReceiving"() {
-    (new androidReceiving.receivingReusableMethods()).clickOnBackToReceiving()
-}
-
- /**
-	 * verifies the invoice is not visible on the screen
-	 * @param invoiceNumber (invoice number)
-	 */ 
-def static "androidReceiving.receivingReusableMethods.verifyInvoiceIsNotVisible"(
-    	Object invoiceNumber	) {
-    (new androidReceiving.receivingReusableMethods()).verifyInvoiceIsNotVisible(
-        	invoiceNumber)
-}
-
- /**
-	 * expands the view to see detailed view of_tote
-	 */ 
-def static "androidReceiving.receivingReusableMethods.expandToSeeDetailedViewOfTotes"() {
-    (new androidReceiving.receivingReusableMethods()).expandToSeeDetailedViewOfTotes()
-}
-
- /**
-	 * collapses the detailed view of_tote
-	 */ 
-def static "androidReceiving.receivingReusableMethods.collpaseViewOfTotes"() {
-    (new androidReceiving.receivingReusableMethods()).collpaseViewOfTotes()
-}
-
- /**
-	 * creates a test object at run time
-	 * resourceId (resource-id of the object)
-	 */ 
-def static "androidReceiving.receivingReusableMethods.makeTestObject"(
-    	String resourceId	) {
-    (new androidReceiving.receivingReusableMethods()).makeTestObject(
-        	resourceId)
-}
-
- /**
-	 * test method for run time object creation
-	 */ 
-def static "androidReceiving.receivingReusableMethods.testFunction"() {
-    (new androidReceiving.receivingReusableMethods()).testFunction()
-}
-
- /**
-	 * takes received product count as the argument and enters count in the text-field
-	 * @param receivedProductCount (received product count)
-	 */ 
-def static "androidReceiving.receivingReusableMethods.editReceivedProductCount"(
-    	int receivedProductCount	) {
-    (new androidReceiving.receivingReusableMethods()).editReceivedProductCount(
-        	receivedProductCount)
-}
-
- /**
-	 * returns max upper value without over-age product count
-	 * @return maxCount (max upper value without over-age product count)
-	 */ 
-def static "androidReceiving.receivingReusableMethods.returnUpperLimitReceivingProductCount"() {
-    (new androidReceiving.receivingReusableMethods()).returnUpperLimitReceivingProductCount()
-}
-
- /**
-	 * verifies over-age tag is visible after inputting receiving count which is more than the max upper limit
-	 */ 
-def static "androidReceiving.receivingReusableMethods.verifyOverAgeTag"() {
-    (new androidReceiving.receivingReusableMethods()).verifyOverAgeTag()
-}
-
- /**
-	 * verifies received tag is visible after inputting receiving count which is less or equal to the max upper limit
-	 */ 
-def static "androidReceiving.receivingReusableMethods.verifyReceivedTag"() {
-    (new androidReceiving.receivingReusableMethods()).verifyReceivedTag()
-}
-
- /**
-	 * takes toteID to be searched as the argument and searches the same
-	 */ 
-def static "androidReceiving.receivingReusableMethods.searchTote"(
-    	Object toteID	) {
-    (new androidReceiving.receivingReusableMethods()).searchTote(
-        	toteID)
-}
-
- /**
-	 * this function verifies that the product is visible on the order details screen
-	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
-	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
-	 */ 
-def static "androidReceiving.receivingReusableMethods.verifyProductIsVisibleOnTheReceivingScreen"(
-    	Object productNdcNumber	) {
-    (new androidReceiving.receivingReusableMethods()).verifyProductIsVisibleOnTheReceivingScreen(
-        	productNdcNumber)
-}
-
- /**
-	 * verifies details of the product associated with the account
-	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
-	 */ 
-def static "androidReceiving.receivingReusableMethods.verifyProductSearchDetals"(
-    	Object productNdcNumber	) {
-    (new androidReceiving.receivingReusableMethods()).verifyProductSearchDetals(
-        	productNdcNumber)
-}
-
- /**
-	 * verifies pop up to allow over-age
-	 */ 
-def static "androidReceiving.receivingReusableMethods.verifyOveragePopUp"() {
-    (new androidReceiving.receivingReusableMethods()).verifyOveragePopUp()
-}
-
- /**
-	 * clicks on issue
-	 */ 
-def static "androidReceiving.receivingReusableMethods.clickOnIssue"() {
-    (new androidReceiving.receivingReusableMethods()).clickOnIssue()
 }
 
  /**
@@ -3235,58 +3298,6 @@ def static "androidReceiving.receivingReusableMethods.verifySubmissionDetails"(
 }
 
  /**
-	 * verify shipment number visible while submission of issue
-	 */ 
-def static "androidReceiving.receivingReusableMethods.verifyShipmentNumberInIssue"(
-    	Object shipmentNumber	) {
-    (new androidReceiving.receivingReusableMethods()).verifyShipmentNumberInIssue(
-        	shipmentNumber)
-}
-
- /**
-	 * verify invoice number visible while submission of issue
-	 */ 
-def static "androidReceiving.receivingReusableMethods.verifyInvoiceNumberInIssue"(
-    	Object invoiceNumber	) {
-    (new androidReceiving.receivingReusableMethods()).verifyInvoiceNumberInIssue(
-        	invoiceNumber)
-}
-
- /**
-	 * select reason of issue
-	 * @param reasonForIssue
-	 */ 
-def static "androidReceiving.receivingReusableMethods.selectReasonForIssue"(
-    	String reasonForIssue	) {
-    (new androidReceiving.receivingReusableMethods()).selectReasonForIssue(
-        	reasonForIssue)
-}
-
- /**
-	 * enters detail for contact
-	 * @param name
-	 * @param phoneNumber
-	 * @param emailID
-	 * @param comment
-	 */ 
-def static "androidReceiving.receivingReusableMethods.enterDetailsForContact"(
-    	String name	
-     , 	String phoneNumber	
-     , 	String comment	) {
-    (new androidReceiving.receivingReusableMethods()).enterDetailsForContact(
-        	name
-         , 	phoneNumber
-         , 	comment)
-}
-
- /**
-	 * clicks on submit issue
-	 */ 
-def static "androidReceiving.receivingReusableMethods.clickOnSubmitIssue"() {
-    (new androidReceiving.receivingReusableMethods()).clickOnSubmitIssue()
-}
-
- /**
 	 * verify submission of issue pop-up
 	 */ 
 def static "androidReceiving.receivingReusableMethods.verifySubmissionOfIssue"() {
@@ -3294,10 +3305,10 @@ def static "androidReceiving.receivingReusableMethods.verifySubmissionOfIssue"()
 }
 
  /**
-	 * clicks on got it issue
+	 * verifies the pop up after uploading_totes
 	 */ 
-def static "androidReceiving.receivingReusableMethods.clickOnGotItbutton"() {
-    (new androidReceiving.receivingReusableMethods()).clickOnGotItbutton()
+def static "androidReceiving.receivingReusableMethods.verifyUploadTotesPopUp"() {
+    (new androidReceiving.receivingReusableMethods()).verifyUploadTotesPopUp()
 }
 
  /**
@@ -3431,11 +3442,11 @@ def static "androidInventory.inventoryDetailsScreen.verifyLocationCount"(
         	expectedLocationCount)
 }
 
-
-def static "iosOrders.newOrderScreen.change_Account"(
-    	String new_Account	) {
-    (new iosOrders.newOrderScreen()).change_Account(
-        	new_Account)
+ /**
+	 * taps on create order button to create an order and takes user to the order details screen
+	 */ 
+def static "iosOrders.newOrderScreen.createOrder"() {
+    (new iosOrders.newOrderScreen()).createOrder()
 }
 
  /**
@@ -3452,15 +3463,27 @@ def static "iosOrders.newOrderScreen.enterPurchaseOrderDetails"(
 }
 
  /**
-	 * taps on create order button to create an order and takes user to the order details screen
+	 * verifies new order screen when user creates an order
 	 */ 
-def static "iosOrders.newOrderScreen.createOrder"() {
-    (new iosOrders.newOrderScreen()).createOrder()
-}
-
-
 def static "iosOrders.newOrderScreen.verifyNewOrderScreenDetails"() {
     (new iosOrders.newOrderScreen()).verifyNewOrderScreenDetails()
+}
+
+ /**
+	 * creates a test object at run time
+	 * resourceId (resource-id of the object)
+	 */ 
+def static "iosReceiving.receivingReusableMethods.makeTestObject"(
+    	String resourceId	) {
+    (new iosReceiving.receivingReusableMethods()).makeTestObject(
+        	resourceId)
+}
+
+ /**
+	 * takes user back to receiving after uploading_totes
+	 */ 
+def static "iosReceiving.receivingReusableMethods.clickOnBackToReceiving"() {
+    (new iosReceiving.receivingReusableMethods()).clickOnBackToReceiving()
 }
 
  /**
@@ -3471,6 +3494,27 @@ def static "iosReceiving.receivingReusableMethods.clickOnContinue"() {
 }
 
  /**
+	 * clicks on got it issue
+	 */ 
+def static "iosReceiving.receivingReusableMethods.clickOnGotItbutton"() {
+    (new iosReceiving.receivingReusableMethods()).clickOnGotItbutton()
+}
+
+ /**
+	 * clicks on issue
+	 */ 
+def static "iosReceiving.receivingReusableMethods.clickOnIssue"() {
+    (new iosReceiving.receivingReusableMethods()).clickOnIssue()
+}
+
+ /**
+	 * clicks on receive all totes_button
+	 */ 
+def static "iosReceiving.receivingReusableMethods.clickOnReceiveAllTotes"() {
+    (new iosReceiving.receivingReusableMethods()).clickOnReceiveAllTotes()
+}
+
+ /**
 	 * click on scan icon
 	 */ 
 def static "iosReceiving.receivingReusableMethods.clickOnScanIcon"() {
@@ -3478,13 +3522,51 @@ def static "iosReceiving.receivingReusableMethods.clickOnScanIcon"() {
 }
 
  /**
-	 * this function opens shipment details
-	 * @param shipmentNumber (shipment number)
+	 * clicks on submit issue
 	 */ 
-def static "iosReceiving.receivingReusableMethods.openShipmentDetails"(
-    	Object shipmentNumber	) {
-    (new iosReceiving.receivingReusableMethods()).openShipmentDetails(
-        	shipmentNumber)
+def static "iosReceiving.receivingReusableMethods.clickOnSubmitIssue"() {
+    (new iosReceiving.receivingReusableMethods()).clickOnSubmitIssue()
+}
+
+ /**
+	 * collapses the detailed view of_tote
+	 */ 
+def static "iosReceiving.receivingReusableMethods.collpaseViewOfTotes"() {
+    (new iosReceiving.receivingReusableMethods()).collpaseViewOfTotes()
+}
+
+ /**
+	 * takes received product count as the argument and enters count in the text-field
+	 * @param receivedProductCount (received product count)
+	 */ 
+def static "iosReceiving.receivingReusableMethods.editReceivedProductCount"(
+    	int receivedProductCount	) {
+    (new iosReceiving.receivingReusableMethods()).editReceivedProductCount(
+        	receivedProductCount)
+}
+
+ /**
+	 * enters detail for contact
+	 * @param name
+	 * @param phoneNumber
+	 * @param emailID
+	 * @param comment
+	 */ 
+def static "iosReceiving.receivingReusableMethods.enterDetailsForContact"(
+    	String name	
+     , 	String phoneNumber	
+     , 	String comment	) {
+    (new iosReceiving.receivingReusableMethods()).enterDetailsForContact(
+        	name
+         , 	phoneNumber
+         , 	comment)
+}
+
+ /**
+	 * expands the view to see detailed view of_tote
+	 */ 
+def static "iosReceiving.receivingReusableMethods.expandToSeeDetailedViewOfTotes"() {
+    (new iosReceiving.receivingReusableMethods()).expandToSeeDetailedViewOfTotes()
 }
 
  /**
@@ -3498,6 +3580,24 @@ def static "iosReceiving.receivingReusableMethods.openInvoiceDetails"(
 }
 
  /**
+	 * this function opens shipment details
+	 * @param shipmentNumber (shipment number)
+	 */ 
+def static "iosReceiving.receivingReusableMethods.openShipmentDetails"(
+    	Object shipmentNumber	) {
+    (new iosReceiving.receivingReusableMethods()).openShipmentDetails(
+        	shipmentNumber)
+}
+
+ /**
+	 * returns max upper value without over-age product count
+	 * @return maxReceivingProductCountWithoutOverage (max upper value without over-age product count)
+	 */ 
+def static "iosReceiving.receivingReusableMethods.returnUpperLimitReceivingProductCount"() {
+    (new iosReceiving.receivingReusableMethods()).returnUpperLimitReceivingProductCount()
+}
+
+ /**
 	 * takes product to be searched as the argument and searches for the product
 	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
 	 */ 
@@ -3505,6 +3605,15 @@ def static "iosReceiving.receivingReusableMethods.scanInputEvent"(
     	String productToBeSearched	) {
     (new iosReceiving.receivingReusableMethods()).scanInputEvent(
         	productToBeSearched)
+}
+
+ /**
+	 * takes toteID to be searched as the argument and searches the same
+	 */ 
+def static "iosReceiving.receivingReusableMethods.searchTote"(
+    	Object toteID	) {
+    (new iosReceiving.receivingReusableMethods()).searchTote(
+        	toteID)
 }
 
  /**
@@ -3519,6 +3628,16 @@ def static "iosReceiving.receivingReusableMethods.selectAllowOverages"() {
 	 */ 
 def static "iosReceiving.receivingReusableMethods.selectInvoices"() {
     (new iosReceiving.receivingReusableMethods()).selectInvoices()
+}
+
+ /**
+	 * select reason of issue
+	 * @param reasonForIssue
+	 */ 
+def static "iosReceiving.receivingReusableMethods.selectReasonForIssue"(
+    	String reasonForIssue	) {
+    (new iosReceiving.receivingReusableMethods()).selectReasonForIssue(
+        	reasonForIssue)
 }
 
  /**
@@ -3543,6 +3662,20 @@ def static "iosReceiving.receivingReusableMethods.switchToToday"() {
 }
 
  /**
+	 * test method for run time object creation
+	 */ 
+def static "iosReceiving.receivingReusableMethods.testFunction"() {
+    (new iosReceiving.receivingReusableMethods()).testFunction()
+}
+
+ /**
+	 * uploads completed_totes
+	 */ 
+def static "iosReceiving.receivingReusableMethods.uploadCompletedTotes"() {
+    (new iosReceiving.receivingReusableMethods()).uploadCompletedTotes()
+}
+
+ /**
 	 * verifies that over-ages are allowed
 	 */ 
 def static "iosReceiving.receivingReusableMethods.verifyAllowedOverages"() {
@@ -3560,6 +3693,16 @@ def static "iosReceiving.receivingReusableMethods.verifyInstancesOfProductAssoci
 }
 
  /**
+	 * verifies the invoice is not visible on the screen
+	 * @param invoiceNumber (invoice number)
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyInvoiceIsNotVisible"(
+    	Object invoiceNumber	) {
+    (new iosReceiving.receivingReusableMethods()).verifyInvoiceIsNotVisible(
+        	invoiceNumber)
+}
+
+ /**
 	 * this function verifies the invoice is visible on the screen
 	 * @param invoiceNumber (invoice number)
 	 */ 
@@ -3570,10 +3713,12 @@ def static "iosReceiving.receivingReusableMethods.verifyInvoiceIsVisible"(
 }
 
  /**
-	 * this method verifies the invoices detail
+	 * verify invoice number visible while submission of issue
 	 */ 
-def static "iosReceiving.receivingReusableMethods.verifyInvoicesListScreenDetails"() {
-    (new iosReceiving.receivingReusableMethods()).verifyInvoicesListScreenDetails()
+def static "iosReceiving.receivingReusableMethods.verifyInvoiceNumberInIssue"(
+    	Object invoiceNumber	) {
+    (new iosReceiving.receivingReusableMethods()).verifyInvoiceNumberInIssue(
+        	invoiceNumber)
 }
 
  /**
@@ -3587,10 +3732,97 @@ def static "iosReceiving.receivingReusableMethods.verifyInvoicesDetails"(
 }
 
  /**
+	 * this method verifies the invoices detail
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyInvoicesListScreenDetails"() {
+    (new iosReceiving.receivingReusableMethods()).verifyInvoicesListScreenDetails()
+}
+
+ /**
+	 * verifies details related to submission of issue and takes shipment number, tote id as the arguments
+	 * @param toteID
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyIssueSubmissionDetails"(
+    	Object toteID	) {
+    (new iosReceiving.receivingReusableMethods()).verifyIssueSubmissionDetails(
+        	toteID)
+}
+
+ /**
 	 * verifies if no new orders to be received
 	 */ 
 def static "iosReceiving.receivingReusableMethods.verifyNoNewOrdersToReceive"() {
     (new iosReceiving.receivingReusableMethods()).verifyNoNewOrdersToReceive()
+}
+
+ /**
+	 * verifies pop up to allow over-age
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyOveragePopUp"() {
+    (new iosReceiving.receivingReusableMethods()).verifyOveragePopUp()
+}
+
+ /**
+	 * verifies over-age tag is visible after inputting receiving count which is more than the max upper limit
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyOverAgeTag"() {
+    (new iosReceiving.receivingReusableMethods()).verifyOverAgeTag()
+}
+
+ /**
+	 * this function verifies that the product is visible on the order details screen
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyProductIsVisibleOnTheReceivingScreen"(
+    	Object productNdcNumber	) {
+    (new iosReceiving.receivingReusableMethods()).verifyProductIsVisibleOnTheReceivingScreen(
+        	productNdcNumber)
+}
+
+ /**
+	 * verifies details of the product associated with the account
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyProductSearchDetails"(
+    	Object productNdcNumber	) {
+    (new iosReceiving.receivingReusableMethods()).verifyProductSearchDetails(
+        	productNdcNumber)
+}
+
+ /**
+	 * takes expected received product count and maxReceivingProductCountWithoutOverage as the argument
+	 * and verifies that it should be as expected for invoice screen
+	 * @param expectedReceivedProductCount (expected received product count)
+	 * @param maxReceivingProductCountWithoutOverage (maxReceiving product count without over-age)
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyReceivedProductCountUnderInvoice"(
+    	Object expectedReceivedProductCount	
+     , 	Object maxReceivingProductCountWithoutOverage	) {
+    (new iosReceiving.receivingReusableMethods()).verifyReceivedProductCountUnderInvoice(
+        	expectedReceivedProductCount
+         , 	maxReceivingProductCountWithoutOverage)
+}
+
+ /**
+	 * takes expected received product count and maxReceivingProductCountWithoutOverage as the argument
+	 * and verifies that it should be as expected for shipments screen
+	 * @param expectedReceivedProductCount (expected received product count)
+	 * @param maxReceivingProductCountWithoutOverage (maxReceiving product count without over-age)
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyReceivedProductCountUnderShipments"(
+    	Object expectedReceivedProductCount	
+     , 	Object maxReceivingProductCountWithoutOverage	) {
+    (new iosReceiving.receivingReusableMethods()).verifyReceivedProductCountUnderShipments(
+        	expectedReceivedProductCount
+         , 	maxReceivingProductCountWithoutOverage)
+}
+
+ /**
+	 * verifies received tag is visible after inputting receiving count which is less or equal to the max upper limit
+	 */ 
+def static "iosReceiving.receivingReusableMethods.verifyReceivedTag"() {
+    (new iosReceiving.receivingReusableMethods()).verifyReceivedTag()
 }
 
  /**
@@ -3628,196 +3860,6 @@ def static "iosReceiving.receivingReusableMethods.verifyShipmentIsVisible"(
 }
 
  /**
-	 * this function verifies the shipments detail
-	 */ 
-def static "iosReceiving.receivingReusableMethods.verifyShipmentsListScreenDetails"() {
-    (new iosReceiving.receivingReusableMethods()).verifyShipmentsListScreenDetails()
-}
-
- /**
-	 * takes expected received product count and maxReceivingProductCountWithoutOverage as the argument
-	 * and verifies that it should be as expected for invoice screen
-	 * @param expectedReceivedProductCount (expected received product count)
-	 * @param maxReceivingProductCountWithoutOverage (maxReceiving product count without over-age)
-	 */ 
-def static "iosReceiving.receivingReusableMethods.verifyReceivedProductCountUnderInvoice"(
-    	Object expectedReceivedProductCount	
-     , 	Object maxReceivingProductCountWithoutOverage	) {
-    (new iosReceiving.receivingReusableMethods()).verifyReceivedProductCountUnderInvoice(
-        	expectedReceivedProductCount
-         , 	maxReceivingProductCountWithoutOverage)
-}
-
- /**
-	 * takes expected received product count and maxReceivingProductCountWithoutOverage as the argument
-	 * and verifies that it should be as expected for shipments screen
-	 * @param expectedReceivedProductCount (expected received product count)
-	 * @param maxReceivingProductCountWithoutOverage (maxReceiving product count without over-age)
-	 */ 
-def static "iosReceiving.receivingReusableMethods.verifyReceivedProductCountUnderShipments"(
-    	Object expectedReceivedProductCount	
-     , 	Object maxReceivingProductCountWithoutOverage	) {
-    (new iosReceiving.receivingReusableMethods()).verifyReceivedProductCountUnderShipments(
-        	expectedReceivedProductCount
-         , 	maxReceivingProductCountWithoutOverage)
-}
-
- /**
-	 * clicks on receive all totes_button
-	 */ 
-def static "iosReceiving.receivingReusableMethods.clickOnReceiveAllTotes"() {
-    (new iosReceiving.receivingReusableMethods()).clickOnReceiveAllTotes()
-}
-
- /**
-	 * uploads completed_totes
-	 */ 
-def static "iosReceiving.receivingReusableMethods.uploadCompletedTotes"() {
-    (new iosReceiving.receivingReusableMethods()).uploadCompletedTotes()
-}
-
- /**
-	 * verifies the pop up after uploading_totes
-	 */ 
-def static "iosReceiving.receivingReusableMethods.verifyUploadTotesPopUp"() {
-    (new iosReceiving.receivingReusableMethods()).verifyUploadTotesPopUp()
-}
-
- /**
-	 * takes user back to receiving after uploading_totes
-	 */ 
-def static "iosReceiving.receivingReusableMethods.clickOnBackToReceiving"() {
-    (new iosReceiving.receivingReusableMethods()).clickOnBackToReceiving()
-}
-
- /**
-	 * verifies the invoice is not visible on the screen
-	 * @param invoiceNumber (invoice number)
-	 */ 
-def static "iosReceiving.receivingReusableMethods.verifyInvoiceIsNotVisible"(
-    	Object invoiceNumber	) {
-    (new iosReceiving.receivingReusableMethods()).verifyInvoiceIsNotVisible(
-        	invoiceNumber)
-}
-
- /**
-	 * expands the view to see detailed view of_tote
-	 */ 
-def static "iosReceiving.receivingReusableMethods.expandToSeeDetailedViewOfTotes"() {
-    (new iosReceiving.receivingReusableMethods()).expandToSeeDetailedViewOfTotes()
-}
-
- /**
-	 * collapses the detailed view of_tote
-	 */ 
-def static "iosReceiving.receivingReusableMethods.collpaseViewOfTotes"() {
-    (new iosReceiving.receivingReusableMethods()).collpaseViewOfTotes()
-}
-
- /**
-	 * creates a test object at run time
-	 * resourceId (resource-id of the object)
-	 */ 
-def static "iosReceiving.receivingReusableMethods.makeTestObject"(
-    	String resourceId	) {
-    (new iosReceiving.receivingReusableMethods()).makeTestObject(
-        	resourceId)
-}
-
- /**
-	 * test method for run time object creation
-	 */ 
-def static "iosReceiving.receivingReusableMethods.testFunction"() {
-    (new iosReceiving.receivingReusableMethods()).testFunction()
-}
-
- /**
-	 * takes received product count as the argument and enters count in the text-field
-	 * @param receivedProductCount (received product count)
-	 */ 
-def static "iosReceiving.receivingReusableMethods.editReceivedProductCount"(
-    	int receivedProductCount	) {
-    (new iosReceiving.receivingReusableMethods()).editReceivedProductCount(
-        	receivedProductCount)
-}
-
- /**
-	 * returns max upper value without over-age product count
-	 * @return maxReceivingProductCountWithoutOverage (max upper value without over-age product count)
-	 */ 
-def static "iosReceiving.receivingReusableMethods.returnUpperLimitReceivingProductCount"() {
-    (new iosReceiving.receivingReusableMethods()).returnUpperLimitReceivingProductCount()
-}
-
- /**
-	 * verifies over-age tag is visible after inputting receiving count which is more than the max upper limit
-	 */ 
-def static "iosReceiving.receivingReusableMethods.verifyOverAgeTag"() {
-    (new iosReceiving.receivingReusableMethods()).verifyOverAgeTag()
-}
-
- /**
-	 * verifies received tag is visible after inputting receiving count which is less or equal to the max upper limit
-	 */ 
-def static "iosReceiving.receivingReusableMethods.verifyReceivedTag"() {
-    (new iosReceiving.receivingReusableMethods()).verifyReceivedTag()
-}
-
- /**
-	 * takes toteID to be searched as the argument and searches the same
-	 */ 
-def static "iosReceiving.receivingReusableMethods.searchTote"(
-    	Object toteID	) {
-    (new iosReceiving.receivingReusableMethods()).searchTote(
-        	toteID)
-}
-
- /**
-	 * this function verifies that the product is visible on the order details screen
-	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
-	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
-	 */ 
-def static "iosReceiving.receivingReusableMethods.verifyProductIsVisibleOnTheReceivingScreen"(
-    	Object productNdcNumber	) {
-    (new iosReceiving.receivingReusableMethods()).verifyProductIsVisibleOnTheReceivingScreen(
-        	productNdcNumber)
-}
-
- /**
-	 * verifies details of the product associated with the account
-	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
-	 */ 
-def static "iosReceiving.receivingReusableMethods.verifyProductSearchDetails"(
-    	Object productNdcNumber	) {
-    (new iosReceiving.receivingReusableMethods()).verifyProductSearchDetails(
-        	productNdcNumber)
-}
-
- /**
-	 * verifies pop up to allow over-age
-	 */ 
-def static "iosReceiving.receivingReusableMethods.verifyOveragePopUp"() {
-    (new iosReceiving.receivingReusableMethods()).verifyOveragePopUp()
-}
-
- /**
-	 * clicks on issue
-	 */ 
-def static "iosReceiving.receivingReusableMethods.clickOnIssue"() {
-    (new iosReceiving.receivingReusableMethods()).clickOnIssue()
-}
-
- /**
-	 * verifies details related to submission of issue and takes shipment number, tote id as the arguments
-	 * @param toteID
-	 */ 
-def static "iosReceiving.receivingReusableMethods.verifyIssueSubmissionDetails"(
-    	Object toteID	) {
-    (new iosReceiving.receivingReusableMethods()).verifyIssueSubmissionDetails(
-        	toteID)
-}
-
- /**
 	 * verify shipment number visible while submission of issue
 	 */ 
 def static "iosReceiving.receivingReusableMethods.verifyShipmentNumberInIssue"(
@@ -3827,46 +3869,10 @@ def static "iosReceiving.receivingReusableMethods.verifyShipmentNumberInIssue"(
 }
 
  /**
-	 * verify invoice number visible while submission of issue
+	 * this function verifies the shipments detail
 	 */ 
-def static "iosReceiving.receivingReusableMethods.verifyInvoiceNumberInIssue"(
-    	Object invoiceNumber	) {
-    (new iosReceiving.receivingReusableMethods()).verifyInvoiceNumberInIssue(
-        	invoiceNumber)
-}
-
- /**
-	 * select reason of issue
-	 * @param reasonForIssue
-	 */ 
-def static "iosReceiving.receivingReusableMethods.selectReasonForIssue"(
-    	String reasonForIssue	) {
-    (new iosReceiving.receivingReusableMethods()).selectReasonForIssue(
-        	reasonForIssue)
-}
-
- /**
-	 * enters detail for contact
-	 * @param name
-	 * @param phoneNumber
-	 * @param emailID
-	 * @param comment
-	 */ 
-def static "iosReceiving.receivingReusableMethods.enterDetailsForContact"(
-    	String name	
-     , 	String phoneNumber	
-     , 	String comment	) {
-    (new iosReceiving.receivingReusableMethods()).enterDetailsForContact(
-        	name
-         , 	phoneNumber
-         , 	comment)
-}
-
- /**
-	 * clicks on submit issue
-	 */ 
-def static "iosReceiving.receivingReusableMethods.clickOnSubmitIssue"() {
-    (new iosReceiving.receivingReusableMethods()).clickOnSubmitIssue()
+def static "iosReceiving.receivingReusableMethods.verifyShipmentsListScreenDetails"() {
+    (new iosReceiving.receivingReusableMethods()).verifyShipmentsListScreenDetails()
 }
 
  /**
@@ -3877,10 +3883,10 @@ def static "iosReceiving.receivingReusableMethods.verifySubmissionOfIssue"() {
 }
 
  /**
-	 * clicks on got it issue
+	 * verifies the pop up after uploading_totes
 	 */ 
-def static "iosReceiving.receivingReusableMethods.clickOnGotItbutton"() {
-    (new iosReceiving.receivingReusableMethods()).clickOnGotItbutton()
+def static "iosReceiving.receivingReusableMethods.verifyUploadTotesPopUp"() {
+    (new iosReceiving.receivingReusableMethods()).verifyUploadTotesPopUp()
 }
 
  /**
@@ -3891,13 +3897,6 @@ def static "iosInventory.inventoryListingScreen.changeAccount"(
     	String account	) {
     (new iosInventory.inventoryListingScreen()).changeAccount(
         	account)
-}
-
- /**
-	 * returns top most inventory
-	 */ 
-def static "iosInventory.inventoryListingScreen.returnTopMostInventoryName"() {
-    (new iosInventory.inventoryListingScreen()).returnTopMostInventoryName()
 }
 
  /**
@@ -3931,10 +3930,24 @@ def static "iosInventory.inventoryListingScreen.deleteInventory"(
 }
 
  /**
+	 * returns top most inventory
+	 */ 
+def static "iosInventory.inventoryListingScreen.returnTopMostInventoryName"() {
+    (new iosInventory.inventoryListingScreen()).returnTopMostInventoryName()
+}
+
+ /**
 	 * verifies details of inventory listing screen
 	 */ 
 def static "iosInventory.inventoryListingScreen.verifyInventoryListingScreen"() {
     (new iosInventory.inventoryListingScreen()).verifyInventoryListingScreen()
+}
+
+ /**
+	 * enables beta csos feature toggle from more options
+	 */ 
+def static "iosMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS"() {
+    (new iosMoreOptions.moreOptionsScreen()).enableBetaFeatureCSOS()
 }
 
  /**
@@ -3945,31 +3958,17 @@ def static "iosMoreOptions.moreOptionsScreen.goToInventoryListingScreen"() {
 }
 
  /**
+	 * clicks on moreOptions tab, signsOut the user and takes user to the logInScreen
+	 */ 
+def static "iosMoreOptions.moreOptionsScreen.signOut"() {
+    (new iosMoreOptions.moreOptionsScreen()).signOut()
+}
+
+ /**
 	 * opens the message center
 	 */ 
 def static "iosMoreOptions.moreOptionsScreen.tapMessageCentre"() {
     (new iosMoreOptions.moreOptionsScreen()).tapMessageCentre()
-}
-
- /**
-	 * verifies alert and message
-	 */ 
-def static "iosMoreOptions.moreOptionsScreen.verifyMessageCentre"() {
-    (new iosMoreOptions.moreOptionsScreen()).verifyMessageCentre()
-}
-
- /**
-	 * verifies alert message description
-	 */ 
-def static "iosMoreOptions.moreOptionsScreen.verifyAlertMessageDescription"() {
-    (new iosMoreOptions.moreOptionsScreen()).verifyAlertMessageDescription()
-}
-
- /**
-	 * verifies message description
-	 */ 
-def static "iosMoreOptions.moreOptionsScreen.verifyMessageDescription"() {
-    (new iosMoreOptions.moreOptionsScreen()).verifyMessageDescription()
 }
 
  /**
@@ -3987,6 +3986,20 @@ def static "iosMoreOptions.moreOptionsScreen.tapOnTopMostMessage"() {
 }
 
  /**
+	 * verifies alert message description
+	 */ 
+def static "iosMoreOptions.moreOptionsScreen.verifyAlertMessageDescription"() {
+    (new iosMoreOptions.moreOptionsScreen()).verifyAlertMessageDescription()
+}
+
+ /**
+	 * verifies alert and message
+	 */ 
+def static "iosMoreOptions.moreOptionsScreen.verifyMessageCentre"() {
+    (new iosMoreOptions.moreOptionsScreen()).verifyMessageCentre()
+}
+
+ /**
 	 * verifies message center in offline
 	 */ 
 def static "iosMoreOptions.moreOptionsScreen.verifyMessageCentreInOffline"() {
@@ -3994,29 +4007,17 @@ def static "iosMoreOptions.moreOptionsScreen.verifyMessageCentreInOffline"() {
 }
 
  /**
-	 * clicks on moreOptions tab, signsOut the user and takes user to the logInScreen
+	 * verifies message description
 	 */ 
-def static "iosMoreOptions.moreOptionsScreen.signOut"() {
-    (new iosMoreOptions.moreOptionsScreen()).signOut()
+def static "iosMoreOptions.moreOptionsScreen.verifyMessageDescription"() {
+    (new iosMoreOptions.moreOptionsScreen()).verifyMessageDescription()
 }
 
  /**
-	 * enables beta csos feature toggle from more options
+	 * clicks on history tab button to open history tab in order history screen
 	 */ 
-def static "iosMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS"() {
-    (new iosMoreOptions.moreOptionsScreen()).enableBetaFeatureCSOS()
-}
-
-
-def static "iosOrders.historyScreen.verifyHistoryScreenDetails"() {
-    (new iosOrders.historyScreen()).verifyHistoryScreenDetails()
-}
-
- /**
-	 * returns quantity added
-	 */ 
-def static "iosOrders.historyScreen.returnQuantityForScannedResultInOfflineMode"() {
-    (new iosOrders.historyScreen()).returnQuantityForScannedResultInOfflineMode()
+def static "iosOrders.historyScreen.clickOnHistoryTab"() {
+    (new iosOrders.historyScreen()).clickOnHistoryTab()
 }
 
  /**
@@ -4032,10 +4033,10 @@ def static "iosOrders.historyScreen.completeReviewSignAndPlaceAnOrderFlow"(
 }
 
  /**
-	 * clicks on history tab button to open history tab in order history screen
+	 * returns quantity added
 	 */ 
-def static "iosOrders.historyScreen.clickOnHistoryTab"() {
-    (new iosOrders.historyScreen()).clickOnHistoryTab()
+def static "iosOrders.historyScreen.returnQuantityForScannedResultInOfflineMode"() {
+    (new iosOrders.historyScreen()).returnQuantityForScannedResultInOfflineMode()
 }
 
  /**
@@ -4052,6 +4053,13 @@ def static "iosOrders.historyScreen.tapOnTopMostOrderHistory"(
     	String poNumber	) {
     (new iosOrders.historyScreen()).tapOnTopMostOrderHistory(
         	poNumber)
+}
+
+ /**
+	 * verifies history screen when user creates an order
+	 */ 
+def static "iosOrders.historyScreen.verifyHistoryScreenDetails"() {
+    (new iosOrders.historyScreen()).verifyHistoryScreenDetails()
 }
 
  /**
@@ -4198,28 +4206,11 @@ def static "androidAudits.auditsListingScreen.verifyAccount"(
 }
 
  /**
-	 * float value generator
-	 * @param stringToBeConvertedToFloatValue
-	 * @return float value for a string by removing characters
+	 * Get mobile driver for current session
+	 * @return mobile driver for current session
 	 */ 
-def static "common.commonMethods.floatValueGenerator"(
-    	String stringToBeConvertedToFloatValue	) {
-    (new common.commonMethods()).floatValueGenerator(
-        	stringToBeConvertedToFloatValue)
-}
-
- /**
-	 * this function formats the decimal data for e.g 20.546 would be converted to 20.55 if decimalFormatRequired is 0.00
-	 * @param decimalDataToBeFormatted (decimal data required to be formatted), 
-	 * @param decimalFormatRequired (decimal format required for e.g 0.00 for rounding to 2 decimal places)
-	 * @return formattedDecimalData (formatted decimal data)
-	 */ 
-def static "common.commonMethods.formatDecimalData"(
-    	Object decimalDataToBeFormatted	
-     , 	String decimalFormatRequired	) {
-    (new common.commonMethods()).formatDecimalData(
-        	decimalDataToBeFormatted
-         , 	decimalFormatRequired)
+def static "common.commonMethods.getCurrentSessionMobileDriver"() {
+    (new common.commonMethods()).getCurrentSessionMobileDriver()
 }
 
  /**
@@ -4245,11 +4236,28 @@ def static "common.commonMethods.readFileTypeJSON"(
 }
 
  /**
-	 * Get mobile driver for current session
-	 * @return mobile driver for current session
+	 * float value generator
+	 * @param stringToBeConvertedToFloatValue
+	 * @return float value for a string by removing characters
 	 */ 
-def static "common.commonMethods.getCurrentSessionMobileDriver"() {
-    (new common.commonMethods()).getCurrentSessionMobileDriver()
+def static "common.commonMethods.floatValueGenerator"(
+    	String stringToBeConvertedToFloatValue	) {
+    (new common.commonMethods()).floatValueGenerator(
+        	stringToBeConvertedToFloatValue)
+}
+
+ /**
+	 * this function formats the decimal data for e.g 20.546 would be converted to 20.55 if decimalFormatRequired is 0.00
+	 * @param decimalDataToBeFormatted (decimal data required to be formatted), 
+	 * @param decimalFormatRequired (decimal format required for e.g 0.00 for rounding to 2 decimal places)
+	 * @return formattedDecimalData (formatted decimal data)
+	 */ 
+def static "common.commonMethods.formatDecimalData"(
+    	Object decimalDataToBeFormatted	
+     , 	String decimalFormatRequired	) {
+    (new common.commonMethods()).formatDecimalData(
+        	decimalDataToBeFormatted
+         , 	decimalFormatRequired)
 }
 
  /**
@@ -4305,6 +4313,13 @@ def static "iosDashboard.dashboardScreen.changeAccount"(
 }
 
  /**
+	 * opens audits tab where user can perform actions related to audits
+	 */ 
+def static "iosDashboard.dashboardScreen.clickOnAuditsTab"() {
+    (new iosDashboard.dashboardScreen()).clickOnAuditsTab()
+}
+
+ /**
 	 * opens home tab
 	 */ 
 def static "iosDashboard.dashboardScreen.clickOnHomeTab"() {
@@ -4326,6 +4341,13 @@ def static "iosDashboard.dashboardScreen.clickOnOrders"() {
 }
 
  /**
+	 * opens receiving tab
+	 */ 
+def static "iosDashboard.dashboardScreen.clickOnReceivingTab"() {
+    (new iosDashboard.dashboardScreen()).clickOnReceivingTab()
+}
+
+ /**
 	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at ordering
 	 */ 
 def static "iosDashboard.dashboardScreen.clickOnScanIcon"() {
@@ -4337,20 +4359,6 @@ def static "iosDashboard.dashboardScreen.clickOnScanIcon"() {
 	 */ 
 def static "iosDashboard.dashboardScreen.verifyDashboardScreen"() {
     (new iosDashboard.dashboardScreen()).verifyDashboardScreen()
-}
-
- /**
-	 * opens audits tab where user can perform actions related to audits
-	 */ 
-def static "iosDashboard.dashboardScreen.clickOnAuditsTab"() {
-    (new iosDashboard.dashboardScreen()).clickOnAuditsTab()
-}
-
- /**
-	 * opens receiving tab
-	 */ 
-def static "iosDashboard.dashboardScreen.clickOnReceivingTab"() {
-    (new iosDashboard.dashboardScreen()).clickOnReceivingTab()
 }
 
  /**
@@ -4831,38 +4839,12 @@ def static "api.apiCommonMethods.tokenGenerator"() {
 }
 
  /**
-	 * verifies bcs notification on the cart screen
+	 * copies topmost non c2 order to cart screen
+	 * verifies details related to order name, account name, lines count 
+	 * of the order which is at the top of the order list under saved orders
 	 */ 
-def static "iosOrders.bcsOrders.verifyBcsNotification"() {
-    (new iosOrders.bcsOrders()).verifyBcsNotification()
-}
-
- /**
-	 * opens the saved orders by tapping on the bcs notification
-	 */ 
-def static "iosOrders.bcsOrders.openSavedOrdersList"() {
-    (new iosOrders.bcsOrders()).openSavedOrdersList()
-}
-
- /**
-	 * verifies details related to saved orders listing screen
-	 */ 
-def static "iosOrders.bcsOrders.verifySavedOrdersListDetails"() {
-    (new iosOrders.bcsOrders()).verifySavedOrdersListDetails()
-}
-
- /**
-	 * verifies details related to saved orders listing screen
-	 */ 
-def static "iosOrders.bcsOrders.lookforC2Orders"() {
-    (new iosOrders.bcsOrders()).lookforC2Orders()
-}
-
- /**
-	 * verifies details related to c2 orders tile under orders listing screen
-	 */ 
-def static "iosOrders.bcsOrders.verifyC2RelatedDetailsForBCS"() {
-    (new iosOrders.bcsOrders()).verifyC2RelatedDetailsForBCS()
+def static "iosOrders.bcsOrders.copyAndVerifyTopMostOrderDetailsUnderSavedOrdersToCartScreen"() {
+    (new iosOrders.bcsOrders()).copyAndVerifyTopMostOrderDetailsUnderSavedOrdersToCartScreen()
 }
 
  /**
@@ -4873,28 +4855,38 @@ def static "iosOrders.bcsOrders.copyNonC2ProductFromSavedOrders"() {
 }
 
  /**
-	 * copies topmost non c2 order to cart screen
-	 * verifies details related to order name, account name, lines count 
-	 * of the order which is at the top of the order list under saved orders
+	 * verifies details related to saved orders listing screen
 	 */ 
-def static "iosOrders.bcsOrders.copyAndVerifyTopMostOrderDetailsUnderSavedOrdersToCartScreen"() {
-    (new iosOrders.bcsOrders()).copyAndVerifyTopMostOrderDetailsUnderSavedOrdersToCartScreen()
+def static "iosOrders.bcsOrders.lookforC2Orders"() {
+    (new iosOrders.bcsOrders()).lookforC2Orders()
 }
 
-
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
+ /**
+	 * opens the saved orders by tapping on the bcs notification
+	 */ 
+def static "iosOrders.bcsOrders.openSavedOrdersList"() {
+    (new iosOrders.bcsOrders()).openSavedOrdersList()
 }
 
+ /**
+	 * verifies bcs notification on the cart screen
+	 */ 
+def static "iosOrders.bcsOrders.verifyBcsNotification"() {
+    (new iosOrders.bcsOrders()).verifyBcsNotification()
+}
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
-    	TestObject testObject	
-     , 	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
-        	testObject
-         , 	testName)
+ /**
+	 * verifies details related to c2 orders tile under orders listing screen
+	 */ 
+def static "iosOrders.bcsOrders.verifyC2RelatedDetailsForBCS"() {
+    (new iosOrders.bcsOrders()).verifyC2RelatedDetailsForBCS()
+}
+
+ /**
+	 * verifies details related to saved orders listing screen
+	 */ 
+def static "iosOrders.bcsOrders.verifySavedOrdersListDetails"() {
+    (new iosOrders.bcsOrders()).verifySavedOrdersListDetails()
 }
 
 
@@ -4907,14 +4899,33 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
-    	String baselineName	
-     , 	String testName	
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
+    	TestObject testObject	
+     , 	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
+        	testObject
+         , 	testName)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
+    	String testName	
      , 	RectangleSize viewportSize	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpenWithBaseline(
-        	baselineName
-         , 	testName
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
+        	testName
          , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
 
 
@@ -4925,15 +4936,12 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
-    	String testName	
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
+    	String baselineName	
+     , 	String testName	
      , 	RectangleSize viewportSize	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpen(
-        	testName
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesOpenWithBaseline(
+        	baselineName
+         , 	testName
          , 	viewportSize)
 }

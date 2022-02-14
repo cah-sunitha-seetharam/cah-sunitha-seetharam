@@ -109,7 +109,7 @@ WebUI.delay(30)
 CustomKeywords.'iosOrders.historyScreen.clickOnHistoryTab'()
 
 'gets the final historyCount after review and sign of c2 order which should be one less than the initial count and stores value in the variable finalCount'
-int finalCount = Mobile.getText(findTestObject('iOS/Orders/History Screen/orderHistoryCount_Text'), 0).toInteger()
+int finalCount = Mobile.getText(findTestObject('iOS/Orders/historyScreen/orderHistoryCount_Text'), 0).toInteger()
 
 'asserts that the final historyCount should be one less than the initial historyCount after signing the password for c2order'
 assert finalCount == (initialCount - 1)

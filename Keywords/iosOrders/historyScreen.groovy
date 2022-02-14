@@ -47,24 +47,21 @@ class historyScreen {
 	def commonMethodsObject=new commonMethods();
 	def commonIosMethodsObject=new iosCommonKeywords.commonMethods();
 
-	@Keyword
-	def verifyHistoryScreenDetails() {
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/History Screen/orderHistory_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/History Screen/historyScreen_Header'),  0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/History Screen/scan_Icon'),0)
-	}
-
 	/**
-	 * returns quantity added
+	 * clicks on history tab button to open history tab in order history screen
 	 */
 	@Keyword
-	def returnQuantityForScannedResultInOfflineMode() {
-		String quantityAdded = Mobile.getText(findTestObject('iOS/Orders/History Screen/quantity_Text'), 0)
-	    return quantityAdded
+	def clickOnHistoryTab() {
+
+		Mobile.tap(findTestObject('iOS/orders/historyScreen/history_Text'), 0)
+
+		commonIosMethodsObject.waitForProgressBarToBeInvisible()
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/historyScreen/historyScreen_Header'),  0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/historyScreen/scan_Icon'),0)
 	}
+
 
 	/**
 	 * opens the c2 order details, verifies the order status labels and signIns the password required for placing c2 order
@@ -73,33 +70,33 @@ class historyScreen {
 	@Keyword
 	def completeReviewSignAndPlaceAnOrderFlow(String poNumber, String signingPassword) {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Create C2 Order/pONumber_Label',[('TEXT'):poNumber.toUpperCase()]), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/orderDetailsScreen/createC2Order/pONumber_Label',[('TEXT'):poNumber.toUpperCase()]), 0)
 
-		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Create C2 Order/pONumber_Label',[('TEXT'):poNumber.toUpperCase()]), 0)
-
-		commonIosMethodsObject.waitForProgressBarToBeInvisible()
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/orderStatus_Label'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/signNow_New_Button'), 0)
-
-		Mobile.tap(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/signNow_New_Button'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/signatureNeeded_Text'), 0)
-
-		Mobile.sendKeys(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/signInC2_TextField'), signingPassword)
-
-		Mobile.delay(3)
-
-		Mobile.sendKeys(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/signInC2_TextField'), Keys.chord(Keys.RETURN))
-
-		Mobile.delay(3)
-
-		Mobile.tap(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/placeOrder_Button'),0)
+		Mobile.tap(findTestObject('iOS/orders/orderDetailsScreen/createC2Order/pONumber_Label',[('TEXT'):poNumber.toUpperCase()]), 0)
 
 		commonIosMethodsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.tap(findTestObject('iOS/Orders/C2 Order Details Screen/Place C2 Order/goToOrderHistory_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/c2OrderDetailsScreen/placeC2Order/orderStatus_Label'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/c2OrderDetailsScreen/placeC2Order/signNow_New_Button'), 0)
+
+		Mobile.tap(findTestObject('iOS/orders/c2OrderDetailsScreen/placeC2Order/signNow_New_Button'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/c2OrderDetailsScreen/placeC2Order/signatureNeeded_Text'), 0)
+
+		Mobile.sendKeys(findTestObject('iOS/orders/c2OrderDetailsScreen/placeC2Order/signInC2_TextField'), signingPassword)
+
+		Mobile.delay(3)
+
+		Mobile.sendKeys(findTestObject('iOS/orders/c2OrderDetailsScreen/placeC2Order/signInC2_TextField'), Keys.chord(Keys.RETURN))
+
+		Mobile.delay(3)
+
+		Mobile.tap(findTestObject('iOS/orders/c2OrderDetailsScreen/placeC2Order/placeOrder_Button'),0)
+
+		commonIosMethodsObject.waitForProgressBarToBeInvisible()
+
+		Mobile.tap(findTestObject('iOS/orders/c2OrderDetailsScreen/placeC2Order/goToOrderHistory_Button'), 0)
 
 		commonIosMethodsObject.waitForProgressBarToBeInvisible()
 	}
@@ -107,36 +104,52 @@ class historyScreen {
 
 
 	/**
-	 * clicks on history tab button to open history tab in order history screen
+	 * returns quantity added
 	 */
 	@Keyword
-	def clickOnHistoryTab() {
-
-		Mobile.tap(findTestObject('iOS/Orders/History Screen/history_Text'), 0)
-
-		commonIosMethodsObject.waitForProgressBarToBeInvisible()
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/History Screen/historyScreen_Header'),  0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/History Screen/scan_Icon'),0)
+	def returnQuantityForScannedResultInOfflineMode() {
+		String quantityAdded = Mobile.getText(findTestObject('iOS/orders/historyScreen/quantity_Text'), 0)
+		return quantityAdded
 	}
+
+
 
 	/**
 	 * returns po number of an top most order 
 	 */
 	@Keyword
 	def returnTopMostPoNumberOfAnOrder () {
-		String PoNumberOfAnOrder = Mobile.getText(findTestObject('Object Repository/iOS/Orders/History Screen/poNumber_Text'), 0)
+		String PoNumberOfAnOrder = Mobile.getText(findTestObject('iOS/orders/historyScreen/poNumber_Text'), 0)
 		return PoNumberOfAnOrder
 	}
+
+
 
 	/**
 	 * opens top most order in order history
 	 */
 	@Keyword
 	def tapOnTopMostOrderHistory(String poNumber) {
-		Mobile.tap(findTestObject('iOS/Orders/History Screen/PONumberLabel_Text', [('TEXT'):poNumber]), 0)
+		Mobile.tap(findTestObject('iOS/orders/historyScreen/PONumberLabel_Text', [('TEXT'):poNumber]), 0)
 	}
+
+
+
+	/**
+	 * verifies history screen when user creates an order
+	 */
+	@Keyword
+	def verifyHistoryScreenDetails() {
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/historyScreen/orderHistory_Text'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/historyScreen/historyScreen_Header'),  0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/historyScreen/scan_Icon'),0)
+	}
+
+
+
 
 	/**
 	 * verifies order status changes from held to allocated 30 seconds after successfully placing the signed order
@@ -144,31 +157,32 @@ class historyScreen {
 	@Keyword
 	def verifyOrderStatusInOrderHistoryList(String poNumber) {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/History Screen/orderStatusAfterPlacingOrder_Label'),  0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/historyScreen/orderStatusAfterPlacingOrder_Label'),  0)
 
-		String orderStatusInHistoryScreen = Mobile.getText(findTestObject('iOS/Orders/History Screen/orderStatusAfterPlacingOrder_Label'), 0)
+		String orderStatusInHistoryScreen = Mobile.getText(findTestObject('iOS/orders/historyScreen/orderStatusAfterPlacingOrder_Label'), 0)
 
 		assert orderStatusInHistoryScreen.contains("Allocated")
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/Order Details Screen/Create C2 Order/pONumber_Label',[('TEXT'):poNumber.toUpperCase()]), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/orderDetailsScreen/createC2Order/pONumber_Label',[('TEXT'):poNumber.toUpperCase()]), 0)
 
-		Mobile.tap(findTestObject('iOS/Orders/Order Details Screen/Create C2 Order/pONumber_Label',[('TEXT'):poNumber.toUpperCase()]), 0)
+		Mobile.tap(findTestObject('iOS/orders/orderDetailsScreen/createC2Order/pONumber_Label',[('TEXT'):poNumber.toUpperCase()]), 0)
 
 		commonIosMethodsObject.waitForProgressBarToBeInvisible()
 
-		String orderStatusInOrderDetailsScreen = Mobile.getText(findTestObject('iOS/Orders/History Screen/orderStatusInOrderDetails_Label'), 0)
+		String orderStatusInOrderDetailsScreen = Mobile.getText(findTestObject('iOS/orders/historyScreen/orderStatusInOrderDetails_Label'), 0)
 
 		assert orderStatusInOrderDetailsScreen.contains("Allocated")
 	}
-	
-	
+
+
+
 	/**
 	 * verifies PO Number in order history screen
 	 */
 	@Keyword
 	def verifyPoNumberInOrderHistoryList(String poNumber) {
 
-		String PoNumberOfAnOrder = Mobile.getText(findTestObject('iOS/Orders/History Screen/poNumber_Text'), 0)
+		String PoNumberOfAnOrder = Mobile.getText(findTestObject('iOS/orders/historyScreen/poNumber_Text'), 0)
 		KeywordUtil.logInfo("Actual PO number is " + poNumber );
 		KeywordUtil.logInfo("Expected PO number is " + PoNumberOfAnOrder );
 		assert PoNumberOfAnOrder == ("PO #: "+poNumber)

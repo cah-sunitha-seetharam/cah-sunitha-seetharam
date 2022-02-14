@@ -47,10 +47,10 @@ class selectAnAccount {
 	@Keyword
 	def selectTheUserAccount(String accountNo) {
 
-		if (Mobile.waitForElementPresent(findTestObject('iOS/Account Selection/youMustSelectAnAccountToContinue_Text'), 20, FailureHandling.OPTIONAL)) {
+		if (Mobile.waitForElementPresent(findTestObject('iOS/accountSelection/youMustSelectAnAccountToContinue_Text'), 20, FailureHandling.OPTIONAL)) {
 			Mobile.scrollToText(accountNo, FailureHandling.STOP_ON_FAILURE)
 
-			Mobile.tap(findTestObject('iOS/Account Selection/AccountNo_Text', [('val') : accountNo]), 0)
+			Mobile.tap(findTestObject('iOS/accountSelection/AccountNo_Text', [('val') : accountNo]), 0)
 		}
 	}
 }

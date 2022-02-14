@@ -53,43 +53,16 @@ import org.openqa.selenium.Point
 import io.appium.java_client.InteractsWithApps
 
 class commonMethods {
-	
-	def platformName = MobileDriverFactory.getDevicePlatform()
-	
-	MobileElement element
-	
-	/**
-	 * float value generator
-	 * @param stringToBeConvertedToFloatValue
-	 * @return float value for a string by removing characters
-	 */
-	@Keyword
-	def floatValueGenerator(String stringToBeConvertedToFloatValue) {
-		int counter=0
-		while(stringToBeConvertedToFloatValue[counter]!='0' && stringToBeConvertedToFloatValue[counter]!='1' && stringToBeConvertedToFloatValue[counter]!='2' && stringToBeConvertedToFloatValue[counter]!='3' && stringToBeConvertedToFloatValue[counter]!='4' && stringToBeConvertedToFloatValue[counter]!='5' && stringToBeConvertedToFloatValue[counter]!='6' && stringToBeConvertedToFloatValue[counter]!='7' && stringToBeConvertedToFloatValue[counter]!='8' && stringToBeConvertedToFloatValue[counter]!='9' ) {
-			counter++
-		}
-		String stringWithoutCharacters=stringToBeConvertedToFloatValue.substring(counter)
-		float stringWithoutCharactersFloatValue=Float.parseFloat(stringWithoutCharacters)
-		return stringWithoutCharactersFloatValue
-	}
-
 
 	/**
-	 * this function formats the decimal data for e.g 20.546 would be converted to 20.55 if decimalFormatRequired is 0.00
-	 * @param decimalDataToBeFormatted (decimal data required to be formatted), 
-	 * @param decimalFormatRequired (decimal format required for e.g 0.00 for rounding to 2 decimal places)
-	 * @return formattedDecimalData (formatted decimal data)
+	 * Get mobile driver for current session
+	 * @return mobile driver for current session
 	 */
 	@Keyword
-	def formatDecimalData(decimalDataToBeFormatted, String decimalFormatRequired) {
-		DecimalFormat decimalFormat=new DecimalFormat (decimalFormatRequired);
-		decimalFormat.setRoundingMode(RoundingMode.UP) //rounding mode set to UP
-		String formattedDecimalData=decimalFormat.format(decimalDataToBeFormatted) //storing formatted value in the variable formattedDecimalData
-		KeywordUtil.logInfo(formattedDecimalData)
-		return formattedDecimalData // returns formattedDecimalData
-	}
 
+	def static WebDriver getCurrentSessionMobileDriver() {
+		return MobileDriverFactory.getDriver();
+	}
 
 	/**
 	 * random alpha numeric String Generator 
@@ -104,6 +77,7 @@ class commonMethods {
 		}
 		return randomStringValue
 	}
+
 	/**
 	 * Read JSON file 
 	 * @param file name, Note: data files are considered to be on Data files location on project directory  
@@ -126,17 +100,43 @@ class commonMethods {
 		return jsonObject
 	}
 
+
+	def platformName = MobileDriverFactory.getDevicePlatform()
+
+
+	MobileElement element
 	/**
-	 * Get mobile driver for current session
-	 * @return mobile driver for current session
+	 * float value generator
+	 * @param stringToBeConvertedToFloatValue
+	 * @return float value for a string by removing characters
 	 */
 	@Keyword
-
-	def static WebDriver getCurrentSessionMobileDriver() {
-		return MobileDriverFactory.getDriver();
+	def floatValueGenerator(String stringToBeConvertedToFloatValue) {
+		int counter=0
+		while(stringToBeConvertedToFloatValue[counter]!='0' && stringToBeConvertedToFloatValue[counter]!='1' && stringToBeConvertedToFloatValue[counter]!='2' && stringToBeConvertedToFloatValue[counter]!='3' && stringToBeConvertedToFloatValue[counter]!='4' && stringToBeConvertedToFloatValue[counter]!='5' && stringToBeConvertedToFloatValue[counter]!='6' && stringToBeConvertedToFloatValue[counter]!='7' && stringToBeConvertedToFloatValue[counter]!='8' && stringToBeConvertedToFloatValue[counter]!='9' ) {
+			counter++
+		}
+		String stringWithoutCharacters=stringToBeConvertedToFloatValue.substring(counter)
+		float stringWithoutCharactersFloatValue=Float.parseFloat(stringWithoutCharacters)
+		return stringWithoutCharactersFloatValue
 	}
 
-	
+	/**
+	 * this function formats the decimal data for e.g 20.546 would be converted to 20.55 if decimalFormatRequired is 0.00
+	 * @param decimalDataToBeFormatted (decimal data required to be formatted), 
+	 * @param decimalFormatRequired (decimal format required for e.g 0.00 for rounding to 2 decimal places)
+	 * @return formattedDecimalData (formatted decimal data)
+	 */
+	@Keyword
+	def formatDecimalData(decimalDataToBeFormatted, String decimalFormatRequired) {
+		DecimalFormat decimalFormat=new DecimalFormat (decimalFormatRequired);
+		decimalFormat.setRoundingMode(RoundingMode.UP) //rounding mode set to UP
+		String formattedDecimalData=decimalFormat.format(decimalDataToBeFormatted) //storing formatted value in the variable formattedDecimalData
+		KeywordUtil.logInfo(formattedDecimalData)
+		return formattedDecimalData // returns formattedDecimalData
+	}
+
+
 	/**
 	 * removes existing app 
 	 * @param bundleId of the App
@@ -146,9 +146,9 @@ class commonMethods {
 		InteractsWithApps driver = MobileDriverFactory.getDriver()
 		driver.removeApp(bundleID)
 	}
-	
 
-	
+
+
 	/**
 	 * verifies element colour by taking a screenshot and comparing with colour of specific pixels
 	 * @param expectedRedIntensity
@@ -161,19 +161,17 @@ class commonMethods {
 
 		'mobile driver value of the current session'
 		AppiumDriver<?> driver =  commonMethods.getCurrentSessionMobileDriver()
-		
+
 		if(platformName == 'Android') {
-			
+
 			'locate the element by passing the locator strategy that can be of users choice'
-			 element = (MobileElement) driver.findElement(By.id("${locatorOfTheElement}"))
-			 
+			element = (MobileElement) driver.findElement(By.id("${locatorOfTheElement}"))
 		} else {
-			
+
 			'locate the element by passing the locator strategy that can be of users choice'
 			element = (MobileElement) driver.findElement(By.name("${locatorOfTheElement}"))
-			
 		}
-		
+
 		'gets the center coordinates'
 		Point point = element.getCenter()
 
@@ -205,8 +203,5 @@ class commonMethods {
 		assert actualRedIntensity==expectedRedIntensity
 		assert actualGreenIntensity==expectedGreenIntensity
 		assert actualBlueIntensity==expectedBlueIntensity
-	
-
-		
 	}
 }
