@@ -127,7 +127,7 @@ class BeforeAfterListeners {
 				CustomKeywords.'androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS'()// enables beta features
 			}
 
-			if (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Password_TextField'),2, FailureHandling.OPTIONAL)) //if login session expired and user is back to the login screen
+			if (Mobile.verifyElementExist(findTestObject('Android/login/loginDetailsScreen/password_TextField'),2, FailureHandling.OPTIONAL)) //if login session expired and user is back to the login screen
 			{
 				androidCommonMethodsObject.takeUserFromloginToHomeScreen(GlobalVariable.Username, GlobalVariable.Password,GlobalVariable.Account)  // Invoking the Environment selection and login method
 

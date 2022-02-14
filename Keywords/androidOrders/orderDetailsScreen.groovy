@@ -741,7 +741,7 @@ class orderDetailsScreen {
 	def add_ALternate_Product(String Product_Name,String Quantity) {
 		int w = 1
 
-		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
+		while (Mobile.verifyElementExist(findTestObject('Android/login/loginDetailsScreen/progress_Bar'), w, FailureHandling.OPTIONAL)) {
 			WebUI.delay(w)
 		}
 
@@ -749,13 +749,13 @@ class orderDetailsScreen {
 
 		Mobile.setText(findTestObject('Android/Product Search/Search Products_SearchView'), Product_Name + '\\n',0)
 
-		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
+		while (Mobile.verifyElementExist(findTestObject('Android/login/loginDetailsScreen/progress_Bar'), w, FailureHandling.OPTIONAL)) {
 			WebUI.delay(w)
 		}
 
 		Mobile.setText(findTestObject('Android/Product Search/Quantity_TextField'), Quantity, 0)
 
-		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
+		while (Mobile.verifyElementExist(findTestObject('Android/login/loginDetailsScreen/progress_Bar'), w, FailureHandling.OPTIONAL)) {
 			WebUI.delay(w)
 		}
 

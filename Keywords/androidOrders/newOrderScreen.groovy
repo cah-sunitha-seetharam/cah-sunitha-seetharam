@@ -46,15 +46,15 @@ class newOrderScreen {
 
 		Mobile.tap(findTestObject('Android/Dashboard/changeAccount_Button'), 0)
 
-		Mobile.tap(findTestObject('Android/Account Selection/ChangeAccount_TextView'), 0)
+		Mobile.tap(findTestObject('Android/accountSelection/ChangeAccount_TextView'), 0)
 
 		Mobile.scrollToText(New_Account, FailureHandling.STOP_ON_FAILURE)
 
-		Mobile.tap(findTestObject('Android/Account Selection/Accounts Listing Screen/Account_No', [('val') : New_Account]), 0)
+		Mobile.tap(findTestObject('Android/accountSelection/Accounts Listing Screen/Account_No', [('val') : New_Account]), 0)
 
 		int w = 1
 
-		while (Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/Progress_Bar'), w, FailureHandling.OPTIONAL)) {
+		while (Mobile.verifyElementExist(findTestObject('Android/login/loginDetailsScreen/progress_Bar'), w, FailureHandling.OPTIONAL)) {
 			WebUI.delay(w)
 		}
 	}
@@ -66,9 +66,9 @@ class newOrderScreen {
 	@Keyword
 	def changeAccount(String accountNo) {
 		Mobile.tap(findTestObject('Android/Dashboard/changeAccount_Button'), 0)
-		Mobile.tap(findTestObject('Android/Account Selection/ChangeAccount_TextView'), 0)
+		Mobile.tap(findTestObject('Android/accountSelection/ChangeAccount_TextView'), 0)
 		Mobile.scrollToText(accountNo, FailureHandling.STOP_ON_FAILURE)
-		Mobile.tap(findTestObject('Android/Account Selection/AccountNo_TextView',[('val') : accountNo]), 0)
+		Mobile.tap(findTestObject('Android/accountSelection/accountNo_TextView',[('val') : accountNo]), 0)
 	}
 	
 	

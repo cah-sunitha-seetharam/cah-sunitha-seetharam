@@ -1778,7 +1778,9 @@ def static "iosLogin.loginScreen.selectTypeOfTesting"() {
     (new iosLogin.loginScreen()).selectTypeOfTesting()
 }
 
-
+ /**
+	 * Edit location Name
+	 */ 
 def static "androidInventory.locationDetailsScreen.editLocationName"(
     	String newLocationName	
      , 	String costType	
@@ -1789,7 +1791,9 @@ def static "androidInventory.locationDetailsScreen.editLocationName"(
          , 	previousName)
 }
 
-
+ /**
+	 * add product to the inventory
+	 */ 
 def static "androidInventory.locationDetailsScreen.addProductToLocation"(
     	String locationName	
      , 	String productName	
@@ -1800,21 +1804,27 @@ def static "androidInventory.locationDetailsScreen.addProductToLocation"(
          , 	quantity)
 }
 
-
+ /**
+	 * Move product to the another location
+	 */ 
 def static "androidInventory.locationDetailsScreen.move_Product_To_Another_Location"(
-    	String Location_Name	) {
+    	String location_Name	) {
     (new androidInventory.locationDetailsScreen()).move_Product_To_Another_Location(
-        	Location_Name)
+        	location_Name)
 }
 
-
+ /**
+	 * Copy product to the another location
+	 */ 
 def static "androidInventory.locationDetailsScreen.copy_Product_To_Another_Location"(
-    	String Location_Name	) {
+    	String location_Name	) {
     (new androidInventory.locationDetailsScreen()).copy_Product_To_Another_Location(
-        	Location_Name)
+        	location_Name)
 }
 
-
+ /**
+	 * Delete product from inventory
+	 */ 
 def static "androidInventory.locationDetailsScreen.delete_Product"() {
     (new androidInventory.locationDetailsScreen()).delete_Product()
 }
@@ -1826,16 +1836,20 @@ def static "androidInventory.locationDetailsScreen.uploadLocation"() {
     (new androidInventory.locationDetailsScreen()).uploadLocation()
 }
 
-
+ /**
+	 * Share lcoation
+	 */ 
 def static "androidInventory.locationDetailsScreen.share_Location"() {
     (new androidInventory.locationDetailsScreen()).share_Location()
 }
 
-
+ /**
+	 * Verify and validate location details
+	 */ 
 def static "androidInventory.locationDetailsScreen.verify_Location_details_Screen"(
-    	String Location_Name	) {
+    	String location_Name	) {
     (new androidInventory.locationDetailsScreen()).verify_Location_details_Screen(
-        	Location_Name)
+        	location_Name)
 }
 
  /**
@@ -4896,19 +4910,19 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
     	TestObject testObject	
      , 	String testName	) {
     (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
         	testObject
          , 	testName)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
 }
 
 
@@ -4926,13 +4940,6 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	
      , 	String testName	
@@ -4941,4 +4948,11 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
 }

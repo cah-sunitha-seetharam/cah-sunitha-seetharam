@@ -50,11 +50,11 @@ class moreOptionsScreen {
 
 		Mobile.tap(findTestObject('Android/Dashboard/changeAccount_Button'), 0)
 
-		Mobile.tap(findTestObject('Android/Account Selection/ChangeAccount_TextView'), 0)
+		Mobile.tap(findTestObject('Android/accountSelection/ChangeAccount_TextView'), 0)
 
 		Mobile.scrollToText(accountNo, FailureHandling.STOP_ON_FAILURE)
 
-		Mobile.tap(findTestObject('Android/Account Selection/Accounts Listing Screen/Account_No', [('val') : accountNo]), 0)
+		Mobile.tap(findTestObject('Android/accountSelection/Accounts Listing Screen/Account_No', [('val') : accountNo]), 0)
 	}
 
 	/**
@@ -107,7 +107,7 @@ class moreOptionsScreen {
 	@Keyword()
 	def goToInventoryListingScreen() {
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Verification Details/openInventory_TextView'), 0)
+		Mobile.tap(findTestObject('Android/inventory/inventoryListingScreen/verificationDetails/openInventory_TextView'), 0)
 	}
 
 

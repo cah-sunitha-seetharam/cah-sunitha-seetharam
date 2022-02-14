@@ -533,7 +533,7 @@ class receivingReusableMethods {
 	 */
 	@Keyword
 	def testFunction() {
-		//Mobile.tap(findTestObject('Android/Login/Environment Selection Screen/Environment_Spinner'), 0)
+		//Mobile.tap(findTestObject('Android/login/Environment Selection Screen/Environment_Spinner'), 0)
 		//Mobile.tap((makeTOwithXPath("com.cardinalhealth.orderexpress.two.debug:id/serverLocationSpinner")), 0)
 		// DriverFactory.getWebDriver().findElements(By.id("com.cardinalhealth.orderexpress.two.debug:id/serverLocationSpinner"));
 
@@ -545,7 +545,7 @@ class receivingReusableMethods {
 		String testProfile=RunConfiguration.getExecutionProfile()
 		KeywordUtil.logInfo(testProfile)
 
-		Mobile.tap(findTestObject('Android/Login/Environment Selecttion Screen/environment_Spinner',[('appPackage'):GlobalVariable.appPackage]), 0)
+		Mobile.tap(findTestObject('Android/login/environmentSelectionScreen/environment_Spinner',[('appPackage'):GlobalVariable.appPackage]), 0)
 
 	}
 

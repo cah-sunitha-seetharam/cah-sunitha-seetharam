@@ -53,9 +53,9 @@ class inventoryDetailsScreen {
 	def addCostType(String costType) {
 
 		if (costType == 'Last Cost Paid') {
-			Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/lastCostPaid_RadioButton'), 0)
+			Mobile.tap(findTestObject('Android/inventory/inventoryDetailScreen/addLocation/lastCostPaid_RadioButton'), 0)
 		} else {
-			Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/currentPrice_RadioButton'), 0)
+			Mobile.tap(findTestObject('Android/inventory/inventoryDetailScreen/addLocation/currentPrice_RadioButton'), 0)
 		}
 	}
 
@@ -68,15 +68,15 @@ class inventoryDetailsScreen {
 	@Keyword
 	def addLocation(String locationName, String costType) {
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/addLocation_TextView'), 0)
+		Mobile.tap(findTestObject('Android/inventory/inventoryDetailScreen/addLocation/addLocation_TextView'), 0)
 
-		Mobile.setText(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/locationName_TextField'), locationName,  0)
+		Mobile.setText(findTestObject('Android/inventory/inventoryDetailScreen/addLocation/locationName_TextField'), locationName,  0)
 
 		addCostType(costType)
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/createNewLocation_Button'), 0)
+		Mobile.tap(findTestObject('Android/inventory/inventoryDetailScreen/addLocation/createNewLocation_Button'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/createdLocation_TextView', [('TEXT') : locationName]),0, FailureHandling.OPTIONAL)
+		Mobile.verifyElementExist(findTestObject('Android/inventory/inventoryDetailScreen/verificationDetails/createdLocation_TextView', [('TEXT') : locationName]),0, FailureHandling.OPTIONAL)
 	}
 
 
@@ -87,15 +87,15 @@ class inventoryDetailsScreen {
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.tapAndHold(findTestObject('Android/Inventory/Location Details Screen/Edit_Location/Edit_TextView'), 0,0)
+		Mobile.tapAndHold(findTestObject('Android/inventory/locationDetailsScreen/editLocation/Edit_TextView'), 0,0)
 
-		Mobile.clearText(findTestObject('Android/Inventory/Inventory Detail Screen/Edit Inventory/inventoryToBeEdited_TextField',[('Inv_Name') : previousName]),0)
+		Mobile.clearText(findTestObject('Android/inventory/inventoryDetailScreen/editInventory/inventoryToBeEdited_TextField',[('Inv_Name') : previousName]),0)
 
 		WebUI.delay(2)
 
-		Mobile.setText(findTestObject('Android/Inventory/Inventory Detail Screen/Edit Inventory/inventoryName_TextField'), newInventoryName,0)
+		Mobile.setText(findTestObject('Android/inventory/inventoryDetailScreen/editInventory/inventoryName_TextField'), newInventoryName,0)
 
-		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Edit_Location/saveChanges_Button'), 0)
+		Mobile.tap(findTestObject('Android/inventory/locationDetailsScreen/editLocation/saveChanges_Button'), 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 	}
@@ -107,7 +107,7 @@ class inventoryDetailsScreen {
 	@Keyword
 	def clickOnLocation(String locationName) {
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/openLocation_TextView',[('Location') : locationName]), 0)
+		Mobile.tap(findTestObject('Android/inventory/inventoryDetailScreen/verificationDetails/openLocation_TextView',[('Location') : locationName]), 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 	}
@@ -117,8 +117,8 @@ class inventoryDetailsScreen {
 	@Keyword
 	def searchAndAddProductByCreatingNewLocation(String locationName, String productName,String costType, String quantity) {
 
-		if (Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/createdLocation_TextView', [('TEXT') : locationName]),4, FailureHandling.OPTIONAL)) {
-			Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/createdLocation_TextView', [('TEXT') : locationName]), 0)
+		if (Mobile.verifyElementExist(findTestObject('Android/inventory/inventoryDetailScreen/verificationDetails/createdLocation_TextView', [('TEXT') : locationName]),4, FailureHandling.OPTIONAL)) {
+			Mobile.tap(findTestObject('Android/inventory/inventoryDetailScreen/verificationDetails/createdLocation_TextView', [('TEXT') : locationName]), 0)
 		}
 
 		Mobile.tap(findTestObject('Android/Product Search/Search Products_SearchView'), 0,FailureHandling.OPTIONAL)
@@ -133,23 +133,23 @@ class inventoryDetailsScreen {
 
 		Mobile.tap(findTestObject('Android/Product Search/Add to Inventory_Button'), 0)
 
-		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Move Product to Another Location/createANewLocation_TextView'), 0)
+		Mobile.tap(findTestObject('Android/inventory/locationDetailsScreen/moveProductToAnotherLocation/createANewLocation_TextView'), 0)
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/locationName_TextField'), 0)
+		Mobile.tap(findTestObject('Android/inventory/inventoryDetailScreen/addLocation/locationName_TextField'), 0)
 
-		Mobile.setText(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/locationName_TextField'), locationName,  0)
+		Mobile.setText(findTestObject('Android/inventory/inventoryDetailScreen/addLocation/locationName_TextField'), locationName,  0)
 
 		addCostType(costType)
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/createNewLocation_Button'), 0)
+		Mobile.tap(findTestObject('Android/inventory/inventoryDetailScreen/addLocation/createNewLocation_Button'), 0)
 
-		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Copy Product to Another Location/Select_location_RadioButton'), 0)
+		Mobile.tap(findTestObject('Android/inventory/locationDetailsScreen/copyProductToAnotherLocation/Select_location_RadioButton'), 0)
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Product to Inventory using Search from Dashoboard/addToInventory_Button'), 0)
+		Mobile.tap(findTestObject('Android/inventory/inventoryDetailScreen/addProductToInventoryUsingSearchFromDashoboard/addToInventory_Button'), 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
-		
-		Mobile.tapAndHold(findTestObject('Android/Inventory/Location Details Screen/Add Product to_Location/goToLocationAfterAddingProduct_TextView',[('Location') : locationName]) ,0,0)
+
+		Mobile.tapAndHold(findTestObject('Android/inventory/locationDetailsScreen/addProductToLocation/goToLocationAfterAddingProduct_TextView',[('Location') : locationName]) ,0,0)
 	}
 
 
@@ -158,13 +158,13 @@ class inventoryDetailsScreen {
 	@Keyword
 	def verifyInventoryDetailsScreen(String inventoryName) {
 
-		Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/createdOnDate_TextView'),0)
+		Mobile.verifyElementExist(findTestObject('Android/inventory/inventoryDetailScreen/verificationDetails/createdOnDate_TextView'),0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/inventoryHeader_TextView'),0)
+		Mobile.verifyElementExist(findTestObject('Android/inventory/inventoryDetailScreen/verificationDetails/inventoryHeader_TextView'),0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/Scan_Icon'),0)
+		Mobile.verifyElementExist(findTestObject('Android/inventory/inventoryDetailScreen/verificationDetails/scan_Icon'),0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/inventoryName_TextView',[('TEXT'):inventoryName]),0)
+		Mobile.verifyElementExist(findTestObject('Android/inventory/inventoryDetailScreen/verificationDetails/inventoryName_TextView',[('TEXT'):inventoryName]),0)
 	}
 
 	/**
@@ -174,11 +174,11 @@ class inventoryDetailsScreen {
 	@Keyword
 	def deleteLocationWithCostLocationCountVerification(String locationName) {
 
-		int initialInventoryLocationCount=Mobile.getText(findTestObject('Android/Inventory/Location Details Screen/Verification Details/inventoryLine_Text'), 0)// initial inventory location count
+		int initialInventoryLocationCount=Mobile.getText(findTestObject('Android/inventory/locationDetailsScreen/verificationDetails/inventoryLine_Text'), 0)// initial inventory location count
 
-		String initialInventoryTotal=Mobile.getText(findTestObject('Android/Inventory/Location Details Screen/Verification Details/inventoryTotal_Text'), 0)// inventory value with location added
+		String initialInventoryTotal=Mobile.getText(findTestObject('Android/inventory/locationDetailsScreen/verificationDetails/inventoryTotal_Text'), 0)// inventory value with location added
 
-		String locationValue=Mobile.getText(findTestObject('Android/Inventory/Location Details Screen/Verification Details/locationValue_Text'), 0)//location value with added product
+		String locationValue=Mobile.getText(findTestObject('Android/inventory/locationDetailsScreen/verificationDetails/locationValue_Text'), 0)//location value with added product
 
 		float inventoryTotal_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(initialInventoryTotal)//converting initialInventoryTotal string to a float value
 
@@ -188,9 +188,9 @@ class inventoryDetailsScreen {
 
 		commonMethodsObject.pressBacknav()
 
-		int finalInventoryLocationCount=Mobile.getText(findTestObject('Android/Inventory/Location Details Screen/Verification Details/noOfLocation_Text'), 0)//final inventory location count after deleting a location
+		int finalInventoryLocationCount=Mobile.getText(findTestObject('Android/inventory/locationDetailsScreen/verificationDetails/noOfLocation_Text'), 0)//final inventory location count after deleting a location
 
-		String finalInventoryTotal=Mobile.getText(findTestObject('Android/Inventory/Location Details Screen/Verification Details/Inventory_locationValue_Text'), 0)//final inventory total after deleting a location
+		String finalInventoryTotal=Mobile.getText(findTestObject('Android/inventory/locationDetailsScreen/verificationDetails/inventoryLocationValue_Text'), 0)//final inventory total after deleting a location
 
 		float finalInventoryTotal_charactersRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(finalInventoryTotal)///converting finalInventoryTotal string to a float value
 
@@ -215,29 +215,29 @@ class inventoryDetailsScreen {
 	@Keyword
 	def deleteLocation(String locationName) {
 
-		int ElementTopPosition = Mobile.getElementTopPosition(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/tapOnLocation_Text', [('Location') : locationName]), 0)
+		int elementTopPosition = Mobile.getElementTopPosition(findTestObject('Android/inventory/inventoryDetailScreen/addLocation/tapOnLocation_Text', [('Location') : locationName]), 0)
 
-		int ElementHeight=Mobile.getElementHeight(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/tapOnLocation_Text', [('Location') : locationName]), 0)
+		int elementHeight=Mobile.getElementHeight(findTestObject('Android/inventory/inventoryDetailScreen/addLocation/tapOnLocation_Text', [('Location') : locationName]), 0)
 
-		int y_Coordinate=(ElementHeight/2)+ElementTopPosition
+		int y_Coordinate=(elementHeight/2)+elementTopPosition
 
-		int ElementLeftPosition=Mobile.getElementLeftPosition(findTestObject('Android/Inventory/Location Details Screen/Delete Location/slidePopUpForLocationDeletion_Button'), 0)
+		int elementLeftPosition=Mobile.getElementLeftPosition(findTestObject('Android/inventory/locationDetailsScreen/deleteLocation/slidePopUpForLocationDeletion_Button'), 0)
 
-		int ElementWidth=Mobile.getElementWidth(findTestObject('Android/Inventory/Location Details Screen/Delete Location/slidePopUpForLocationDeletion_Button'), 0)
+		int elementWidth=Mobile.getElementWidth(findTestObject('Android/inventory/locationDetailsScreen/deleteLocation/slidePopUpForLocationDeletion_Button'), 0)
 
-		int x_Coordinate=(ElementWidth/2)+ElementLeftPosition
+		int x_Coordinate=(elementWidth/2)+elementLeftPosition
 
 		Mobile.tapAtPosition(x_Coordinate, y_Coordinate)
 
-		Mobile.tap(	findTestObject('Android/Inventory/Inventory Listing Screen/Delete Inventory/delete_Button'), 0)
+		Mobile.tap(	findTestObject('Android/inventory/inventoryListingScreen/deleteInventory/delete_Button'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Inventory/Location Details Screen/Delete Location/selectingYesWillAlsoDeleteThisLocationsInventoryOnTheWebsiteAndCannotBeUndone_Text'),0)
+		Mobile.verifyElementExist(findTestObject('Android/inventory/locationDetailsScreen/deleteLocation/selectingYesWillAlsoDeleteThisLocationsInventoryOnTheWebsiteAndCannotBeUndone_Text'),0)
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Create New Inventory_Screen/yes_Button'), 0)
+		Mobile.tap(findTestObject('Android/inventory/inventoryListingScreen/createNewInventoryScreen/yes_Button'), 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.verifyElementNotVisible(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/locationNameVerification_Text', [('LName') : locationName]),0)
+		Mobile.verifyElementNotVisible(findTestObject('Android/inventory/inventoryDetailScreen/addLocation/locationNameVerification_Text', [('LName') : locationName]),0)
 	}
 
 
@@ -265,25 +265,25 @@ class inventoryDetailsScreen {
 		'calling the function which adds quantity required for a product to be added and takes quantity required as the argument'
 		(new androidInventory.locationDetailsScreen()).addQuantityforTheSearchedProduct(quantity)
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Product to Inventory using Search from Inventory Details Screen/addItemFromAlternate_Button'), 0)
+		Mobile.tap(findTestObject('Android/inventory/inventoryDetailScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/addItemFromAlternate_Button'), 0)
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Product to Inventory using Search from Inventory Details Screen/createLocation_Label'), 0)
+		Mobile.tap(findTestObject('Android/inventory/inventoryDetailScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/createLocation_Label'), 0)
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Product to Inventory using Search from Inventory Details Screen/locationName_Button'), 0)
+		Mobile.tap(findTestObject('Android/inventory/inventoryDetailScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/locationName_Button'), 0)
 
-		Mobile.setText(findTestObject('Android/Inventory/Inventory Detail Screen/Add Product to Inventory using Search from Inventory Details Screen/locationName_TextField'), locationName, 0)
+		Mobile.setText(findTestObject('Android/inventory/inventoryDetailScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/locationName_TextField'), locationName, 0)
 
 		(new androidInventory.inventoryDetailsScreen()).addCostType(costType)
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Product to Inventory using Search from Inventory Details Screen/createNewLocation_Button'), 0)
+		Mobile.tap(findTestObject('Android/inventory/inventoryDetailScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/createNewLocation_Button'), 0)
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Product to Inventory using Search from Inventory Details Screen/createdLocation_Text',[('TEXT'):locationName]), 0)
+		Mobile.tap(findTestObject('Android/inventory/inventoryDetailScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/createdLocation_Text',[('TEXT'):locationName]), 0)
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Product to Inventory using Search from Inventory Details Screen/location_RadioButton'), 0)
+		Mobile.tap(findTestObject('Android/inventory/inventoryDetailScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/location_RadioButton'), 0)
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Product to Inventory using Search from Inventory Details Screen/addToInventory_Button'), 0)
+		Mobile.tap(findTestObject('Android/inventory/inventoryDetailScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/addToInventory_Button'), 0)
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Product to Inventory using Search from Inventory Details Screen/goToLocation_button'), 0)
+		Mobile.tap(findTestObject('Android/inventory/inventoryDetailScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/goToLocation_button'), 0)
 	}
 
 
@@ -294,7 +294,7 @@ class inventoryDetailsScreen {
 	@Keyword
 	def verifyProductIsVisibleOnScreenWhenSearchedFromInventoryDetailsScreen(productIdentificationNumber) {
 
-		String testObj='Android/Inventory/Inventory Detail Screen/Add Product to Inventory using Search from Inventory Details Screen/alternateNDC_Text'
+		String testObj='Android/inventory/inventoryDetailScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/alternateNDC_Text'
 
 		(new androidCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(testObj,productIdentificationNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
 
@@ -307,7 +307,7 @@ class inventoryDetailsScreen {
 	@Keyword
 	def clickOnALocation(String locationName) {
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Detail Screen/Add Location/tapOnLocation_Text', [('Location') : locationName]), 0)
+		Mobile.tap(findTestObject('Android/inventory/inventoryDetailScreen/addLocation/tapOnLocation_Text', [('Location') : locationName]), 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 	}
@@ -319,7 +319,7 @@ class inventoryDetailsScreen {
 	@Keyword
 	def verifyLocationCount(String expectedLocationCount) {
 
-		String actualLocationCount=Mobile.getText(findTestObject('Android/Inventory/Location Details Screen/Verification Details/inventoryLine_Text'),0) //gets the actual Location Count on the inventory details page
+		String actualLocationCount=Mobile.getText(findTestObject('Android/inventory/locationDetailsScreen/verificationDetails/inventoryLine_Text'),0) //gets the actual Location Count on the inventory details page
 
 		assert actualLocationCount==expectedLocationCount //actual location count has to be equal to expected lines count
 

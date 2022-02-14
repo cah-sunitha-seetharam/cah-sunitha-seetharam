@@ -53,11 +53,11 @@ import org.openqa.selenium.Point
 import io.appium.java_client.InteractsWithApps
 
 class commonMethods {
-	
+
 	def platformName = MobileDriverFactory.getDevicePlatform()
-	
+
 	MobileElement element
-	
+
 	/**
 	 * float value generator
 	 * @param stringToBeConvertedToFloatValue
@@ -136,7 +136,7 @@ class commonMethods {
 		return MobileDriverFactory.getDriver();
 	}
 
-	
+
 	/**
 	 * removes existing app 
 	 * @param bundleId of the App
@@ -146,9 +146,9 @@ class commonMethods {
 		InteractsWithApps driver = MobileDriverFactory.getDriver()
 		driver.removeApp(bundleID)
 	}
-	
 
-	
+
+
 	/**
 	 * verifies element colour by taking a screenshot and comparing with colour of specific pixels
 	 * @param expectedRedIntensity
@@ -161,19 +161,17 @@ class commonMethods {
 
 		'mobile driver value of the current session'
 		AppiumDriver<?> driver =  commonMethods.getCurrentSessionMobileDriver()
-		
+
 		if(platformName == 'Android') {
-			
+
 			'locate the element by passing the locator strategy that can be of users choice'
-			 element = (MobileElement) driver.findElement(By.id("${locatorOfTheElement}"))
-			 
+			element = (MobileElement) driver.findElement(By.id("${locatorOfTheElement}"))
 		} else {
-			
+
 			'locate the element by passing the locator strategy that can be of users choice'
 			element = (MobileElement) driver.findElement(By.name("${locatorOfTheElement}"))
-			
 		}
-		
+
 		'gets the center coordinates'
 		Point point = element.getCenter()
 
@@ -205,8 +203,5 @@ class commonMethods {
 		assert actualRedIntensity==expectedRedIntensity
 		assert actualGreenIntensity==expectedGreenIntensity
 		assert actualBlueIntensity==expectedBlueIntensity
-	
-
-		
 	}
 }

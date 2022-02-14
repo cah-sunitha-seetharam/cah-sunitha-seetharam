@@ -44,9 +44,6 @@ class inventoryListingScreen {
 
 	def commonMethodsObject=new commonMethods();
 
-
-
-
 	/**
 	 * deletes the inventory from the inventory listing screen
 	 * @param inventoryName (inventory name of the inventory which needs to be deleted)
@@ -64,13 +61,13 @@ class inventoryListingScreen {
 
 		Mobile.tapAtPosition(x_Coordinate, y_Coordinate)
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Delete Inventory/Delete_Button'), 0)
+		Mobile.tap(findTestObject('Android/inventory/inventoryListingScreen/deleteInventory/Delete_Button'), 0)
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Delete Inventory/Yes_Button'), 0)
+		Mobile.tap(findTestObject('Android/inventory/inventoryListingScreen/deleteInventory/Yes_Button'), 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.verifyElementNotVisible(findTestObject('Android/Inventory/Inventory Detail Screen/Open Inventory Details/openInventory_Text', [('TEXT') : inventoryName]),0)
+		Mobile.verifyElementNotVisible(findTestObject('Android/inventory/inventoryDetailScreen/openInventoryDetails/openInventory_Text', [('TEXT') : inventoryName]),0)
 	}
 
 	/**
@@ -85,12 +82,12 @@ class inventoryListingScreen {
 
 		Mobile.tap(findTestObject('Android/Dashboard/changeAccount_Button'), 0)
 
-		Mobile.tap(findTestObject('Android/Account Selection/ChangeAccount_TextView'), 0)
+		Mobile.tap(findTestObject('Android/accountSelection/ChangeAccount_TextView'), 0)
 
-		while (Mobile.verifyElementNotVisible(findTestObject('Android/Account Selection/AccountNo_TextView',[('val') : new_Account]), 2, FailureHandling.OPTIONAL)) {
+		while (Mobile.verifyElementNotVisible(findTestObject('Android/accountSelection/accountNo_TextView',[('val') : new_Account]), 2, FailureHandling.OPTIONAL)) {
 			Mobile.swipe(600, 800, 600, 300)
 		}
-		Mobile.tap(findTestObject('Android/Account Selection/AccountNo_TextView',[('val') : new_Account]), 0)
+		Mobile.tap(findTestObject('Android/accountSelection/accountNo_TextView',[('val') : new_Account]), 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 	}
@@ -104,17 +101,17 @@ class inventoryListingScreen {
 	@Keyword
 	def createInventory(String inventoryName) {
 
-		if (Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Listing Screen/Verification Details/createInventory_TextView'), 4, FailureHandling.OPTIONAL)) {
-			Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Verification Details/createInventory_TextView'), 4, FailureHandling.OPTIONAL)
+		if (Mobile.verifyElementExist(findTestObject('Android/inventory/inventoryListingScreen/verificationDetails/createInventory_TextView'), 4, FailureHandling.OPTIONAL)) {
+			Mobile.tap(findTestObject('Android/inventory/inventoryListingScreen/verificationDetails/createInventory_TextView'), 4, FailureHandling.OPTIONAL)
 		}
 		else {
-			Mobile.tapAndHold(findTestObject('Android/Inventory/Inventory Listing Screen/Create New Inventory_Screen/createNewInventory_Tab'),0,0)
+			Mobile.tapAndHold(findTestObject('Android/inventory/inventoryListingScreen/createNewInventoryScreen/createNewInventory_Tab'),0,0)
 		}
-		Mobile.tapAndHold(findTestObject('Android/Inventory/Inventory Listing Screen/Create New Inventory_Screen/inventoryName_TextField'), 0,0)
+		Mobile.tapAndHold(findTestObject('Android/inventory/inventoryListingScreen/createNewInventoryScreen/inventoryName_TextField'), 0,0)
 
-		Mobile.setText(findTestObject('Android/Inventory/Inventory Listing Screen/Create New Inventory_Screen/inventoryName_TextField'), inventoryName,0)
+		Mobile.setText(findTestObject('Android/inventory/inventoryListingScreen/createNewInventoryScreen/inventoryName_TextField'), inventoryName,0)
 
-		Mobile.tap(findTestObject('Android/Inventory/Inventory Listing Screen/Create New Inventory_Screen/createInventory_Button'), 0)
+		Mobile.tap(findTestObject('Android/inventory/inventoryListingScreen/createNewInventoryScreen/createInventory_Button'), 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 	}
@@ -126,8 +123,8 @@ class inventoryListingScreen {
 	@Keyword
 	def verify_Inventory_Listing_Screen() {
 
-		Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Listing Screen/Verification Details/letsGetStartedWithYourInventory_TextView'),0)
+		Mobile.verifyElementExist(findTestObject('Android/inventory/inventoryListingScreen/verificationDetails/letsGetStartedWithYourInventory_TextView'),0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Inventory/Inventory Detail Screen/Verification Details/inventoryHeader_TextView'),0)
+		Mobile.verifyElementExist(findTestObject('Android/inventory/inventoryDetailScreen/verificationDetails/inventoryHeader_TextView'),0)
 	}
 }
