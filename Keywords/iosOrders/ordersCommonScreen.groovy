@@ -47,45 +47,17 @@ class ordersCommonScreen {
 
 
 	/**
-	 * takes user to new order screen where user can input purchase order details and can create an order
-	 */
-	@Keyword
-	def clickOnNewOrder() {
-
-		Mobile.tap(findTestObject('iOS/Orders/Orders Common Screen/newOrder_Tab'), 0)
-	}
-
-
-
-
-	@Keyword
-	def clickOnHistoryTab() {
-
-		Mobile.tap(	findTestObject('iOS/Orders/Orders Common Screen/History Page_Tab'), 0)
-	}
-
-
-
-	@Keyword
-	def clickOnCartTab() {
-
-		Mobile.tap(findTestObject('iOS/Orders/Orders Common Screen/cartScreen_Tab'), 0)
-	}
-
-
-
-	/**
 	 * deletes all orders from nonc2 and c2 order tab
 	 */
 	@Keyword
 	def clearAllOrders() {
 		int counter=1,waitLimit=20,elementHeight,elementTopPosition,yCoordinateToSwipe//waitLimit of 20s
-		if(Mobile.verifyElementNotVisible(findTestObject('Object Repository/iOS/Dashboard/Verification/homeBottomNavigationTab_Bar'), 2,FailureHandling.OPTIONAL))
+		if(Mobile.verifyElementNotVisible(findTestObject('iOS/dashboard/verification/homeBottomNavigationTab_Bar'), 2,FailureHandling.OPTIONAL))
 		{
-			Mobile.tap(findTestObject('Object Repository/iOS/Orders/Cart Screen/Delete Order/ok_Button'), 0,FailureHandling.OPTIONAL)
+			Mobile.tap(findTestObject('iOS/orders/cartScreen/deleteOrder/ok_Button'), 0,FailureHandling.OPTIONAL)
 			commonMethodObject.goOneScreenBack()
 		}
-		while(Mobile.verifyElementNotVisible(findTestObject('iOS/Orders/Orders Common Screen/cartScreen_Tab'), 2,FailureHandling.OPTIONAL))
+		while(Mobile.verifyElementNotVisible(findTestObject('iOS/orders/ordersCommonScreen/cartScreen_Tab'), 2,FailureHandling.OPTIONAL))
 		{
 			dashboardObject.clickOnOrders()
 			counter+=1
@@ -94,7 +66,7 @@ class ordersCommonScreen {
 		}
 		clickOnCartTab()
 		(new iosOrders.cartScreen()).clickOnNonC2Orders()
-		String testObj='Object Repository/iOS/Orders/Cart Screen/orderListCell_View'
+		String testObj='Object Repository/iOS/orders/cartScreen/nonC2OrderDetails/orderListCell_View'
 		if(Mobile.verifyElementExist(findTestObject(testObj), 2,FailureHandling.OPTIONAL))
 		{
 			elementHeight=Mobile.getElementHeight(findTestObject(testObj), 2,FailureHandling.CONTINUE_ON_FAILURE)
@@ -104,7 +76,7 @@ class ordersCommonScreen {
 		while(Mobile.verifyElementExist(findTestObject(testObj), 2,FailureHandling.OPTIONAL)) //deletes orders under nonc2 orders tab
 		{
 			Mobile.swipe(1300, yCoordinateToSwipe, 0, yCoordinateToSwipe)
-			Mobile.tapAndHold(findTestObject('iOS/Orders/Cart Screen/Delete Order/OK_Button'), 0, 0)
+			Mobile.tapAndHold(findTestObject('iOS/orders/cartScreen/deleteOrder/ok_Button'), 0, 0)
 			commonMethodObject.waitForProgressBarToBeInvisible()
 			counter+=1
 			if(counter>waitLimit)
@@ -112,7 +84,7 @@ class ordersCommonScreen {
 		}
 		(new iosOrders.cartScreen()).clickOnC2Orders()
 		counter=1
-		while(Mobile.verifyElementExist(findTestObject('iOS/Orders/Cart Screen/c2Order_View'), 2,FailureHandling.OPTIONAL)) //deletes orders under c2 orders tab
+		while(Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/c2OrderDetails/c2Order_View'), 2,FailureHandling.OPTIONAL)) //deletes orders under c2 orders tab
 		{
 			(new iosOrders.cartScreen()).deleteC2Order()
 			commonMethodObject.waitForProgressBarToBeInvisible()
@@ -120,6 +92,38 @@ class ordersCommonScreen {
 			if(counter>waitLimit)
 				break
 		}
+	}
+
+
+
+	/**
+	 * takes user to order screen where user can input purchase order details and can create an order
+	 */
+	@Keyword
+	def clickOnCartTab() {
+
+		Mobile.tap(findTestObject('iOS/orders/ordersCommonScreen/cartScreen_Tab'), 0)
+	}
+
+
+	/**
+	 * takes user to history screen where user can input purchase order details and can create an order
+	 */
+	@Keyword
+	def clickOnHistoryTab() {
+
+		Mobile.tap(	findTestObject('iOS/orders/ordersCommonScreen/historyScreen_Tab'), 0)
+	}
+
+
+
+	/**
+	 * takes user to new order screen where user can input purchase order details and can create an order
+	 */
+	@Keyword
+	def clickOnNewOrder() {
+
+		Mobile.tap(findTestObject('iOS/orders/ordersCommonScreen/newOrder_Tab'), 0)
 	}
 
 }

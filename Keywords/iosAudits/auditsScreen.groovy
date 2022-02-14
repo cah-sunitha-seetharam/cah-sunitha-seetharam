@@ -29,7 +29,7 @@ public class auditsScreen {
 
 	def commonMethodsObject=new commonMethods();
 	def commonIosMethodsObject=new iosCommonKeywords.commonMethods();
-	
+
 
 	/**
 	 * this function changes account from change account navigation in the audits landing Screen
@@ -38,51 +38,18 @@ public class auditsScreen {
 	def change_Account(String new_Account) {
 
 		//Mobile.tap(findTestObject('iOS/Account_Selection/changeAccount_Text'), 0)
-		
-		commonIosMethodsObject.waitForProgressBarToBeInvisible()
-		
-		Mobile.tapAndHold(findTestObject('iOS/Account Selection/changeAccount_Button'), 0,0)
 
-		Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Navigation'), 0)
+		commonIosMethodsObject.waitForProgressBarToBeInvisible()
+
+		Mobile.tapAndHold(findTestObject('iOS/accountSelection/changeAccount_Button'), 0,0)
+
+		Mobile.tap(findTestObject('iOS/accountSelection/changeAccount_Navigation'), 0)
 
 		Mobile.scrollToText(new_Account, FailureHandling.STOP_ON_FAILURE)
 
-		Mobile.tap(findTestObject('iOS/Account Selection/accountNo_Text', [('val') : new_Account]), 0)
+		Mobile.tap(findTestObject('iOS/accountSelection/accountNo_Text', [('val') : new_Account]), 0)
 
 		commonIosMethodsObject.waitForProgressBarToBeInvisible()
-	}
-
-
-	/**
-	 * this function verifies the audits landing Screen
-	 */
-	@Keyword
-	def verifyAuditsLandingScreen() {
-
-		Mobile.verifyElementExist(findTestObject('iOS/Audits/auditProgressMsg_Label'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Audits/auditScreen_Header'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Audits/submitCompletedGroups_Button'), 0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Account Selection/changeAccount_Button'), 0)
-
-	}
-
-
-	/**
-	 * this function verifies the audits landing Screen
-	 */
-	@Keyword
-	def closeChangeAccountPrompt() {
-
-		if (Mobile.verifyElementVisible(findTestObject('iOS/Account Selection/changeAccount_Button'), 0) &&
-		Mobile.verifyElementVisible(findTestObject('iOS/Account Selection/changeAccount_Navigation'), 0)) {
-
-			Mobile.tap(findTestObject('iOS/Account Selection/changeAccount_Button'), 0)
-
-		}
-
 	}
 
 
@@ -92,11 +59,11 @@ public class auditsScreen {
 	@Keyword
 	def clickOnQuantityBox() {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Audits/quantityBox_First'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/audits/quantityBox_First'), 0)
 
-		Mobile.tap(findTestObject('iOS/Audits/quantityBox_First'), 0)
+		Mobile.tap(findTestObject('iOS/audits/quantityBox_First'), 0)
 
-		String nameOfTheElement = Mobile.getAttribute(findTestObject('iOS/Audits/quantityBox_First'), 'name', 0)
+		String nameOfTheElement = Mobile.getAttribute(findTestObject('iOS/audits/quantityBox_First'), 'name', 0)
 
 		KeywordUtil.logInfo(nameOfTheElement)
 
@@ -105,15 +72,63 @@ public class auditsScreen {
 		commonMethodsObject.verifyElementColor(241, 1, 40, nameOfTheElement) //light green with hex code #92ffa1 - device
 	}
 
+
 	/**
-	 * this function performs long press on quantity count box
+	 * this function verifies the audits landing Screen
 	 */
 	@Keyword
-	def longPressOnQuantityBox() {
+	def closeChangeAccountPrompt() {
 
-		Mobile.longPress(findTestObject('iOS/Audits/quantityBox_First'), 0)
+		if (Mobile.verifyElementVisible(findTestObject('iOS/accountSelection/changeAccount_Button'), 0) &&
+		Mobile.verifyElementVisible(findTestObject('iOS/accountSelection/changeAccount_Navigation'), 0)) {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Audits/editCountScreen_ProductDetails'), 0)
+			Mobile.tap(findTestObject('iOS/accountSelection/changeAccount_Button'), 0)
+		}
+	}
+
+
+	/**
+	 * gets final count value
+	 * taps on confirmAuditCount button
+	 * returns the final count value
+	 */
+	@Keyword
+	def confirmAuditCount() {
+
+		int count = Mobile.getText(findTestObject('iOS/audits/editCount_Textbox'),0).toInteger()
+
+		KeywordUtil.logInfo("Count is: " + count)
+
+		Mobile.tap(findTestObject('iOS/audits/confirmCount_Button'), 0)
+
+		return count
+	}
+
+	/**
+	 * verifies initial count value
+	 * taps on - button
+	 * verifies the count is decreased
+	 */
+	@Keyword
+	def decreaseCount() {
+
+		Mobile.tap(findTestObject('iOS/audits/incrementQuantinty_Button'), 0)
+
+		int Count = Mobile.getText(findTestObject('iOS/audits/editCount_Textbox'),0).toInteger()
+
+		KeywordUtil.logInfo("Initial Count is:" + Count)
+
+		Mobile.tap(findTestObject('iOS/audits/decrementQuantity_Button'), 0)
+
+		int decreaseCountCount = Mobile.getText(findTestObject('iOS/audits/editCount_Textbox'),0).toInteger()
+
+		KeywordUtil.logInfo("After tapping" + decreaseCountCount)
+
+		int valueOfeachCount = Count - decreaseCountCount
+
+		KeywordUtil.logInfo("valueOfeachCount is" + valueOfeachCount)
+
+		assert decreaseCountCount == (Count - valueOfeachCount)
 	}
 
 
@@ -125,13 +140,13 @@ public class auditsScreen {
 	@Keyword
 	def increaseCount() {
 
-		int Count = Mobile.getText(findTestObject('iOS/Audits/editCount_Textbox'),0).toInteger()
+		int Count = Mobile.getText(findTestObject('iOS/audits/editCount_Textbox'),0).toInteger()
 
 		KeywordUtil.logInfo("Initial Count is:" + Count)
 
-		Mobile.tap(findTestObject('iOS/Audits/incrementQuantinty_Button'), 0)
+		Mobile.tap(findTestObject('iOS/audits/incrementQuantinty_Button'), 0)
 
-		int increasedCount = Mobile.getText(findTestObject('iOS/Audits/editCount_Textbox'),0).toInteger()
+		int increasedCount = Mobile.getText(findTestObject('iOS/audits/editCount_Textbox'),0).toInteger()
 
 		KeywordUtil.logInfo("After tapping" + increasedCount)
 
@@ -143,49 +158,71 @@ public class auditsScreen {
 	}
 
 	/**
-	 * verifies initial count value
-	 * taps on - button
-	 * verifies the count is decreased
+	 * this function performs long press on quantity count box
 	 */
 	@Keyword
-	def decreaseCount() {
+	def longPressOnQuantityBox() {
 
-		Mobile.tap(findTestObject('iOS/Audits/incrementQuantinty_Button'), 0)
+		Mobile.longPress(findTestObject('iOS/audits/quantityBox_First'), 0)
 
-		int Count = Mobile.getText(findTestObject('iOS/Audits/editCount_Textbox'),0).toInteger()
-
-		KeywordUtil.logInfo("Initial Count is:" + Count)
-
-		Mobile.tap(findTestObject('iOS/Audits/decrementQuantity_Button'), 0)
-
-		int decreaseCountCount = Mobile.getText(findTestObject('iOS/Audits/editCount_Textbox'),0).toInteger()
-
-		KeywordUtil.logInfo("After tapping" + decreaseCountCount)
-
-		int valueOfeachCount = Count - decreaseCountCount
-
-		KeywordUtil.logInfo("valueOfeachCount is" + valueOfeachCount)
-
-		assert decreaseCountCount == (Count - valueOfeachCount)
+		Mobile.verifyElementExist(findTestObject('iOS/audits/editCountScreen_ProductDetails'), 0)
 	}
 
 	/**
-	 * gets final count value
-	 * taps on confirmAuditCount button
-	 * returns the final count value
+	 * taps on all the quantity boxes for a product
 	 */
 	@Keyword
-	def confirmAuditCount() {
+	def selectAllQuantityBoxes() {
 
-		int count = Mobile.getText(findTestObject('iOS/Audits/editCount_Textbox'),0).toInteger()
+		String noOfItem = Mobile.getText(findTestObject('iOS/audits/auditProductCount_Text'), 0)
 
-		KeywordUtil.logInfo("Count is: " + count)
+		String noOfItemValue = noOfItem.charAt(2)
 
-		Mobile.tap(findTestObject('iOS/Audits/confirmCount_Button'), 0)
+		int itemValue = noOfItemValue.toInteger()
 
-		return count
+		'Swipe Vertical from top to bottom'
+		Mobile.swipe(187, 300, 187, 200)
+
+		for (int i = 1; i <= itemValue; i++) {
+
+			Mobile.longPress(findTestObject('iOS/audits/auditOnHand_Label', ['val': i] ), 0)
+
+			increaseCount()
+
+			confirmAuditCount()
+
+			Mobile.delay(2)
+		}
 	}
 
+
+	/**
+	 * verifies the submit completed groups button and taps on it
+	 */
+	@Keyword
+	def submitCompletedGroups() {
+
+		Mobile.verifyElementExist(findTestObject('iOS/audits/submitCompletedGroups_Button'), 0)
+
+		Mobile.tap(findTestObject('iOS/audits/submitCompletedGroups_Button'), 0)
+
+		Mobile.delay(2)
+	}
+
+	/**
+	 * this function verifies the audits landing Screen
+	 */
+	@Keyword
+	def verifyAuditsLandingScreen() {
+
+		Mobile.verifyElementExist(findTestObject('iOS/audits/auditProgressMsg_Label'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/audits/auditScreen_Header'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/audits/submitCompletedGroups_Button'), 0)
+
+		Mobile.verifyElementExist(findTestObject('iOS/accountSelection/changeAccount_Button'), 0)
+	}
 
 	/**
 	 * verifies the final count value with the audit list count
@@ -193,51 +230,10 @@ public class auditsScreen {
 	@Keyword
 	def verifyQuantity(int quantity) {
 
-		int count = Mobile.getText(findTestObject('iOS/Audits/auditQuantity_Label'),0).toInteger()
+		int count = Mobile.getText(findTestObject('iOS/audits/auditQuantity_Label'),0).toInteger()
 
 		KeywordUtil.logInfo("Count is: " + count)
 
 		assert count == quantity
 	}
-	
-	/**
-	 * taps on all the quantity boxes for a product
-	 */
-	@Keyword
-	def selectAllQuantityBoxes() {
-		
-		String noOfItem = Mobile.getText(findTestObject('iOS/Audits/auditProductCount_Text'), 0)
-		
-		String noOfItemValue = noOfItem.charAt(2)
-		
-		int itemValue = noOfItemValue.toInteger()
-		
-	   'Swipe Vertical from top to bottom'
-		Mobile.swipe(187, 300, 187, 200)
-		
-		for (int i = 1; i <= itemValue; i++) {
-			
-			Mobile.longPress(findTestObject('iOS/Audits/auditOnHand_Label', ['val': i] ), 0)
-		
-			increaseCount()
-			
-			confirmAuditCount()
-			
-			Mobile.delay(2)
-		}
-	}
-	
-	/**
-	 * verifies the submit completed groups button and taps on it
-	 */
-	@Keyword
-	def submitCompletedGroups() {
-
-		Mobile.verifyElementExist(findTestObject('iOS/Audits/submitCompletedGroups_Button'), 0)
-		
-		Mobile.tap(findTestObject('iOS/Audits/submitCompletedGroups_Button'), 0)
-		
-		Mobile.delay(2)
-	}
-
 }

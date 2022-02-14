@@ -43,34 +43,52 @@ class bcsOrders {
 
 	def iosCommonKeywordsObject=new iosCommonKeywords.commonMethods()
 	/**
-	 * verifies bcs notification on the cart screen
+	 * copies topmost non c2 order to cart screen
+	 * verifies details related to order name, account name, lines count 
+	 * of the order which is at the top of the order list under saved orders
 	 */
 	@Keyword
-	def verifyBcsNotification() {
+	def copyAndVerifyTopMostOrderDetailsUnderSavedOrdersToCartScreen() {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/BCS/youHaveSavedOrderExpressOrdersTapToView_Text'), 0, 0)
+		String orderName1=Mobile.getText(findTestObject('iOS/orders/backupCartSync/savedOrdersOrderNameLabel_Text'), 0)
+		String linesCount1=Mobile.getText(findTestObject('iOS/orders/backupCartSync/savedOrdersLinesLabel_Text'), 0)
+		String cost1=Mobile.getText(findTestObject('iOS/orders/backupCartSync/savedOrdersAmountLabel_Text'), 0)
+
+
+		copyNonC2ProductFromSavedOrders()
+		iosCommonKeywordsObject.waitForProgressBarToBeInvisible()
+
+		String orderName2=Mobile.getText(findTestObject('iOS/orders/backupCartSync/cartScreenOrderNameLabel_Text'), 0)
+		String cost2=Mobile.getText(findTestObject('iOS/orders/backupCartSync/cartScreenAmountLabel_Text'), 0)
+		String linesCount2=Mobile.getText(findTestObject('iOS/orders/backupCartSync/cartScreenLinesLabel_Text'), 0)
+
+		Float.parseFloat(linesCount1.replaceAll("[^0-9.]", ""))
+		Float.parseFloat(linesCount2.replaceAll("[^0-9.]", ""))
+
+
+		assert orderName1==orderName2
+		assert cost1==cost2
+		assert linesCount1==linesCount2
 	}
 
 
 	/**
-	 * opens the saved orders by tapping on the bcs notification
+	 * copies a non c2 order from saved orders to the cart screen and verifies details related to copy button
 	 */
 	@Keyword
-	def openSavedOrdersList() {
+	def copyNonC2ProductFromSavedOrders() {
 
-		Mobile.tapAndHold(findTestObject('iOS/Orders/BCS/youHaveSavedOrderExpressOrdersTapToView_Text'), 0, 0)
-	}
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/orders/backupCartSync/copyOrdersToMobile_Button'), 'enabled','false',0)
 
+		Mobile.tap(findTestObject('iOS/orders/backupCartSync/check_Button'), 0)
 
-	/**
-	 * verifies details related to saved orders listing screen
-	 */
-	@Keyword
-	def verifySavedOrdersListDetails() {
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/orders/backupCartSync/copyOrdersToMobile_Button'), 'enabled','true',0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/BCS/headerLabel_Text'), 0)
+		Mobile.tapAndHold(findTestObject('iOS/orders/backupCartSync/copyOrdersToMobile_Button'),0,0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/BCS/lastUpdateLabel_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/backupCartSync/backToSavedOrders_Text'), 0)
+
+		Mobile.tap(findTestObject('iOS/orders/backupCartSync/goToCart_Text'), 0)
 	}
 
 
@@ -85,6 +103,26 @@ class bcsOrders {
 
 
 	/**
+	 * opens the saved orders by tapping on the bcs notification
+	 */
+	@Keyword
+	def openSavedOrdersList() {
+
+		Mobile.tapAndHold(findTestObject('iOS/orders/backupCartSync/youHaveSavedOrderExpressOrdersTapToView_Text'), 0, 0)
+	}
+
+
+	/**
+	 * verifies bcs notification on the cart screen
+	 */
+	@Keyword
+	def verifyBcsNotification() {
+
+		Mobile.verifyElementExist(findTestObject('iOS/orders/backupCartSync/youHaveSavedOrderExpressOrdersTapToView_Text'), 0, 0)
+	}
+
+
+	/**
 	 * verifies details related to c2 orders tile under orders listing screen
 	 */
 	@Keyword
@@ -92,10 +130,10 @@ class bcsOrders {
 
 		Mobile.scrollToText("C2 orders are unavailable to copy to mobile")
 
-		String yCoordinate=Mobile.getAttribute(findTestObject('iOS/Orders/BCS/orderTile'), 'y',0)
-		String elementHeight =Mobile.getElementHeight(findTestObject('iOS/Orders/BCS/orderTile'), 0)
-		String elementLeftPosition =Mobile.getElementLeftPosition(findTestObject('iOS/Orders/BCS/orderTile'), 0)
-		String elementWidth =Mobile.getElementWidth(findTestObject('iOS/Orders/BCS/orderTile'), 0)
+		String yCoordinate=Mobile.getAttribute(findTestObject('iOS/orders/backupCartSync/orderTile'), 'y',0)
+		String elementHeight =Mobile.getElementHeight(findTestObject('iOS/orders/backupCartSync/orderTile'), 0)
+		String elementLeftPosition =Mobile.getElementLeftPosition(findTestObject('iOS/orders/backupCartSync/orderTile'), 0)
+		String elementWidth =Mobile.getElementWidth(findTestObject('iOS/orders/backupCartSync/orderTile'), 0)
 
 		KeywordUtil.logInfo(yCoordinate)
 		KeywordUtil.logInfo(elementWidth)
@@ -107,59 +145,21 @@ class bcsOrders {
 		int xmaxBoundaryCoordinate=xminBoundaryCoordinate+elementWidth.toInteger()
 		int ymaxBoundaryCoordinate=yminBoundaryCoordinate+elementHeight.toInteger()
 
-		Mobile.verifyElementNotVisible(findTestObject('iOS/Orders/BCS/parametrizedSavedOrdersAmountLabel_Text',[('TEXT_1'):xminBoundaryCoordinate,('TEXT_2'):yminBoundaryCoordinate,('TEXT_3'):xmaxBoundaryCoordinate,('TEXT_4'):ymaxBoundaryCoordinate]), 5)
-		Mobile.verifyElementNotVisible(findTestObject('iOS/Orders/BCS/parametrisedCheck_Button',[('TEXT_1'):xminBoundaryCoordinate,('TEXT_2'):yminBoundaryCoordinate,('TEXT_3'):xmaxBoundaryCoordinate,('TEXT_4'):ymaxBoundaryCoordinate]), 5)
-		Mobile.verifyElementAttributeValue(findTestObject('iOS/Orders/BCS/copyOrdersToMobile_Button'), 'enabled','false',0)
-	}
-
-
-	/**
-	 * copies a non c2 order from saved orders to the cart screen and verifies details related to copy button
-	 */
-	@Keyword
-	def copyNonC2ProductFromSavedOrders() {
-
-		Mobile.verifyElementAttributeValue(findTestObject('iOS/Orders/BCS/copyOrdersToMobile_Button'), 'enabled','false',0)
-
-		Mobile.tap(findTestObject('iOS/Orders/BCS/check_Button'), 0)
-
-		Mobile.verifyElementAttributeValue(findTestObject('iOS/Orders/BCS/copyOrdersToMobile_Button'), 'enabled','true',0)
-
-		Mobile.tapAndHold(findTestObject('iOS/Orders/BCS/copyOrdersToMobile_Button'),0,0)
-
-		Mobile.verifyElementExist(findTestObject('iOS/Orders/BCS/backToSavedOrders_Text'), 0)
-
-		Mobile.tap(findTestObject('iOS/Orders/BCS/goToCart_Text'), 0)
+		Mobile.verifyElementNotVisible(findTestObject('iOS/orders/backupCartSync/parametrizedSavedOrdersAmountLabel_Text',[('TEXT_1'):xminBoundaryCoordinate,('TEXT_2'):yminBoundaryCoordinate,('TEXT_3'):xmaxBoundaryCoordinate,('TEXT_4'):ymaxBoundaryCoordinate]), 5)
+		Mobile.verifyElementNotVisible(findTestObject('iOS/orders/backupCartSync/parametrisedCheck_Button',[('TEXT_1'):xminBoundaryCoordinate,('TEXT_2'):yminBoundaryCoordinate,('TEXT_3'):xmaxBoundaryCoordinate,('TEXT_4'):ymaxBoundaryCoordinate]), 5)
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/orders/backupCartSync/copyOrdersToMobile_Button'), 'enabled','false',0)
 	}
 
 
 
 	/**
-	 * copies topmost non c2 order to cart screen
-	 * verifies details related to order name, account name, lines count 
-	 * of the order which is at the top of the order list under saved orders
+	 * verifies details related to saved orders listing screen
 	 */
 	@Keyword
-	def copyAndVerifyTopMostOrderDetailsUnderSavedOrdersToCartScreen() {
+	def verifySavedOrdersListDetails() {
 
-		String orderName1=Mobile.getText(findTestObject('iOS/Orders/BCS/savedOrdersOrderNameLabel_Text'), 0)
-		String linesCount1=Mobile.getText(findTestObject('iOS/Orders/BCS/savedOrdersLinesLabel_Text'), 0)
-		String cost1=Mobile.getText(findTestObject('iOS/Orders/BCS/savedOrdersAmountLabel_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/backupCartSync/headerLabel_Text'), 0)
 
-
-		copyNonC2ProductFromSavedOrders()
-		iosCommonKeywordsObject.waitForProgressBarToBeInvisible()
-
-		String orderName2=Mobile.getText(findTestObject('iOS/Orders/BCS/cartScreenOrderNameLabel_Text'), 0)
-		String cost2=Mobile.getText(findTestObject('iOS/Orders/BCS/cartScreenAmountLabel_Text'), 0)
-		String linesCount2=Mobile.getText(findTestObject('iOS/Orders/BCS/cartScreenLinesLabel_Text'), 0)
-
-		Float.parseFloat(linesCount1.replaceAll("[^0-9.]", ""))
-		Float.parseFloat(linesCount2.replaceAll("[^0-9.]", ""))
-
-
-		assert orderName1==orderName2
-		assert cost1==cost2
-		assert linesCount1==linesCount2
+		Mobile.verifyElementExist(findTestObject('iOS/orders/backupCartSync/lastUpdateLabel_Text'), 0)
 	}
 }

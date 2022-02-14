@@ -42,166 +42,44 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 class orderDetailsScreen {
 
 	/**
-	 * uploads the order 
+	 * adds alternate product
+	 * @param productName (name of the product)
+	 * @param quantity (quantity of the product)
 	 */
-	@Keyword
-	def upload_Order() {
-
-		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Upload Order/Upload Order_button'), 0)
+	@Keyword()
+	def addAlternateProduct(String productName,String quantity) {
+		Mobile.tap(findTestObject('Android/productSearch/searchProductsSearchView_EditText'), 0)
+		Mobile.setText(findTestObject('Android/productSearch/searchProductsSearchView_EditText'), productName + '\\n',0)
+		Mobile.setText(findTestObject('Android/productSearch/Quantity_TextField'), quantity, 0)
+		Mobile.tap(findTestObject('Android/productSearch/alternatesList_TextView'), 0)
+		Mobile.tap(findTestObject('Android/productSearch/addAlternateToOrder_Button'), 0)
+		Mobile.tap(findTestObject('Android/productSearch/continueOrdering_Button'),0)
 	}
 
 	/**
-	 * opens confirmation pop up 
+	 * searches for a product by setting product name and quantity as the input
+	 * @param productName (product to be added), quantity (total quantity required to be added)
 	 */
 	@Keyword
-	def continueOnDesktop() {
-		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Upload Order/Continue On Desktop_button'), 0)
+	def addProductToOrder(String productName, String quantity) {
+		Mobile.tap(findTestObject('Android/productSearch/searchProductsSearchView_EditText'), 0)
+		Mobile.setText(findTestObject('Android/productSearch/searchProductsSearchView_EditText'), productName + '\\n',0)
+		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+		Mobile.setText(findTestObject('Android/productSearch/Quantity_TextField'), quantity, 0)
+		Mobile.tap(findTestObject('Android/productSearch/addToOrder_Button'),0)
 	}
-
-
-	/**
-	 * places the order 
-	 */
-
-	@Keyword
-	def clickOnPlaceOrder() {
-		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Place Order/Place Order_Button'), 0, )
-	}
-
-	/**
-	 * verifies place order confirmation pop up
-	 */
-	@Keyword
-	def verifyPlaceOrderPopUp() {
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Place Order/goBackAndReviewMyOrder_Button'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Place Order/goToDashboard_Button'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Place Order/placeMyOrder_Button'), 0)
-	}
-
-	/**
-	 * confirms place order by clicking on place my order button
-	 */
-	@Keyword
-	def confirmPlaceOrder() {
-		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Place Order/placeMyOrder_Button'), 0)
-	}
-
-	/**
-	 * takes user back to cart
-	 */
-	@Keyword
-	def clickOnBackToCart() {
-
-		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Upload Order/Back to Cart_button'), 0)
-	}
-
-	/**
-	 * opens alternates page
-	 * @param Alternates (alternates to be selected)
-	 */
-	@Keyword
-	def tapOnAlternatesInProductDetailsPage(String Alternates) {
-		Mobile.scrollToText(Alternates, FailureHandling.STOP_ON_FAILURE)
-		Mobile.tap(findTestObject('Object Repository/Android/Orders/Product Info/Product Details/alternates_TextView',[('TEXT') : Alternates]), 0)
-	}
-
-	/**
-	 * verifies filterByOptions
-	 * @param Alternates (alternates to be selected)
-	 */
-	@Keyword
-	def verifyFilterByOptions(String Alternates) {
-		Mobile.verifyElementVisible(findTestObject('Object Repository/Android/Orders/Alternates Screen/alternateHeaderName_TextView',[('TEXT') : Alternates]), 0)
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Alternates Screen/InStockFilterByOptions_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Alternates Screen/formFilterByOptions_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Alternates Screen/sizeFilterByOptions_TextView'), 0)
-		int ElementTopPosition = Mobile.getElementTopPosition(findTestObject('Object Repository/Android/Orders/Alternates Screen/InStockFilterByOptions_TextView'), 0)
-		int ElementHeight=Mobile.getElementHeight(findTestObject('Object Repository/Android/Orders/Alternates Screen/InStockFilterByOptions_TextView'), 0)
-		int yCoordinateToSwipe=(ElementHeight/2)+ElementTopPosition
-		Mobile.swipe(500, yCoordinateToSwipe, 0, yCoordinateToSwipe)
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Alternates Screen/contract_FilterByOptions_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Alternates Screen/manufacturerFilterByOptions_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Alternates Screen/suggestedAlternate_TextView'), 0)
-	}
-
-	/**
-	 * taps on scan icon and takes user to scanning product screen and also verifies ordering and price check
-	 */
-	@Keyword
-	def clickOnScanIcon() {
-
-		Mobile.delay(2)
-
-		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_Icon'), 0,FailureHandling.OPTIONAL)
-
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Scan Order/ordering_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Scan Order/priceCheck_Text'), 0)
-	}
-
-	/**
-	 *  taps on scan icon and takes user to scanning product screen
-	 */
-	@Keyword
-	def clickOnScanIconWithoutVerification() {
-		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_Icon'), 0)
-	}
-
-	/**
-	 * scans the product, adds it to the order and also verifies some scan input details
-	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
-	 */
-	@Keyword
-	def scanInputEvent(String productToBeSearched) {
-
-		Mobile.setText(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_EditText'), productToBeSearched, 0)
-		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_Button'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Scan Order/thisItemHasBeenAddedToYourOrder_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Scan Order/remove_Button'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Scan Order/alternates_Text'), 0)
-	}
-
-	/**
-	 * scans the product while on price check, adds it to the order and also verifies some scan input details
-	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
-	 */
-	@Keyword
-	def scanInputEventWhileOnPriceCheck(String productToBeSearched) {
-		Mobile.setText(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_EditText'), productToBeSearched, 0)
-		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_Button'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Scan Order/alternates_Text'), 0)
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/addToOrder_Button'), 0)
-	}
-
 
 	/**
 	 * this function adds the quantity for the product to be searched
 	 * @param quantity (quantity required to be added for the product to be searched)
 	 */
-
 	@Keyword
 	def addQuantityforTheSearchedProduct(int quantity) {
-
 		int i
 		for (i=1; i<= quantity; i++) {
-			Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/moreOperator_ImageView'),  0)
+			Mobile.tap(findTestObject('Android/orders/orderDetailsScreen/scanOrder/moreOperator_ImageView'),  0)
 		}
 	}
-
-
-	/**
-	 * this function adds the quantity in product detail page
-	 * @param quantity (quantity required to add in product detail page)
-	 */
-	@Keyword
-	def addQuantityInProductDetailsPage(int quantity) {
-
-		int i
-		for (i=1; i<= quantity; i++) {
-			Mobile.tap(findTestObject('Android/Orders/Product Info/Product Search/increaseCount_TextView'),  0)
-		}
-	}
-
 
 	/**
 	 * this function adds the quantity in alternates page
@@ -209,92 +87,58 @@ class orderDetailsScreen {
 	 */
 	@Keyword
 	def addQuantityInAlternatesPage(int quantity) {
-
 		int i
 		for (i=1; i<= quantity; i++) {
-			Mobile.tap(findTestObject('Object Repository/Android/Orders/Alternates Screen/pulsButton_ImageView'),  0)
+			Mobile.tap(findTestObject('Android/orders/alternatesScreen/plusButton_ImageView'),  0)
 		}
 	}
 
 	/**
-	 * taps on alternate to order in alternates page and opens confirmation pop up
+	 * this function adds the quantity in product detail page
+	 * @param quantity (quantity required to add in product detail page)
 	 */
 	@Keyword
-	def tapOnAddAlternateToOrderInAlternatesPage() {
-		Mobile.tap(findTestObject('Object Repository/Android/Orders/Alternates Screen/addAlternateToOrder_Button'),  0)
+	def addQuantityInProductDetailsPage(int quantity) {
+		int i
+		for (i=1; i<= quantity; i++) {
+			Mobile.tap(findTestObject('Android/orders/productInfo/productSearch/increaseCount_TextView'),  0)
+		}
 	}
 
 	/**
-	 * verifies confirmation pop up in alternates page 
+	 * adds product
 	 */
 	@Keyword
-	def verifyConfirmationPopUpInALternatesPage() {
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Alternates Screen/itemAddedConfirmation_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Alternates Screen/continueBrowsing_Button'), 0)
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Alternates Screen/goToOrder_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Alternates Screen/newOrderCreated_TextView'), 0)
+	def addToOrderWithoutVerify() {
+		Mobile.tap(findTestObject('Android/orders/productInfo/productSearch/addToOrder_Button'), 0)
 	}
 
 	/**
-	 * verifies quantity updated caption
+	 * clicks on c2 order availability and waits for the response while verifying the availability details for the c2 product
 	 */
-	@Keyword
-	def verifyQuantityUpdatedCaption() {
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Verification Details/quantityUpdated_TextView'), 0)
+	@Keyword()
+	def checkC2ProductAvailability() {
+		Mobile.tap(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/checkAvailability_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/oneMoment_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/weNeedJustAMinuteToEnsureThatWeHaveEverythingInStock_TextView'), 0)
+		String testObject='Android/Orders/C2 Order Details Screen/Place C2 Order/OneMomentProgressBar'
+		(new androidCommonKeywords.commonMethods()).waitTimeForObjectToBeVisible(testObject,1,20)
 	}
 
 	/**
-	 * verifies order name header label
-	 * @param poName (poName is the order name)
+	 * takes user back to cart
 	 */
 	@Keyword
-	def verifyOrderNameHeaderLabel(String poName){
-		Mobile.verifyElementVisible(findTestObject('Android/Orders/Order Details Screen/Verification Details/orderNameHeader_TextView',[('TEXT'):poName]),0)
+	def clickOnBackToCart() {
+		Mobile.tap(findTestObject('Android/orders/orderDetailsScreen/uploadOrder/backToCart_Button'), 0)
 	}
 
 	/**
-	 * takes expected lines count as the argument and verifies the same
-	 * @param expectedLineCount (expected total line count after adding product and return to the order name page)
+	 * takes user back to the search product results to continue ordering
 	 */
 	@Keyword
-	def verifyLineCountOfOrderNamePage(String expectedLineCount){
-		String lineCount=Mobile.getText(findTestObject('Android/Orders/Order Details Screen/Verification Details/lineCountOrderPage_TextView'), 0)
-		String actualLineCount = (new androidCommonKeywords.commonMethods()).removeCharctersInString(lineCount)
-		assert expectedLineCount == actualLineCount
-	}
-
-	/**
-	 * this function gets the total added quantity of the product
-	 * @return quantityNumericalValue (of the product which has been added)
-	 */
-
-	@Keyword
-	def returnQuantityOfTheAddedProduct() {
-
-		String quantity= Mobile.getText(findTestObject('Android/Orders/Order Details Screen/Scan Order/quantityTextField_EditText'), 0)
-
-		KeywordUtil.logInfo(quantity)
-
-		float quantityNumericalValue=Float.valueOf(quantity)
-
-		return quantityNumericalValue
-	}
-
-	/**
-	 * uploads the order by clicking on upload order button and verifies upload order button gets disabled after uploading
-	 */
-	@Keyword
-	def uploadOrder() {
-
-		Mobile.tapAndHold(findTestObject('Android/Orders/Order Details Screen/Upload Order/Upload Order_Button'), 0, 0)
-	}
-
-	/**
-	 * uploads the c2 order 
-	 */
-	@Keyword
-	def uploadOrderC2() {
-		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Upload C2 order/uploadOrder_Button'), 0)
+	def clickOnContinueOrdering() {
+		Mobile.tap(findTestObject('Android/productSearch/continueOrdering_Button') ,0)
 	}
 
 	/**
@@ -302,35 +146,78 @@ class orderDetailsScreen {
 	 */
 	@Keyword
 	def clickOnContinueOrderingOnDesktop() {
-
-		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Upload Order/Continue order on the desktop_TextView'), 0)
+		Mobile.tap(findTestObject('Android/orders/orderDetailsScreen/uploadOrder/continueOrderOnTheDesktop_TextView'), 0)
 	}
 
 	/**
-	 * verifies order has been sent to desktop pop up
+	 * opens more details of product details
 	 */
 	@Keyword
-	def verifyOrderHasbeensentToDesktopPopUp() {
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Verification Details/orderHasbeenSentToDesktop_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Upload Order/Back to Cart_Button'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Upload Order/Go to Dashboard_Button'), 0)
+	def clickOnMoreDetails() {
+		Mobile.tap(findTestObject('Android/orders/productInfo/productSearch/moreDetails__TextView'), 0)
 	}
 
 	/**
-	 * verifies c2 order is not visible under non c2 order
+	 * places the order 
 	 */
+
 	@Keyword
-	def verifyC2OrderIsNotVisibleUnderNonC2Order() {
-		Mobile.verifyElementNotVisible(findTestObject('Android/Orders/C2 Order Details Screen/Upload C2 order/c2label_TextView'), 0)
+	def clickOnPlaceOrder() {
+		Mobile.tap(findTestObject('Android/orders/orderDetailsScreen/placeOrder/placeOrder_Button'), 0, )
 	}
 
 	/**
-	 * verifies c2 label is visible or not
+	 * opens product tile
 	 */
 	@Keyword
-	def verifyC2Label() {
+	def clickOnProductTile() {
+		Mobile.tap(findTestObject('Android/orders/productInfo/productSearch/NDC_TextView'), 0)
+	}
 
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/C2 Order Details Screen/Place C2 Order/C2_label'), 0)
+	/**
+	 * takes user back to history screen and verifies user is on the history screen or not
+	 */
+	@Keyword
+	def clickOnReviewAndSignButton() {
+		Mobile.tap(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/reviewAndSign_Button'), 0)
+		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+		Mobile.verifyElementExist(findTestObject('Android/orders/historyScreen/orderHistory_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/historyScreen/orderHistoryHeaderText_TextView'),  0)
+	}
+
+	/**
+	 * taps on scan icon and takes user to scanning product screen and also verifies ordering and price check
+	 */
+	@Keyword
+	def clickOnScanIcon() {
+		Mobile.delay(2)
+		Mobile.tap(findTestObject('Android/orders/orderDetailsScreen/scanOrder/scan_Icon'), 0,FailureHandling.OPTIONAL)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/scanOrder/ordering_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/scanOrder/priceCheck_Text'), 0)
+	}
+
+	/**
+	 *  taps on scan icon and takes user to scanning product screen
+	 */
+	@Keyword
+	def clickOnScanIconWithoutVerification() {
+		Mobile.tap(findTestObject('Android/orders/orderDetailsScreen/scanOrder/scan_Icon'), 0)
+	}
+
+	/**
+	 * confirms place order by clicking on place my order button
+	 */
+	@Keyword
+	def confirmPlaceOrder() {
+		Mobile.tap(findTestObject('Android/orders/orderDetailsScreen/placeOrder/placeMyOrder_Button'), 0)
+	}
+
+	/**
+	 * opens confirmation pop up 
+	 */
+	@Keyword
+	def continueOnDesktop() {
+		Mobile.tap(findTestObject('Android/orders/orderDetailsScreen/uploadOrder/continueOnDesktop_Button'), 0)
 	}
 
 	/**
@@ -339,85 +226,46 @@ class orderDetailsScreen {
 	 */
 	@Keyword
 	def createNewC2Order(String poName, String poMemo) {
-
-		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/thisIsAC2ItemCreateAC2OrderToAddItem_TextView'), 0, FailureHandling.STOP_ON_FAILURE)
-
-		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/createANewOrder_TextView'), 0)
-
-		Mobile.setText(findTestObject('Android/Orders/New Order Screen/P.O. Name (Optional)_TextField'), poName, 0)
-
-		Mobile.setText(findTestObject('Android/Orders/New Order Screen/P.O. Memo (Optional)_TextField'), poMemo, 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/Cancel_Button'), 0, FailureHandling.STOP_ON_FAILURE)
-
-		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/createNewOrder_Button'), 0)
-
-		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/c2Order_RadioButton',[('TEXT'):poName]),0)
-
-		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/addToOrder_Button'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/cartTotal_TextView'), 0, FailureHandling.STOP_ON_FAILURE)
-
-		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/continueBrowsing_Button'), 0)
-
-		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/goToOrder_TextView'), 0)
-	}
-
-
-	/**
-	 * verifies confirmation pop up of c2 in scan search results
-	 */
-	@Keyword
-	def verifyConfirmationPopUpOfC2InScanSearchResults() {
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/C2 Order/thisIsAC2ItemWouldYouLikeToCreateANewOrderOrAddToExistingOrder_ConfirmationPopUp_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/C2 Order/selectOrCreateANewOrder_Button'), 0)
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/C2 Order/cancel_TextView'), 0)
-	}
-
-
-	/**
-	 * scans the product, adds it to the order 
-	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
-	 */
-	@Keyword
-	def scanInputEventWithoutVerification(String productToBeSearched) {
-		Mobile.setText(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_EditText'), productToBeSearched, 0)
-		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_Button'), 0)
-	}
-
-	/**
-	 * opens create new order page for c2
-	 */
-	@Keyword
-	def tapOnSelectOrCrateANewOrderInScanSearchResults() {
-		Mobile.tap(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/C2 Order/selectOrCreateANewOrder_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/thisIsAC2ItemCreateAC2OrderToAddItem_TextView'), 0, FailureHandling.STOP_ON_FAILURE)
+		Mobile.tap(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/createANewOrder_TextView'), 0)
+		Mobile.setText(findTestObject('Android/orders/newOrderScreen/P.O. Name (Optional)_TextField'), poName, 0)
+		Mobile.setText(findTestObject('Android/orders/newOrderScreen/poMemo_EditText'), poMemo, 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/Cancel_Button'), 0, FailureHandling.STOP_ON_FAILURE)
+		Mobile.tap(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/createNewOrder_Button'), 0)
+		Mobile.tap(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/c2Order_RadioButton',[('TEXT'):poName]),0)
+		Mobile.tap(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/addToOrder_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/cartTotal_TextView'), 0, FailureHandling.STOP_ON_FAILURE)
+		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/continueBrowsing_Button'), 0)
+		Mobile.tap(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/goToOrder_TextView'), 0)
 	}
 
 	/**
 	 * creates a new C2 order
 	 * @param poName (poName of the order), poMemo (poMemo of the order)
 	 */
-
-	@Keyword
-	def createNewOrderForC2(String poName, String poMemo){
-		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/thisIsAC2ItemCreateAC2OrderToAddItem_TextView'), 0)
-		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/createANewOrder_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/Cancel_Button'), 0)
-		Mobile.setText(findTestObject('Android/Orders/New Order Screen/P.O. Name (Optional)_TextField'), poName, 0)
-		Mobile.setText(findTestObject('Android/Orders/New Order Screen/P.O. Memo (Optional)_TextField'), poMemo, 0)
-		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/createNewOrder_Button'), 0)
-	}
-
-
-
 	@Keyword
 	def createNewOrderForC2WithoutVerification(String poName, String poMemo) {
-		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/createANewOrder_TextView'), 0)
-		Mobile.setText(findTestObject('Android/Orders/New Order Screen/P.O. Name (Optional)_TextField'), poName, 0)
-		Mobile.setText(findTestObject('Android/Orders/New Order Screen/P.O. Memo (Optional)_TextField'), poMemo, 0)
-		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/createNewOrder_Button'), 0)
+		Mobile.tap(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/createANewOrder_TextView'), 0)
+		Mobile.setText(findTestObject('Android/orders/newOrderScreen/P.O. Name (Optional)_TextField'), poName, 0)
+		Mobile.setText(findTestObject('Android/orders/newOrderScreen/poMemo_EditText'), poMemo, 0)
+		Mobile.tap(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/createNewOrder_Button'), 0)
 	}
 
+	/**
+	 * edits poname and pomemo
+	 * @param poName (poName of the order)
+	 * @param poName (poMemo of the order)
+	 */
+	@Keyword
+	def editPONameAndMemo(String poName,String poMemo, String newPoName, String newPoMemo ) {
+		Mobile.scrollToText('Edit')
+		Mobile.tap(findTestObject('Android/orders/orderDetailsScreen/editPoNameAndMemo/editPOnameAndMemo_TextView'), 0)
+		Mobile.clearText(findTestObject('Android/orders/orderDetailsScreen/editPoNameAndMemo/poNameToBeEdited_TextField', [('po_name') : poName]), 0)
+		Mobile.setText(findTestObject('Android/orders/newOrderScreen/P.O. Name (Optional)_TextField'), newPoName, 0)
+		Mobile.clearText(findTestObject('Android/orders/orderDetailsScreen/editPoNameAndMemo/poMemoToBeEdited_TextField', [('po_memo') : poMemo]), 0)
+		Mobile.setText(findTestObject('Android/orders/newOrderScreen/poMemo_EditText'), newPoMemo,	0)
+		Mobile.tap(findTestObject('Android/orders/orderDetailsScreen/editPoNameAndMemo/updateOrder_Button'), 0)
+	}
 
 	/**
 	 * enables radio button and adds c2 product
@@ -425,63 +273,34 @@ class orderDetailsScreen {
 	 */
 	@Keyword
 	def enableRadioButtonForNewOrderC2Creation(String poName){
-		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/c2Order_RadioButton',[('TEXT'):poName]),0)
-		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/addToOrder_Button'), 0)
+		Mobile.tap(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/c2Order_RadioButton',[('TEXT'):poName]),0)
+		Mobile.tap(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/addToOrder_Button'), 0)
 	}
 
 	/**
-	 * verifies confirmation pop up after adding c2 order 
+	 * It checks Duplicate utn number
+	 * @param existingUTNno (utn number)
+	 * @param duplicateErrorMsg (error message)
 	 */
 	@Keyword
-	def verifyConfirmationPopUpAfterAddingC2Order(){
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/C2 Order Details Screen/Place C2 Order/continueBrowsing_Button'), 0)
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/C2 Order Details Screen/Place C2 Order/goToOrder_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/Upload C2 order/itemAddedToPoname_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/Upload C2 order/CIN_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/Upload C2 order/orderName_TextView'), 0)
-	}
-
-
-	/**
-	 * this function selects toggle value for the product to be added which can be ordering or price check)
-	 * @param toggleValue (toggleValue required to be selected for the product to be added which can be ordering or price check)
-	 */
-	@Keyword
-	def selectToggleValueForTheProductToBeSearched(String toggleValue) {
-
-		if(toggleValue=="Ordering") {
-			Mobile.tap(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/ordering_Text'), 0)
-		}
-		else {
-			Mobile.tap(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/priceCheck_Text'), 0)
-		}
+	def enterDuplicateUTN(String existingUTNno, String duplicateErrorMsg) {
+		Mobile.setText(findTestObject('Android/orders/c2OrderDetailsScreen/UTNverification/UTNTextBox_EditText'), existingUTNno, 0)
+		Mobile.tap(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/checkAvailability_Button'), 0)
+		WebUI.delay(10)
+		String actualErrorMsg = Mobile.getText(findTestObject('Android/orders/c2OrderDetailsScreen/UTNverification/duplicateUTNMessage_TextView'), 0)
+		assert duplicateErrorMsg == actualErrorMsg
+		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/UTNverification/duplicateUTNerrorIcon_ImageView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/UTNverification/duplicateUTNNumberError_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/UTNverification/ReEnterUTN_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/UTNverification/SaveforLater_Button'), 0)
 	}
 
 	/**
-	 * verifies the order value after adding a product
-	 * @param quantity (quantity which was added)
+	 * removes product from orders details
 	 */
 	@Keyword
-	def verifyOrderValue(quantity) {
-		String productCost=Mobile.getText(findTestObject('Android/Orders/Verification Details/productCost_TextView'), 0)
-		String removeCharctersInProductCost = (new androidCommonKeywords.commonMethods()).removeCharctersInString(productCost)
-		float productCostFloatValue = (new androidCommonKeywords.commonMethods()).stringToFloatConversion(removeCharctersInProductCost)
-		float totalCost=quantity*productCostFloatValue
-		String expectedOrderTotal = (new androidCommonKeywords.commonMethods()).floatToStringConversionAndFormatting(totalCost)
-		String OrderTotal = Mobile.getText(findTestObject('Android/Orders/Verification Details/orderTotalCost_TextView'), 0)
-		String actualOrderTotal = (new androidCommonKeywords.commonMethods()).removeCharctersInString(OrderTotal)
-		assert expectedOrderTotal == actualOrderTotal
-	}
-
-	/**
-	 * this function returns the order value
-	 * @return actualOrderTotal(order total value)
-	 */
-	@Keyword
-	def returnOrderValue() {
-		String orderTotal=Mobile.getText(findTestObject('Android/Orders/Verification Details/orderTotalCost_TextView'), 0)
-		String actualOrderTotal = (new androidCommonKeywords.commonMethods()).removeCharctersInString(orderTotal)
-		return actualOrderTotal
+	def removeProduct() {
+		Mobile.tap(findTestObject('Android/orders/orderDetailsScreen/verificationDetails/removeProduct_TextView'), 0)
 	}
 
 	/**
@@ -497,12 +316,55 @@ class orderDetailsScreen {
 	}
 
 	/**
+	 * this function returns the order name of the order/ title of the screen when user is on order details screen
+	 * return orderName (returns order name/ title of order details screen)
+	 */
+	@Keyword
+	def returnNDCLabelOfScannedProduct() {
+		String NDCLabel = Mobile.getText(findTestObject('Android/orders/verificationDetails/ndc_TextView'), 0)
+		return NDCLabel
+	}
+
+	/**
+	 * this function returns the order name of the order/ title of the screen when user is on order details screen
+	 * return orderName (returns order name/ title of order details screen)
+	 */
+	@Keyword
+	def returnOrderNameFromOrderDetailScreen() {
+		String orderName=Mobile.getText(findTestObject('android/Orders/Verification Details/orderDetailHeader_Label'), 0)
+		return orderName
+	}
+
+	/**
+	 * this function returns the order value
+	 * @return actualOrderTotal(order total value)
+	 */
+	@Keyword
+	def returnOrderValue() {
+		String orderTotal=Mobile.getText(findTestObject('Android/orders/verificationDetails/orderTotalCost_TextView'), 0)
+		String actualOrderTotal = (new androidCommonKeywords.commonMethods()).removeCharctersInString(orderTotal)
+		return actualOrderTotal
+	}
+
+	/**
 	 * this function returns the order name in search page
 	 */
 	@Keyword
 	def returnProductNameAfterSearch(){
-		String orderNameInSearchPage=Mobile.getText(findTestObject('Object Repository/Android/Product Details/product_description_label'), 0)
+		String orderNameInSearchPage=Mobile.getText(findTestObject('Android/productDetails/productDescriptionLabel_TextView'), 0)
 		return orderNameInSearchPage
+	}
+
+	/**
+	 * this function gets the total added quantity of the product
+	 * @return quantityNumericalValue (of the product which has been added)
+	 */
+	@Keyword
+	def returnQuantityOfTheAddedProduct() {
+		String quantity= Mobile.getText(findTestObject('Android/orders/orderDetailsScreen/scanOrder/quantityTextField_EditText'), 0)
+		KeywordUtil.logInfo(quantity)
+		float quantityNumericalValue=Float.valueOf(quantity)
+		return quantityNumericalValue
 	}
 
 	/**
@@ -510,26 +372,248 @@ class orderDetailsScreen {
 	 */
 	@Keyword
 	def returnTopMostProductNameInOrderDetails(){
-		String productName=Mobile.getText(findTestObject('Object Repository/Android/Orders/Order Details Screen/Verification Details/productName_TextView'), 0)
+		String productName=Mobile.getText(findTestObject('Android/orders/orderDetailsScreen/verificationDetails/productName_TextView'), 0)
 		return productName
 	}
 
 	/**
-	 * verifies that the added top most product should  be visible on the order details page
-	 * @param productname (top most added product name)
+	 * Its save for later
 	 */
 	@Keyword
-	def verifyProductNameIsVisibleUnderOrderDetails(String productname) {
+	def saveForLater() {
+		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/UTNverification/SaveforLater_Button'), 0)
+		Mobile.tap(findTestObject('Android/orders/c2OrderDetailsScreen/UTNverification/SaveforLater_Button'), 0)
+	}
 
-		Mobile.verifyElementVisible(findTestObject('Object Repository/Android/Orders/Order Details Screen/Verification Details/productName_TextView',[('TEXT'):productname]),0)
+	/**
+	 * scans the product, adds it to the order and also verifies some scan input details
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */
+	@Keyword
+	def scanInputEvent(String productToBeSearched) {
+		Mobile.setText(findTestObject('Android/orders/orderDetailsScreen/scanOrder/scan_EditText'), productToBeSearched, 0)
+		Mobile.tap(findTestObject('Android/orders/orderDetailsScreen/scanOrder/scan_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/scanOrder/thisItemHasBeenAddedToYourOrder_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/scanOrder/remove_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/scanOrder/alternates_Text'), 0)
+	}
+
+	/**
+	 * scans the product in offline mode
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */
+	@Keyword
+	def scanInputEventInOfflineMode(String productToBeSearched) {
+		Mobile.tap(findTestObject('Android/orders/orderDetailsScreen/scanOrder/scan_Icon'), 0)
+		Mobile.setText(findTestObject('Android/orders/orderDetailsScreen/scanOrder/scan_EditText'), productToBeSearched, 0)
+		Mobile.tap(findTestObject('Android/orders/orderDetailsScreen/scanOrder/scan_Button'), 0)
+	}
+
+	/**
+	 * scans the product while on price check, adds it to the order and also verifies some scan input details
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */
+	@Keyword
+	def scanInputEventWhileOnPriceCheck(String productToBeSearched) {
+		Mobile.setText(findTestObject('Android/orders/orderDetailsScreen/scanOrder/scan_EditText'), productToBeSearched, 0)
+		Mobile.tap(findTestObject('Android/orders/orderDetailsScreen/scanOrder/scan_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/scanOrder/alternates_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/scanOrder/addToOrder_Button'), 0)
+	}
+
+	/**
+	 * scans the product, adds it to the order 
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */
+	@Keyword
+	def scanInputEventWithoutVerification(String productToBeSearched) {
+		Mobile.setText(findTestObject('Android/orders/orderDetailsScreen/scanOrder/scan_EditText'), productToBeSearched, 0)
+		Mobile.tap(findTestObject('Android/orders/orderDetailsScreen/scanOrder/scan_Button'), 0)
+	}
+
+	/**
+	 * searches for a product by setting product name 
+	 * @param productName (product to be added)
+	 */
+	@Keyword
+	def searchProductInOrderDetailPage(String productName) {
+		Mobile.tap(findTestObject('Android/productSearch/searchProductsSearchView_EditText'), 0)
+		Mobile.setText(findTestObject('Android/productSearch/searchProductsSearchView_EditText'), productName + '\\n',0)
+	}
+
+	/**
+	 * searches for a product by setting product name
+	 * @param productName (product to be added)
+	 */
+	@Keyword
+	def searchProductInOrderDetailPageOfflineMode(String productName) {
+		Mobile.delay(3)
+		Mobile.tap(findTestObject('Android/productSearch/searchProducts_EditText'), 0)
+		Mobile.setText(findTestObject('Android/productSearch/searchProducts_EditText'), productName + '\\n',0)
+	}
+
+	/**
+	 * this function selects toggle value for the product to be added which can be ordering or price check)
+	 * @param toggleValue (toggleValue required to be selected for the product to be added which can be ordering or price check)
+	 */
+	@Keyword
+	def selectToggleValueForTheProductToBeSearched(String toggleValue) {
+		if(toggleValue=="Ordering") {
+			Mobile.tap(findTestObject('Android/orders/orderDetailsScreen/scanOrder/ordering_Text'), 0)
+		}
+		else {
+			Mobile.tap(findTestObject('Android/orders/orderDetailsScreen/scanOrder/priceCheck_Text'), 0)
+		}
+	}
+
+	/**
+	 * taps on alternate to order in alternates page and opens confirmation pop up
+	 */
+	@Keyword
+	def tapOnAddAlternateToOrderInAlternatesPage() {
+		Mobile.tap(findTestObject('Android/orders/alternatesScreen/addAlternateToOrder_Button'),  0)
+	}
+
+	/**
+	 * adds product in product details page
+	 */
+	@Keyword
+	def tapOnAddToOrderInProductDetailsPage() {
+		Mobile.tap(findTestObject('Android/orders/productInfo/productSearch/addToOrder_Button'), 0)
 	}
 
 	/**
 	 * taps on add to order and shows confirmation pop up
 	 */
 	@Keyword
-	def tapOnAddToOrderInScanSearchResults () {
-		Mobile.tap(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/addToOrder_Button'), 0)
+	def tapOnAddToOrderInScanSearchResults() {
+		Mobile.tap(findTestObject('Android/orders/orderDetailsScreen/scanOrder/addToOrder_Button'), 0)
+	}
+
+	/**
+	 * opens alternates page
+	 * @param Alternates (alternates to be selected)
+	 */
+	@Keyword
+	def tapOnAlternatesInProductDetailsPage(String Alternates) {
+		Mobile.scrollToText(Alternates, FailureHandling.STOP_ON_FAILURE)
+		Mobile.tap(findTestObject('Android/orders/productInfo/productDetails/alternates_TextView',[('TEXT') : Alternates]), 0)
+	}
+
+	/**
+	 * takes user back to the search product results to continue browsing
+	 */
+	@Keyword
+	def tapOnContinueBrowsing() {
+		Mobile.tap(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/continueBrowsing_Button') ,0)
+	}
+
+	/**
+	 * takes user to the order details
+	 */
+	@Keyword
+	def tapOnGoToOrder() {
+		Mobile.tap(findTestObject('Android/orders/alternatesScreen/goToOrder_TextView') ,0)
+	}
+
+	/**
+	 * opens create new order page for c2
+	 */
+	@Keyword
+	def tapOnSelectOrCrateANewOrderInScanSearchResults() {
+		Mobile.tap(findTestObject('Android/orders/orderDetailsScreen/scanOrder/c2Order/selectOrCreateANewOrder_Button'), 0)
+	}
+
+	/**
+	 * uploads the order 
+	 */
+	@Keyword
+	def uploadOrder() {
+		Mobile.tap(findTestObject('Android/orders/orderDetailsScreen/uploadOrder/uploadOrder_Button'), 0)
+	}
+
+	/**
+	 * uploads the c2 order 
+	 */
+	@Keyword
+	def uploadOrderC2() {
+		Mobile.tap(findTestObject('Android/orders/c2OrderDetailsScreen/uploadC2Order/uploadOrder_Button'), 0)
+	}
+
+	/**
+	 * Its check UTN number validation
+	 * @param utnPrefixLength (length of the utn prefix)
+	 * @param expectedErrorMsg (error message)
+	 * @param input1 (given input for utn edit text field)
+	 * @param input2 (given input for utn edit text field)
+	 */
+	@Keyword
+	def utnNumberValidation(int utnPrefixLength, String expectedErrorMsg, String input1, String input2) {
+		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/UTNverification/poNumberTitle_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/UTNverification/UTNTextBox_EditText'), 0)
+
+		// Clear text -  Last 6 characters should be deleted.
+		Mobile.clearText(findTestObject('Android/orders/c2OrderDetailsScreen/UTNverification/UTNTextBox_EditText'), 0)
+
+		// Check User should not able to remove the first  3 characters in the UTN field
+		String utnNumber=Mobile.getText(findTestObject('Android/orders/c2OrderDetailsScreen/UTNverification/UTNTextBox_EditText'), 0)
+		assert utnPrefixLength == (utnNumber.length())
+
+		// Verify validation error message and error icon
+		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/UTNverification/UTNerrorIcon_ImageButton'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/UTNverification/UTNErrorMessage_TextView'), 0)
+		String actualErrorMsg=Mobile.getText(findTestObject('Android/orders/c2OrderDetailsScreen/UTNverification/UTNErrorMessage_TextView'), 0)
+		assert expectedErrorMsg == actualErrorMsg
+
+		// Enter 6 zeros in the UTN field (Example: 21X000000)
+		Mobile.setText(findTestObject('Android/orders/c2OrderDetailsScreen/UTNverification/UTNTextBox_EditText'), input1, 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/UTNverification/UTNerrorIcon_ImageButton'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/UTNverification/UTNErrorMessage_TextView'), 0)
+		Mobile.clearText(findTestObject('Android/orders/c2OrderDetailsScreen/UTNverification/UTNTextBox_EditText'), 0)
+
+		// Enter special character in the UTN field (Example: 21X00000*)
+		Mobile.setText(findTestObject('Android/orders/c2OrderDetailsScreen/UTNverification/UTNTextBox_EditText'), input2, 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/UTNverification/UTNerrorIcon_ImageButton'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/UTNverification/UTNErrorMessage_TextView'), 0)
+	}
+
+	/**
+	 * verifies c2 label is visible or not
+	 */
+	@Keyword
+	def verifyC2Label() {
+		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/c2Label_TextView'), 0)
+	}
+
+	/**
+	 * verifies c2 order is not visible under non c2 order
+	 */
+	@Keyword
+	def verifyC2OrderIsNotVisibleUnderNonC2Order() {
+		Mobile.verifyElementNotVisible(findTestObject('Android/orders/c2OrderDetailsScreen/uploadC2Order/c2label_TextView'), 0)
+	}
+
+	/**
+	 * verifies confirmation pop up after adding c2 order 
+	 */
+	@Keyword
+	def verifyConfirmationPopUpAfterAddingC2Order(){
+		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/continueBrowsing_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/goToOrder_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/uploadC2Order/itemAddedToPoname_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/uploadC2Order/CIN_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/uploadC2Order/orderName_TextView'), 0)
+	}
+
+	/**
+	 * verifies confirmation pop up in alternates page 
+	 */
+	@Keyword
+	def verifyConfirmationPopUpInALternatesPage() {
+		Mobile.verifyElementExist(findTestObject('Android/orders/alternatesScreen/itemAddedConfirmation_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/alternatesScreen/continueBrowsing_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/alternatesScreen/goToOrder_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/alternatesScreen/newOrderCreated_TextView'), 0)
 	}
 
 	/**
@@ -537,39 +621,177 @@ class orderDetailsScreen {
 	 */
 	@Keyword
 	def verifyConfirmationPopUpInScanSearchResults() {
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/itemAddedConfirmationPopUp_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/CIN-ConfirmationPopUp_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/goToOrder_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/continueBrowsing_Button'), 0)
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Orders/Order Details Screen/Scan Order/productNameConfirmationPopUp_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/scanOrder/itemAddedConfirmationPopUp_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/scanOrder/CINconfirmationPopUp_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/scanOrder/goToOrder_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/scanOrder/continueBrowsing_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/scanOrder/productNameConfirmationPopUp_TextView'), 0)
 	}
 
+	/**
+	 * verifies confirmation pop up of c2 in scan search results
+	 */
+	@Keyword
+	def verifyConfirmationPopUpOfC2InScanSearchResults() {
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/scanOrder/c2Order/thisIsAC2ItemWouldYouLikeToCreateANewOrderOrAddToExistingOrderConfirmationPopUp_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/scanOrder/c2Order/selectOrCreateANewOrder_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/scanOrder/c2Order/cancel_TextView'), 0)
+	}
+
+	/**
+	 * verifies filterByOptions
+	 * @param Alternates (alternates to be selected)
+	 */
+	@Keyword
+	def verifyFilterByOptions(String Alternates) {
+		Mobile.verifyElementVisible(findTestObject('Android/orders/alternatesScreen/alternateHeaderName_TextView',[('TEXT') : Alternates]), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/alternatesScreen/InStockFilterByOptions_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/alternatesScreen/formFilterByOptions_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/alternatesScreen/sizeFilterByOptions_TextView'), 0)
+		int ElementTopPosition = Mobile.getElementTopPosition(findTestObject('Android/orders/alternatesScreen/InStockFilterByOptions_TextView'), 0)
+		int ElementHeight=Mobile.getElementHeight(findTestObject('Android/orders/alternatesScreen/InStockFilterByOptions_TextView'), 0)
+		int yCoordinateToSwipe=(ElementHeight/2)+ElementTopPosition
+		Mobile.swipe(500, yCoordinateToSwipe, 0, yCoordinateToSwipe)
+		Mobile.verifyElementExist(findTestObject('Android/orders/alternatesScreen/contractFilterByOptions_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/alternatesScreen/manufacturerFilterByOptions_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/alternatesScreen/suggestedAlternate_TextView'), 0)
+	}
+
+	/**
+	 * takes expected lines count as the argument and verifies the same
+	 * @param expectedLineCount (expected total line count after adding product and return to the order name page)
+	 */
+	@Keyword
+	def verifyLineCountOfOrderNamePage(String expectedLineCount){
+		String lineCount=Mobile.getText(findTestObject('Android/orders/orderDetailsScreen/verificationDetails/lineCountOrderPage_TextView'), 0)
+		String actualLineCount = (new androidCommonKeywords.commonMethods()).removeCharctersInString(lineCount)
+		assert expectedLineCount == actualLineCount
+	}
+
+	/**
+	 * verifies order details screen when user in offline mode
+	 */
+	@Keyword
+	def verifyOrderDetailsScreenInOfflineMode () {
+		Mobile.verifyElementAttributeValue(findTestObject('Android/orders/orderDetailsScreen/uploadOrder/Upload Order_Button'), 'enabled', 'false', 0)
+		Mobile.verifyElementAttributeValue(findTestObject('Android/orders/orderDetailsScreen/placeOrder/placeOrder_Button'), 'enabled', 'false', 0)
+	}
+
+	/**
+	 * verifies order has been sent to desktop pop up
+	 */
+	@Keyword
+	def verifyOrderHasbeensentToDesktopPopUp() {
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/verificationDetails/orderHasbeenSentToDesktop_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/uploadOrder/Back to Cart_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/uploadOrder/Go to Dashboard_Button'), 0)
+	}
+
+	/**
+	 * verifies order name header label
+	 * @param poName (poName is the order name)
+	 */
+	@Keyword
+	def verifyOrderNameHeaderLabel(String poName){
+		Mobile.verifyElementVisible(findTestObject('Android/orders/orderDetailsScreen/verificationDetails/orderNameHeader_TextView',[('TEXT'):poName]),0)
+	}
+
+	/**
+	 * verifies order screen details with added product
+	 */
+	@Keyword
+	def verifyOrderScreenDetailsWithAddedProduct() {
+		Mobile.verifyElementExist(findTestObject('Android/orders/cartScreen/verificationDetails/Lines_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/verificationDetails/orderTotal_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/verificationDetails/orderNameInHeader_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/verificationDetails/removeProduct_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/productDetails/NDClabel_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/productDetails/UOIcost_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/productDetails/AMU_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/productDetails/Manufacturer_Text'),  0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/verificationDetails/Scan_Icon'),0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/editPoNameAndMemo/editPOnameAndMemo_TextView'),	0)
+	}
+
+	/**
+	 * verifies order screen details without any added product
+	 */
+	@Keyword
+	def verifyOrderScreenDetailsWithoutAnyAddedProduct() {
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/verificationDetails/nothingToSeeHere_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/verificationDetails/searchProductsAndAddThemToThisOrder_TextView'),  0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/verificationDetails/zeroLinesInThisOrder_TextView'),  0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/verificationDetails/orderNameInHeader_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/verificationDetails/Scan_Icon'),0)
+		Mobile.verifyElementAttributeValue(findTestObject('Android/orders/orderDetailsScreen/uploadOrder/Upload Order_Button'), 'enabled', 'false', 0)
+		Mobile.verifyElementAttributeValue(findTestObject('Android/orders/orderDetailsScreen/placeOrder/placeOrder_Button'), 'enabled', 'false', 0)
+	}
+
+	/**
+	 * verifies the order value after adding a product
+	 * @param quantity (quantity which was added)
+	 */
+	@Keyword
+	def verifyOrderValue(quantity) {
+		String productCost=Mobile.getText(findTestObject('Android/orders/verificationDetails/productCost_TextView'), 0)
+		String removeCharctersInProductCost = (new androidCommonKeywords.commonMethods()).removeCharctersInString(productCost)
+		float productCostFloatValue = (new androidCommonKeywords.commonMethods()).stringToFloatConversion(removeCharctersInProductCost)
+		float totalCost=quantity*productCostFloatValue
+		String expectedOrderTotal = (new androidCommonKeywords.commonMethods()).floatToStringConversionAndFormatting(totalCost)
+		String OrderTotal = Mobile.getText(findTestObject('Android/orders/verificationDetails/orderTotalCost_TextView'), 0)
+		String actualOrderTotal = (new androidCommonKeywords.commonMethods()).removeCharctersInString(OrderTotal)
+		assert expectedOrderTotal == actualOrderTotal
+	}
+
+	/**
+	 * verifies place order confirmation pop up
+	 */
+	@Keyword
+	def verifyPlaceOrderPopUp() {
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/placeOrder/goBackAndReviewMyOrder_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/placeOrder/goToDashboard_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/placeOrder/placeMyOrder_Button'), 0)
+	}
+
+	/**
+	 * this function verifies the product after search
+	 */
+	@Keyword
+	def verifyProductAfterSearch() {
+		Mobile.verifyElementExist(findTestObject('Android/orders/productInfo/productSearch/NDC_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/productDetails/productDescriptionLabel_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/productDetails/UOIcost_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/productSearch/Quantity_TextField'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/productInfo/productSearch/manufacturer__TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/productInfo/productSearch/alternates_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/productInfo/productSearch/addToOrder_Button'), 0)
+	}
 
 	/**
 	 * this function verifies the product details page
+	 * @param orderNameInSearchPage (order name of the product)
 	 */
-
 	@Keyword
 	def verifyProductDetailAfterSelectingMoreDetails(String orderNameInSearchPage){
-		String orderNameInProductDetailsPage=Mobile.getText(findTestObject('Android/Orders/Product Info/Product Details/orderName_TextView'), 0)
+		String orderNameInProductDetailsPage=Mobile.getText(findTestObject('Android/orders/productInfo/productDetails/orderName_TextView'), 0)
 		assert orderNameInSearchPage== orderNameInProductDetailsPage
-		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/Upload C2 order/c2label_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Product Info/Product Details/productSize_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Product Info/Product Details/NDC_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Product Info/Product Details/UOI_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Product Info/Product Details/stockStatus_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Product Info/Product Details/returnableStatus_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Product Info/Product Details/quantityTextField_EditText'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Product Info/Product Details/increaseCount_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Product Info/Product Details/strength_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Product Info/Product Details/form_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Product Info/Product Details/UPC_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Product Info/Product Details/CIN_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Product Info/Product Details/contractAlias_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Product Info/Product Details/retailPrice_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Product Info/Product Details/CIN_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Product Info/Product Details/date_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Product Info/Product Search/addToOrder_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/uploadC2Order/c2label_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/productInfo/productDetails/productSize_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/productInfo/productDetails/NDC_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/productInfo/productDetails/UOI_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/productInfo/productDetails/stockStatus_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/productInfo/productDetails/returnableStatus_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/productInfo/productDetails/quantityTextField_EditText'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/productInfo/productDetails/increaseCount_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/productInfo/productDetails/strength_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/productInfo/productDetails/form_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/productInfo/productDetails/UPC_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/productInfo/productDetails/CIN_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/productInfo/productDetails/contractAlias_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/productInfo/productDetails/retailPrice_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/productInfo/productDetails/CIN_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/productInfo/productDetails/date_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/productInfo/productSearch/addToOrder_Button'), 0)
 	}
 
 	/**
@@ -584,19 +806,13 @@ class orderDetailsScreen {
 
 	}
 
-
 	/**
-	 * this function verifies the product after search
+	 * verifies that the added top most product should  be visible on the order details page
+	 * @param productname (top most added product name)
 	 */
 	@Keyword
-	def verifyProductAfterSearch() {
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Product Info/Product Search/NDC_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Product Details/product_description_label'), 0)
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Product Details/UOI Cost_Text'), 0)
-		Mobile.verifyElementExist(findTestObject('Object Repository/Android/Product Search/Quantity_TextField'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Product Info/Product Search/manufacturer__TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Product Info/Product Search/alternates_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Product Info/Product Search/addToOrder_Button'), 0)
+	def verifyProductNameIsVisibleUnderOrderDetails(String productname) {
+		Mobile.verifyElementVisible(findTestObject('Android/orders/orderDetailsScreen/verificationDetails/productName_TextView',[('TEXT'):productname]),0)
 	}
 
 	/**
@@ -604,208 +820,18 @@ class orderDetailsScreen {
 	 */
 	@Keyword
 	def verifyProductTile() {
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Product Info/Product Search/CIN_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Product Info/Product Search/UPC__TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Product Info/Product Search/retailPrice__TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Product Info/Product Search/moreDetails__TextView'), 0)
-	}
-	/**
-	 * clicks on c2 order availability and waits for the response while verifying the availability details for the c2 product
-	 */
-	@Keyword()
-	def checkC2ProductAvailability() {
-
-		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/checkAvailability_Button'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/oneMoment_TextView'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/weNeedJustAMinuteToEnsureThatWeHaveEverythingInStock_TextView'), 0)
-
-		String testObject='Android/Orders/C2 Order Details Screen/Place C2 Order/OneMomentProgressBar'
-		(new androidCommonKeywords.commonMethods()).waitTimeForObjectToBeVisible(testObject,1,20)
-	}
-
-
-
-	/**
-	 * searches for a product by setting product name and quantity as the input
-	 * @param productName (product to be added), quantity (total quantity required to be added)
-	 */
-	@Keyword
-	def addProductToOrder(String productName, String quantity) {
-
-		Mobile.tap(findTestObject('Android/Product Search/Search Products_SearchView'), 0)
-
-		Mobile.setText(findTestObject('Android/Product Search/Search Products_SearchView'), productName + '\\n',0)
-
-		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
-
-		Mobile.setText(findTestObject('Android/Product Search/Quantity_TextField'), quantity, 0)
-
-		Mobile.tap(findTestObject('Android/Product Search/Add to Order_Button'),0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/productInfo/productSearch/CIN_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/productInfo/productSearch/UPC__TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/productInfo/productSearch/retailPrice__TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/productInfo/productSearch/moreDetails__TextView'), 0)
 	}
 
 	/**
-	 * searches for a product by setting product name 
-	 * @param productName (product to be added)
+	 * verifies quantity updated caption
 	 */
 	@Keyword
-	def searchProductInOrderDetailPage(String productName) {
-		Mobile.tap(findTestObject('Android/Product Search/Search Products_SearchView'), 0)
-		Mobile.setText(findTestObject('Android/Product Search/Search Products_SearchView'), productName + '\\n',0)
-	}
-
-	/**
-	 * opens product tile
-	 */
-	@Keyword
-	def clickOnProductTile() {
-		Mobile.tap(findTestObject('Android/Orders/Product Info/Product Search/NDC_TextView'), 0)
-	}
-
-	/**
-	 * opens more details of product details
-	 */
-	@Keyword
-	def clickOnMoreDetails() {
-		Mobile.tap(findTestObject('Android/Orders/Product Info/Product Search/moreDetails__TextView'), 0)
-	}
-
-	/**
-	 * removes product from orders details
-	 */
-	@Keyword
-	def removeProduct() {
-		Mobile.tap(findTestObject('Object Repository/Android/Orders/Order Details Screen/Verification Details/Remove Product_TextView'), 0)
-	}
-
-	/**
-	 * adds product in product details page
-	 */
-	@Keyword
-	def tapOnAddToOrderInProductDetailsPage() {
-		Mobile.tap(findTestObject('Android/Orders/Product Info/Product Search/addToOrder_Button'), 0)
-	}
-
-	/**
-	 * takes user back to the search product results to continue ordering
-	 */
-	@Keyword
-	def clickOnContinueOrdering() {
-
-		Mobile.tap(findTestObject('Android/Product Search/Continue Ordering_Button') ,0)
-	}
-
-	/**
-	 * takes user back to the search product results to continue browsing
-	 */
-	@Keyword
-	def tapOnContinueBrowsing() {
-
-		Mobile.tap(findTestObject('Object Repository/Android/Orders/C2 Order Details Screen/Place C2 Order/continueBrowsing_Button') ,0)
-	}
-
-	/**
-	 * takes user to the order details
-	 */
-	@Keyword
-	def tapOnGoToOrder() {
-		Mobile.tap(findTestObject('Object Repository/Android/Orders/Alternates Screen/goToOrder_TextView') ,0)
-	}
-
-	
-	
-	
-	@Keyword
-	def editPONameAndMemo(String poName,String poMemo, String newPoName, String newPoMemo ) {
-
-		Mobile.scrollToText('Edit')
-
-		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Edit PO Name and Memo/Edit P.O. Name and memo_TextView'), 0)
-
-		Mobile.clearText(findTestObject('Android/Orders/Order Details Screen/Edit PO Name and Memo/po name_to_be_edited_TextField', [('po_name') : poName]), 0)
-
-		Mobile.setText(findTestObject('Android/Orders/New Order Screen/P.O. Name (Optional)_TextField'), newPoName, 0)
-
-		Mobile.clearText(findTestObject('Android/Orders/Order Details Screen/Edit PO Name and Memo/po memo_to_be_edited_TextField', [('po_memo') : poMemo]), 0)
-
-		Mobile.setText(findTestObject('Android/Orders/New Order Screen/P.O. Memo (Optional)_TextField'), newPoMemo,	0)
-
-		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Edit PO Name and Memo/Update Order_Button'), 0)
-	}
-
-
-
-
-	@Keyword()
-	def add_ALternate_Product(String Product_Name,String Quantity) {
-		int w = 1
-
-		while (Mobile.verifyElementExist(findTestObject('Android/login/loginDetailsScreen/progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
-
-		Mobile.tap(findTestObject('Android/Product Search/Search Products_SearchView'), 0)
-
-		Mobile.setText(findTestObject('Android/Product Search/Search Products_SearchView'), Product_Name + '\\n',0)
-
-		while (Mobile.verifyElementExist(findTestObject('Android/login/loginDetailsScreen/progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
-
-		Mobile.setText(findTestObject('Android/Product Search/Quantity_TextField'), Quantity, 0)
-
-		while (Mobile.verifyElementExist(findTestObject('Android/login/loginDetailsScreen/progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
-
-		Mobile.tap(findTestObject('Android/Product Search/Alternates_List'), 0)
-
-		Mobile.tap(findTestObject('Android/Product Search/Add Alternate to Order_Button'), 0)
-
-		Mobile.tap(findTestObject('Android/Product Search/Continue Ordering_Button'),0)
-	}
-
-
-	/**
-	 * verifies order screen details without any added product
-	 */
-	@Keyword
-	def verifyOrderScreenDetailsWithoutAnyAddedProduct() {
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Verification Details/Nothing to see here_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Verification Details/Search products and add them to this order_TextView'),  0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Verification Details/0 lines in this order_TextView'),  0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Verification Details/Order_Name_Header'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Verification Details/Scan_Icon'),0)
-		Mobile.verifyElementAttributeValue(findTestObject('Android/Orders/Order Details Screen/Upload Order/Upload Order_Button'), 'enabled', 'false', 0)
-		Mobile.verifyElementAttributeValue(findTestObject('Android/Orders/Order Details Screen/Place Order/Place Order_Button'), 'enabled', 'false', 0)
-	}
-
-	/**
-	 * verifies order screen details with added product
-	 */
-	@Keyword
-	def verifyOrderScreenDetailsWithAddedProduct() {
-
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Cart Screen/Verifictaion Details/Lines_TextView'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Verification Details/Order Total_TextView'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Verification Details/Order_Name_Header'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Verification Details/Remove Product_TextView'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Product Details/NDC_label'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Product Details/UOI Cost_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Product Details/AMU_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Product Details/Manufacturer_Text'),  0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Verification Details/Scan_Icon'),0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Edit PO Name and Memo/Edit P.O. Name and memo_TextView'),	0)
+	def verifyQuantityUpdatedCaption() {
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/verificationDetails/quantityUpdated_TextView'), 0)
 	}
 
 	/**
@@ -813,151 +839,8 @@ class orderDetailsScreen {
 	 */
 	@Keyword
 	def verifyUploadOrderPopUp() {
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Upload Order/Continue order on the desktop_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Upload Order/Continue On Desktop_Button'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/Order Details Screen/Upload Order/Cancel and keep order on the app_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/uploadOrder/continueOrderOnTheDesktop_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/uploadOrder/Continue On Desktop_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/uploadOrder/cancelAndKeepOrderOnTheApp_Button'), 0)
 	}
-
-	/**
-	 * this function returns the order name of the order/ title of the screen when user is on order details screen
-	 * return orderName (returns order name/ title of order details screen)
-	 */
-	@Keyword
-	def returnOrderNameFromOrderDetailScreen() {
-
-		String orderName=Mobile.getText(findTestObject('android/Orders/Verification Details/orderDetailHeader_Label'), 0)
-
-		return orderName
-	}
-
-	/**
-	 * takes user back to history screen and verifies user is on the history screen or not
-	 */
-	@Keyword
-	def clickOnReviewAndSignButton() {
-
-		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/reviewAndSign_Button'), 0)
-
-		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
-
-		Mobile.verifyElementExist(findTestObject('Android/Orders/History Screen/Order History_TextView'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Orders/History Screen/Order History_HeaderText'),  0)
-	}
-
-	/**
-	 * Its check UTN number validation
-	 */
-	@Keyword
-	def utnNumberValidation(int utnPrefixLength, String expectedErrorMsg, String input1, String input2) {
-
-		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/POnumberTitle'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNtextbox'), 0)
-
-		// Clear text -  Last 6 characters should be deleted.
-		Mobile.clearText(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNtextbox'), 0)
-
-		// Check User should not able to remove the first  3 characters in the UTN field
-		String utnNumber=Mobile.getText(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNtextbox'), 0)
-		assert utnPrefixLength == (utnNumber.length())
-
-		// Verify validation error message and error icon
-		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNerrorIcon'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNerrorMessage'), 0)
-		String actualErrorMsg=Mobile.getText(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNerrorMessage'), 0)
-		assert expectedErrorMsg == actualErrorMsg
-
-		// Enter 6 zeros in the UTN field (Example: 21X000000)
-		Mobile.setText(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNtextbox'), input1, 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNerrorIcon'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNerrorMessage'), 0)
-		Mobile.clearText(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNtextbox'), 0)
-
-		// Enter special character in the UTN field (Example: 21X00000*)
-		Mobile.setText(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNtextbox'), input2, 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNerrorIcon'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNerrorMessage'), 0)
-	}
-
-
-	/**
-	 * Its check Duplicate utn number
-	 */
-	@Keyword
-	def enterDuplicateUTN(String existingUTNno, String duplicateErrorMsg) {
-
-		Mobile.setText(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/UTNtextbox'), existingUTNno, 0)
-		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/Place C2 Order/checkAvailability_Button'), 0)
-		WebUI.delay(10)
-
-		String actualErrorMsg = Mobile.getText(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/duplicateUTN_message'), 0)
-		assert duplicateErrorMsg == actualErrorMsg
-
-		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/DuplicateUTNerror_icon'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/DuplicateUTNNumber_error'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/ReEnterUTN_Button'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/SaveforLater_Button'), 0)
-	}
-
-	/**
-	 * Its save for later
-	 */
-	@Keyword
-	def saveForLater() {
-
-		Mobile.verifyElementExist(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/SaveforLater_Button'), 0)
-		Mobile.tap(findTestObject('Android/Orders/C2 Order Details Screen/UTN Verification/SaveforLater_Button'), 0)
-	}
-
-	/**
-	 * this function returns the order name of the order/ title of the screen when user is on order details screen
-	 * return orderName (returns order name/ title of order details screen)
-	 */
-	@Keyword
-	def returnNDCLabelOfScannedProduct() {
-
-		String NDCLabel = Mobile.getText(findTestObject('Android/Orders/Verification Details/ndcTextView'), 0)
-		return NDCLabel
-	}
-
-
-	/**
-	 * verifies order details screen when user in offline mode
-	 */
-	@Keyword
-	def verifyOrderDetailsScreenInOfflineMode () {
-		Mobile.verifyElementAttributeValue(findTestObject('Android/Orders/Order Details Screen/Upload Order/Upload Order_Button'), 'enabled', 'false', 0)
-		Mobile.verifyElementAttributeValue(findTestObject('Android/Orders/Order Details Screen/Place Order/Place Order_Button'), 'enabled', 'false', 0)
-	}
-
-	/**
-	 * scans the product in offline mode
-	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
-	 */
-	@Keyword
-	def scanInputEventInOfflineMode(String productToBeSearched) {
-		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_Icon'), 0)
-		Mobile.setText(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_EditText'), productToBeSearched, 0)
-		Mobile.tap(findTestObject('Android/Orders/Order Details Screen/Scan Order/scan_Button'), 0)
-	}
-	
-	/**
-	 * searches for a product by setting product name
-	 * @param productName (product to be added)
-	 */
-	@Keyword
-	def searchProductInOrderDetailPageOfflineMode(String productName) {
-		Mobile.delay(3)
-		Mobile.tap(findTestObject('Android/Product Search/SearchProductsTextBox'), 0)
-		Mobile.setText(findTestObject('Android/Product Search/SearchProductsTextBox'), productName + '\\n',0)
-	}
-	
-	/**
-	 * adds product
-	 */
-	@Keyword
-	def addToOrderWithoutVerify() {
-		Mobile.tap(findTestObject('Android/Orders/Product Info/Product Search/addToOrder_Button'), 0)
-	}
-	
 }

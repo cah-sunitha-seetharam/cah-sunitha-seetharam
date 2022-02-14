@@ -105,7 +105,7 @@ CustomKeywords.'androidOrders.orderDetailsScreen.clickOnBackToCart'()
 CustomKeywords.'androidOrders.ordersCommonScreen.clickOnHistoryTab'()
 
 'gets the initials historyCount before review and sign of c2 order and stores value in variable initialCount'
-initialCount = Mobile.getText(findTestObject('Android/Orders/Orders Common Screen/historyCount_TextView'), 0)
+initialCount = Mobile.getText(findTestObject('Android/orders/ordersCommonScreen/historyCount_TextView'), 0)
 
 'reviews and signs the c2 order by taking signingPassword as the argument'
 CustomKeywords.'androidOrders.historyScreen.clickOnC2OrderForReviewAndSign'(signingPassword)
@@ -117,7 +117,7 @@ WebUI.delay(30)
 CustomKeywords.'android_common_keywords.commonMethods.verticalSwipeForRefresh'()
 
 'gets the final historyCount after review and sign of c2 order which should be one less than the initial count and stores value in the variable finalCount'
-finalCount = Mobile.getText(findTestObject('Android/Orders/Orders Common Screen/historyCount_TextView'), 0)
+finalCount = Mobile.getText(findTestObject('Android/orders/ordersCommonScreen/historyCount_TextView'), 0)
 
 'asserts that the final historyCount should be one less than the initial historyCount after signing the password for c2order'
 assert initialCount == (finalCount + 1)

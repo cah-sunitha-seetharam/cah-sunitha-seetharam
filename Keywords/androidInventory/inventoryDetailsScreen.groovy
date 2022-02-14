@@ -121,17 +121,17 @@ class inventoryDetailsScreen {
 			Mobile.tap(findTestObject('Android/inventory/inventoryDetailScreen/verificationDetails/createdLocation_TextView', [('TEXT') : locationName]), 0)
 		}
 
-		Mobile.tap(findTestObject('Android/Product Search/Search Products_SearchView'), 0,FailureHandling.OPTIONAL)
+		Mobile.tap(findTestObject('Android/productSearch/searchProductsSearchView_EditText'), 0,FailureHandling.OPTIONAL)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.setText(findTestObject('Android/Product Search/Search Products_SearchView'), productName + '\\n',0)
+		Mobile.setText(findTestObject('Android/productSearch/searchProductsSearchView_EditText'), productName + '\\n',0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
 		locationDetailsScreenObject.addQuantityforTheSearchedProduct(quantity)
 
-		Mobile.tap(findTestObject('Android/Product Search/Add to Inventory_Button'), 0)
+		Mobile.tap(findTestObject('Android/productSearch/addToInventory_Button'), 0)
 
 		Mobile.tap(findTestObject('Android/inventory/locationDetailsScreen/moveProductToAnotherLocation/createANewLocation_TextView'), 0)
 
@@ -252,7 +252,7 @@ class inventoryDetailsScreen {
 	@Keyword
 	def clickOnScanIconAndAddProductByCreatingNewLocationViaInventoryDetailsScreen(String locationName, String productName,String countType, String quantity, String costType) {
 
-		Mobile.tap(findTestObject('Android/Product Search/Scan Flow/scan_Icon'), 0,,FailureHandling.OPTIONAL)
+		Mobile.tap(findTestObject('Android/productSearch/scanFlow/scanIcon_EditText'), 0,,FailureHandling.OPTIONAL)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 

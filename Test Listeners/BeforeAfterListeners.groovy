@@ -45,7 +45,6 @@ class BeforeAfterListeners {
 	def platformName = MobileDriverFactory.getDevicePlatform() // Identify the platform on which the test execution is happening
 
 
-
 	/**
 	 * Executes after every test case ends.
 	 * @param testCaseContext related information of the executed test case.
@@ -148,10 +147,10 @@ class BeforeAfterListeners {
 			AppiumDriver<?> driver =  commonMethods.getCurrentSessionMobileDriver()
 			driver.activateApp(GlobalVariable.bundleID)  //Activates the application if it installed, but not running or if it is running in the background.
 
-			if (Mobile.verifyElementExist(findTestObject('iOS/LogIn/Login_Details_Screen/cancelUpdate_Button'),2, FailureHandling.OPTIONAL))//cancel update pop up is visible
+			if (Mobile.verifyElementExist(findTestObject('iOS/logIn/loginDetailsScreen/cancelUpdate_Button'),2, FailureHandling.OPTIONAL))//cancel update pop up is visible
 			{
 
-				Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/cancelUpdate_Button'), 5,FailureHandling.OPTIONAL) //closes the pop up
+				Mobile.tap(findTestObject('iOS/logIn/loginDetailsScreen/cancelUpdate_Button'), 5,FailureHandling.OPTIONAL) //closes the pop up
 			}
 
 			if(testCaseID.contains("CSOS"))//if test case if from CSOS module, first step is to sign-out and login using specific account for csos

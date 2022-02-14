@@ -60,23 +60,18 @@ class dashboardDetailsScreen {
 	 */
 	@Keyword
 	def clickOnHomeTab() {
-
 		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Android/Dashboard/home_TextView'), 10)
 		element.click()
 	}
-
 
 	/**
 	 * opens more options tab where user can perform actions related to more options
 	 */
 	@Keyword
 	def clickOnMoreOptions() {
-
 		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Android/Dashboard/moreOptions_Tab'), 10)
 		element.click()
 	}
-
-
 
 	/**
 	 * opens moreOptions tab where user can perform actions like signOut, goToInventoryListing Screen etc
@@ -87,6 +82,14 @@ class dashboardDetailsScreen {
 		element.click()
 	}
 
+	/**
+	 * opens orders tab where user can perform actions related to orders
+	 */
+	@Keyword
+	def clickOnOrders() {
+		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Object Repository/Android/Dashboard/Orders_Tab'), 10)
+		element.click()
+	}
 
 	/**
 	 * opens receiving tab
@@ -97,50 +100,25 @@ class dashboardDetailsScreen {
 		element.click()
 	}
 
-
 	/**
 	 * opens audits tab
 	 */
 	@Keyword
 	def tapOnAudits() {
-
 		Mobile.tap(findTestObject('Android/Dashboard/audits'), 0)
 	}
-
-
 
 	/**
 	 * this function verifies the dash-board details Screen
 	 */
 	@Keyword
 	def verifyDashboardPage() {
-
-		Mobile.verifyElementExist(findTestObject('Android/Dashboard/home_Tab'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Dashboard/receiving_Tab'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Dashboard/audits'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Dashboard/moreOptions_Tab'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Dashboard/Orders_Tab'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Dashboard/homeHeader_TextView'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/Dashboard/ChangeAccount_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/dashboard/home_Tab'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/dashboard/receiving_Tab'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/dashboard/audits'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/dashboard/moreOptions_Tab'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/dashboard/Orders_Tab'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/dashboard/homeHeader_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/dashboard/ChangeAccount_Button'), 0)
 	}
-
-
-	/*	def commonMethodsObject=new commonMethods();
-	 @Keyword
-	 def addingProductFromDashboardToCart(String productName, String quantity) {
-	 commonMethodsObject.waitForProgressBarToBeInvisible()
-	 Mobile.tap(findTestObject('Android/Product Search/Search Products_SearchView'), 0)
-	 Mobile.setText(findTestObject('Android/Product Search/Search Products_SearchView'), productName + '\\n',0)
-	 commonMethodsObject.waitForProgressBarToBeInvisible()
-	 Mobile.setText(findTestObject('Android/Product Search/Quantity_TextField'), quantity, 0)
-	 Mobile.tap(	findTestObject('Object Repository/Android/Product Search/Add to Order_Button'), 0)
-	 Mobile.tap(findTestObject('iOS/Product_Search/Continue Browsing_Button'), 0)
-	 }*/
-
 }

@@ -3,7 +3,7 @@
    <description></description>
    <name>bcsNotification_View</name>
    <tag></tag>
-   <elementGuidId>ee7fcf7d-4c08-4e33-bcca-36dcd9f0ad56</elementGuidId>
+   <elementGuidId>b90db73e-dba6-4d5d-a67f-47b272444b76</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.viewpager.widget.ViewPager[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[2]/android.view.ViewGroup[1]</value>
    </webElementProperties>
-   <locator>//*[@resource-id = '${GlobalVariable.appPackage}:id/clBCSnotification']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/clBCSnotification</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

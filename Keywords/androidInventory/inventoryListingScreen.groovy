@@ -80,7 +80,7 @@ class inventoryListingScreen {
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.tap(findTestObject('Android/Dashboard/changeAccount_Button'), 0)
+		Mobile.tap(findTestObject('Android/dashboard/changeAccount_Button'), 0)
 
 		Mobile.tap(findTestObject('Android/accountSelection/ChangeAccount_TextView'), 0)
 

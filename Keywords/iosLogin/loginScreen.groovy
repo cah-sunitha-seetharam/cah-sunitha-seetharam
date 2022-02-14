@@ -65,21 +65,21 @@ class loginScreen {
 	@Keyword()
 	def selectEnvironment() {
 
-		if (Mobile.verifyElementExist(findTestObject('iOS/LogIn/Environment_Selection_Screen/environmentList_Button'),5, FailureHandling.OPTIONAL)) {
+		if (Mobile.verifyElementExist(findTestObject('iOS/logIn/environmentSelection/environmentList_Button'),5, FailureHandling.OPTIONAL)) {
 
-			Mobile.tap(findTestObject('iOS/LogIn/Environment_Selection_Screen/environmentList_Button'), 0, FailureHandling.STOP_ON_FAILURE)
+			Mobile.tap(findTestObject('iOS/logIn/environmentSelection/environmentList_Button'), 0, FailureHandling.STOP_ON_FAILURE)
 
 			if(GlobalVariable.Environment=="PMODStg")
 
-				Mobile.tap(findTestObject('iOS/LogIn/Environment_Selection_Screen/Environment_Button',[('TEXT'):"PMODSTG"]),0) //HardCoding because of the difference in name PMODSTG/PMODStg in iOS and Android
+				Mobile.tap(findTestObject('iOS/logIn/environmentSelection/Environment_Button',[('TEXT'):"PMODSTGMOCK"]),0) //HardCoding because of the difference in name PMODSTG/PMODStg in iOS and Android
 
 			else if (GlobalVariable.Environment=="PMODStgMock")
 
-				Mobile.tap(findTestObject('iOS/LogIn/Environment_Selection_Screen/Environment_Button',[('TEXT'):"PMODSTGMOCK"]),0) //HardCoding because of the difference in name PMODSTGMOCK/PMODStgMock in iOS and Android
+				Mobile.tap(findTestObject('iOS/logIn/environmentSelection/environment_Button',[('TEXT'):"PMODSTGMOCK"]),0) //HardCoding because of the difference in name PMODSTGMOCK/PMODStgMock in iOS and Android
 
 			else
 
-				Mobile.tap(findTestObject('iOS/LogIn/Environment_Selection_Screen/Environment_Button',[('TEXT'):GlobalVariable.Environment]),0)
+				Mobile.tap(findTestObject('iOS/logIn/environmentSelection/environment_Button',[('TEXT'):GlobalVariable.Environment]),0)
 
 		}
 	}
@@ -93,11 +93,11 @@ class loginScreen {
 	@Keyword()
 	def selectTypeOfTesting(String testingType='Automation') {
 
-		if (Mobile.verifyElementExist(findTestObject('iOS/LogIn/Testing Type/testingMode_Button'),10, FailureHandling.OPTIONAL)) {
+		if (Mobile.verifyElementExist(findTestObject('iOS/logIn/testingType/testingMode_Button'),10, FailureHandling.OPTIONAL)) {
 
-			Mobile.tap(findTestObject('iOS/LogIn/Testing Type/testingMode_Button'), 0)
+			Mobile.tap(findTestObject('iOS/logIn/testingType/testingMode_Button'), 0)
 
-			Mobile.tap(findTestObject('iOS/LogIn/Testing Type/testingType_Button',[('TEXT'):testingType]), 0)
+			Mobile.tap(findTestObject('iOS/logIn/testingType/testingType_Button',[('TEXT'):testingType]), 0)
 		}
 	}
 
@@ -110,13 +110,13 @@ class loginScreen {
 	@Keyword()
 	def enterUsername(String username) {
 
-		Mobile.waitForElementPresent(findTestObject('iOS/LogIn/Login_Details_Screen/loginUserName_Button'), 0)
+		Mobile.waitForElementPresent(findTestObject('iOS/logIn/loginDetailsScreen/loginUserName_Button'), 0)
 
-		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/loginUserName_Button'), 0)
+		Mobile.tap(findTestObject('iOS/logIn/loginDetailsScreen/loginUserName_Button'), 0)
 
-		Mobile.setText(findTestObject('iOS/LogIn/Login_Details_Screen/userName_TextField'), username, 0)
+		Mobile.setText(findTestObject('iOS/logIn/loginDetailsScreen/userName_TextField'), username, 0)
 
-		//Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/loginBar_buttonDown'), 0)
+		//Mobile.tap(findTestObject('iOS/logIn/loginDetailsScreen/loginBar_buttonDown'), 0)
 	}
 
 
@@ -127,13 +127,13 @@ class loginScreen {
 	@Keyword()
 	def enterPassword(String password) {
 
-		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/password_Button'), 0)
+		Mobile.tap(findTestObject('iOS/logIn/loginDetailsScreen/password_Button'), 0)
 
 		Mobile.delay(1)
 
-		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/password_Button'), 0)
-    
-		Mobile.setText(findTestObject('iOS/LogIn/Login_Details_Screen/passwordSecure_TextField'), password, 0)
+		Mobile.tap(findTestObject('iOS/logIn/loginDetailsScreen/password_Button'), 0)
+
+		Mobile.setText(findTestObject('iOS/logIn/loginDetailsScreen/passwordSecure_TextField'), password, 0)
 	}
 
 
@@ -144,7 +144,7 @@ class loginScreen {
 	@Keyword()
 	def clickOnSignInButton() {
 
-		Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/SignIn_Button'),0)
+		Mobile.tap(findTestObject('iOS/logIn/loginDetailsScreen/signIn_Button'),0)
 	}
 
 
@@ -155,7 +155,7 @@ class loginScreen {
 	@Keyword()
 	def clickOnForgotPassword() {
 
-		Mobile.tap(findTestObject('Object Repository/Login/Login_Details_Screen/Forget_Password'), 0)
+		Mobile.tap(findTestObject('Object Repository/iOS/logIn/loginDetailsScreen/forgetPassword_Text'), 0)
 	}
 
 
@@ -166,11 +166,11 @@ class loginScreen {
 	@Keyword()
 	def verifyLoginPageDetails() {
 
-		Mobile.verifyElementExist(findTestObject('iOS/LogIn/Login_Details_Screen/forgetPassword_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/logIn/loginDetailsScreen/forgetPassword_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/LogIn/Login_Details_Screen/welcome_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/logIn/loginDetailsScreen/welcome_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/LogIn/Login_Details_Screen/orderExpress_Logo'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/logIn/loginDetailsScreen/orderExpress_Logo'), 0)
 	}
 
 
@@ -181,9 +181,9 @@ class loginScreen {
 	@Keyword()
 	def cancelUpdatePopUp() {
 
-		if (Mobile.verifyElementExist(findTestObject('iOS/LogIn/Login_Details_Screen/cancelUpdate_Button'),10, FailureHandling.OPTIONAL)) {
+		if (Mobile.verifyElementExist(findTestObject('iOS/logIn/loginDetailsScreen/cancelUpdate_Button'),10, FailureHandling.OPTIONAL)) {
 
-			Mobile.tap(findTestObject('iOS/LogIn/Login_Details_Screen/cancelUpdate_Button'), 5,FailureHandling.OPTIONAL)
+			Mobile.tap(findTestObject('iOS/logIn/loginDetailsScreen/cancelUpdate_Button'), 5,FailureHandling.OPTIONAL)
 		}
 
 		Mobile.delay(3)

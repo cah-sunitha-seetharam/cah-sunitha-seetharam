@@ -54,21 +54,21 @@ class locationDetailsScreen {
 	@Keyword
 	def addProducttoLocation(String locationName, String productName, String quantity) {
 
-		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), 0, 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.setText(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), productName, 0)
+		Mobile.setText(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), productName, 0)
 
-		Mobile.tapAndHold(findTestObject('iOS/Product Search/search_Keypad'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/productSearch/globalSearch/search_Keypad'), 0, 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
 		addQuantityforTheSearchedProduct(quantity)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/addProductToLocation_Text', [('Location') : locationName]),0)
+		Mobile.tap(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/addProductToLocation_Text', [('Location') : locationName]),0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/continueBrowsingAfterAddingProduct_Text'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/continueBrowsingAfterAddingProduct_Text'), 0)
 	}
 
 
@@ -79,9 +79,9 @@ class locationDetailsScreen {
 	@Keyword
 	def addQuantityforTheSearchedProduct(String quantity) {
 
-		Mobile.setText(findTestObject('iOS/Product Search/Scan Flow/quantity_TextField'), quantity, 0)
+		Mobile.setText(findTestObject('iOS/productSearch/scanFlow/quantity_TextField'), quantity, 0)
 
-		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/done_Button'), 0)
+		Mobile.tap(findTestObject('iOS/productSearch/scanFlow/done_Button'), 0)
 	}
 
 
@@ -93,11 +93,11 @@ class locationDetailsScreen {
 	@Keyword
 	def clickOnRemoveButtonToRemoveAlreadyScannedProduct() {
 
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/thisItemHasBeenAddedToYourLocation_Text'),0)
+		Mobile.verifyElementExist(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/thisItemHasBeenAddedToYourLocation_Text'),0)
 
-		Mobile.tap(findTestObject('iOS/Product Search/removeItem_Button'), 0)
+		Mobile.tap(findTestObject('iOS/productSearch/globalSearch/removeItem_Button'), 0)
 
-		Mobile.tap(findTestObject('iOS/Product Search/yes_Text'), 0)
+		Mobile.tap(findTestObject('iOS/productSearch/globalSearch/yes_Text'), 0)
 	}
 
 
@@ -111,13 +111,13 @@ class locationDetailsScreen {
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/scan_Icon'), 0)
+		Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scan_Icon'), 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.verifyElementAttributeValue(findTestObject('iOS/Product Search/Scan Flow/fullCount_Button'), 'value', '1', 0)
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/productSearch/scanFlow/fullCount_Button'), 'value', '1', 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Product Search/Scan Flow/partialCount_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/productSearch/scanFlow/partialCount_Button'), 0)
 	}
 
 
@@ -131,33 +131,33 @@ class locationDetailsScreen {
 	def copyProductToAnotherLocation(String locationName, String productNdcNumber) {
 
 		//String testObj='Object Repository/iOS/Inventory/Location Details Screen/Delete Product/slidePopUpDeleteProduct_Button'
-		String testObj='Object Repository/iOS/Inventory/Location Details Screen/Verification Details/slidePopUp_Button'
+		String testObj='Object Repository/iOS/inventory/locationDetailsScreen/verification/slidePopUp_Button'
 
 		int x_Coordinate=(new iosCommonKeywords.commonMethods()).tapXCoordinateGenerator(testObj)
 
-		testObj='Object Repository/iOS/Inventory/Location Details Screen/Delete Product/ndcNumber_Text'
+		testObj='Object Repository/iOS/inventory/locationDetailsScreen/deleteProduct/ndcNumber_Text'
 
 		int y_Coordinate=(new iosCommonKeywords.commonMethods()).tapYCoordinateGenerator(testObj,productNdcNumber)
 
 		Mobile.tapAtPosition(x_Coordinate, y_Coordinate)
 
-		//Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Copy Product from Location/copyProduct_Text'), 0)
+		//Mobile.tap(findTestObject('iOS/inventory/locationDetailsScreen/copyProductFromLocation/copyProduct_Text'), 0)
 
-		Mobile.tap(	findTestObject('iOS/Inventory/Location Details Screen/Copy Product from Location/copy_Button'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/locationDetailsScreen/copyProductFromLocation/copy_Button'), 0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Copy Product from Location/copyToLocation_Text', [('Location') : locationName]), 0)
+		Mobile.tap(findTestObject('iOS/inventory/locationDetailsScreen/copyProductFromLocation/copyToLocation_Text', [('Location') : locationName]), 0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Copy Product from Location/copyProduct_Text'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/locationDetailsScreen/copyProductFromLocation/copyProduct_Text'), 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details Screen/Copy Product from Location/copyingProductConfirmation_Text',[('TEXT'):locationName]),0)
+		Mobile.verifyElementExist(findTestObject('iOS/inventory/locationDetailsScreen/copyProductFromLocation/copyingProductConfirmation_Text',[('TEXT'):locationName]),0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/backToLocation_Button'),0)
+		Mobile.verifyElementExist(findTestObject('iOS/inventory/locationDetailsScreen/verification/backToLocation_Button'),0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/productInfo_Text'),0)
+		Mobile.verifyElementExist(findTestObject('iOS/inventory/locationDetailsScreen/verification/productInfo_Text'),0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Copy Product from Location/goToLocationAfterCopyingProduct_Text', [('Location') : locationName]),0)
+		Mobile.tap(findTestObject('iOS/inventory/locationDetailsScreen/copyProductFromLocation/goToLocationAfterCopyingProduct_Text', [('Location') : locationName]),0)
 	}
 
 
@@ -171,21 +171,21 @@ class locationDetailsScreen {
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		String testObj='Object Repository/iOS/Inventory/Location Details Screen/Verification Details/slidePopUp_Button'
+		String testObj='Object Repository/iOS/inventory/locationDetailsScreen/verification/slidePopUp_Button'
 
 		int x_Coordinate=(new iosCommonKeywords.commonMethods()).tapXCoordinateGenerator(testObj)
 
-		testObj='Object Repository/iOS/Inventory/Location Details Screen/Delete Product/ndcNumber_Text'
+		testObj='Object Repository/iOS/inventory/locationDetailsScreen/deleteProduct/ndcNumber_Text'
 
 		int y_Coordinate=(new iosCommonKeywords.commonMethods()).tapYCoordinateGenerator(testObj,productNdcNumber)
 
 		Mobile.tapAtPosition(x_Coordinate, y_Coordinate)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Delete Product/deleteProduct_Text'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/locationDetailsScreen/deleteProduct/deleteProduct_Text'), 0)
 
-		//Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Delete Location/Yes_Text'), 0)
+		//Mobile.tap(findTestObject('iOS/inventory/locationDetailsScreen/deleteLocation/Yes_Text'), 0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory Screen/yes_Button'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/inventoryListingScreen/createNewInventory/yes_Button'), 0)
 
 	}
 
@@ -199,22 +199,22 @@ class locationDetailsScreen {
 	@Keyword
 	def editLocationName(String newLocationName,String costType) {
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Edit Location Name/editLocation_Text'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/locationDetailsScreen/editLocation/editLocation_Text'), 0)
 
-		Mobile.clearText(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName_TextField'), 0)
+		Mobile.clearText(findTestObject('iOS/inventory/inventoryDetailsScreen/addLocation/LocationName_TextField'), 0)
 
-		Mobile.setText(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName_TextField'), newLocationName, 0)
+		Mobile.setText(findTestObject('iOS/inventory/inventoryDetailsScreen/addLocation/LocationName_TextField'), newLocationName, 0)
 
 		if (costType == 'Last Price Paid') {
-			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/lastPrice_Button'), 0)
+			Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addLocation/lastPrice_Button'), 0)
 		} else {
-			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/currentPrice_Button'), 0)
+			Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addLocation/currentPrice_Button'), 0)
 		}
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Edit Location Name/saveChanges_Text'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/locationDetailsScreen/editLocation/saveChanges_Text'), 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/locationNameVerification_Text', [('LName') : newLocationName]),0)
+		Mobile.verifyElementExist(findTestObject('iOS/inventory/inventoryDetailsScreen/addLocation/locationNameVerification_Text', [('LName') : newLocationName]),0)
 	}
 
 
@@ -227,31 +227,31 @@ class locationDetailsScreen {
 	@Keyword
 	def moveProductToAnotherLocation(String locationName, String productNdcNumber) {
 
-		String testObj='Object Repository/iOS/Inventory/Location Details Screen/Verification Details/slidePopUp_Button'
+		String testObj='Object Repository/iOS/inventory/locationDetailsScreen/verification/slidePopUp_Button'
 
 		int x_Coordinate=(new iosCommonKeywords.commonMethods()).tapXCoordinateGenerator(testObj)
 
-		testObj='Object Repository/iOS/Inventory/Location Details Screen/Delete Product/ndcNumber_Text'
+		testObj='Object Repository/iOS/inventory/locationDetailsScreen/deleteProduct/ndcNumber_Text'
 
 		int y_Coordinate=(new iosCommonKeywords.commonMethods()).tapYCoordinateGenerator(testObj,productNdcNumber)
 
 		Mobile.tapAtPosition(x_Coordinate, y_Coordinate)
-		//Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Move Product to Another Location/moveProduct_Text'), 0)
-		Mobile.tap(	findTestObject('iOS/Inventory/Location Details Screen/Move Product to Another Location/move_Buton'), 0)
+		//Mobile.tap(findTestObject('iOS/inventory/locationDetailsScreen/moveProductFromLocation/moveProduct_Text'), 0)
+		Mobile.tap(	findTestObject('iOS/inventory/locationDetailsScreen/moveProductFromLocation/move_Buton'), 0)
 
-		Mobile.tap(findTestObject('Object Repository/iOS/Inventory/Location Details Screen/Move Product to Another Location/moveToLocation_Text', [('Location') : locationName]),0)
+		Mobile.tap(findTestObject('iOS/inventory/locationDetailsScreen/moveProductFromLocation/moveToLocation_Text', [('Location') : locationName]),0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Move Product to Another Location/moveProduct_Text'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/locationDetailsScreen/moveProductFromLocation/moveProduct_Text'), 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details Screen/Move Product to Another Location/movingProductConfirmation_Text',[('TEXT'):locationName]),0)
+		Mobile.verifyElementExist(findTestObject('iOS/inventory/locationDetailsScreen/moveProductFromLocation/movingProductConfirmation_Text',[('TEXT'):locationName]),0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/backToLocation_Button'),0)
+		Mobile.verifyElementExist(findTestObject('iOS/inventory/locationDetailsScreen/verification/backToLocation_Button'),0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/productInfo_Text'),0)
+		Mobile.verifyElementExist(findTestObject('iOS/inventory/locationDetailsScreen/verification/productInfo_Text'),0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Move Product To Another Location/goToLocationAfterMovingProduct_Text', [('Location') : locationName]),0)
+		Mobile.tap(findTestObject('iOS/inventory/locationDetailsScreen/Move Product To Another Location/goToLocationAfterMovingProduct_Text', [('Location') : locationName]),0)
 	}
 
 
@@ -262,7 +262,7 @@ class locationDetailsScreen {
 	@Keyword
 	def returnQuantityOfTheAddedProduct() {
 
-		String quantity= Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/quantityAdded_Text'), 0)
+		String quantity= Mobile.getText(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/quantityAdded_Text'), 0)
 
 		KeywordUtil.logInfo(quantity)
 
@@ -280,7 +280,7 @@ class locationDetailsScreen {
 	@Keyword
 	def returnUOIOfTheAddedProduct() {
 
-		String uoiCost=Mobile.getText(findTestObject('iOS/Verification/unitOfIssueCost_Text'), 0)
+		String uoiCost=Mobile.getText(findTestObject('iOS/verification/unitOfIssueCost_Text'), 0)
 
 		float uoiCost_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(uoiCost)//converting uoiCost string to a float value
 
@@ -296,11 +296,11 @@ class locationDetailsScreen {
 	@Keyword
 	def scanInputEvent(String productToBeSearched) {
 
-		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/scanGray_Image'), 0)
+		Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scanGray_Image'), 0)
 
-		Mobile.setText(findTestObject('iOS/Product Search/Scan Flow/enterBarcode_TextField'), productToBeSearched, 0)
+		Mobile.setText(findTestObject('iOS/productSearch/scanFlow/enterBarcode_TextField'), productToBeSearched, 0)
 
-		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/done_Button'), 0)
+		Mobile.tap(findTestObject('iOS/productSearch/scanFlow/done_Button'), 0)
 	}
 
 
@@ -312,10 +312,10 @@ class locationDetailsScreen {
 	@Keyword
 	def selectCountTypeForTheProductToBeAdded(String countType) {
 		if(countType=="Full Count") {
-			Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/fullCount_Button'), 0)
+			Mobile.tap(findTestObject('iOS/productSearch/scanFlow/fullCount_Button'), 0)
 		}
 		else {
-			Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/partialCount_Button'), 0)
+			Mobile.tap(findTestObject('iOS/productSearch/scanFlow/partialCount_Button'), 0)
 		}
 	}
 
@@ -327,11 +327,11 @@ class locationDetailsScreen {
 	@Keyword
 	def uploadLocation() {
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Upload Location/enabledUploadLocation_Button'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/locationDetailsScreen/uploadLocation/enabledUploadLocation_Button'), 0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory Screen/yes_Button'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/inventoryListingScreen/createNewInventory/yes_Button'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details Screen/Upload Location/disbaledUploadLocation_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/inventory/locationDetailsScreen/uploadLocation/disbaledUploadLocation_Button'), 0)
 	}
 
 
@@ -342,7 +342,7 @@ class locationDetailsScreen {
 	@Keyword
 	def verifyCountTypeOfProduct(String expectedCountType) {
 
-		String countType=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/addedProductCountType_Text'),0) //gets the countType of the added product in the location details page
+		String countType=Mobile.getText(findTestObject('iOS/inventory/locationDetailsScreen/verification/addedProductCountType_Text'),0) //gets the countType of the added product in the location details page
 
 		assert (countType+" COUNT")==(expectedCountType.toUpperCase()) // verifies countType equals the countType of the product in the products list
 
@@ -357,7 +357,7 @@ class locationDetailsScreen {
 	@Keyword
 	def verifyLinesCount(String expectedLinesCount) {
 
-		String actualLinesCount=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/inventoryLine_Text'),0) //gets the actualLinesCount on the location details page
+		String actualLinesCount=Mobile.getText(findTestObject('iOS/inventory/locationDetailsScreen/verification/inventoryLine_Text'),0) //gets the actualLinesCount on the location details page
 
 		assert actualLinesCount==expectedLinesCount //actual lines count has to be equal to expected lines count
 	}
@@ -375,12 +375,12 @@ class locationDetailsScreen {
 	@Keyword
 	def verifyLocationDetailsScreen(Stack countTypeStack, Stack quantityStack, Stack productNdcStack, Stack unitOfIssueCostStack) {
 		commonMethodsObject.waitForProgressBarToBeInvisible()
-		
+
 		String topProductCountType,topProductNdc,topProductQuantity,countType,quantity,costOfOneFullCountProduct
 		float totalCostOfAddedProduct=0.00, costOfOneFullCountProduct_dollarSymbolRemoved_FloatValue, topProductUnitOfIssueCost_FloatValue, topProductQuantity_FloatValue
-		String inventoryTotal=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/inventoryTotal_Text'), 0)// inventory value with location added
+		String inventoryTotal=Mobile.getText(findTestObject('iOS/inventory/locationDetailsScreen/verification/inventoryTotal_Text'), 0)// inventory value with location added
 		float inventoryTotal_charactersRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(inventoryTotal)///converting finalInventoryTotal string to a float value
-		//String actualLinesCount=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/inventoryLine_Text'),0) //gets the actualLinesCount on the location details page
+		//String actualLinesCount=Mobile.getText(findTestObject('iOS/inventory/locationDetailsScreen/verification/inventoryLine_Text'),0) //gets the actualLinesCount on the location details page
 		//assert actualLinesCount==(expectedLinesCount) // verifies actualLinesCount equals the expectedLinesCount
 		while(!countTypeStack.isEmpty() && !quantityStack.isEmpty() && !productNdcStack.isEmpty() && !unitOfIssueCostStack.isEmpty()) //loops while countType, quantity, productNdcStack is not empty
 		{
@@ -388,9 +388,9 @@ class locationDetailsScreen {
 			topProductCountType=countTypeStack.pop() //pops the top countType from the countTypeStack and stores value in the topProductCountType
 			topProductQuantity=quantityStack.pop() //pops the top quantity from the quantityStack and stores value in the topProductQuantity
 			topProductNdc=productNdcStack.pop() //pops the top ndcNumber from the productNdcStack and stores value in the topProductNdc
-			countType=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/addedProductCountType_Text'),0) //gets the countType of the top added product in the location details page
-			quantity=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/addedProductQuanity_Text'),0) //gets the quantity of the top added product in the location details page
-			costOfOneFullCountProduct=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/locationDetailsPrice_Label'),  0)
+			countType=Mobile.getText(findTestObject('iOS/inventory/locationDetailsScreen/verification/addedProductCountType_Text'),0) //gets the countType of the top added product in the location details page
+			quantity=Mobile.getText(findTestObject('iOS/inventory/locationDetailsScreen/verification/addedProductQuanity_Text'),0) //gets the quantity of the top added product in the location details page
+			costOfOneFullCountProduct=Mobile.getText(findTestObject('iOS/inventory/locationDetailsScreen/verification/locationDetailsPrice_Label'),  0)
 			topProductUnitOfIssueCost_FloatValue=(new common.commonMethods()).floatValueGenerator(topProductUnitOfIssueCost)///converting topProductUnitOfIssueCost string to a float value
 			topProductQuantity_FloatValue=(new common.commonMethods()).floatValueGenerator(topProductQuantity)///converting topProductQuantity string to a float value
 			costOfOneFullCountProduct_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(costOfOneFullCountProduct)///converting costOfOneFullCountProduct string to a float value
@@ -422,7 +422,7 @@ class locationDetailsScreen {
 	@Keyword
 	def verifyProductIsNotVisibleOnTheLocationDetailsScreen(productNdcNumber) {
 
-		String testObj='Object Repository/iOS/Inventory/Location Details Screen/Delete Product/ndcNumber_Text'
+		String testObj='Object Repository/iOS/inventory/locationDetailsScreen/deleteProduct/ndcNumber_Text'
 
 		(new iosCommonKeywords.commonMethods()).verifyProductIsNotVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsNotVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
 	}
@@ -439,7 +439,7 @@ class locationDetailsScreen {
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		String testObj='Object Repository/iOS/Inventory/Location Details Screen/Delete Product/ndcNumber_Text'
+		String testObj='Object Repository/iOS/inventory/locationDetailsScreen/deleteProduct/ndcNumber_Text'
 
 		(new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
 	}
@@ -479,7 +479,7 @@ class locationDetailsScreen {
 	@Keyword
 	def verifyShareLocationPopUp() {
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Share Location/shareLocation_Button'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/locationDetailsScreen/shareLocation/shareLocation_Button'), 0)
 
 		String verifyPopUpScreentestobj='iOS/Inventory/Location Details Screen/Share Location/sharePopUpActivity_ListView' //reference of the popUp screen object
 

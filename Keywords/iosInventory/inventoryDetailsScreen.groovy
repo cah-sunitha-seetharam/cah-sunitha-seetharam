@@ -52,9 +52,9 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 	def addCostType(String costType) {
 
 		if (costType == 'Last Price') {
-			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/lastPrice_Button'), 0)
+			Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addLocation/lastPrice_Button'), 0)
 		} else {
-			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/currentPrice_Button'), 0)
+			Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addLocation/currentPrice_Button'), 0)
 		}
 	}
 
@@ -67,26 +67,26 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 	@Keyword
 	def addLocation(String locationName, String costType) {
 
-		if(Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/addLocation_Text'),5, FailureHandling.OPTIONAL)){
+		if(Mobile.verifyElementExist(findTestObject('iOS/inventory/inventoryDetailsScreen/addLocation/addLocation_Text'),5, FailureHandling.OPTIONAL)){
 
-			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/addLocation_Text'), 0)
+			Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addLocation/addLocation_Text'), 0)
 		}
 
 		else {
-			Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/addLocation_Button'), 0)
+			Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addLocation/addLocation_Button'), 0)
 		}
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName_TextField'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addLocation/LocationName_TextField'), 0)
 
-		Mobile.setText(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName_TextField'), locationName, 0)
+		Mobile.setText(findTestObject('iOS/inventory/inventoryDetailsScreen/addLocation/LocationName_TextField'), locationName, 0)
 
 		addCostType(costType)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory Screen/createNewLocation_Button'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/inventoryListingScreen/createNewInventory/createNewLocation_Button'), 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/locationNameVerification_Text', [('LName') : locationName]),0)
+		Mobile.verifyElementExist(findTestObject('iOS/inventory/inventoryDetailsScreen/addLocation/locationNameVerification_Text', [('LName') : locationName]),0)
 	}
 
 
@@ -99,7 +99,7 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 	@Keyword
 	def clickOnALocation(String locationName) {
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/tapOnLocation_Text', [('Location') : locationName]), 0)
+		Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addLocation/tapOnLocation_Text', [('Location') : locationName]), 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 	}
@@ -119,45 +119,45 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 	@Keyword
 	def clickOnScanIconAndAddProductByCreatingNewLocationViaInventoryDetailsScreen(String locationName, String productName,String countType, String quantity, String costType) {
 
-		Mobile.tap(findTestObject('iOS/Product Search/Scan Flow/scan_Icon'), 0)
+		Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scan_Icon'), 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
 		'calling the function which selects the countType required for a product which is searched and takes countType as the argument'
-		(new iosInventory.locationDetailsScreen()).selectCountTypeForTheProductToBeAdded(countType)
+		locationDetailsScreenObject.selectCountTypeForTheProductToBeAdded(countType)
 
 		'calling the function which scans the product and adds it to the location, it takes productName/UPC/Cin/Ndc as the argument'
-		(new iosInventory.locationDetailsScreen()).scanInputEvent(productName)
+		locationDetailsScreenObject.scanInputEvent(productName)
 
 		'calling the function which adds quantity required for a product to be added and takes quantity required as the argument'
-		(new iosInventory.locationDetailsScreen()).addQuantityforTheSearchedProduct(quantity)
+		locationDetailsScreenObject.addQuantityforTheSearchedProduct(quantity)
 
 		'waits until the progressBar is visible on the screen'
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/addItemFromAlternate_Button'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/addItemFromAlternate_Button'), 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/createLocation_Label'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/createLocation_Label'), 0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/locationName_Button'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/locationName_Button'), 0)
 
-		Mobile.setText(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/locationName_TextField'), locationName, 0)
+		Mobile.setText(findTestObject('iOS/inventory/inventoryDetailsScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/locationName_TextField'), locationName, 0)
 
-		(new iosInventory.inventoryDetailsScreen()).addCostType(costType)
+		addCostType(costType)
 
-		Mobile.tapAndHold(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory Screen/done_Keypad'), 0,0)
+		Mobile.tapAndHold(findTestObject('iOS/inventory/inventoryListingScreen/createNewInventory/done_Keypad'), 0,0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/createNewLocation_Button'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/createNewLocation_Button'), 0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/createdLocation_Text',[('TEXT'):locationName]), 0)
+		Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/createdLocation_Text',[('TEXT'):locationName]), 0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/addToInventory_Button'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/addToInventory_Button'), 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/continue_Button'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/continue_Button'), 0)
 	}
 
 
@@ -171,32 +171,32 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		int ElementTopPosition = Mobile.getElementTopPosition(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/tapOnLocation_Text', [('Location') : locationName]), 0)
+		int ElementTopPosition = Mobile.getElementTopPosition(findTestObject('iOS/inventory/inventoryDetailsScreen/addLocation/tapOnLocation_Text', [('Location') : locationName]), 0)
 
-		int ElementHeight=Mobile.getElementHeight(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/tapOnLocation_Text', [('Location') : locationName]), 0)
+		int ElementHeight=Mobile.getElementHeight(findTestObject('iOS/inventory/inventoryDetailsScreen/addLocation/tapOnLocation_Text', [('Location') : locationName]), 0)
 
 		int y_Coordinate=(ElementHeight/2)+ElementTopPosition
 
-		int ElementLeftPosition=Mobile.getElementLeftPosition(findTestObject('iOS/Inventory/Location Details Screen/Delete Location/slidePopUpForLocationDeletion_Button'), 0)
+		int ElementLeftPosition=Mobile.getElementLeftPosition(findTestObject('iOS/inventory/locationDetailsScreen/deleteLocation/slidePopUpForLocationDeletion_Button'), 0)
 
-		int ElementWidth=Mobile.getElementWidth(findTestObject('iOS/Inventory/Location Details Screen/Delete Location/slidePopUpForLocationDeletion_Button'), 0)
+		int ElementWidth=Mobile.getElementWidth(findTestObject('iOS/inventory/locationDetailsScreen/deleteLocation/slidePopUpForLocationDeletion_Button'), 0)
 
 		int x_Coordinate=(ElementWidth/2)+ElementLeftPosition
 
 		Mobile.tapAtPosition(x_Coordinate, y_Coordinate)
-		//Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Delete Location/deleteLocation_Text'), 0)
+		//Mobile.tap(findTestObject('iOS/inventory/locationDetailsScreen/deleteLocation/deleteLocation_Text'), 0)
 
-		Mobile.tap(	findTestObject('iOS/Inventory/Inventory Listing Screen/Delete Inventory/delete_Button'), 0)
+		Mobile.tap(	findTestObject('iOS/inventory/inventoryListingScreen/deleteInventory/delete_Button'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Location Details Screen/Delete Location/selectingYesWillAlsoDeleteThisLocationsInventoryOnTheWebsiteAndCannotBeUndone_Text'),0)
+		Mobile.verifyElementExist(findTestObject('iOS/inventory/inventoryListingScreen/deleteInventory/selectingYesWillAlsoDeleteThisLocationsInventoryOnTheWebsiteAndCannotBeUndone_Text'),0)
 
 
-		//Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Delete Location/yes_Text'), 0)
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Listing Screen/Create New Inventory Screen/yes_Button'), 0)
+		//Mobile.tap(findTestObject('iOS/inventory/locationDetailsScreen/deleteLocation/yes_Text'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/inventoryListingScreen/createNewInventory/yes_Button'), 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.verifyElementNotVisible(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/locationNameVerification_Text', [('LName') : locationName]),0)
+		Mobile.verifyElementNotVisible(findTestObject('iOS/inventory/inventoryDetailsScreen/addLocation/locationNameVerification_Text', [('LName') : locationName]),0)
 	}
 
 
@@ -208,11 +208,11 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 	@Keyword
 	def deleteLocationWithCostLocationCountVerification(String locationName) {
 
-		int initialInventoryLocationCount=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/inventoryLine_Text'), 0)// initial inventory location count
+		int initialInventoryLocationCount=Mobile.getText(findTestObject('iOS/inventory/locationDetailsScreen/verification/inventoryLine_Text'), 0)// initial inventory location count
 
-		String initialInventoryTotal=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/inventoryTotal_Text'), 0)// inventory value with location added
+		String initialInventoryTotal=Mobile.getText(findTestObject('iOS/inventory/locationDetailsScreen/verification/inventoryTotal_Text'), 0)// inventory value with location added
 
-		String locationValue=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/locationValue_Text'), 0)//location value with added product
+		String locationValue=Mobile.getText(findTestObject('iOS/inventory/locationDetailsScreen/verification/locationValue_Text'), 0)//location value with added product
 
 		float inventoryTotal_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(initialInventoryTotal)//converting initialInventoryTotal string to a float value
 
@@ -220,11 +220,11 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 
 		(new iosInventory.inventoryDetailsScreen()).deleteLocation(locationName)//calling delete location function
 
-		Mobile.tap(findTestObject('iOS/Product Search/Back_ImageView'), 0)
+		Mobile.tap(findTestObject('iOS/productSearch/Back_ImageView'), 0)
 
-		int finalInventoryLocationCount=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/noOfLocation_Text'), 0)//final inventory location count after deleting a location
+		int finalInventoryLocationCount=Mobile.getText(findTestObject('iOS/inventory/locationDetailsScreen/verification/noOfLocation_Text'), 0)//final inventory location count after deleting a location
 
-		String finalInventoryTotal=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/locationValue_Text'), 0)//final inventory total after deleting a location
+		String finalInventoryTotal=Mobile.getText(findTestObject('iOS/inventory/locationDetailsScreen/verification/locationValue_Text'), 0)//final inventory total after deleting a location
 
 		float finalInventoryTotal_charactersRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(finalInventoryTotal)///converting finalInventoryTotal string to a float value
 
@@ -241,13 +241,13 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 	@Keyword
 	def editInventoryName(String newInventoryName) {
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Edit Inventory/editInventory_Text'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/editInventory/editInventory_Text'), 0)
 
-		Mobile.clearText(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/locationName_TextField'), 0)
+		Mobile.clearText(findTestObject('iOS/inventory/inventoryDetailsScreen/addLocation/locationName_TextField'), 0)
 
-		Mobile.setText(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName_TextField'), newInventoryName, 0)
+		Mobile.setText(findTestObject('iOS/inventory/inventoryDetailsScreen/addLocation/LocationName_TextField'), newInventoryName, 0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Edit Inventory/saveChanges_Text'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/editInventory/saveChanges_Text'), 0)
 	}
 
 
@@ -260,35 +260,35 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 	@Keyword
 	def searchAndAddProductByCreatingNewLocation(String locationName, String productName,String costType, String quantity) {
 
-		Mobile.tapAndHold(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), 0, 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.setText(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/productSearch_TextField'), productName, 0)
+		Mobile.setText(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), productName, 0)
 
-		Mobile.tapAndHold(findTestObject('iOS/Product Search/search_Keypad'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/productSearch/globalSearch/search_Keypad'), 0, 0)
 
 		locationDetailsScreenObject.addQuantityforTheSearchedProduct(quantity)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/addProductToInventory_Text'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/addProductToInventory_Text'), 0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Add Product to Location/createANewLocation_Text'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/createANewLocation_Text'), 0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName_TextField'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addLocation/LocationName_TextField'), 0)
 
-		Mobile.setText(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/LocationName_TextField'), locationName, 0)
+		Mobile.setText(findTestObject('iOS/inventory/inventoryDetailsScreen/addLocation/LocationName_TextField'), locationName, 0)
 
 		addCostType(costType)
 
-		Mobile.tapAndHold(findTestObject('iOS/Product Search/doneKeypad_Button'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/productSearch/globalSearch/doneKeypad_Button'), 0, 0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/createNewLocation_Text'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addLocation/createNewLocation_Text'), 0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Location/tapOnLocation_Text',[('Location'):locationName]), 0)
+		Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addLocation/tapOnLocation_Text',[('Location'):locationName]), 0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/addProductToInventory_Text'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/addProductToInventory_Text'), 0)
 
-		Mobile.tap(findTestObject('iOS/Inventory/Location Details Screen/Copy Product from Location/goToLocationAfterCopyingProduct_Text',[('Location'):locationName]), 0)
+		Mobile.tap(findTestObject('iOS/inventory/locationDetailsScreen/copyProductFromLocation/goToLocationAfterCopyingProduct_Text',[('Location'):locationName]), 0)
 	}
 
 
@@ -300,17 +300,17 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 	@Keyword
 	def verifyInventoryDetailsScreen(String inventoryName) {
 
-		//Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Verification Details/createdOnDate_Text'),0)
+		//Mobile.verifyElementExist(findTestObject('iOS/inventory/inventoryDetailsScreen/verificationDetails/createdOnDate_Text'),0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Verification Details/inventoryHeader_Label'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/inventory/inventoryDetailsScreen/verificationDetails/inventoryHeader_Label'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Verification Details/inventoryValue_Text'),0)
+		Mobile.verifyElementExist(findTestObject('iOS/inventory/inventoryDetailsScreen/verificationDetails/inventoryValue_Text'),0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Product Search/Scan Flow/scan_Icon'),0)
+		Mobile.verifyElementExist(findTestObject('iOS/productSearch/scanFlow/scan_Icon'),0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Verification Details/Location_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/inventory/inventoryDetailsScreen/verificationDetails/Location_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/Inventory/Inventory Details Screen/Verification Details/inventoryTitle_Label',[('TEXT'):inventoryName]),0)
+		Mobile.verifyElementExist(findTestObject('iOS/inventory/inventoryDetailsScreen/verificationDetails/inventoryTitle_Label',[('TEXT'):inventoryName]),0)
 	}
 
 
@@ -321,7 +321,7 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 	@Keyword
 	def verifyLocationCount(String expectedLocationCount) {
 
-		String actualLocationCount=Mobile.getText(findTestObject('iOS/Inventory/Location Details Screen/Verification Details/inventoryLine_Text'),0) //gets the actual Location Count on the inventory details page
+		String actualLocationCount=Mobile.getText(findTestObject('iOS/inventory/locationDetailsScreen/verification/inventoryLine_Text'),0) //gets the actual Location Count on the inventory details page
 
 		assert actualLocationCount==expectedLocationCount //actual location count has to be equal to expected lines count
 
@@ -337,9 +337,9 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 	@Keyword
 	def verifyProductIsVisibleOnScreenWhenSearchedFromInventoryDetailsScreen(productIdentificationNumber) {
 
-		String testObj='Object Repository/iOS/Inventory/Inventory Details Screen/Add Product to Inventory using Search from Inventory Details Screen/alternateNDC_Text'
+		String testObj='Object Repository/iOS/inventory/inventoryDetailsScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/alternateNDC_Text'
 
-		(new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(testObj,productIdentificationNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
+		commonMethodsObject.verifyProductIsVisibleOnTheScreen(testObj,productIdentificationNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
 
 	}
 }
