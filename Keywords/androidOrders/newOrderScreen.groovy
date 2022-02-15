@@ -41,16 +41,34 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 class newOrderScreen {
 
+	@Keyword
+	def change_Account(String New_Account) {
+
+		Mobile.tap(findTestObject('Android/Dashboard/changeAccount_Button'), 0)
+
+		Mobile.tap(findTestObject('Android/accountSelection/ChangeAccount_TextView'), 0)
+
+		Mobile.scrollToText(New_Account, FailureHandling.STOP_ON_FAILURE)
+
+		Mobile.tap(findTestObject('Android/accountSelection/Accounts Listing Screen/Account_No', [('val') : New_Account]), 0)
+
+		int w = 1
+
+		while (Mobile.verifyElementExist(findTestObject('Android/login/loginDetailsScreen/progress_Bar'), w, FailureHandling.OPTIONAL)) {
+			WebUI.delay(w)
+		}
+	}
+	
 	/**
 	 * selects different account
 	 * @param accountNo (account number used for selection)
 	 */
 	@Keyword
 	def changeAccount(String accountNo) {
-		Mobile.tap(findTestObject('Android/dashboard/changeAccount_Button'), 0)
-		Mobile.tap(findTestObject('Android/Account Selection/ChangeAccount_TextView'), 0)
+		Mobile.tap(findTestObject('Android/Dashboard/changeAccount_Button'), 0)
+		Mobile.tap(findTestObject('Android/accountSelection/ChangeAccount_TextView'), 0)
 		Mobile.scrollToText(accountNo, FailureHandling.STOP_ON_FAILURE)
-		Mobile.tap(findTestObject('Android/Account Selection/AccountNo_TextView',[('val') : accountNo]), 0)
+		Mobile.tap(findTestObject('Android/accountSelection/accountNo_TextView',[('val') : accountNo]), 0)
 	}
 
 	/**

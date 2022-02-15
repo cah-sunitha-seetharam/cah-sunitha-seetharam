@@ -42,9 +42,8 @@ class  commonMethods {
 	@Keyword()
 	def goOneScreenBack() {
 
-		Mobile.tap(findTestObject('Android/Inventory/Location Details Screen/Add Product to_Location/Back_TextView'), 0)
+		Mobile.tap(findTestObject('Android/inventory/locationDetailsScreen/addProductToLocation/Back_TextView'), 0)
 	}
-
 
 
 	/**
@@ -147,7 +146,7 @@ class  commonMethods {
 	@Keyword()
 	def waitForProgressBarToBeInvisible() {
 
-		String testObject='Android/Login/Login Details Screen/Progress_Bar'
+		String testObject='Android/login/loginDetailsScreen/progress_Bar'
 		(new androidCommonKeywords.commonMethods()).waitTimeForObjectToBeVisible(testObject,1,20) //waitTime of 1(s), waitLimit of 20(s)
 	}
 
@@ -301,7 +300,7 @@ class  commonMethods {
 	@Keyword
 	def clickOnProductSearchTextField() {
 
-		Mobile.tapAndHold(findTestObject('Android/Inventory/Location Details Screen/Add Product to_Location/productSearch_TextField'), 0, 0)
+		Mobile.tapAndHold(findTestObject('Android/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), 0, 0)
 	}
 
 	/**
@@ -311,7 +310,7 @@ class  commonMethods {
 	@Keyword
 	def enterProductInSearchField(productSearch) {
 
-		Mobile.setText(findTestObject('Android/Inventory/Location Details Screen/Add Product to_Location/productSearch_TextField'), productSearch, 0)
+		Mobile.setText(findTestObject('Android/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), productSearch, 0)
 	}
 
 
@@ -322,7 +321,7 @@ class  commonMethods {
 	@Keyword
 	def performBasicTextManagementOperation(String operationToBePerformed) {
 
-		Mobile.tapAndHold(findTestObject('Android/Inventory/Location Details Screen/Add Product to_Location/productSearch_TextField'), 0, 0)
+		Mobile.tapAndHold(findTestObject('Android/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), 0, 0)
 
 		Mobile.tap(findTestObject('Object Repository/iOS/Verification/selectAll_MenuItem'), 5,FailureHandling.OPTIONAL)
 
@@ -331,17 +330,17 @@ class  commonMethods {
 		waitForProgressBarToBeInvisible()
 	}
 
-	
-	
+
+
 	/**
 	 * takes product to be searched as the argument and searches the same
 	 */
 	@Keyword
 	def searchProduct(productToBeSearched) {
 
-		Mobile.tapAndHold(findTestObject('Android/Inventory/Location Details Screen/Add Product to_Location/productSearch_TextField'), 0, 0)
-		
-		Mobile.setText(findTestObject('Android/Inventory/Location Details Screen/Add Product to_Location/productSearch_TextField'), productToBeSearched + '\\n', 0)
-			
+		Mobile.tapAndHold(findTestObject('Android/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), 0, 0)
+
+		Mobile.setText(findTestObject('Android/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), productToBeSearched + '\\n', 0)
+
 	}
 }

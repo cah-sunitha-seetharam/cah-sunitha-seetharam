@@ -64,13 +64,13 @@ class loginScreen {
 	@Keyword
 	def selectEnvironment() {
 
-		if (Mobile.verifyElementExist(findTestObject('Android/Login/Environment Selecttion Screen/Environment_Spinner'),5, FailureHandling.OPTIONAL)) {
+		if (Mobile.verifyElementExist(findTestObject('Android/login/environmentSelectionScreen/Environment_Spinner'),5, FailureHandling.OPTIONAL)) {
 
-			Mobile.tap(findTestObject('Android/Login/Environment Selecttion Screen/Environment_Spinner'), 0)
+			Mobile.tap(findTestObject('Android/login/environmentSelectionScreen/Environment_Spinner'), 0)
 
-			Mobile.tap(findTestObject('Android/Login/Environment Selecttion Screen/environmentSelection_TextView',[('TEXT'):GlobalVariable.Environment]),0)
+			Mobile.tap(findTestObject('Android/login/environmentSelectionScreen/environmentSelection_TextView',[('TEXT'):GlobalVariable.Environment]),0)
 
-			Mobile.tap(findTestObject('Android/Login/Environment Selecttion Screen/Proceed_Button'), 0)
+			Mobile.tap(findTestObject('Android/login/environmentSelectionScreen/proceed_Button'), 0)
 		}
 	}
 
@@ -83,9 +83,9 @@ class loginScreen {
 	@Keyword()
 	def enterUsername(String username) {
 
-		Mobile.tap(findTestObject('Android/Login/Login Details Screen/Username_TextField'), 0)
+		Mobile.tap(findTestObject('Android/login/loginDetailsScreen/username_TextField'), 0)
 
-		Mobile.setText(findTestObject('Android/Login/Login Details Screen/Username_TextField'), username, 0)
+		Mobile.setText(findTestObject('Android/login/loginDetailsScreen/username_TextField'), username, 0)
 	}
 
 
@@ -97,9 +97,9 @@ class loginScreen {
 	@Keyword()
 	def enterPassword(String password) {
 
-		Mobile.tap(findTestObject('Android/Login/Login Details Screen/Password_TextField'), 0)
+		Mobile.tap(findTestObject('Android/login/loginDetailsScreen/password_TextField'), 0)
 
-		Mobile.setText(findTestObject('Android/Login/Login Details Screen/Password_TextField'), password, 0)
+		Mobile.setText(findTestObject('Android/login/loginDetailsScreen/password_TextField'), password, 0)
 	}
 
 
@@ -109,7 +109,7 @@ class loginScreen {
 	@Keyword()
 	def clickOnSignInButton() {
 
-		Mobile.tap(findTestObject('Android/Login/Login Details Screen/signIn_Button'), 0)
+		Mobile.tap(findTestObject('Android/login/loginDetailsScreen/signIn_Button'), 0)
 	}
 
 
@@ -120,7 +120,7 @@ class loginScreen {
 	@Keyword()
 	def clickOnForgotPassword() {
 
-		Mobile.tap(findTestObject('Android/Login/Login Details Screen/forgotPassword_Button'), 0)
+		Mobile.tap(findTestObject('Android/login/loginDetailsScreen/forgotPassword_Button'), 0)
 	}
 
 
@@ -131,11 +131,11 @@ class loginScreen {
 	@Keyword()
 	def verifyLoginPageDetails() {
 
-		Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/forgotPassword_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/login/loginDetailsScreen/forgotPassword_Button'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/cardinalHealth_Logo'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/login/loginDetailsScreen/cardinalHealth_Logo'), 0)
 
-		Mobile.verifyElementExist(findTestObject('Android/Login/Login Details Screen/welcomeBack_TextView'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/login/loginDetailsScreen/welcomeBack_TextView'), 0)
 	}
 }
 

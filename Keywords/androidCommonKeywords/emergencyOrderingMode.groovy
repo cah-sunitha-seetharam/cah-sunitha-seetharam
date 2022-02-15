@@ -60,14 +60,14 @@ class emergencyOrderingMode {
 			KeywordUtil.markFailed("enableOrDisableEOmode method failed")
 		}
 	}
-	
+
 	/**
 	 * Closes the opened fly-out
 	 */
 	@Keyword
 
 	def CloseFlyout(){
-		
-			Mobile.tap(findTestObject('Android/Flyout Page/flyoutClose_Button'), 15)
+
+		Mobile.tap(findTestObject('Android/Flyout Page/flyoutClose_Button'), 15)
 	}
 }

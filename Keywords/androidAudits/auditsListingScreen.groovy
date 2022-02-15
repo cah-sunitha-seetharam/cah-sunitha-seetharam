@@ -55,9 +55,9 @@ class auditsListingScreen {
 	@Keyword
 	def tapOnQuantityBox() {
 
-		Mobile.tap(findTestObject('Android/Audits/quantityLayout'), 0)
+		Mobile.tap(findTestObject('Android/audits/quantityLayout'), 0)
 
-		//		String idOfTheElement = Mobile.getAttribute(findTestObject('Android/Audits/quantityLayout'), 'resource-id', 0)
+		//		String idOfTheElement = Mobile.getAttribute(findTestObject('Android/audits/quantityLayout'), 'resource-id', 0)
 		//
 		//		KeywordUtil.logInfo(idOfTheElement)
 		//
@@ -74,7 +74,7 @@ class auditsListingScreen {
 	@Keyword
 	def longPressOnQuantityBox() {
 
-		Mobile.longPress(findTestObject('Android/Audits/quantityLayout'), 0)
+		Mobile.longPress(findTestObject('Android/audits/quantityLayout'), 0)
 	}
 
 	/**
@@ -85,21 +85,21 @@ class auditsListingScreen {
 	@Keyword
 	def increaseCount() {
 
-		int Count = Mobile.getText(findTestObject('Android/Audits/quantity'),0).toInteger()
+		int count = Mobile.getText(findTestObject('Android/audits/quantity'),0).toInteger()
 
-		KeywordUtil.logInfo("Initial Count is:" + Count)
+		KeywordUtil.logInfo("Initial Count is:" + count)
 
-		Mobile.tap(findTestObject('Android/Audits/increaseCount'), 0)
+		Mobile.tap(findTestObject('Android/audits/increaseCount'), 0)
 
-		int increasedCount = Mobile.getText(findTestObject('Android/Audits/quantity'),0).toInteger()
+		int increasedCount = Mobile.getText(findTestObject('Android/audits/quantity'),0).toInteger()
 
 		KeywordUtil.logInfo("After tapping" + increasedCount)
 
-		int valueOfeachCount = increasedCount - Count
+		int valueOfEachCount = increasedCount - count
 
-		KeywordUtil.logInfo("valueOfeachCount is" + valueOfeachCount)
+		KeywordUtil.logInfo("valueOfEachCount is" + valueOfEachCount)
 
-		assert increasedCount == (Count + valueOfeachCount)
+		assert increasedCount == (count + valueOfEachCount)
 	}
 
 	/**
@@ -110,23 +110,23 @@ class auditsListingScreen {
 	@Keyword
 	def decreaseCount() {
 
-		Mobile.tap(findTestObject('Android/Audits/increaseCount'), 0)
+		Mobile.tap(findTestObject('Android/audits/increaseCount'), 0)
 
-		int Count = Mobile.getText(findTestObject('Android/Audits/quantity'),0).toInteger()
+		int count = Mobile.getText(findTestObject('Android/audits/quantity'),0).toInteger()
 
-		KeywordUtil.logInfo("Initial Count is:" + Count)
+		KeywordUtil.logInfo("Initial Count is:" + count)
 
-		Mobile.tap(findTestObject('Android/Audits/decreaseCount'), 0)
+		Mobile.tap(findTestObject('Android/audits/decreaseCount'), 0)
 
-		int decreaseCountCount = Mobile.getText(findTestObject('Android/Audits/quantity'),0).toInteger()
+		int decreasedCount = Mobile.getText(findTestObject('Android/audits/quantity'),0).toInteger()
 
-		KeywordUtil.logInfo("After tapping" + decreaseCountCount)
+		KeywordUtil.logInfo("After tapping" + decreasedCount)
 
-		int valueOfeachCount = Count - decreaseCountCount
+		int valueOfEachCount = count - decreasedCount
 
-		KeywordUtil.logInfo("valueOfeachCount is" + valueOfeachCount)
+		KeywordUtil.logInfo("valueOfEachCount is" + valueOfEachCount)
 
-		assert decreaseCountCount == (Count - valueOfeachCount)
+		assert decreasedCount == (count - valueOfEachCount)
 	}
 
 
@@ -138,11 +138,11 @@ class auditsListingScreen {
 	@Keyword
 	def confirmAuditCount() {
 
-		int count = Mobile.getText(findTestObject('Android/Audits/quantity'),0).toInteger()
+		int count = Mobile.getText(findTestObject('Android/audits/quantity'),0).toInteger()
 
 		KeywordUtil.logInfo("Count is: " + count)
 
-		Mobile.tap(findTestObject('Android/Audits/confirmAuditCount'), 0)
+		Mobile.tap(findTestObject('Android/audits/confirmAuditCount'), 0)
 
 		return count
 	}
@@ -154,7 +154,7 @@ class auditsListingScreen {
 	@Keyword
 	def verifyQuantity(int quantity) {
 
-		int count = Mobile.getText(findTestObject('Android/Audits/quantity'),0).toInteger()
+		int count = Mobile.getText(findTestObject('Android/audits/quantity'),0).toInteger()
 
 		KeywordUtil.logInfo("Count is: " + count)
 
@@ -167,9 +167,9 @@ class auditsListingScreen {
 	@Keyword
 	def changeAccount() {
 
-		Mobile.tap(findTestObject('Android/Audits/accountIcon'), 0)
+		Mobile.tap(findTestObject('Android/audits/account_Icon'), 0)
 		Mobile.delay(2)
-		Mobile.tap(findTestObject('Android/Audits/changeAccountIcon'), 0)
+		Mobile.tap(findTestObject('Android/audits/changeAccount_Icon'), 0)
 		Mobile.delay(2)
 	}
 
@@ -179,14 +179,14 @@ class auditsListingScreen {
 	@Keyword
 	def tapOnAllBox() {
 
-		Mobile.tap(findTestObject('Android/Audits/selectBox',[('val') : 1]), 0)
+		Mobile.tap(findTestObject('Android/audits/selectBox',[('val') : 1]), 0)
 		Mobile.delay(2)
-		Mobile.longPress(findTestObject('Android/Audits/selectBox',[('val') : 1]), 0)
-		Mobile.tap(findTestObject('Android/Audits/increaseCount'), 0)
-		Mobile.tap(findTestObject('Android/Audits/confirmAuditCount'), 0)
+		Mobile.longPress(findTestObject('Android/audits/selectBox',[('val') : 1]), 0)
+		Mobile.tap(findTestObject('Android/audits/increaseCount'), 0)
+		Mobile.tap(findTestObject('Android/audits/confirmAuditCount'), 0)
 		Mobile.delay(2)
 
-		String noOfItem = Mobile.getText(findTestObject('Android/Audits/groupAuditStatus'), 0)
+		String noOfItem = Mobile.getText(findTestObject('Android/audits/groupAuditStatus'), 0)
 		String noOfItemValue = noOfItem.charAt(2)
 		int itemValue = noOfItemValue.toInteger()
 
@@ -195,7 +195,7 @@ class auditsListingScreen {
 
 		for (int i = 1; i < itemValue; i++) {
 
-			Mobile.tap(findTestObject('Android/Audits/onHand',[('val') : i]), 0)
+			Mobile.tap(findTestObject('Android/audits/onHand',[('val') : i]), 0)
 			Mobile.delay(2)
 		}
 	}
@@ -207,11 +207,11 @@ class auditsListingScreen {
 	@Keyword
 	def isGroupAudited() {
 
-		while (Mobile.verifyElementNotVisible(findTestObject('Android/Audits/isGroupCompletelyAudited'), 2, FailureHandling.OPTIONAL)) {
+		while (Mobile.verifyElementNotVisible(findTestObject('Android/audits/isGroupCompletelyAudited'), 2, FailureHandling.OPTIONAL)) {
 			Mobile.swipe(600, 800, 600, 300)
 		}
 
-		Mobile.verifyElementExist(findTestObject('Android/Audits/isGroupCompletelyAudited'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/audits/isGroupCompletelyAudited'), 0)
 	}
 
 	/**
@@ -220,8 +220,8 @@ class auditsListingScreen {
 	@Keyword
 	def submitCompletedGroups() {
 
-		Mobile.verifyElementExist(findTestObject('Android/Audits/submitCompletedGroups'), 0)
-		Mobile.tap(findTestObject('Android/Audits/submitCompletedGroups'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/audits/submitCompletedGroups'), 0)
+		Mobile.tap(findTestObject('Android/audits/submitCompletedGroups'), 0)
 		Mobile.delay(2)
 	}
 
@@ -231,15 +231,15 @@ class auditsListingScreen {
 	@Keyword
 	def verifyAuditsScreen(String expectedMessage) {
 
-		Mobile.verifyElementExist(findTestObject('Android/Audits/welcomeMessage'), 0)
-		String message = Mobile.getText(findTestObject('Android/Audits/welcomeMessage'),0)
+		Mobile.verifyElementExist(findTestObject('Android/audits/welcomeMessage'), 0)
+		String message = Mobile.getText(findTestObject('Android/audits/welcomeMessage'),0)
 		assert message.contains(expectedMessage)
 
-		Mobile.verifyElementExist(findTestObject('Android/Audits/ndcNumber'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Audits/groupAuditStatus'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/Audits/groupName'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/audits/ndcNumber'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/audits/groupAuditStatus'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/audits/groupName'), 0)
 		Mobile.delay(2)
-		String buttonStatus = Mobile.getAttribute(findTestObject('Android/Audits/submitCompletedGroups'), 'enabled', 0)
+		String buttonStatus = Mobile.getAttribute(findTestObject('Android/audits/submitCompletedGroups'), 'enabled', 0)
 		assert buttonStatus == "false"
 	}
 
@@ -249,8 +249,8 @@ class auditsListingScreen {
 	@Keyword
 	def verifyAccount(String first_account) {
 
-		Mobile.verifyElementExist(findTestObject('Android/Audits/accountID', [('AccountID') : first_account]), 0)
-		String accountId = Mobile.getText(findTestObject('Android/Audits/accountID', [('AccountID') : first_account]), 0)
+		Mobile.verifyElementExist(findTestObject('Android/audits/accountID', [('AccountID') : first_account]), 0)
+		String accountId = Mobile.getText(findTestObject('Android/audits/accountID', [('AccountID') : first_account]), 0)
 		assert accountId.contains(first_account)
 	}
 }
