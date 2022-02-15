@@ -44,18 +44,6 @@ import io.appium.java_client.MobileElement
 class dashboardDetailsScreen {
 
 	/**
-	 * opens orders tab where user can perform actions related to orders
-	 */
-	@Keyword
-	def clickOnOrders() {
-
-		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Android/Dashboard/Orders_Tab'), 10)
-		element.click()
-	}
-
-
-
-	/**
 	 * opens home tab where user can perform actions related to home
 	 */
 	@Keyword

@@ -80,7 +80,11 @@ class inventoryDetailsScreen {
 	}
 
 
-
+	/**
+	 * Edit an inventory name
+	 * @param newInventoryName (name of the inventory to be added)
+	 * @param previousName (name of the previous to be added)
+	 */
 
 	@Keyword
 	def editInventoryName(String newInventoryName, String previousName) {
@@ -101,8 +105,10 @@ class inventoryDetailsScreen {
 	}
 
 
-
-
+	/**
+	 * Click on the location 
+	 * @param locationName (name of the location)
+	 */
 
 	@Keyword
 	def clickOnLocation(String locationName) {
@@ -113,6 +119,13 @@ class inventoryDetailsScreen {
 	}
 
 
+	/**
+	 * Search the product 
+	 * @param locationName (name of the location)
+	 * @param productName (name of the product)
+	 * @param costType (cost of the product)
+	 * @param quantity (quantity of the product)
+	 */
 
 	@Keyword
 	def searchAndAddProductByCreatingNewLocation(String locationName, String productName,String costType, String quantity) {
@@ -153,7 +166,10 @@ class inventoryDetailsScreen {
 	}
 
 
-
+	/**
+	 * Verify inventory details
+	 * @param inventoryName (name of the inventory)
+	 */
 
 	@Keyword
 	def verifyInventoryDetailsScreen(String inventoryName) {

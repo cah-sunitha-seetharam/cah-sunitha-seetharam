@@ -101,67 +101,6 @@ class locationDetailsScreen {
 	}
 
 	/**
-	 * Move product to the another location
-	 */
-	@Keyword
-	def move_Product_To_Another_Location(String location_Name) {
-
-		int w=1
-
-		while (Mobile.verifyElementExist(findTestObject('Android/login/loginDetailsScreen/progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
-		Mobile.tap(findTestObject('Android/productDetails/popUpProductMenu_TextView'), 0)
-
-		Mobile.tap(findTestObject('Android/inventory/locationDetailsScreen/moveProductToAnotherLocation/Move_TextView'), 0)
-
-		Mobile.tap(findTestObject('Android/inventory/locationDetailsScreen/moveProductToAnotherLocation/selectLocationForMoveOrCopy_RadioButton'), 0)
-
-		Mobile.tap(findTestObject('Android/inventory/locationDetailsScreen/moveProductToAnotherLocation/Move_Button'), 0)
-
-		Mobile.tap(findTestObject('Android/inventory/locationDetailsScreen/copyProductToAnotherLocation/goToLocationAfterMoveOrCopy_TextView',[('TEXT') : location_Name]), 0)
-	}
-
-
-	/**
-	 * Copy product to the another location
-	 */
-	@Keyword
-	def copy_Product_To_Another_Location(String location_Name) {
-
-		int w=1
-
-		while (Mobile.verifyElementExist(findTestObject('Android/login/loginDetailsScreen/progress_Bar'), w, FailureHandling.OPTIONAL)) {
-			WebUI.delay(w)
-		}
-		Mobile.tap(findTestObject('Android/productDetails/popUpProductMenu_TextView'), 0)
-
-		Mobile.tap(findTestObject('Android/inventory/locationDetailsScreen/copyProductToAnotherLocation/copy_TextView'), 0)
-
-		Mobile.tap(findTestObject('Android/inventory/locationDetailsScreen/moveProductToAnotherLocation/selectLocationForMoveOrCopy_RadioButton'), 0)
-
-		Mobile.tap(findTestObject('Android/inventory/locationDetailsScreen/copyProductToAnotherLocation/copy_Button'), 0)
-
-		Mobile.tap(findTestObject('Android/inventory/locationDetailsScreen/copyProductToAnotherLocation/goToLocationAfterMoveOrCopy_TextView',[('TEXT') : location_Name]), 0)
-	}
-
-	
-	/**
-	 * Delete product from inventory
-	 */
-
-	@Keyword
-	def delete_Product() {
-
-		Mobile.tap(findTestObject('Android/inventory/inventoryListingScreen/deleteInventory/popup_menu'), 0)
-
-		Mobile.tap(findTestObject('Android/inventory/inventoryListingScreen/deleteInventory/Delete_Button'), 0)
-
-		Mobile.tap(findTestObject('Android/inventory/inventoryListingScreen/deleteInventory/Yes_Button'), 0)
-	}
-
-
-	/**
 	 * uploads location from the location details screen
 	 */
 	@Keyword
@@ -178,40 +117,6 @@ class locationDetailsScreen {
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.verifyElementAttributeValue(findTestObject('Android/inventory/locationDetailsScreen/uploadLocation/enabledUpload_Button'), 'enabled','false',0)
-	}
-
-
-	/**
-	 * Share lcoation
-	 */
-
-	@Keyword
-	def share_Location() {
-
-		Mobile.tap(findTestObject('Android/inventory/locationDetailsScreen/shareLocation/Share_Button'), 0)
-
-		Mobile.tap(findTestObject('Android/inventory/locationDetailsScreen/shareLocation/Gmail_Text'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/inventory/locationDetailsScreen/shareLocation/orderExpressLocationFile_TextField'),0)
-
-		Mobile.verifyElementExist(findTestObject('Android/inventory/locationDetailsScreen/shareLocation/From_TextView'), 0)
-
-		Mobile.verifyElementExist(findTestObject('Android/inventory/locationDetailsScreen/shareLocation/To_TextView'), 0)
-	}
-
-	/**
-	 * Verify and validate location details
-	 */
-	@Keyword
-	def verify_Location_details_Screen(String location_Name) {
-
-		Mobile.verifyElementExist(findTestObject('Android/inventory/inventoryDetailScreen/verificationDetails/inventoryHeader_TextView'),0)
-
-		Mobile.verifyElementExist(findTestObject('Android/inventory/locationDetailsScreen/verificationDetails/createdOnDate_TextView'),0)
-
-		Mobile.verifyElementExist(findTestObject('Android/inventory/locationDetailsScreen/verificationDetails/inventoryValue_TextView'),0)
-
-		Mobile.verifyElementExist(	findTestObject('Android/inventory/locationDetailsScreen/verificationDetails/createdLocationName_TextView',[('TEXT'):location_Name]),0)
 	}
 
 

@@ -71,29 +71,6 @@ class inventoryListingScreen {
 	}
 
 	/**
-	 * switches to another user account
-	 * @param newAccount (account no to which the user should switch)
-	 */
-
-	@Keyword
-	def change_Account(String new_Account) {
-
-		commonMethodsObject.waitForProgressBarToBeInvisible()
-
-		Mobile.tap(findTestObject('Android/dashboard/changeAccount_Button'), 0)
-
-		Mobile.tap(findTestObject('Android/accountSelection/ChangeAccount_TextView'), 0)
-
-		while (Mobile.verifyElementNotVisible(findTestObject('Android/accountSelection/accountNo_TextView',[('val') : new_Account]), 2, FailureHandling.OPTIONAL)) {
-			Mobile.swipe(600, 800, 600, 300)
-		}
-		Mobile.tap(findTestObject('Android/accountSelection/accountNo_TextView',[('val') : new_Account]), 0)
-
-		commonMethodsObject.waitForProgressBarToBeInvisible()
-	}
-
-
-	/**
 	 * creates a new inventory from inventory listing screen
 	 * @param inventoryName (name required for the new inventory)
 	 */
@@ -116,15 +93,5 @@ class inventoryListingScreen {
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 	}
 
-	/**
-	 * verifies details of inventory listing screen
-	 */
-
-	@Keyword
-	def verify_Inventory_Listing_Screen() {
-
-		Mobile.verifyElementExist(findTestObject('Android/inventory/inventoryListingScreen/verificationDetails/letsGetStartedWithYourInventory_TextView'),0)
-
-		Mobile.verifyElementExist(findTestObject('Android/inventory/inventoryDetailScreen/verificationDetails/inventoryHeader_TextView'),0)
-	}
+	
 }

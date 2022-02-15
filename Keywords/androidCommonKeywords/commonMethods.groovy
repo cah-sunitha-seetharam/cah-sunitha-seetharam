@@ -46,7 +46,6 @@ class  commonMethods {
 	}
 
 
-
 	/**
 	 * reads value from the global boolean variable: isAndroidAppInstalled
 	 * and if it is set to true, launches already installed application else installs and launches the application
@@ -331,8 +330,8 @@ class  commonMethods {
 		waitForProgressBarToBeInvisible()
 	}
 
-	
-	
+
+
 	/**
 	 * takes product to be searched as the argument and searches the same
 	 */
@@ -340,8 +339,8 @@ class  commonMethods {
 	def searchProduct(productToBeSearched) {
 
 		Mobile.tapAndHold(findTestObject('Android/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), 0, 0)
-		
+
 		Mobile.setText(findTestObject('Android/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), productToBeSearched + '\\n', 0)
-			
+
 	}
 }
