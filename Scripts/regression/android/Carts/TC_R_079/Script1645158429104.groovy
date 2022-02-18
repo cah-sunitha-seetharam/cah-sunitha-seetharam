@@ -17,7 +17,6 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-
 'starts the application'
 CustomKeywords.'androidCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
@@ -33,6 +32,7 @@ CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(Gl
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
+
 '------------------------enables beta feature CSOS---------------------------'
 
 'clicks on more options tab is dashboard'
@@ -45,9 +45,6 @@ CustomKeywords.'androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS'()
 
 'opens cart page'
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnOrders'()
-
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'clicks on scan icon and also verifies that the default scan toggle value is at ordering'
 CustomKeywords.'androidOrders.orderDetailsScreen.clickOnScanIconWithoutVerification'()
@@ -88,17 +85,11 @@ CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisi
 'takes the application one screen back'
 CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
 
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
 'taps on scan icon and takes user to scanning product screen '
 CustomKeywords.'androidOrders.orderDetailsScreen.clickOnScanIconWithoutVerification'()
 
 'scans the product'
 CustomKeywords.'androidOrders.orderDetailsScreen.scanInputEventWithoutVerification'(productSearch4)
-
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'takes the application one screen back'
 CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
@@ -115,36 +106,24 @@ CustomKeywords.'androidOrders.orderDetailsScreen.clickOnPlaceOrder'()
 'clicks on place order button'
 CustomKeywords.'androidOrders.orderDetailsScreen.confirmPlaceOrder'()
 
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
 'takes user back to cart screen and verifies user is on the cart screen or not'
 CustomKeywords.'androidOrders.orderDetailsScreen.clickOnBackToCart'()
 
-'-----------------search product in home screen in online mode-----------------------'
+'----------------scan A product in ordering toggle and go to offline mode-------------'
 
-'waits until the progressBar is visible on the screen, which will have a maximum waitLimit to be visible on the screen'
-CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+'clicks on scan icon and also verifies that the default scan toggle value is at ordering'
+CustomKeywords.'androidOrders.orderDetailsScreen.clickOnScanIconWithoutVerification'()
 
-'opens home tab'
-CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnHomeTab'()
+'selects toggle value for the product to be added which can be ordering or price check'
+CustomKeywords.'androidOrders.orderDetailsScreen.selectToggleValueForTheProductToBeSearched'(toggleValue)
 
-'waits until the progressBar is visible on the screen, which will have a maximum waitLimit to be visible on the screen'
-CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+'takes productSearch which can be productName/Cin/UPC/NDC as the input and adds it to the order by scanning the product'
+CustomKeywords.'androidOrders.orderDetailsScreen.scanInputEventWithoutVerification'(productSearch1)
 
-'searches for a product by setting product name'
-CustomKeywords.'androidOrders.orderDetailsScreen.searchProductInOrderDetailPage'(productSearch1)
-
-'opens product tile'
-CustomKeywords.'androidOrders.orderDetailsScreen.clickOnProductTile'()
-
-'verifies the product tile'
-CustomKeywords.'androidOrders.orderDetailsScreen.verifyProductTile'()
+String NDCLabelOnlineMode = CustomKeywords.'androidOrders.orderDetailsScreen.returnNDCLabelOfScannedProduct'()
 
 'takes the application one screen back'
 CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
-
-'---------------------search same product A in offline mode in home and cart screen--------------------'
 
 'longpress account icon to turns on airplane mode'
 CustomKeywords.'androidCommonKeywords.emergencyOrderingMode.enableOrDisableEOmode'()
@@ -152,49 +131,58 @@ CustomKeywords.'androidCommonKeywords.emergencyOrderingMode.enableOrDisableEOmod
 'Close the popup'
 CustomKeywords.'androidCommonKeywords.emergencyOrderingMode.CloseFlyout'()
 
-'waits for 5(s) to load product'
-WebUI.delay(5)
+'---------------scan same A product in price check toggle in offline mode--------------'
 
-'navigate to orders page'
-CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnOrders'()
+'clicks on scan icon and also verifies that the default scan toggle value is at ordering'
+CustomKeywords.'androidOrders.orderDetailsScreen.clickOnScanIconWithoutVerification'()
 
-//'opens home tab'
-//CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnHomeTab'()
+'selects toggle value for the product to be added which can be ordering or price check'
+CustomKeywords.'androidOrders.orderDetailsScreen.selectToggleValueForTheProductToBeSearched'(toggleValue1)
 
-'waits until the progressBar is visible on the screen, which will have a maximum waitLimit to be visible on the screen'
-CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+'takes productSearch which can be productName/Cin/UPC/NDC as the input and adds it to the order by scanning the product'
+CustomKeywords.'androidOrders.orderDetailsScreen.scanInputEventWithoutVerification'(productSearch1)
 
-'searches for a product by setting product name'
-CustomKeywords.'androidOrders.orderDetailsScreen.searchProductInOrderDetailPageOfflineMode'(productSearch1)
+'retruns NDC number'
+String NDCLabelOfflineModePriceCheck = CustomKeywords.'androidOrders.orderDetailsScreen.returnNDCLabelOfScannedProduct'()
 
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
-'opens product tile'
-CustomKeywords.'androidOrders.orderDetailsScreen.clickOnProductTile'()
-
-'verifies the product tile'
-CustomKeywords.'androidOrders.orderDetailsScreen.verifyProductTile'()
+'assertion funaction called to verify expected and actual ndc number'
+assert NDCLabelOnlineMode == NDCLabelOfflineModePriceCheck
 
 'adds product'
-CustomKeywords.'androidOrders.orderDetailsScreen.addToOrderWithoutVerify'()
+CustomKeywords.'androidOrders.orderDetailsScreen.tapOnAddToOrderInScanSearchResults'()
 
 'taps on go to order button on order confirmation screen and takes user to order details screen'
 CustomKeywords.'androidOrders.orderDetailsScreen.tapOnGoToOrder'()
+
+'verifies order details screen when user in offline mode'
+CustomKeywords.'androidOrders.orderDetailsScreen.verifyOrderDetailsScreenInOfflineMode'()
+
+'takes the application one screen back'
+CustomKeywords.'androidCommonKeywords.commonMethods.pressBacknav'()
+
+'---------------scan same A product in ordering toggle in offline mode--------------'
+
+'clicks on scan icon and also verifies that the default scan toggle value is at ordering'
+CustomKeywords.'androidOrders.orderDetailsScreen.clickOnScanIconWithoutVerification'()
+
+'selects toggle value for the product to be added which can be ordering or price check'
+CustomKeywords.'androidOrders.orderDetailsScreen.selectToggleValueForTheProductToBeSearched'(toggleValue)
+
+'takes productSearch which can be productName/Cin/UPC/NDC as the input and adds it to the order by scanning the product'
+CustomKeywords.'androidOrders.orderDetailsScreen.scanInputEventWithoutVerification'(productSearch1)
+
+String NDCLabelOfflineModeOrdering = CustomKeywords.'androidOrders.orderDetailsScreen.returnNDCLabelOfScannedProduct'()
+
+'assertion funaction called to verify expected and actual ndc number'
+assert NDCLabelOnlineMode == NDCLabelOfflineModeOrdering
 
 'takes the application one screen back'
 CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
 
 '------------------------using prerequisite---------------------------'
 
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
 'longpress account icon to turns on airplane mode'
 CustomKeywords.'androidCommonKeywords.emergencyOrderingMode.enableOrDisableEOmode'()
-
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'opens orders tab where user can perform actions related to orders'
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnHomeTab'()
@@ -235,6 +223,12 @@ CustomKeywords.'androidOrders.orderDetailsScreen.clickOnScanIconWithoutVerificat
 'takes productSearch which can be productName/Cin/UPC/NDC as the input and adds it to the order by scanning the product'
 CustomKeywords.'androidOrders.orderDetailsScreen.scanInputEventInOfflineMode'(productSearch2)
 
+'returns quantity added'
+String actualQuantityAdded = CustomKeywords.'androidOrders.historyScreen.returnQuantityForScannedResultInOfflineMode'()
+
+'assertion funaction called to verify expected and actual quantity added'
+assert actualQuantityAdded == expectedQuantityAdded
+
 'takes the application one screen back'
 CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
 
@@ -258,3 +252,4 @@ CustomKeywords.'androidOrders.orderDetailsScreen.scanInputEventInOfflineMode'(pr
 
 'takes the application one screen back'
 CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
+

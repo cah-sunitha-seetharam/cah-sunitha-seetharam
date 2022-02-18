@@ -4,7 +4,7 @@
 Prerequisite: 
 1. Valid login credentials
 2. Multiple accounts available for the user.</description>
-   <name>TC_R_044_verifyThatWhenTheUserScanAC2ProductsFromDashboardAndAddingItMeansThoseProductsAreGettingAddedToTheAlreadyExistingC2Order</name>
+   <name>TC_R_044</name>
    <tag>Order;Regression;Scan</tag>
    <comment></comment>
    <testCaseGuid>3da6842b-312a-4b1d-9a18-07b4b19e35fa</testCaseGuid>

@@ -228,7 +228,7 @@ class orderDetailsScreen {
 	def createNewC2Order(String poName, String poMemo) {
 		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/thisIsAC2ItemCreateAC2OrderToAddItem_TextView'), 0, FailureHandling.STOP_ON_FAILURE)
 		Mobile.tap(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/createANewOrder_TextView'), 0)
-		Mobile.setText(findTestObject('Android/orders/newOrderScreen/P.O. Name (Optional)_TextField'), poName, 0)
+		Mobile.setText(findTestObject('Object Repository/Android/orders/newOrderScreen/poName_EditText'), poName, 0)
 		Mobile.setText(findTestObject('Android/orders/newOrderScreen/poMemo_EditText'), poMemo, 0)
 		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/Cancel_Button'), 0, FailureHandling.STOP_ON_FAILURE)
 		Mobile.tap(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/createNewOrder_Button'), 0)
@@ -246,7 +246,7 @@ class orderDetailsScreen {
 	@Keyword
 	def createNewOrderForC2WithoutVerification(String poName, String poMemo) {
 		Mobile.tap(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/createANewOrder_TextView'), 0)
-		Mobile.setText(findTestObject('Android/orders/newOrderScreen/P.O. Name (Optional)_TextField'), poName, 0)
+		Mobile.setText(findTestObject('Object Repository/Android/orders/newOrderScreen/poName_EditText'), poName, 0)
 		Mobile.setText(findTestObject('Android/orders/newOrderScreen/poMemo_EditText'), poMemo, 0)
 		Mobile.tap(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/createNewOrder_Button'), 0)
 	}
@@ -274,7 +274,7 @@ class orderDetailsScreen {
 	@Keyword
 	def enableRadioButtonForNewOrderC2Creation(String poName){
 		Mobile.tap(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/c2Order_RadioButton',[('TEXT'):poName]),0)
-		Mobile.tap(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/addToOrder_Button'), 0)
+		Mobile.tapAndHold(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/addToOrder_Button'), 0,0)
 	}
 
 	/**
@@ -437,7 +437,7 @@ class orderDetailsScreen {
 	 */
 	@Keyword
 	def searchProductInOrderDetailPage(String productName) {
-		Mobile.tap(findTestObject('Android/productSearch/searchProductsSearchView_EditText'), 0)
+		Mobile.tapAndHold(findTestObject('Android/productSearch/searchProductsSearchView_EditText'), 0,0)
 		Mobile.setText(findTestObject('Android/productSearch/searchProductsSearchView_EditText'), productName + '\\n',0)
 	}
 
@@ -529,7 +529,7 @@ class orderDetailsScreen {
 	 */
 	@Keyword
 	def uploadOrder() {
-		Mobile.tap(findTestObject('Android/orders/orderDetailsScreen/uploadOrder/uploadOrder_Button'), 0)
+		Mobile.tapAndHold(findTestObject('Android/orders/orderDetailsScreen/uploadOrder/uploadOrder_Button'), 0,0)
 	}
 
 	/**
@@ -600,7 +600,7 @@ class orderDetailsScreen {
 	def verifyConfirmationPopUpAfterAddingC2Order(){
 		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/continueBrowsing_Button'), 0)
 		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/goToOrder_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/uploadC2Order/itemAddedToPoname_TextView'), 0)
+		//Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/uploadC2Order/itemAddedToPoname_TextView'), 0)
 		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/uploadC2Order/CIN_TextView'), 0)
 		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/uploadC2Order/orderName_TextView'), 0)
 	}
@@ -673,7 +673,7 @@ class orderDetailsScreen {
 	 */
 	@Keyword
 	def verifyOrderDetailsScreenInOfflineMode () {
-		Mobile.verifyElementAttributeValue(findTestObject('Android/orders/orderDetailsScreen/uploadOrder/Upload Order_Button'), 'enabled', 'false', 0)
+		Mobile.verifyElementAttributeValue(findTestObject('Object Repository/Android/orders/orderDetailsScreen/uploadOrder/uploadOrder_Button'), 'enabled', 'false', 0)
 		Mobile.verifyElementAttributeValue(findTestObject('Android/orders/orderDetailsScreen/placeOrder/placeOrder_Button'), 'enabled', 'false', 0)
 	}
 
@@ -683,8 +683,8 @@ class orderDetailsScreen {
 	@Keyword
 	def verifyOrderHasbeensentToDesktopPopUp() {
 		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/verificationDetails/orderHasbeenSentToDesktop_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/uploadOrder/Back to Cart_Button'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/uploadOrder/Go to Dashboard_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/orders/orderDetailsScreen/uploadOrder/backToCart_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/orders/orderDetailsScreen/uploadOrder/goToDashboard_Button'), 0)
 	}
 
 	/**
@@ -722,8 +722,8 @@ class orderDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/verificationDetails/searchProductsAndAddThemToThisOrder_TextView'),  0)
 		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/verificationDetails/zeroLinesInThisOrder_TextView'),  0)
 		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/verificationDetails/orderNameInHeader_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/verificationDetails/Scan_Icon'),0)
-		Mobile.verifyElementAttributeValue(findTestObject('Android/orders/orderDetailsScreen/uploadOrder/Upload Order_Button'), 'enabled', 'false', 0)
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/orders/orderDetailsScreen/verificationDetails/scan_Icon'),0)
+		Mobile.verifyElementAttributeValue(findTestObject('Object Repository/Android/orders/orderDetailsScreen/uploadOrder/uploadOrder_Button'), 'enabled', 'false', 0)
 		Mobile.verifyElementAttributeValue(findTestObject('Android/orders/orderDetailsScreen/placeOrder/placeOrder_Button'), 'enabled', 'false', 0)
 	}
 
@@ -840,7 +840,7 @@ class orderDetailsScreen {
 	@Keyword
 	def verifyUploadOrderPopUp() {
 		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/uploadOrder/continueOrderOnTheDesktop_TextView'), 0)
-		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/uploadOrder/Continue On Desktop_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/orders/orderDetailsScreen/uploadOrder/continueOnDesktop_Button'), 0)
 		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/uploadOrder/cancelAndKeepOrderOnTheApp_Button'), 0)
 	}
 }

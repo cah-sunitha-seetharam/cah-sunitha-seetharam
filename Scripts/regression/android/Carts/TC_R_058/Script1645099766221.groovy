@@ -28,8 +28,8 @@ CustomKeywords.'androidLogin.loginScreen.login'(GlobalVariable.Username, GlobalV
 CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'after login, verifies page caption and selects account'
-CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
-*/
+CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)*/
+
 '-----------------------Pre-requisite(Non C2 order)---------------------------'
 
 'waits until the progressBar is visible on the screen'
@@ -40,9 +40,6 @@ CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnOrders'()
 
 'taps on scan icon and takes user to scanning product screen and also verifies ordering and price check'
 CustomKeywords.'androidOrders.orderDetailsScreen.clickOnScanIcon'()
-
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'reading the module test data file'
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('ordersData.json')
@@ -58,9 +55,6 @@ CustomKeywords.'androidOrders.orderDetailsScreen.addQuantityforTheSearchedProduc
 
 'takes the application one screen back'
 CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
-
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'takes the application back to login page'
 CustomKeywords.'androidMoreOptions.moreOptionsScreen.signOut'()
@@ -93,17 +87,11 @@ String orderName = CustomKeywords.'androidOrders.cartScreen.returnTopMostOrderNa
 'opens order details and takes order name as the argument'
 CustomKeywords.'androidOrders.cartScreen.openAnOrderDetail'(orderName)
 
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
 'reading the product name of product to be added (C2 product)'
 String productSearchCin = requestObject[GlobalVariable.Environment].TC_R_058.productSearchCin
 
 'searches for a product by setting product name'
 CustomKeywords.'androidOrders.orderDetailsScreen.searchProductInOrderDetailPage'(productSearchCin)
-
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'verifies the product after search'
 CustomKeywords.'androidOrders.orderDetailsScreen.verifyProductAfterSearch'()
@@ -129,14 +117,8 @@ CustomKeywords.'androidOrders.orderDetailsScreen.addQuantityInProductDetailsPage
 'adds product in product details page'
 CustomKeywords.'androidOrders.orderDetailsScreen.tapOnAddToOrderInProductDetailsPage'()
 
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
 'creates a new C2 order'
-CustomKeywords.'androidOrders.orderDetailsScreen.createNewOrderForC2'(poName, poMemo)
-
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+CustomKeywords.'androidOrders.orderDetailsScreen.createNewOrderForC2WithoutVerification'(poName, poMemo)
 
 'enables radio button and adds c2 product'
 CustomKeywords.'androidOrders.orderDetailsScreen.enableRadioButtonForNewOrderC2Creation'(poName)

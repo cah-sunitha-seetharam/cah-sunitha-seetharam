@@ -5,7 +5,7 @@
 Prerequisite:
 1. Valid login credentials with multiple accounts available for the user
 2. Non C2 order should be available with Non-C2 Product in it</description>
-   <name>TC_R_058_verifyThatUserIsNotAbleToAddC2ProductFromProductDetailsScreenToAlreadyCreatedNonC2Order</name>
+   <name>TC_R_058</name>
    <tag>Order;Regression;Scan</tag>
    <comment></comment>
    <testCaseGuid>3e4b66a7-c8be-4e0c-a49a-375171bbed31</testCaseGuid>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>TC_R_080_verifyUserIsAbleToSearchViewProductDetailsFromOfflineCatalogueDBAndAddProductToCartWhileInOfflineMode</name>
+   <name>TC_R_080</name>
    <tag></tag>
    <comment></comment>
    <testCaseGuid>219c1d2b-a78c-4e1d-a404-062b61a3a891</testCaseGuid>
