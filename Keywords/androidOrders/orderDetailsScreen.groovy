@@ -201,7 +201,8 @@ class orderDetailsScreen {
 	 */
 	@Keyword
 	def clickOnScanIconWithoutVerification() {
-		Mobile.tap(findTestObject('Android/orders/orderDetailsScreen/scanOrder/scan_Icon'), 0)
+		Mobile.delay(2)
+		Mobile.tap(findTestObject('Android/orders/orderDetailsScreen/scanOrder/scan_Icon'), 0,FailureHandling.OPTIONAL)
 	}
 
 	/**

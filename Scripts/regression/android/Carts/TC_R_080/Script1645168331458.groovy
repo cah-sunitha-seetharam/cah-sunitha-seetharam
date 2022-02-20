@@ -18,7 +18,7 @@ import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
 
-'starts the application'
+/*'starts the application'
 CustomKeywords.'androidCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
 'login function called which takes user to the accounts selection screen'
@@ -39,21 +39,15 @@ CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisi
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnMoreOptionsTab'()
 
 'enables csos beta feature in the account selected'
-CustomKeywords.'androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS'()
+CustomKeywords.'androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS'()*/
 
 '----------prerequisite(orderhistory - order with multiple products in it----------'
 
 'opens cart page'
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnOrders'()
 
-//'waits until the progressBar is visible on the screen'
-//CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
 'clicks on scan icon and also verifies that the default scan toggle value is at ordering'
 CustomKeywords.'androidOrders.orderDetailsScreen.clickOnScanIconWithoutVerification'()
-//
-//'waits until the progressBar is visible on the screen'
-//CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'reading the module test data file'
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('ordersData.json')
@@ -82,14 +76,8 @@ CustomKeywords.'androidOrders.orderDetailsScreen.clickOnScanIconWithoutVerificat
 'scans the product'
 CustomKeywords.'androidOrders.orderDetailsScreen.scanInputEventWithoutVerification'(productSearch3)
 
-//'waits until the progressBar is visible on the screen'
-//CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
 'takes the application one screen back'
 CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
-
-//'waits until the progressBar is visible on the screen'
-//CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'taps on scan icon and takes user to scanning product screen '
 CustomKeywords.'androidOrders.orderDetailsScreen.clickOnScanIconWithoutVerification'()
@@ -97,11 +85,8 @@ CustomKeywords.'androidOrders.orderDetailsScreen.clickOnScanIconWithoutVerificat
 'scans the product'
 CustomKeywords.'androidOrders.orderDetailsScreen.scanInputEventWithoutVerification'(productSearch4)
 
-//'waits until the progressBar is visible on the screen'
-//CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
 'takes the application one screen back'
-CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
+CustomKeywords.'androidCommonKeywords.commonMethods.pressBacknav'()
 
 'returns the order name of the order which is at the top of the order list'
 String orderName=CustomKeywords.'androidOrders.cartScreen.returnTopMostOrderName'()
@@ -114,9 +99,6 @@ CustomKeywords.'androidOrders.orderDetailsScreen.clickOnPlaceOrder'()
 
 'clicks on place order button'
 CustomKeywords.'androidOrders.orderDetailsScreen.confirmPlaceOrder'()
-
-//'waits until the progressBar is visible on the screen'
-//CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'takes user back to cart screen and verifies user is on the cart screen or not'
 CustomKeywords.'androidOrders.orderDetailsScreen.clickOnBackToCart'()
@@ -158,17 +140,17 @@ WebUI.delay(5)
 'navigate to orders page'
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnOrders'()
 
-//'opens home tab'
-//CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnHomeTab'()
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
+'opens home tab'
+CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnHomeTab'()
 
 'waits until the progressBar is visible on the screen, which will have a maximum waitLimit to be visible on the screen'
 CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'searches for a product by setting product name'
 CustomKeywords.'androidOrders.orderDetailsScreen.searchProductInOrderDetailPageOfflineMode'(productSearch1)
-
-//'waits until the progressBar is visible on the screen'
-//CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'opens product tile'
 CustomKeywords.'androidOrders.orderDetailsScreen.clickOnProductTile'()
@@ -187,14 +169,8 @@ CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
 
 '------------------------using prerequisite---------------------------'
 
-//'waits until the progressBar is visible on the screen'
-//CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
 'longpress account icon to turns on airplane mode'
 CustomKeywords.'androidCommonKeywords.emergencyOrderingMode.enableOrDisableEOmode'()
-
-//'waits until the progressBar is visible on the screen'
-//CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'opens orders tab where user can perform actions related to orders'
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnHomeTab'()
@@ -202,23 +178,14 @@ CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnHomeTab'()
 'opens orders tab where user can perform actions related to orders'
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnOrders'()
 
-//'takes the application one screen back'
-//CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
 'clicks on history tab button to open history tab in order history screen'
 CustomKeywords.'androidOrders.historyScreen.clickOnHistoryTab'()
 
 'returns po number of an top most order '
 String poNumber = CustomKeywords.'androidOrders.historyScreen.returnTopMostPoNumberOfAnOrder'()
-//
-//'waits until the progressBar is visible on the screen'
-//CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'opens top most order in order history'
 CustomKeywords.'androidOrders.historyScreen.tapOnTopMostOrderHistory'(poNumber)
-
-//'waits until the progressBar is visible on the screen'
-//CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'takes the application one screen back'
 CustomKeywords.'androidCommonKeywords.commonMethods.pressBacknav'()
@@ -237,9 +204,6 @@ CustomKeywords.'androidOrders.orderDetailsScreen.scanInputEventInOfflineMode'(pr
 
 'takes the application one screen back'
 CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
-
-//'waits until the progressBar is visible on the screen'
-//CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'taps on scan icon and takes user to scanning product screen'
 CustomKeywords.'androidOrders.orderDetailsScreen.clickOnScanIconWithoutVerification'()

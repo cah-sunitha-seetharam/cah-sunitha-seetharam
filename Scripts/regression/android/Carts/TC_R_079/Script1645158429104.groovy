@@ -17,7 +17,7 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-'starts the application'
+/*'starts the application'
 CustomKeywords.'androidCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
 'login function called which takes user to the accounts selection screen'
@@ -39,7 +39,7 @@ CustomKeywords.'androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisi
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnMoreOptionsTab'()
 
 'enables csos beta feature in the account selected'
-CustomKeywords.'androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS'()
+CustomKeywords.'androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS'()*/
 
 '----------prerequisite(orderhistory - order with multiple products in it----------'
 
@@ -92,7 +92,7 @@ CustomKeywords.'androidOrders.orderDetailsScreen.clickOnScanIconWithoutVerificat
 CustomKeywords.'androidOrders.orderDetailsScreen.scanInputEventWithoutVerification'(productSearch4)
 
 'takes the application one screen back'
-CustomKeywords.'androidCommonKeywords.commonMethods.goOneScreenBack'()
+CustomKeywords.'androidCommonKeywords.commonMethods.pressBacknav'()
 
 'returns the order name of the order which is at the top of the order list'
 String orderName=CustomKeywords.'androidOrders.cartScreen.returnTopMostOrderName'()

@@ -48,9 +48,9 @@ class dashboardDetailsScreen {
 	 */
 	@Keyword
 	def clickOnHomeTab() {
-//		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Android/Dashboard/home_TextView'), 10)
-//		element.click()
-		Mobile.tap(findTestObject('Android/Dashboard/home_TextView'), 0)
+				MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Android/Dashboard/home_TextView'), 10)
+				element.click()
+		//Mobile.tap(findTestObject('Android/Dashboard/home_TextView'), 0)
 	}
 
 	/**
@@ -58,8 +58,8 @@ class dashboardDetailsScreen {
 	 */
 	@Keyword
 	def clickOnMoreOptions() {
-//		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Android/Dashboard/moreOptions_Tab'), 10)
-//		element.click()
+		//		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Android/Dashboard/moreOptions_Tab'), 10)
+		//		element.click()
 		Mobile.tap(findTestObject('Android/Dashboard/moreOptions_Tab'), 0)
 	}
 
@@ -68,8 +68,8 @@ class dashboardDetailsScreen {
 	 */
 	@Keyword
 	def clickOnMoreOptionsTab() {
-//		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Android/Dashboard/moreOptions_Tab'), 10)
-//		element.click()
+		//		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Android/Dashboard/moreOptions_Tab'), 10)
+		//		element.click()
 		Mobile.tap(findTestObject('Android/Dashboard/moreOptions_Tab'), 0)
 	}
 
@@ -78,8 +78,8 @@ class dashboardDetailsScreen {
 	 */
 	@Keyword
 	def clickOnOrders() {
-//		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Object Repository/Android/Dashboard/Orders_Tab'), 10)
-//		element.click()
+		//		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Object Repository/Android/Dashboard/Orders_Tab'), 10)
+		//		element.click()
 		Mobile.tap(findTestObject('Object Repository/Android/Dashboard/Orders_Tab'), 0)
 	}
 
@@ -88,9 +88,9 @@ class dashboardDetailsScreen {
 	 */
 	@Keyword
 	def clickOnReceivingTab() {
-//		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Android/Dashboard/receiving_Tab'), 10)
-//		element.click()
-		Mobile.tap(findTestObject('Android/Dashboard/receiving_Tab'), 0)	
+		//		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Android/Dashboard/receiving_Tab'), 10)
+		//		element.click()
+		Mobile.tap(findTestObject('Android/Dashboard/receiving_Tab'), 0)
 	}
 
 	/**
