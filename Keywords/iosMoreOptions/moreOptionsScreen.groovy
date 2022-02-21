@@ -92,6 +92,7 @@ class moreOptionsScreen {
 	 */
 	@Keyword
 	def tapMessageCentre() {
+		Mobile.delay(2)
 		Mobile.tapAndHold(findTestObject('iOS/moreOptionsScreen/messageCentre/messageCentre_Text'), 0, 0)
 	}
 

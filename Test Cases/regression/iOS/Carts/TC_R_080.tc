@@ -5,7 +5,7 @@ Prerequisite:
 1. Valid Login Credentials.
 2. Offline catalogue download completed with the default account (example : account X).
 3.Valid product NDC,UPC and CIN value of an eligible product available in local db (Offline catalogue).&quot;</description>
-   <name>TC_R_080_verifyUserIsAbleToSearchViewProductDetailsFromOfflineCatalogueDBAndAddProductToCartWhileInOfflineMode</name>
+   <name>TC_R_080</name>
    <tag>Order;Regression;Scan;Offline</tag>
    <comment></comment>
    <testCaseGuid>1a51e689-a8fe-4c9c-aceb-d9d110360916</testCaseGuid>

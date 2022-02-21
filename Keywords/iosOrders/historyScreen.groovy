@@ -59,7 +59,7 @@ class historyScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/orders/historyScreen/historyScreen_Header'),  0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/orders/historyScreen/scan_Icon'),0)
+		//Mobile.verifyElementExist(findTestObject('iOS/orders/historyScreen/scan_Icon'),0)
 	}
 
 

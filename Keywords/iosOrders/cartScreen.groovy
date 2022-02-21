@@ -88,7 +88,7 @@ class cartScreen {
 	@Keyword
 	def clickOnNonC2Orders() {
 
-		Mobile.tap(findTestObject('iOS/orders/cartScreen/nonc2Orders_Tab'), 0)
+		Mobile.tap(findTestObject('Object Repository/iOS/Orders/cartScreen/nonC2OrderDetails/nonC2Orders_Tab'), 0)
 	}
 
 
@@ -148,7 +148,7 @@ class cartScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/uploadAllOrders/backToCart_Button'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/uploadAllOrders/goToDashboard_Button'), 0)
+		//Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/uploadAllOrders/goToDashboard_Button'), 0)
 	}
 
 

@@ -5,7 +5,7 @@
 Pre-requisite:
 1. User should be online.
 2. User should have messages in Message Center screen.&quot;</description>
-   <name>TC_R_082_verifyTheMessageDisplayedInMessageCenterScreenWhileInOfflineMode</name>
+   <name>TC_R_082</name>
    <tag>Order;Regression;Scan;Offline</tag>
    <comment></comment>
    <testCaseGuid>b55780e9-5cc7-4ffe-9fef-ce14f22ca35e</testCaseGuid>

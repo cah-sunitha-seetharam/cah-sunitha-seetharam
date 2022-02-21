@@ -35,39 +35,56 @@ CustomKeywords.'iosCommonKeywords.commonMethods.tapOnSetupLater'()
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'after login, verifies page caption and selects account'
-CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
-
-'takes user from home screen to inventory listing screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.takeUserFromHomeToInventoryListingScreen'()
-
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
-'returns top most inventory'
-String inventory = CustomKeywords.'iosInventory.inventoryListingScreen.returnTopMostInventoryName'()
+'opens moreOptions tab where user can perform actions like signOut, goToInventoryListing Screen etc'
+CustomKeywords.'iosDashboard.dashboardScreen.clickOnMoreOptionsTab'()
 
 'waits until the progressBar is visible on the screen, which will have a maximum waitLimit to be visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'opens the particular inventory details'
-CustomKeywords.'iosInventory.inventoryListingScreen.clickOnInventory'(inventory)
+'change account using account selection icon'
+CustomKeywords.'iosCommonKeywords.commonMethods.changeAccount'(accountNo_1)
+
+'opens the message center'
+CustomKeywords.'iosMoreOptions.moreOptionsScreen.tapMessageCentre'()
+
+'verifies alert and message'
+CustomKeywords.'iosMoreOptions.moreOptionsScreen.verifyMessageCentre'()
+
+'turns on airplane mode'
+Mobile.toggleAirplaneMode(Yes)
+
+'closes the popup when user switches to offline mode'
+CustomKeywords.'iosOrders.orderDetailsScreen.closeOfflinePopUp'()
+
+'opens alert'
+CustomKeywords.'iosMoreOptions.moreOptionsScreen.tapOnAlert'()
 
 'waits until the progressBar is visible on the screen, which will have a maximum waitLimit to be visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'reading the module test data file'
-def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('ordersData.json')
+'verifies alert message description'
+CustomKeywords.'iosMoreOptions.moreOptionsScreen.verifyAlertMessageDescription'()
 
-'reading the product name of product to be added (nonC2 product)'
-String productSearch1 = requestObject[GlobalVariable.Environment].TC_R_079.productSearchByNDC1
-
-'searches and adds the product from the inventory details screen by creating a new location'
-CustomKeywords.'iosInventory.inventoryDetailsScreen.searchAndAddProductByCreatingNewLocation'(location1,productSearch1,costType1,quantity)
-
-'takes the application one screen back'
+'this method will take the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
-'searches and adds the product from the inventory details screen by creating a new location'
-CustomKeywords.'iosInventory.inventoryDetailsScreen.searchAndAddProductByCreatingNewLocation'(location2,productSearch1,costType2,quantity)
+'opens top most message'
+CustomKeywords.'iosMoreOptions.moreOptionsScreen.tapOnTopMostMessage'()
 
+'verifies message description'
+CustomKeywords.'iosMoreOptions.moreOptionsScreen.verifyMessageDescription'()
+
+'this method will take the application one screen back'
+CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
+
+'change account using account selection icon'
+CustomKeywords.'iosCommonKeywords.commonMethods.changeAccount'(accountNo_2)
+
+'waits until the progressBar is visible on the screen, which will have a maximum waitLimit to be visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
+'verifies message center in offline'
+CustomKeywords.'iosMoreOptions.moreOptionsScreen.verifyMessageCentreInOffline'()
+
+'turns off airplane mode'
+Mobile.toggleAirplaneMode(No)

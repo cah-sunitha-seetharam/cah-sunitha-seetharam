@@ -53,10 +53,10 @@ CustomKeywords.'androidOrders.orderDetailsScreen.clickOnScanIconWithoutVerificat
 def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('ordersData.json')
 
 'reading the product name of product to be added (nonC2 product)'
-String productSearch1 = requestObject[GlobalVariable.Environment].TC_R_079.productSearchByNDC1
-String productSearch2 = requestObject[GlobalVariable.Environment].TC_R_079.productSearchByNDC2
-String productSearch3 = requestObject[GlobalVariable.Environment].TC_R_079.productSearchByNDC3
-String productSearch4 = requestObject[GlobalVariable.Environment].TC_R_079.productSearchByNDC4
+String productSearch1 = requestObject[GlobalVariable.Environment].TC_R_080.productSearchByNDC1
+String productSearch2 = requestObject[GlobalVariable.Environment].TC_R_080.productSearchByNDC2
+String productSearch3 = requestObject[GlobalVariable.Environment].TC_R_080.productSearchByNDC3
+String productSearch4 = requestObject[GlobalVariable.Environment].TC_R_080.productSearchByNDC4
 
 'this function selects toggle value for the product to be added which can be ordering or price check)'
 CustomKeywords.'androidOrders.orderDetailsScreen.selectToggleValueForTheProductToBeSearched'(toggleValue)

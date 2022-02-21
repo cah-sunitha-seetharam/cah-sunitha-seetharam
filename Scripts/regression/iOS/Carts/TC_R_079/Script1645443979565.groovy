@@ -14,8 +14,12 @@ import com.kms.katalon.core.testobject.TestObject as TestObject
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
-import internal.GlobalVariable as GlobalVariable
+import internal.GlobalVariable
+
+import static org.junit.Assert.assertArrayEquals
+
 import org.openqa.selenium.Keys as Keys
+import io.appium.java_client.InteractsWithApps as InteractsWithApps
 
 'opens existing testflight app and installs latest OE App'
 CustomKeywords.'iosCommonKeywords.commonMethods.openTestFlightApp'(bundleID)
@@ -35,8 +39,8 @@ CustomKeywords.'iosCommonKeywords.commonMethods.tapOnSetupLater'()
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'after login, verifies page caption and selects account'
-CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
+//'after login, verifies page caption and selects account'
+//CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
 
 '------------------------enables beta feature CSOS---------------------------'
 
@@ -114,33 +118,21 @@ CustomKeywords.'iosOrders.orderDetailsScreen.placeOrder'()
 'takes user back to cart screen and verifies user is on the cart screen or not'
 CustomKeywords.'iosOrders.orderDetailsScreen.clickOnBackToCart'()
 
-'-----------------search product in home screen in online mode-----------------------'
+'----------------scan A product in ordering toggle and go to offline mode-------------'
 
-'waits until the progressBar is visible on the screen, which will have a maximum waitLimit to be visible on the screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+'clicks on scan icon and also verifies that the default scan toggle value is at ordering'
+CustomKeywords.'iosOrders.orderDetailsScreen.clickOnScanIcon'()
 
-'opens home tab'
-CustomKeywords.'iosDashboard.dashboardScreen.clickOnHomeTab'()
+'selects toggle value for the product to be added which can be ordering or price check'
+CustomKeywords.'iosOrders.orderDetailsScreen.selectToggleValueForTheProductToBeSearched'(toggleValue)
 
-'waits until the progressBar is visible on the screen, which will have a maximum waitLimit to be visible on the screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+'takes productSearch which can be productName/Cin/UPC/NDC as the input and adds it to the order by scanning the product'
+CustomKeywords.'iosOrders.orderDetailsScreen.scanInputEventWithoutVerification'(productSearch1)
 
-'searches for a product by setting product name'
-CustomKeywords.'iosOrders.orderDetailsScreen.searchProductInOrderDetailPage'(productSearch1)
-
-'opens product tile'
-CustomKeywords.'iosOrders.orderDetailsScreen.clickOnProductTile'()
-
-'verifies the product tile'
-CustomKeywords.'iosOrders.orderDetailsScreen.verifyProductTile'()
+String NDCLabelOnlineMode = CustomKeywords.'iosOrders.orderDetailsScreen.returnNDCLabelOfScannedProduct'()
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
-
-'---------------------serach same product A in offline mode in home and cart screen--------------------'
-
-'searches for a product by setting product name'
-CustomKeywords.'iosOrders.orderDetailsScreen.searchProductInOrderDetailPageOfflineMode'(productSearch1)
 
 'turns on airplane mode'
 Mobile.toggleAirplaneMode(Yes)
@@ -148,17 +140,22 @@ Mobile.toggleAirplaneMode(Yes)
 'closes the popup when user switches to offline mode'
 CustomKeywords.'iosOrders.orderDetailsScreen.closeOfflinePopUp'()
 
-'taps on search key of the keyboard'
-CustomKeywords.'iosOrders.orderDetailsScreen.tapOnsearchKeyInOfflineMode'()
+'---------------scan same A product in price check toggle in offline mode--------------'
 
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+'clicks on scan icon and also verifies that the default scan toggle value is at ordering'
+CustomKeywords.'iosOrders.orderDetailsScreen.clickOnScanIcon'()
 
-'opens product tile'
-CustomKeywords.'iosOrders.orderDetailsScreen.clickOnProductTile'()
+'selects toggle value for the product to be added which can be ordering or price check'
+CustomKeywords.'iosOrders.orderDetailsScreen.selectToggleValueForTheProductToBeSearched'(toggleValue1)
 
-'verifies the product tile'
-CustomKeywords.'iosOrders.orderDetailsScreen.verifyProductTile'()
+'takes productSearch which can be productName/Cin/UPC/NDC as the input and adds it to the order by scanning the product'
+CustomKeywords.'iosOrders.orderDetailsScreen.scanInputEventWithoutVerification'(productSearch1)
+
+'retruns NDC number'
+String NDCLabelOfflineModePriceCheck = CustomKeywords.'iosOrders.orderDetailsScreen.returnNDCLabelOfScannedProduct'()
+
+'assertion funaction called to verify expected and actual ndc number'
+assert NDCLabelOnlineMode == NDCLabelOfflineModePriceCheck
 
 'adds product'
 CustomKeywords.'iosOrders.orderDetailsScreen.addToOrderWithoutVerify'()
@@ -166,43 +163,32 @@ CustomKeywords.'iosOrders.orderDetailsScreen.addToOrderWithoutVerify'()
 'taps on go to order button on order confirmation screen and takes user to order details screen'
 CustomKeywords.'iosOrders.orderDetailsScreen.clickOnGoToOrder'()
 
-'turns off airplane mode'
-Mobile.toggleAirplaneMode(No)
-
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
-'searches for a product by setting product name'
-CustomKeywords.'iosOrders.orderDetailsScreen.searchProductInOrderDetailPageOfflineMode'(productSearch1)
-
-'turns on airplane mode'
-Mobile.toggleAirplaneMode(Yes)
-
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
-'closes the popup when user switches to offline mode'
-CustomKeywords.'iosOrders.orderDetailsScreen.closeOfflinePopUp'()
-
-'taps on search key of the keyboard'
-CustomKeywords.'iosOrders.orderDetailsScreen.tapOnsearchKeyInOfflineMode'()
-
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
-'opens product tile'
-CustomKeywords.'iosOrders.orderDetailsScreen.clickOnProductTile'()
-
-'verifies the product tile'
-CustomKeywords.'iosOrders.orderDetailsScreen.verifyProductTile'()
+'verifies order details screen when user in offline mode'
+CustomKeywords.'iosOrders.orderDetailsScreen.verifyOrderDetailsScreenInOfflineMode'()
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
-'-------------------------------using prerequisite------------------------------------------'
+'---------------scan same A product in ordering toggle in offline mode--------------'
+
+'clicks on scan icon and also verifies that the default scan toggle value is at ordering'
+CustomKeywords.'iosOrders.orderDetailsScreen.clickOnScanIcon'()
+
+'selects toggle value for the product to be added which can be ordering or price check'
+CustomKeywords.'iosOrders.orderDetailsScreen.selectToggleValueForTheProductToBeSearched'(toggleValue)
+
+'takes productSearch which can be productName/Cin/UPC/NDC as the input and adds it to the order by scanning the product'
+CustomKeywords.'iosOrders.orderDetailsScreen.scanInputEventWithoutVerification'(productSearch1)
+
+String NDCLabelOfflineModeOrdering = CustomKeywords.'iosOrders.orderDetailsScreen.returnNDCLabelOfScannedProduct'()
+
+'assertion funaction called to verify expected and actual ndc number'
+assert NDCLabelOnlineMode == NDCLabelOfflineModeOrdering
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
+
+'------------------------using prerequisite---------------------------'
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
@@ -249,6 +235,12 @@ CustomKeywords.'iosOrders.orderDetailsScreen.clickOnScanIconWithoutVerification'
 'takes productSearch which can be productName/Cin/UPC/NDC as the input and adds it to the order by scanning the product'
 CustomKeywords.'iosOrders.orderDetailsScreen.scanInputEventInOfflineMode'(productSearch2)
 
+'returns quantity added'
+String actualQuantityAdded = CustomKeywords.'iosOrders.historyScreen.returnQuantityForScannedResultInOfflineMode'()
+
+'assertion funaction called to verify expected and actual quantity added'
+assert actualQuantityAdded==expectedQuantityAdded
+
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
@@ -270,6 +262,9 @@ CustomKeywords.'iosOrders.orderDetailsScreen.scanInputEventInOfflineMode'(produc
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
+'takes the application one screen back'
+CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
+
 'opens cart tab'
 CustomKeywords.'iosOrders.ordersCommonScreen.clickOnCartTab'()
 
@@ -278,3 +273,6 @@ String orderName1=CustomKeywords.'iosOrders.cartScreen.returnTopMostOrderName'()
 
 'deletes order'
 CustomKeywords.'iosOrders.cartScreen.deleteOrder'(orderName1)
+
+'turns off airplane mode'
+Mobile.toggleAirplaneMode(No)

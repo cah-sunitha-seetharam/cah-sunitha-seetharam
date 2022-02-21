@@ -5,7 +5,7 @@
 Prerequisite:
 1. User should be Online
 2. User should have an order in Order History with multiple products in it and user  should have visited the order once while in Online.</description>
-   <name>TC_R_079_verifyUserIsAbleToScanViewProductDetailsAndProductToCartWhileInOfflineMode</name>
+   <name>TC_R_079</name>
    <tag>Order;Regression;Scan;Offline</tag>
    <comment></comment>
    <testCaseGuid>dbe4907d-8d5c-467f-85c6-b6638e9fb298</testCaseGuid>

@@ -28,9 +28,8 @@ CustomKeywords.'iosLogin.loginScreen.login'(GlobalVariable.Username, GlobalVaria
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'selects the user account from the accounts list'
-CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
+CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)*/
 
-*/
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
@@ -79,10 +78,8 @@ assert actualQuantityAdded == expectedQuantity_1
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'() 
 
-
-
 'change account using account selection icon'
-CustomKeywords.'iosOrders.newOrderScreen.change_Account'(accountNo_2)
+CustomKeywords.'iosCommonKeywords.commonMethods.changeAccount'(accountNo_2)
 
 'reading the product name of product to be added (nonC2 product)'
 String productSearch2 = requestObject[GlobalVariable.Environment].TC_R_051.productSearchByNDC2
@@ -123,10 +120,8 @@ CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 'this function verifies the user is navigated cart screen after tapping on back'
 CustomKeywords.'iosOrders.cartScreen.verifyCartScreenWithAddedProduct'()
 
-
-
 'change account using account selection icon'
-CustomKeywords.'iosOrders.newOrderScreen.change_Account'(accountNo_1)
+CustomKeywords.'iosCommonKeywords.commonMethods.changeAccount'(accountNo_1)
 
 'opens an order from cart screen with order name which was created in the 1st account selection'
 CustomKeywords.'iosOrders.cartScreen.openAnOrderDetail'(orderName_1)
@@ -137,10 +132,8 @@ CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 'this function verifies cart screen with the add to order - product being displayed'
 CustomKeywords.'iosOrders.cartScreen.verifyCartScreenWithAddedProduct'()
 
-
-
 'change account using account selection icon'
-CustomKeywords.'iosOrders.newOrderScreen.change_Account'(accountNo_3)
+CustomKeywords.'iosCommonKeywords.commonMethods.changeAccount'(accountNo_3)
 
 'reading the product name of product to be added (nonC2 product)'
 String productSearch3 = requestObject[GlobalVariable.Environment].TC_R_051.productSearchByNDC3

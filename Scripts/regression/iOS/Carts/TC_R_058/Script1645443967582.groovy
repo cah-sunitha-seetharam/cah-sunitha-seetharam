@@ -29,9 +29,8 @@ CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'
 'selects the user account from the accounts list'
 CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(GlobalVariable.Account)
 
-*/
 'waits until the progressBar is visible on the screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()*/
 
 '-----------------------Pre-requisite(Non C2 order)---------------------------'
 
@@ -167,6 +166,7 @@ CustomKeywords.'iosOrders.orderDetailsScreen.clickOnBackToCart'()
 'takes expectedAnnotationCount count as the argument and verifies the same'
 CustomKeywords.'iosOrders.cartScreen.verifyLinesCount'(expectedLineCount)
 
+'opens the non c2 orders tab'
 CustomKeywords.'iosOrders.cartScreen.clickOnNonC2Orders'()
 
 'opens order details and takes order name as the argument'

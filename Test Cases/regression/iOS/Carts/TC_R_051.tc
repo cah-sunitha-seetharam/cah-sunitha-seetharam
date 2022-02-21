@@ -4,26 +4,26 @@
 
 Prerequisite:
 1. Valid login credentials with multiple accounts available for the user</description>
-   <name>TC_R_051_verifyThatAfterChangingAccountUserIsAbleToCreateNewOrderByScanInCartPageOnCurrentlySelectedAccount</name>
+   <name>TC_R_051</name>
    <tag>Order;Regression;Scan</tag>
    <comment></comment>
    <testCaseGuid>c3b61dd3-6bdc-4863-82b9-dd0b26df4703</testCaseGuid>
    <variable>
-      <defaultValue>'24-2150224900'</defaultValue>
+      <defaultValue>'8-2052038159'</defaultValue>
       <description>account number to be selected</description>
       <id>0552df7a-5366-4fc8-94a7-5f421bb7b49a</id>
       <masked>false</masked>
       <name>accountNo_1</name>
    </variable>
    <variable>
-      <defaultValue>'24-2150224901'</defaultValue>
+      <defaultValue>'8-2052038162'</defaultValue>
       <description>account number to be selected</description>
       <id>17aad8d6-ec52-418e-a6be-4b4fa128e8be</id>
       <masked>false</masked>
       <name>accountNo_2</name>
    </variable>
    <variable>
-      <defaultValue>'16-2150229626'</defaultValue>
+      <defaultValue>'8-2052038161'</defaultValue>
       <description>account number to be selected</description>
       <id>6f04f5b7-68e1-475b-8aef-d2cd2b0049a9</id>
       <masked>false</masked>
@@ -44,7 +44,7 @@ Prerequisite:
       <name>quantity_1</name>
    </variable>
    <variable>
-      <defaultValue>'2'</defaultValue>
+      <defaultValue>2</defaultValue>
       <description>expected quantity added for the product searched</description>
       <id>629c2533-f51c-4489-9a2e-dadb7f5394e9</id>
       <masked>false</masked>
@@ -58,7 +58,7 @@ Prerequisite:
       <name>quantity_2</name>
    </variable>
    <variable>
-      <defaultValue>'1'</defaultValue>
+      <defaultValue>1</defaultValue>
       <description>expected quantity added for the product searched</description>
       <id>aa853063-e843-44c3-b979-2fd024dce66d</id>
       <masked>false</masked>

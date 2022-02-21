@@ -6,7 +6,7 @@ Prerequisite :
 1. User is online .
 2. User has multiple accounts.
 3. User should have inventory with multiple locations.&quot;</description>
-   <name>TC_R_083_verifyThePricefTheProductIsChangedOnMovingFromLocationOfCostTypeCurrentPricetToLastPaidPriceWhenUserIsInOfflineMode</name>
+   <name>TC_R_083</name>
    <tag>Order;Regression;Scan;Offline</tag>
    <comment></comment>
    <testCaseGuid>687231e0-93e8-4178-b6a4-4f78de690dbe</testCaseGuid>
