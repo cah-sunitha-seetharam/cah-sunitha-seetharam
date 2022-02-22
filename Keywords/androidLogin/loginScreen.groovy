@@ -38,9 +38,14 @@ import com.kms.katalon.core.util.KeywordUtil
 
 import com.kms.katalon.core.webui.exception.WebElementNotFoundException
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
+import androidCommonKeywords.commonMethods
+
 
 
 class loginScreen {
+	
+//	 def commonMethodsObject=new commonMethods();
+	
 
 
 	/**
@@ -54,6 +59,9 @@ class loginScreen {
 		enterUsername(username)
 		enterPassword(password)
 		clickOnSignInButton()
+		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+//		commonMethodsObject.waitForProgressBarToBeInvisible()
+//		WebUI.delay(3)	
 	}
 
 

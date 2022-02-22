@@ -164,6 +164,6 @@ class dashboardScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/dashboard/verification/homeBottomNavigationTab_Bar'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/accountSelection/changeAccount_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/accountSelection/changeAccount_Navigation'), 0)
 	}
 }

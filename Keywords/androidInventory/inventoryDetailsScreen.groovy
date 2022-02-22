@@ -202,6 +202,8 @@ class inventoryDetailsScreen {
 
 		(new androidInventory.inventoryDetailsScreen()).deleteLocation(locationName)//calling delete location function
 
+		commonMethodsObject.waitForProgressBarToBeInvisible()
+
 		commonMethodsObject.pressBacknav()
 
 		int finalInventoryLocationCount=Mobile.getText(findTestObject('Android/inventory/locationDetailsScreen/verificationDetails/noOfLocation_Text'), 0)//final inventory location count after deleting a location
@@ -210,14 +212,14 @@ class inventoryDetailsScreen {
 
 		float finalInventoryTotal_charactersRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(finalInventoryTotal)///converting finalInventoryTotal string to a float value
 
-		/*	KeywordUtil.logInfo("initialInventoryTotal is " + initialInventoryTotal );
-		 KeywordUtil.logInfo("locationValue is " + locationValue );
-		 KeywordUtil.logInfo("inventoryTotal_dollarSymbolRemoved_FloatValue is " + inventoryTotal_dollarSymbolRemoved_FloatValue );
-		 KeywordUtil.logInfo("locationValue_dollarSymbolRemoved_FloatValue is " + locationValue_dollarSymbolRemoved_FloatValue );
-		 KeywordUtil.logInfo("finalInventoryLocationCount is " + finalInventoryLocationCount );
-		 KeywordUtil.logInfo("finalInventoryTotal is " + finalInventoryTotal );
-		 KeywordUtil.logInfo("finalInventoryTotal_charactersRemoved_FloatValue is " + finalInventoryTotal_charactersRemoved_FloatValue );
-		 */
+		KeywordUtil.logInfo("initialInventoryTotal is " + initialInventoryTotal );
+		KeywordUtil.logInfo("locationValue is " + locationValue );
+		KeywordUtil.logInfo("inventoryTotal_dollarSymbolRemoved_FloatValue is " + inventoryTotal_dollarSymbolRemoved_FloatValue );
+		KeywordUtil.logInfo("locationValue_dollarSymbolRemoved_FloatValue is " + locationValue_dollarSymbolRemoved_FloatValue );
+		KeywordUtil.logInfo("finalInventoryLocationCount is " + finalInventoryLocationCount );
+		KeywordUtil.logInfo("finalInventoryTotal is " + finalInventoryTotal );
+		KeywordUtil.logInfo("finalInventoryTotal_charactersRemoved_FloatValue is " + finalInventoryTotal_charactersRemoved_FloatValue );
+
 
 		assert inventoryTotal_dollarSymbolRemoved_FloatValue==(finalInventoryTotal_charactersRemoved_FloatValue+locationValue_dollarSymbolRemoved_FloatValue)
 

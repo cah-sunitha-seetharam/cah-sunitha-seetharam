@@ -50,7 +50,7 @@ class selectAnAccount {
 		if (Mobile.waitForElementPresent(findTestObject('iOS/accountSelection/youMustSelectAnAccountToContinue_Text'), 20, FailureHandling.OPTIONAL)) {
 			Mobile.scrollToText(accountNo, FailureHandling.STOP_ON_FAILURE)
 
-			Mobile.tap(findTestObject('iOS/accountSelection/AccountNo_Text', [('val') : accountNo]), 0)
+			Mobile.tap(findTestObject('iOS/accountSelection/accountNo_Text', [('val') : accountNo]), 0)
 		}
 	}
 }

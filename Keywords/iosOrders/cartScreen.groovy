@@ -247,11 +247,9 @@ class cartScreen {
 
 		Mobile.tap(findTestObject('iOS/orders/cartScreen/c2OrderDetails/c2Order_View'), 0)
 
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
-
 		Mobile.verifyElementAttributeValue(findTestObject('iOS/orders/cartScreen/c2OrderDetails/uploadC2Order_Button'), 'enabled', 'true', 0)
 
-		Mobile.verifyElementAttributeValue(findTestObject('iOS/orders/c2OrderDetailsScreen/placeC2Order/placeC2Order_Button'), 'enabled', 'true', 0)
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/orders/c2OrderDetailsScreen/placeC2Order/placeOrder_Button'), 'enabled', 'true', 0)
 	}
 
 
