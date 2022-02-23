@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the cart value equals to expected value
+Prerequisite: 
+Valid login credentials with multiple accounts available for the user.  </description>
+   <name>TC_S_001</name>
+   <tag>Order;Sanity</tag>
+   <comment></comment>
+   <testCaseGuid>4f2e3706-a002-4e42-a74f-2647a40b24f5</testCaseGuid>
+   <variable>
+      <defaultValue>'2'</defaultValue>
+      <description>quantity added for the product searched</description>
+      <id>5f39b2a2-6c65-4f9b-8723-6f0ab030cd4c</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+   <variable>
+      <defaultValue>2</defaultValue>
+      <description>expected quantity added for the product searched</description>
+      <id>d6ef2237-0071-4368-8948-512b9970fae8</id>
+      <masked>false</masked>
+      <name>expectedQuantity</name>
+   </variable>
+   <variable>
+      <defaultValue>'poName'</defaultValue>
+      <description>purchase order name for the order created</description>
+      <id>be7b4652-2f07-4049-b899-58a18b842915</id>
+      <masked>false</masked>
+      <name>poName</name>
+   </variable>
+   <variable>
+      <defaultValue>'poMemo'</defaultValue>
+      <description>purchase order memo for the order created</description>
+      <id>a10a2985-48f2-4851-929d-b7366c668034</id>
+      <masked>false</masked>
+      <name>poMemo</name>
+   </variable>
+</TestCaseEntity>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the user is Able to Search the Products by Scanning the Barcode which are already Received. 
+Prerequisite: Valid login credentials with multiple accounts available for the user and Valid Barcodes.   </description>
+   <name>TC_OE_026</name>
+   <tag>Receiving;Sanity</tag>
+   <comment></comment>
+   <testCaseGuid>3cbebba9-0c5b-4196-bc0d-ae4da0d216a2</testCaseGuid>
+   <variable>
+      <defaultValue>'1952733'</defaultValue>
+      <description></description>
+      <id>17ee4219-eaa8-4cb4-8973-2ff7a5796e01</id>
+      <masked>false</masked>
+      <name>invoiceNumber</name>
+   </variable>
+   <variable>
+      <defaultValue>'12152609'</defaultValue>
+      <description></description>
+      <id>ba2ef07f-d7a4-4f4d-aa80-c255797dd7fe</id>
+      <masked>false</masked>
+      <name>shipmentNumber</name>
+   </variable>
+   <variable>
+      <defaultValue>'60268685'</defaultValue>
+      <description></description>
+      <id>cfb33c4b-67ec-4085-b6bf-585fcbaac8c8</id>
+      <masked>false</masked>
+      <name>toteID</name>
+   </variable>
+   <variable>
+      <defaultValue>'missing tote'</defaultValue>
+      <description></description>
+      <id>3ed4d5bc-710f-4475-ac48-e06081ec469c</id>
+      <masked>false</masked>
+      <name>reasonOfIssue</name>
+   </variable>
+   <variable>
+      <defaultValue>'name'</defaultValue>
+      <description></description>
+      <id>d756be94-e3f3-40ad-a92b-38d528d31c78</id>
+      <masked>false</masked>
+      <name>name</name>
+   </variable>
+   <variable>
+      <defaultValue>'0000-0000-00'</defaultValue>
+      <description></description>
+      <id>e9362264-b4f1-458a-aea7-192974634209</id>
+      <masked>false</masked>
+      <name>phoneNumber</name>
+   </variable>
+   <variable>
+      <defaultValue>'comment'</defaultValue>
+      <description></description>
+      <id>b87d61fd-d9af-4e05-afba-31e39d569111</id>
+      <masked>false</masked>
+      <name>comment</name>
+   </variable>
+</TestCaseEntity>

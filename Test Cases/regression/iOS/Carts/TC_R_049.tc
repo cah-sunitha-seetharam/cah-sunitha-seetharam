@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify New Order is getting created while adding C2 product by Scan from Cart when there is No Products in existing available Order 
+
+Prerequisite:
+1. Valid login credentials with multiple accounts available for the user.</description>
+   <name>TC_R_049</name>
+   <tag>Order;Regression;Scan</tag>
+   <comment></comment>
+   <testCaseGuid>8849ef0d-a857-4c34-a9c7-0bf47bc02bd4</testCaseGuid>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description>quantity added for the product searched</description>
+      <id>1e6bc8d3-f5d9-4362-bce6-1bad2543da02</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+   <variable>
+      <defaultValue>1</defaultValue>
+      <description>expected quantity added for the product searched</description>
+      <id>627d162f-d398-40c9-9d6f-39d2a1952bc4</id>
+      <masked>false</masked>
+      <name>expectedQuantity</name>
+   </variable>
+   <variable>
+      <defaultValue>'poName'</defaultValue>
+      <description>purchase order name for the order created</description>
+      <id>f6203692-3b8f-4aa3-b876-6037491ce1fe</id>
+      <masked>false</masked>
+      <name>poName</name>
+   </variable>
+   <variable>
+      <defaultValue>'poMemo'</defaultValue>
+      <description>purchase order memo for the order created</description>
+      <id>13429b21-5397-4703-a449-b8228c25ff17</id>
+      <masked>false</masked>
+      <name>poMemo</name>
+   </variable>
+   <variable>
+      <defaultValue>'Ordering'</defaultValue>
+      <description>toggle value which can be ordering or price check</description>
+      <id>5b82d10c-cb24-4023-93f0-564f0b03d49a</id>
+      <masked>false</masked>
+      <name>toggleValue</name>
+   </variable>
+   <variable>
+      <defaultValue>'0'</defaultValue>
+      <description>expected lines count which should be visible</description>
+      <id>8fd7d447-35a8-4576-bf75-7f9daa193860</id>
+      <masked>false</masked>
+      <name>expectedLinesCount_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description>expected lines count which should be visible</description>
+      <id>ec1f1dac-50b7-4533-a33a-e382451d00b4</id>
+      <masked>false</masked>
+      <name>expectedLinesCount_2</name>
+   </variable>
+   <variable>
+      <defaultValue>1</defaultValue>
+      <description>expected c2 orders annotation count which should be visible</description>
+      <id>aa18390e-ed9b-4107-a65c-7d776f08e3a0</id>
+      <masked>false</masked>
+      <name>expectedAnnotationCount</name>
+   </variable>
+</TestCaseEntity>

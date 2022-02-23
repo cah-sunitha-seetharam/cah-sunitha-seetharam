@@ -3,7 +3,7 @@
    <description></description>
    <name>inventoryName_TextView</name>
    <tag></tag>
-   <elementGuidId>bf42f9d7-39a1-4522-a10d-f409bdcd5dbc</elementGuidId>
+   <elementGuidId>8fa1a484-a1f4-444e-b36f-8200f81dcd48</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>${GlobalVariable.appPackage}:id/tvHeaderInventoryLocationName</value>
+      <value>${GlobalVariable.appPackage}:id/tvHeaderInventoryName</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>//*[(@text = '${TEXT}' or . = '${TEXT}') and @resource-id = '${GlobalVariable.appPackage}:id/tvHeaderInventoryLocationName']</locator>
+   <locator>//*[(@text = '${TEXT}' or . = '${TEXT}') and @resource-id = '${GlobalVariable.appPackage}:id/tvHeaderInventoryName']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

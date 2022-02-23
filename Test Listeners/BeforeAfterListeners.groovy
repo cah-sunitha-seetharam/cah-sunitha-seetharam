@@ -49,8 +49,8 @@ class BeforeAfterListeners {
 	 * Executes after every test case ends.
 	 * @param testCaseContext related information of the executed test case.
 	 */
-/*	@AfterTestCase
-	def afterTestCase(TestCaseContext testCaseContext) {
+	@AfterTestCase
+/*	def afterTestCase(TestCaseContext testCaseContext) {
 		if(platformName == 'Android')  // check if platform is Android
 		{
 			String testCaseID=testCaseContext.getTestCaseId()//get the testCaseID
@@ -86,8 +86,8 @@ class BeforeAfterListeners {
 			}
 		}
 	}
-
 */
+
 
 	/**
 	 * Executes after every test suite.
@@ -116,7 +116,7 @@ class BeforeAfterListeners {
 			driver.activateApp(GlobalVariable.appPackage)  //Activates the application if it installed, but not running or if it is running in the background.
 
 
-			if((testCaseID.contains("TC_OE_021") || testCaseID.contains("TC_OE_022")))//if test case if from receiving module and have specific test id (data dependency so again installation is required)
+			if((testCaseID.contains("TC_OE_021") || testCaseID.contains("TC_OE_022") || testCaseID.contains("TC_OE_025") || testCaseID.contains("TC_OE_019")))//if test case if from receiving module and have specific test id (data dependency so again installation is required)
 			{
 				RunConfiguration.setMobileDriverPreferencesProperty("appWaitActivity", GlobalVariable.appWaitActivity)   // relative reference of activity name to wait for while opening the app
 				RunConfiguration.setMobileDriverPreferencesProperty("appPackage", GlobalVariable.appPackage) // this value will get from profile
@@ -147,6 +147,15 @@ class BeforeAfterListeners {
 			AppiumDriver<?> driver =  commonMethods.getCurrentSessionMobileDriver()
 			driver.activateApp(GlobalVariable.bundleID)  //Activates the application if it installed, but not running or if it is running in the background.
 
+			if((testCaseID.contains("TC_OE_021") || testCaseID.contains("TC_OE_022") || testCaseID.contains("TC_OE_025") || testCaseID.contains("TC_OE_019")))//if test case if from receiving module and have specific test id (data dependency so again installation is required)
+			{
+
+				Mobile.startApplication(GlobalVariable.iOSAppPath, true)  // Install the build file (Application)
+				iosCommonMethodsObject.takeUserFromloginToHomeScreen(GlobalVariable.Username, GlobalVariable.Password,GlobalVariable.Account)
+				(new iosCommonKeywords.commonMethods()).enableBetaFeatures()
+
+			}
+
 			if (Mobile.verifyElementExist(findTestObject('iOS/logIn/loginDetailsScreen/cancelUpdate_Button'),2, FailureHandling.OPTIONAL))//cancel update pop up is visible
 			{
 
@@ -176,11 +185,13 @@ class BeforeAfterListeners {
 		{
 			RunConfiguration.setMobileDriverPreferencesProperty("appWaitActivity", GlobalVariable.appWaitActivity)   // relative reference of activity name to wait for while opening the app
 			RunConfiguration.setMobileDriverPreferencesProperty("appPackage", GlobalVariable.appPackage) // this value will get from profile
-			Mobile.startApplication(GlobalVariable.AndroidAppPath, true)  // Install the build file (Application)
+			androidCommonMethodsObject.installingAndlaunchingTheApplication()  // Install the build file (Application)
 			AppiumDriver<?> driver =  commonMethods.getCurrentSessionMobileDriver()
 			androidCommonMethodsObject.takeUserFromloginToHomeScreen(GlobalVariable.Username, GlobalVariable.Password,GlobalVariable.Account)  // Invoking the Environment selection and login method
 			CustomKeywords.'androidDashboard.dashboardDetailsScreen.clickOnMoreOptions'()
 			CustomKeywords.'androidMoreOptions.moreOptionsScreen.enableBetaFeatureCSOS'()
+			androidCommonMethodsObject.waitForProgressBarToBeInvisible()
+			//androidCommonMethodsObject.changeAccount(GlobalVariable.Account)
 			try {
 				driver.terminateApp(GlobalVariable.appPackage) // Terminate the application(if it is running).
 			}
@@ -193,9 +204,11 @@ class BeforeAfterListeners {
 		else//  platform is iOS
 
 		{
-			Mobile.startApplication(GlobalVariable.iOSAppPath, true)  // Install the build file (Application)
+			iosCommonMethodsObject.installingAndlaunchingTheApplication()  // Install the build file (Application)
 			AppiumDriver<?> driver =  commonMethods.getCurrentSessionMobileDriver()
 			iosCommonMethodsObject.takeUserFromloginToHomeScreen(GlobalVariable.Username, GlobalVariable.Password,GlobalVariable.Account)
+			iosCommonMethodsObject.waitForProgressBarToBeInvisible()
+			iosCommonMethodsObject.changeAccount(GlobalVariable.Account)
 			(new iosCommonKeywords.commonMethods()).enableBetaFeatures()
 
 			try {
@@ -207,8 +220,8 @@ class BeforeAfterListeners {
 			}
 		}
 	}
-	
-	
+
+
 }
 
 

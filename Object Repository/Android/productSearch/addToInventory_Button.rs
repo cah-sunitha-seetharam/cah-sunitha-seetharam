@@ -3,11 +3,11 @@
    <description></description>
    <name>addToInventory_Button</name>
    <tag></tag>
-   <elementGuidId>367485de-4a98-4f57-98b1-80a594759ab8</elementGuidId>
+   <elementGuidId>81626c76-7d79-4ab8-b9bb-dcd0d89560a1</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
-      <isSelected>true</isSelected>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.widget.Button[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.Button' and (@text = 'Add to Inventory' or . = 'Add to Inventory') and @resource-id = '${GlobalVariable.appPackage}:id/addToInventoryButton']</locator>
+   <locator>//*[(@text = 'Add to Inventory' or . = 'Add to Inventory') and @resource-id = '${GlobalVariable.appPackage}:id/addToInventoryButton']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>
