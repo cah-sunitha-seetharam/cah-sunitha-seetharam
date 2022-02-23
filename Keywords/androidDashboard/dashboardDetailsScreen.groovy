@@ -42,7 +42,7 @@ import io.appium.java_client.MobileElement
 
 
 class dashboardDetailsScreen {
-
+	
 	/**
 	 * opens home tab where user can perform actions related to home
 	 */
@@ -77,6 +77,8 @@ class dashboardDetailsScreen {
 	def clickOnOrders() {
 		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Object Repository/Android/Dashboard/Orders_Tab'), 10)
 		element.click()
+		
+		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 	}
 
 	/**

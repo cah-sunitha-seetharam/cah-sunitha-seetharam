@@ -51,11 +51,11 @@ class inventoryListingScreen {
 	@Keyword
 	def deleteInventory(String inventoryName) {
 
-		String testObj='Object Repository/Android/Inventory/inventoryListingScreen/deleteInventory/slidePopUpForInventoryDeletion_Button'
+		String testObj='Android/inventory/inventoryListingScreen/deleteInventory/slidePopUpForInventoryDeletion_Button'
 
 		int x_Coordinate=(new androidCommonKeywords.commonMethods()).tapXCoordinateGenerator(testObj)
 
-		testObj='Object Repository/Android/Inventory/inventoryDetailScreen/openInventoryDetails/openInventory_Text'
+		testObj='Android/inventory/inventoryDetailScreen/openInventoryDetails/openInventory_Text'
 
 		int y_Coordinate=(new androidCommonKeywords.commonMethods()).tapYCoordinateGenerator(testObj,inventoryName)
 

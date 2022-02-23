@@ -127,5 +127,7 @@ class ordersCommonScreen {
 	@Keyword
 	def clickOnNewOrder() {
 		Mobile.tap(findTestObject('Android/orders/ordersCommonScreen/newOrder_Tab'), 0)
+		
+		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 	}
 }

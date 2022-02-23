@@ -1087,6 +1087,32 @@ def static "androidAccountSelection.selectAnAccount.selectTheUserAccount"(
 }
 
  /**
+	 * selects the user account from the accounts list and takes user to the dashboard screen
+	 * @param accountNo (user account number to be selected)
+	 */ 
+def static "androidAccountSelection.selectAnAccount.selectAnotherAccount"(
+    	String accountNo	) {
+    (new androidAccountSelection.selectAnAccount()).selectAnotherAccount(
+        	accountNo)
+}
+
+ /**
+	 * Change account
+	 */ 
+def static "androidAccountSelection.selectAnAccount.changeAccount"() {
+    (new androidAccountSelection.selectAnAccount()).changeAccount()
+}
+
+ /**
+	 * It verify the Audits account
+	 */ 
+def static "androidAccountSelection.selectAnAccount.verifyAccount"(
+    	String first_account	) {
+    (new androidAccountSelection.selectAnAccount()).verifyAccount(
+        	first_account)
+}
+
+ /**
 	 * performs login function by selecting environment of testing(taken from the global profile), entering user-name and password
 	 * @param username (it is taken from the global profile but passed as a parameter),password  (it is taken from the global profile but passed as a parameter)
 	 */ 
@@ -1825,6 +1851,13 @@ def static "androidInventory.locationDetailsScreen.scanInputEvent"(
     	String productToBeSearched	) {
     (new androidInventory.locationDetailsScreen()).scanInputEvent(
         	productToBeSearched)
+}
+
+ /**
+	 * scans the product and adds it to the location
+	 */ 
+def static "androidInventory.locationDetailsScreen.addProducToLocation"() {
+    (new androidInventory.locationDetailsScreen()).addProducToLocation()
 }
 
  /**
@@ -2724,6 +2757,23 @@ def static "iosAccountSelection.selectAnAccount.selectTheUserAccount"(
     	String accountNo	) {
     (new iosAccountSelection.selectAnAccount()).selectTheUserAccount(
         	accountNo)
+}
+
+ /**
+	 * selects the user account from the accounts list and takes user to the dashboard screen
+	 * @param accountNo (user account number to be selected)
+	 */ 
+def static "iosAccountSelection.selectAnAccount.selectAnotherAccount"(
+    	String accountNo	) {
+    (new iosAccountSelection.selectAnAccount()).selectAnotherAccount(
+        	accountNo)
+}
+
+ /**
+	 * Change account
+	 */ 
+def static "iosAccountSelection.selectAnAccount.tapOnAccountIcon"() {
+    (new iosAccountSelection.selectAnAccount()).tapOnAccountIcon()
 }
 
  /**
@@ -4927,6 +4977,13 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
+}
+
+
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	
      , 	String testName	
@@ -4935,11 +4992,4 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
 }

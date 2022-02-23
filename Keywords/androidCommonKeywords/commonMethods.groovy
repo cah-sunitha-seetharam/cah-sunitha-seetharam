@@ -43,6 +43,7 @@ class  commonMethods {
 	def goOneScreenBack() {
 
 		Mobile.tap(findTestObject('Android/inventory/locationDetailsScreen/addProductToLocation/Back_TextView'), 0)
+		WebUI.delay(3)
 	}
 
 
@@ -147,7 +148,7 @@ class  commonMethods {
 	def waitForProgressBarToBeInvisible() {
 
 		String testObject='Android/login/loginDetailsScreen/progress_Bar'
-		(new androidCommonKeywords.commonMethods()).waitTimeForObjectToBeVisible(testObject,1,20) //waitTime of 1(s), waitLimit of 20(s)
+		(new androidCommonKeywords.commonMethods()).waitTimeForObjectToBeVisible(testObject,1,30) //waitTime of 1(s), waitLimit of 20(s)
 	}
 
 

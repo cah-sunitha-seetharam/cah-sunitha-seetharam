@@ -58,7 +58,7 @@ class newOrderScreen {
 			WebUI.delay(w)
 		}
 	}
-	
+
 	/**
 	 * selects different account
 	 * @param accountNo (account number used for selection)
@@ -85,6 +85,8 @@ class newOrderScreen {
 	@Keyword
 	def createOrder() {
 		Mobile.tap(findTestObject('Android/orders/newOrderScreen/createOrder_Button'), 0)
+		
+		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 	}
 
 	/**

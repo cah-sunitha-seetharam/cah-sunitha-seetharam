@@ -148,6 +148,7 @@ class locationDetailsScreen {
 		}
 		else {
 			Mobile.tap(findTestObject('Android/productSearch/scanFlow/partialCount_Button'), 0)
+			WebUI.delay(3)
 		}
 	}
 
@@ -160,15 +161,26 @@ class locationDetailsScreen {
 	@Keyword
 	def scanInputEvent(String productToBeSearched) {
 
-		Mobile.tap(findTestObject('Android/productSearch/scanFlow/enterBarcode_TextField'), 0)
+		Mobile.tap(findTestObject('Android/productSearch/scanFlow/searchProducts_TextView'), 0)
 
-		Mobile.setText(findTestObject('Android/productSearch/scanFlow/enterBarcode_TextField'), productToBeSearched, 0)
+		Mobile.setText(findTestObject('Android/productSearch/scanFlow/searchProducts_TextView'), productToBeSearched + '\\n', 0)
 
-		WebUI.delay(1) // added 1 sec delay since there is no progress loader
-
-		Mobile.tap(findTestObject('Android/productSearch/scanFlow/scanDone_Button'), 0)
+		WebUI.delay(5)
 	}
 
+	
+	/**
+	 * scans the product and adds it to the location
+	 */
+	@Keyword
+	def addProducToLocation() {
+
+		Mobile.tap(findTestObject('Android/productSearch/scanFlow/addToLocation_Button'), 0)
+
+		Mobile.tap(findTestObject('Android/productSearch/scanFlow/continueBrowsing_Button'), 0)
+
+		WebUI.delay(5)
+	}
 
 
 	/**
@@ -195,7 +207,7 @@ class locationDetailsScreen {
 	@Keyword
 	def addQuantityforTheSearchedProduct(String quantity) {
 
-		Mobile.setText(findTestObject('Android/productSearch/scanFlow/quantity_TextField'), quantity, 0)
+		Mobile.setText(findTestObject('Android/productSearch/scanFlow/quantity_TextField'), quantity + '\\n', 0)
 	}
 
 
@@ -294,9 +306,24 @@ class locationDetailsScreen {
 
 		Mobile.tapAtPosition(x_Coordinate, y_Coordinate)
 
-		Mobile.tap(findTestObject('Android/inventory/inventoryListingScreen/deleteInventory/Delete_Button'), 0)
+	//	Mobile.tap(findTestObject('Android/inventory/inventoryListingScreen/deleteInventory/Delete_Button'), 0)
+		
+		if(Mobile.verifyElementExist(findTestObject('Android/inventory/inventoryListingScreen/deleteInventory/Delete_Button'), 2,FailureHandling.OPTIONAL))
+			{
+				Mobile.tap(findTestObject('Android/inventory/inventoryListingScreen/deleteInventory/Delete_Button'), 0)
+				Mobile.tap(findTestObject('Android/inventory/inventoryListingScreen/deleteInventory/Yes_Button'), 0)
+			
+			}
+			else
+			{
+				Mobile.tapAtPosition(x_Coordinate, y_Coordinate)
+				Mobile.tap(findTestObject('Android/inventory/inventoryListingScreen/deleteInventory/Delete_Button'), 0)
+				Mobile.tap(findTestObject('Android/inventory/inventoryListingScreen/deleteInventory/Yes_Button'), 0)
+			}
+		
+		WebUI.delay(3)
 
-		Mobile.tap(findTestObject('Android/inventory/inventoryListingScreen/deleteInventory/Yes_Button'), 0)
+		// Mobile.tap(findTestObject('Android/inventory/inventoryListingScreen/deleteInventory/Yes_Button'), 0)
 	}
 
 
