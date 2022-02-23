@@ -17,8 +17,8 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-'starts the application'
-CustomKeywords.'androidCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
+/*'starts the application'
+CustomKeywords.'androidCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()*/
 
 'login function called which takes user to the accounts selection screen'
 CustomKeywords.'androidLogin.loginScreen.login'(username, password)
