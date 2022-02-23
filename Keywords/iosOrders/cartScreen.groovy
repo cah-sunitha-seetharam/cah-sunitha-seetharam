@@ -90,6 +90,7 @@ class cartScreen {
 	def clickOnNonC2Orders() {
 
 		Mobile.tap(findTestObject('Object Repository/iOS/orders/cartScreen/nonC2OrderDetails/nonC2Orders_Tab'), 0)
+
 	}
 
 
@@ -150,6 +151,7 @@ class cartScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/uploadAllOrders/backToCart_Button'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/orders/orderDetailsScreen/uploadOrder/goToDashboard_Button'), 0)
+
 	}
 
 

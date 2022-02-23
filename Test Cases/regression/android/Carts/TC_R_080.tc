@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_R_080</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>219c1d2b-a78c-4e1d-a404-062b61a3a891</testCaseGuid>
+   <variable>
+      <defaultValue>'Ordering'</defaultValue>
+      <description>toggle value for the product to be added which can be ordering or price check</description>
+      <id>3ace9c5c-dd35-4b5e-b7bf-fb0e2b550c28</id>
+      <masked>false</masked>
+      <name>toggleValue</name>
+   </variable>
+   <variable>
+      <defaultValue>'Price Check'</defaultValue>
+      <description>toggle value for the product to be added which can be ordering or price check</description>
+      <id>de61f3f4-9fa1-4390-87e5-20479abd7335</id>
+      <masked>false</masked>
+      <name>toggleValue1</name>
+   </variable>
+   <variable>
+      <defaultValue>5</defaultValue>
+      <description>quantity of the product </description>
+      <id>8b6505f1-525d-44ab-b578-555607e58348</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+</TestCaseEntity>

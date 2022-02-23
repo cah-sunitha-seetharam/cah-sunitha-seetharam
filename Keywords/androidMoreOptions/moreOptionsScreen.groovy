@@ -85,8 +85,9 @@ class moreOptionsScreen {
 	@Keyword()
 	def signOut() {
 		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
-		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Android/dashboard/moreOptions_Tab'), 10)
-		element.click()
+//		MobileElement element = MobileElementCommonHelper.findElement(findTestObject('Android/dashboard/moreOptions_Tab'), 10)
+//		element.click()
+		Mobile.tap(findTestObject('Android/Dashboard/moreOptions_Tab'), 0)
 		Mobile.tap(findTestObject('Android/moreOptionsScreen/signOut/signOut_TextView'), 0)
 		Mobile.tap(findTestObject('Android/moreOptionsScreen/signOut/signOut_Button'), 0)
 	}

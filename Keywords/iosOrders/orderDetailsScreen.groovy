@@ -322,7 +322,8 @@ class orderDetailsScreen {
 	 */
 	@Keyword
 	def closeOfflinePopUp() {
-		Mobile.tap(findTestObject('iOS/verification/boltTextOfflineMode_Text'), 0)
+		Mobile.delay(2)
+		Mobile.tapAndHold(findTestObject('iOS/Verification/boltTextOfflineMode_Text'), 0,0)
 	}
 
 	/**
@@ -830,7 +831,7 @@ class orderDetailsScreen {
 	 */
 	@Keyword
 	def verifyOrderNameHeaderLabel(String poName){
-		Mobile.verifyElementVisible(findTestObject('iOS/orders/verificationDetails/OrderDetailHeader_Label',[('TEXT'):poName]),0)
+		Mobile.verifyElementVisible(findTestObject('Object Repository/iOS/Orders/orderDetailsScreen/verificationDetails/orderDetailHeader_Label',[('TEXT'):poName]),0)
 	}
 
 
@@ -904,7 +905,7 @@ class orderDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/orders/productInfo/productDetails/c2Label_Text'), 0)
 		Mobile.verifyElementExist(findTestObject('iOS/orders/productInfo/productDetails/productSize_Text'), 0)
 		Mobile.verifyElementExist(findTestObject('iOS/orders/productInfo/productDetails/NDC_Text'), 0)
-		Mobile.verifyElementExist(findTestObject('iOS/orders/productInfo/productDetails/UOI_Text'), 0)
+		//Mobile.verifyElementExist(findTestObject('iOS/Orders/productInfo/productSearch/uoi_Text'), 0)
 		Mobile.verifyElementExist(findTestObject('iOS/orders/productInfo/productDetails/stockStatus_Text'), 0)
 		Mobile.verifyElementExist(findTestObject('iOS/orders/productInfo/productDetails/returnable_Text'), 0)
 		Mobile.verifyElementExist(findTestObject('iOS/orders/productInfo/productDetails/quantity_TextField'), 0)

@@ -96,8 +96,8 @@ class newOrderScreen {
 	 */
 	@Keyword
 	def enterPurchaseOrderDetails(String poName,String poMemo) {
-		Mobile.tap(findTestObject('Android/orders/newOrderScreen/P.O. Name (Optional)_TextField'), 0)
-		Mobile.setText(findTestObject('Android/orders/newOrderScreen/P.O. Name (Optional)_TextField'), poName, 0)
+		Mobile.tap(findTestObject('Object Repository/Android/orders/newOrderScreen/poName_EditText'), 0)
+		Mobile.setText(findTestObject('Object Repository/Android/orders/newOrderScreen/poName_EditText'), poName, 0)
 		Mobile.pressBack()
 		Mobile.tap(findTestObject('Android/orders/newOrderScreen/poMemo_EditText'), 0)
 		Mobile.setText(findTestObject('Android/orders/newOrderScreen/poMemo_EditText'), poMemo, 0)
@@ -111,7 +111,7 @@ class newOrderScreen {
 	def verifyNewOrderScreenAccount() {
 		String actualAccountNumber = Mobile.getText(findTestObject('Android/orders/newOrderScreen/accountID_Textview'), 0)
 		assert actualAccountNumber == GlobalVariable.Account
-		Mobile.verifyElementExist(findTestObject('Android/orders/newOrderScreen/P.O. Name (Optional)_TextField'), 0)
+		Mobile.verifyElementExist(findTestObject('Object Repository/Android/orders/newOrderScreen/poName_EditText'), 0)
 		Mobile.verifyElementExist(findTestObject('Android/orders/newOrderScreen/poMemo_EditText'), 0)
 		Mobile.verifyElementExist(findTestObject('Android/orders/newOrderScreen/changeAccount_TextView'), 0)
 	}

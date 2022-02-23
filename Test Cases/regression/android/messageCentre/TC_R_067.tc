@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify user is able to view staus of Message visible while scrolling vertically on message listing page</description>
+   <name>TC_R_067</name>
+   <tag>MessageCentre;Regression</tag>
+   <comment></comment>
+   <testCaseGuid>f2282961-3851-470a-a796-e04792a26450</testCaseGuid>
+</TestCaseEntity>

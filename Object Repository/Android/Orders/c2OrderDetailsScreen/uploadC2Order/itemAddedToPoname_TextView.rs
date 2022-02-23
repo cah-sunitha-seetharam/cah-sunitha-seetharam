@@ -3,7 +3,7 @@
    <description></description>
    <name>itemAddedToPoName_TextView</name>
    <tag></tag>
-   <elementGuidId>ceea70aa-af5f-41d4-b03d-95a95dfcbe0f</elementGuidId>
+   <elementGuidId>aac403ba-630e-4fbc-9552-1c91b1f73e88</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.TextView[1]</value>
    </webElementProperties>
-   <locator>${GlobalVariable.appPackage}id/item_added_to_order</locator>
-   <locatorStrategy>ID</locatorStrategy>
+   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Item added to mm' or . = 'Item added to mm') and @resource-id = '${GlobalVariable.appPackage}id/item_added_to_order']</locator>
+   <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

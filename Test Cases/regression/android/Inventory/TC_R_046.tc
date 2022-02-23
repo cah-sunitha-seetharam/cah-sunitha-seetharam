@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the user is able to do Copy and Move Actions on same Products in the Inventory locations.
+
+Prerequisites:
+ 1. Valid login credentials with multiple accounts available for the user
+ 2. Valid Barcode.</description>
+   <name>TC_R_046</name>
+   <tag>Inventory;Regression;Scan</tag>
+   <comment></comment>
+   <testCaseGuid>be034f0e-ff8b-4b31-9918-c0fd0fbe50cf</testCaseGuid>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of inventory to be created</description>
+      <id>e760334d-a63d-4c75-80be-2183089a8f74</id>
+      <masked>false</masked>
+      <name>inventoryNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of location to be created</description>
+      <id>9f35c607-968a-48a5-8a4f-fdfea861ddd1</id>
+      <masked>false</masked>
+      <name>locationNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>'Partial Count'</defaultValue>
+      <description>count type can be partial or full count</description>
+      <id>fa31aecf-cbd5-4269-893f-5b43a1e435cd</id>
+      <masked>false</masked>
+      <name>countType_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'Partial Count'</defaultValue>
+      <description>count type can be partial or full count</description>
+      <id>be4dd4d8-a39b-4b9e-823d-01aaeed2c8f6</id>
+      <masked>false</masked>
+      <name>countType_2</name>
+   </variable>
+   <variable>
+      <defaultValue>'Last Price'</defaultValue>
+      <description>cost type can be last price or current price paid</description>
+      <id>29cd2b7e-d09d-4791-9393-702c3059cf83</id>
+      <masked>false</masked>
+      <name>costType_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'Current Price'</defaultValue>
+      <description>cost type can be last price or current price paid</description>
+      <id>7eefcbaf-658d-4014-8389-27abd1968bf1</id>
+      <masked>false</masked>
+      <name>costType_2</name>
+   </variable>
+   <variable>
+      <defaultValue>'2'</defaultValue>
+      <description>default quantity value used for calculation of cost and not passed as a parameter for adding quantity of product</description>
+      <id>814b9d74-4157-49b1-9de3-99638a8e0a43</id>
+      <masked>false</masked>
+      <name>quantity_2</name>
+   </variable>
+   <variable>
+      <defaultValue>'2'</defaultValue>
+      <description>expected lines count which should have been added</description>
+      <id>d78d2327-b5c2-4ee8-be42-2e39f8880b89</id>
+      <masked>false</masked>
+      <name>expectedLinesCount</name>
+   </variable>
+   <variable>
+      <defaultValue>24</defaultValue>
+      <description>expected product quantity which should have been added</description>
+      <id>fc8a38f8-91e9-49e4-b19b-ca06a9ac368b</id>
+      <masked>false</masked>
+      <name>expectedProductQuantity_1</name>
+   </variable>
+   <variable>
+      <defaultValue>2.0</defaultValue>
+      <description></description>
+      <id>87c0bd9c-a572-4e4b-b43c-e1c3de734ba6</id>
+      <masked>false</masked>
+      <name>expectedProductQuantity_2</name>
+   </variable>
+   <variable>
+      <defaultValue>'12'</defaultValue>
+      <description>default quantity value used for calculation of cost and not passed as a parameter for adding quantity of product</description>
+      <id>bf007701-2d05-464d-aa51-33d0e552c690</id>
+      <masked>false</masked>
+      <name>quantity_1</name>
+   </variable>
+</TestCaseEntity>

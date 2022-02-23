@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the details of the Inventory such as Location count, Line count and it's corresponding Inventory Value are getting updated after the Inventory location is Deleted.                                                                        
+
+Prerequisite:  1. Valid login credentials, 2. Multiple accounts available for the user.</description>
+   <name>TC_R_003</name>
+   <tag>Inventory;Regression;Scan</tag>
+   <comment></comment>
+   <testCaseGuid>314fa701-4d69-4b6c-92fa-11bda2ca9aaa</testCaseGuid>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of inventory to be created</description>
+      <id>553c3697-726d-4c28-8064-7352f77a80f1</id>
+      <masked>false</masked>
+      <name>inventoryNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of location to be created</description>
+      <id>dfc49257-8a6b-4fc1-9fd0-5bb72bedc7f4</id>
+      <masked>false</masked>
+      <name>locationNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>'Current Price'</defaultValue>
+      <description>cost type can be last price or current price paid</description>
+      <id>3b6ab30a-2c49-410a-91be-bce18ff3a961</id>
+      <masked>false</masked>
+      <name>costType</name>
+   </variable>
+   <variable>
+      <defaultValue>'Partial Count'</defaultValue>
+      <description>count type can be partial or full count</description>
+      <id>5badcbe1-c9e3-4cc7-a1f0-5aabb9c2237f</id>
+      <masked>false</masked>
+      <name>countType</name>
+   </variable>
+   <variable>
+      <defaultValue>'3'</defaultValue>
+      <description>quantity required to be added</description>
+      <id>ede7b545-e479-473b-b702-e8cee93a9c87</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+</TestCaseEntity>

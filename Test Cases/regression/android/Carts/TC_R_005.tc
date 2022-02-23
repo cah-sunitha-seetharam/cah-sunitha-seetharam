@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the user is able to Upload the Order.                                              Prerequisite:  1.Valid login credentials, 2. Multiple accounts available for the user.</description>
+   <name>TC_R_005</name>
+   <tag>Order;Regression;Scan</tag>
+   <comment></comment>
+   <testCaseGuid>5571215d-23eb-4959-924f-b726e810a584</testCaseGuid>
+   <variable>
+      <defaultValue>'poName'</defaultValue>
+      <description>purchase order name for the order created</description>
+      <id>6d98657c-cee3-4d4c-9dd8-37983cdce84c</id>
+      <masked>false</masked>
+      <name>poName</name>
+   </variable>
+   <variable>
+      <defaultValue>'poMemo'</defaultValue>
+      <description>purchase order memo for the order created</description>
+      <id>96001e33-53cb-4d94-a911-fe72c255304a</id>
+      <masked>false</masked>
+      <name>poMemo</name>
+   </variable>
+   <variable>
+      <defaultValue>2</defaultValue>
+      <description>quantity added for the product searched</description>
+      <id>bab36757-295b-4bfa-bacf-92431e605e3b</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+   <variable>
+      <defaultValue>3</defaultValue>
+      <description>expected quantity added for the product searched</description>
+      <id>2d41c980-3510-4b93-904d-753c5c577cdb</id>
+      <masked>false</masked>
+      <name>expectedQuantity</name>
+   </variable>
+</TestCaseEntity>

@@ -145,7 +145,7 @@ class cartScreen  {
 	 */
 	@Keyword
 	def returnTopMostOrderName() {
-		String orderName=Mobile.getText(findTestObject('Android/orders/cartScreen/orderListOrderName_TextView'), 0)
+		String orderName=Mobile.getText(findTestObject('Android/orders/cartScreen/verificationDetails/orderListOrderName_TextView'), 0)
 		return orderName
 	}
 
@@ -155,7 +155,7 @@ class cartScreen  {
 	 */
 	@Keyword
 	def verifyC2AnnotationCount(String expectedAnnotationCount) {
-		String actualAnnotationCount = Mobile.getText(findTestObject('Android/orders/cartScreen/c2AnnotationCount_TextView'), 0)
+		String actualAnnotationCount = Mobile.getText(findTestObject('Object Repository/Android/orders/cartScreen/c2Order/c2AnnotationCount_TextView'), 0)
 		assert expectedAnnotationCount == actualAnnotationCount
 	}
 
@@ -210,7 +210,7 @@ class cartScreen  {
 	 */
 	@Keyword
 	def verifyLineCountofC2OrNonC2Product(String expectedlineCount){
-		String lineCount=Mobile.getText(findTestObject('Android/orders/cartScreen/lineCountC2OrNonC2Product_TextView'), 0)
+		String lineCount=Mobile.getText(findTestObject('Android/orders/cartScreen/verificationDetails/lineCountC2OrNonC2Product_TextView'), 0)
 		String actualLineCount = (new androidCommonKeywords.commonMethods()).removeCharctersInString(lineCount)
 		assert expectedlineCount==actualLineCount
 	}
@@ -242,7 +242,7 @@ class cartScreen  {
 	 */
 	@Keyword
 	def verifynonC2AnnotationCount(String expectedAnnotationCount) {
-		String actualAnnotationCount = Mobile.getText(findTestObject('Android/orders/cartScreen/nonC2AnnotationCountTextView'), 0)
+		String actualAnnotationCount = Mobile.getText(findTestObject('Object Repository/Android/orders/cartScreen/nonC2Order/nonC2AnnotationCount_TextView'), 0)
 		assert expectedAnnotationCount == actualAnnotationCount
 	}
 
