@@ -26,6 +26,7 @@ import iosLogin.loginScreen
 import iosMoreOptions.moreOptionsScreen
 import iosOrders.cartScreen
 import com.kms.katalon.core.mobile.keyword.internal.MobileDriverFactory
+import java.math.RoundingMode;
 
 class  commonMethods {
 
@@ -228,6 +229,10 @@ class  commonMethods {
 
 		float costOfAddedProduct=quantityIntegralValue*costOfProduct
 
+		//BigDecimal costOfAddedProductObject = new BigDecimal(costOfAddedProduct)
+		// round to 2 decimal places
+		//BigDecimal costOfAddedProductRounded = costOfAddedProductObject.setScale(2, RoundingMode.CEILING)
+		//KeywordUtil.logInfo("expected value" +costOfAddedProductRounded)
 		return (costOfAddedProduct)
 	}
 
@@ -240,6 +245,8 @@ class  commonMethods {
 	 */
 	@Keyword
 	def searchProduct(productToBeSearched) {
+
+		waitForProgressBarToBeInvisible()
 
 		clickOnProductSearchTextField()
 
@@ -420,7 +427,6 @@ class  commonMethods {
 		assert expectedAccountNo==actualAccountNo
 
 		Mobile.tap(findTestObject('iOS/accountSelection/changeAccount_Text'), 0)
-
 	}
 
 

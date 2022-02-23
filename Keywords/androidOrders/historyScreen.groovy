@@ -92,7 +92,7 @@ class historyScreen {
 	 */
 	@Keyword
 	def getOrderBadgeCount() {
-		int orderCount = Mobile.getText(findTestObject('android/Orders/History Screen/orderHistoryCount_Text'), 0).toInteger()
+		int orderCount = Mobile.getText(findTestObject('Android/orders/historyScreen/orderHistoryCount_Text'), 0).toInteger()
 		KeywordUtil.logInfo("Count is " + orderCount )
 		return orderCount
 	}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the user  is able to Add product in the Inventory by Search.
+Prerequisite: Valid login credentials with multiple accounts available for the user.</description>
+   <name>TC_OE_005</name>
+   <tag>Inventory;Smoke</tag>
+   <comment></comment>
+   <testCaseGuid>479d3406-93e7-4347-90eb-8acdb6108428</testCaseGuid>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of inventory to be created</description>
+      <id>2ce0325e-2a45-499b-8ac4-8de7dd7d9b94</id>
+      <masked>false</masked>
+      <name>inventoryNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of location to be created</description>
+      <id>2a7dd058-d3f0-46f2-a72e-0dd148c4829c</id>
+      <masked>false</masked>
+      <name>locationNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>'Last Price'</defaultValue>
+      <description>cost type can be last price or current price paid</description>
+      <id>dce0347d-009a-45d5-87fa-c95b6f675ca6</id>
+      <masked>false</masked>
+      <name>costType_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'Current Price'</defaultValue>
+      <description>cost type can be last price or current price paid</description>
+      <id>8137d2d5-8b70-4f75-828b-1c06dbc37cb5</id>
+      <masked>false</masked>
+      <name>costType_2</name>
+   </variable>
+   <variable>
+      <defaultValue>'5'</defaultValue>
+      <description>default quantity value used for calculation of cost and not passed as a parameter for adding quantity of product</description>
+      <id>eb51c68a-4dcd-4ba4-8886-558f89601510</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+</TestCaseEntity>

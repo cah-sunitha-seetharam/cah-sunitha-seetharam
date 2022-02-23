@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the user should be able to Edit the Quantity of the Audit count.                                                                                                                                                                                                         
+
+Prerequisite: 
+1.Valid login credentials  
+2.Account contains Existing Count in the form of Decimal Value should be available.       
+3.Account contains Existing Count in the form of Full Value should be available.</description>
+   <name>TC_R_004</name>
+   <tag>Audit;Regression;</tag>
+   <comment></comment>
+   <testCaseGuid>ea4f302e-54c5-4493-8322-b1aba63aee95</testCaseGuid>
+   <variable>
+      <defaultValue>'10-302132'</defaultValue>
+      <description></description>
+      <id>a18d6c0d-aa14-479a-971b-94f788dcd41d</id>
+      <masked>false</masked>
+      <name>second_account</name>
+   </variable>
+   <variable>
+      <defaultValue>'auto_sanity_ri'</defaultValue>
+      <description></description>
+      <id>4c5ab68a-cd6c-4145-b444-b78d105c8f62</id>
+      <masked>false</masked>
+      <name>username</name>
+   </variable>
+   <variable>
+      <defaultValue>'Cardinal1'</defaultValue>
+      <description></description>
+      <id>46ef22e2-59f8-4978-bdfb-e529bbd6f0cb</id>
+      <masked>false</masked>
+      <name>password</name>
+   </variable>
+   <variable>
+      <defaultValue>'26-3270'</defaultValue>
+      <description></description>
+      <id>d0f5d2a1-cd00-46b1-b506-5d4bef53118d</id>
+      <masked>false</masked>
+      <name>accountNo_CIM_1</name>
+   </variable>
+</TestCaseEntity>

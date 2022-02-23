@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that when User Taps on Remove button in the Inventory Scan result page of an already scanned product, The Product entry should get removed from the location as well as the scan result screen .  
+Prerequisite: 
+1. Valid login credentials with multiple accounts available for the user 
+2. Valid barcodes.</description>
+   <name>TC_R_017</name>
+   <tag>Inventory;Regression;Scan</tag>
+   <comment></comment>
+   <testCaseGuid>28b7e007-7905-4ce0-b5a2-df6243413d0b</testCaseGuid>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of inventory to be created</description>
+      <id>31e502c9-17b9-4d5f-ba9a-1fdaf1484688</id>
+      <masked>false</masked>
+      <name>inventoryNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of location to be created</description>
+      <id>945e2480-1246-44fd-b51b-b63ccdb76c84</id>
+      <masked>false</masked>
+      <name>locationNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>'Current Price'</defaultValue>
+      <description>cost type can be last price or current price paid</description>
+      <id>2c59de9d-92a3-4d79-8a1b-f846bcf5bc33</id>
+      <masked>false</masked>
+      <name>costType</name>
+   </variable>
+   <variable>
+      <defaultValue>'Partial Count'</defaultValue>
+      <description>count type can be partial or full count</description>
+      <id>8ec202d2-9b8a-4460-a135-eed21dfd395f</id>
+      <masked>false</masked>
+      <name>countType</name>
+   </variable>
+   <variable>
+      <defaultValue>'3'</defaultValue>
+      <description>quantity required to be added</description>
+      <id>4991f361-b03a-4ce6-a57a-455809a32b89</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+</TestCaseEntity>

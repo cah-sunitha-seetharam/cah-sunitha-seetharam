@@ -85,6 +85,8 @@ class newOrderScreen {
 	@Keyword
 	def createOrder() {
 		Mobile.tap(findTestObject('Android/orders/newOrderScreen/createOrder_Button'), 0)
+		
+		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 	}
 
 	/**

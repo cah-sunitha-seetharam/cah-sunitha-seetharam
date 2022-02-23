@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the user  is able to View the Audits Page and change different CIM Account using Account selction icon
+
+Prerequisite: 
+1. Valid login credentials with multiple accounts available for the user.
+2. Valid CIM account
+3. Its requires CIM account</description>
+   <name>TC_OE_027</name>
+   <tag>Audit;Regression</tag>
+   <comment></comment>
+   <testCaseGuid>1ac997cd-fb9e-4097-8a2c-25dd5a7fd6b6</testCaseGuid>
+   <variable>
+      <defaultValue>'10-302132'</defaultValue>
+      <description></description>
+      <id>41a87957-03dd-4979-9cf4-a7370cf20eba</id>
+      <masked>false</masked>
+      <name>second_account</name>
+   </variable>
+   <variable>
+      <defaultValue>'You’ve got this!'</defaultValue>
+      <description></description>
+      <id>54fd8fe1-f53b-4995-bda5-c7092bdc0455</id>
+      <masked>false</masked>
+      <name>expectedMessage</name>
+   </variable>
+   <variable>
+      <defaultValue>'26-2052020920'</defaultValue>
+      <description></description>
+      <id>dc819983-63cd-4be6-b1ae-94b7b8a44abc</id>
+      <masked>false</masked>
+      <name>first_account</name>
+   </variable>
+   <variable>
+      <defaultValue>'auto_sanity_ri'</defaultValue>
+      <description></description>
+      <id>386b9774-3bbf-4d5c-8d39-38ab9e789633</id>
+      <masked>false</masked>
+      <name>username</name>
+   </variable>
+   <variable>
+      <defaultValue>'Cardinal1'</defaultValue>
+      <description></description>
+      <id>0e44c15a-c578-4e4b-b02e-2bdf2b39e901</id>
+      <masked>false</masked>
+      <name>password</name>
+   </variable>
+   <variable>
+      <defaultValue>'10-302132'</defaultValue>
+      <description></description>
+      <id>1e07fa41-0e65-4839-bb3e-b78eddb29423</id>
+      <masked>false</masked>
+      <name>accountNo</name>
+   </variable>
+</TestCaseEntity>

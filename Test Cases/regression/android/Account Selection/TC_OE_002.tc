@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the user  is able to perform an account selection using the Account option available  from dashboad, Cart and inventory pages.                                                  
+Prerequisite: 
+Valid login credentials with multiple accounts available for the user.   </description>
+   <name>TC_OE_002</name>
+   <tag>Account;Sanity</tag>
+   <comment></comment>
+   <testCaseGuid>8c426a51-fb10-4fd8-b75b-35f65d56eab6</testCaseGuid>
+   <variable>
+      <defaultValue>'16-2057194339'</defaultValue>
+      <description>user account which should be selected</description>
+      <id>4b3bf1d4-c8b8-4dfd-82cd-fb90d783914d</id>
+      <masked>false</masked>
+      <name>switchToAccount1</name>
+   </variable>
+   <variable>
+      <defaultValue>'18-2057187705'</defaultValue>
+      <description>user account which should be selected</description>
+      <id>5998bf7a-84ec-4787-92a5-9915ab6fecaf</id>
+      <masked>false</masked>
+      <name>switchToAccount2</name>
+   </variable>
+</TestCaseEntity>

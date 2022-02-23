@@ -42,6 +42,7 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 class selectAnAccount {
 
 
+
 	/**
 	 * selects the user account from the accounts list and takes user to the dashboard screen
 	 * @param accountNo (user account number to be selected)
@@ -53,6 +54,46 @@ class selectAnAccount {
 			Mobile.scrollToText(accountNo, FailureHandling.STOP_ON_FAILURE)
 
 			Mobile.tap(findTestObject('Android/accountSelection/accountNo_TextView',[('val') : accountNo]), 0)
+
+			(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 		}
+	}
+
+	/**
+	 * selects the user account from the accounts list and takes user to the dashboard screen
+	 * @param accountNo (user account number to be selected)
+	 */
+	@Keyword
+	def selectAnotherAccount(String accountNo) {
+
+		Mobile.scrollToText(accountNo, FailureHandling.STOP_ON_FAILURE)
+
+		Mobile.tap(findTestObject('Android/accountSelection/accountNo_TextView',[('val') : accountNo]), 0)
+
+		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+	}
+	
+	/**
+	 * Change account
+	 */
+	@Keyword
+	def changeAccount() {
+
+		Mobile.tap(findTestObject('Android/audits/account_Icon'), 0)
+		Mobile.delay(2)
+		Mobile.tap(findTestObject('Android/audits/changeAccount_Icon'), 0)
+		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+		Mobile.delay(2)
+	}
+	
+	/**
+	 * It verify the Audits account
+	 */
+	@Keyword
+	def verifyAccount(String first_account) {
+
+		Mobile.verifyElementExist(findTestObject('Android/audits/accountID', [('AccountID') : first_account]), 0)
+		String accountId = Mobile.getText(findTestObject('Android/audits/accountID', [('AccountID') : first_account]), 0)
+		assert accountId.contains(first_account)
 	}
 }

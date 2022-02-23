@@ -396,7 +396,7 @@ class receivingReusableMethods {
 	@Keyword
 	def uploadCompletedTotes() {
 
-		Mobile.tap(findTestObject('Android/receiving/verification/uploadCompletedTotes_Button'),0)
+		Mobile.tapAndHold(findTestObject('Android/receiving/verification/uploadCompletedTotes_Button'),0,0)
 	}
 
 

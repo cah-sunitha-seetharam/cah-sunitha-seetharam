@@ -43,8 +43,8 @@ import java.text.DecimalFormat
 
 class locationDetailsScreen {
 
-	def commonMethodsObject=new commonMethods();
-
+	def commonMethodsObject=new commonMethods(); //iOS common methods object
+	def commonObject=new common.commonMethods() //common methods for both platform object
 
 	/**
 	 * adds products to a location
@@ -54,7 +54,7 @@ class locationDetailsScreen {
 	@Keyword
 	def addProducttoLocation(String locationName, String productName, String quantity) {
 
-		Mobile.tapAndHold(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), 0, 0)
+		Mobile.tapAndHold(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), 2, 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
@@ -135,7 +135,7 @@ class locationDetailsScreen {
 
 		int x_Coordinate=(new iosCommonKeywords.commonMethods()).tapXCoordinateGenerator(testObj)
 
-		testObj='Object Repository/iOS/inventory/locationDetailsScreen/deleteProduct/ndcNumber_Text'
+		testObj='Object Repository/iOS/productDetails/ndcNumber_Text'
 
 		int y_Coordinate=(new iosCommonKeywords.commonMethods()).tapYCoordinateGenerator(testObj,productNdcNumber)
 
@@ -175,7 +175,7 @@ class locationDetailsScreen {
 
 		int x_Coordinate=(new iosCommonKeywords.commonMethods()).tapXCoordinateGenerator(testObj)
 
-		testObj='Object Repository/iOS/inventory/locationDetailsScreen/deleteProduct/ndcNumber_Text'
+		testObj='Object Repository/iOS/productDetails/ndcNumber_Text'
 
 		int y_Coordinate=(new iosCommonKeywords.commonMethods()).tapYCoordinateGenerator(testObj,productNdcNumber)
 
@@ -231,7 +231,7 @@ class locationDetailsScreen {
 
 		int x_Coordinate=(new iosCommonKeywords.commonMethods()).tapXCoordinateGenerator(testObj)
 
-		testObj='Object Repository/iOS/inventory/locationDetailsScreen/deleteProduct/ndcNumber_Text'
+		testObj='Object Repository/iOS/productDetails/ndcNumber_Text'
 
 		int y_Coordinate=(new iosCommonKeywords.commonMethods()).tapYCoordinateGenerator(testObj,productNdcNumber)
 
@@ -251,7 +251,7 @@ class locationDetailsScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/inventory/locationDetailsScreen/verification/productInfo_Text'),0)
 
-		Mobile.tap(findTestObject('iOS/inventory/locationDetailsScreen/Move Product To Another Location/goToLocationAfterMovingProduct_Text', [('Location') : locationName]),0)
+		Mobile.tap(findTestObject('Object Repository/iOS/inventory/locationDetailsScreen/moveProductFromLocation/goToLocationAfterMovingProduct_Text', [('Location') : locationName]),0)
 	}
 
 
@@ -262,7 +262,7 @@ class locationDetailsScreen {
 	@Keyword
 	def returnQuantityOfTheAddedProduct() {
 
-		String quantity= Mobile.getText(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/quantityAdded_Text'), 0)
+		String quantity= Mobile.getText(findTestObject('Object Repository/iOS/inventory/locationDetailsScreen/addProductToLocation/quantityAdded_Text'), 0)
 
 		KeywordUtil.logInfo(quantity)
 
@@ -342,7 +342,7 @@ class locationDetailsScreen {
 	@Keyword
 	def verifyCountTypeOfProduct(String expectedCountType) {
 
-		String countType=Mobile.getText(findTestObject('iOS/inventory/locationDetailsScreen/verification/addedProductCountType_Text'),0) //gets the countType of the added product in the location details page
+		String countType=Mobile.getText(findTestObject('Object Repository/iOS/inventory/locationDetailsScreen/verification/addedProductCountType_Text'),0) //gets the countType of the added product in the location details page
 
 		assert (countType+" COUNT")==(expectedCountType.toUpperCase()) // verifies countType equals the countType of the product in the products list
 
@@ -391,9 +391,9 @@ class locationDetailsScreen {
 			countType=Mobile.getText(findTestObject('iOS/inventory/locationDetailsScreen/verification/addedProductCountType_Text'),0) //gets the countType of the top added product in the location details page
 			quantity=Mobile.getText(findTestObject('iOS/inventory/locationDetailsScreen/verification/addedProductQuanity_Text'),0) //gets the quantity of the top added product in the location details page
 			costOfOneFullCountProduct=Mobile.getText(findTestObject('iOS/inventory/locationDetailsScreen/verification/locationDetailsPrice_Label'),  0)
-			topProductUnitOfIssueCost_FloatValue=(new common.commonMethods()).floatValueGenerator(topProductUnitOfIssueCost)///converting topProductUnitOfIssueCost string to a float value
-			topProductQuantity_FloatValue=(new common.commonMethods()).floatValueGenerator(topProductQuantity)///converting topProductQuantity string to a float value
-			costOfOneFullCountProduct_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(costOfOneFullCountProduct)///converting costOfOneFullCountProduct string to a float value
+			topProductUnitOfIssueCost_FloatValue=commonObject.floatValueGenerator(topProductUnitOfIssueCost)///converting topProductUnitOfIssueCost string to a float value
+			topProductQuantity_FloatValue=commonObject.floatValueGenerator(topProductQuantity)///converting topProductQuantity string to a float value
+			costOfOneFullCountProduct_dollarSymbolRemoved_FloatValue=commonObject.floatValueGenerator(costOfOneFullCountProduct)///converting costOfOneFullCountProduct string to a float value
 			if (topProductCountType=="Partial Count") //condition added because in case of partial count the quantity added won't end with a (.0) for e.g full count-(1.0), partial count (1)
 			{
 				assert quantity==(topProductQuantity) // verifies quantity equals the quantity of the topmost product in the products list
@@ -405,10 +405,10 @@ class locationDetailsScreen {
 				assert (quantity)==(topProductQuantity+".0") // verifies quantity equals the quantity of the topmost product in the products list
 			}
 			assert (countType+" COUNT")==(topProductCountType.toUpperCase()) // verifies countType equals the countType of the topmost product in the products list
-			(new iosInventory.locationDetailsScreen()).deleteProduct(topProductNdc)//calling delete product function and passing the topProductNdc
+			deleteProduct(topProductNdc)//calling delete product function and passing the topProductNdc
 		}
-		String formattedTotalCostOfAddedProduct=(new common.commonMethods()).formatDecimalData(totalCostOfAddedProduct,"0.00") //formatting the data to be rounded off to upper level and to two decimal places
-		float formattedTotalCostOfAddedProduct_FloatValue=(new common.commonMethods()).floatValueGenerator(formattedTotalCostOfAddedProduct)///converting formattedTotalCostOfAddedProduct string to a float value
+		String formattedTotalCostOfAddedProduct=commonObject.formatDecimalData(totalCostOfAddedProduct,"0.00") //formatting the data to be rounded off to upper level and to two decimal places
+		float formattedTotalCostOfAddedProduct_FloatValue=commonObject.floatValueGenerator(formattedTotalCostOfAddedProduct)///converting formattedTotalCostOfAddedProduct string to a float value
 		assert inventoryTotal_charactersRemoved_FloatValue==(formattedTotalCostOfAddedProduct_FloatValue)
 	}
 
@@ -422,9 +422,9 @@ class locationDetailsScreen {
 	@Keyword
 	def verifyProductIsNotVisibleOnTheLocationDetailsScreen(productNdcNumber) {
 
-		String testObj='Object Repository/iOS/inventory/locationDetailsScreen/deleteProduct/ndcNumber_Text'
+		String testObj='Object Repository/iOS/productDetails/ndcNumber_Text'
 
-		(new iosCommonKeywords.commonMethods()).verifyProductIsNotVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsNotVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
+		commonMethodsObject.verifyProductIsNotVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsNotVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
 	}
 
 
@@ -439,9 +439,9 @@ class locationDetailsScreen {
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		String testObj='Object Repository/iOS/inventory/locationDetailsScreen/deleteProduct/ndcNumber_Text'
+		String testObj='Object Repository/iOS/productDetails/ndcNumber_Text'
 
-		(new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
+		commonMethodsObject.verifyProductIsVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
 	}
 
 
@@ -459,7 +459,7 @@ class locationDetailsScreen {
 		String topProductIdentificationNumber
 		while(!productNdcNumber.isEmpty()) //loops while productIdentificationNumbersStack is not empty
 		{
-			String actualproductIdentificationNumber, testObj='iOS/Inventory/Location Details Screen/Verification Details/ndc_Label'
+			String actualproductIdentificationNumber, testObj='Object Repository/iOS/inventory/locationDetailsScreen/verification/ndcNumberLocationDetails_Label'
 
 			topProductIdentificationNumber=productNdcNumber.pop() //pops the top ProductIdentificationNumber from the productNdcStack and stores value in the topProductNdc
 
@@ -467,7 +467,7 @@ class locationDetailsScreen {
 
 			assert actualproductIdentificationNumber==("NDC: "+topProductIdentificationNumber) // verifies actualproductIdentificationNumber equals the ProductIdentificationNumber of the topmost product in the products list
 
-			(new iosInventory.locationDetailsScreen()).deleteProduct(topProductIdentificationNumber)//calling delete product function and passing the topProductIdentificationNumber
+			deleteProduct(topProductIdentificationNumber)//calling delete product function and passing the topProductIdentificationNumber
 		}
 	}
 
@@ -479,15 +479,15 @@ class locationDetailsScreen {
 	@Keyword
 	def verifyShareLocationPopUp() {
 
-		Mobile.tap(findTestObject('iOS/inventory/locationDetailsScreen/shareLocation/shareLocation_Button'), 0)
+		Mobile.tap(findTestObject('Object Repository/iOS/inventory/locationDetailsScreen/shareLocation/shareLocation_Button'), 0)
 
-		String verifyPopUpScreentestobj='iOS/Inventory/Location Details Screen/Share Location/sharePopUpActivity_ListView' //reference of the popUp screen object
+		String verifyPopUpScreentestobj='Object Repository/iOS/inventory/locationDetailsScreen/shareLocation/sharePopUpActivity_ListView' //reference of the popUp screen object
 
-		(new iosCommonKeywords.commonMethods()).verifyPopUpScreenExist(verifyPopUpScreentestobj) // verifies popUp screen present
+		commonMethodsObject.verifyPopUpScreenExist(verifyPopUpScreentestobj) // verifies popUp screen present
 
-		String closePopUpScreentestobj='iOS/Inventory/Location Details Screen/Share Location/close_Button' //reference of the close popUp screen button
+		String closePopUpScreentestobj='Object Repository/iOS/inventory/locationDetailsScreen/shareLocation/close_Button' //reference of the close popUp screen button
 
-		(new iosCommonKeywords.commonMethods()).closePopUpScreen(closePopUpScreentestobj) // closes the popUp screen
+		commonMethodsObject.closePopUpScreen(closePopUpScreentestobj) // closes the popUp screen
 
 	}
 }

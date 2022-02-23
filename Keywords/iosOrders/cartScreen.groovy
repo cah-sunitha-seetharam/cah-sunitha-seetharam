@@ -38,6 +38,7 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import java.util.regex.*
 import com.kms.katalon.core.webui.exception.WebElementNotFoundException
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
+import java.math.RoundingMode;
 
 
 class cartScreen {
@@ -88,7 +89,8 @@ class cartScreen {
 	@Keyword
 	def clickOnNonC2Orders() {
 
-		Mobile.tap(findTestObject('Object Repository/iOS/Orders/cartScreen/nonC2OrderDetails/nonC2Orders_Tab'), 0)
+		Mobile.tap(findTestObject('Object Repository/iOS/orders/cartScreen/nonC2OrderDetails/nonC2Orders_Tab'), 0)
+
 	}
 
 
@@ -148,7 +150,8 @@ class cartScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/uploadAllOrders/backToCart_Button'), 0)
 
-		//Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/uploadAllOrders/goToDashboard_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/orderDetailsScreen/uploadOrder/goToDashboard_Button'), 0)
+
 	}
 
 
@@ -222,7 +225,7 @@ class cartScreen {
 	@Keyword
 	def goToDashboard() {
 
-		Mobile.tap(findTestObject('iOS/orders/cartScreen/uploadAllOrders/goToDashboard_Button'), 0)
+		Mobile.tap(findTestObject('iOS/orders/orderDetailsScreen/uploadOrder/goToDashboard_Button'), 0)
 	}
 
 
@@ -247,11 +250,9 @@ class cartScreen {
 
 		Mobile.tap(findTestObject('iOS/orders/cartScreen/c2OrderDetails/c2Order_View'), 0)
 
-		(new iosCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
-
 		Mobile.verifyElementAttributeValue(findTestObject('iOS/orders/cartScreen/c2OrderDetails/uploadC2Order_Button'), 'enabled', 'true', 0)
 
-		Mobile.verifyElementAttributeValue(findTestObject('iOS/orders/c2OrderDetailsScreen/placeC2Order/placeC2Order_Button'), 'enabled', 'true', 0)
+		Mobile.verifyElementAttributeValue(findTestObject('iOS/orders/c2OrderDetailsScreen/placeC2Order/placeOrder_Button'), 'enabled', 'true', 0)
 	}
 
 
@@ -392,11 +393,16 @@ class cartScreen {
 		actualCartTotal=actualCartTotal.replaceAll("[^0-9.]", "")
 		float actualCartTotal_dollarSymbolRemoved_FloatValue=actualCartTotal.toFloat()
 
-		//	float actualCartTotal_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(actualCartTotal)//converting actualCartTotal string to a float value
+		//float actualCartTotal_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(actualCartTotal)//converting actualCartTotal string to a float value
 
 		KeywordUtil.logInfo(actualCartTotal)
 
-		assert expectedCartValue==actualCartTotal_dollarSymbolRemoved_FloatValue
+		KeywordUtil.logInfo("expected value " + expectedCartValue)
+
+		actualCartTotal_dollarSymbolRemoved_FloatValue=  (Math.ceil(actualCartTotal_dollarSymbolRemoved_FloatValue))
+		expectedCartValue=(Math.ceil(expectedCartValue))
+
+		assert (expectedCartValue==actualCartTotal_dollarSymbolRemoved_FloatValue)
 	}
 
 

@@ -728,7 +728,7 @@ def static "iosOrders.orderDetailsScreen.returnCostOfTheAddedProduct"() {
 }
 
  /**
-	 * retruns NDC number
+	 * returns NDC number
 	 */ 
 def static "iosOrders.orderDetailsScreen.returnNDCLabelOfScannedProduct"() {
     (new iosOrders.orderDetailsScreen()).returnNDCLabelOfScannedProduct()
@@ -744,7 +744,7 @@ def static "iosOrders.orderDetailsScreen.returnOrderNameFromOrderDetailScreen"()
 
  /**
 	 * this function returns the order value
-	 * @return orderTotal_dollarSymbolRemoved_FloatValue (order total value)
+	 * @return orderTotalFloatValue (order total value)
 	 */ 
 def static "iosOrders.orderDetailsScreen.returnOrderValue"() {
     (new iosOrders.orderDetailsScreen()).returnOrderValue()
@@ -1084,6 +1084,32 @@ def static "androidAccountSelection.selectAnAccount.selectTheUserAccount"(
     	String accountNo	) {
     (new androidAccountSelection.selectAnAccount()).selectTheUserAccount(
         	accountNo)
+}
+
+ /**
+	 * selects the user account from the accounts list and takes user to the dashboard screen
+	 * @param accountNo (user account number to be selected)
+	 */ 
+def static "androidAccountSelection.selectAnAccount.selectAnotherAccount"(
+    	String accountNo	) {
+    (new androidAccountSelection.selectAnAccount()).selectAnotherAccount(
+        	accountNo)
+}
+
+ /**
+	 * Change account
+	 */ 
+def static "androidAccountSelection.selectAnAccount.changeAccount"() {
+    (new androidAccountSelection.selectAnAccount()).changeAccount()
+}
+
+ /**
+	 * It verify the Audits account
+	 */ 
+def static "androidAccountSelection.selectAnAccount.verifyAccount"(
+    	String first_account	) {
+    (new androidAccountSelection.selectAnAccount()).verifyAccount(
+        	first_account)
 }
 
  /**
@@ -1825,6 +1851,13 @@ def static "androidInventory.locationDetailsScreen.scanInputEvent"(
     	String productToBeSearched	) {
     (new androidInventory.locationDetailsScreen()).scanInputEvent(
         	productToBeSearched)
+}
+
+ /**
+	 * scans the product and adds it to the location
+	 */ 
+def static "androidInventory.locationDetailsScreen.addProducToLocation"() {
+    (new androidInventory.locationDetailsScreen()).addProducToLocation()
 }
 
  /**
@@ -2724,6 +2757,23 @@ def static "iosAccountSelection.selectAnAccount.selectTheUserAccount"(
     	String accountNo	) {
     (new iosAccountSelection.selectAnAccount()).selectTheUserAccount(
         	accountNo)
+}
+
+ /**
+	 * selects the user account from the accounts list and takes user to the dashboard screen
+	 * @param accountNo (user account number to be selected)
+	 */ 
+def static "iosAccountSelection.selectAnAccount.selectAnotherAccount"(
+    	String accountNo	) {
+    (new iosAccountSelection.selectAnAccount()).selectAnotherAccount(
+        	accountNo)
+}
+
+ /**
+	 * Change account
+	 */ 
+def static "iosAccountSelection.selectAnAccount.tapOnAccountIcon"() {
+    (new iosAccountSelection.selectAnAccount()).tapOnAccountIcon()
 }
 
  /**
@@ -4570,38 +4620,52 @@ def static "androidOrders.cartScreen.verifyUploadAllOrdersPopUp"() {
     (new androidOrders.cartScreen()).verifyUploadAllOrdersPopUp()
 }
 
-
+ /**
+	 * this method will take the application one screen back
+	 */ 
 def static "androidCommonKeywords.commonMethods.goOneScreenBack"() {
     (new androidCommonKeywords.commonMethods()).goOneScreenBack()
 }
 
-
+ /**
+	 * reads value from the global boolean variable: isAndroidAppInstalled
+	 * and if it is set to true, launches already installed application else installs and launches the application
+	 */ 
 def static "androidCommonKeywords.commonMethods.installingAndlaunchingTheApplication"() {
     (new androidCommonKeywords.commonMethods()).installingAndlaunchingTheApplication()
 }
 
-
+ /**
+	 * @param stringCharcterToBeRemoved (Removes characters in a string)
+	 */ 
 def static "androidCommonKeywords.commonMethods.removeCharctersInString"(
     	String stringCharcterToBeRemoved	) {
     (new androidCommonKeywords.commonMethods()).removeCharctersInString(
         	stringCharcterToBeRemoved)
 }
 
-
+ /**
+	 * @param stringToBeConvertedToFloat (converts string to float)
+	 */ 
 def static "androidCommonKeywords.commonMethods.stringToFloatConversion"(
     	String stringToBeConvertedToFloat	) {
     (new androidCommonKeywords.commonMethods()).stringToFloatConversion(
         	stringToBeConvertedToFloat)
 }
 
-
+ /**
+	 * @param floatToBeConvertedToString (converts float to string and does formatting "0.00")
+	 */ 
 def static "androidCommonKeywords.commonMethods.floatToStringConversionAndFormatting"(
     	Float floatToBeConvertedToString	) {
     (new androidCommonKeywords.commonMethods()).floatToStringConversionAndFormatting(
         	floatToBeConvertedToString)
 }
 
-
+ /**
+	 * this function returns the total expected value of the added product
+	 * @return expectedOrderTotal (of the product which has been added)
+	 */ 
 def static "androidCommonKeywords.commonMethods.returnExpectedTotalValueForAddedProduct"(
     	Object quantity	
      , 	Object costOfProduct	) {
@@ -4610,24 +4674,34 @@ def static "androidCommonKeywords.commonMethods.returnExpectedTotalValueForAdded
          , 	costOfProduct)
 }
 
-
+ /**
+	 * this function returns the cost of added product
+	 * @return productCostCharcterRemoved (of the product which has been added)
+	 */ 
 def static "androidCommonKeywords.commonMethods.returnCostOfTheAddedProduct"(
     	String testObj	) {
     (new androidCommonKeywords.commonMethods()).returnCostOfTheAddedProduct(
         	testObj)
 }
 
-
+ /**
+	 * refreshes the screen by doing a vertical swipe by considering the deviceHeight and deviceWidth
+	 */ 
 def static "androidCommonKeywords.commonMethods.verticalSwipeForRefresh"() {
     (new androidCommonKeywords.commonMethods()).verticalSwipeForRefresh()
 }
 
-
+ /**
+	 * waits until the progressBar is visible on the screen, which will have a maximum waitLimit to be visible on the screen
+	 */ 
 def static "androidCommonKeywords.commonMethods.waitForProgressBarToBeInvisible"() {
     (new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 }
 
-
+ /**
+	 * waits until the object is visible on the screen, which will have a maximum waitLimit to be visible on the screen
+	 * @param testObj (reference of the test Object),waitTime (time by which delay will be added in(s)),waitLimit (maximum limit of time for which delay can be added)
+	 */ 
 def static "androidCommonKeywords.commonMethods.waitTimeForObjectToBeVisible"(
     	Object testObj	
      , 	int waitTime	
@@ -4638,7 +4712,13 @@ def static "androidCommonKeywords.commonMethods.waitTimeForObjectToBeVisible"(
          , 	waitLimit)
 }
 
-
+ /**
+	 * performs login function by selecting the type of testing (automation or manual), environment of testing(taken from the global profile), entering user-name and password
+	 * and then selects the user account from the accounts list and takes user to the dash-board screen
+	 * @param username
+	 * @param password
+	 * @param accountNo
+	 */ 
 def static "androidCommonKeywords.commonMethods.takeUserFromloginToHomeScreen"(
     	Object username	
      , 	Object password	
@@ -4649,24 +4729,40 @@ def static "androidCommonKeywords.commonMethods.takeUserFromloginToHomeScreen"(
          , 	accountNo)
 }
 
-
+ /**
+	 * opens the inventory listing screen by firstly clicking on more options from dash-board
+	 * and then clicks on inventory under more options screen which takes user to inventory listing screen
+	 */ 
 def static "androidCommonKeywords.commonMethods.takeUserFromHomeToInventoryListingScreen"() {
     (new androidCommonKeywords.commonMethods()).takeUserFromHomeToInventoryListingScreen()
 }
 
-
+ /**
+	 * navigate to previous screen
+	 * use this method whenever the back button is not available
+	 */ 
 def static "androidCommonKeywords.commonMethods.pressBacknav"() {
     (new androidCommonKeywords.commonMethods()).pressBacknav()
 }
 
-
+ /**
+	 * generates the coordinate x for a test object by considering ElementLeftPosition and ElementWidth
+	 * @param testObj (reference of the testObject passed as a parameter)
+	 * @param text (name of the element)
+	 * @return int value for the xCoordinate
+	 */ 
 def static "androidCommonKeywords.commonMethods.tapXCoordinateGenerator"(
     	String testObj	) {
     (new androidCommonKeywords.commonMethods()).tapXCoordinateGenerator(
         	testObj)
 }
 
-
+ /**
+	 * generates the coordinate y for a test object by considering ElementTopPosition and ElementHeight
+	 * @param testObj (reference of the testObject passed as a parameter)
+	 * @param text (name of the element)
+	 * @return int value for the yCoordinate
+	 */ 
 def static "androidCommonKeywords.commonMethods.tapYCoordinateGenerator"(
     	String testObj	
      , 	String text	) {
@@ -4675,7 +4771,11 @@ def static "androidCommonKeywords.commonMethods.tapYCoordinateGenerator"(
          , 	text)
 }
 
-
+ /**
+	 * this function verifies that the product is visible on the screen
+	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
+	 * @param testObj (test object of the element under verification)
+	 */ 
 def static "androidCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScreen"(
     	Object testObj	
      , 	Object productIdentificationNumber	) {
@@ -4684,7 +4784,11 @@ def static "androidCommonKeywords.commonMethods.verifyProductIsVisibleOnTheScree
          , 	productIdentificationNumber)
 }
 
-
+ /**
+	 * this function verifies that the product is not visible on the screen
+	 * @param productIdentificationNumber (productIdentificationNumber of the product which can be NDC/Cin/UPC, which should be present on the screen)
+	 * @param testObj (test object of the element under verification)
+	 */ 
 def static "androidCommonKeywords.commonMethods.verifyProductIsNotVisibleOnTheScreen"(
     	Object testObj	
      , 	Object productIdentificationNumber	) {
@@ -4693,30 +4797,59 @@ def static "androidCommonKeywords.commonMethods.verifyProductIsNotVisibleOnTheSc
          , 	productIdentificationNumber)
 }
 
-
+ /**
+	 * clicks on product search field
+	 */ 
 def static "androidCommonKeywords.commonMethods.clickOnProductSearchTextField"() {
     (new androidCommonKeywords.commonMethods()).clickOnProductSearchTextField()
 }
 
-
+ /**
+	 * inputs the product search which can be name/Cin/UPC/NDC in the product search-field
+	 * @param productSearch (which can be name/Cin/UPC/NDC in the product search-field)
+	 */ 
 def static "androidCommonKeywords.commonMethods.enterProductInSearchField"(
     	Object productSearch	) {
     (new androidCommonKeywords.commonMethods()).enterProductInSearchField(
         	productSearch)
 }
 
-
+ /**
+	 * performs basic text management operations:Copy,Cut,Paste,Share
+	 * @param operationToBePerformed (in operationToBePerformed argument all alphabets should be lower-case except the first one for e.g Copy, Cut)
+	 */ 
 def static "androidCommonKeywords.commonMethods.performBasicTextManagementOperation"(
     	String operationToBePerformed	) {
     (new androidCommonKeywords.commonMethods()).performBasicTextManagementOperation(
         	operationToBePerformed)
 }
 
-
+ /**
+	 * takes product to be searched as the argument and searches the same
+	 */ 
 def static "androidCommonKeywords.commonMethods.searchProduct"(
     	Object productToBeSearched	) {
     (new androidCommonKeywords.commonMethods()).searchProduct(
         	productToBeSearched)
+}
+
+ /**
+	 * selects different account
+	 * @param accountNo (account number used for selection)
+	 */ 
+def static "androidCommonKeywords.commonMethods.changeAccount"(
+    	String accountNo	) {
+    (new androidCommonKeywords.commonMethods()).changeAccount(
+        	accountNo)
+}
+
+ /**
+	 * verifies new order screen
+	 */ 
+def static "androidCommonKeywords.commonMethods.verifyAccount"(
+    	Object account	) {
+    (new androidCommonKeywords.commonMethods()).verifyAccount(
+        	account)
 }
 
  /**
@@ -4814,19 +4947,19 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
     	TestObject testObject	
      , 	String testName	) {
     (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
         	testObject
          , 	testName)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
 }
 
 
@@ -4844,6 +4977,13 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
+}
+
+
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	
      , 	String testName	
@@ -4852,11 +4992,4 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
 }

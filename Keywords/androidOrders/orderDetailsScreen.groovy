@@ -65,7 +65,7 @@ class orderDetailsScreen {
 		Mobile.tap(findTestObject('Android/productSearch/searchProductsSearchView_EditText'), 0)
 		Mobile.setText(findTestObject('Android/productSearch/searchProductsSearchView_EditText'), productName + '\\n',0)
 		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
-		Mobile.setText(findTestObject('Android/productSearch/Quantity_TextField'), quantity, 0)
+		Mobile.setText(findTestObject('Android/productSearch/quantity_TextField'), quantity, 0)
 		Mobile.tap(findTestObject('Android/productSearch/addToOrder_Button'),0)
 	}
 
@@ -122,7 +122,7 @@ class orderDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/oneMoment_TextView'), 0)
 		Mobile.verifyElementExist(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/weNeedJustAMinuteToEnsureThatWeHaveEverythingInStock_TextView'), 0)
 		String testObject='Android/Orders/C2 Order Details Screen/Place C2 Order/OneMomentProgressBar'
-		(new androidCommonKeywords.commonMethods()).waitTimeForObjectToBeVisible(testObject,1,20)
+		(new androidCommonKeywords.commonMethods()).waitTimeForObjectToBeVisible(testObject,1,30)
 	}
 
 	/**
@@ -181,6 +181,7 @@ class orderDetailsScreen {
 	def clickOnReviewAndSignButton() {
 		Mobile.tap(findTestObject('Android/orders/c2OrderDetailsScreen/placeC2Order/reviewAndSign_Button'), 0)
 		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
+		Mobile.delay(10)
 		Mobile.verifyElementExist(findTestObject('Android/orders/historyScreen/orderHistory_TextView'), 0)
 		Mobile.verifyElementExist(findTestObject('Android/orders/historyScreen/orderHistoryHeaderText_TextView'),  0)
 	}
@@ -211,6 +212,7 @@ class orderDetailsScreen {
 	@Keyword
 	def confirmPlaceOrder() {
 		Mobile.tap(findTestObject('Android/orders/orderDetailsScreen/placeOrder/placeMyOrder_Button'), 0)
+		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 	}
 
 	/**
@@ -310,7 +312,7 @@ class orderDetailsScreen {
 	 */
 	@Keyword
 	def returnCostOfTheAddedProduct() {
-		String testObj='Object Repository/Android/Orders/Verification Details/productCost_TextView'
+		String testObj='Android/orders/verificationDetails/productCost_TextView'
 		String productCost=(new androidCommonKeywords.commonMethods()).returnCostOfTheAddedProduct(testObj)//calling common method to get product cost
 		KeywordUtil.logInfo(productCost)
 		return productCost
@@ -332,7 +334,7 @@ class orderDetailsScreen {
 	 */
 	@Keyword
 	def returnOrderNameFromOrderDetailScreen() {
-		String orderName=Mobile.getText(findTestObject('android/Orders/Verification Details/orderDetailHeader_Label'), 0)
+		String orderName=Mobile.getText(findTestObject('Android/orders/verificationDetails/orderDetailHeaderLabel_TextView'), 0)
 		return orderName
 	}
 

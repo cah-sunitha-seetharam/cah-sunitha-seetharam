@@ -66,6 +66,7 @@ class moreOptionsScreen {
 		Mobile.tap(findTestObject('Android/moreOptionsScreen/betaFeature/CSOSSubmitAndSignOff_Switch'), 0)
 		Mobile.tap(findTestObject('Android/moreOptionsScreen/betaFeature/iAgreeToTheTermsOfTheBetaProgram_CheckBox'), 0)
 		Mobile.tap(findTestObject('Android/moreOptionsScreen/betaFeature/confirm_Button'), 0)
+		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 		Mobile.delay(2)
 	}
 

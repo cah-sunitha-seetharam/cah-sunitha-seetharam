@@ -37,11 +37,9 @@ public class auditsScreen {
 	@Keyword
 	def change_Account(String new_Account) {
 
-		//Mobile.tap(findTestObject('iOS/Account_Selection/changeAccount_Text'), 0)
-
 		commonIosMethodsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.tapAndHold(findTestObject('iOS/accountSelection/changeAccount_Button'), 0,0)
+		Mobile.tapAndHold(findTestObject('iOS/accountSelection/changeAccount_Text'), 0,0)
 
 		Mobile.tap(findTestObject('iOS/accountSelection/changeAccount_Navigation'), 0)
 
@@ -69,7 +67,7 @@ public class auditsScreen {
 
 		//commonMethodsObject.verifyElementColor(105,170,115,nameOfTheElement) //light green with hex code #69aa73 - emulator
 
-		commonMethodsObject.verifyElementColor(241, 1, 40, nameOfTheElement) //light green with hex code #92ffa1 - device
+		// commonMethodsObject.verifyElementColor(241, 1, 40, nameOfTheElement) //light green with hex code #92ffa1 - device
 	}
 
 
@@ -221,7 +219,7 @@ public class auditsScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/audits/submitCompletedGroups_Button'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/accountSelection/changeAccount_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/accountSelection/changeAccount_Text'), 0)
 	}
 
 	/**

@@ -51,19 +51,19 @@ class inventoryListingScreen {
 	@Keyword
 	def deleteInventory(String inventoryName) {
 
-		String testObj='Android/Inventory/Inventory Listing Screen/Delete Inventory/slidePopUpForInventoryDeletion_Button'
+		String testObj='Android/inventory/inventoryListingScreen/deleteInventory/slidePopUpForInventoryDeletion_Button'
 
 		int x_Coordinate=(new androidCommonKeywords.commonMethods()).tapXCoordinateGenerator(testObj)
 
-		testObj='Android/Inventory/Inventory Detail Screen/Open Inventory Details/openInventory_Text'
+		testObj='Android/inventory/inventoryDetailScreen/openInventoryDetails/openInventory_Text'
 
 		int y_Coordinate=(new androidCommonKeywords.commonMethods()).tapYCoordinateGenerator(testObj,inventoryName)
 
 		Mobile.tapAtPosition(x_Coordinate, y_Coordinate)
 
-		Mobile.tap(findTestObject('Android/inventory/inventoryListingScreen/deleteInventory/Delete_Button'), 0)
+		Mobile.tap(findTestObject('Android/inventory/inventoryListingScreen/deleteInventory/delete_Button'), 0)
 
-		Mobile.tap(findTestObject('Android/inventory/inventoryListingScreen/deleteInventory/Yes_Button'), 0)
+		Mobile.tap(findTestObject('Android/inventory/inventoryListingScreen/deleteInventory/yes_Button'), 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
@@ -92,6 +92,4 @@ class inventoryListingScreen {
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 	}
-
-	
 }

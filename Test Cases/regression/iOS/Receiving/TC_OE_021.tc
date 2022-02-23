@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the user is Able to swap between Shipments and Invoices.                  
+ Prerequisite: Valid login credentials with multiple accounts available for the user. </description>
+   <name>TC_OE_021</name>
+   <tag>Receiving;Sanity</tag>
+   <comment></comment>
+   <testCaseGuid>eef4f847-9a51-4f05-9596-cb0f14471990</testCaseGuid>
+   <variable>
+      <defaultValue>'12152609'</defaultValue>
+      <description></description>
+      <id>84537d08-a0ee-4be0-a0f4-67da9a38435d</id>
+      <masked>false</masked>
+      <name>shipmentNumber</name>
+   </variable>
+   <variable>
+      <defaultValue>'1952733'</defaultValue>
+      <description></description>
+      <id>6a56e9be-70f9-4738-bb67-9d86a81bf816</id>
+      <masked>false</masked>
+      <name>invoiceNumber</name>
+   </variable>
+   <variable>
+      <defaultValue>'0'</defaultValue>
+      <description></description>
+      <id>3f080220-0d59-442e-aabd-d94d33884a76</id>
+      <masked>false</masked>
+      <name>expectedReceivedProductCount_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description></description>
+      <id>3811c501-31c0-440f-91b3-31072af0c4a1</id>
+      <masked>false</masked>
+      <name>expectedReceivedProductCount_2</name>
+   </variable>
+</TestCaseEntity>

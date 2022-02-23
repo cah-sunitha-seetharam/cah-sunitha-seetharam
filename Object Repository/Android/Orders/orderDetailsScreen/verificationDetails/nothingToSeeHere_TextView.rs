@@ -3,7 +3,7 @@
    <description></description>
    <name>nothingToSeeHere_TextView</name>
    <tag></tag>
-   <elementGuidId>3334e934-d4bd-421b-a28c-d9c3ebac1066</elementGuidId>
+   <elementGuidId>59d6103b-dfb6-4425-90b1-f72534055671</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.TextView[2]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.TextView' and (@text = 'Nothing to see here!' or . = 'Nothing to see here!') and @resource-id = '${GlobalVariable.appPackage}:id/searchStartTextView']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/searchStartTextView</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

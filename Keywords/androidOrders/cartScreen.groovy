@@ -117,6 +117,7 @@ class cartScreen  {
 	@Keyword
 	def openC2OrderDetails() {
 		Mobile.tap(findTestObject('Android/orders/c2OrderDetailsScreen/createdOrder_Text'), 0)
+		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
 	}
 
 	/**

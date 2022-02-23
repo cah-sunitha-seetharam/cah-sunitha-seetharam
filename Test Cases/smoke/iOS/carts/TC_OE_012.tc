@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the user is able to Place Order and Upload Order
+Prerequisite: 
+Valid login credentials with multiple accounts available for the user.  </description>
+   <name>TC_OE_012</name>
+   <tag>Order;Smoke</tag>
+   <comment></comment>
+   <testCaseGuid>845566d6-7d7c-4b99-8faf-aa63cd9f1a15</testCaseGuid>
+   <variable>
+      <defaultValue>'2'</defaultValue>
+      <description>quantity added for the product searched</description>
+      <id>ca0b90f7-1e41-4b2b-8a54-4844bc3990aa</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+   <variable>
+      <defaultValue>2</defaultValue>
+      <description>expected quantity added for the product searched</description>
+      <id>75a0f99d-b6dc-49ce-8f8b-d8394e99d52b</id>
+      <masked>false</masked>
+      <name>expectedQuantity</name>
+   </variable>
+   <variable>
+      <defaultValue>'poName'</defaultValue>
+      <description>purchase order name for the order created</description>
+      <id>f4fa8ec4-c23d-42fc-b880-504d4a83a742</id>
+      <masked>false</masked>
+      <name>poName</name>
+   </variable>
+   <variable>
+      <defaultValue>'poMemo'</defaultValue>
+      <description>purchase order memo for the order created</description>
+      <id>14481009-fea4-4d96-83b9-5456125716cc</id>
+      <masked>false</masked>
+      <name>poMemo</name>
+   </variable>
+</TestCaseEntity>

@@ -35,7 +35,7 @@
         "TC_R_003": {
             "productSearchCin": "4023347",
             "productSearchByName": "tyl",
-            
+            "productSearchByNDC1": "42023-0107-01",
         },
 
         
@@ -145,11 +145,11 @@
                    
                },
            
-        "TC_R_003": {
-            "productSearchCin": "4023347",
-            "productSearchByName": "tyl",
-            
-              },
+                "TC_R_003": {
+                  "productSearchCin": "4023347",
+                     "productSearchByName": "tyl",
+                    "productSearchByNDC1": "42023-0107-01",
+                 },
 
          "TC_R_007": {
             "productSearchCin": "4023347",
