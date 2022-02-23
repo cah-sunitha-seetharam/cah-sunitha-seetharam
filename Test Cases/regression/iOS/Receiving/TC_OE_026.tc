@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the user is Able to Submit the Issue. 
+Prerequisite: 
+1.Valid login credentials with multiple accounts available for the user.   
+2. Receiving data should be available </description>
+   <name>TC_OE_026</name>
+   <tag>Receiving;Sanity</tag>
+   <comment></comment>
+   <testCaseGuid>3b8ad62b-8ef3-43a1-96ab-a53a84d4f6f4</testCaseGuid>
+   <variable>
+      <defaultValue>'1952733'</defaultValue>
+      <description></description>
+      <id>6f3094bf-d90f-4e81-a65e-394944675d1a</id>
+      <masked>false</masked>
+      <name>invoiceNumber</name>
+   </variable>
+   <variable>
+      <defaultValue>'12152609'</defaultValue>
+      <description></description>
+      <id>86a979a2-3ad5-49c4-9e8e-d7871972c8df</id>
+      <masked>false</masked>
+      <name>shipmentNumber</name>
+   </variable>
+   <variable>
+      <defaultValue>'60268685'</defaultValue>
+      <description></description>
+      <id>af72f5c2-8521-4029-a73e-91fd8bfdb21b</id>
+      <masked>false</masked>
+      <name>toteID</name>
+   </variable>
+   <variable>
+      <defaultValue>'missing tote'</defaultValue>
+      <description></description>
+      <id>c09cbb4c-8e56-4a66-b7ef-5e805276c652</id>
+      <masked>false</masked>
+      <name>reasonOfIssue</name>
+   </variable>
+   <variable>
+      <defaultValue>'name'</defaultValue>
+      <description></description>
+      <id>2f6a91ea-3724-43e0-9f87-a5f5dc42fccd</id>
+      <masked>false</masked>
+      <name>name</name>
+   </variable>
+   <variable>
+      <defaultValue>'0000-0000-00'</defaultValue>
+      <description></description>
+      <id>0c024cf7-7703-4c80-a518-9dec0221a18d</id>
+      <masked>false</masked>
+      <name>phoneNumber</name>
+   </variable>
+   <variable>
+      <defaultValue>'comment'</defaultValue>
+      <description></description>
+      <id>92a5d36d-87c4-4300-8827-5d6ca5f6fb63</id>
+      <masked>false</masked>
+      <name>comment</name>
+   </variable>
+</TestCaseEntity>

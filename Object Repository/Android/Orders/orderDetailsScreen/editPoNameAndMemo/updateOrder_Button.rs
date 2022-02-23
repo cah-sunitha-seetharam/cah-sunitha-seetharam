@@ -3,7 +3,7 @@
    <description></description>
    <name>updateOrder_Button</name>
    <tag></tag>
-   <elementGuidId>913038c8-36e7-45b0-861f-95f90843746d</elementGuidId>
+   <elementGuidId>aff83663-6c0c-4c1b-a3b3-ebf8793f12d3</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>

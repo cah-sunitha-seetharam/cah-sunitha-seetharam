@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the user  is able to Create Inventory&amp; location, Add Products &amp; Copy, move products to location
+Prerequisite: 
+Valid login credentials with multiple accounts available for the user.   </description>
+   <name>TC_OE_003</name>
+   <tag>Inventory;Smoke</tag>
+   <comment></comment>
+   <testCaseGuid>e109b7e4-3b1d-4bd3-92d9-64f3e75a9fbf</testCaseGuid>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of inventory to be created</description>
+      <id>22913fab-d9d0-47ac-b010-94aae5be4ffd</id>
+      <masked>false</masked>
+      <name>inventoryNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of location to be created</description>
+      <id>390cfc0c-b3f7-4018-8211-b715f8e5da7c</id>
+      <masked>false</masked>
+      <name>locationNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>'Last Price'</defaultValue>
+      <description>cost type can be last price or current price paid</description>
+      <id>7a5296bc-d918-463b-8159-44c70b82d84b</id>
+      <masked>false</masked>
+      <name>costType_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'Current Price'</defaultValue>
+      <description>cost type can be last price or current price paid</description>
+      <id>1e9f9359-c86b-482a-ae69-c9abc4612d6f</id>
+      <masked>false</masked>
+      <name>costType_2</name>
+   </variable>
+   <variable>
+      <defaultValue>'5'</defaultValue>
+      <description>default quantity value used for calculation of cost and not passed as a parameter for adding quantity of product</description>
+      <id>5029991c-0ffc-43e2-a885-2109ff70c44c</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+   <variable>
+      <defaultValue>'2'</defaultValue>
+      <description>expected lines count which should have been added</description>
+      <id>adce09eb-9999-46f8-9821-6c37321abe9d</id>
+      <masked>false</masked>
+      <name>expectedLinesCount</name>
+   </variable>
+   <variable>
+      <defaultValue>10</defaultValue>
+      <description>expected product quantity which should have been added</description>
+      <id>2b92843b-ef09-49ad-a263-9c77af3fd458</id>
+      <masked>false</masked>
+      <name>expectedProductQuantity_1</name>
+   </variable>
+   <variable>
+      <defaultValue>15</defaultValue>
+      <description></description>
+      <id>76315805-a949-4510-b69e-dee8de04d656</id>
+      <masked>false</masked>
+      <name>expectedProductQuantity_2</name>
+   </variable>
+</TestCaseEntity>

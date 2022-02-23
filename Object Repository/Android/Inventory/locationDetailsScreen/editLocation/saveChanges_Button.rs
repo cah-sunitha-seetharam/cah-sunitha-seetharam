@@ -3,11 +3,11 @@
    <description></description>
    <name>saveChanges_Button</name>
    <tag></tag>
-   <elementGuidId>9d36434c-6a69-408b-8b24-83ac990168f1</elementGuidId>
+   <elementGuidId>2ebda389-a3cc-47b3-be6f-204cc4b6ee23</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
-      <isSelected>true</isSelected>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.Button[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.Button' and (@text = 'Save Changes' or . = 'Save Changes') and @resource-id = '${GlobalVariable.appPackage}:id/btnCreateNewLocation']</locator>
+   <locator>//*[(@text = 'Save Changes' or . = 'Save Changes') and @resource-id = '${GlobalVariable.appPackage}:id/btnCreateNewLocation']</locator>
    <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

@@ -3,7 +3,7 @@
    <description></description>
    <name>home_Tab</name>
    <tag></tag>
-   <elementGuidId>68fe4d3a-d0cb-4143-98af-95da5780cdcb</elementGuidId>
+   <elementGuidId>8519552f-697b-4662-b1d2-d8f5fc97f312</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>

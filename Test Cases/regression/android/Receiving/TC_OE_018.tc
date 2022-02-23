@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the user is able to View Receiving page and Receiving data.                       
+ Prerequisite: 
+1.Valid login credentials with multiple accounts available for the user.   
+2. Receiving data should be available </description>
+   <name>TC_OE_018</name>
+   <tag>Receiving;Sanity</tag>
+   <comment></comment>
+   <testCaseGuid>481f9d62-872e-4aa7-80bf-e17f37f38859</testCaseGuid>
+   <variable>
+      <defaultValue>'12152609'</defaultValue>
+      <description></description>
+      <id>2bbb5468-ec9b-411b-8e58-09ecfb99c3af</id>
+      <masked>false</masked>
+      <name>shipmentNumber</name>
+   </variable>
+   <variable>
+      <defaultValue>'1952733'</defaultValue>
+      <description></description>
+      <id>3d8962af-e0e5-44a1-b1ac-5fbf08b9fb6d</id>
+      <masked>false</masked>
+      <name>invoiceNumber</name>
+   </variable>
+</TestCaseEntity>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that Continue Browsing button in Inventory scan Confirmation Pop-up working fine while doing scan from the Location landing page. 
+Prerequisite:  
+1. Valid login credentials
+2. Multiple accounts available for the user.</description>
+   <name>TC_R_018</name>
+   <tag>Inventory;Regression;Scan</tag>
+   <comment></comment>
+   <testCaseGuid>07faa3fd-dd76-4eca-bffd-9dc3ad59ac39</testCaseGuid>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of inventory to be created</description>
+      <id>5950ac15-d96c-47e3-8602-dce32832c5c4</id>
+      <masked>false</masked>
+      <name>inventoryNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of location to be created</description>
+      <id>15311d93-b186-4539-88c9-013955ac3e44</id>
+      <masked>false</masked>
+      <name>locationNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>'Last Price'</defaultValue>
+      <description>cost type can be last price or current price paid</description>
+      <id>c45cfafc-4406-43ce-9e5a-c3efa5d38e6b</id>
+      <masked>false</masked>
+      <name>costType</name>
+   </variable>
+   <variable>
+      <defaultValue>'Full Count'</defaultValue>
+      <description>count type can be partial or full count</description>
+      <id>b5a8ab81-6128-4d80-8888-0120a0510518</id>
+      <masked>false</masked>
+      <name>countType</name>
+   </variable>
+   <variable>
+      <defaultValue>'3'</defaultValue>
+      <description>quantity required to be added</description>
+      <id>0ae1a2d9-6a78-4fe8-9686-ab747ec1ae77</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+</TestCaseEntity>

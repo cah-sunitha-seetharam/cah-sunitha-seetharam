@@ -3,7 +3,7 @@
    <description></description>
    <name>addToInventory_Button</name>
    <tag></tag>
-   <elementGuidId>a66a9105-9feb-47f9-b9e2-bea5f27c5f36</elementGuidId>
+   <elementGuidId>cf68be78-2578-4e45-b4b9-178c5103d0b5</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
@@ -166,6 +166,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.Button[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.Button' and (@text = 'Add to Inventory' or . = 'Add to Inventory') and @resource-id = '${GlobalVariable.appPackage}:id/btnPrimary']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/btnPrimary</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

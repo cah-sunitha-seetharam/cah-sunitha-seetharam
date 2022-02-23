@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the user is able to Place All Orders and Upload All Orders.
+Prerequisite: 
+1. Valid login credentials
+2. Multiple accounts available for the user.  </description>
+   <name>TC_R_035</name>
+   <tag>Order;Regression;Scan</tag>
+   <comment></comment>
+   <testCaseGuid>2107ce3c-85f2-42fb-8c7b-ad4a7ae55a20</testCaseGuid>
+   <variable>
+      <defaultValue>'2'</defaultValue>
+      <description>quantity added for the product searched</description>
+      <id>f1cc4607-36e0-4162-bde6-71675ffe6810</id>
+      <masked>false</masked>
+      <name>quantity_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'3'</defaultValue>
+      <description>quantity added for the product searched</description>
+      <id>7a524225-be7a-4997-888c-01306d7e783e</id>
+      <masked>false</masked>
+      <name>quantity_2</name>
+   </variable>
+   <variable>
+      <defaultValue>2</defaultValue>
+      <description>expected quantity added for the product searched</description>
+      <id>453f05a4-04ca-4466-b2c9-cd54b0a4433b</id>
+      <masked>false</masked>
+      <name>expectedQuantity_1</name>
+   </variable>
+   <variable>
+      <defaultValue>3</defaultValue>
+      <description>expected quantity added for the product searched</description>
+      <id>50990783-d8a6-4107-928e-ec7101563306</id>
+      <masked>false</masked>
+      <name>expectedQuantity_2</name>
+   </variable>
+   <variable>
+      <defaultValue>'poName1'</defaultValue>
+      <description>purchase order name for the order created</description>
+      <id>74cb2936-4d88-489b-9474-45807acc5a50</id>
+      <masked>false</masked>
+      <name>poName_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'poMemo1'</defaultValue>
+      <description>purchase order memo for the order created</description>
+      <id>fafa22fc-840d-45cf-8b80-80b003626db8</id>
+      <masked>false</masked>
+      <name>poMemo_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'poName2'</defaultValue>
+      <description>purchase order name for the order created</description>
+      <id>665f2d57-275a-4773-b66c-aaf051cd3d14</id>
+      <masked>false</masked>
+      <name>poName_2</name>
+   </variable>
+   <variable>
+      <defaultValue>'poMemo2'</defaultValue>
+      <description>purchase order memoi for the order created</description>
+      <id>46b11b28-933f-4588-91ed-c9798a5a8347</id>
+      <masked>false</masked>
+      <name>poMemo_2</name>
+   </variable>
+</TestCaseEntity>

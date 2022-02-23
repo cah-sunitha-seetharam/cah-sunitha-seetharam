@@ -396,7 +396,8 @@ class locationDetailsScreen {
 
 		Mobile.tap(findTestObject('Android/inventory/locationDetailsScreen/copyProductFromLocation/selectLocation'), 0)
 
-
+		commonMethodsObject.waitForProgressBarToBeInvisible()
+		
 		Mobile.tap(findTestObject('Android/inventory/locationDetailsScreen/copyProductFromLocation/copyProduct_Text'), 0)
 
 		Mobile.verifyElementExist(findTestObject('Android/inventory/locationDetailsScreen/copyProductFromLocation/copyingProductConfirmation_Text',[('TEXT'):locationName]),0)
@@ -448,6 +449,8 @@ class locationDetailsScreen {
 
 		Mobile.tap(findTestObject('Android/inventory/locationDetailsScreen/copyProductFromLocation/selectLocation'), 0)
 
+		commonMethodsObject.waitForProgressBarToBeInvisible()
+		
 		Mobile.tap(findTestObject('Android/inventory/locationDetailsScreen/moveProductToAnotherLocation/moveProduct_Text'), 0)
 
 		Mobile.verifyElementExist(findTestObject('Android/inventory/locationDetailsScreen/moveProductToAnotherLocation/movingProductConfirmation_Text',[('TEXT'):locationName]),0)
@@ -456,7 +459,7 @@ class locationDetailsScreen {
 
 		Mobile.verifyElementExist(findTestObject('Android/inventory/locationDetailsScreen/verificationDetails/productInfo_Text'),0)
 
-		Mobile.tap(findTestObject('Android/inventory/locationDetailsScreen/Move Product To Another Location/goToLocationAfterMovingProduct_Text', [('Location') : locationName]),0)
+		Mobile.tap(findTestObject('Android/inventory/locationDetailsScreen/moveProductToAnotherLocation/goToLocationAfterMovingProduct_Text', [('Location') : locationName]),0)
 	}
 
 	/**

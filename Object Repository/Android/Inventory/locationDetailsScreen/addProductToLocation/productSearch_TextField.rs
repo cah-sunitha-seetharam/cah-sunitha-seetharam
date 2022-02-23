@@ -3,7 +3,7 @@
    <description></description>
    <name>productSearch_TextField</name>
    <tag></tag>
-   <elementGuidId>2a80e24d-208a-4ae0-ad2b-97d6334ef109</elementGuidId>
+   <elementGuidId>ded05de6-f4af-4b3f-b244-a87a0bb35793</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.EditText[1]</value>
    </webElementProperties>
-   <locator>//*[@class = 'android.widget.EditText' and (@text = 'Search Products' or . = 'Search Products') and @resource-id = '${GlobalVariable.appPackage}:id/searchView']</locator>
-   <locatorStrategy>ATTRIBUTES</locatorStrategy>
+   <locator>${GlobalVariable.appPackage}:id/searchView</locator>
+   <locatorStrategy>ID</locatorStrategy>
 </MobileElementEntity>

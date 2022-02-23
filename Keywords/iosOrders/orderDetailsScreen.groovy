@@ -18,7 +18,7 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords
 
 import internal.GlobalVariable
-
+import io.appium.java_client.MobileElement
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.By
@@ -39,6 +39,7 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import common.commonMethods
 import com.kms.katalon.core.webui.exception.WebElementNotFoundException
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
+import java.math.RoundingMode;
 
 
 class orderDetailsScreen {
@@ -238,7 +239,7 @@ class orderDetailsScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/productSearch/globalSearch/backToCart_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/orders/cartScreen/uploadAllOrders/goToDashboard_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/orderDetailsScreen/uploadOrder/goToDashboard_Button'), 0)
 	}
 
 	/**
@@ -412,7 +413,7 @@ class orderDetailsScreen {
 	@Keyword
 	def goToDashboard() {
 
-		Mobile.tap(findTestObject('iOS/orders/cartScreen/uploadAllOrders/goToDashboard_Button'), 0)
+		Mobile.tap(findTestObject('iOS/orders/orderDetailsScreen/uploadOrder/goToDashboard_Button'), 0)
 	}
 
 	/**
@@ -460,13 +461,13 @@ class orderDetailsScreen {
 
 		String testObj='Object Repository/iOS/orders/verificationDetails/productCost_Text'
 
-		float productCost=(new iosCommonKeywords.commonMethods()).returnCostOfTheAddedProduct(testObj)//calling common method to get product cost
+		float productCost=commonIosMethodsObject.returnCostOfTheAddedProduct(testObj)//calling common method to get product cost
 
 		return productCost
 	}
 
 	/**
-	 * retruns NDC number
+	 * returns NDC number
 	 */
 	@Keyword
 	def returnNDCLabelOfScannedProduct () {
@@ -488,7 +489,7 @@ class orderDetailsScreen {
 
 	/**
 	 * this function returns the order value
-	 * @return orderTotal_dollarSymbolRemoved_FloatValue (order total value)
+	 * @return orderTotalFloatValue (order total value)
 	 */
 	@Keyword
 	def returnOrderValue() {
@@ -549,7 +550,7 @@ class orderDetailsScreen {
 
 		Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scanGray_Image'), 0)
 
-		Mobile.setText(findTestObject('iOS/productSearch/scanFlow/enterBarcode_TextField'), productToBeSearched, 0)
+		Mobile.setText(findTestObject('iOS/productSearch/scanFlow/enterBarcode_TextField'), productToBeSearched, 0, FailureHandling.STOP_ON_FAILURE)
 
 		Mobile.tap(findTestObject('iOS/productSearch/scanFlow/done_Button'), 0)
 
@@ -853,8 +854,6 @@ class orderDetailsScreen {
 
 		//float formattedExpectedOrderTotal_FloatValue=commonMethodsObject.floatValueGenerator(formattedExpectedOrderTotal)///converting formattedExpectedOrderTotal string to a float value
 		float formattedExpectedOrderTotal_FloatValue=formattedExpectedOrderTotal.toFloat()
-
-		KeywordUtil.logInfo(formattedExpectedOrderTotal)
 
 		String actualOrderTotal=Mobile.getText(findTestObject('iOS/orders/verificationDetails/orderTotal_Text'), 0)
 
