@@ -57,7 +57,7 @@ Prerequisite: Valid login credentials with multiple accounts available for the u
       <name>quantity</name>
    </variable>
    <variable>
-      <defaultValue>'Full Count'</defaultValue>
+      <defaultValue>'Partial Count'</defaultValue>
       <description>count type can be partial or full count</description>
       <id>c177d248-46a9-4803-bc6d-faf3f0af219e</id>
       <masked>false</masked>

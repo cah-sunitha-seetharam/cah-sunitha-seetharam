@@ -53,4 +53,28 @@ class selectAnAccount {
 			Mobile.tap(findTestObject('iOS/accountSelection/accountNo_Text', [('val') : accountNo]), 0)
 		}
 	}
+	
+	/**
+	 * selects the user account from the accounts list and takes user to the dashboard screen
+	 * @param accountNo (user account number to be selected)
+	 */
+	@Keyword
+	def selectAnotherAccount(String accountNo) {
+		
+		Mobile.tap(findTestObject('iOS/accountSelection/changeAccount_Navigation'), 0)
+
+		Mobile.scrollToText(accountNo, FailureHandling.STOP_ON_FAILURE)
+
+		Mobile.tap(findTestObject('iOS/accountSelection/accountNo_Text', [('val') : accountNo]), 0)
+	}
+	
+	/**
+	 * Change account
+	 */
+	@Keyword
+	def tapOnAccountIcon() {
+
+		Mobile.tap(findTestObject('iOS/accountSelection/changeAccount_Text'), 0)
+		Mobile.delay(2)
+	}
 }

@@ -17,8 +17,8 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-'starts the application'
-CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
+/*'starts the application'
+CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()*/
 
 'login function called which takes user to the accounts selection screen'
 CustomKeywords.'iosLogin.loginScreen.login'(username, password)
@@ -26,8 +26,14 @@ CustomKeywords.'iosLogin.loginScreen.login'(username, password)
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
+'takes user to the orders tab'
+CustomKeywords.'iosDashboard.dashboardScreen.clickOnOrders'()
+
+'tap on account icon'
+CustomKeywords.'iosAccountSelection.selectAnAccount.tapOnAccountIcon'()
+
 'selects the user account from the accounts list'
-CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(accountNo)
+CustomKeywords.'iosAccountSelection.selectAnAccount.selectAnotherAccount'(accountNo)
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
@@ -35,30 +41,21 @@ CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'
 'clicks on audits tab to navigate to audits screen'
 CustomKeywords.'iosDashboard.dashboardScreen.clickOnAuditsTab'()
 
-'waits until the progressBar is visible on the screen'
-CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
-'this function closes change account prompt on the audits landing Screen'
-CustomKeywords.'iosAudits.auditsScreen.closeChangeAccountPrompt'()
-
-'verifies audits screen'
-CustomKeywords.'iosAudits.auditsScreen.verifyAuditsLandingScreen'()
+'takes user to the orders tab'
+CustomKeywords.'iosDashboard.dashboardScreen.clickOnOrders'()
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'tap on the Account Icon in the top left of the Page and Tap on Change'
-CustomKeywords.'iosAudits.auditsScreen.change_Account'(switchToAccount_1)
+CustomKeywords.'iosCommonKeywords.commonMethods.changeAccount'(switchToAccount_1)
+
+'clicks on audits tab to navigate to audits screen'
+CustomKeywords.'iosDashboard.dashboardScreen.clickOnAuditsTab'()
 
 'verify current user account number'
 CustomKeywords.'iosCommonKeywords.commonMethods.verifySelectedAccount'(switchToAccount_1)
 
 'verifies audits screen'
 CustomKeywords.'iosAudits.auditsScreen.verifyAuditsLandingScreen'()
-
-'tap on the Account Icon in the top left of the Page and Tap on Change'
-CustomKeywords.'iosAudits.auditsScreen.change_Account'(switchToAccount_2)
-
-'verify current user account number'
-CustomKeywords.'iosCommonKeywords.commonMethods.verifySelectedAccount'(switchToAccount_2)
 

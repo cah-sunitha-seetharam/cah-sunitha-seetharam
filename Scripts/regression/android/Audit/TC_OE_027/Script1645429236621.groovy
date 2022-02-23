@@ -17,14 +17,14 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-/*'starts the application'
+'starts the application'
 CustomKeywords.'androidCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
 'login function called which takes user to the accounts selection screen'
 CustomKeywords.'androidLogin.loginScreen.login'(username, password)
 
 'selects the user account from the accounts list'
-CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(accountNo)*/
+CustomKeywords.'androidAccountSelection.selectAnAccount.selectTheUserAccount'(accountNo)
 
 'Tap on Audits icon in the bottom navigation menu'
 CustomKeywords.'androidDashboard.dashboardDetailsScreen.tapOnAudits'()

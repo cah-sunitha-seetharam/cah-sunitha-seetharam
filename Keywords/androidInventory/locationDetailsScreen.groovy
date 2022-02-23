@@ -483,7 +483,7 @@ class locationDetailsScreen {
 
 		Mobile.verifyElementExist(findTestObject('Android/inventory/locationDetailsScreen/verificationDetails/productInfo_Text'),0)
 
-		Mobile.tap(findTestObject('Android/inventory/locationDetailsScreen/Move Product To Another Location/goToLocationAfterMovingProduct_Text', [('Location') : locationName]),0)
+		Mobile.tap(findTestObject('Android/inventory/locationDetailsScreen/moveProductToAnotherLocation/goToLocationAfterMovingProduct_Text', [('Location') : locationName]),0)
 	}
 
 	/**

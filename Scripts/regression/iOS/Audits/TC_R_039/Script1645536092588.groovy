@@ -17,18 +17,23 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-'starts the application'
-CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
+/*'starts the application'
+CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()*/
 
-'logins with username password and then opens account selection page'
-CustomKeywords.'iosLogin.loginScreen.login'(username,password)
+'login function called which takes user to the accounts selection screen'
+CustomKeywords.'iosLogin.loginScreen.login'(username, password)
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-'after login, verifies page caption and selects account'
-CustomKeywords.'iosAccountSelection.selectAnAccount.selectTheUserAccount'(accountNo_CIM)
+'takes user to the orders tab'
+CustomKeywords.'iosDashboard.dashboardScreen.clickOnOrders'()
 
+'tap on account icon'
+CustomKeywords.'iosAccountSelection.selectAnAccount.tapOnAccountIcon'()
+
+'selects the user account from the accounts list'
+CustomKeywords.'iosAccountSelection.selectAnAccount.selectAnotherAccount'(accountNo_CIM)
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
@@ -39,18 +44,11 @@ CustomKeywords.'iosDashboard.dashboardScreen.clickOnAuditsTab'()
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
-//'closes change account prompt - which by default opens up after navigating to audits tab'
-//CustomKeywords.'iosAudits.auditsScreen.closeChangeAccountPrompt'()
-
 'verifies audits screen'
 CustomKeywords.'iosAudits.auditsScreen.verifyAuditsLandingScreen'()
 
 'tap on all quantity box and add quantity and confirm it'
 CustomKeywords.'iosAudits.auditsScreen.selectAllQuantityBoxes'()
-
-// Commenting this step -
-//'verify is group completely audited'
-//CustomKeywords.'iosAudits.auditsScreen.isGroupAudited'()
 
 'verify submit button and tap on submit'
 CustomKeywords.'iosAudits.auditsScreen.submitCompletedGroups'()

@@ -31,7 +31,7 @@ Prerequisites:
       <name>countType_1</name>
    </variable>
    <variable>
-      <defaultValue>'Full Count'</defaultValue>
+      <defaultValue>'Partial Count'</defaultValue>
       <description>count type can be partial or full count</description>
       <id>85b6ba4a-49b1-43ff-ad88-99aca58f4f89</id>
       <masked>false</masked>

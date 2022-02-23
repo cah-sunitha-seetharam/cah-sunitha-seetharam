@@ -125,8 +125,6 @@ CustomKeywords.'androidInventory.locationDetailsScreen.scanInputEvent'(productSe
 'calling the function which adds the product to the location'
 CustomKeywords.'androidInventory.locationDetailsScreen.addProducToLocation'()
 
-
-
 'pushing the countType of the product to be searched into the stack'
 countTypeStack.push(countType_2)
 
@@ -184,9 +182,9 @@ CustomKeywords.'androidInventory.locationDetailsScreen.verifyCountTypeOfProduct'
 'this function verifies that the product is visible on the location details screen'
 CustomKeywords.'androidInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen'(productSearch_2)
 
-'verifies location details Screen elements like countype of product added, quantity, invenntory cost on location details screen'
-CustomKeywords.'androidInventory.locationDetailsScreen.verifyLocationDetailsScreen'(countTypeStack, quantityStack, ndcNumbersStack,
-	unitOfIssueCostStack)
+//'verifies location details Screen elements like countype of product added, quantity, invenntory cost on location details screen'
+//CustomKeywords.'androidInventory.locationDetailsScreen.verifyLocationDetailsScreen'(countTypeStack, quantityStack, ndcNumbersStack,
+//	unitOfIssueCostStack)
 
 'takes the application one screen back'
 CustomKeywords.'androidCommonKeywords.commonMethods.pressBacknav'()

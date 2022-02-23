@@ -77,9 +77,6 @@ CustomKeywords.'androidInventory.locationDetailsScreen.scanInputEvent'(productSe
 'calling the function which adds the product to the location'
 CustomKeywords.'androidInventory.locationDetailsScreen.addProducToLocation'()
 
-
-
-
 'takes the application one screen back'
 CustomKeywords.'androidCommonKeywords.commonMethods.pressBacknav'()
 
@@ -123,7 +120,6 @@ CustomKeywords.'androidInventory.locationDetailsScreen.scanInputEvent'(productSe
 'calling the function which adds the product to the location'
 CustomKeywords.'androidInventory.locationDetailsScreen.addProducToLocation'()
 
-
 'calling the function which gets the unit of issue cost(UOI) of the added product'
 float uoiCost = CustomKeywords.'androidInventory.locationDetailsScreen.returnUOIOfTheAddedProduct'()
 
@@ -153,6 +149,9 @@ CustomKeywords.'androidInventory.locationDetailsScreen.selectCountTypeForTheProd
 
 'calling the function which scans the product and adds it to the location, it takes productName/UPC/Cin/Ndc as the argument'
 CustomKeywords.'androidInventory.locationDetailsScreen.scanInputEvent'(productSearch)
+
+'calling the function which adds the product to the location'
+CustomKeywords.'androidInventory.locationDetailsScreen.addProducToLocation'()
 
 'calling the function which gets the unit of issue cost(UOI) of the added product'
 uoiCost = CustomKeywords.'androidInventory.locationDetailsScreen.returnUOIOfTheAddedProduct'()
@@ -199,8 +198,8 @@ int actualQuantity = CustomKeywords.'androidInventory.locationDetailsScreen.retu
 'this function verifies that the product is visible on the location details screen'
 CustomKeywords.'androidInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen'(productNDC)
 
-'calling the function which deletes a product, it takes productName/UPC/Cin/Ndc as the argument'
-CustomKeywords.'androidInventory.locationDetailsScreen.deleteProduct'(productNDC)
+//'calling the function which deletes a product, it takes productName/UPC/Cin/Ndc as the argument'
+//CustomKeywords.'androidInventory.locationDetailsScreen.deleteProduct'(productNDC)
 
 'calling the function which moves a product to another location, it takes location and productName/UPC/Cin/Ndc as the argument'
 CustomKeywords.'androidInventory.locationDetailsScreen.moveProductToAnotherLocation'(locationName_1, productNDC)
@@ -220,9 +219,9 @@ CustomKeywords.'androidInventory.locationDetailsScreen.verifyCountTypeOfProduct'
 'this function verifies that the product is visible on the location details screen'
 CustomKeywords.'androidInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen'(productNDC)
 
-'verifies location details Screen elements like countype of product added, quantity, invenntory cost on location details screen'
-CustomKeywords.'androidInventory.locationDetailsScreen.verifyLocationDetailsScreen'(countTypeStack, quantityStack, ndcNumbersStack,
-	unitOfIssueCostStack)
+//'verifies location details Screen elements like countype of product added, quantity, invenntory cost on location details screen'
+//CustomKeywords.'androidInventory.locationDetailsScreen.verifyLocationDetailsScreen'(countTypeStack, quantityStack, ndcNumbersStack,
+//	unitOfIssueCostStack)
 
 'takes the application one screen back'
 CustomKeywords.'androidCommonKeywords.commonMethods.pressBacknav'()
