@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the user is able to do Delete, Copy and Move Actions on different Products in the Inventory locations. 
+
+Prerequisite: Valid login credentials with multiple accounts available for the user.</description>
+   <name>TC_R_034</name>
+   <tag>Inventory;Regression;Scan</tag>
+   <comment></comment>
+   <testCaseGuid>bd2e6bad-52b7-4234-b6db-73ca6fdd768a</testCaseGuid>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of inventory to be created</description>
+      <id>25be3789-8f6c-4337-88e1-3d7050700487</id>
+      <masked>false</masked>
+      <name>inventoryNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of location to be created</description>
+      <id>2a1f39c4-c40b-4efd-ae55-f4bfb57fe01f</id>
+      <masked>false</masked>
+      <name>locationNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>'Last Price'</defaultValue>
+      <description>cost type can be last price or current price paid</description>
+      <id>305c1cf9-d2bd-44c2-a38c-429a8aac64c1</id>
+      <masked>false</masked>
+      <name>costType</name>
+   </variable>
+   <variable>
+      <defaultValue>'2'</defaultValue>
+      <description>expected locationCount quantity which should have been added</description>
+      <id>1ddef024-2d85-432f-b379-940c24988754</id>
+      <masked>false</masked>
+      <name>expectedLocationCount</name>
+   </variable>
+   <variable>
+      <defaultValue>'Full Count'</defaultValue>
+      <description></description>
+      <id>9c6cd1e8-ad55-4cda-9198-7dad05fe2e1d</id>
+      <masked>false</masked>
+      <name>expectedCountType</name>
+   </variable>
+   <variable>
+      <defaultValue>'2'</defaultValue>
+      <description></description>
+      <id>6785522b-ee94-4144-8d92-62a9de9b67bd</id>
+      <masked>false</masked>
+      <name>expectedLinesCount</name>
+   </variable>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description></description>
+      <id>891a7d61-7546-40a8-88d1-a5ca571be2c3</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+   <variable>
+      <defaultValue>'Partial Count'</defaultValue>
+      <description>count type can be partial or full count</description>
+      <id>b636fee2-efa5-41a1-b535-dcdfd50f314f</id>
+      <masked>false</masked>
+      <name>countType_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'Partial Count'</defaultValue>
+      <description></description>
+      <id>cb93d319-0df5-4340-984e-79fea3529c0a</id>
+      <masked>false</masked>
+      <name>countType_2</name>
+   </variable>
+   <variable>
+      <defaultValue>1</defaultValue>
+      <description>expected product quantity which should have been added</description>
+      <id>4de64450-2fc0-47d9-91e1-82f582bfda56</id>
+      <masked>false</masked>
+      <name>expectedQuantityAdded_1</name>
+   </variable>
+   <variable>
+      <defaultValue>1.0</defaultValue>
+      <description></description>
+      <id>22c0e84c-1387-46b5-8877-c7497e5b3a3a</id>
+      <masked>false</masked>
+      <name>expectedQuantityAdded_2</name>
+   </variable>
+   <variable>
+      <defaultValue>'100'</defaultValue>
+      <description></description>
+      <id>ea411d36-0022-4102-a5ed-ab0339c6ebb6</id>
+      <masked>false</masked>
+      <name>quantity2</name>
+   </variable>
+</TestCaseEntity>

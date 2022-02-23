@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the user is able to Upload the location from location details page.
+ 1. Valid login credentials with multiple accounts available for the user
+ 2. Valid Barcode.</description>
+   <name>TC_R_023</name>
+   <tag>Inventory;Regression;Scan</tag>
+   <comment></comment>
+   <testCaseGuid>e7bd0d89-6795-4ea7-bce4-7a3dc1275abb</testCaseGuid>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of inventory to be created</description>
+      <id>038b9766-de0f-43c7-8c32-ba43711d8962</id>
+      <masked>false</masked>
+      <name>inventoryNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of location to be created</description>
+      <id>762a5422-c868-4c6a-9b9d-9c7b63b0ffca</id>
+      <masked>false</masked>
+      <name>locationNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>'Current Price'</defaultValue>
+      <description>cost type can be last price or current price paid</description>
+      <id>af51af0b-445c-4d95-a69e-07161c4b097a</id>
+      <masked>false</masked>
+      <name>costType</name>
+   </variable>
+   <variable>
+      <defaultValue>'Full Count'</defaultValue>
+      <description>count type can be partial or full count</description>
+      <id>13644dde-f5c8-4dac-bbb4-27c48393addf</id>
+      <masked>false</masked>
+      <name>countType_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'Partial Count'</defaultValue>
+      <description></description>
+      <id>b69cb317-abc4-47c4-b423-f0bb6a6eeb68</id>
+      <masked>false</masked>
+      <name>countType_2</name>
+   </variable>
+</TestCaseEntity>

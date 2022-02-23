@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the user is able to Delete Inventory and Inventory location. 
+
+Prerequisite: Valid login credentials with multiple accounts available for the user.</description>
+   <name>TC_R_015</name>
+   <tag>Inventory;Regression;Scan</tag>
+   <comment></comment>
+   <testCaseGuid>031522a6-2cb2-48ed-a1f5-3600fd2d5705</testCaseGuid>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of inventory to be created</description>
+      <id>29d06018-6518-4d37-9908-386c964b0c7b</id>
+      <masked>false</masked>
+      <name>inventoryNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of location to be created</description>
+      <id>c282d736-e96c-434f-8857-3e74b19918ff</id>
+      <masked>false</masked>
+      <name>locationNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>'Last Price'</defaultValue>
+      <description>cost type can be last price or current price paid</description>
+      <id>8a9375b6-47eb-4221-ac29-8636606ac7d0</id>
+      <masked>false</masked>
+      <name>costType</name>
+   </variable>
+   <variable>
+      <defaultValue>'Full Count'</defaultValue>
+      <description>count type can be partial or full count</description>
+      <id>2839fadf-539e-4c1c-98a2-985dabef6429</id>
+      <masked>false</masked>
+      <name>countType</name>
+   </variable>
+   <variable>
+      <defaultValue>'3'</defaultValue>
+      <description>quantity required to be added</description>
+      <id>e4a3c0cc-18c6-430a-8498-5da63d9f0875</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+</TestCaseEntity>
