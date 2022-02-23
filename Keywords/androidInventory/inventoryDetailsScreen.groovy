@@ -91,7 +91,7 @@ class inventoryDetailsScreen {
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
-		Mobile.tapAndHold(findTestObject('Android/inventory/locationDetailsScreen/editLocation/Edit_TextView'), 0,0)
+		Mobile.tapAndHold(findTestObject('Android/inventory/locationDetailsScreen/editLocation/edit_TextView'), 0,0)
 
 		Mobile.clearText(findTestObject('Android/inventory/inventoryDetailScreen/editInventory/inventoryToBeEdited_TextField',[('Inv_Name') : previousName]),0)
 
@@ -99,7 +99,9 @@ class inventoryDetailsScreen {
 
 		Mobile.setText(findTestObject('Android/inventory/inventoryDetailScreen/editInventory/inventoryName_TextField'), newInventoryName,0)
 
-		Mobile.tap(findTestObject('Android/inventory/locationDetailsScreen/editLocation/saveChanges_Button'), 0)
+		commonMethodsObject.waitForProgressBarToBeInvisible()
+
+		Mobile.tap(findTestObject('Object Repository/Android/Inventory/inventoryDetailScreen/editInventory/saveChanges_Button'), 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 	}
@@ -144,7 +146,9 @@ class inventoryDetailsScreen {
 
 		locationDetailsScreenObject.addQuantityforTheSearchedProduct(quantity)
 
-		Mobile.tap(findTestObject('Android/productSearch/addToInventory_Button'), 0)
+		commonMethodsObject.waitForProgressBarToBeInvisible()
+
+		Mobile.tapAndHold(findTestObject('Android/productSearch/addToInventory_Button'), 0,0)
 
 		Mobile.tap(findTestObject('Android/inventory/locationDetailsScreen/moveProductToAnotherLocation/createANewLocation_TextView'), 0)
 
@@ -156,9 +160,10 @@ class inventoryDetailsScreen {
 
 		Mobile.tap(findTestObject('Android/inventory/inventoryDetailScreen/addLocation/createNewLocation_Button'), 0)
 
-		Mobile.tap(findTestObject('Android/inventory/locationDetailsScreen/copyProductToAnotherLocation/Select_location_RadioButton'), 0)
+		Mobile.tap(findTestObject('Object Repository/Android/Inventory/locationDetailsScreen/copyProductFromLocation/selectLocation',[('TEXT'):locationName]), 0)
 
-		Mobile.tap(findTestObject('Android/inventory/inventoryDetailScreen/addProductToInventoryUsingSearchFromDashoboard/addToInventory_Button'), 0)
+		Mobile.delay(2)
+		Mobile.tapAndHold(findTestObject('Android/inventory/inventoryDetailScreen/addProductToInventoryUsingSearchFromDashoboard/addToInventory_Button'), 0,0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 

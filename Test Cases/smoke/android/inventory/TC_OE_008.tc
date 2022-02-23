@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the user  is able to Delete Inventory and Inventory location. 
+Prerequisite: Valid login credentials with multiple accounts available for the user.</description>
+   <name>TC_OE_008</name>
+   <tag>Inventory;Smoke</tag>
+   <comment></comment>
+   <testCaseGuid>fc3f8578-16a1-4882-b8fa-0a47cda9a6d2</testCaseGuid>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of inventory to be created</description>
+      <id>87fd13a6-6773-496b-b2c4-aa912478d8c9</id>
+      <masked>false</masked>
+      <name>inventoryNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of location to be created</description>
+      <id>83872c8f-a6cf-44b6-aa23-27a5333f6ed2</id>
+      <masked>false</masked>
+      <name>locationNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>'Current Price'</defaultValue>
+      <description>cost type can be last price or current price paid</description>
+      <id>b77561c2-ba45-4ce2-8fd4-138e750ffd47</id>
+      <masked>false</masked>
+      <name>costType</name>
+   </variable>
+   <variable>
+      <defaultValue>'3'</defaultValue>
+      <description>quantity required to be added</description>
+      <id>747d48b5-a86d-42c7-8782-ff5cb1fa5112</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description>expected lines count</description>
+      <id>9e579b4f-e72c-40cd-bd7d-da37c77f989a</id>
+      <masked>false</masked>
+      <name>expectedLinesCount</name>
+   </variable>
+</TestCaseEntity>

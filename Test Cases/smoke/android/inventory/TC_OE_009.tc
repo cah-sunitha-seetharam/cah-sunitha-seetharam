@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the user  is able to do Delete, Copy and Move Operations of the Product in the Inventory . Prerequisite: 
+Valid login credentials with multiple accounts available for the user.</description>
+   <name>TC_OE_009</name>
+   <tag>Inventory;Smoke</tag>
+   <comment></comment>
+   <testCaseGuid>5050a063-0d35-4f91-8415-2de8b05848ab</testCaseGuid>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of inventory to be created</description>
+      <id>638cc6ae-01de-4d85-9c92-48a4ba83c2b4</id>
+      <masked>false</masked>
+      <name>inventoryNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of location to be created</description>
+      <id>1c0721f9-679d-45d3-b8de-7759261237bf</id>
+      <masked>false</masked>
+      <name>locationNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>'Last Price'</defaultValue>
+      <description>cost type can be last price or current price paid</description>
+      <id>a35069b4-320f-4374-b976-3c0772e61790</id>
+      <masked>false</masked>
+      <name>costType_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'Current Price'</defaultValue>
+      <description>cost type can be last price or current price paid</description>
+      <id>79a5569c-2bb7-4b78-a8d8-d23c152184ef</id>
+      <masked>false</masked>
+      <name>costType_2</name>
+   </variable>
+   <variable>
+      <defaultValue>'5'</defaultValue>
+      <description>default quantity value used for calculation of cost and not passed as a parameter for adding quantity of product</description>
+      <id>05934aa3-9475-4cd5-a735-092dbd38eb96</id>
+      <masked>false</masked>
+      <name>quantity_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'3'</defaultValue>
+      <description></description>
+      <id>5d903a68-ab3e-4a27-9dc2-0d0f012b695d</id>
+      <masked>false</masked>
+      <name>quantity_2</name>
+   </variable>
+   <variable>
+      <defaultValue>'2'</defaultValue>
+      <description>expected lines count which should have been added</description>
+      <id>bc642b5a-4b35-42cb-97dc-e1d73546db9f</id>
+      <masked>false</masked>
+      <name>expectedLinesCount</name>
+   </variable>
+   <variable>
+      <defaultValue>5</defaultValue>
+      <description>expected product quantity which should have been added</description>
+      <id>397773dc-19bb-4501-a6ac-e14852f5329e</id>
+      <masked>false</masked>
+      <name>expectedProductQuantity_1</name>
+   </variable>
+   <variable>
+      <defaultValue>3</defaultValue>
+      <description></description>
+      <id>fb5d2cd9-0bd7-407c-9495-eb0ec8cdc449</id>
+      <masked>false</masked>
+      <name>expectedProductQuantity_2</name>
+   </variable>
+</TestCaseEntity>

@@ -71,7 +71,7 @@ class loginScreen {
 
 			if(GlobalVariable.Environment=="PMODStg")
 
-				Mobile.tap(findTestObject('iOS/logIn/environmentSelection/Environment_Button',[('TEXT'):"PMODSTG"]),0) //HardCoding because of the difference in name PMODSTG/PMODStg in iOS and Android
+				Mobile.tap(findTestObject('iOS/logIn/environmentSelection/environment_Button',[('TEXT'):"PMODSTG"]),0) //HardCoding because of the difference in name PMODSTG/PMODStg in iOS and Android
 
 			else if (GlobalVariable.Environment=="PMODStgMock")
 

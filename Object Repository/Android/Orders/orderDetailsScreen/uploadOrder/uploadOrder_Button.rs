@@ -3,11 +3,11 @@
    <description></description>
    <name>uploadOrder_Button</name>
    <tag></tag>
-   <elementGuidId>16b4f445-3e53-44e0-a884-7758b820c85e</elementGuidId>
+   <elementGuidId>259491bc-11ef-44a1-b5c3-6687f741b98a</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
-      <isSelected>true</isSelected>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.Button[1]</value>
    </webElementProperties>
-   <locator>${GlobalVariable.appPackage}:id/btnSendToOrderExpress</locator>
-   <locatorStrategy>ID</locatorStrategy>
+   <locator>//*[(@text = 'Upload Order' or . = 'Upload Order') and @resource-id = '${GlobalVariable.appPackage}:id/btnSendToOrderExpress']</locator>
+   <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

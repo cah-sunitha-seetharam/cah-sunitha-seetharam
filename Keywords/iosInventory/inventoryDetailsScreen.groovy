@@ -220,7 +220,7 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 
 		(new iosInventory.inventoryDetailsScreen()).deleteLocation(locationName)//calling delete location function
 
-		Mobile.tap(findTestObject('iOS/productSearch/Back_ImageView'), 0)
+		Mobile.tap(findTestObject('Object Repository/iOS/productSearch/globalSearch/backImage_View'), 0)
 
 		int finalInventoryLocationCount=Mobile.getText(findTestObject('iOS/inventory/locationDetailsScreen/verification/noOfLocation_Text'), 0)//final inventory location count after deleting a location
 
@@ -308,7 +308,7 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/productSearch/scanFlow/scan_Icon'),0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/inventory/inventoryDetailsScreen/verificationDetails/Location_Text'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/inventory/inventoryDetailsScreen/verificationDetails/location_Text'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/inventory/inventoryDetailsScreen/verificationDetails/inventoryTitle_Label',[('TEXT'):inventoryName]),0)
 	}

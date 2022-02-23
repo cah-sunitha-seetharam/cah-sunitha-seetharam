@@ -3,7 +3,7 @@
    <description></description>
    <name>placeOrder_Button</name>
    <tag></tag>
-   <elementGuidId>f929e3d7-4941-4887-91c6-f8fa177c8afc</elementGuidId>
+   <elementGuidId>d51a5c78-2450-4a84-b3a4-fe8e62c1941c</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>

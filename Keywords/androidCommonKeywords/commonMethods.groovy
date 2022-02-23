@@ -171,7 +171,7 @@ class  commonMethods {
 			}
 		}
 		catch(AssertionError e){
-			KeywordUtil.logInfo("waitLimit of " + waitLimit + "(s) croosed and object is still visible on the screen!!!!! " +e.toString()); //logInfo if assertion fails
+			KeywordUtil.markFailedAndStop("waitLimit of " + waitLimit + "(s) croosed and object is still visible on the screen!!!!! " +e.toString()); //logInfo if assertion fails
 		}
 
 	}
@@ -339,9 +339,37 @@ class  commonMethods {
 	@Keyword
 	def searchProduct(productToBeSearched) {
 
-		Mobile.tapAndHold(findTestObject('Android/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), 0, 0)
+		Mobile.tapAndHold(findTestObject('Android/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), 0, 0,FailureHandling.OPTIONAL)
 
 		Mobile.setText(findTestObject('Android/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), productToBeSearched + '\\n', 0)
+
+	}
+
+
+	/**
+	 * selects different account
+	 * @param accountNo (account number used for selection)
+	 */
+	@Keyword
+	def changeAccount(String accountNo) {
+		Mobile.tap(findTestObject('Android/dashboard/changeAccount_Button'), 0)
+		Mobile.tap(findTestObject('Android/accountSelection/changeAccount_TextView'), 0)
+		//Mobile.scrollToText(accountNo, FailureHandling.STOP_ON_FAILURE)
+		Mobile.tap(findTestObject('Android/accountSelection/accountNo_TextView',[('val') : accountNo]), 0)
+	}
+
+
+	/**
+	 * verifies new order screen
+	 */
+	@Keyword
+	def verifyAccount(account) {
+		Mobile.tap(findTestObject('Android/dashboard/changeAccount_Button'), 0)
+
+		String actualAccountNumber = Mobile.getText(findTestObject('Android/Orders/newOrderScreen/accountID_Textview'), 0)
+		assert actualAccountNumber == account
+
+		Mobile.tap(findTestObject('Android/dashboard/changeAccount_Button'), 0)
 
 	}
 }

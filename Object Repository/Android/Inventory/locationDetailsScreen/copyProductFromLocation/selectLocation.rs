@@ -3,7 +3,7 @@
    <description></description>
    <name>selectLocation</name>
    <tag></tag>
-   <elementGuidId>ff3d48c3-3183-4bc3-9c55-6124ee801d38</elementGuidId>
+   <elementGuidId>5b8f8c16-3ffb-456c-ad5f-e3512ffc3c1d</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -160,6 +160,6 @@
       <type>Main</type>
       <value>//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[2]/android.view.ViewGroup[1]/android.widget.RadioButton[1]</value>
    </webElementProperties>
-   <locator>${GlobalVariable.appPackage}:id/rbLocation</locator>
-   <locatorStrategy>ID</locatorStrategy>
+   <locator>//*[@class = 'android.widget.RadioButton' and @resource-id = '${GlobalVariable.appPackage}:id/rbLocation' and (@text = '' or . = '')]</locator>
+   <locatorStrategy>ATTRIBUTES</locatorStrategy>
 </MobileElementEntity>

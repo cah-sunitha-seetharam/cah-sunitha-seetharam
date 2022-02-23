@@ -3,7 +3,7 @@
    <description></description>
    <name>uploadCompletedTotes_Button</name>
    <tag></tag>
-   <elementGuidId>c2ccdac2-c506-44a8-b480-3e5f31a8808e</elementGuidId>
+   <elementGuidId>49c4eb93-6955-493f-ad88-3d5fb079f02a</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>

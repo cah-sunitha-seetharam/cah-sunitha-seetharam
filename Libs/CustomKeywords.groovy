@@ -728,7 +728,7 @@ def static "iosOrders.orderDetailsScreen.returnCostOfTheAddedProduct"() {
 }
 
  /**
-	 * retruns NDC number
+	 * returns NDC number
 	 */ 
 def static "iosOrders.orderDetailsScreen.returnNDCLabelOfScannedProduct"() {
     (new iosOrders.orderDetailsScreen()).returnNDCLabelOfScannedProduct()
@@ -744,7 +744,7 @@ def static "iosOrders.orderDetailsScreen.returnOrderNameFromOrderDetailScreen"()
 
  /**
 	 * this function returns the order value
-	 * @return orderTotal_dollarSymbolRemoved_FloatValue (order total value)
+	 * @return orderTotalFloatValue (order total value)
 	 */ 
 def static "iosOrders.orderDetailsScreen.returnOrderValue"() {
     (new iosOrders.orderDetailsScreen()).returnOrderValue()
@@ -4834,6 +4834,25 @@ def static "androidCommonKeywords.commonMethods.searchProduct"(
 }
 
  /**
+	 * selects different account
+	 * @param accountNo (account number used for selection)
+	 */ 
+def static "androidCommonKeywords.commonMethods.changeAccount"(
+    	String accountNo	) {
+    (new androidCommonKeywords.commonMethods()).changeAccount(
+        	accountNo)
+}
+
+ /**
+	 * verifies new order screen
+	 */ 
+def static "androidCommonKeywords.commonMethods.verifyAccount"(
+    	Object account	) {
+    (new androidCommonKeywords.commonMethods()).verifyAccount(
+        	account)
+}
+
+ /**
 	 * Create an order using Carts Post method , the input is fetched from the (module) ordersDatajson file set on Data Files 
 	 * @return an object with orderId and purchaseOrderNumber 
 	 */ 
@@ -4928,19 +4947,19 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
     	TestObject testObject	
      , 	String testName	) {
     (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
         	testObject
          , 	testName)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
 }
 
 

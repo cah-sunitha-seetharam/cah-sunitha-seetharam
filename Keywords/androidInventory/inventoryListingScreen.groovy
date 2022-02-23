@@ -61,9 +61,9 @@ class inventoryListingScreen {
 
 		Mobile.tapAtPosition(x_Coordinate, y_Coordinate)
 
-		Mobile.tap(findTestObject('Android/inventory/inventoryListingScreen/deleteInventory/Delete_Button'), 0)
+		Mobile.tap(findTestObject('Android/inventory/inventoryListingScreen/deleteInventory/delete_Button'), 0)
 
-		Mobile.tap(findTestObject('Android/inventory/inventoryListingScreen/deleteInventory/Yes_Button'), 0)
+		Mobile.tap(findTestObject('Android/inventory/inventoryListingScreen/deleteInventory/yes_Button'), 0)
 
 		commonMethodsObject.waitForProgressBarToBeInvisible()
 
