@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify  New Order is created while adding Alternate C2 product  from Product details page when there is existing Non-C2 order from Home/Cart screen
+Prerequisite:
+1. Valid login credentials with multiple accounts available for the user
+2. Non-C2  order should be available with no products in it </description>
+   <name>TC_R_060</name>
+   <tag>Order;Regression;Scan</tag>
+   <comment></comment>
+   <testCaseGuid>d497288f-672f-413c-bb94-91d624e21ad3</testCaseGuid>
+   <variable>
+      <defaultValue>'0'</defaultValue>
+      <description>expected total line count when there is no orders in the cart</description>
+      <id>6b0fbb98-2072-44a3-8d68-268bff3a1512</id>
+      <masked>false</masked>
+      <name>lineCount</name>
+   </variable>
+   <variable>
+      <defaultValue>0.00</defaultValue>
+      <description>expected cart value when there is no orders in the cart</description>
+      <id>afcf48d5-bc28-49c1-a683-4ce18163987e</id>
+      <masked>false</masked>
+      <name>expectedCartValue</name>
+   </variable>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description>expected mobile order count when there is no orders in the cart</description>
+      <id>dbe765e0-91dd-4a27-8dbb-554e6d25d34b</id>
+      <masked>false</masked>
+      <name>expectedMobileOrdersCount</name>
+   </variable>
+   <variable>
+      <defaultValue>'5'</defaultValue>
+      <description>quantity of the added for the product </description>
+      <id>a62c2212-8835-4d67-a4b0-b759e0ec5e5f</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+</TestCaseEntity>
