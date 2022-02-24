@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify New Order is getting created while adding C2 product by Scan from Cart when there is No Products in existing available Order 
+
+Prerequisite:
+1. Valid login credentials with multiple accounts available for the user.</description>
+   <name>TC_R_049</name>
+   <tag>Order;Regression;Scan</tag>
+   <comment></comment>
+   <testCaseGuid>355426ac-84c3-4d47-892b-eeab4a3a1beb</testCaseGuid>
+   <variable>
+      <defaultValue>'0'</defaultValue>
+      <description>expected total line count when there is no orders in the cart</description>
+      <id>e153445b-6287-4bb6-b691-fe1820aaf6f7</id>
+      <masked>false</masked>
+      <name>totalLineCount1</name>
+   </variable>
+   <variable>
+      <defaultValue>'poName'</defaultValue>
+      <description>purchase order name for the order created</description>
+      <id>75b75912-5e37-42fe-8a69-15ed35f5e41a</id>
+      <masked>false</masked>
+      <name>poName</name>
+   </variable>
+   <variable>
+      <defaultValue>'poMemo'</defaultValue>
+      <description>purchase order memo for the order created</description>
+      <id>00f4f3f7-8b9b-4776-84d2-b61e927e4871</id>
+      <masked>false</masked>
+      <name>poMemo</name>
+   </variable>
+   <variable>
+      <defaultValue>'0.00'</defaultValue>
+      <description>expected cart value when there is no orders in the cart</description>
+      <id>748fadf8-ff2a-4ec1-93b8-98d5aaefced2</id>
+      <masked>false</masked>
+      <name>expectedCartValue</name>
+   </variable>
+   <variable>
+      <defaultValue>'0'</defaultValue>
+      <description>expected mobile order count when there is no orders in the cart</description>
+      <id>5b0e1383-e503-463e-b53c-6753e47e01aa</id>
+      <masked>false</masked>
+      <name>expectedMobileOrdersCount1</name>
+   </variable>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description>expected mobile order count when there is  orders in the cart</description>
+      <id>f0e4d859-99ae-40f4-81d4-d3347719be2c</id>
+      <masked>false</masked>
+      <name>expectedMobileOrdersCount2</name>
+   </variable>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description>expected total line count of the order in cart page</description>
+      <id>c7eb6e13-0c8e-4d6c-8323-18c6587d8d5c</id>
+      <masked>false</masked>
+      <name>totalLineCount2</name>
+   </variable>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description>expected annotation count of the order in cart page</description>
+      <id>edf2f8d1-4ae2-4608-b6b6-067260ee4180</id>
+      <masked>false</masked>
+      <name>c2AnnotationCount</name>
+   </variable>
+   <variable>
+      <defaultValue>1</defaultValue>
+      <description>expected quantity added for the product </description>
+      <id>3ab2ac5e-2f26-418a-8d7a-7db77fb859a8</id>
+      <masked>false</masked>
+      <name>expectedQuantity</name>
+   </variable>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description>expected  line count of the order name page </description>
+      <id>e754b577-2b05-42eb-ba1f-e69203488aa8</id>
+      <masked>false</masked>
+      <name>lineCountOfOrderNamePage</name>
+   </variable>
+   <variable>
+      <defaultValue>1</defaultValue>
+      <description>quantity of the added for the product </description>
+      <id>73842a4a-ee01-477f-810e-8888f7fd2db1</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+</TestCaseEntity>

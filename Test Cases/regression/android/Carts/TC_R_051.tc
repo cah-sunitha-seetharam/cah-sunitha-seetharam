@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that after changing account user is able to Create an new Order by Scan in Cart page on currently selected account
+
+Prerequisite:
+1. Valid login credentials with multiple accounts available for the user</description>
+   <name>TC_R_051</name>
+   <tag>Order;Regression;Scan</tag>
+   <comment></comment>
+   <testCaseGuid>931106b9-4aa1-4eed-8ae9-cc2bbd92ecfe</testCaseGuid>
+   <variable>
+      <defaultValue>'26-2057199944'</defaultValue>
+      <description>account number to be selected</description>
+      <id>3146a980-0b4d-4253-a16f-26058cdafe31</id>
+      <masked>false</masked>
+      <name>accountNo_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'16-2057192134'</defaultValue>
+      <description>account number to be selected</description>
+      <id>e8812b5e-ca5b-40d9-8d8c-df6c7cfe1a51</id>
+      <masked>false</masked>
+      <name>accountNo_2</name>
+   </variable>
+   <variable>
+      <defaultValue>'66-814001'</defaultValue>
+      <description>account number to be selected</description>
+      <id>71681d51-56f8-4d15-8003-b29ec310815f</id>
+      <masked>false</masked>
+      <name>accountNo_3</name>
+   </variable>
+   <variable>
+      <defaultValue>2</defaultValue>
+      <description>quantity added for the product searched</description>
+      <id>9120c4c1-7e3b-4ebb-aedf-444a9c4b16ef</id>
+      <masked>false</masked>
+      <name>quantity1</name>
+   </variable>
+   <variable>
+      <defaultValue>'Price Check'</defaultValue>
+      <description>toggle value which can be ordering or price check</description>
+      <id>603c25f0-15a5-41ef-b1e3-43a366be2c10</id>
+      <masked>false</masked>
+      <name>toggleValue</name>
+   </variable>
+   <variable>
+      <defaultValue>'0'</defaultValue>
+      <description> expected mobile orders count which should be visible</description>
+      <id>a18a3de4-f735-4f0b-9d6f-607a910d440c</id>
+      <masked>false</masked>
+      <name>mobileOrderCount</name>
+   </variable>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description> expected non c2 annotation count which should be visible</description>
+      <id>4e712914-bb16-4d2a-a424-a5bc088c473c</id>
+      <masked>false</masked>
+      <name>nonC2AnnotationCount</name>
+   </variable>
+   <variable>
+      <defaultValue>1</defaultValue>
+      <description>expected quantity added for the product searched</description>
+      <id>6c177e1f-4ae7-4fb8-971b-ca6d41112f62</id>
+      <masked>false</masked>
+      <name>expectedQuantity1</name>
+   </variable>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description>expected line count of order name page which should be visible</description>
+      <id>f98d65d4-acfd-4ca5-8adc-6f40d504fe8b</id>
+      <masked>false</masked>
+      <name>lineCountOfOrderNamePage</name>
+   </variable>
+   <variable>
+      <defaultValue>4</defaultValue>
+      <description>quantity added for the product searched</description>
+      <id>33731098-4a7e-471c-8018-a5f8e6d4fb68</id>
+      <masked>false</masked>
+      <name>quantity2</name>
+   </variable>
+   <variable>
+      <defaultValue>5</defaultValue>
+      <description>expected quantity added for the product searched</description>
+      <id>5eb79755-dbe5-43fd-bd20-2651387b6b33</id>
+      <masked>false</masked>
+      <name>expectedQuantity2</name>
+   </variable>
+</TestCaseEntity>
