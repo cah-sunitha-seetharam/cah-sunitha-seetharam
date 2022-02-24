@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify that the user is able to Share the product details from the location details page.                                                                                                            Prerequisite: Valid login credentials with multiple accounts available for the user, Valid Barcodes.</description>
+   <name>TC_R_020</name>
+   <tag>Inventory;Regression;Scan</tag>
+   <comment></comment>
+   <testCaseGuid>5f9373fa-70d5-46c5-8786-453b0c81f9f4</testCaseGuid>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of inventory to be created</description>
+      <id>26dfb16d-d2df-405f-8712-d4f3ec06be73</id>
+      <masked>false</masked>
+      <name>inventoryNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of location to be created</description>
+      <id>6d6563bd-3acc-40b9-9ee0-72e12b0ffa5e</id>
+      <masked>false</masked>
+      <name>locationNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>'Last Price'</defaultValue>
+      <description>cost type can be last price or current price paid</description>
+      <id>7f168128-c823-4dcb-8027-1cc4044e3f04</id>
+      <masked>false</masked>
+      <name>costType</name>
+   </variable>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description>quantity required to be added</description>
+      <id>08b2fb12-1ffe-4caa-a740-2a2a304e5b85</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+   <variable>
+      <defaultValue>'Full Count'</defaultValue>
+      <description>count type can be partial or full count</description>
+      <id>8cf47ad5-31e8-49d7-b6a9-ba5c6d1095ae</id>
+      <masked>false</masked>
+      <name>countType_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'Partial Count'</defaultValue>
+      <description>count type can be partial or full count</description>
+      <id>efe23545-a070-4aa4-89b0-877888da0549</id>
+      <masked>false</masked>
+      <name>countType_2</name>
+   </variable>
+</TestCaseEntity>
