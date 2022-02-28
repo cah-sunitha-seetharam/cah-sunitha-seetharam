@@ -783,6 +783,18 @@ def static "iosOrders.orderDetailsScreen.scanInputEvent"(
 }
 
  /**
+	 * scans multiple different products (eg 50 or 80), adds it to the order
+	 * @param productType (nonC2 or C2)
+	 */ 
+def static "iosOrders.orderDetailsScreen.performScanFlowDifferentProducts"(
+    	String productType	
+     , 	int numberOfProducts	) {
+    (new iosOrders.orderDetailsScreen()).performScanFlowDifferentProducts(
+        	productType
+         , 	numberOfProducts)
+}
+
+ /**
 	 * scans the product in offline mode
 	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
 	 */ 

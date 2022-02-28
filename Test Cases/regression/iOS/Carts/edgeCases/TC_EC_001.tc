@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Scan and Add more 50/80 products to single order and verify UPLOAD / PLACE Order</description>
+   <name>TC_EC_001</name>
+   <tag>Order;Regression;EdgeCase;Scan</tag>
+   <comment></comment>
+   <testCaseGuid>5e903179-cc75-40bb-8bb5-f4f61e5e891a</testCaseGuid>
+   <variable>
+      <defaultValue>2</defaultValue>
+      <description></description>
+      <id>7e262a03-9e3b-4898-a0ab-fb9f68a3c007</id>
+      <masked>false</masked>
+      <name>numberOfProducts</name>
+   </variable>
+   <variable>
+      <defaultValue>'nonC2'</defaultValue>
+      <description></description>
+      <id>8c4f8b8e-362a-4e2b-8b18-6d0ecd88069b</id>
+      <masked>false</masked>
+      <name>productType1</name>
+   </variable>
+   <variable>
+      <defaultValue>'C2'</defaultValue>
+      <description></description>
+      <id>4069d0b4-aa57-4d9e-b862-daaee611aa97</id>
+      <masked>false</masked>
+      <name>productType2</name>
+   </variable>
+   <variable>
+      <defaultValue>'0'</defaultValue>
+      <description></description>
+      <id>61fa0034-3b3a-414a-bb56-c56c87c388cc</id>
+      <masked>false</masked>
+      <name>lineCount</name>
+   </variable>
+</TestCaseEntity>
