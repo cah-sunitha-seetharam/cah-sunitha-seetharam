@@ -490,4 +490,58 @@ class locationDetailsScreen {
 		commonMethodsObject.closePopUpScreen(closePopUpScreentestobj) // closes the popUp screen
 
 	}
+
+
+	/**
+	 * taps on scan icon;selects count type
+	 * and inputs scan event:
+	 * will keep on scanning depending on the counter value passed
+	 * @param countType (array an be partial or full count)
+	 * @param productSearch (NDC/CIN/UPC/NAME)
+	 * @param noOfIteratoins (no of times user wants to scan the products)
+	 */
+	@Keyword
+	def inventoryCompleteScanFlow(String [] countType,String [] productSearch, int noOfIteratoins) {
+
+		boolean val=true
+		int counter=0
+		while (counter<noOfIteratoins)
+
+		{
+			val=!val //taking first index as false
+
+			KeywordUtil.logInfo("countType " +countType[0])
+			KeywordUtil.logInfo("productSearch " +productSearch[counter])
+			KeywordUtil.logInfo("counter " +noOfIteratoins)
+
+			'waits until the progressBar is visible on the screen'
+			commonMethodsObject.waitForProgressBarToBeInvisible()
+
+			Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scan_Icon'), 0)
+
+			'waits until the progressBar is visible on the screen'
+			commonMethodsObject.waitForProgressBarToBeInvisible()
+
+			'calling the function which selects the countType required for a product which is searched and takes countType as the argument'
+			selectCountTypeForTheProductToBeAdded(countType[(val.booleanValue()?1:0)])
+
+			'waits until the progressBar is visible on the screen'
+			commonMethodsObject.waitForProgressBarToBeInvisible()
+
+			'calling the function which scans the product and adds it to the location, it takes productName/UPC/Cin/Ndc as the argument'
+			scanInputEvent(productSearch[counter])
+
+			'waits until the progressBar is visible on the screen'
+			commonMethodsObject.waitForProgressBarToBeInvisible()
+
+			'takes user one screen back'
+			commonMethodsObject.goOneScreenBack()
+
+			counter+=1 //increments counter by 1
+		}
+
+	}
+
+}
+
 }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Scenario: Scan and Add 81 products to single location with count type as Partial and verify UPLOAD Location	
+Prerequisite:  1. Valid login credentials, 2. Multiple accounts available for the user.</description>
+   <name>TC_EC_004</name>
+   <tag>Inventory;Regression;Scan</tag>
+   <comment></comment>
+   <testCaseGuid>84b3cf8e-6dee-427e-8b6f-b6159a2dcd5d</testCaseGuid>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of inventory to be created</description>
+      <id>2a87d2ec-f004-445c-9e30-5746693e9be5</id>
+      <masked>false</masked>
+      <name>inventoryNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>6</defaultValue>
+      <description>length of the name of location to be created</description>
+      <id>144bc6af-77bf-4b02-865d-93eeecb2b681</id>
+      <masked>false</masked>
+      <name>locationNameLength</name>
+   </variable>
+   <variable>
+      <defaultValue>'Current Price'</defaultValue>
+      <description>cost type can be last price or current price paid</description>
+      <id>5bf2c4d1-0680-4f23-a387-22226f353b9c</id>
+      <masked>false</masked>
+      <name>costType</name>
+   </variable>
+   <variable>
+      <defaultValue>'3'</defaultValue>
+      <description>quantity required to be added</description>
+      <id>799abf12-b786-4fcf-9bb1-31b249291fad</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+   <variable>
+      <defaultValue>7</defaultValue>
+      <description>no of times need to scan non c2 products</description>
+      <id>429aa6b5-05ff-46d0-af48-4299dca844f1</id>
+      <masked>false</masked>
+      <name>noOfIterationsforNonC2Products</name>
+   </variable>
+   <variable>
+      <defaultValue>8</defaultValue>
+      <description>no of times need to scan c2 products</description>
+      <id>234fe6ec-e1af-44f0-ae61-f4015a4ea28a</id>
+      <masked>false</masked>
+      <name>noOfIterationsforC2Products</name>
+   </variable>
+</TestCaseEntity>
