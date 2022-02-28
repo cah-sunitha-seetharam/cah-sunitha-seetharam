@@ -64,6 +64,12 @@ CustomKeywords.'iosInventory.locationDetailsScreen.inventoryCompleteScanFlow'(co
 'calling complete scan flow method to scan c2 products for the number of times required'
 CustomKeywords.'iosInventory.locationDetailsScreen.inventoryCompleteScanFlow'(countType, productSearchC2, noOfIterationsforC2Products)
 
+'uploads the location from location details screen'
+CustomKeywords.'iosInventory.locationDetailsScreen.uploadLocation'()
+
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 

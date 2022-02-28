@@ -51,6 +51,12 @@ String[] countType = ['Partial Count', 'Full Count']
 CustomKeywords.'iosInventory.inventoryDetailsScreen.addMultipleLocationsWithScannedProduct'(locationNameLength, costType, 
     noOfLocationsRequired, countType, productSearchNonC2, noOfIterations)
 
+'uploads the location from location details screen'
+CustomKeywords.'iosInventory.locationDetailsScreen.uploadLocation'()
+
+'waits until the progressBar is visible on the screen'
+CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
+
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 

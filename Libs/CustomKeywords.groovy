@@ -1502,7 +1502,11 @@ def static "iosOrders.cartScreen.verifyUploadAllOrdersPopUp"() {
     (new iosOrders.cartScreen()).verifyUploadAllOrdersPopUp()
 }
 
-
+ /**
+	 * adds products to a location
+	 * @param locationName (name of the location)
+	 * @param productName (name of the product to be added)
+	 */ 
 def static "iosInventory.locationDetailsScreen.addProducttoLocation"(
     	String locationName	
      , 	String productName	
@@ -1513,24 +1517,35 @@ def static "iosInventory.locationDetailsScreen.addProducttoLocation"(
          , 	quantity)
 }
 
-
+ /**
+	 * this function inputs the quantity value for the product to be searched
+	 * @param quantity (quantity required to be added for the product to be searched)
+	 */ 
 def static "iosInventory.locationDetailsScreen.addQuantityforTheSearchedProduct"(
     	String quantity	) {
     (new iosInventory.locationDetailsScreen()).addQuantityforTheSearchedProduct(
         	quantity)
 }
 
-
+ /**
+	 * this function taps on remove button and then product entry should get removed from the location as well as the scan result screen
+	 */ 
 def static "iosInventory.locationDetailsScreen.clickOnRemoveButtonToRemoveAlreadyScannedProduct"() {
     (new iosInventory.locationDetailsScreen()).clickOnRemoveButtonToRemoveAlreadyScannedProduct()
 }
 
-
+ /**
+	 * taps on scan icon and takes user to scanning product screen and also verifies that the default toggle is at full count
+	 */ 
 def static "iosInventory.locationDetailsScreen.clickOnScanIcon"() {
     (new iosInventory.locationDetailsScreen()).clickOnScanIcon()
 }
 
-
+ /**
+	 * copies products from a location to another location
+	 * @param locationName (name of the location to which product will be copied)
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object	 */ 
 def static "iosInventory.locationDetailsScreen.copyProductToAnotherLocation"(
     	String locationName	
      , 	String productNdcNumber	) {
@@ -1539,14 +1554,21 @@ def static "iosInventory.locationDetailsScreen.copyProductToAnotherLocation"(
          , 	productNdcNumber)
 }
 
-
+ /**
+	 * deletes a product from the added products list in a location
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object	 */ 
 def static "iosInventory.locationDetailsScreen.deleteProduct"(
     	String productNdcNumber	) {
     (new iosInventory.locationDetailsScreen()).deleteProduct(
         	productNdcNumber)
 }
 
-
+ /**
+	 * edits the location name and cost type can be changed(last price or current price paid)
+	 * @param newLocationName (new name of the location)
+	 * @param costType (cost type required which can be current or last price paid)
+	 */ 
 def static "iosInventory.locationDetailsScreen.editLocationName"(
     	String newLocationName	
      , 	String costType	) {
@@ -1555,7 +1577,11 @@ def static "iosInventory.locationDetailsScreen.editLocationName"(
          , 	costType)
 }
 
-
+ /**
+	 * moves products from a location to another location
+	 * @param locationName (name of the location to which product will be moved)
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object	 */ 
 def static "iosInventory.locationDetailsScreen.moveProductToAnotherLocation"(
     	String locationName	
      , 	String productNdcNumber	) {
@@ -1564,50 +1590,75 @@ def static "iosInventory.locationDetailsScreen.moveProductToAnotherLocation"(
          , 	productNdcNumber)
 }
 
-
+ /**
+	 * this function gets the total added quantity of the product
+	 * @return quantityNumericalValue (of the product which has been added)
+	 */ 
 def static "iosInventory.locationDetailsScreen.returnQuantityOfTheAddedProduct"() {
     (new iosInventory.locationDetailsScreen()).returnQuantityOfTheAddedProduct()
 }
 
-
+ /**
+	 * this function gets the unit of issue cost(UOI) of the added product
+	 * @return uoiCost_dollarSymbolRemoved_FloatValue (of the product which has been added)
+	 */ 
 def static "iosInventory.locationDetailsScreen.returnUOIOfTheAddedProduct"() {
     (new iosInventory.locationDetailsScreen()).returnUOIOfTheAddedProduct()
 }
 
-
+ /**
+	 * scans the product and adds it to the location 
+	 * @param productToBeSearched (name which can be a productName/Cin/NDC of the product to be added)
+	 */ 
 def static "iosInventory.locationDetailsScreen.scanInputEvent"(
     	String productToBeSearched	) {
     (new iosInventory.locationDetailsScreen()).scanInputEvent(
         	productToBeSearched)
 }
 
-
+ /**
+	 * this function selects the toggle value of countType for the product to be added 
+	 * @param countType (countType required to be selected for the product to be added which can be full or partial count)
+	 */ 
 def static "iosInventory.locationDetailsScreen.selectCountTypeForTheProductToBeAdded"(
     	String countType	) {
     (new iosInventory.locationDetailsScreen()).selectCountTypeForTheProductToBeAdded(
         	countType)
 }
 
-
+ /**
+	 * uploads location from the location details screen
+	 */ 
 def static "iosInventory.locationDetailsScreen.uploadLocation"() {
     (new iosInventory.locationDetailsScreen()).uploadLocation()
 }
 
-
+ /**
+	 * this function gets the count type of the added product and verifies whether that is equal to the expected count type
+	 */ 
 def static "iosInventory.locationDetailsScreen.verifyCountTypeOfProduct"(
     	String expectedCountType	) {
     (new iosInventory.locationDetailsScreen()).verifyCountTypeOfProduct(
         	expectedCountType)
 }
 
-
+ /**
+	 * this function verifies the lines count
+	 * @param expectedLinesCount (expected lines Count)
+	 */ 
 def static "iosInventory.locationDetailsScreen.verifyLinesCount"(
     	String expectedLinesCount	) {
     (new iosInventory.locationDetailsScreen()).verifyLinesCount(
         	expectedLinesCount)
 }
 
-
+ /**
+	 * verifies details of location details screen (if user wants to scan a product with same count type more than once, then in the test case, only the updated quantity along with countType and ndcNumber should be pushed into the stack)
+	 * @param countTypeStack (stack of the countTypes selected for adding each product)
+	 * @param quantityStack (stack of the quantity added for each product) 
+	 * @param productNdcStack (stack of the ndcNumbers of added products)
+	 * @param unitOfIssueCostStack (stack of UOI costs of the added products)
+	 */ 
 def static "iosInventory.locationDetailsScreen.verifyLocationDetailsScreen"(
     	Stack countTypeStack	
      , 	Stack quantityStack	
@@ -1620,33 +1671,54 @@ def static "iosInventory.locationDetailsScreen.verifyLocationDetailsScreen"(
          , 	unitOfIssueCostStack)
 }
 
-
+ /**
+	 * this function verifies that the product is visible on the location details screen
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */ 
 def static "iosInventory.locationDetailsScreen.verifyProductIsNotVisibleOnTheLocationDetailsScreen"(
     	Object productNdcNumber	) {
     (new iosInventory.locationDetailsScreen()).verifyProductIsNotVisibleOnTheLocationDetailsScreen(
         	productNdcNumber)
 }
 
-
+ /**
+	 * this function verifies that the product is not visible on the location details screen
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */ 
 def static "iosInventory.locationDetailsScreen.verifyProductIsVisibleOnTheLocationDetailsScreen"(
     	Object productNdcNumber	) {
     (new iosInventory.locationDetailsScreen()).verifyProductIsVisibleOnTheLocationDetailsScreen(
         	productNdcNumber)
 }
 
-
+ /**
+	 * verifies that the latest added product is at the top of the added products list, then deletes the latest added product and continues the process to verifyReverseChronologicalOrder of the added products
+	 * @param productNdcNumber (using NDC of the product which is visible on the product tab)
+	 * if in future upc/cin are visible then the method can be modified accordingly by passing the respective test object
+	 */ 
 def static "iosInventory.locationDetailsScreen.verifyReverseChronologicalOrder"(
     	Stack productNdcNumber	) {
     (new iosInventory.locationDetailsScreen()).verifyReverseChronologicalOrder(
         	productNdcNumber)
 }
 
-
+ /**
+	 * taps on shares location button, verifies the pop-up screen and closes the pop-up screen
+	 */ 
 def static "iosInventory.locationDetailsScreen.verifyShareLocationPopUp"() {
     (new iosInventory.locationDetailsScreen()).verifyShareLocationPopUp()
 }
 
-
+ /**
+	 * taps on scan icon;selects count type
+	 * and inputs scan event:
+	 * will keep on scanning depending on the counter value passed
+	 * @param countType (array an be partial or full count)
+	 * @param productSearch (NDC/CIN/UPC/NAME)
+	 * @param noOfIteratoins (no of times user wants to scan the products)
+	 */ 
 def static "iosInventory.locationDetailsScreen.inventoryCompleteScanFlow"(
     	String[] countType	
      , 	String[] productSearch	
