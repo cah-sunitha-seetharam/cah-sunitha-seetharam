@@ -11,7 +11,11 @@
 
          "TC_R_073": {
             "productSearchCin": "4023347",
-        }    
+        },
+         
+         "TC_EX_003": {
+             "productSearchCin": "4023347",
+         },
 
     },
 
@@ -28,7 +32,11 @@
 
          "TC_R_073": {
             "productSearchCin": "4023347",
-        }     
+        },
+         
+         "TC_EX_003": {
+             "productSearchCin": "4023347",
+         },
     },
 
 
@@ -46,7 +54,12 @@
 
         "TC_R_073": {
             "productSearchCin": "4023347",
-        }    
+        },
+        
+        "TC_EX_003": {
+            "productSearchCin": "4023347",
+        },
+        
     },
 
 }

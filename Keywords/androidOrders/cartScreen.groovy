@@ -304,4 +304,13 @@ class cartScreen  {
 		Mobile.verifyElementExist(findTestObject('Android/orders/cartScreen/uploadAllOrders/continueOnDesktop_Button'), 0)
 		Mobile.verifyElementExist(findTestObject('Android/orders/cartScreen/uploadAllOrders/cancelAndKeepOrdersOnTheApp_Button'), 0)
 	}
+
+	/**
+	 * verifies that the created order should be visible on the cart screen
+	 * @param poName (purchase order name used to create the order)
+	 */
+	@Keyword
+	def verifyOrderVisibleOnTheCartScreen(String poName) {
+		Mobile.verifyElementVisible(findTestObject('Android/orders/cartScreen/c2Order/poName',[('TEXT'):poName]),0)
+	}
 }

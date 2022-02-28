@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Orders should not exist on carts after switching an account.
+
+Prerequisite:  
+1.Valid login credentials, 
+2. Multiple accounts available for the user.</description>
+   <name>TC_EX_001</name>
+   <tag>Order;Regression;Scan</tag>
+   <comment></comment>
+   <testCaseGuid>d2ce2a40-7afc-4e77-abe2-164609ba914f</testCaseGuid>
+   <variable>
+      <defaultValue>'poName'</defaultValue>
+      <description>purchase order name for the order created</description>
+      <id>16a887bd-6553-4d8f-87aa-27cb3624116c</id>
+      <masked>false</masked>
+      <name>poName</name>
+   </variable>
+   <variable>
+      <defaultValue>'poMemo'</defaultValue>
+      <description>purchase order memo for the order created</description>
+      <id>14164266-a9e0-42d8-b10c-1cf8ae85dd19</id>
+      <masked>false</masked>
+      <name>poMemo</name>
+   </variable>
+   <variable>
+      <defaultValue>'2'</defaultValue>
+      <description>quantity of the product</description>
+      <id>c2d6fd18-28ac-4187-8014-2f6c8e8e6503</id>
+      <masked>false</masked>
+      <name>quantity1</name>
+   </variable>
+   <variable>
+      <defaultValue>'16-2057194339'</defaultValue>
+      <description>account number to be selected</description>
+      <id>3146a980-0b4d-4253-a16f-26058cdafe31</id>
+      <masked>false</masked>
+      <name>accountNo_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'16-2057192134'</defaultValue>
+      <description>account number to be selected</description>
+      <id>e8812b5e-ca5b-40d9-8d8c-df6c7cfe1a51</id>
+      <masked>false</masked>
+      <name>accountNo_2</name>
+   </variable>
+</TestCaseEntity>

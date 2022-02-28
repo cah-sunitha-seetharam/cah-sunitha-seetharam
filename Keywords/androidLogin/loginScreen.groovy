@@ -43,9 +43,9 @@ import androidCommonKeywords.commonMethods
 
 
 class loginScreen {
-	
-//	 def commonMethodsObject=new commonMethods();
-	
+
+	//	 def commonMethodsObject=new commonMethods();
+
 
 
 	/**
@@ -59,9 +59,11 @@ class loginScreen {
 		enterUsername(username)
 		enterPassword(password)
 		clickOnSignInButton()
+		//this method required for Mobile real device. If txt not visible it will move further
+		clickOnSetUpLater()
 		(new androidCommonKeywords.commonMethods()).waitForProgressBarToBeInvisible()
-//		commonMethodsObject.waitForProgressBarToBeInvisible()
-//		WebUI.delay(3)	
+		//		commonMethodsObject.waitForProgressBarToBeInvisible()
+		//		WebUI.delay(3)
 	}
 
 
@@ -131,8 +133,6 @@ class loginScreen {
 		Mobile.tap(findTestObject('Android/login/loginDetailsScreen/forgotPassword_Button'), 0)
 	}
 
-
-
 	/**
 	 * verifies the details of login Page
 	 */
@@ -145,6 +145,18 @@ class loginScreen {
 
 		Mobile.verifyElementExist(findTestObject('Android/login/loginDetailsScreen/welcomeBack_TextView'), 0)
 	}
+
+	/**
+	 * Click on the fingerPrintScreen Details need to use it in real devices
+	 */
+	@Keyword()
+	def clickOnSetUpLater() {
+		if(findTestObject('Android/login/loginDetailsScreen/setUpLater_txtLink')) {
+			Mobile.tap(findTestObject('Android/login/loginDetailsScreen/setUpLater_txtLink'), 0)
+		}
+
+	}
+
 }
 
 

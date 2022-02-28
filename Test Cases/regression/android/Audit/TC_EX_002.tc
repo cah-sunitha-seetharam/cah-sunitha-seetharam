@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Pull to refresh should update the audits screen once user is back online after being in EO mode. 
+
+Prerequisite: 
+1. Valid login credentials with multiple accounts available for the user.
+2. Valid CIM account
+3. Its requires CIM account</description>
+   <name>TC_EX_002</name>
+   <tag>Audit;Regression;</tag>
+   <comment></comment>
+   <testCaseGuid>d1d39098-a314-4a8c-870d-3ba797bf2d2d</testCaseGuid>
+   <variable>
+      <defaultValue>'auto_sanity_ri'</defaultValue>
+      <description></description>
+      <id>3d25223b-c294-4fb0-9c1e-27e3830a2e46</id>
+      <masked>false</masked>
+      <name>username</name>
+   </variable>
+   <variable>
+      <defaultValue>'Cardinal1'</defaultValue>
+      <description></description>
+      <id>5e8a270a-da0e-4bdb-8463-8ce281b4dcde</id>
+      <masked>false</masked>
+      <name>password</name>
+   </variable>
+   <variable>
+      <defaultValue>'10-302132'</defaultValue>
+      <description></description>
+      <id>41a87957-03dd-4979-9cf4-a7370cf20eba</id>
+      <masked>false</masked>
+      <name>accountNo</name>
+   </variable>
+   <variable>
+      <defaultValue>'No audit available in Emergency Ordering mode.'</defaultValue>
+      <description></description>
+      <id>41a87957-03dd-4979-9cf4-a7370cf20eba</id>
+      <masked>false</masked>
+      <name>expectedMessage</name>
+   </variable>
+   <variable>
+      <defaultValue>'You’ve got this!'</defaultValue>
+      <description></description>
+      <id>54fd8fe1-f53b-4995-bda5-c7092bdc0455</id>
+      <masked>false</masked>
+      <name>expectedMessage2</name>
+   </variable>
+</TestCaseEntity>
