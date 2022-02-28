@@ -45,20 +45,14 @@ def requestObject = CustomKeywords.'common.commonMethods.readFileTypeJSON'('edge
 String[] productSearchNonC2 = requestObject.productSearchByNDC_NonC2
 
 'count type array'
-String[] countType = ['Partial Count', 'Partial Count']
+String[] countType = ['Partial Count', 'Full Count']
 
 'calling addMultipleLocationsWithScannedProduct method to add multiple locations with multiple products'
-CustomKeywords.'iosInventory.inventoryDetailsScreen.addMultipleLocationsWithScannedProduct'(locationNameLength, costType, 
+CustomKeywords.'iosInventory.inventoryDetailsScreen.addAndUploadMultipleLocationsWithScannedProduct'(locationNameLength, costType, 
     noOfLocationsRequired, countType, productSearchNonC2, noOfIterationsForScanning)
-
-'uploads the location from location details screen'
-CustomKeywords.'iosInventory.locationDetailsScreen.uploadLocation'()
 
 'waits until the progressBar is visible on the screen'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
-
-'takes the application one screen back'
-CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()
 
 'takes the application one screen back'
 CustomKeywords.'iosCommonKeywords.commonMethods.goOneScreenBack'()

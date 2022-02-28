@@ -382,8 +382,37 @@ class inventoryDetailsScreen extends locationDetailsScreen {
 			addLocation(locationName,costType)
 			clickOnALocation(locationName)
 			inventoryCompleteScanFlow(countType,productSearch,noOfIteratoinsForScanning)
-			iosCommonMethodsObject.goOneScreenBack()
 			counter+=1
+			iosCommonMethodsObject.goOneScreenBack()
+		}
+	}
+	
+	
+	
+	/**
+	 * adds location to an inventory based on the cost type of current or last price paid
+	 * @param locationName (name of the location to be added)
+	 * @param costType (cost type required which can be current or last price paid)
+	 * @param noOfLocationsRequired (no of locations required to be added)
+	 * @param countType (array an be partial or full count)
+	 * @param productSearch (NDC/CIN/UPC/NAME)
+	 * @param noOfIteratoins (no of times user wants to scan the products)
+	 */
+	@Keyword
+	def addAndUploadMultipleLocationsWithScannedProduct(
+			int locationNameLength, String costType,
+			int noOfLocationsRequired,String [] countType,
+			String [] productSearch, int noOfIteratoinsForScanning) {
+
+		int counter=0
+		while (counter<noOfLocationsRequired) {
+			String locationName=commonMethodsObject.randomStringGenerator(locationNameLength)
+			addLocation(locationName,costType)
+			clickOnALocation(locationName)
+			inventoryCompleteScanFlow(countType,productSearch,noOfIteratoinsForScanning)
+			counter+=1
+			uploadLocation()
+			iosCommonMethodsObject.goOneScreenBack()
 		}
 	}
 }

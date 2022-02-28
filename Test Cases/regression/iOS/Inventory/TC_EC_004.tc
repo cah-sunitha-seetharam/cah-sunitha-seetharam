@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
-   <description>Scenario: Scan and Add 81 products to single location with count type as Partial and verify UPLOAD Location	
+   <description>Scan and Add 15 products to single location with count type as Partial and verify UPLOAD Location	
 Prerequisite:  1. Valid login credentials, 2. Multiple accounts available for the user.</description>
    <name>TC_EC_004</name>
    <tag>Inventory;Regression;Scan</tag>
