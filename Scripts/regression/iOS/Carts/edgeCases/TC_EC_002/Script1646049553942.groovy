@@ -17,7 +17,7 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-'starts the application'
+/*'starts the application'
 CustomKeywords.'iosCommonKeywords.commonMethods.installingAndlaunchingTheApplication'()
 
 'waits until the progressBar is visible on the screen'
@@ -35,7 +35,7 @@ CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'
 CustomKeywords.'iosCommonKeywords.commonMethods.waitForProgressBarToBeInvisible'()
 
 'clicks on more options, takes to beat features and enables it'
-CustomKeywords.'iosCommonKeywords.commonMethods.enableBetaFeatures'()
+CustomKeywords.'iosCommonKeywords.commonMethods.enableBetaFeatures'()*/
 
 '-----------------------uploadAllOrders/PlaceAllorders------------------------'
 

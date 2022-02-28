@@ -785,12 +785,29 @@ def static "iosOrders.orderDetailsScreen.scanInputEvent"(
  /**
 	 * scans multiple different products (eg 50 or 80), adds it to the order
 	 * @param productType (nonC2 or C2)
+	 * @param numberOfProducts (number of products to be added)
 	 */ 
 def static "iosOrders.orderDetailsScreen.performScanFlowDifferentProducts"(
     	String productType	
      , 	int numberOfProducts	) {
     (new iosOrders.orderDetailsScreen()).performScanFlowDifferentProducts(
         	productType
+         , 	numberOfProducts)
+}
+
+ /**
+	 * creates multiple orders products (eg 20) and then performs scan flow on different product
+	 * @param productType (nonC2 or C2)
+	 * @param numberOfOrders (number of orders to be created)
+	 * @param numberOfProducts (number of products to be added)
+	 */ 
+def static "iosOrders.orderDetailsScreen.createMultipleOrder"(
+    	String productType	
+     , 	int numberOfOrders	
+     , 	int numberOfProducts	) {
+    (new iosOrders.orderDetailsScreen()).createMultipleOrder(
+        	productType
+         , 	numberOfOrders
          , 	numberOfProducts)
 }
 
