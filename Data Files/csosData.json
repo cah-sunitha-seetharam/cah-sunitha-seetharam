@@ -11,7 +11,13 @@
 
          "TC_R_073": {
             "productSearchCin": "4023347",
-        }    
+        },
+         
+         "TC_EX_003": {
+             "productSearchCin": "4023347",
+             "productSearchByNDC1": "50580-0496-60",
+             "productSearchByNDC2": "00450-0449-09",
+         },
 
     },
 
@@ -28,7 +34,13 @@
 
          "TC_R_073": {
             "productSearchCin": "4023347",
-        }     
+        },
+         
+         "TC_EX_003": {
+             "productSearchCin": "4023347",
+             "productSearchByNDC1": "50580-0496-60",
+             "productSearchByNDC2": "00450-0449-09",
+         },
     },
 
 
@@ -46,7 +58,14 @@
 
         "TC_R_073": {
             "productSearchCin": "4023347",
-        }    
+        },
+        
+        "TC_EX_003": {
+            "productSearchCin": "4023347",
+            "productSearchByNDC1": "50580-0496-60",
+            "productSearchByNDC2": "00450-0449-09",
+        },
+        
     },
 
 }

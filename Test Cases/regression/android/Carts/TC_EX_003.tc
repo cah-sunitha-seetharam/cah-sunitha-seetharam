@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>C2 Order should not get placed when tapped on Place All Order button from Non-C2 Orders tab.
+
+Prerequisite:  
+1.Valid login credentials, 
+2. Multiple accounts available for the user.</description>
+   <name>TC_EX_003</name>
+   <tag>Order;Regression;Scan</tag>
+   <comment></comment>
+   <testCaseGuid>7168e36f-b44a-4283-be65-db08356f1bf5</testCaseGuid>
+   <variable>
+      <defaultValue>'PoName1C2Order'</defaultValue>
+      <description>purchase order name for the order created</description>
+      <id>16a887bd-6553-4d8f-87aa-27cb3624116c</id>
+      <masked>false</masked>
+      <name>poName1</name>
+   </variable>
+   <variable>
+      <defaultValue>'PoMemo1C2Oder'</defaultValue>
+      <description>purchase order memo for the order created</description>
+      <id>14164266-a9e0-42d8-b10c-1cf8ae85dd19</id>
+      <masked>false</masked>
+      <name>poMemo1</name>
+   </variable>
+   <variable>
+      <defaultValue>'2'</defaultValue>
+      <description>quantity of the product</description>
+      <id>c2d6fd18-28ac-4187-8014-2f6c8e8e6503</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+   <variable>
+      <defaultValue>'PoNameNonC2Order1'</defaultValue>
+      <description>purchase order name for the order created</description>
+      <id>16a887bd-6553-4d8f-87aa-27cb3624116c</id>
+      <masked>false</masked>
+      <name>poName2</name>
+   </variable>
+   <variable>
+      <defaultValue>'PoMemoNonC2Memo1'</defaultValue>
+      <description>purchase order memo for the order created</description>
+      <id>14164266-a9e0-42d8-b10c-1cf8ae85dd19</id>
+      <masked>false</masked>
+      <name>poMemo2</name>
+   </variable>
+   <variable>
+      <defaultValue>'PoNameNonC2Order2'</defaultValue>
+      <description>purchase order name for the order created</description>
+      <id>16a887bd-6553-4d8f-87aa-27cb3624116c</id>
+      <masked>false</masked>
+      <name>poName3</name>
+   </variable>
+   <variable>
+      <defaultValue>'PoMemoNonC2Memo2'</defaultValue>
+      <description>purchase order memo for the order created</description>
+      <id>14164266-a9e0-42d8-b10c-1cf8ae85dd19</id>
+      <masked>false</masked>
+      <name>poMemo3</name>
+   </variable>
+</TestCaseEntity>

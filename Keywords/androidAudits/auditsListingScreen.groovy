@@ -253,4 +253,12 @@ class auditsListingScreen {
 		String accountId = Mobile.getText(findTestObject('Android/audits/accountID', [('AccountID') : first_account]), 0)
 		assert accountId.contains(first_account)
 	}
+
+	/**
+	 * It verify the Audits screen message in EO Mode as "No audit available in Emergency Ordering mode."
+	 */
+	@Keyword
+	def verifyMessageOffline(expectedMessage) {
+		Mobile.verifyElementVisible(findTestObject('Android/audits/noAuditsInEmergencyOrderingMode_Txt',[('TEXT'): expectedMessage]),0)
+	}
 }

@@ -127,6 +127,12 @@
             "productSearchByNDC3": "54838-0144-80",
             "productSearchByNDC4": "50580-0522-24",
             },
+        
+        "TC_EX_001": {
+            "productSearchByNDC": "50580-0496-60",
+            "productSearchByName": "tyl",
+        },
+
     },
     "PMODQa2": {
         "Carts": {
@@ -281,7 +287,11 @@
                 "productSearchByNDC3": "54838-0144-80",
                 "productSearchByNDC4": "50580-0522-24",
             },
-        
+         
+         "TC_EX_001": {
+             "productSearchByNDC": "50580-0496-60",
+             "productSearchByName": "tyl",
+         },
     },
     
     "PMODStgMock": {
@@ -385,6 +395,11 @@
              "productSearchByNDC2": "00904-5769-60",
              "productSearchByNDC3": "54838-0144-80",
              "productSearchByNDC4": "50580-0522-24",
+         },
+         
+         "TC_EX_001": {
+             "productSearchByNDC": "50580-0496-60",
+             "productSearchByName": "tyl",
          },
         
         },
