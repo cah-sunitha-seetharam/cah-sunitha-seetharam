@@ -2809,6 +2809,31 @@ def static "iosInventory.inventoryDetailsScreen.addMultipleLocationsWithScannedP
 }
 
  /**
+	 * adds location to an inventory based on the cost type of current or last price paid
+	 * @param locationName (name of the location to be added)
+	 * @param costType (cost type required which can be current or last price paid)
+	 * @param noOfLocationsRequired (no of locations required to be added)
+	 * @param countType (array an be partial or full count)
+	 * @param productSearch (NDC/CIN/UPC/NAME)
+	 * @param noOfIteratoins (no of times user wants to scan the products)
+	 */ 
+def static "iosInventory.inventoryDetailsScreen.addAndUploadMultipleLocationsWithScannedProduct"(
+    	int locationNameLength	
+     , 	String costType	
+     , 	int noOfLocationsRequired	
+     , 	String[] countType	
+     , 	String[] productSearch	
+     , 	int noOfIteratoinsForScanning	) {
+    (new iosInventory.inventoryDetailsScreen()).addAndUploadMultipleLocationsWithScannedProduct(
+        	locationNameLength
+         , 	costType
+         , 	noOfLocationsRequired
+         , 	countType
+         , 	productSearch
+         , 	noOfIteratoinsForScanning)
+}
+
+ /**
 	 * selects the user account from the accounts list and takes user to the dashboard screen
 	 * @param accountNo (user account number to be selected)
 	 */ 
