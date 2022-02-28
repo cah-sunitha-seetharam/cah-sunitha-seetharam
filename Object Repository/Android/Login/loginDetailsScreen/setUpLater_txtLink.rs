@@ -3,7 +3,7 @@
    <description></description>
    <name>setUpLater_txtLink</name>
    <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <elementGuidId>61e19011-e1aa-4b09-8dd5-67214a465d54</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -32,7 +32,7 @@
       <matchCondition>equals</matchCondition>
       <name>resource-id</name>
       <type>Main</type>
-      <value>com.cardinalhealth.orderexpress.two.debug:id/biometricNotSureButton</value>
+      <value>${GlobalVariable.appPackage}:id/biometricNotSureButton</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
