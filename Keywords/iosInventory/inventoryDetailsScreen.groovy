@@ -38,10 +38,10 @@ import com.kms.katalon.core.webui.exception.WebElementNotFoundException
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
 
-class inventoryDetailsScreen extends inventoryListingScreen {
+class inventoryDetailsScreen extends locationDetailsScreen {
 
-	def commonMethodsObject=new commonMethods();
-	def locationDetailsScreenObject=new locationDetailsScreen();
+	def iosCommonMethodsObject=new commonMethods();
+	def commonMethodsObject=new common.commonMethods();
 
 
 	/**
@@ -84,7 +84,7 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 
 		Mobile.tap(findTestObject('iOS/inventory/inventoryListingScreen/createNewInventory/createNewLocation_Button'), 0)
 
-		commonMethodsObject.waitForProgressBarToBeInvisible()
+		iosCommonMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.verifyElementExist(findTestObject('iOS/inventory/inventoryDetailsScreen/addLocation/locationNameVerification_Text', [('LName') : locationName]),0)
 	}
@@ -101,7 +101,7 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 
 		Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addLocation/tapOnLocation_Text', [('Location') : locationName]), 0)
 
-		commonMethodsObject.waitForProgressBarToBeInvisible()
+		iosCommonMethodsObject.waitForProgressBarToBeInvisible()
 	}
 
 
@@ -121,23 +121,23 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 
 		Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scan_Icon'), 0)
 
-		commonMethodsObject.waitForProgressBarToBeInvisible()
+		iosCommonMethodsObject.waitForProgressBarToBeInvisible()
 
 		'calling the function which selects the countType required for a product which is searched and takes countType as the argument'
-		locationDetailsScreenObject.selectCountTypeForTheProductToBeAdded(countType)
+		selectCountTypeForTheProductToBeAdded(countType)
 
 		'calling the function which scans the product and adds it to the location, it takes productName/UPC/Cin/Ndc as the argument'
-		locationDetailsScreenObject.scanInputEvent(productName)
+		scanInputEvent(productName)
 
 		'calling the function which adds quantity required for a product to be added and takes quantity required as the argument'
-		locationDetailsScreenObject.addQuantityforTheSearchedProduct(quantity)
+		addQuantityforTheSearchedProduct(quantity)
 
 		'waits until the progressBar is visible on the screen'
-		commonMethodsObject.waitForProgressBarToBeInvisible()
+		iosCommonMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/addItemFromAlternate_Button'), 0)
 
-		commonMethodsObject.waitForProgressBarToBeInvisible()
+		iosCommonMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/createLocation_Label'), 0)
 
@@ -155,7 +155,7 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 
 		Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/addToInventory_Button'), 0)
 
-		commonMethodsObject.waitForProgressBarToBeInvisible()
+		iosCommonMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/continue_Button'), 0)
 	}
@@ -169,7 +169,7 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 	@Keyword
 	def deleteLocation(String locationName) {
 
-		commonMethodsObject.waitForProgressBarToBeInvisible()
+		iosCommonMethodsObject.waitForProgressBarToBeInvisible()
 
 		int ElementTopPosition = Mobile.getElementTopPosition(findTestObject('iOS/inventory/inventoryDetailsScreen/addLocation/tapOnLocation_Text', [('Location') : locationName]), 0)
 
@@ -194,7 +194,7 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 		//Mobile.tap(findTestObject('iOS/inventory/locationDetailsScreen/deleteLocation/yes_Text'), 0)
 		Mobile.tap(findTestObject('iOS/inventory/inventoryListingScreen/createNewInventory/yes_Button'), 0)
 
-		commonMethodsObject.waitForProgressBarToBeInvisible()
+		iosCommonMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.verifyElementNotVisible(findTestObject('iOS/inventory/inventoryDetailsScreen/addLocation/locationNameVerification_Text', [('LName') : locationName]),0)
 	}
@@ -218,7 +218,7 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 
 		float locationValue_dollarSymbolRemoved_FloatValue=(new common.commonMethods()).floatValueGenerator(locationValue)//converting locationValue string to a float value
 
-		(new iosInventory.inventoryDetailsScreen()).deleteLocation(locationName)//calling delete location function
+		deleteLocation(locationName)//calling delete location function
 
 		Mobile.tap(findTestObject('Object Repository/iOS/productSearch/globalSearch/backImage_View'), 0)
 
@@ -262,13 +262,13 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 
 		Mobile.tapAndHold(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), 0, 0)
 
-		commonMethodsObject.waitForProgressBarToBeInvisible()
+		iosCommonMethodsObject.waitForProgressBarToBeInvisible()
 
 		Mobile.setText(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), productName, 0)
 
 		Mobile.tapAndHold(findTestObject('iOS/productSearch/globalSearch/search_Keypad'), 0, 0)
 
-		locationDetailsScreenObject.addQuantityforTheSearchedProduct(quantity)
+		addQuantityforTheSearchedProduct(quantity)
 
 		Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/addProductToInventory_Text'), 0)
 
@@ -339,7 +339,84 @@ class inventoryDetailsScreen extends inventoryListingScreen {
 
 		String testObj='Object Repository/iOS/inventory/inventoryDetailsScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/alternateNDC_Text'
 
-		commonMethodsObject.verifyProductIsVisibleOnTheScreen(testObj,productIdentificationNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
+		iosCommonMethodsObject.verifyProductIsVisibleOnTheScreen(testObj,productIdentificationNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
 
+	}
+
+
+
+	/**
+	 * adds multiple locations to an inventory based on the parameters
+	 * @param locationName (name of the location to be added)
+	 * @param costType (cost type required which can be current or last price paid)
+	 * @param noOfLocationsRequired (no of locations required to be added)
+	 */
+	@Keyword
+	def addMultipleLocations(int locationNameLength, String costType,
+			int noOfLocationsRequired) {
+
+		int counter=0
+		while (counter<noOfLocationsRequired) {
+			String locationName=commonMethodsObject.randomStringGenerator(locationNameLength)
+			addLocation(locationName,costType)
+			counter+=1
+		}
+	}
+
+
+
+	/**
+	 * adds multiple locations with scanned products to an inventory based on the parameters
+	 * @param locationName (name of the location to be added)
+	 * @param costType (cost type required which can be current or last price paid)
+	 * @param noOfLocationsRequired (no of locations required to be added)
+	 * @param countType (array an be partial or full count)
+	 * @param productSearch (NDC/CIN/UPC/NAME)
+	 * @param noOfIteratoins (no of times user wants to scan the products)
+	 */
+	@Keyword
+	def addMultipleLocationsWithScannedProduct(
+			int locationNameLength, String costType,
+			int noOfLocationsRequired,String [] countType,
+			String [] productSearch, int noOfIteratoinsForScanning) {
+
+		int counter=0
+		while (counter<noOfLocationsRequired) {
+			String locationName=commonMethodsObject.randomStringGenerator(locationNameLength)
+			addLocation(locationName,costType)
+			clickOnALocation(locationName)
+			inventoryCompleteScanFlow(countType,productSearch,noOfIteratoinsForScanning)
+			counter+=1
+			iosCommonMethodsObject.goOneScreenBack()
+		}
+	}
+
+
+
+	/**
+	 * adds and uploads multiple locations with scanned products to an inventory based on the parameters
+	 * @param locationName (name of the location to be added)
+	 * @param costType (cost type required which can be current or last price paid)
+	 * @param noOfLocationsRequired (no of locations required to be added)
+	 * @param countType (array an be partial or full count)
+	 * @param productSearch (NDC/CIN/UPC/NAME)
+	 * @param noOfIteratoins (no of times user wants to scan the products)
+	 */
+	@Keyword
+	def addAndUploadMultipleLocationsWithScannedProduct(
+			int locationNameLength, String costType,
+			int noOfLocationsRequired,String [] countType,
+			String [] productSearch, int noOfIteratoinsForScanning) {
+
+		int counter=0
+		while (counter<noOfLocationsRequired) {
+			String locationName=commonMethodsObject.randomStringGenerator(locationNameLength)
+			addLocation(locationName,costType)
+			clickOnALocation(locationName)
+			inventoryCompleteScanFlow(countType,productSearch,noOfIteratoinsForScanning)
+			counter+=1
+			uploadLocation()
+			iosCommonMethodsObject.goOneScreenBack()
+		}
 	}
 }

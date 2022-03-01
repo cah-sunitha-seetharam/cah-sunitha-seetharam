@@ -1700,6 +1700,24 @@ def static "iosInventory.locationDetailsScreen.verifyShareLocationPopUp"() {
 }
 
  /**
+	 * taps on scan icon;selects count type
+	 * and inputs scan event:
+	 * will keep on scanning depending on the counter value passed
+	 * @param countType (array an be partial or full count)
+	 * @param productSearch (NDC/CIN/UPC/NAME)
+	 * @param noOfIteratoins (no of times user wants to scan the products)
+	 */ 
+def static "iosInventory.locationDetailsScreen.inventoryCompleteScanFlow"(
+    	String[] countType	
+     , 	String[] productSearch	
+     , 	int noOfIteratoins	) {
+    (new iosInventory.locationDetailsScreen()).inventoryCompleteScanFlow(
+        	countType
+         , 	productSearch
+         , 	noOfIteratoins)
+}
+
+ /**
 	 * performs login function by selecting the type of testing (automation or manual), environment of testing(taken from the global profile), entering user-name and password
 	 * @param username (it is taken from the global profile but passed as a parameter),password  (it is taken from the global profile but passed as a parameter)
 	 */ 
@@ -2735,6 +2753,72 @@ def static "iosInventory.inventoryDetailsScreen.verifyProductIsVisibleOnScreenWh
     	Object productIdentificationNumber	) {
     (new iosInventory.inventoryDetailsScreen()).verifyProductIsVisibleOnScreenWhenSearchedFromInventoryDetailsScreen(
         	productIdentificationNumber)
+}
+
+ /**
+	 * adds multiple locations to an inventory based on the parameters
+	 * @param locationName (name of the location to be added)
+	 * @param costType (cost type required which can be current or last price paid)
+	 * @param noOfLocationsRequired (no of locations required to be added)
+	 */ 
+def static "iosInventory.inventoryDetailsScreen.addMultipleLocations"(
+    	int locationNameLength	
+     , 	String costType	
+     , 	int noOfLocationsRequired	) {
+    (new iosInventory.inventoryDetailsScreen()).addMultipleLocations(
+        	locationNameLength
+         , 	costType
+         , 	noOfLocationsRequired)
+}
+
+ /**
+	 * adds multiple locations with scanned products to an inventory based on the parameters
+	 * @param locationName (name of the location to be added)
+	 * @param costType (cost type required which can be current or last price paid)
+	 * @param noOfLocationsRequired (no of locations required to be added)
+	 * @param countType (array an be partial or full count)
+	 * @param productSearch (NDC/CIN/UPC/NAME)
+	 * @param noOfIteratoins (no of times user wants to scan the products)
+	 */ 
+def static "iosInventory.inventoryDetailsScreen.addMultipleLocationsWithScannedProduct"(
+    	int locationNameLength	
+     , 	String costType	
+     , 	int noOfLocationsRequired	
+     , 	String[] countType	
+     , 	String[] productSearch	
+     , 	int noOfIteratoinsForScanning	) {
+    (new iosInventory.inventoryDetailsScreen()).addMultipleLocationsWithScannedProduct(
+        	locationNameLength
+         , 	costType
+         , 	noOfLocationsRequired
+         , 	countType
+         , 	productSearch
+         , 	noOfIteratoinsForScanning)
+}
+
+ /**
+	 * adds and uploads multiple locations with scanned products to an inventory based on the parameters
+	 * @param locationName (name of the location to be added)
+	 * @param costType (cost type required which can be current or last price paid)
+	 * @param noOfLocationsRequired (no of locations required to be added)
+	 * @param countType (array an be partial or full count)
+	 * @param productSearch (NDC/CIN/UPC/NAME)
+	 * @param noOfIteratoins (no of times user wants to scan the products)
+	 */ 
+def static "iosInventory.inventoryDetailsScreen.addAndUploadMultipleLocationsWithScannedProduct"(
+    	int locationNameLength	
+     , 	String costType	
+     , 	int noOfLocationsRequired	
+     , 	String[] countType	
+     , 	String[] productSearch	
+     , 	int noOfIteratoinsForScanning	) {
+    (new iosInventory.inventoryDetailsScreen()).addAndUploadMultipleLocationsWithScannedProduct(
+        	locationNameLength
+         , 	costType
+         , 	noOfLocationsRequired
+         , 	countType
+         , 	productSearch
+         , 	noOfIteratoinsForScanning)
 }
 
  /**
@@ -4852,19 +4936,19 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
+}
+
+
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
     	TestObject testObject	
      , 	String testName	) {
     (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkTestObject(
         	testObject
          , 	testName)
-}
-
-
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
 }
 
 
@@ -4882,13 +4966,6 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	
      , 	String testName	
@@ -4897,4 +4974,11 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
 }

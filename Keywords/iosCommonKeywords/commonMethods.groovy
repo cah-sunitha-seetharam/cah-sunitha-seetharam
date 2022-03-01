@@ -22,6 +22,7 @@ import com.kms.katalon.core.util.KeywordUtil
 import internal.GlobalVariable
 import iosAccountSelection.selectAnAccount
 import iosDashboard.dashboardScreen
+import iosInventory.locationDetailsScreen
 import iosLogin.loginScreen
 import iosMoreOptions.moreOptionsScreen
 import iosOrders.cartScreen
@@ -33,6 +34,7 @@ class  commonMethods {
 	def dashboardObject=new dashboardScreen();
 	def moreOptionsScreenObject=new moreOptionsScreen();
 	def loginScreenObject=new loginScreen();
+
 
 
 	/**
@@ -395,7 +397,7 @@ class  commonMethods {
 
 		String testObj='Object Repository/iOS/productSearch/globalSearch/ndcNumber_Text'
 
-		(new iosCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, productNdcNumber as the arguments
+		verifyProductIsVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, productNdcNumber as the arguments
 	}
 
 
