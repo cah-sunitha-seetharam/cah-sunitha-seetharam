@@ -567,10 +567,11 @@ class orderDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('iOS/orders/orderDetailsScreen/verificationDetails/alternates_Text'), 0)
 	}
 
-	
+
 	/**
 	 * scans multiple different products (eg 50 or 80), adds it to the order
 	 * @param productType (nonC2 or C2)
+	 * @param numberOfProducts (number of products to be added)
 	 */
 	@Keyword
 	def performScanFlowDifferentProducts(String productType, int numberOfProducts) {
@@ -578,39 +579,69 @@ class orderDetailsScreen {
 		String p = "nonC2"
 		if (productType.equals(p)) {
 			for ( int n =0; n<numberOfProducts; n++) {
-				 String idValue = requestObject.productSearchByCIN_nonC2[n]
-				 Mobile.delay(1)
-				 Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scan_Icon'), 0)
-				 Mobile.tap(findTestObject('iOS/productSearch/scanFlow/ordering_Button'), 0)
-				 Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scanGray_Image'), 0)
-				 Mobile.setText(findTestObject('iOS/productSearch/scanFlow/enterBarcode_TextField'),  idValue, 0)
-				 Mobile.tap(findTestObject('iOS/productSearch/scanFlow/done_Button'), 0)
-				 Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scanGray_Image'), 0)
-				 (new iosCommonKeywords.commonMethods()).goOneScreenBack()
-				 Mobile.delay(1)
-				 
+				String idValue = requestObject.productSearchByCIN_nonC2[n]
+				Mobile.delay(1)
+				Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scan_Icon'), 0)
+				Mobile.tap(findTestObject('iOS/productSearch/scanFlow/ordering_Button'), 0)
+				Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scanGray_Image'), 0)
+				Mobile.setText(findTestObject('iOS/productSearch/scanFlow/enterBarcode_TextField'),  idValue, 0)
+				Mobile.tap(findTestObject('iOS/productSearch/scanFlow/done_Button'), 0)
+				Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scanGray_Image'), 0)
+				(new iosCommonKeywords.commonMethods()).goOneScreenBack()
+				Mobile.delay(1)
 			}
 		}
 		else {
 			for (int n =0; n<numberOfProducts; n++) {
-				 String idValue = requestObject.productSearchByCIN_C2[n]
-				 Mobile.delay(1)
-				 Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scan_Icon'), 0)
-				 Mobile.tap(findTestObject('iOS/productSearch/scanFlow/ordering_Button'), 0)
-				 Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scanGray_Image'), 0)
-				 Mobile.setText(findTestObject('iOS/productSearch/scanFlow/enterBarcode_TextField'),  idValue, 0)
-				 Mobile.tap(findTestObject('iOS/productSearch/scanFlow/done_Button'), 0)
-				 Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scanGray_Image'), 0)
-				 (new iosCommonKeywords.commonMethods()).goOneScreenBack()
-				 Mobile.delay(1)
-				 
-			  }
-		  }
-		
+				String idValue = requestObject.productSearchByCIN_C2[n]
+				Mobile.delay(1)
+				Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scan_Icon'), 0)
+				Mobile.tap(findTestObject('iOS/productSearch/scanFlow/ordering_Button'), 0)
+				Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scanGray_Image'), 0)
+				Mobile.setText(findTestObject('iOS/productSearch/scanFlow/enterBarcode_TextField'),  idValue, 0)
+				Mobile.tap(findTestObject('iOS/productSearch/scanFlow/done_Button'), 0)
+				Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scanGray_Image'), 0)
+				(new iosCommonKeywords.commonMethods()).goOneScreenBack()
+				Mobile.delay(1)
+			}
+		}
 	}
-	
-	
-	
+
+	/**
+	 * creates multiple orders products (eg 20) and then performs scan flow on different product
+	 * @param productType (nonC2 or C2)
+	 * @param numberOfOrders (number of orders to be created)
+	 * @param numberOfProducts (number of products to be added)
+	 */
+	@Keyword
+	createMultipleOrder(String productType, int numberOfOrders, int numberOfProducts) {
+		def requestObject = (new common.commonMethods()).readFileTypeJSON('productData.json')
+		String p = "nonC2"
+		if (productType.equals(p)) {
+			for ( int n =0; n<numberOfOrders; n++) {
+				String poName = requestObject.poName[n]
+				String poMemo = requestObject.poMemo[n]
+				(new iosOrders.ordersCommonScreen()).clickOnNewOrder()
+				(new iosOrders.newOrderScreen()).enterPurchaseOrderDetails(poName, poMemo)
+				(new iosOrders.newOrderScreen()).createOrder()
+				(new iosOrders.orderDetailsScreen()).performScanFlowDifferentProducts (productType, numberOfProducts)
+				(new iosCommonKeywords.commonMethods()).goOneScreenBack()
+				
+			}
+		}
+		else {
+			for ( int n =0; n<numberOfOrders; n++) {
+				String poName = requestObject.poName[n]
+				String poMemo = requestObject.poMemo[n]
+				(new iosOrders.ordersCommonScreen()).clickOnNewOrder()
+				(new iosOrders.newOrderScreen()).enterPurchaseOrderDetails(poName, poMemo)
+				(new iosOrders.orderDetailsScreen()).performScanFlowDifferentProducts (productType, numberOfProducts)
+				(new iosCommonKeywords.commonMethods()).goOneScreenBack()
+				
+			}
+		  }
+	}
+
 
 	/**
 	 * scans the product in offline mode

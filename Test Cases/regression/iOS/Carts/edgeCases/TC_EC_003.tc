@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Create 20 orders with less number of line items( &lt;5 or&lt;10) - upload/place order</description>
+   <name>TC_EC_003</name>
+   <tag>Order;Regression;EdgeCase;Scan</tag>
+   <comment></comment>
+   <testCaseGuid>6a276782-3bb9-4daa-a021-7b5aae2ce355</testCaseGuid>
+   <variable>
+      <defaultValue>20</defaultValue>
+      <description></description>
+      <id>1b4078ef-f15d-4248-8cd7-d8e00e7579cc</id>
+      <masked>false</masked>
+      <name>numberOfOrders</name>
+   </variable>
+   <variable>
+      <defaultValue>4</defaultValue>
+      <description></description>
+      <id>f4cfc15d-f136-474a-9c2c-eb3d09ef560e</id>
+      <masked>false</masked>
+      <name>numberOfProducts</name>
+   </variable>
+   <variable>
+      <defaultValue>'nonC2'</defaultValue>
+      <description></description>
+      <id>5c8ee914-7f7d-4a75-9f17-5bd32764ad5d</id>
+      <masked>false</masked>
+      <name>productType1</name>
+   </variable>
+   <variable>
+      <defaultValue>'0'</defaultValue>
+      <description></description>
+      <id>94d42945-cc29-484c-b383-fd8886d8846a</id>
+      <masked>false</masked>
+      <name>lineCount</name>
+   </variable>
+   <variable>
+      <defaultValue>'C2'</defaultValue>
+      <description></description>
+      <id>983de04b-8dda-4ff8-b65c-7bc3bbfafa4f</id>
+      <masked>false</masked>
+      <name>productType2</name>
+   </variable>
+</TestCaseEntity>
