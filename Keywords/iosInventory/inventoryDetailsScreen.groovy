@@ -346,23 +346,27 @@ class inventoryDetailsScreen extends locationDetailsScreen {
 
 
 	/**
-	 * adds location to an inventory based on the cost type of current or last price paid
+	 * adds multiple locations to an inventory based on the parameters
 	 * @param locationName (name of the location to be added)
 	 * @param costType (cost type required which can be current or last price paid)
 	 * @param noOfLocationsRequired (no of locations required to be added)
 	 */
 	@Keyword
-	def addMultipleLocation(String locationName, String costType, int noOfLocationsRequired) {
+	def addMultipleLocations(int locationNameLength, String costType,
+			int noOfLocationsRequired) {
 
 		int counter=0
-		while (counter<noOfLocationsRequired)
+		while (counter<noOfLocationsRequired) {
+			String locationName=commonMethodsObject.randomStringGenerator(locationNameLength)
 			addLocation(locationName,costType)
+			counter+=1
+		}
 	}
 
 
 
 	/**
-	 * adds location to an inventory based on the cost type of current or last price paid
+	 * adds multiple locations with scanned products to an inventory based on the parameters
 	 * @param locationName (name of the location to be added)
 	 * @param costType (cost type required which can be current or last price paid)
 	 * @param noOfLocationsRequired (no of locations required to be added)
@@ -386,11 +390,11 @@ class inventoryDetailsScreen extends locationDetailsScreen {
 			iosCommonMethodsObject.goOneScreenBack()
 		}
 	}
-	
-	
-	
+
+
+
 	/**
-	 * adds location to an inventory based on the cost type of current or last price paid
+	 * adds and uploads multiple locations with scanned products to an inventory based on the parameters
 	 * @param locationName (name of the location to be added)
 	 * @param costType (cost type required which can be current or last price paid)
 	 * @param noOfLocationsRequired (no of locations required to be added)

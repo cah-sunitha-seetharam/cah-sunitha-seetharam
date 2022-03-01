@@ -2768,23 +2768,23 @@ def static "iosInventory.inventoryDetailsScreen.verifyProductIsVisibleOnScreenWh
 }
 
  /**
-	 * adds location to an inventory based on the cost type of current or last price paid
+	 * adds multiple locations to an inventory based on the parameters
 	 * @param locationName (name of the location to be added)
 	 * @param costType (cost type required which can be current or last price paid)
 	 * @param noOfLocationsRequired (no of locations required to be added)
 	 */ 
-def static "iosInventory.inventoryDetailsScreen.addMultipleLocation"(
-    	String locationName	
+def static "iosInventory.inventoryDetailsScreen.addMultipleLocations"(
+    	int locationNameLength	
      , 	String costType	
      , 	int noOfLocationsRequired	) {
-    (new iosInventory.inventoryDetailsScreen()).addMultipleLocation(
-        	locationName
+    (new iosInventory.inventoryDetailsScreen()).addMultipleLocations(
+        	locationNameLength
          , 	costType
          , 	noOfLocationsRequired)
 }
 
  /**
-	 * adds location to an inventory based on the cost type of current or last price paid
+	 * adds multiple locations with scanned products to an inventory based on the parameters
 	 * @param locationName (name of the location to be added)
 	 * @param costType (cost type required which can be current or last price paid)
 	 * @param noOfLocationsRequired (no of locations required to be added)
@@ -2809,7 +2809,7 @@ def static "iosInventory.inventoryDetailsScreen.addMultipleLocationsWithScannedP
 }
 
  /**
-	 * adds location to an inventory based on the cost type of current or last price paid
+	 * adds and uploads multiple locations with scanned products to an inventory based on the parameters
 	 * @param locationName (name of the location to be added)
 	 * @param costType (cost type required which can be current or last price paid)
 	 * @param noOfLocationsRequired (no of locations required to be added)
@@ -5031,6 +5031,13 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkElement"(
 }
 
 
+def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
+    	String testName	) {
+    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
+        	testName)
+}
+
+
 def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
     	TestObject testObject	
      , 	String testName	) {
@@ -5040,10 +5047,8 @@ def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkTestObject"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.BasicKeywords.checkWindow"(
-    	String testName	) {
-    (new com.kms.katalon.keyword.applitools.BasicKeywords()).checkWindow(
-        	testName)
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
 }
 
 
@@ -5056,18 +5061,6 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpen"(
 }
 
 
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesInit"() {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesInit()
-}
-
-
-def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
-    	Eyes eyes	) {
-    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
-        	eyes)
-}
-
-
 def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline"(
     	String baselineName	
      , 	String testName	
@@ -5076,4 +5069,11 @@ def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesOpenWithBaseline
         	baselineName
          , 	testName
          , 	viewportSize)
+}
+
+
+def static "com.kms.katalon.keyword.applitools.EyesKeywords.eyesClose"(
+    	Eyes eyes	) {
+    (new com.kms.katalon.keyword.applitools.EyesKeywords()).eyesClose(
+        	eyes)
 }
