@@ -41,6 +41,12 @@ import com.kms.katalon.core.webui.exception.WebElementNotFoundException
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 import java.math.RoundingMode;
 
+import groovy.json.JsonOutput as JsonOutput
+import groovy.json.JsonSlurper
+import java.util.Arrays
+import java.util.Map
+import java.io.File
+import com.kms.katalon.core.configuration.RunConfiguration
 
 class orderDetailsScreen {
 
@@ -175,7 +181,8 @@ class orderDetailsScreen {
 	@Keyword
 	def checkC2OrderAvailability() {
 
-		Mobile.tap(findTestObject('iOS/orders/c2OrderDetailsScreen/placeC2Order/checkAvailabilityNew_Button'), 0)
+        Mobile.delay(4)
+		Mobile.tapAndHold(findTestObject('iOS/orders/c2OrderDetailsScreen/placeC2Order/checkAvailabilityNew_Button'), 0,0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/orders/c2OrderDetailsScreen/placeC2Order/oneMoment_Text'), 0)
 
@@ -233,13 +240,13 @@ class orderDetailsScreen {
 	@Keyword
 	def clickOnContinueOrderingOnDesktop() {
 
-		Mobile.tap(findTestObject('iOS/orders/orderDetailsScreen/uploadOrder/continueOnDesktop_Button'), 0)
+		Mobile.tap(findTestObject('Object Repository/iOS/orders/orderDetailsScreen/uploadOrder/continueOnDesktop_Button'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/orders/orderDetailsScreen/verificationDetails/yourOrder(s)HasBeenSentToDesktop_Text'), 0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/productSearch/globalSearch/backToCart_Text'), 0)
 
-		Mobile.verifyElementExist(findTestObject('iOS/orders/orderDetailsScreen/uploadOrder/goToDashboard_Button'), 0)
+		//Mobile.verifyElementExist(findTestObject('iOS/orders/orderDetailsScreen/uploadOrder/goToDashboard_Button'), 0)
 	}
 
 	/**
@@ -559,6 +566,51 @@ class orderDetailsScreen {
 
 		Mobile.verifyElementExist(findTestObject('iOS/orders/orderDetailsScreen/verificationDetails/alternates_Text'), 0)
 	}
+
+	
+	/**
+	 * scans multiple different products (eg 50 or 80), adds it to the order
+	 * @param productType (nonC2 or C2)
+	 */
+	@Keyword
+	def performScanFlowDifferentProducts(String productType, int numberOfProducts) {
+		def requestObject = (new common.commonMethods()).readFileTypeJSON('productData.json')
+		String p = "nonC2"
+		if (productType.equals(p)) {
+			for ( int n =0; n<numberOfProducts; n++) {
+				 String idValue = requestObject.productSearchByCIN_nonC2[n]
+				 Mobile.delay(1)
+				 Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scan_Icon'), 0)
+				 Mobile.tap(findTestObject('iOS/productSearch/scanFlow/ordering_Button'), 0)
+				 Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scanGray_Image'), 0)
+				 Mobile.setText(findTestObject('iOS/productSearch/scanFlow/enterBarcode_TextField'),  idValue, 0)
+				 Mobile.tap(findTestObject('iOS/productSearch/scanFlow/done_Button'), 0)
+				 Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scanGray_Image'), 0)
+				 (new iosCommonKeywords.commonMethods()).goOneScreenBack()
+				 Mobile.delay(1)
+				 
+			}
+		}
+		else {
+			for (int n =0; n<numberOfProducts; n++) {
+				 String idValue = requestObject.productSearchByCIN_C2[n]
+				 Mobile.delay(1)
+				 Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scan_Icon'), 0)
+				 Mobile.tap(findTestObject('iOS/productSearch/scanFlow/ordering_Button'), 0)
+				 Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scanGray_Image'), 0)
+				 Mobile.setText(findTestObject('iOS/productSearch/scanFlow/enterBarcode_TextField'),  idValue, 0)
+				 Mobile.tap(findTestObject('iOS/productSearch/scanFlow/done_Button'), 0)
+				 Mobile.tap(findTestObject('iOS/productSearch/scanFlow/scanGray_Image'), 0)
+				 (new iosCommonKeywords.commonMethods()).goOneScreenBack()
+				 Mobile.delay(1)
+				 
+			  }
+		  }
+		
+	}
+	
+	
+	
 
 	/**
 	 * scans the product in offline mode
