@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_EX_008</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>c508988c-523f-42f0-bfb5-6455ca9aef9c</testCaseGuid>
+   <variable>
+      <defaultValue>'poNameEX008'</defaultValue>
+      <description>purchase order name for the order created</description>
+      <id>6a39cc83-d261-4c6e-898d-cac961bdf7e1</id>
+      <masked>false</masked>
+      <name>poName</name>
+   </variable>
+   <variable>
+      <defaultValue>'poMemoEX008'</defaultValue>
+      <description>purchase order memo for the order created</description>
+      <id>eaf66315-2e6a-4683-9efe-b52aa77fc43c</id>
+      <masked>false</masked>
+      <name>poMemo</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description>quantity added for the product searched</description>
+      <id>1d20bf1f-05dc-4496-a202-fca6f7cc5db8</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+   <variable>
+      <defaultValue>'0'</defaultValue>
+      <description>expected total line count of order name page</description>
+      <id>f56b3890-cca5-4a90-950f-d4fea8e9b354</id>
+      <masked>false</masked>
+      <name>lineCountOfOrderName</name>
+   </variable>
+   <variable>
+      <defaultValue>'1'</defaultValue>
+      <description>expected total line count of the order in cart page</description>
+      <id>3864ea1a-8054-4bc6-b2ef-e3f945eed056</id>
+      <masked>false</masked>
+      <name>totalLineCount</name>
+   </variable>
+</TestCaseEntity>

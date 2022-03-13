@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_EX_009</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>0ed7e441-7c16-4007-b481-e7a9451fe1fe</testCaseGuid>
+   <variable>
+      <defaultValue>'poNameTCEX009'</defaultValue>
+      <description>purchase order name for the order created</description>
+      <id>16a887bd-6553-4d8f-87aa-27cb3624116c</id>
+      <masked>false</masked>
+      <name>poName</name>
+   </variable>
+   <variable>
+      <defaultValue>'poMemoTCEX009'</defaultValue>
+      <description>purchase order memo for the order created</description>
+      <id>14164266-a9e0-42d8-b10c-1cf8ae85dd19</id>
+      <masked>false</masked>
+      <name>poMemo</name>
+   </variable>
+   <variable>
+      <defaultValue>'2'</defaultValue>
+      <description>quantity of the product</description>
+      <id>c2d6fd18-28ac-4187-8014-2f6c8e8e6503</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+   <variable>
+      <defaultValue>'Ordering'</defaultValue>
+      <description>toggle value for the product to be added which can be ordering or price check</description>
+      <id>06a1ff64-0409-4255-a83f-6973c628cf33</id>
+      <masked>false</masked>
+      <name>toggleValue</name>
+   </variable>
+</TestCaseEntity>

@@ -181,7 +181,7 @@ class orderDetailsScreen {
 	@Keyword
 	def checkC2OrderAvailability() {
 
-        Mobile.delay(4)
+		Mobile.delay(4)
 		Mobile.tapAndHold(findTestObject('iOS/orders/c2OrderDetailsScreen/placeC2Order/checkAvailabilityNew_Button'), 0,0)
 
 		Mobile.verifyElementExist(findTestObject('iOS/orders/c2OrderDetailsScreen/placeC2Order/oneMoment_Text'), 0)
@@ -626,7 +626,6 @@ class orderDetailsScreen {
 				(new iosOrders.newOrderScreen()).createOrder()
 				(new iosOrders.orderDetailsScreen()).performScanFlowDifferentProducts (productType, numberOfProducts)
 				(new iosCommonKeywords.commonMethods()).goOneScreenBack()
-				
 			}
 		}
 		else {
@@ -637,9 +636,8 @@ class orderDetailsScreen {
 				(new iosOrders.newOrderScreen()).enterPurchaseOrderDetails(poName, poMemo)
 				(new iosOrders.orderDetailsScreen()).performScanFlowDifferentProducts (productType, numberOfProducts)
 				(new iosCommonKeywords.commonMethods()).goOneScreenBack()
-				
 			}
-		  }
+		}
 	}
 
 
@@ -1079,5 +1077,49 @@ class orderDetailsScreen {
 		String expectedErrorMsg = 'Please provide a Unique Tracking Number in the following format: AANNNN (two alphabetic characters followed by four numeric digits).'
 
 		assert expectedErrorMsg.equalsIgnoreCase(actualErrorMsg)
+	}
+	/**
+	 * verifies only last 6 digit got deleted, first 3 characters could not be removed & validation error displayed after removing characters
+	 */
+	@Keyword
+	def addAlternateProductVerfifyConfirmationToast(String productName, String quantity,String confirmationToastMessage) {
+		commonIosMethodsObject.waitForProgressBarToBeInvisible()
+		Mobile.tapAndHold(findTestObject('Object Repository/iOS/Inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), 0, 0)
+		commonIosMethodsObject.waitForProgressBarToBeInvisible()
+		Mobile.setText(findTestObject('Object Repository/iOS/productSearch/globalSearch/productSearch_TextField'), productName, 0)
+		Mobile.tapAndHold(findTestObject('Object Repository/iOS/productSearch/globalSearch/search_Keypad'), 0, 0)
+		Mobile.tap(findTestObject('Object Repository/iOS/productSearch/globalSearch/alternateProducts_Text'), 0)
+		commonIosMethodsObject.waitForProgressBarToBeInvisible()
+		
+		Mobile.setText(findTestObject('Object Repository/iOS/productSearch/globalSearch/quantity_TextField'), quantity, 0)
+		Mobile.tap(findTestObject('Object Repository/iOS/orders/cartScreen/placeAllOrders/done_Keypad'), 0)
+		Mobile.tap(findTestObject('Object Repository/iOS/productSearch/globalSearch/addAlternateToOrder_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/productSearch/globalSearch/continueBrowsing_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('iOS/orders/verificationDetails/confirmationTitle',[('TEXT'):confirmationToastMessage]),0)
+	}
+	/**
+	 * searches for a product by setting product name and quantity as the input
+	 * @param productName (product to be added), quantity (total quantity required to be added)
+	 */
+	@Keyword
+	def addProductToOrderAndContinueBrowsing(String productName, String quantity) {
+
+		Mobile.tapAndHold(findTestObject('iOS/inventory/locationDetailsScreen/addProductToLocation/productSearch_TextField'), 0, 0)
+		commonIosMethodsObject.waitForProgressBarToBeInvisible()
+		Mobile.setText(findTestObject('iOS/productSearch/globalSearch/productSearch_TextField'), productName, 0)
+		Mobile.tapAndHold(findTestObject('iOS/productSearch/globalSearch/search_Keypad'), 0, 0)
+		Mobile.setText(findTestObject('iOS/productSearch/globalSearch/quantity_TextField'), quantity, 0)
+		Mobile.tap(findTestObject('iOS/orders/cartScreen/placeAllOrders/done_Keypad'), 0)
+		Mobile.tap(findTestObject('iOS/inventory/inventoryDetailsScreen/addProductToInventoryUsingSearchFromInventoryDetailsScreen/addToOrder_Text'), 0)
+	}
+
+
+	/**
+	 * places All order
+	 */
+
+	@Keyword
+	def clickOnPlaceAllOrder() {
+		Mobile.tap(findTestObject('Object Repository/iOS/orders/orderDetailsScreen/placeOrder/Multiple_PlaceOrder'), 0)
 	}
 }

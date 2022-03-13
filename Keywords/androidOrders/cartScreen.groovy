@@ -313,4 +313,13 @@ class cartScreen  {
 	def verifyOrderVisibleOnTheCartScreen(String poName) {
 		Mobile.verifyElementVisible(findTestObject('Android/orders/cartScreen/c2Order/poName',[('TEXT'):poName]),0)
 	}
+
+	/**
+	 * this function returns the product name of the order which is at the top of the product list
+	 * return productName (returns topmost product name)
+	 */
+	@Keyword
+	def tapOnTopMostProductName() {
+		Mobile.tap(findTestObject('Android/orders/producrInfo/producrFirstFrame'), 0)
+	}
 }

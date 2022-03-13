@@ -15,6 +15,7 @@
          
          "TC_EX_003": {
              "productSearchCin": "4023347",
+             "productSearchByNDC": "00406-8003-24",
              "productSearchByNDC1": "50580-0496-60",
              "productSearchByNDC2": "00450-0449-09",
          },
@@ -38,6 +39,7 @@
          
          "TC_EX_003": {
              "productSearchCin": "4023347",
+             "productSearchByNDC": "00406-8003-24",
              "productSearchByNDC1": "50580-0496-60",
              "productSearchByNDC2": "00450-0449-09",
          },
@@ -62,6 +64,7 @@
         
         "TC_EX_003": {
             "productSearchCin": "4023347",
+            "productSearchByNDC": "00406-8003-24",
             "productSearchByNDC1": "50580-0496-60",
             "productSearchByNDC2": "00450-0449-09",
         },

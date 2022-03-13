@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_EX_007</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>85bdfe7e-d7b5-43a5-ab77-85cb763ff494</testCaseGuid>
+   <variable>
+      <defaultValue>'com.apple.TestFlight'</defaultValue>
+      <description>bundleID of a testflight app</description>
+      <id>6b4fbcb3-e1ff-4dca-8dcf-3d2b3c68b492</id>
+      <masked>false</masked>
+      <name>bundleID</name>
+   </variable>
+   <variable>
+      <defaultValue>'3'</defaultValue>
+      <description>quantity added for the product searched</description>
+      <id>9c3f082c-3b61-4282-a800-e3f9a38b6c38</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+   <variable>
+      <defaultValue>'poNameTCEX007'</defaultValue>
+      <description>purchase order name for the order created</description>
+      <id>74cb2936-4d88-489b-9474-45807acc5a50</id>
+      <masked>false</masked>
+      <name>poName</name>
+   </variable>
+   <variable>
+      <defaultValue>'poMemoTCEX007'</defaultValue>
+      <description>purchase order memo for the order created</description>
+      <id>fafa22fc-840d-45cf-8b80-80b003626db8</id>
+      <masked>false</masked>
+      <name>poMemo</name>
+   </variable>
+   <variable>
+      <defaultValue>'Ordering'</defaultValue>
+      <description>toogle value can be ordering or price check</description>
+      <id>e66d32a9-2e47-4150-aeb3-db165d76466a</id>
+      <masked>false</masked>
+      <name>toggleValue</name>
+   </variable>
+</TestCaseEntity>

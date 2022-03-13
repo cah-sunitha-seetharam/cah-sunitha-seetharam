@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_EX_001</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>0658576e-f713-4d56-aac1-c6510419bfc2</testCaseGuid>
+   <variable>
+      <defaultValue>'8-2052038159'</defaultValue>
+      <description></description>
+      <id>5295a78f-c42b-4868-a6c0-c68a277c2c14</id>
+      <masked>false</masked>
+      <name>accountNo_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'8-2052038161'</defaultValue>
+      <description></description>
+      <id>acfca5ef-55a0-49f5-91cc-918ddef2009e</id>
+      <masked>false</masked>
+      <name>accountNo_2</name>
+   </variable>
+   <variable>
+      <defaultValue>'3'</defaultValue>
+      <description>quantity added for the product searched</description>
+      <id>9c3f082c-3b61-4282-a800-e3f9a38b6c38</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+   <variable>
+      <defaultValue>'poName1'</defaultValue>
+      <description>purchase order name for the order created</description>
+      <id>74cb2936-4d88-489b-9474-45807acc5a50</id>
+      <masked>false</masked>
+      <name>poName_1</name>
+   </variable>
+   <variable>
+      <defaultValue>'poMemo1'</defaultValue>
+      <description>purchase order memo for the order created</description>
+      <id>fafa22fc-840d-45cf-8b80-80b003626db8</id>
+      <masked>false</masked>
+      <name>poMemo_1</name>
+   </variable>
+</TestCaseEntity>

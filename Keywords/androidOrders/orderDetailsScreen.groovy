@@ -804,7 +804,8 @@ class orderDetailsScreen {
 	 */
 	@Keyword
 	def verifyProductIsVisibleOnTheOrderDetailsScreen(productNdcNumber) {
-		String testObj='Object Repository/Android/Orders/Verification Details/ordersNDCLabel_TextView'
+		//String testObj='Object Repository/Android/orders/verificationDetails/ordersNDCLabel_TextView'
+		String testObj='Object Repository/Android/orders/verificationDetails/orderNDCLabel_TxtView'
 		(new androidCommonKeywords.commonMethods()).verifyProductIsVisibleOnTheScreen(testObj,productNdcNumber)//calling verifyProductIsVisibleOnTheScreen function and passing testObj, topProductIdentificationNumber as the arguments
 
 	}
@@ -845,5 +846,20 @@ class orderDetailsScreen {
 		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/uploadOrder/continueOrderOnTheDesktop_TextView'), 0)
 		Mobile.verifyElementExist(findTestObject('Object Repository/Android/orders/orderDetailsScreen/uploadOrder/continueOnDesktop_Button'), 0)
 		Mobile.verifyElementExist(findTestObject('Android/orders/orderDetailsScreen/uploadOrder/cancelAndKeepOrderOnTheApp_Button'), 0)
+	}
+	/**
+	 * adds alternate product and verify confirmation toast
+	 * @param productName (name of the product)
+	 * @param quantity (quantity of the product)
+	 */
+	@Keyword()
+	def addAlternateProductVerfifyConfirmationToast(String productName,String quantity,String confirmationToast) {
+		Mobile.tap(findTestObject('Android/productSearch/searchProductsSearchView_EditText'), 0)
+		Mobile.setText(findTestObject('Android/productSearch/searchProductsSearchView_EditText'), productName + '\\n',0)
+		Mobile.tap(findTestObject('Android/productSearch/alternatesList_TextView'), 0)
+		Mobile.setText(findTestObject('Android/productSearch/Quantity_TextField'), quantity, 0)
+		Mobile.tap(findTestObject('Android/productSearch/addAlternateToOrder_Button'), 0)
+		Mobile.verifyElementExist(findTestObject('Android/productSearch/continueOrdering_Button'),0)
+		Mobile.verifyElementExist(findTestObject('Android/orders/verificationDetails/itemAddedToPoName_TxtView',[('TEXT'):confirmationToast]),0)
 	}
 }
